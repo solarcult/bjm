@@ -24,7 +24,7 @@ public class PlayerCards {
 		return allCombination;
 	}
 	
-	public static List<PlayerCardsPathValue> sortedTwoStartCardsWithoutA(){
+	public static List<PlayerCardsPathValue> sortedOneValueStartCardsWithoutA(){
 		List<PlayerCardsPathValue> countNotSamePCPV =  new ArrayList<>();
 		List<Integer> start2sCount = new ArrayList<>();
 		for(PlayerCardsPathValue c : generateTwoStartCards()){
@@ -43,14 +43,16 @@ public class PlayerCards {
 					return -1;
 				}else return 0;
 			}
-			
 		});
+		
 		return countNotSamePCPV;
 	}
 	
 	public static void main(String[] args){
 //		HelloWorld.print(generateTwoStartCards());
-		HelloWorld.print(sortedTwoStartCardsWithoutA());
+		HelloWorld.print(sortedOneValueStartCardsWithoutA());
+		System.out.println(sortedOneValueStartCardsWithoutA().size());
+		System.out.println(generateTwoStartCards().size());
 		
 	}
 }

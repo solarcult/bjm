@@ -15,15 +15,20 @@ public class DeckSet {
 	
 	private DeckSet(int ndeck){
 		this.ndeck = ndeck;
-		totalCards = ndeck * DeckCards;
+		
 		totalOneSameCardsN = ndeck * OneSameCardInOneDeck;
 		cardsLeftNumberMap = new HashMap<Card, Integer>();
+		/*
+		totalCards = ndeck * DeckCards;
 		for(Card card : Card.values()){
 			cardsLeftNumberMap.put(card, totalOneSameCardsN);
 		}
+		*/
+		reset();
 	}
 	
 	public void reset(){
+		totalCards = ndeck * DeckCards;
 		for(Card card : Card.values()){
 			cardsLeftNumberMap.put(card, totalOneSameCardsN);
 		}
@@ -57,7 +62,7 @@ public class DeckSet {
 	}
 	
 	public double getOneCardProb(Card card){
-		return (double) 1000 * cardsLeftNumberMap.get(card) / totalCards;
+		return (double) cardsLeftNumberMap.get(card) / totalCards;
 	}
 	
 	public int getTotalOneSameCardsN() {

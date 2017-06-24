@@ -20,32 +20,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		action = playerCardsPathValue.getAction();
 		betMutiV = playerCardsPathValue.getBetMutiV();
 	}
-	
-	/**
-	 * if A represent 11 should we hit one more
-	 * @return
-	 */
-	@Override
-	public boolean isAbe11Stop(){
-		//规定,庄家如果�?17点必须停�?,�?以当A�?11�?,庄家必须停止.
-		boolean isAbe11Stop = false;
-		int tempValue = 0;
-		for(Card card : this.getCards()){
-			tempValue += card.getValue();
-		}
-		
-		//check if One1 become 11 ,if reach the DealerStop ,if yes, should ignore because we have A is Eleven version. 
-		if(this.getCards().contains(Card.One1)){
-			tempValue += 10;
-			//here is > not like dealer >= because if we got A+6 ,should hit one more shot
-			if(tempValue > BlackJackInfo.DealerStop && tempValue <= BlackJackInfo.BlackJack){
-				isAbe11Stop = true;
-			}
-		}
-			
-		return isAbe11Stop;
-	}
-	
+
 	public boolean isStartWithA(){
 		if(this.getCards().get(0) == Card.One1){
 			return true;
@@ -68,16 +43,15 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		return action;
 	}
 
-	public void setAction(PlayerAction result) {
-		this.action = result;
+	public void setAction(PlayerAction action) {
+		this.action = action;
+		if(action == PlayerAction.Double || action == PlayerAction.Split){
+			this.betMutiV = 2 * betMutiV;
+		}
 	}
 
 	public int getBetMutiV() {
 		return betMutiV;
-	}
-
-	public void setBetMutiV(int betMutiV) {
-		this.betMutiV = betMutiV;
 	}
 
 	@Override
@@ -113,10 +87,11 @@ public class PlayerCardsPathValue extends CardsPathValue{
 
 	@Override
 	public String toString() {
-		return "PlayerCardsPathValue [action=" + action + ", betMutiV=" + betMutiV + ", isAbe11Continue()="
-				+ isAbe11Stop() + ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
-				+ isStartWithPairs() + ", getStartValue()=" + getStartValue() + ", getCards()=" + getCards()
-				+ ", getValue()=" + getValue() + ", prob()=" + prob() + ", outOfCards()=" + outOfCards() + "]";
+		return "PlayerCardsPathValue [getStartValue()=" + getStartValue() + ", getCards()=" + getCards()
+				+ ", getValue()=" + getValue() + ", prob()=" + prob() + ", outOfCards()=" + outOfCards() 
+				+ ", action=" + action + ", betMutiV=" + betMutiV 
+				+ ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
+				+ isStartWithPairs() + "]";
 	}
 	
 	public static void main(String[] args){

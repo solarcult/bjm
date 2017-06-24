@@ -39,8 +39,6 @@ public abstract class CardsPathValue {
 		return value;
 	}
 	
-	public abstract boolean isAbe11Stop();
-	
 	public List<Card> getCards(){
 		return cards;
 	}

@@ -13,33 +13,9 @@ public class DealerCardsPathValue extends CardsPathValue{
 		super(cardsPathValue);
 	}
 	
-	/**
-	 * if A represent 11, reach 17 must stop
-	 * @return
-	 */
-	@Override
-	public boolean isAbe11Stop(){
-		//规定,庄家如果�?17点必须停�?,�?以当A�?11�?,庄家必须停止.
-		boolean isAbe11Stop = false;
-		int tempValue = 0;
-		for(Card card : this.getCards()){
-			tempValue += card.getValue();
-		}
-		
-		//check if One1 become 11 ,if reach the DealerStop ,if yes, should ignore because we have A is Eleven version. 
-		if(this.getCards().contains(Card.One1)){
-			tempValue += 10;
-			if(tempValue >= BlackJackInfo.DealerStop && tempValue <= BlackJackInfo.BlackJack){
-				isAbe11Stop = true;
-			}
-		}
-			
-		return isAbe11Stop;
-	}
-
 	@Override
 	public String toString() {
-		return "DealerCardsPathValue [isAbe11Continue()=" + isAbe11Stop() + ", getCards()=" + getCards()
+		return "DealerCardsPathValue [getCards()=" + getCards()
 				+ ", getValue()=" + getValue() + ", prob()=" + prob() + ", outOfCards()=" + outOfCards() + "]";
 	}
 	

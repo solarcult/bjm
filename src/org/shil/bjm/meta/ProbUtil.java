@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class ProbUtil {
 
@@ -13,7 +12,13 @@ public class ProbUtil {
 	
 	//计算出现这副牌组合的概率
 	public static double calcProb(List<Card> cards){
-		double prob = 1, usedcard = 0;
+		double prob = 1;
+		/*
+		 * old way calc prob, need upgrade a new preciously way.
+		 * but in fact two way get the same result 
+		 * because the totalcards and onecards change make the effect of result 
+		 * 
+		double usedcard = 0;
 		Map<Card,Integer> cardsMap = convertList2Map(cards);
 		for(Entry<Card,Integer> entry : cardsMap.entrySet()){
 			for(int i=0;i<entry.getValue();i++){
@@ -21,6 +26,14 @@ public class ProbUtil {
 				usedcard++;
 			}
 		}
+		*/
+		
+		IN_USED_DECKSET.reset();
+		for(Card card : cards){
+			prob *= IN_USED_DECKSET.getOneCardProb(card);
+			IN_USED_DECKSET.usedCards(card, 1);
+		}
+		
 		return prob;
 	}
 	
@@ -62,6 +75,16 @@ public class ProbUtil {
 		System.out.println(calcProb(cardsPathValue2.getCards()));
 		System.out.println(calcProb(cardsPathValue3.getCards()));
 		
+		cardsPathValue3.addCard(Card.Four4);
+		cardsPathValue3.addCard(Card.Five5);
+		cardsPathValue3.addCard(Card.Six6);
+		cardsPathValue3.addCard(Card.JJJ);
+		cardsPathValue3.addCard(Card.JJJ);
+		cardsPathValue3.addCard(Card.JJJ);
+		cardsPathValue3.addCard(Card.Six6);
+		cardsPathValue3.addCard(Card.Seven7);
+		
+		System.out.println(cardsPathValue3.prob());
 	}
 	
 }

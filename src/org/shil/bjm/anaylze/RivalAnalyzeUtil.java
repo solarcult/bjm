@@ -14,11 +14,12 @@ public class RivalAnalyzeUtil {
 
 	public static List<DealerVSPlayerChance> makePlayerOneMoreVSNowDealerChange(){
 		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
-		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedTwoStartCardsWithoutA()) {
+		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithoutA()) {
 			if (playerCardsPathValue.getValue() < 8) continue;
 			for (Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue; 
 				Collection<PlayerCardsPathValue> playerOneMoreCards = GenerateCardsUtil.hitPlayerOneMoreCard(playerCardsPathValue);
+				if(playerOneMoreCards.size()!=13) throw new RuntimeException("wtf 13");
 				double[] playerOneMore = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerOneMoreCards, dealerCard);
 				double[] playerNow = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerCardsPathValue,dealerCard);
 				DealerVSPlayerChance dealerVSPlayerChance = new DealerVSPlayerChance(dealerCard, playerCardsPathValue.getValue(), playerNow,playerOneMore);

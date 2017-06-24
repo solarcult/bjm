@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.shil.bjm.HelloWorld;
-import org.shil.bjm.anaylze.AnalyzeCardsPathValue;
 import org.shil.bjm.anaylze.AnalyzeStatus;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
@@ -60,8 +59,7 @@ public class DealerCards {
 
 	
 	public static Map<Integer,AnalyzeStatus> analyzeDealerCardValuePrecent(Card card){
-		Collection<DealerCardsPathValue> x = fetchDealerCards(card);
-		return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(x);
+		return DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(card);
 	}
 	
 	public static void main(String[] args){
