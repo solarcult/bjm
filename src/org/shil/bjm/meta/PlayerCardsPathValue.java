@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class PlayerCardsPathValue extends CardsPathValue{
 
 	private PlayerAction action;
-	private int betMutiV ;
+	private double betMutiV ;
 	
 	public PlayerCardsPathValue(Card ... _cards){
 		super(_cards);
@@ -25,18 +25,26 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		if(this.getCards().get(0) == Card.One1){
 			return true;
 		}
-		if(this.getCards().get(1) == Card.One1){
+		if(this.getCards().size() >= 2 && this.getCards().get(1) == Card.One1){
 			return true;
 		}
 		return false;
 	}
 	
 	public boolean isStartWithPairs(){
-		return this.getCards().get(0) == this.getCards().get(1);
+		if(this.getCards().size() >= 2){
+			return this.getCards().get(0) == this.getCards().get(1);
+		}else{
+			return false;
+		}
 	}
 	
 	public StartValue getStartValue(){
-		return StartValue.getOne(this.getCards().get(0).getValue() + this.getCards().get(1).getValue());
+		int startvalue = this.getCards().get(0).getValue();
+		if(this.getCards().size() >= 2){
+			startvalue += this.getCards().get(1).getValue();
+		}
+		return StartValue.getOne(startvalue);
 	}
 	
 	public PlayerAction getAction() {
@@ -45,12 +53,39 @@ public class PlayerCardsPathValue extends CardsPathValue{
 
 	public void setAction(PlayerAction action) {
 		this.action = action;
-		if(action == PlayerAction.Double || action == PlayerAction.Split){
+		if(action == PlayerAction.Double){
 			this.betMutiV = 2 * betMutiV;
+		}else if(action == PlayerAction.Split){
+			if(this.getCards().get(0) == Card.One1){
+				//AA only can split 1 time
+				if(this.betMutiV >= 2){
+					// 12 is stand
+					this.action = PlayerAction.Stand;
+				}else{
+					//only left the first card
+					this.getCards().remove(1);
+					
+					this.action = PlayerAction.Init;
+					this.betMutiV = 2 * betMutiV;
+				}
+			}else{
+				if(this.betMutiV > 4 ){
+					//can't split anymore
+					throw new RuntimeException("split too many times should not happend ");
+				}
+				
+				//only left the first card
+				this.getCards().remove(1);
+				
+				this.action = PlayerAction.Init;
+				this.betMutiV = 2 * betMutiV;
+			}
+		}else if(action == PlayerAction.Giveup){
+			this.betMutiV = 0.5;
 		}
 	}
 
-	public int getBetMutiV() {
+	public double getBetMutiV() {
 		return betMutiV;
 	}
 
@@ -59,7 +94,9 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((action == null) ? 0 : action.hashCode());
-		result = prime * result + betMutiV;
+		long temp;
+		temp = Double.doubleToLongBits(betMutiV);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((getCards() == null) ? 0 : getCards().hashCode());
 		return result;
 	}
@@ -75,7 +112,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		PlayerCardsPathValue other = (PlayerCardsPathValue) obj;
 		if (action != other.action)
 			return false;
-		if (betMutiV != other.betMutiV)
+		if (Double.doubleToLongBits(betMutiV) != Double.doubleToLongBits(other.betMutiV))
 			return false;
 		if (getCards() == null) {
 			if (other.getCards() != null)
@@ -92,6 +129,14 @@ public class PlayerCardsPathValue extends CardsPathValue{
 				+ ", action=" + action + ", betMutiV=" + betMutiV 
 				+ ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
 				+ isStartWithPairs() + "]";
+	}
+	
+	@Override
+	public void addCard(Card card){
+		super.addCard(card);
+		if(this.getCards().size()<=2){
+			this.action = PlayerAction.Init;
+		}
 	}
 	
 	public static void main(String[] args){

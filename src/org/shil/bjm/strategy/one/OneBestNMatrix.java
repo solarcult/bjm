@@ -1,33 +1,31 @@
 package org.shil.bjm.strategy.one;
 
-import java.util.TreeMap;
-
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.strategy.PlayerStrategy;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
 
-public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
+public class OneBestNMatrix extends PlayerStrategyMatrix{
+
 	
-	public FourS14Hit15Hit16Stand(){
+	public static PlayerStrategyMatrix SELF = new OneBestNMatrix();
 	
-		strategyMatrix = new TreeMap<PlayerStrategy,PlayerStrategy>();
+	public OneBestNMatrix(){
+		super();
 	
-		//TODO 用户策略,没有考虑到Ax的情况 和 split的情况
+		//普通牌用户策略,没有考虑到Ax的情况 和 split的情况
 		for(StartValue startValue : StartValue.values()){
 			if(startValue== StartValue.One) continue;
 			//startvalue 2~9 hit
 			else if(startValue.getValue() >=2 && startValue.getValue()<=8){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 					strategyMatrix.put(playerStrategy,playerStrategy);
 				}
 			}
 			else if(startValue == StartValue.Nine){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					if(dealerCard == Card.Three3 || dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6 || dealerCard == Card.Seven7){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy); 
@@ -39,7 +37,6 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 			}
 			else if(startValue == StartValue.Ten) {
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy);
@@ -51,7 +48,6 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 			}
 			else if(startValue == StartValue.Eleven){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy);
@@ -63,7 +59,6 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 			}
 			else if(startValue == StartValue.Twelve){// && startValue.getValue()<=16){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					if(dealerCard.getValue() == 2 ){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy);
@@ -80,7 +75,6 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 				}
 			}else if(startValue==StartValue.Thirteen){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					if(dealerCard.getValue() >=2 && dealerCard.getValue() <=6){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
 						strategyMatrix.put(playerStrategy,playerStrategy);
@@ -97,7 +91,6 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 			}else if(startValue==StartValue.Fourteen){
 				//very hard choose
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					if(dealerCard.getValue() >=2 && dealerCard.getValue() <=6){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
 						strategyMatrix.put(playerStrategy,playerStrategy);
@@ -108,7 +101,7 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy);
 					}else if(dealerCard.getValue() == 9){
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy);
 					}else if(dealerCard.getValue() == 10){
 						//T,J,Q,K
@@ -125,7 +118,6 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 			}else if(startValue == StartValue.Fifteen){
 				//very hard choose
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					if(dealerCard.getValue() >=2 && dealerCard.getValue() <=6){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
 						strategyMatrix.put(playerStrategy,playerStrategy);
@@ -133,10 +125,10 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy);
 					}else if(dealerCard.getValue() == 8 ){
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy);
 					}else if(dealerCard.getValue() == 9 ){
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy);
 					}else if(dealerCard.getValue() == 10 ){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
@@ -152,7 +144,6 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 			}else if(startValue == StartValue.Sixteen){
 				//very hard choose
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					if(dealerCard.getValue() >=2 && dealerCard.getValue() <=6){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
 						strategyMatrix.put(playerStrategy,playerStrategy);
@@ -178,15 +169,11 @@ public class FourS14Hit15Hit16Stand extends PlayerStrategyMatrix{
 			}else{
 				// start >= 17 just wait , watch and pray
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1) continue;
 					PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
 					strategyMatrix.put(playerStrategy,playerStrategy);
 				}
 			}
 		}
-	}
 	
-	public static void main(String[] args){
-		new FourS14Hit15Hit16Stand().printStrategyMatrix();
 	}
 }

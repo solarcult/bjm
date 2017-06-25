@@ -16,16 +16,6 @@ public class PlayerStrategy implements Comparable<PlayerStrategy>{
 	private Card dealercard;
 	private PlayerAction startAction;
 	private PlayerAction threeCardAction;
-	//normally card is 1 , but double and splite is 2.
-	private int betMutiV = 1;
-	
-	public PlayerStrategy(StartValue startValue,Card dealerCard,PlayerAction startAction,PlayerAction threeCardAction,int betMutiV){
-		this.startValue = startValue;
-		this.dealercard = dealerCard;
-		this.startAction = startAction;
-		this.threeCardAction = threeCardAction;
-		this.betMutiV = betMutiV;
-	}
 	
 	public PlayerStrategy(StartValue startValue,Card dealerCard,PlayerAction startAction,PlayerAction threeCardAction){
 		this.startValue = startValue;
@@ -51,10 +41,6 @@ public class PlayerStrategy implements Comparable<PlayerStrategy>{
 		return dealercard;
 	}
 	
-	public int getBetMutiV() {
-		return betMutiV;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -1,6 +1,7 @@
 package org.shil.bjm.strategy;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.StartValue;
@@ -8,6 +9,10 @@ import org.shil.bjm.meta.StartValue;
 public abstract class PlayerStrategyMatrix {
 
 	protected Map<PlayerStrategy,PlayerStrategy> strategyMatrix;
+	
+	protected PlayerStrategyMatrix(){
+		strategyMatrix = new TreeMap<PlayerStrategy,PlayerStrategy>();
+	}
 	
 	public PlayerStrategy getPlayerAction(StartValue startValue,Card dealerCard){
 		return strategyMatrix.get(PlayerStrategy.builderOne(startValue, dealerCard));
