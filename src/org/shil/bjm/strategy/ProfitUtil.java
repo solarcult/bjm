@@ -5,10 +5,11 @@ import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
+import org.shil.bjm.meta.WinDrawLose;
 
 public class ProfitUtil {
 	
-	public static double baseMoney = 1d;
+	public static double baseMoney = 100d;
 
 	//计算用户的本次组合与庄家起手牌的最终概率组合值,看看回报率是如何
 	public static double moneyCalcOneHandInReturn(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
@@ -32,8 +33,8 @@ public class ProfitUtil {
 		
 		//最终计算投资收益率
 		double[] playerchance = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerCardsPathValue, dealerCard);
-		ROI += baseMoney * playerchance[0] * playerCardsPathValue.getBetMutiV() * playerCardsPathValue.prob();
-		ROI -= baseMoney * playerchance[1] * playerCardsPathValue.getBetMutiV() * playerCardsPathValue.prob();
+		ROI += baseMoney * playerchance[WinDrawLose.win] * playerCardsPathValue.getBetMutiV() * playerCardsPathValue.prob();
+		ROI -= baseMoney * playerchance[WinDrawLose.lose] * playerCardsPathValue.getBetMutiV() * playerCardsPathValue.prob();
 		
 		return ROI;
 	}

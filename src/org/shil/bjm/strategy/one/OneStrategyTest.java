@@ -25,7 +25,8 @@ public class OneStrategyTest{
 			double xoi = 0;
 			System.out.print("Player: " +pcpv.getCards());
 			for(Card dealerCard : Card.values()){
-				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(pcpv, dealerCard);
+				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
 				for(PlayerCardsPathValue one : oneSet){
 					double oroi = ProfitUtil.moneyCalcOneHandInReturn(one, dealerCard);
 					roi+=oroi;

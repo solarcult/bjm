@@ -15,9 +15,9 @@ import org.shil.bjm.strategy.PlayerStrategyMatrix;
 public class OneStrategy {
 	
 	
-//	public static OneStrategy SELF = new OneStrategy(OneBestNMatrix.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
+	public static OneStrategy SELF = new OneStrategy(OneBestNMatrix.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
 
-	public static OneStrategy SELF = new OneStrategy(Combat20170618Ver.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
+//	public static OneStrategy SELF = new OneStrategy(Combat20170618Ver.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
 	
 	private PlayerStrategyMatrix nmSM;
 	private PlayerStrategyMatrix scSM;
