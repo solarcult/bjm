@@ -52,9 +52,6 @@ public class OneStrategy {
 						//only can split 2 times
 						playerAction = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getValue()),dealerCard).getStartAction();
 					}else{
-						if(playerCardsPathValue.getCards().get(0)==Card.Five5){
-							System.out.println("OK");
-						}
 						//pairs
 						PlayerStrategy pairStrategy = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard);
 						if(pairStrategy == null){

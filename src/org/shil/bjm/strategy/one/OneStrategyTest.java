@@ -20,11 +20,11 @@ public class OneStrategyTest{
 	
 	public static void testROI(){
 		double roi = 0;
-//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
+		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
 		for(PlayerCardsPathValue pcpv : playerCards){
 			double xoi = 0;
-			System.out.print("Player: " +pcpv.getCards());
+			System.out.println("Player: " +pcpv.getCards());
 			for(Card dealerCard : Card.values()){
 				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
