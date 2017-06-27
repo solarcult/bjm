@@ -47,9 +47,10 @@ public abstract class CardsPathValue {
 		return ProbUtil.convertList2Map(cards);
 	}
 
-	public double prob(){
-		return ProbUtil.calcProb(cards);
-	}
+	
+	abstract public double prob();
+	
+	abstract public double prob(DeckSet deckset);
 	
 	public boolean outOfCards(){
 		boolean outOfCards = false;

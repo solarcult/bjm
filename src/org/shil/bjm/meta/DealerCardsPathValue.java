@@ -42,4 +42,14 @@ public class DealerCardsPathValue extends CardsPathValue{
 		System.out.println(cardsPathValue2.hashCode());
 		System.out.println(cardsPathValue3.hashCode());
 	}
+
+	@Override
+	public double prob() {
+		return ProbUtil.calcProb(getCards());
+	}
+
+	@Override
+	public double prob(DeckSet deckset) {
+		return ProbUtil.calcProb(getCards(),deckset);
+	}
 }

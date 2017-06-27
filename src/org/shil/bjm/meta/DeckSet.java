@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class DeckSet {
 	
+	public static int CasionDeckNumber = 6;
+	
 	public static int OneSameCardInOneDeck = 4;
 	public static int DeckCards = 52;
 	

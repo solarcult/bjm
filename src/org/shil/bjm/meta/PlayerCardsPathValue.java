@@ -7,18 +7,21 @@ public class PlayerCardsPathValue extends CardsPathValue{
 
 	private PlayerAction action;
 	private double betMutiV ;
+	private int splitTimes;
 	
 	public PlayerCardsPathValue(Card ... _cards){
 		super(_cards);
 		if(_cards.length<2) throw new RuntimeException("PlayerCards Init should have 2 cards least");
 		action = PlayerAction.Init;
 		betMutiV = 1;
+		splitTimes = 0;
 	}
 	
 	public PlayerCardsPathValue(PlayerCardsPathValue playerCardsPathValue){
 		super(playerCardsPathValue);
 		action = playerCardsPathValue.getAction();
 		betMutiV = playerCardsPathValue.getBetMutiV();
+		splitTimes = playerCardsPathValue.getSplitTimes();
 	}
 
 	public boolean isStartWithA(){
@@ -50,6 +53,10 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	public PlayerAction getAction() {
 		return action;
 	}
+	
+	public int getSplitTimes() {
+		return splitTimes;
+	}
 
 	public void setAction(PlayerAction action) {
 		this.action = action;
@@ -58,27 +65,24 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		}else if(action == PlayerAction.Split){
 			if(this.getCards().get(0) == Card.One1){
 				//AA only can split 1 time
-				if(this.betMutiV >= 2){
+				if(this.splitTimes >= 1){
 					// 12 is stand
 					this.action = PlayerAction.Stand;
-				}else{
-					//only left the first card
-					this.getCards().remove(1);
-					
-					this.action = PlayerAction.Init;
-					this.betMutiV = 2 * betMutiV;
 				}
 			}else{
-				if(this.betMutiV > 4 ){
-					//can't split anymore
+				//other cards without A can only split 2 times
+				if(this.splitTimes > 2 ){
 					throw new RuntimeException("split too many times should not happend ");
 				}
+			}
+			if(this.action == PlayerAction.Split){
 				
 				//only left the first card
 				this.getCards().remove(1);
 				
 				this.action = PlayerAction.Init;
 				this.betMutiV = 2 * betMutiV;
+				this.splitTimes++;
 			}
 		}else if(action == PlayerAction.Giveup){
 			this.betMutiV = 0.5;
@@ -128,7 +132,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 				+ ", getValue()=" + getValue() + ", prob()=" + prob() + ", outOfCards()=" + outOfCards() 
 				+ ", action=" + action + ", betMutiV=" + betMutiV 
 				+ ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
-				+ isStartWithPairs() + "]";
+				+ isStartWithPairs() + ", getSplitTimes()=" + splitTimes + "]";
 	}
 	
 	@Override
@@ -163,5 +167,15 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		
 		System.out.println(cardsPathValue);
 		System.out.println(cardsPathValue3);
+	}
+
+	@Override
+	public double prob() {
+		return ProbUtil.calcProb(getCards(), splitTimes);
+	}
+
+	@Override
+	public double prob(DeckSet deckset) {
+		return ProbUtil.calcProb(getCards(), splitTimes,deckset);
 	}
 }

@@ -52,6 +52,9 @@ public class OneStrategy {
 						//only can split 2 times
 						playerAction = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getValue()),dealerCard).getStartAction();
 					}else{
+						if(playerCardsPathValue.getCards().get(0)==Card.Five5){
+							System.out.println("OK");
+						}
 						//pairs
 						PlayerStrategy pairStrategy = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard);
 						if(pairStrategy == null){
@@ -79,6 +82,7 @@ public class OneStrategy {
 			//init first action
 			playerCardsPathValue.setAction(playerAction);
 			
+			//only handle split cards here
 			if(playerCardsPathValue.getCards().size()<2){
 //				if(playerAction!=PlayerAction.Split) throw new RuntimeException(" split with less 2 must be same time" + playerCardsPathValue);
 				for (Card card : Card.values()) {
@@ -86,7 +90,6 @@ public class OneStrategy {
 					aNewPath.addCard(card);
 					if(playerCardsPathValue.getCards().get(0) == Card.One1) aNewPath.setAction(PlayerAction.Stand);
 					playerCardsPathValues.addAll(generatePlayerCardsPaths(aNewPath,dealerCard));
-					
 				}
 				playerCardsPathValue.setAction(PlayerAction.SplitAbandon);
 			}

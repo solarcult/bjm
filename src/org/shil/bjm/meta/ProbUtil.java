@@ -37,6 +37,46 @@ public class ProbUtil {
 		return prob;
 	}
 	
+	//计算出现这副牌组合的概率
+	public static double calcProb(List<Card> cards,DeckSet deckset){
+		double prob = 1;
+		for(Card card : cards){
+			prob *= deckset.getOneCardProb(card);
+			deckset.usedCards(card, 1);
+		}
+		return prob;
+	}
+	
+	//计算出现这副牌组合的概率
+	public static double calcProb(List<Card> cards,int splitTimes){
+		double prob = 1;
+		
+		IN_USED_DECKSET.reset();
+		for(Card card : cards){
+			prob *= IN_USED_DECKSET.getOneCardProb(card);
+			IN_USED_DECKSET.usedCards(card, 1);
+		}
+		for(int i=0; i<splitTimes; i++){
+			prob *= IN_USED_DECKSET.getOneCardProb(cards.get(0));
+			IN_USED_DECKSET.usedCards(cards.get(0), 1);
+		}
+		
+		return prob;
+	}
+	
+	public static double calcProb(List<Card> cards,int splitTimes,DeckSet deckset){
+		double prob = 1;
+		for(Card card : cards){
+			prob *= deckset.getOneCardProb(card);
+			deckset.usedCards(card, 1);
+		}
+		for(int i=0; i<splitTimes; i++){
+			prob *= deckset.getOneCardProb(cards.get(0));
+			deckset.usedCards(cards.get(0), 1);
+		}
+		return prob;
+	}
+	
 	//将cards映射成map
 	public static Map<Card,Integer> convertList2Map(List<Card> cards){
 		Map<Card,Integer> cardsMap = new HashMap<Card, Integer>();

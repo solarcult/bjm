@@ -25,6 +25,14 @@ public class PlayerCards {
 		return allCombination;
 	}
 	
+	public static List<PlayerCardsPathValue> generatePairs(){
+		List<PlayerCardsPathValue> pairs =  new ArrayList<>();
+		for(PlayerCardsPathValue c : generateTwoStartCards()){
+			if(c.isStartWithPairs()) pairs.add(c);
+		}
+		return pairs;
+	}
+	
 	public static List<PlayerCardsPathValue> sortedOneValueStartCardsWithoutA(){
 		List<PlayerCardsPathValue> countNotSamePCPV =  new ArrayList<>();
 		List<Integer> start2sCount = new ArrayList<>();
@@ -79,6 +87,11 @@ public class PlayerCards {
 //		HelloWorld.print(sortedOneValueStartCardsWithoutA());
 //		System.out.println(sortedOneValueStartCardsWithoutA().size());
 //		System.out.println(generateTwoStartCards().size());
-		HelloWorld.print(sortedOneValueStartCardsWithA());
+//		HelloWorld.print(sortedOneValueStartCardsWithA());
+		double x = 0;
+		for(PlayerCardsPathValue p : generateTwoStartCards()){
+			x+=p.prob();
+		}
+		System.out.println(x);
 	}
 }

@@ -6,19 +6,59 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.shil.bjm.HelloWorld;
+import org.shil.bjm.core.DealerCards;
 import org.shil.bjm.core.DealerCardsAnalyzeStatus;
 import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
+import org.shil.bjm.meta.DealerCardsPathValue;
+import org.shil.bjm.meta.DeckSet;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 
 /**
- * simply way to calc prob
+ * simply and old fashion way to calc prob
  * @author LiangJingJing
  * @date 2017年06月24日 上午00:33:29
  */
 public class PlayersVSDealersResultChanceProb {
 
+	
+	public static double[] oldFashionWayCalcPlayerdVSDealerProbs(Collection<PlayerCardsPathValue> players , Collection<DealerCardsPathValue> dealers){
+		double winrate = 0;
+		double drawrate = 0;
+		double loserate = 0;
+		
+		for(PlayerCardsPathValue player : players){
+			for(DealerCardsPathValue dealer : dealers){
+				DeckSet deckset = DeckSet.build6DeckSet();
+				double combineRate = player.prob(deckset)*dealer.prob(deckset);
+				
+				if(player.getValue() > BlackJackInfo.BlackJack){
+					//player boost first
+					loserate += combineRate;
+				}else if(dealer.getValue()>BlackJackInfo.BlackJack){
+					//dealer boost
+					winrate += combineRate;
+				}else if(player.getValue() > dealer.getValue()){
+					winrate += combineRate;
+				}else if(player.getValue() == dealer.getValue()){
+					drawrate += combineRate;
+				}else if(player.getValue() < dealer.getValue()){
+					loserate += combineRate;
+				}
+			}
+		}
+		
+		double totalrate = winrate + drawrate + loserate;
+		
+		return new double[]{winrate/totalrate,drawrate/totalrate,loserate/totalrate};
+	}
+
+	public static double[] oldFashionWayCalcPlayerVSDealerProbs(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
+		Collection<PlayerCardsPathValue> players = new HashSet<PlayerCardsPathValue>();
+		players.add(playerCardsPathValue);
+		return oldFashionWayCalcPlayerdVSDealerProbs(players, DealerCards.fetchDealerCards(dealerCard));
+	}
 	
 	public static double[] calcPlayerVSDealerAnaylzeStatus(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
 		Collection<PlayerCardsPathValue> players = new HashSet<PlayerCardsPathValue>();
