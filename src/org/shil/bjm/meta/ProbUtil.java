@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ProbUtil {
 
-	public static DeckSet IN_USED_DECKSET = DeckSet.build6DeckSet();
+	public static DeckSet IN_USED_DECKSET = DeckSet.buildCasionDeckSet();
 	
 	//计算出现这副牌组合的概率
 	public static double calcProb(List<Card> cards){

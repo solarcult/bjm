@@ -43,6 +43,10 @@ public class DeckSet {
 	public static DeckSet build6DeckSet(){
 		return buildXDeckSet(6);
 	}
+	
+	public static DeckSet buildCasionDeckSet(){
+		return buildXDeckSet(CasionDeckNumber);
+	}
 
 	public int getNdeck() {
 		return ndeck;
@@ -72,7 +76,7 @@ public class DeckSet {
 	}
 
 	public static void main(String[] args){
-		DeckSet decks = DeckSet.build6DeckSet();
+		DeckSet decks = DeckSet.buildCasionDeckSet();
 		decks.usedCards(Card.Eight8, 2);
 		System.out.println(decks.getOneCardProb(Card.Eight8));
 		System.out.println((double)(4*6-2)/(52*6-2));

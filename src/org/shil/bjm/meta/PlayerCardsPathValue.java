@@ -65,9 +65,9 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		}else if(action == PlayerAction.Split){
 			if(this.getCards().get(0) == Card.One1){
 				//AA only can split 1 time
-				if(this.splitTimes >= 1){
+				if(this.splitTimes > 1){
 					// 12 is stand
-					this.action = PlayerAction.Stand;
+					throw new RuntimeException("split too many times should not happend ");
 				}
 			}else{
 				//other cards without A can only split 2 times
@@ -138,7 +138,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	@Override
 	public void addCard(Card card){
 		super.addCard(card);
-		if(this.getCards().size()<=2){
+		if(this.getCards().size()<=2 && this.getAction() == PlayerAction.Split){
 			this.action = PlayerAction.Init;
 		}
 	}

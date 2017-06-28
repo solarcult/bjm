@@ -83,7 +83,7 @@ public class PlayerCards {
 	}
 	
 	public static void main(String[] args){
-//		HelloWorld.print(generateTwoStartCards());
+		HelloWorld.print(generateTwoStartCards());
 //		HelloWorld.print(sortedOneValueStartCardsWithoutA());
 //		System.out.println(sortedOneValueStartCardsWithoutA().size());
 //		System.out.println(generateTwoStartCards().size());

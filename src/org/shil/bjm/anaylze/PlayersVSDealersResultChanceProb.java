@@ -22,12 +22,11 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
  */
 public class PlayersVSDealersResultChanceProb {
 
-	
 	public static double[] oldFashionWayCalcPlayerdVSDealerProbs(Collection<PlayerCardsPathValue> players , Collection<DealerCardsPathValue> dealers){
 		double winrate = 0;
 		double drawrate = 0;
 		double loserate = 0;
-		DeckSet deckset = DeckSet.build6DeckSet();
+		DeckSet deckset = DeckSet.buildCasionDeckSet();
 		for(PlayerCardsPathValue player : players){
 			for(DealerCardsPathValue dealer : dealers){
 				deckset.reset();

@@ -14,6 +14,7 @@ import org.shil.bjm.strategy.ProfitUtil;
 
 public class OneStrategyTest{
 	
+//	private static boolean useMorePercificRate = true;
 	private static boolean useMorePercificRate = false;
 
 	public static void main(String[] args){
@@ -22,8 +23,9 @@ public class OneStrategyTest{
 	
 	public static void testROI(){
 		double roi = 0;
-//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
+		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
+//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
 		for(PlayerCardsPathValue pcpv : playerCards){
 			double xoi = 0;
 			System.out.println("Player: " +pcpv.getCards());
@@ -40,6 +42,9 @@ public class OneStrategyTest{
 					}
 					roi+=oroi;
 					xoi+=oroi;
+//					if(pcpv.isStartWithPairs() && pcpv.getCards().get(0) == Card.One1){
+//						System.out.println(one);
+//					}
 				}
 			}
 			System.out.println(" xoi: " + xoi);
