@@ -27,10 +27,10 @@ public class PlayersVSDealersResultChanceProb {
 		double winrate = 0;
 		double drawrate = 0;
 		double loserate = 0;
-		
+		DeckSet deckset = DeckSet.build6DeckSet();
 		for(PlayerCardsPathValue player : players){
 			for(DealerCardsPathValue dealer : dealers){
-				DeckSet deckset = DeckSet.build6DeckSet();
+				deckset.reset();
 				double combineRate = player.prob(deckset)*dealer.prob(deckset);
 				
 				if(player.getValue() > BlackJackInfo.BlackJack){

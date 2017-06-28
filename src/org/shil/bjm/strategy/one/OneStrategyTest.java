@@ -13,6 +13,8 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.strategy.ProfitUtil;
 
 public class OneStrategyTest{
+	
+	private static boolean useMorePercificRate = false;
 
 	public static void main(String[] args){
 		testROI();
@@ -20,8 +22,8 @@ public class OneStrategyTest{
 	
 	public static void testROI(){
 		double roi = 0;
-		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
+//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
 		for(PlayerCardsPathValue pcpv : playerCards){
 			double xoi = 0;
 			System.out.println("Player: " +pcpv.getCards());
@@ -30,8 +32,12 @@ public class OneStrategyTest{
 				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
 				System.out.println(dealerCard+" : " + oneSet.size());
 				for(PlayerCardsPathValue one : oneSet){
-//					double oroi = ProfitUtil.moneyCalcOneHandInReturn(one, dealerCard);
-					double oroi = ProfitUtil.oldFashionWayMoneyCalcOneHandInReturn(one, dealerCard);
+					double oroi = 0;
+					if(OneStrategyTest.useMorePercificRate){
+						oroi = ProfitUtil.oldFashionWayMoneyCalcOneHandInReturn(one, dealerCard);
+					}else{
+						oroi = ProfitUtil.moneyCalcOneHandInReturn(one, dealerCard);
+					}
 					roi+=oroi;
 					xoi+=oroi;
 				}

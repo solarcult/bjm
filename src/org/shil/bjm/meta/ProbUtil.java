@@ -52,27 +52,25 @@ public class ProbUtil {
 		double prob = 1;
 		
 		IN_USED_DECKSET.reset();
+		
+		for(int i=0; i<splitTimes; i++){
+			IN_USED_DECKSET.usedCards(cards.get(0), 1);
+		}
 		for(Card card : cards){
 			prob *= IN_USED_DECKSET.getOneCardProb(card);
 			IN_USED_DECKSET.usedCards(card, 1);
 		}
-		for(int i=0; i<splitTimes; i++){
-			prob *= IN_USED_DECKSET.getOneCardProb(cards.get(0));
-			IN_USED_DECKSET.usedCards(cards.get(0), 1);
-		}
-		
 		return prob;
 	}
 	
 	public static double calcProb(List<Card> cards,int splitTimes,DeckSet deckset){
 		double prob = 1;
+		for(int i=0; i<splitTimes; i++){
+			deckset.usedCards(cards.get(0), 1);
+		}
 		for(Card card : cards){
 			prob *= deckset.getOneCardProb(card);
 			deckset.usedCards(card, 1);
-		}
-		for(int i=0; i<splitTimes; i++){
-			prob *= deckset.getOneCardProb(cards.get(0));
-			deckset.usedCards(cards.get(0), 1);
 		}
 		return prob;
 	}
