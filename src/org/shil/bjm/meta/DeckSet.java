@@ -34,6 +34,25 @@ public class DeckSet {
 		for(Card card : Card.values()){
 			cardsLeftNumberMap.put(card, totalOneSameCardsN);
 		}
+//		used15SmallCard();
+//		used15BigCard();
+	}
+	
+	private static int usedtime = 1;
+	private void used15SmallCard(){
+		usedCards(Card.Two2,usedtime);
+		usedCards(Card.Three3,usedtime);
+		usedCards(Card.Four4,usedtime);
+		usedCards(Card.Five5,usedtime);
+		usedCards(Card.Six6,usedtime);
+	}
+	
+	private void used15BigCard(){
+		usedCards(Card.Ten,usedtime);
+		usedCards(Card.JJJ,usedtime);
+		usedCards(Card.QQQ,usedtime);
+		usedCards(Card.KKK,usedtime);
+		usedCards(Card.One1,usedtime);
 	}
 	
 	public static DeckSet buildXDeckSet(int x){

@@ -57,7 +57,7 @@ public class Combat2017JulyVer extends PlayerStrategyMatrix{
 					}
 				}
 			}
-			else if(startValue == StartValue.Twelve){// && startValue.getValue()<=16){
+			else if(startValue == StartValue.Twelve){
 				for(Card dealerCard : Card.values()){
 					if(dealerCard.getValue() == 2 ){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
@@ -148,10 +148,10 @@ public class Combat2017JulyVer extends PlayerStrategyMatrix{
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
 						strategyMatrix.put(playerStrategy,playerStrategy);
 					}else if(dealerCard.getValue() == 7 ){
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
 						strategyMatrix.put(playerStrategy,playerStrategy);
 					}else if(dealerCard.getValue() ==8 ){
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Stand);
 						strategyMatrix.put(playerStrategy,playerStrategy);
 					}else if(dealerCard.getValue() ==9 ){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Stand);

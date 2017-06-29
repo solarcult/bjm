@@ -56,7 +56,7 @@ public class Combat20170618Ver extends PlayerStrategyMatrix{
 					}
 				}
 			}
-			else if(startValue == StartValue.Twelve){// && startValue.getValue()<=16){
+			else if(startValue == StartValue.Twelve){
 				for(Card dealerCard : Card.values()){
 					if(dealerCard.getValue() == 2 ){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);

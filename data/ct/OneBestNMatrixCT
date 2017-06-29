@@ -1,0 +1,26 @@
+OneBestNMatrix
+
+used 23456  *1
+Finally: 33.088711425077506
+used 23456  *2
+Finally: 48.014517747924124
+used 23456  *3
+Finally: 63.6237577786586
+
+standard
+Finally: 18.805408040601613 
+
+used tjqka  *1
+Finally: 5.702092065494445
+used tjqka  *2
+Finally: -7.769850467257147
+used tjqka  *3
+Finally: -21.634237240379555
+
+both userd big small:
+*3
+Finally: 22.009382085665347
+*2
+Finally: 20.933953142403343
+*1
+Finally: 19.863023429218018
