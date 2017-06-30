@@ -17,9 +17,9 @@ public class OneStrategy {
 	
 //	public static OneStrategy SELF = new OneStrategy(OneBestNMatrix.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
 	
-	public static OneStrategy SELF = new OneStrategy(Combat2017JulyVer.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
+//	public static OneStrategy SELF = new OneStrategy(Combat2017JulyVer.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
 	
-//	public static OneStrategy SELF = new OneStrategy(Combat20170618Ver.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
+	public static OneStrategy SELF = new OneStrategy(Combat20170618Ver.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
 	
 	private PlayerStrategyMatrix nmSM;
 	private PlayerStrategyMatrix scSM;
@@ -43,9 +43,6 @@ public class OneStrategy {
 			//detect player cards type
 			if(playerCardsPathValue.isStartWithPairs()){
 				if(playerCardsPathValue.getCards().get(0) == Card.One1){
-					if(playerCardsPathValue.getCards().get(1) == Card.One1){
-						System.out.println("x");
-					}
 					//AA only can split 1 time
 					if(playerCardsPathValue.getSplitTimes()>=1){
 						playerAction = PlayerAction.Stand;

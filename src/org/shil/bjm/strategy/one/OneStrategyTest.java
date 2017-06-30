@@ -28,11 +28,11 @@ public class OneStrategyTest{
 //		Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
 		for(PlayerCardsPathValue pcpv : playerCards){
 			double xoi = 0;
-			System.out.println("Player: " +pcpv.getCards());
+//			System.out.println("Player: " +pcpv.getCards());
 			for(Card dealerCard : Card.values()){
 				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
-				System.out.println(dealerCard+" : " + oneSet.size());
+//				System.out.println(dealerCard+" : " + oneSet.size());
 				for(PlayerCardsPathValue one : oneSet){
 					double oroi = 0;
 					if(OneStrategyTest.useMorePercificRate){
@@ -47,7 +47,7 @@ public class OneStrategyTest{
 //					}
 				}
 			}
-			System.out.println(" xoi: " + xoi);
+//			System.out.println(" xoi: " + xoi);
 		}
 		System.out.println("\nFinally: " + roi);
 	}

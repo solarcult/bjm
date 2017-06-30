@@ -36,6 +36,7 @@ public class DeckSet {
 		}
 //		used15SmallCard();
 //		used15BigCard();
+//		usedCards(Card.One1,3);
 	}
 	
 	private static int usedtime = 1;
