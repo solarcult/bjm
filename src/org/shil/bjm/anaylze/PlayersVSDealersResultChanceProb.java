@@ -8,12 +8,12 @@ import java.util.Map.Entry;
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.DealerCards;
 import org.shil.bjm.core.DealerCardsAnalyzeStatus;
-import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.DeckSet;
 import org.shil.bjm.meta.PlayerCardsPathValue;
+import org.shil.bjm.strategy.one.OneStrategy;
 
 /**
  * simply and old fashion way to calc prob
@@ -106,6 +106,7 @@ public class PlayersVSDealersResultChanceProb {
 	}
 	
 	public static void main(String[] args){
-		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(GenerateCardsUtil.hitPlayerOneMoreCard(new PlayerCardsPathValue(Card.Four4,Card.Six6)), Card.Six6));
+//		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(GenerateCardsUtil.hitPlayerOneMoreCard(new PlayerCardsPathValue(Card.Four4,Card.Six6)), Card.Six6));
+		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(OneStrategy.SELF.generatePlayerCardsPaths(new PlayerCardsPathValue(Card.Two2,Card.Six6), Card.Six6) ,Card.Six6));
 	}
 }

@@ -39,7 +39,7 @@ public class DeckSet {
 //		usedCards(Card.One1,3);
 	}
 	
-	private static int usedtime = 1;
+	private static int usedtime = 3;
 	private void used15SmallCard(){
 		usedCards(Card.Two2,usedtime);
 		usedCards(Card.Three3,usedtime);
@@ -56,12 +56,8 @@ public class DeckSet {
 		usedCards(Card.One1,usedtime);
 	}
 	
-	public static DeckSet buildXDeckSet(int x){
+	private static DeckSet buildXDeckSet(int x){
 		return new DeckSet(x);
-	}
-	
-	public static DeckSet build6DeckSet(){
-		return buildXDeckSet(6);
 	}
 	
 	public static DeckSet buildCasionDeckSet(){

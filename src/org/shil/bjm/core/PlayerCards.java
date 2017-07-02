@@ -30,6 +30,16 @@ public class PlayerCards {
 		for(PlayerCardsPathValue c : generateTwoStartCards()){
 			if(c.isStartWithPairs()) pairs.add(c);
 		}
+		Collections.sort(pairs, new Comparator<PlayerCardsPathValue>(){
+			@Override
+			public int compare(PlayerCardsPathValue arg0, PlayerCardsPathValue arg1) {
+				if(arg0.getValue() > arg1.getValue()){
+					return 1;
+				}else if(arg0.getValue() < arg1.getValue()){
+					return -1;
+				}else return 0;
+			}
+		});
 		return pairs;
 	}
 	

@@ -1,5 +1,7 @@
 package org.shil.bjm.strategy;
 
+import java.util.Collection;
+
 import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
 import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
@@ -39,6 +41,13 @@ public class ProfitUtil {
 		return ROI;
 	}
 	
+	public static double moneyCalcOneHandInReturn(Collection<PlayerCardsPathValue> playerCardsPathValues,Card dealerCard){
+		double ROI = 0;
+		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues){
+			ROI += moneyCalcOneHandInReturn(playerCardsPathValue,dealerCard);
+		}
+		return ROI;
+	}
 	
 	/**
 	 * old fashion way has more detail and preciously rate , but too slowly
@@ -73,4 +82,5 @@ public class ProfitUtil {
 		
 		return ROI;
 	}
+	
 }

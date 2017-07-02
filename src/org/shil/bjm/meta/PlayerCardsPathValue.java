@@ -25,21 +25,23 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	}
 
 	public boolean isStartWithA(){
-		if(this.getCards().get(0) == Card.One1){
-			return true;
+		if(this.getCards().size()>=2){
+			if(this.getCards().get(0) == Card.One1){
+				return true;
+			}
+			if(this.getCards().get(1) == Card.One1){
+				return true;
+			}
 		}
-		if(this.getCards().size() >= 2 && this.getCards().get(1) == Card.One1){
-			return true;
-		}
+		
 		return false;
 	}
 	
 	public boolean isStartWithPairs(){
 		if(this.getCards().size() >= 2){
 			return this.getCards().get(0) == this.getCards().get(1);
-		}else{
-			return false;
 		}
+		return false;
 	}
 	
 	public StartValue getStartValue(){

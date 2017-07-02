@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import org.shil.bjm.HelloWorld;
+import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
 import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
@@ -11,15 +12,16 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.strategy.PlayerStrategy;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
+import org.shil.bjm.strategy.ProfitUtil;
 
 public class OneStrategy {
 	
 	
-//	public static OneStrategy SELF = new OneStrategy(OneBestNMatrix.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
+//	public static OneStrategy SELF = new OneStrategy(OneBestNMatrix.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
 	
-//	public static OneStrategy SELF = new OneStrategy(Combat2017JulyVer.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
+	public static OneStrategy SELF = new OneStrategy(Combat2017JulyVer.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
 	
-	public static OneStrategy SELF = new OneStrategy(Combat20170618Ver.SELF,OneSameCardMatrix.SELF,OneWithAMatrix.SELF);
+//	public static OneStrategy SELF = new OneStrategy(Combat20170618Ver.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
 	
 	private PlayerStrategyMatrix nmSM;
 	private PlayerStrategyMatrix scSM;
@@ -40,46 +42,51 @@ public class OneStrategy {
 		if(playerCardsPathValue.getAction() == PlayerAction.Init){
 			//the first time reset action
 			PlayerAction playerAction = null;
-			//detect player cards type
-			if(playerCardsPathValue.isStartWithPairs()){
-				if(playerCardsPathValue.getCards().get(0) == Card.One1){
-					//AA only can split 1 time
-					if(playerCardsPathValue.getSplitTimes()>=1){
-						playerAction = PlayerAction.Stand;
+			if(playerCardsPathValue.getCards().size()>=2){
+				//detect player cards type
+				if(playerCardsPathValue.isStartWithPairs()){
+					if(playerCardsPathValue.getCards().get(0) == Card.One1){
+						//AA only can split 1 time
+						if(playerCardsPathValue.getSplitTimes()>=1){
+							playerAction = PlayerAction.Stand;
+						}else{
+							playerAction = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard).getStartAction();
+						}
 					}else{
-						playerAction = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard).getStartAction();
-					}
-				}else{
-					if(playerCardsPathValue.getSplitTimes() >= 2){
-						//only can split 2 times
-						playerAction = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getValue()),dealerCard).getStartAction();
-					}else{
-						//pairs
-						PlayerStrategy pairStrategy = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard);
-						if(pairStrategy == null){
+						if(playerCardsPathValue.getSplitTimes() >= 2){
+							//only can split 2 times
 							playerAction = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getValue()),dealerCard).getStartAction();
 						}else{
-							playerAction = pairStrategy.getStartAction();
+							//pairs
+							PlayerStrategy pairStrategy = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard);
+							if(pairStrategy == null){
+								playerAction = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getValue()),dealerCard).getStartAction();
+							}else{
+								playerAction = pairStrategy.getStartAction();
+							}
 						}
 					}
+					
+				}else if(playerCardsPathValue.isStartWithA()){
+					//with A
+					Card withoutAcard = OneWithAMatrix.findFirstTwoCardsWithOutA(playerCardsPathValue);
+					if(withoutAcard!=null){
+						PlayerStrategy playerStrategy = waSM.getPlayerAction(StartValue.getOne(withoutAcard.getValue()),dealerCard); 
+						playerAction = playerStrategy.getStartAction();
+					}
+				}else{
+						//normal cards
+						playerAction = nmSM.getPlayerAction(playerCardsPathValue.getStartValue(),dealerCard).getStartAction();
 				}
-				
-			}else if(playerCardsPathValue.isStartWithA()){
-				//with A
-				Card withoutAcard = OneWithAMatrix.findFirstTwoCardsWithOutA(playerCardsPathValue);
-				PlayerStrategy playerStrategy = waSM.getPlayerAction(StartValue.getOne(withoutAcard.getValue()),dealerCard); 
-				playerAction = playerStrategy.getStartAction();
-			}else{
-				//normal cards
-				playerAction = nmSM.getPlayerAction(playerCardsPathValue.getStartValue(),dealerCard).getStartAction();
+				if(playerAction == null){
+					throw new RuntimeException("playaction is null, should not happend " + playerCardsPathValue);
+				}
 			}
 			
-			if(playerAction == null){
-				throw new RuntimeException("playaction is null, should not happend " + playerCardsPathValue);
+			if(playerAction != null){
+				//init first action
+				playerCardsPathValue.setAction(playerAction);
 			}
-			
-			//init first action
-			playerCardsPathValue.setAction(playerAction);
 			
 			//only handle split cards here
 			if(playerCardsPathValue.getCards().size()<2){
@@ -133,17 +140,23 @@ public class OneStrategy {
 		return playerCardsPathValues;
 	}
 	
+
+	
 	public static void main(String[] args){
 //		testNM();
 //		testSCnoSplit2();
 //		testSCSplit7();
-		testSCSplitA();
+//		testSCSplitA();
 	}
 	
+	
+	
 	public static void testNM(){
-		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Two2,Card.Eight8);
+		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Two2,Card.Seven7);
 		Collection<PlayerCardsPathValue> cs = OneStrategy.SELF.generatePlayerCardsPaths(playerCardsPathValue, Card.Seven7);
 		HelloWorld.print(cs);
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturn(cs, Card.Seven7));
+		System.out.println(PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(cs, Card.Seven7));
 	}
 	
 	public static void testSCnoSplit2(){

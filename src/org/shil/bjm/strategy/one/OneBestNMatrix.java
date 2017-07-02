@@ -26,7 +26,7 @@ public class OneBestNMatrix extends PlayerStrategyMatrix{
 			}
 			else if(startValue == StartValue.Nine){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.Three3 || dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6 || dealerCard == Card.Seven7){
+					if(dealerCard == Card.Three3 || dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy,playerStrategy); 
 					}else{
