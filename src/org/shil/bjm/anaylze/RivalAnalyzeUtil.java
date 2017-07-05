@@ -95,12 +95,26 @@ public class RivalAnalyzeUtil {
 
 	}
 	
+	public static void testVS(){
+		PlayerCardsPathValue orgin = new PlayerCardsPathValue(Card.Five5,Card.Four4);
+		Card dealerCard = Card.Seven7;
+		
+		PlayerCardsPathValue doub = new PlayerCardsPathValue(orgin);
+		doub.setAction(PlayerAction.Double);
+		testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(doub),dealerCard);
+		
+		PlayerCardsPathValue one = new PlayerCardsPathValue(orgin);
+		one.setAction(PlayerAction.Hit);
+		testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(one),dealerCard);
+	}
+	
 	public static void main(String[] args){
 //		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithA();
 //		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithPair();
 //		HelloWorld.print(ao);
 		
-		makePlayerOneMoreVSNowDealerChangeWithPair();
+//		makePlayerOneMoreVSNowDealerChangeWithPair();
 //		RivalAnalyzeUtil.testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(Card.Two2,Card.Seven7),Card.Seven7);
+		testVS();
 	}
 }

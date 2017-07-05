@@ -25,6 +25,19 @@ public class PlayerCards {
 		return allCombination;
 	}
 	
+	public static Collection<PlayerCardsPathValue> generateTwoStartCardsWithoutPairWithoutA(){
+		Collection<PlayerCardsPathValue> allCombination = new HashSet<PlayerCardsPathValue>();
+		for(Card one: Card.values()){
+			for(Card two : Card.values()){
+				PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(one,two);
+				if(cardsPathValue.isStartWithA()) continue;
+				if(cardsPathValue.isStartWithPairs()) continue;
+				allCombination.add(cardsPathValue);
+			}
+		}
+		return allCombination;
+	}
+	
 	public static List<PlayerCardsPathValue> generatePairs(){
 		List<PlayerCardsPathValue> pairs =  new ArrayList<>();
 		for(PlayerCardsPathValue c : generateTwoStartCards()){

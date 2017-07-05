@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy.one;
+package org.shil.bjm.strategy.basiconline;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,7 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.strategy.ProfitUtil;
 
-public class OneStrategyTest{
+public class BasicStrategyTest{
 	
 //	private static boolean useMorePercificRate = true;
 	private static boolean useMorePercificRate = false;
@@ -32,11 +32,11 @@ public class OneStrategyTest{
 //			System.out.println("Player: " +pcpv.getCards());
 			for(Card dealerCard : Card.values()){
 				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
+				Collection<PlayerCardsPathValue> oneSet = BasicOnlineStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
 //				System.out.println(dealerCard+" : " + oneSet.size());
 				for(PlayerCardsPathValue one : oneSet){
 					double oroi = 0;
-					if(OneStrategyTest.useMorePercificRate){
+					if(BasicStrategyTest.useMorePercificRate){
 						oroi = ProfitUtil.oldFashionWayMoneyCalcOneHandInReturn(one, dealerCard);
 					}else{
 						oroi = ProfitUtil.moneyCalcOneHandInReturn(one, dealerCard);
