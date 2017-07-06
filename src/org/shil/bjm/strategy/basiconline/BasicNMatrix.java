@@ -8,7 +8,6 @@ import org.shil.bjm.strategy.PlayerStrategyMatrix;
 
 public class BasicNMatrix extends PlayerStrategyMatrix{
 
-	
 	public static PlayerStrategyMatrix SELF = new BasicNMatrix();
 	
 	public BasicNMatrix(){

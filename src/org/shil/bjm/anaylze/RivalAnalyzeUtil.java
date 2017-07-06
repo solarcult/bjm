@@ -70,7 +70,9 @@ public class RivalAnalyzeUtil {
 				PlayerCardsPathValue splitShow = new PlayerCardsPathValue(playerCardsPathValue);
 				splitShow.setAction(PlayerAction.Split);
 				testPlayerCardsPathValueVSDealerCard(splitShow,dealerCard);
+				System.out.println();
 			}
+			System.out.println();
 		}
 		
 	}
@@ -113,8 +115,8 @@ public class RivalAnalyzeUtil {
 //		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithPair();
 //		HelloWorld.print(ao);
 		
-//		makePlayerOneMoreVSNowDealerChangeWithPair();
+		makePlayerOneMoreVSNowDealerChangeWithPair();
 //		RivalAnalyzeUtil.testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(Card.Two2,Card.Seven7),Card.Seven7);
-		testVS();
+//		testVS();
 	}
 }

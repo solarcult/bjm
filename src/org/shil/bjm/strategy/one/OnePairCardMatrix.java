@@ -20,7 +20,7 @@ public class OnePairCardMatrix extends PlayerStrategyMatrix {
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}else{
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Split,PlayerAction.Split);
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Split,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}
 				}
@@ -37,14 +37,6 @@ public class OnePairCardMatrix extends PlayerStrategyMatrix {
 		PlayerStrategy playerStrategy33vs6 = new PlayerStrategy(StartValue.getOne(3), Card.Six6, PlayerAction.Split,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy33vs6,playerStrategy33vs6);
 
-		PlayerStrategy playerStrategy44vs6 = new PlayerStrategy(StartValue.getOne(4), Card.Six6, PlayerAction.Split,PlayerAction.Hit);
-		strategyMatrix.put(playerStrategy44vs6,playerStrategy44vs6);
-		
-		PlayerStrategy playerStrategy66vs6 = new PlayerStrategy(StartValue.getOne(6), Card.Six6, PlayerAction.Split,PlayerAction.Hit);
-		strategyMatrix.put(playerStrategy66vs6,playerStrategy66vs6);
-		
-		PlayerStrategy playerStrategy77vs5 = new PlayerStrategy(StartValue.getOne(7), Card.Five5, PlayerAction.Split,PlayerAction.Hit);
-		strategyMatrix.put(playerStrategy77vs5,playerStrategy77vs5);
 		PlayerStrategy playerStrategy77vs6 = new PlayerStrategy(StartValue.getOne(7), Card.Six6, PlayerAction.Split,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy77vs6,playerStrategy77vs6);
 		
@@ -59,15 +51,18 @@ public class OnePairCardMatrix extends PlayerStrategyMatrix {
 		PlayerStrategy playerStrategy88vs7 = new PlayerStrategy(StartValue.getOne(8), Card.Seven7, PlayerAction.Split,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy88vs7,playerStrategy88vs7);
 		
-		PlayerStrategy playerStrategy99vs2 = new PlayerStrategy(StartValue.getOne(9), Card.Two2, PlayerAction.Split,PlayerAction.Hit);
+		PlayerStrategy playerStrategy99vs2 = new PlayerStrategy(StartValue.getOne(9), Card.Two2, PlayerAction.Split,PlayerAction.Stand);
 		strategyMatrix.put(playerStrategy99vs2,playerStrategy99vs2);
-		PlayerStrategy playerStrategy99vs3 = new PlayerStrategy(StartValue.getOne(9), Card.Three3, PlayerAction.Split,PlayerAction.Hit);
+		PlayerStrategy playerStrategy99vs3 = new PlayerStrategy(StartValue.getOne(9), Card.Three3, PlayerAction.Split,PlayerAction.Stand);
 		strategyMatrix.put(playerStrategy99vs3,playerStrategy99vs3);
-		PlayerStrategy playerStrategy99vs4 = new PlayerStrategy(StartValue.getOne(9), Card.Four4, PlayerAction.Split,PlayerAction.Hit);
+		PlayerStrategy playerStrategy99vs4 = new PlayerStrategy(StartValue.getOne(9), Card.Four4, PlayerAction.Split,PlayerAction.Stand);
 		strategyMatrix.put(playerStrategy99vs4,playerStrategy99vs4);
-		PlayerStrategy playerStrategy99vs5 = new PlayerStrategy(StartValue.getOne(9), Card.Five5, PlayerAction.Split,PlayerAction.Hit);
+		PlayerStrategy playerStrategy99vs5 = new PlayerStrategy(StartValue.getOne(9), Card.Five5, PlayerAction.Split,PlayerAction.Stand);
 		strategyMatrix.put(playerStrategy99vs5,playerStrategy99vs5);
-		PlayerStrategy playerStrategy99vs6 = new PlayerStrategy(StartValue.getOne(9), Card.Six6, PlayerAction.Split,PlayerAction.Hit);
+		PlayerStrategy playerStrategy99vs6 = new PlayerStrategy(StartValue.getOne(9), Card.Six6, PlayerAction.Split,PlayerAction.Stand);
 		strategyMatrix.put(playerStrategy99vs6,playerStrategy99vs6);
+		
+		PlayerStrategy playerStrategy99vs8 = new PlayerStrategy(StartValue.getOne(9), Card.Eight8, PlayerAction.Split,PlayerAction.Stand);
+		strategyMatrix.put(playerStrategy99vs8,playerStrategy99vs8);
 	}
 }

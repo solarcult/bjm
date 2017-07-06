@@ -15,14 +15,9 @@ public class BasicPairCardMatrix extends PlayerStrategyMatrix {
 		
 		for(StartValue startValue : StartValue.values()){
 			if(startValue== StartValue.One){
-				for(Card dealerCard : Card.values()){
-					if(dealerCard == Card.One1){
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
-						strategyMatrix.put(playerStrategy, playerStrategy);
-					}else{
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Split,PlayerAction.Split);
-						strategyMatrix.put(playerStrategy, playerStrategy);
-					}
+				for(Card dealerCard : Card.values()){					
+					PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Split,PlayerAction.Split);
+					strategyMatrix.put(playerStrategy, playerStrategy);
 				}
 			}else if(startValue.getValue() == 6){
 				for(Card dealerCard : Card.values()){
@@ -89,10 +84,11 @@ public class BasicPairCardMatrix extends PlayerStrategyMatrix {
 		PlayerStrategy playerStrategy33vs7 = new PlayerStrategy(StartValue.getOne(3), Card.Seven7, PlayerAction.Split,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy33vs7,playerStrategy33vs7);
 
-		PlayerStrategy playerStrategy44vs6 = new PlayerStrategy(StartValue.getOne(4), Card.Six6, PlayerAction.Split,PlayerAction.Hit);
-		strategyMatrix.put(playerStrategy44vs6,playerStrategy44vs6);
 		PlayerStrategy playerStrategy44vs5 = new PlayerStrategy(StartValue.getOne(4), Card.Five5, PlayerAction.Split,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy44vs5,playerStrategy44vs5);
+		PlayerStrategy playerStrategy44vs6 = new PlayerStrategy(StartValue.getOne(4), Card.Six6, PlayerAction.Split,PlayerAction.Hit);
+		strategyMatrix.put(playerStrategy44vs6,playerStrategy44vs6);
+		
 	
 	}
 }
