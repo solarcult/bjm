@@ -1,11 +1,26 @@
 package org.shil.bjm.anaylze;
 
 public class AnalyzeStatus {
-
+	
+	/**
+	 * 数值
+	 */
 	private int value;
+	/**
+	 * 本数值所占百分比
+	 */
 	private double precent;
+	/**
+	 * 直到现在数值之前所有的百分比
+	 */
 	private double tillPct;
+	/**
+	 * 本数值的概率
+	 */
 	private double prob;
+	/**
+	 * 直到现在数值之前的所有的概率和
+	 */
 	private double tillProb;
 	private double totalProb;
 	

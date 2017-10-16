@@ -6,7 +6,11 @@ import org.shil.bjm.anaylze.AnalyzeCardsPathValue;
 import org.shil.bjm.anaylze.AnalyzeStatus;
 import org.shil.bjm.meta.Card;
 
-
+/**
+ * 预先计算庄家牌组合的分布
+ * @author vanis
+ *
+ */
 public class DealerCardsAnalyzeStatus {
 
 	public static Map<Integer,AnalyzeStatus> ASMOne = AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartOne);

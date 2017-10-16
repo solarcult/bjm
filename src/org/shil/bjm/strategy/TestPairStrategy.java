@@ -15,24 +15,20 @@ import org.shil.bjm.strategy.one.OneWithAMatrix;
  * @author vanis
  *
  */
-public abstract class Strategy {
+public class TestPairStrategy {
 
 	/**
 	 * normal 一般的组合的牌，没有对，没有A的策略
 	 */
 	private PlayerStrategyMatrix nmSM;
-	/**
-	 * 带对的组合牌
-	 */
-	private PlayerStrategyMatrix scSM;
+
 	/**
 	 * 带A的组合牌
 	 */
 	private PlayerStrategyMatrix waSM;
 	
-	public Strategy(PlayerStrategyMatrix nmSM,PlayerStrategyMatrix scSM,PlayerStrategyMatrix waSM){
+	public TestPairStrategy(PlayerStrategyMatrix nmSM,PlayerStrategyMatrix waSM){
 		this.nmSM = nmSM;
-		this.scSM = scSM;
 		this.waSM = waSM;
 	}
 	
@@ -53,7 +49,7 @@ public abstract class Strategy {
 						if(playerCardsPathValue.getSplitTimes()>=1){
 							playerAction = PlayerAction.Stand;
 						}else{
-							playerAction = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard).getStartAction();
+							playerAction = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard).getStartAction();
 						}
 					}else{
 						if(playerCardsPathValue.getSplitTimes() >= 2){
@@ -64,17 +60,12 @@ public abstract class Strategy {
 							if(playerAction == PlayerAction.Giveup) playerAction = playerStrategy.getThreeCardAction(); 
 						}else{
 							//pairs
-							PlayerStrategy pairStrategy = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard);
-							if(pairStrategy == null){
-								PlayerStrategy playerStrategy = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getValue()),dealerCard);
-								if(playerCardsPathValue.getSplitTimes()>0 && playerStrategy.getStartAction() == PlayerAction.Giveup){
-									//split cards can not surrender
-									playerAction = playerStrategy.getThreeCardAction();
-								}else{
-									playerAction = playerStrategy.getStartAction();
-								}
+							PlayerStrategy playerStrategy = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getValue()),dealerCard);
+							if(playerCardsPathValue.getSplitTimes()>0 && playerStrategy.getStartAction() == PlayerAction.Giveup){
+								//split cards can not surrender
+								playerAction = playerStrategy.getThreeCardAction();
 							}else{
-								playerAction = pairStrategy.getStartAction();
+								playerAction = playerStrategy.getStartAction();
 							}
 						}
 					}

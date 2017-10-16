@@ -9,6 +9,11 @@ import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.WinDrawLose;
 
+/**
+ * 计算收益率的类，看最后能赚多少钱
+ * @author vanis
+ *
+ */
 public class ProfitUtil {
 	
 	public static double baseMoney = 100d;

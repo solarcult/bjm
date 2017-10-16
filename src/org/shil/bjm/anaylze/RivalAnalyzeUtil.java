@@ -11,11 +11,23 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.strategy.ProfitUtil;
+import org.shil.bjm.strategy.TestPairStrategy;
+import org.shil.bjm.strategy.one.Combat2017Oct16Bot;
+import org.shil.bjm.strategy.one.Combat2017Oct16Frt;
 import org.shil.bjm.strategy.one.OneStrategy;
 import org.shil.bjm.strategy.one.OneWithAMatrix;
 
+/**
+ * 核心数据类，记录再来一张的概率，希望没有bug
+ * @author vanis
+ *
+ */
 public class RivalAnalyzeUtil {
 
+	/**
+	 * 对非带A的普通起手牌进行分析
+	 * @return
+	 */
 	public static List<DealerVSPlayerChance> makePlayerOneMoreVSNowDealerChangeWithoutA(){
 		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithoutA()) {
@@ -33,6 +45,10 @@ public class RivalAnalyzeUtil {
 		return diff;
 	}
 	
+	/**
+	 * 对Ax的牌进行分析
+	 * @return
+	 */
 	public static List<DealerVSPlayerChance> makePlayerOneMoreVSNowDealerChangeWithA(){
 		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithA()) {
@@ -49,27 +65,33 @@ public class RivalAnalyzeUtil {
 		return diff;
 	}
 	
+	static TestPairStrategy testPairStrategy = new TestPairStrategy(Combat2017Oct16Bot.SELF,OneWithAMatrix.SELF);
+	
+	/**
+	 * 使用策略对Pair进行分析
+	 */
 	public static void makePlayerOneMoreVSNowDealerChangeWithPair(){
+		
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.generatePairs()) {
-			
+			if(playerCardsPathValue.getCards().get(0).getValue()==1) continue;
 			System.out.println("\t\t"+playerCardsPathValue.getCards().get(0));
 			for (Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-				PlayerCardsPathValue ontsplit = new PlayerCardsPathValue(playerCardsPathValue);
-				double nowROI = ProfitUtil.moneyCalcOneHandInReturn(OneStrategy.SELF.generatePlayerCardsPaths(ontsplit, dealerCard),dealerCard);
+				PlayerCardsPathValue notsplit = new PlayerCardsPathValue(playerCardsPathValue);
+				double nowROI = ProfitUtil.moneyCalcOneHandInReturn(testPairStrategy.generatePlayerCardsPaths(notsplit, dealerCard),dealerCard);
 				
 				PlayerCardsPathValue split = new PlayerCardsPathValue(playerCardsPathValue);
 				split.setAction(PlayerAction.Split);
-				double splitROI = ProfitUtil.moneyCalcOneHandInReturn(OneStrategy.SELF.generatePlayerCardsPaths(split, dealerCard),dealerCard);
+				double splitROI = ProfitUtil.moneyCalcOneHandInReturn(testPairStrategy.generatePlayerCardsPaths(split, dealerCard),dealerCard);
 				
 				System.out.println("Dealer: " + dealerCard +" \tPlayerValue: " + playerCardsPathValue.getValue() +"\n org: "+ nowROI +" -> " + splitROI + " \t result: " + ((nowROI<splitROI)?"good":"bad"));
 				System.out.println("not split:");
 				PlayerCardsPathValue notsplitShow = new PlayerCardsPathValue(playerCardsPathValue);
-				testPlayerCardsPathValueVSDealerCard(notsplitShow,dealerCard);
+				testPairPlayerCardsPathValueVSDealerCard(notsplitShow,dealerCard);
 				System.out.println("split:");
 				PlayerCardsPathValue splitShow = new PlayerCardsPathValue(playerCardsPathValue);
 				splitShow.setAction(PlayerAction.Split);
-				testPlayerCardsPathValueVSDealerCard(splitShow,dealerCard);
+				testPairPlayerCardsPathValueVSDealerCard(splitShow,dealerCard);
 				System.out.println();
 			}
 			System.out.println();
@@ -84,16 +106,23 @@ public class RivalAnalyzeUtil {
 		HelloWorld.printDoubleWDL(PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(cs, dealerCard));
 	}
 	
+	public static void testPairPlayerCardsPathValueVSDealerCard(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
+		Collection<PlayerCardsPathValue> cs = testPairStrategy.generatePlayerCardsPaths(playerCardsPathValue, dealerCard);
+//		HelloWorld.print(cs);
+		System.out.println("ROI: " +ProfitUtil.moneyCalcOneHandInReturn(cs, dealerCard) + " cssize() "+ cs.size());
+		HelloWorld.printDoubleWDL(PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(cs, dealerCard));
+	}
+	
 	public static void testPair(){
-		PlayerCardsPathValue orgin = new PlayerCardsPathValue(Card.Four4,Card.Four4);
-		Card dealerCard = Card.Seven7;
+		PlayerCardsPathValue orgin = new PlayerCardsPathValue(Card.Six6,Card.Six6);
+		Card dealerCard = Card.Six6;
 		
 		PlayerCardsPathValue pair = new PlayerCardsPathValue(orgin);
 		pair.setAction(PlayerAction.Split);
-		testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(pair),dealerCard);
+		testPairPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(pair),dealerCard);
 		
 		PlayerCardsPathValue one = new PlayerCardsPathValue(orgin);
-		testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(one),dealerCard);
+		testPairPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(one),dealerCard);
 
 	}
 	
@@ -115,6 +144,7 @@ public class RivalAnalyzeUtil {
 //		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithPair();
 //		HelloWorld.print(ao);
 		
+//		testPair();
 		makePlayerOneMoreVSNowDealerChangeWithPair();
 //		RivalAnalyzeUtil.testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(Card.Two2,Card.Seven7),Card.Seven7);
 //		testVS();

@@ -10,6 +10,11 @@ import org.shil.bjm.meta.CardsPathValue;
 import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 
+/**
+ * 分析牌s分布情况的类
+ * @author vanis
+ *
+ */
 public class AnalyzeCardsPathValue {
 	
 	public static Map<Integer,AnalyzeStatus> analyzeDealerCardsPathValue(Collection<DealerCardsPathValue> dealerCardsPathValues){

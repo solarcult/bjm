@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 核心类，没把牌的组合，希望没有bug
+ * @author vanis
+ *
+ */
 public abstract class CardsPathValue {
 	private List<Card> cards;
 	
@@ -22,6 +27,10 @@ public abstract class CardsPathValue {
 		cards.add(card);
 	}
 	
+	/**
+	 * 老帅了，动态识别A，哈哈哈哈哈哈哈
+	 * @return
+	 */
 	public int getValue(){
 		int value = 0;
 		for(Card card : this.getCards()){

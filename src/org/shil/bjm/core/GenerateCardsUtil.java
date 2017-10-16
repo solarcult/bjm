@@ -9,6 +9,11 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 
+/**
+ * 核心类，产生下一张牌的类，希望没有bug
+ * @author vanis
+ *
+ */
 public class GenerateCardsUtil {
 	
 	/**

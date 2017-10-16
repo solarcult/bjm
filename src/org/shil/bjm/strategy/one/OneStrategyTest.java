@@ -12,6 +12,11 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.strategy.ProfitUtil;
 
+/**
+ * 运行看最终ROI的类
+ * @author vanis
+ *
+ */
 public class OneStrategyTest{
 	
 //	private static boolean useMorePercificRate = true;

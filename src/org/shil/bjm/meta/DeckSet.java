@@ -29,6 +29,9 @@ public class DeckSet {
 		reset();
 	}
 	
+	/**
+	 * 重新设置牌的使用情况，可根据具体情况来设置
+	 */
 	public void reset(){
 		totalCards = ndeck * DeckCards;
 		for(Card card : Card.values()){

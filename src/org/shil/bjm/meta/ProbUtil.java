@@ -6,6 +6,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 核心类，计算概率工具 ，希望没有bug
+ * @author vanis
+ *
+ */
 public class ProbUtil {
 
 	public static DeckSet IN_USED_DECKSET = DeckSet.buildCasionDeckSet();

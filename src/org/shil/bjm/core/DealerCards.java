@@ -8,6 +8,11 @@ import org.shil.bjm.anaylze.AnalyzeStatus;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
 
+/**
+ * 预先计算庄家爱的所有牌组合
+ * @author vanis
+ *
+ */
 public class DealerCards {
 	
 	public static Collection<DealerCardsPathValue> StartOne = GenerateCardsUtil.generateDealerCards(new DealerCardsPathValue(Card.One1));

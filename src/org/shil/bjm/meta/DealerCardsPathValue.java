@@ -3,6 +3,11 @@ package org.shil.bjm.meta;
 import java.util.Collection;
 import java.util.HashSet;
 
+/**
+ * 庄家的牌玩法
+ * @author vanis
+ *
+ */
 public class DealerCardsPathValue extends CardsPathValue{
 	
 	public DealerCardsPathValue(Card card){

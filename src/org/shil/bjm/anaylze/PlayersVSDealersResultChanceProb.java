@@ -16,6 +16,9 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.strategy.one.OneStrategy;
 
 /**
+ * 核心类，计算玩家牌s和庄家牌s胜率的类，希望没有bug
+ * 旧的方式是一个一个比，比较耗资源
+ * 新的方式是先统计，然后再比较，貌似结果基本一致
  * simply and old fashion way to calc prob
  * @author LiangJingJing
  * @date 2017年06月24日 上午00:33:29

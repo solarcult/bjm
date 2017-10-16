@@ -12,6 +12,11 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.strategy.one.OneWithAMatrix;
 
+/**
+ * 生成玩家的所有起手牌类，共13*13种组合
+ * @author vanis
+ *
+ */
 public class PlayerCards {
 
 	public static Collection<PlayerCardsPathValue> generateTwoStartCards(){

@@ -9,7 +9,13 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
 import org.shil.bjm.strategy.ProfitUtil;
 import org.shil.bjm.strategy.Strategy;
+import org.shil.bjm.strategy.basiconline.BasicNMatrix;
 
+/**
+ * SELF初始化策略主类
+ * @author vanis
+ *
+ */
 public class OneStrategy extends Strategy{
 	
 	public OneStrategy(PlayerStrategyMatrix nmSM,PlayerStrategyMatrix scSM,PlayerStrategyMatrix waSM){
@@ -17,11 +23,13 @@ public class OneStrategy extends Strategy{
 	}
 	
 //	public static OneStrategy SELF = new OneStrategy(OneBestNMatrix.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
-	
-	public static OneStrategy SELF = new OneStrategy(Combat2017JulyVer.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
-	
+//	public static OneStrategy SELF = new OneStrategy(BasicNMatrix.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);	
 //	public static OneStrategy SELF = new OneStrategy(Combat20170618Ver.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
+//	public static OneStrategy SELF = new OneStrategy(Combat2017JulyVer.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
 
+//	public static OneStrategy SELF = new OneStrategy(Combat2017Oct16Frt.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
+//	public static OneStrategy SELF = new OneStrategy(Combat2017Oct16Bot.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
+	public static OneStrategy SELF = new OneStrategy(Combat2017Oct16Frt.SELF,Combat2017Oct16Frt.SELF,OneWithAMatrix.SELF);
 	
 	public static void main(String[] args){
 //		testNM();
