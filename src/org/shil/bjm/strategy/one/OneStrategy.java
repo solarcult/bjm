@@ -27,9 +27,9 @@ public class OneStrategy extends Strategy{
 //	public static OneStrategy SELF = new OneStrategy(Combat20170618Ver.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
 //	public static OneStrategy SELF = new OneStrategy(Combat2017JulyVer.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
 
-	public static OneStrategy SELF = new OneStrategy(Combat2017Oct16Frt.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
+//	public static OneStrategy SELF = new OneStrategy(Combat2017Oct16Frt.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
 //	public static OneStrategy SELF = new OneStrategy(Combat2017Oct16Bot.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
-//	public static OneStrategy SELF = new OneStrategy(Combat2017Oct21.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
+	public static OneStrategy SELF = new OneStrategy(Combat2017Oct21.SELF,OnePairCardMatrix.SELF,OneWithAMatrix.SELF);
 
 	
 	public static void main(String[] args){

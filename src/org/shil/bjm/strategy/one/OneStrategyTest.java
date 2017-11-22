@@ -6,10 +6,13 @@ import java.util.List;
 
 import org.shil.bjm.anaylze.DealerVSPlayerChance;
 import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
+import org.shil.bjm.core.DealerCards;
 import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.meta.Card;
+import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerCardsPathValue;
+import org.shil.bjm.meta.ProbUtil;
 import org.shil.bjm.strategy.ProfitUtil;
 
 /**
@@ -24,10 +27,42 @@ public class OneStrategyTest{
 
 	public static void main(String[] args){
 //		testROI();
-		winRate();
+//		winRateWithProb();
+		pureWinRate();
 	}
 	
-	public static void winRate() {
+	public static void pureWinRate() {
+		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+		double win = 0;
+		double total = 0;
+		double giveup = 0;
+		for(PlayerCardsPathValue pcpv : playerCards){
+//			System.out.println("Player: " +pcpv.getCards());
+			for(Card dealerCard : Card.values()){
+				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
+//				System.out.println(dealerCard+" : " + oneSet.size());
+				for(PlayerCardsPathValue one : oneSet){
+					Collection<DealerCardsPathValue> dealers = DealerCards.fetchDealerCards(dealerCard);
+					for(DealerCardsPathValue dv : dealers) {
+						double result = ProfitUtil.win(one, dv);
+						if(result>0) {
+							win+=result;
+							total += result;
+						}else if(result<0){
+							total += Math.abs(result);
+							if(result==-0.5) giveup++;
+						}
+					}
+				}
+			}
+		}
+		
+		System.out.println("win: "+win+" total: "+total +" rate: "+win/total);
+		System.out.println(giveup);
+	}
+	
+	public static void winRateWithProb() {
 		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
 		double bigWinTimes = 0;
 		double bigTotalTimes = 0;
