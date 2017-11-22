@@ -23,7 +23,44 @@ public class OneStrategyTest{
 	private static boolean useMorePercificRate = false;
 
 	public static void main(String[] args){
-		testROI();
+//		testROI();
+		winRate();
+	}
+	
+	public static void winRate() {
+		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+		double bigWinTimes = 0;
+		double bigTotalTimes = 0;
+		double detailWinTimes = 0;
+		double detailTotalTimes = 0;
+		double roi = 0;
+		for(PlayerCardsPathValue pcpv : playerCards){
+			System.out.println("Player: " +pcpv.getCards());
+			for(Card dealerCard : Card.values()){
+				double onePlayCardVsDealerCardROI = 0;
+				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
+//				System.out.println(dealerCard+" : " + oneSet.size());
+				for(PlayerCardsPathValue one : oneSet){
+					double eroi = 0;
+					if(OneStrategyTest.useMorePercificRate){
+						eroi = ProfitUtil.oldFashionWayMoneyCalcOneHandInReturn(one, dealerCard);
+					}else{
+						eroi = ProfitUtil.moneyCalcOneHandInReturn(one, dealerCard);
+					}
+					onePlayCardVsDealerCardROI += eroi;
+					if(eroi>0) detailWinTimes++;
+					detailTotalTimes++;
+					System.out.println(eroi +" \t "+dealerCard+" : "+one.getCards());
+					roi+=eroi;
+				}
+				if(onePlayCardVsDealerCardROI>0) bigWinTimes++;
+				bigTotalTimes++;
+			}
+		}
+		System.out.println("detailwin: "+detailWinTimes +" detailtotal: "+detailTotalTimes +"\t detailresult: "+detailWinTimes/detailTotalTimes);
+		System.out.println("bigwin: "+bigWinTimes +" bigtotal: "+bigTotalTimes +"\t bigresult: "+bigWinTimes/bigTotalTimes);
+		System.out.println(roi);
 	}
 	
 	public static void testROI(){

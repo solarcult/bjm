@@ -1,0 +1,24 @@
+Oct16 Finally: 61.424987997208945
+sumway:
+detailwin: 56657.0 detailtotal: 233233.0	 detailresult: 0.24292016995879656
+bigwin: 788.0 bigtotal: 2197.0	 bigresult: 0.35867091488393266
+oldfashin
+detailwin: 56657.0 detailtotal: 233233.0	 detailresult: 0.24292016995879656
+bigwin: 794.0 bigtotal: 2197.0	 bigresult: 0.3614019116977697
+
+
+Oct21 Finally: 58.08641850088011
+sumway:
+detailwin: 45809.0 detailtotal: 200689.0	 detailresult: 0.22825864895435224
+bigwin: 786.0 bigtotal: 2197.0	 bigresult: 0.35776058261265364
+oldfashion
+detailwin: 45809.0 detailtotal: 200689.0	 detailresult: 0.22825864895435224
+bigwin: 792.0 bigtotal: 2197.0	 bigresult: 0.3604915794264907
+
+sum和oldfashion运算在big层面有6个结果不一致，怀疑是计算Prob时，sum的统计学方式每次都重置了总牌数，但detail的oldfashin每次都把用户的和庄家的出牌计算在一起造成的不一致，看了代码，只是猜想，未验证。
+但细节层面，输赢的概率是一致的，我们应该用哪一个概率计算胜率呢？
+感觉用detail的方式更底层细节些，现场中，遇到的也是这样的情况，每一手牌的具体情况，而不是big层面统计的情况。
+原来胜率这么低呀。
+
+10848
+32544
