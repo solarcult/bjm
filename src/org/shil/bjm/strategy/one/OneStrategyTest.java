@@ -13,7 +13,8 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProbUtil;
-import org.shil.bjm.strategy.ProfitUtil;
+import org.shil.bjm.meta.ProfitUtil;
+import org.shil.bjm.meta.WinRateUtil;
 
 /**
  * 运行看最终ROI的类
@@ -45,14 +46,14 @@ public class OneStrategyTest{
 				for(PlayerCardsPathValue one : oneSet){
 					Collection<DealerCardsPathValue> dealers = DealerCards.fetchDealerCards(dealerCard);
 					for(DealerCardsPathValue dv : dealers) {
-						double result = ProfitUtil.win(one, dv);
+						double result = WinRateUtil.win(one, dv);
 						if(result>0) {
 							win+=result;
 							total += result;
 						}else if(result<0){
 							total += Math.abs(result);
 							if(result==-0.5) giveup++;
-						}
+						}else total++;
 					}
 				}
 			}

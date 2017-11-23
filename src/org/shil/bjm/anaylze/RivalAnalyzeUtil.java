@@ -10,7 +10,7 @@ import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
-import org.shil.bjm.strategy.ProfitUtil;
+import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.strategy.TestPairStrategy;
 import org.shil.bjm.strategy.one.Combat2017Oct16Bot;
 import org.shil.bjm.strategy.one.Combat2017Oct16Frt;

@@ -6,8 +6,8 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerCardsPathValue;
+import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
-import org.shil.bjm.strategy.ProfitUtil;
 import org.shil.bjm.strategy.Strategy;
 
 public class BasicOnlineStrategy extends Strategy{

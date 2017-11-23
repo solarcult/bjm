@@ -10,7 +10,7 @@ import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerCardsPathValue;
-import org.shil.bjm.strategy.ProfitUtil;
+import org.shil.bjm.meta.ProfitUtil;
 
 public class BasicStrategyTest{
 	
