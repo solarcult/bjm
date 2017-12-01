@@ -8,6 +8,7 @@ public class WinRateUtil {
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
 			return -0.5;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
+			//这里会造成外层统计有稍微的误差,但总数在15亿中,可以忽略
 			return 0;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
 				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
