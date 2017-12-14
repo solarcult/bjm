@@ -64,6 +64,7 @@ public class HelloWorld {
 		if(advanced!=null){
 			sb.append("\r\norg->adv\t$w:"+origin[0]*100 + "->" + advanced[0]*100+"  \t$d:"+origin[1]*100 + "->" + advanced[1]*100+"  \t$l:"+origin[2]*100 + "->" + advanced[2]*100);
 			sb.append("\r\n\timprove value x$w(high is good):"+(advanced[0]*100 - origin[0]*100)+"  \tx$d:"+(advanced[1]*100 - origin[1]*100)+"  \t x$l(negative is good):"+(advanced[2]*100 - origin[2]*100));
+			sb.append("\t lift: "+ (origin[0]-origin[2])*100 +" -> "+ (advanced[0]-advanced[2])*100);
 		}else{
 			sb.append(builderDoubleWDL(origin));
 		}

@@ -141,7 +141,7 @@ public class RivalAnalyzeUtil {
 	
 	public static void main(String[] args){
 //		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithA();
-//		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithPair();
+//		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithoutA();
 //		HelloWorld.print(ao);
 		
 //		testPair();
