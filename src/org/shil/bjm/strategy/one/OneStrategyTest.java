@@ -27,9 +27,9 @@ public class OneStrategyTest{
 	private static boolean useMorePercificRate = false;
 
 	public static void main(String[] args){
-//		testROI();
+		testROI();
 //		winRateWithProb();
-		pureWinRate();
+//		pureWinRate();
 	}
 	
 	public static void pureWinRate() {
