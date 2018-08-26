@@ -15,69 +15,57 @@ public class ProbUtil {
 
 	public static DeckSet IN_USED_DECKSET = DeckSet.buildCasionDeckSet();
 	
-	//计算出现这副牌组合的概率
+	/**
+	 * 用默认牌数,计算出现这副牌组合的概率
+	 * @param cards
+	 * @return
+	 */
 	public static double calcProb(List<Card> cards){
-		double prob = 1;
-		/*
-		 * old way calc prob, need upgrade a new preciously way.
-		 * but in fact two way get the same result 
-		 * because the totalcards and onecards change make the effect of result 
-		 * 
-		double usedcard = 0;
-		Map<Card,Integer> cardsMap = convertList2Map(cards);
-		for(Entry<Card,Integer> entry : cardsMap.entrySet()){
-			for(int i=0;i<entry.getValue();i++){
-				prob *= (double) (IN_USED_DECKSET.getTotalOneSameCardsN()-i)/(IN_USED_DECKSET.getTotalCards()-usedcard);
-				usedcard++;
-			}
-		}
-		*/
 		
+		//这里重置是为了每次计算当作独立事件,其实也可以根据已经出现的牌来进行计算,但是现场可能没有机会输入,所以这里先重置
 		IN_USED_DECKSET.reset();
-		for(Card card : cards){
-			prob *= IN_USED_DECKSET.getOneCardProb(card);
-			IN_USED_DECKSET.usedCards(card, 1);
-		}
 		
-		return prob;
+		return calcProb(cards,IN_USED_DECKSET);
 	}
 	
-	//计算出现这副牌组合的概率
+	/**
+	 * 用指定牌的数据,计算出现这副牌组合的概率. 一般用于实际实时计算,加入其他玩家消耗的牌的情况
+	 * @param cards
+	 * @param deckset
+	 * @return
+	 */
 	public static double calcProb(List<Card> cards,DeckSet deckset){
 		double prob = 1;
 		for(Card card : cards){
 			prob *= deckset.getOneCardProb(card);
+			//每使用一张,消耗一张计数
 			deckset.usedCards(card, 1);
 		}
 		return prob;
 	}
 	
-	//计算出现这副牌组合的概率
+	/**
+	 * 使用默认牌数,计算出现这副牌组合的概率,场景是分牌时候的概率,第一张牌是分牌的牌
+	 * @param cards
+	 * @param splitTimes
+	 * @return
+	 */
 	public static double calcProb(List<Card> cards,int splitTimes){
-		double prob = 1;
 		
 		IN_USED_DECKSET.reset();
 		
-		for(int i=0; i<splitTimes; i++){
-			IN_USED_DECKSET.usedCards(cards.get(0), 1);
-		}
-		for(Card card : cards){
-			prob *= IN_USED_DECKSET.getOneCardProb(card);
-			IN_USED_DECKSET.usedCards(card, 1);
-		}
-		return prob;
+		//分牌的牌,当作先消耗掉一张,因为PlayerCardsPathValue.setAction()中分牌时,会remove掉第一张.
+		IN_USED_DECKSET.usedCards(cards.get(0),splitTimes);
+		
+		return calcProb(cards,IN_USED_DECKSET);
 	}
 	
 	public static double calcProb(List<Card> cards,int splitTimes,DeckSet deckset){
-		double prob = 1;
-		for(int i=0; i<splitTimes; i++){
-			deckset.usedCards(cards.get(0), 1);
-		}
-		for(Card card : cards){
-			prob *= deckset.getOneCardProb(card);
-			deckset.usedCards(card, 1);
-		}
-		return prob;
+		
+		//分牌的牌,当作先消耗掉一张,因为PlayerCardsPathValue.setAction()中分牌时,会remove掉第一张.
+		deckset.usedCards(cards.get(0),splitTimes);
+		
+		return calcProb(cards, deckset);
 	}
 	
 	//将cards映射成map

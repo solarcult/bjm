@@ -20,12 +20,6 @@ public class DeckSet {
 		
 		totalOneSameCardsN = ndeck * OneSameCardInOneDeck;
 		cardsLeftNumberMap = new HashMap<Card, Integer>();
-		/*
-		totalCards = ndeck * DeckCards;
-		for(Card card : Card.values()){
-			cardsLeftNumberMap.put(card, totalOneSameCardsN);
-		}
-		*/
 		reset();
 	}
 	
@@ -37,6 +31,8 @@ public class DeckSet {
 		for(Card card : Card.values()){
 			cardsLeftNumberMap.put(card, totalOneSameCardsN);
 		}
+		
+		//for test situation
 //		used15SmallCard();
 //		used15BigCard();
 //		usedCards(Card.One1,3);
@@ -96,8 +92,10 @@ public class DeckSet {
 
 	public static void main(String[] args){
 		DeckSet decks = DeckSet.buildCasionDeckSet();
-		decks.usedCards(Card.Eight8, 2);
+		decks.usedCards(Card.Eight8, 5);
 		System.out.println(decks.getOneCardProb(Card.Eight8));
-		System.out.println((double)(4*6-2)/(52*6-2));
+		System.out.println((double)(4*6-5)/(52*6-5));
+		
+		System.out.println((double)(4*6)/(52*6-2));
 	}
 }

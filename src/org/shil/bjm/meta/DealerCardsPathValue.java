@@ -24,7 +24,7 @@ public class DealerCardsPathValue extends CardsPathValue{
 				+ ", getValue()=" + getValue() + ", prob()=" + prob() + ", outOfCards()=" + outOfCards() + "]";
 	}
 	
-	public static void main(String args){
+	public static void main(String[] args){
 		DealerCardsPathValue cardsPathValue = new DealerCardsPathValue(Card.One1);
 		cardsPathValue.addCard(Card.One1);
 		cardsPathValue.addCard(Card.Eight8);
@@ -36,6 +36,8 @@ public class DealerCardsPathValue extends CardsPathValue{
 		DealerCardsPathValue cardsPathValue3 = new DealerCardsPathValue(Card.One1);
 		cardsPathValue3.addCard(Card.Eight8);
 		cardsPathValue3.addCard(Card.One1);
+		
+		System.out.println(cardsPathValue.getValue());
 		
 		Collection<DealerCardsPathValue> a = new HashSet<DealerCardsPathValue>();
 		a.add(cardsPathValue);

@@ -28,7 +28,8 @@ public class WinRateUtil {
 		if(playerCardsPathValue.getValue()<dealerCardsPathValue.getValue()) {
 			return -1;
 		}
-		System.out.println("WRONG iS HERER 99999999999"+playerCardsPathValue.getValue()+dealerCardsPathValue.getValue());
-		return 999999999;
+//		System.out.println("WRONG iS HERER 99999999999"+playerCardsPathValue.getValue()+dealerCardsPathValue.getValue());
+		throw new RuntimeException("WRONG iS HERER 99999999999"+playerCardsPathValue.getValue()+dealerCardsPathValue.getValue());
+//		return 999999999;
 	}
 }

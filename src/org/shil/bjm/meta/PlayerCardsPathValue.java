@@ -16,7 +16,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	
 	public PlayerCardsPathValue(Card ... _cards){
 		super(_cards);
-		if(_cards.length<2) throw new RuntimeException("PlayerCards Init should have 2 cards least");
+		if(_cards.length<2) throw new RuntimeException("PlayerCards Init should have 2 cards at least");
 		action = PlayerAction.Init;
 		betMutiV = 1;
 		splitTimes = 0;
@@ -30,23 +30,26 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	}
 
 	public boolean isStartWithA(){
-		if(this.getCards().size()>=2){
+		//remove useless code
+//		if(this.getCards().size()>=2){
 			if(this.getCards().get(0) == Card.One1){
 				return true;
 			}
 			if(this.getCards().get(1) == Card.One1){
 				return true;
 			}
-		}
-		
+//		}
+
 		return false;
 	}
 	
 	public boolean isStartWithPairs(){
-		if(this.getCards().size() >= 2){
+		//remove useless code
+//		if(this.getCards().size() >= 2){
 			return this.getCards().get(0) == this.getCards().get(1);
-		}
-		return false;
+//		}
+
+//		return false;
 	}
 	
 	public StartValue getStartValue(){
@@ -74,18 +77,20 @@ public class PlayerCardsPathValue extends CardsPathValue{
 				//AA only can split 1 time
 				if(this.splitTimes > 1){
 					// 12 is stand
-					throw new RuntimeException("split too many times should not happend ");
+					throw new RuntimeException("A split too many times should not happend ");
 				}
 			}else{
 				//other cards without A can only split 2 times
 				if(this.splitTimes > 2 ){
-					throw new RuntimeException("split too many times should not happend ");
+					throw new RuntimeException("not A split too many times should not happend ");
 				}
 			}
 			if(this.action == PlayerAction.Split){
+				//old code , i think not 严谨，为什么remove1而不是0，虽然这两个都是一样的牌 . this.getCards().remove(1);
+				if(!getCards().get(0).equals(getCards().get(1))) throw new RuntimeException("split cards should be equal");
 				
 				//only left the first card
-				this.getCards().remove(1);
+				this.getCards().remove(0);
 				
 				this.action = PlayerAction.Init;
 				this.betMutiV = 2 * betMutiV;

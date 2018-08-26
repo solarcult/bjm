@@ -10,6 +10,7 @@ import java.util.Map;
  *
  */
 public abstract class CardsPathValue {
+	//所使用的牌
 	private List<Card> cards;
 	
 	public CardsPathValue(Card ... _cards){
@@ -29,6 +30,7 @@ public abstract class CardsPathValue {
 	
 	/**
 	 * 老帅了，动态识别A，哈哈哈哈哈哈哈
+	 * 这里更多是给庄家算这个数，玩家的我们应该继续要根据结果进行计算，所以玩家对于A的计算应该是单独的逻辑
 	 * @return
 	 */
 	public int getValue(){
@@ -52,6 +54,10 @@ public abstract class CardsPathValue {
 		return cards;
 	}
 
+	/**
+	 * 已使用牌的统计Map
+	 * @return
+	 */
 	public Map<Card,Integer> getCardsMap(){
 		return ProbUtil.convertList2Map(cards);
 	}
@@ -98,5 +104,12 @@ public abstract class CardsPathValue {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "CardsPathValue [cards=" + cards + "]";
+	}
+	
+	
 	
 }
