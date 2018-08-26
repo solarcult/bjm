@@ -19,6 +19,10 @@ import org.shil.bjm.strategy.one.OneWithAMatrix;
  */
 public class PlayerCards {
 
+	/**
+	 * 基本生成2张牌组合
+	 * @return
+	 */
 	public static Collection<PlayerCardsPathValue> generateTwoStartCards(){
 		Collection<PlayerCardsPathValue> allCombination = new HashSet<PlayerCardsPathValue>();
 		for(Card one: Card.values()){
@@ -30,6 +34,10 @@ public class PlayerCards {
 		return allCombination;
 	}
 	
+	/**
+	 * without Pair without A
+	 * @return
+	 */
 	public static Collection<PlayerCardsPathValue> generateTwoStartCardsWithoutPairWithoutA(){
 		Collection<PlayerCardsPathValue> allCombination = new HashSet<PlayerCardsPathValue>();
 		for(Card one: Card.values()){
@@ -43,6 +51,10 @@ public class PlayerCards {
 		return allCombination;
 	}
 	
+	/**
+	 * 玩家生成起手对牌
+	 * @return
+	 */
 	public static List<PlayerCardsPathValue> generatePairs(){
 		List<PlayerCardsPathValue> pairs =  new ArrayList<>();
 		for(PlayerCardsPathValue c : generateTwoStartCards()){
@@ -61,6 +73,10 @@ public class PlayerCards {
 		return pairs;
 	}
 	
+	/**
+	 * 玩家生成没有A的起手2张牌
+	 * @return
+	 */
 	public static List<PlayerCardsPathValue> sortedOneValueStartCardsWithoutA(){
 		List<PlayerCardsPathValue> countNotSamePCPV =  new ArrayList<>();
 		List<Integer> start2sCount = new ArrayList<>();
@@ -85,6 +101,10 @@ public class PlayerCards {
 		return countNotSamePCPV;
 	}
 	
+	/**
+	 * 玩家生成起手两张牌有一张有A
+	 * @return
+	 */
 	public static List<PlayerCardsPathValue> sortedOneValueStartCardsWithA(){
 		List<PlayerCardsPathValue> withoutAPCPVs =  new ArrayList<>();
 		List<Card> withoutAs = new ArrayList<>();

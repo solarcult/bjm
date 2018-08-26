@@ -28,7 +28,7 @@ public class RivalAnalyzeUtil {
 	 * 对非带A的普通起手牌进行分析
 	 * @return
 	 */
-	public static List<DealerVSPlayerChance> makePlayerOneMoreVSNowDealerChangeWithoutA(){
+	public static List<DealerVSPlayerChance> makePlayerWithoutAOneMoreVSDealer(){
 		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithoutA()) {
 			if (playerCardsPathValue.getValue() < 8) continue;
@@ -49,7 +49,7 @@ public class RivalAnalyzeUtil {
 	 * 对Ax的牌进行分析
 	 * @return
 	 */
-	public static List<DealerVSPlayerChance> makePlayerOneMoreVSNowDealerChangeWithA(){
+	public static List<DealerVSPlayerChance> makePlayerWithAOneMoreVSDealer(){
 		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithA()) {
 			for (Card dealerCard : Card.values()) {
@@ -140,12 +140,13 @@ public class RivalAnalyzeUtil {
 	}
 	
 	public static void main(String[] args){
-//		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithA();
-//		List<DealerVSPlayerChance> ao = makePlayerOneMoreVSNowDealerChangeWithoutA();
-//		HelloWorld.print(ao);
+//		List<DealerVSPlayerChance> ao = makePlayerWithAOneMoreVSDealer();
+		//review ok
+		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
+		HelloWorld.print(ao);
 		
 //		testPair();
-		makePlayerOneMoreVSNowDealerChangeWithPair();
+//		makePlayerOneMoreVSNowDealerChangeWithPair();
 //		RivalAnalyzeUtil.testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(Card.Two2,Card.Seven7),Card.Seven7);
 //		testVS();
 	}

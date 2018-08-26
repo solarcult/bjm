@@ -53,8 +53,9 @@ public class OneWithAMatrix extends PlayerStrategyMatrix {
 	
 	public static Card findFirstTwoCardsWithOutA(PlayerCardsPathValue playerCardsPathValue){
 		Card withoutA = null;
-		if(!playerCardsPathValue.isStartWithA()) return withoutA;
-		if(playerCardsPathValue.getCards().size()<2) return withoutA;
+		//below 2 if should not happened, comment it now
+//		if(!playerCardsPathValue.isStartWithA()) return withoutA;
+//		if(playerCardsPathValue.getCards().size()<2) return withoutA;
 		if(playerCardsPathValue.getCards().get(0).equals(Card.One1)){
 			withoutA = playerCardsPathValue.getCards().get(1);
 		}else if(playerCardsPathValue.getCards().get(1).equals(Card.One1)){

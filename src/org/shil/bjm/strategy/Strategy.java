@@ -49,6 +49,7 @@ public abstract class Strategy {
 				//detect player cards type
 				if(playerCardsPathValue.isStartWithPairs()){
 					if(playerCardsPathValue.getCards().get(0) == Card.One1){
+						//TODO AA 是否一定要分牌,待验证!!!
 						//AA only can split 1 time
 						if(playerCardsPathValue.getSplitTimes()>=1){
 							playerAction = PlayerAction.Stand;
