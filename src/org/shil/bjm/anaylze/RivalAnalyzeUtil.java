@@ -80,9 +80,13 @@ public class RivalAnalyzeUtil {
 			Collection<PlayerCardsPathValue> normalStrategy = strategyAATest.generatePlayerCardsPaths(AAs, dealerCard);
 			Collection<PlayerCardsPathValue> spliteStrategy = OneStrategy.SELF.generatePlayerCardsPaths(AAss, dealerCard);
 			double[] normal = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(normalStrategy,dealerCard);
+
 			double[] splits = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(spliteStrategy,dealerCard);
 			DealerVSPlayerChance dealerVSPlayerChance = new DealerVSPlayerChance(dealerCard, OneWithAMatrix.findFirstTwoCardsWithOutA(AAs).getValue(), normal,splits);
 			diff.add(dealerVSPlayerChance);
+			System.out.println(dealerCard);
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturn(normalStrategy, dealerCard));
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturn(spliteStrategy, dealerCard));
 		}
 		
 		return diff;
