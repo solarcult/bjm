@@ -80,6 +80,8 @@ public class PlayersVSDealersResultChanceProb {
 		return calcPlayerVSDealerAnaylzeStatus(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
 	}
 	
+	/*
+	//why use precent? i this should use prob()
 	public static double[] calcPlayerVSDealerAnaylzeStatus(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
 		double winrate = 0;
 		double drawrate = 0;
@@ -107,9 +109,39 @@ public class PlayersVSDealersResultChanceProb {
 		
 		return new double[]{winrate/totalrate,drawrate/totalrate,loserate/totalrate};
 	}
+	*/
+	
+	public static double[] calcPlayerVSDealerAnaylzeStatus(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
+		double winrate = 0;
+		double drawrate = 0;
+		double loserate = 0;
+		
+		for(Entry<Integer,AnalyzeStatus> pe : playermap.entrySet()){
+			for(Entry<Integer,AnalyzeStatus> de : dealermap.entrySet()){
+				AnalyzeStatus pa = pe.getValue();
+				AnalyzeStatus da = de.getValue();
+				if(pa.getValue() > BlackJackInfo.BlackJack){
+					loserate += pa.getProb() * da.getProb();
+				}else if(da.getValue() > BlackJackInfo.BlackJack){
+					winrate += pa.getProb() * da.getProb();
+				}else if(pa.getValue() > da.getValue()){
+					winrate += pa.getProb() * da.getProb();
+				}else if(pa.getValue() < da.getValue()){
+					loserate += pa.getProb() * da.getProb();
+				}else if(pa.getValue() == da.getValue()){
+					drawrate += pa.getProb() * da.getProb();
+				}
+			}
+		}
+		
+		double totalrate = winrate + drawrate + loserate;
+		
+		return new double[]{winrate/totalrate,drawrate/totalrate,loserate/totalrate};
+	}
 	
 	public static void main(String[] args){
 //		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(GenerateCardsUtil.hitPlayerOneMoreCard(new PlayerCardsPathValue(Card.Four4,Card.Six6)), Card.Six6));
-		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(OneStrategy.SELF.generatePlayerCardsPaths(new PlayerCardsPathValue(Card.Two2,Card.Six6), Card.Six6) ,Card.Six6));
+		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(OneStrategy.SELF.generatePlayerCardsPaths(new PlayerCardsPathValue(Card.Two2,Card.Six6), Card.Eight8) ,Card.Eight8));
+		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(OneStrategy.SELF.generatePlayerCardsPaths(new PlayerCardsPathValue(Card.Two2,Card.Six6), Card.Eight8) ,Card.Eight8));
 	}
 }

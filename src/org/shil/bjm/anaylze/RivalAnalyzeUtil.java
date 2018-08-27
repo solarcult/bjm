@@ -8,12 +8,15 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.meta.Card;
+import org.shil.bjm.meta.CardsPathValue;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
+import org.shil.bjm.strategy.StrategyAATest;
 import org.shil.bjm.strategy.TestPairStrategy;
 import org.shil.bjm.strategy.one.Combat2017Oct16Bot;
 import org.shil.bjm.strategy.one.Combat2017Oct16Frt;
+import org.shil.bjm.strategy.one.Combat2017Oct21;
 import org.shil.bjm.strategy.one.OneStrategy;
 import org.shil.bjm.strategy.one.OneWithAMatrix;
 
@@ -64,6 +67,27 @@ public class RivalAnalyzeUtil {
 		}
 		return diff;
 	}
+	
+	static StrategyAATest strategyAATest = new StrategyAATest(Combat2017Oct21.SELF);
+	
+	public static List<DealerVSPlayerChance> makePlayerAAVSDealer(){
+
+		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
+		for(Card dealerCard : Card.values()) {
+			PlayerCardsPathValue AAs = new PlayerCardsPathValue(Card.One1,Card.One1);
+			PlayerCardsPathValue AAss = new PlayerCardsPathValue(Card.One1,Card.One1);
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue; 
+			Collection<PlayerCardsPathValue> normalStrategy = strategyAATest.generatePlayerCardsPaths(AAs, dealerCard);
+			Collection<PlayerCardsPathValue> spliteStrategy = OneStrategy.SELF.generatePlayerCardsPaths(AAss, dealerCard);
+			double[] normal = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(normalStrategy,dealerCard);
+			double[] splits = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(spliteStrategy,dealerCard);
+			DealerVSPlayerChance dealerVSPlayerChance = new DealerVSPlayerChance(dealerCard, OneWithAMatrix.findFirstTwoCardsWithOutA(AAs).getValue(), normal,splits);
+			diff.add(dealerVSPlayerChance);
+		}
+		
+		return diff;
+	}
+	
 	
 	static TestPairStrategy testPairStrategy = new TestPairStrategy(Combat2017Oct16Bot.SELF,OneWithAMatrix.SELF);
 	
@@ -141,8 +165,8 @@ public class RivalAnalyzeUtil {
 	
 	public static void main(String[] args){
 //		List<DealerVSPlayerChance> ao = makePlayerWithAOneMoreVSDealer();
-		//review ok
-		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
+//		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
+		List<DealerVSPlayerChance> ao = makePlayerAAVSDealer();
 		HelloWorld.print(ao);
 		
 //		testPair();

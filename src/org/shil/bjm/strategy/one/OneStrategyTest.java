@@ -107,7 +107,7 @@ public class OneStrategyTest{
 //		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
 		for(PlayerCardsPathValue pcpv : playerCards){
 			double xoi = 0;
-//			System.out.println("Player: " +pcpv.getCards());
+			System.out.println("Player: " +pcpv.getCards());
 			for(Card dealerCard : Card.values()){
 				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 				Collection<PlayerCardsPathValue> oneSet = OneStrategy.SELF.generatePlayerCardsPaths(oneCalc, dealerCard);
@@ -126,7 +126,7 @@ public class OneStrategyTest{
 //					}
 				}
 			}
-//			System.out.println(" xoi: " + xoi);
+			System.out.println(" xoi: " + xoi);
 		}
 		System.out.println("\nFinally: " + roi);
 	}
