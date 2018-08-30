@@ -1,7 +1,11 @@
 package org.shil.bjm.strategy8102;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
@@ -268,5 +272,13 @@ public abstract class StrategyMatrix8012 {
 	public Map<MatrixKey, PlayerAction> getOne() {
 		return one;
 	}
-
+	
+	public List<Result> getChangeMatrxByList(){
+		List<Result> changeResults = new LinkedList<>();
+		for(Entry<MatrixKey, PlayerAction> e : changesMatrix.entrySet()) {
+			changeResults.add(new Result(e.getKey(), e.getValue()));
+		}
+		Collections.sort(changeResults);
+		return changeResults;
+	}
 }

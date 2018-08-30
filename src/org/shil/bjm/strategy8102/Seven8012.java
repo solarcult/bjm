@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.PlayerAction;
 
 public class Seven8012 extends StrategyMatrix8012 {
@@ -81,5 +82,7 @@ public class Seven8012 extends StrategyMatrix8012 {
 		}
 		
 		System.out.println(count);
+		
+		HelloWorld.print(one.getChangeMatrxByList());
 	}
 }
