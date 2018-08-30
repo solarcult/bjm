@@ -120,4 +120,17 @@ public enum PlayerAction {
 		}
 	}
 	
+	public static void main(String[] args) {
+		try {
+			SecureRandom sr = SecureRandom.getInstanceStrong();
+			for(int i=0;i<30;i++) {
+				System.out.println(sr.nextInt(10));
+			}
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
 }

@@ -17,6 +17,8 @@ public abstract class StrategyMatrix8012 {
 		notChangesMatrix = new HashMap<>();
 		changesMatrix = new HashMap<>();
 		
+//		普通牌
+		
 		/*
 		 * Situation.Start_Hand_WithoutA_WithoutPair [3~8] 
 		 * VS
@@ -56,10 +58,7 @@ public abstract class StrategyMatrix8012 {
 			}
 		}
 		
-		
-		
-		
-		
+//		AX牌
 		
 		/*
 		 * Situation.Start_With_A [2~7]
@@ -96,10 +95,7 @@ public abstract class StrategyMatrix8012 {
 			changesMatrix.put(start_With_A, PlayerAction.Hit);
 		}
 		
-		
-		
-		
-		
+		//对牌
 		
 		/*
 		 * Situation.Start_With_Pair [2~9]
@@ -137,9 +133,7 @@ public abstract class StrategyMatrix8012 {
 		}
 		
 		
-		
-		
-		
+//		对牌一次
 		
 		/*
 		 * Situation.Splited_Pair_And_Can_Split [2~9]
@@ -154,10 +148,7 @@ public abstract class StrategyMatrix8012 {
 			}
 		}
 		
-		
-		
-		
-		
+		//对牌两次
 		
 		/*
 		 * Situation.Splited_Pair_And_Can_NOT_Split [2~9]
@@ -184,8 +175,7 @@ public abstract class StrategyMatrix8012 {
 		}
 		*/
 		
-		
-		
+//		两张牌以上不能投降时
 		
 		/*
 		 * Situation.Three_More_Cards [3~8] 
