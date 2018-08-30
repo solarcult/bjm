@@ -24,7 +24,7 @@ public abstract class StrategyMatrix8012 {
 		 * VS
 		 * DealerCard  (One ~ K)
 		 */
-		for(int start = 3; start <= 8 ; start++) {
+		for(int start = 4; start <= 8 ; start++) {
 			for(Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
@@ -91,7 +91,7 @@ public abstract class StrategyMatrix8012 {
 		 */
 		for(Card dealerCard : Card.values()) {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			MatrixKey start_With_A = new MatrixKey(StartValue.Eleven, dealerCard, Situation.Start_With_A);
+			MatrixKey start_With_A = new MatrixKey(StartValue.One, dealerCard, Situation.Start_With_A);
 			changesMatrix.put(start_With_A, PlayerAction.Hit);
 		}
 		
@@ -128,7 +128,7 @@ public abstract class StrategyMatrix8012 {
 		 */
 		for(Card dealerCard : Card.values()) {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			MatrixKey start_With_A = new MatrixKey(StartValue.Eleven, dealerCard, Situation.Start_With_Pair);
+			MatrixKey start_With_A = new MatrixKey(StartValue.One, dealerCard, Situation.Start_With_Pair);
 			changesMatrix.put(start_With_A, PlayerAction.Split);
 		}
 		
@@ -155,11 +155,38 @@ public abstract class StrategyMatrix8012 {
 		 * VS
 		 * DealerCard (One ~ K)
 		 */
-		for(int start = 2; start <= 9; start++) {
+		for(int start = 4; start <= 8; start++) {
 			for(Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				MatrixKey splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+				notChangesMatrix.put(splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+			}
+		}
+		
+		
+		/*
+		 * Situation.Splited_Pair_And_Can_NOT_Split [9~17] 
+		 * VS
+		 * DealerCard  (One ~ K)
+		 */
+		for(int start = 9; start <= 17; start++) {
+			for(Card dealerCard : Card.values()) {
+				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+				MatrixKey splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+				changesMatrix.put(splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+			}
+		}
+		
+		/*
+		 * Situation.Splited_Pair_And_Can_NOT_Split [18~21] 
+		 * VS
+		 * DealerCard  (One ~ K)
+		 */
+		for(int start = 18; start <= 21 ; start++) {
+			for(Card dealerCard : Card.values()) {
+				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+				MatrixKey splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+				notChangesMatrix.put(splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
 			}
 		}
 		
@@ -170,7 +197,7 @@ public abstract class StrategyMatrix8012 {
 		 这种情况应该在上层直接设置 Stand
 		for(Card dealerCard : Card.values()) {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.Eleven, dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+			MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.One, dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
 			changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 		}
 		*/
@@ -241,4 +268,5 @@ public abstract class StrategyMatrix8012 {
 	public Map<MatrixKey, PlayerAction> getOne() {
 		return one;
 	}
+
 }

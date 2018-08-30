@@ -6,6 +6,11 @@ import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.StartValue;
 
+/**
+ * 
+ * @author vanis
+ * @deprecated 逻辑中发现没啥用,和PlayerCardValue融合在一起了
+ */
 public class PlayerCardsNow {
 	private List<Card> cards;
 
@@ -47,7 +52,7 @@ public class PlayerCardsNow {
 		return this.getCards().get(0);
 	}
 
-	public boolean isStartTwoCards() {
+	public boolean isStartHand() {
 		return this.getCards().size() == 2;
 	}
 
@@ -73,13 +78,14 @@ public class PlayerCardsNow {
 	}
 	
 	public StartValue getAnaylzeValue() {
-		if(isStartTwoCards()) {
-			if(isStartWithA()) {
-				return StartValue.getOne(findFirstTwoCardsWithOutA().getValue());
-			}
+		if(isStartHand()) {
 			if(isStartWithPairs()) {
 				return StartValue.getOne(findPairCardFromFirstTwoCards().getValue());
 			}
+			if(isStartWithA()) {
+				return StartValue.getOne(findFirstTwoCardsWithOutA().getValue());
+			}
+
 		}
 		
 		return StartValue.getOne(getValue());

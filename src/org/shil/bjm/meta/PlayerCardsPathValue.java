@@ -28,30 +28,50 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		betMutiV = playerCardsPathValue.getBetMutiV();
 		splitTimes = playerCardsPathValue.getSplitTimes();
 	}
+	
+	public boolean isStartHand() {
+		if(this.getCards().size()<2) throw new RuntimeException("Start hand should start form 2 cards!");
+		return this.getCards().size() == 2;
+	}
 
 	public boolean isStartWithA(){
-		//remove useless code
-//		if(this.getCards().size()>=2){
-			if(this.getCards().get(0) == Card.One1){
-				return true;
-			}
-			if(this.getCards().get(1) == Card.One1){
-				return true;
-			}
-//		}
-
+		if(this.getCards().get(0) == Card.One1){
+			return true;
+		}
+		if(this.getCards().get(1) == Card.One1){
+			return true;
+		}
+		
 		return false;
 	}
 	
 	public boolean isStartWithPairs(){
-		//remove useless code
-//		if(this.getCards().size() >= 2){
-			return this.getCards().get(0) == this.getCards().get(1);
-//		}
-
-//		return false;
+		return this.getCards().get(0) == this.getCards().get(1);
 	}
 	
+	public Card findFirstTwoCardsWithOutA(){
+		
+		if(!isStartWithA()) {
+			throw new RuntimeException("this could not happend with A , no A in first two cards");
+		}
+		
+		Card withoutA = null;
+		if(getCards().get(0).equals(Card.One1)){
+			withoutA = getCards().get(1);
+		}else if(getCards().get(1).equals(Card.One1)){
+			withoutA = getCards().get(0);
+		}
+		return withoutA;
+	}
+	
+	public Card findPairCardFromFirstTwoCards() {
+		if(!isStartWithPairs()) {
+			throw new RuntimeException("this could not happend with Pair , no Pair in first two cards");
+		}
+		return this.getCards().get(0);
+	}
+
+
 	public StartValue getStartValue(){
 		int startvalue = this.getCards().get(0).getValue();
 		if(this.getCards().size() >= 2){
@@ -59,6 +79,22 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		}
 		return StartValue.getOne(startvalue);
 	}
+	
+	/*
+	public StartValue getAnaylzeValue() {
+		if(isStartHand()) {
+			if(isStartWithPairs()) {
+				return StartValue.getOne(findPairCardFromFirstTwoCards().getValue());
+			}
+			if(isStartWithA()) {
+				return StartValue.getOne(findFirstTwoCardsWithOutA().getValue());
+			}
+
+		}
+		
+		return StartValue.getOne(getValue());
+	}
+	*/
 	
 	public PlayerAction getAction() {
 		return action;
@@ -138,14 +174,16 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "PlayerCardsPathValue [getStartValue()=" + getStartValue() + ", getCards()=" + getCards()
-				+ ", getValue()=" + getValue() + ", prob()=" + prob() + ", outOfCards()=" + outOfCards() 
-				+ ", action=" + action + ", betMutiV=" + betMutiV 
-				+ ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
-				+ isStartWithPairs() + ", getSplitTimes()=" + splitTimes + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "PlayerCardsPathValue [getStartValue()=" + getStartValue() + ", getCards()=" + getCards()
+//				+ ", getValue()=" + getValue() + ", prob()=" + prob() + ", outOfCards()=" + outOfCards() 
+//				+ ", action=" + action + ", betMutiV=" + betMutiV 
+//				+ ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
+//				+ isStartWithPairs() + ", getSplitTimes()=" + splitTimes + "]";
+//	}
+	
+	
 	
 	@Override
 	public void addCard(Card card){
@@ -155,6 +193,15 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return "PlayerCardsPathValue [action=" + action + ", betMutiV=" + betMutiV + ", splitTimes=" + splitTimes
+				+ ", isStartHand()=" + isStartHand() + ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
+				+ isStartWithPairs() + ", getStartValue()=" + getStartValue() + ", prob()=" + prob() + ", getValue()="
+				+ getValue() + ", getCards()=" + getCards() + ", getCardsMap()=" + getCardsMap() + ", outOfCards()="
+				+ outOfCards() + "]";
+	}
+
 	public static void main(String[] args){
 		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.One1,Card.One1);
 		cardsPathValue.addCard(Card.Eight8);
