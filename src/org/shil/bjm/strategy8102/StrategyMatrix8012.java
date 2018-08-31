@@ -337,7 +337,16 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 
 	@Override
 	public String toString() {
-		return "StrategyMatrix8012 [roi=" + roi + "one= \n" + getChangeMatrxByList() + "]";
+		StringBuffer sb = new StringBuffer();
+		sb.append("StrategyMatrix8012 [roi=");
+		sb.append(roi);
+		sb.append("changeMatrix = ");
+		for(Result r: getChangeMatrxByList()) {
+			sb.append("\n");
+			sb.append(r);
+		}
+		sb.append("\n");
+		return sb.toString();
 	}
 	
 	

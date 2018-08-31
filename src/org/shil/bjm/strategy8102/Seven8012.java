@@ -1,20 +1,15 @@
 package org.shil.bjm.strategy8102;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.PlayerAction;
 
 public class Seven8012 extends StrategyMatrix8012 {
-	
-	private int evolveSpecies = 1024;
-	
-	private int changePrecent = 2;
+		
+	private int changePrecent = 6;
 	
 	private int totalPrecent = 100;
 	
@@ -60,13 +55,6 @@ public class Seven8012 extends StrategyMatrix8012 {
 		return new Seven8012(this,changesMatrix);
 	}
 	
-	public List<StrategyMatrix8012> evolveSpecies(){
-		List<StrategyMatrix8012> evolves = new ArrayList<>(evolveSpecies);
-		for(int i=0;i<this.evolveSpecies;i++) {
-			evolves.add(this.evolve());
-		}
-		return evolves;
-	}
 	
 	public static void main(String[] args) {
 		StrategyMatrix8012 one = new Seven8012();

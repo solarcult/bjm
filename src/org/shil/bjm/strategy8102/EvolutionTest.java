@@ -1,27 +1,16 @@
 package org.shil.bjm.strategy8102;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import org.shil.bjm.HelloWorld;
+import java.util.concurrent.CompletableFuture;
 
 public class EvolutionTest {
 	
-	public static List<StrategyMatrix8012> evoluationOnce(List<StrategyMatrix8012> origins){
-		List<StrategyMatrix8012> evos = new ArrayList<>();
-		for(StrategyMatrix8012 e : origins) {
-			evos.add(e);
-			for(int i = 0; i<100; i++) {
-				evos.add(e.evolve());
-			}
-		}
-		
-		Collections.sort(evos);
-		
-		evos.subList(0, 100);
-		return evos;
-	}
+	static int generation = 80;
+	static int popluation = 60;
 
 	public static void main(String[] args) {
 		
@@ -30,16 +19,69 @@ public class EvolutionTest {
 		StrategyMatrix8012 origin = new Seven8012();
 		evos.add(origin);
 		
-		for(int i = 0; i<100; i++) {
-			evos = evoluationOnce(evos);
-		}
+//		System.out.println("s");
+//		long start = System.currentTimeMillis();
+//		
+//		origin.evolve().getROI();
+//		System.out.println("e :");
+//		System.out.println(System.currentTimeMillis() - start);
 		
-		for(StrategyMatrix8012 e : evos) {
-			System.out.println(e);
+		for(int i = 0; i < generation; i++) {
+			System.out.println("start generation: "+i +" evos size: " + evos.size());
+			evos = evoluationOnceMultiCPU(evos);
+		}
+
+//		for(StrategyMatrix8012 e : evos) {
+//			System.out.println(e);
 //			HelloWorld.print(e.getChangeMatrxByList());
+//		}
+
+		writeToDisk(evos);
+	}
+	
+	public static void writeToDisk(List<StrategyMatrix8012> evos){
+		
+		String fileName="D:\\blackjack.txt";
+		try {
+			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
+
+			for(StrategyMatrix8012 e : evos) {
+				out.write(e.toString());
+				out.newLine();
+			}
+			
+			out.flush();
+			out.close();
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
-	
-
+	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins) {
+		
+		List<CompletableFuture<StrategyMatrix8012>> guess = new ArrayList<>();
+		List<StrategyMatrix8012> result = new ArrayList<>();
+		for(StrategyMatrix8012 sm : origins) {
+			for(int i=0;i<popluation;i++) {
+				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
+					StrategyMatrix8012 evo = sm.evolve();
+					evo.getROI();
+					result.add(evo);
+					return evo;
+				});
+				
+				guess.add(completableFuture);
+			}
+		}
+//		System.out.println("done"+guess.size());
+		
+		CompletableFuture<Void> all = CompletableFuture.allOf(guess.toArray(new CompletableFuture[guess.size()]));
+		all.join();
+//		System.out.println("join done"+guess.size());
+		Collections.sort(result);
+//		System.out.println(result.get(0).getROI());
+//		System.out.println(result.get(result.size()-1).getROI());
+		
+		return result.subList(0, (result.size()/4+1)<result.size()?(result.size()/4+1):result.size()/4);
+	}
 }
