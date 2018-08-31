@@ -23,7 +23,7 @@ public class ProfitUtil {
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
 			if(playerCardsPathValue.getBetMutiV()>1 || playerCardsPathValue.getSplitTimes()>0){
-				throw new RuntimeException("should not here if split or double");
+				throw new RuntimeException("should not here if split or double :" + playerCardsPathValue);
 			}
 			//用户放弃损失一半
 			ROI -= baseMoney * 0.5 * onePot;

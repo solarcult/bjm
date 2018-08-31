@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public class ProbUtil {
 
+	//only used for one cpu calculation
 	public static DeckSet IN_USED_DECKSET = DeckSet.buildCasionDeckSet();
 	
 	/**
@@ -21,6 +22,9 @@ public class ProbUtil {
 	 * @return
 	 */
 	public static double calcProb(List<Card> cards){
+		
+		//for mutli cpu thread
+		DeckSet IN_USED_DECKSET = DeckSet.buildCasionDeckSet();
 		
 		//这里重置是为了每次计算当作独立事件,其实也可以根据已经出现的牌来进行计算,但是现场可能没有机会输入,所以这里先重置
 		IN_USED_DECKSET.reset();
@@ -51,6 +55,9 @@ public class ProbUtil {
 	 * @return
 	 */
 	public static double calcProb(List<Card> cards,int splitTimes){
+		
+		//for mutli cpu thread
+		DeckSet IN_USED_DECKSET = DeckSet.buildCasionDeckSet();
 		
 		IN_USED_DECKSET.reset();
 		

@@ -1,5 +1,6 @@
 package org.shil.bjm.strategy8102;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -7,15 +8,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.shil.bjm.HelloWorld;
+import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
+import org.shil.bjm.meta.PlayerCardsPathValue;
+import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
 
-public abstract class StrategyMatrix8012 {
+public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix8012>{
 	
 	Map<MatrixKey,PlayerAction> notChangesMatrix;
 	Map<MatrixKey,PlayerAction> changesMatrix;
 	Map<MatrixKey,PlayerAction> one;
+	
+	private Double roi;
 	
 	protected StrategyMatrix8012() {
 		notChangesMatrix = new HashMap<>();
@@ -259,6 +266,7 @@ public abstract class StrategyMatrix8012 {
 		this.one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
+		this.roi = null;
 	}
 
 	public Map<MatrixKey, PlayerAction> getNotChangesMatrix() {
@@ -281,4 +289,56 @@ public abstract class StrategyMatrix8012 {
 		Collections.sort(changeResults);
 		return changeResults;
 	}
+	
+	public abstract StrategyMatrix8012 evolve();
+	
+	public double getROI() {
+		if(this.roi==null) {
+			double roi = 0;
+			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+	//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
+	//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
+	//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
+			for(PlayerCardsPathValue pcpv : playerCards){
+				double xoi = 0;
+	//			System.out.println("Player: " +pcpv.getCards());
+				for(Card dealerCard : Card.values()){
+					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
+	//				System.out.println(dealerCard+" : " + oneSet.size());
+					for(PlayerCardsPathValue one : oneSet){
+						double oroi = 0;
+	//					oroi = ProfitUtil.oldFashionWayMoneyCalcOneHandInReturn(one, dealerCard);
+						oroi = ProfitUtil.moneyCalcOneHandInReturn(one, dealerCard);
+						roi+=oroi;
+						xoi+=oroi;
+	//					if(pcpv.isStartWithPairs() && pcpv.getCards().get(0) == Card.One1){
+	//						System.out.println(one);
+	//					}
+					}
+				}
+//			System.out.println(" xoi: " + xoi);
+			}
+			System.out.println("\nFinally: " + roi);
+			this.roi = roi;
+		}
+		return roi;
+	}
+
+	@Override
+	public int compareTo(StrategyMatrix8012 o) {
+		if(this.getROI() > o.getROI()) {
+			return -1;
+		}else if(this.getROI() < o.getROI()) {
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		return "StrategyMatrix8012 [roi=" + roi + "one= \n" + getChangeMatrxByList() + "]";
+	}
+	
+	
 }

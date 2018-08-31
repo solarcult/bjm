@@ -78,5 +78,13 @@ public class HelloWorld {
 		for(Entry<K,V> e : map.entrySet()){
 			System.out.println(e.getKey() +" : " + e.getValue());
 		}
+	}
+	
+	public static <K,V> String convertMap2String(Map<K,V> map){
+		StringBuilder sb = new StringBuilder();
+		for(Entry<K,V> e : map.entrySet()){
+			sb.append(e.getKey() +" : " + e.getValue());
+		}
+		return sb.toString();
 	}	
 }

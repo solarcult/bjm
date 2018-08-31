@@ -73,6 +73,7 @@ public abstract class CardsPathValue {
 		for(Integer cards : cardsMap.values()){
 			if(cards > ProbUtil.IN_USED_DECKSET.getTotalOneSameCardsN()){
 				outOfCards = true;
+//				throw new RuntimeException("this is it, out of cards: "+ cards);
 				System.out.println("this is it, out of cards: "+ cards);
 				break;
 			}

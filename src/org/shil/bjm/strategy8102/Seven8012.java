@@ -12,7 +12,7 @@ import org.shil.bjm.meta.PlayerAction;
 
 public class Seven8012 extends StrategyMatrix8012 {
 	
-	private int evolveSpecies = 4096;
+	private int evolveSpecies = 1024;
 	
 	private int changePrecent = 2;
 	
@@ -27,7 +27,7 @@ public class Seven8012 extends StrategyMatrix8012 {
 	}
 	
 	
-	public Seven8012 evolve() {
+	public StrategyMatrix8012 evolve() {
 		Map<MatrixKey,PlayerAction> changesMatrix = new HashMap<>();
 		try {
 			SecureRandom sr = SecureRandom.getInstanceStrong();
@@ -60,15 +60,17 @@ public class Seven8012 extends StrategyMatrix8012 {
 		return new Seven8012(this,changesMatrix);
 	}
 	
-	public List<Seven8012> evolveSpecies(){
-		List<Seven8012> evolves = new ArrayList<>(evolveSpecies);
-		
+	public List<StrategyMatrix8012> evolveSpecies(){
+		List<StrategyMatrix8012> evolves = new ArrayList<>(evolveSpecies);
+		for(int i=0;i<this.evolveSpecies;i++) {
+			evolves.add(this.evolve());
+		}
 		return evolves;
 	}
 	
 	public static void main(String[] args) {
-		Seven8012 one = new Seven8012();
-		Seven8012 two = one.evolve();
+		StrategyMatrix8012 one = new Seven8012();
+		StrategyMatrix8012 two = one.evolve();
 		System.out.println(one.getChangesMatrix().size());
 		System.out.println(two.getChangesMatrix().size());
 		System.out.println(one.getOne().size());
@@ -83,6 +85,6 @@ public class Seven8012 extends StrategyMatrix8012 {
 		
 		System.out.println(count);
 		
-		HelloWorld.print(one.getChangeMatrxByList());
+//		HelloWorld.print(one.getChangeMatrxByList());
 	}
 }
