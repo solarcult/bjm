@@ -33,9 +33,9 @@ public class EvolutionTest {
 			
 			evos = evoluationOnceMultiCPU(evos);
 			
-			for(StrategyMatrix8012 e : evos) {
-				HelloWorld.print(e.getChangeMatrxByList());
-			}
+//			for(StrategyMatrix8012 e : evos) {
+//				HelloWorld.print(e.getChangeMatrxByList());
+//			}
 		}
 
 		writeToDisk(evos);
