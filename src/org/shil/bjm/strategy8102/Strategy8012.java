@@ -124,7 +124,7 @@ public class Strategy8012 {
 				aNewPath.addCard(card);
 				if(!aNewPath.outOfCards()){
 					if(aNewPath.getValue() <= BlackJackInfo.BlackJack){
-						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Three_More_Cards);
+						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(aNewPath.getValue()), dealerCard, Situation.Three_More_Cards);
 						aNewPath.setAction(strategyMatrix8012.one.get(matrixKey));
 					}
 					playerCardsPathValues.addAll(generatePlayerCardsPaths(strategyMatrix8012,aNewPath,dealerCard));
@@ -133,7 +133,7 @@ public class Strategy8012 {
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){			
 			//after split the origin pairs one left card playerCardsPathValue will abandon here and be ignored
 		}else{
-			throw new RuntimeException("wtf of this action, should not happend " + playerCardsPathValue);
+			throw new RuntimeException("wtf of this action, should not happend dealerCard: " +dealerCard +" playercards: " + playerCardsPathValue);
 		}
 		
 		return playerCardsPathValues;

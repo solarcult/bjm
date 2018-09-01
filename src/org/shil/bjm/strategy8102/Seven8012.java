@@ -9,9 +9,9 @@ import org.shil.bjm.meta.PlayerAction;
 
 public class Seven8012 extends StrategyMatrix8012 {
 		
-	private int changePrecent = 6;
+	protected int changePrecent = 6;
 	
-	private int totalPrecent = 100;
+	protected int totalPrecent = 100;
 	
 	public Seven8012() {
 		super();
@@ -65,6 +65,8 @@ public class Seven8012 extends StrategyMatrix8012 {
 		System.out.println(one.getOne().size());
 		System.out.println(two.getOne().size());
 		
+		System.out.println(one.getROI());
+		
 //		int count = 0 ;
 //		for(Entry<MatrixKey,PlayerAction> e: one.getOne().entrySet()) {
 //			if(e.getValue() != two.getOne().get(e.getKey())) {
@@ -73,7 +75,7 @@ public class Seven8012 extends StrategyMatrix8012 {
 //		}
 		
 //		System.out.println(count);
-		System.out.println(Math.pow(4, two.getChangesMatrix().size()));
+//		System.out.println(Math.pow(4, two.getChangesMatrix().size()));
 		
 //		HelloWorld.print(one.getChangeMatrxByList());
 	}

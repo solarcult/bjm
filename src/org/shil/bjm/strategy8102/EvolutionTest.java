@@ -18,6 +18,7 @@ public class EvolutionTest {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
+//		StrategyMatrix8012 origin = new Standard2017();
 		StrategyMatrix8012 origin = new Seven8012();
 		evos.add(origin);
 		
@@ -65,6 +66,7 @@ public class EvolutionTest {
 		List<CompletableFuture<StrategyMatrix8012>> guess = new ArrayList<>();
 		List<StrategyMatrix8012> matrixs = new ArrayList<>();
 		for(StrategyMatrix8012 sm : origins) {
+			matrixs.add(sm);
 			int length = popluation/2;
 			for(int i=0; i < length; i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
