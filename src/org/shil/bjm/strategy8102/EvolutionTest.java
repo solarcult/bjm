@@ -80,13 +80,14 @@ public class EvolutionTest {
 		all.join();
 //		System.out.println("join done"+guess.size());
 		Collections.sort(matrixs);
+		System.out.println("matrixs: " + matrixs.size());
 		System.out.println(matrixs.get(0).getROI());
 		System.out.println(matrixs.get(matrixs.size()-1).getROI());
 		List<StrategyMatrix8012> result = new ArrayList<>();
 		for(int i = 0; i <popluation; i++) {
 			result.add(matrixs.get(i));
 		}
-		
+		System.out.println("result: " + result.size());
 		return result;
 	}
 }
