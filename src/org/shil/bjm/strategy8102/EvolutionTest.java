@@ -45,7 +45,8 @@ public class EvolutionTest {
 		String fileName="blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
-
+			out.write(Calendar.getInstance().getTime().toString());
+			out.newLine();
 			for(StrategyMatrix8012 e : evos) {
 				out.write(e.toString());
 				out.newLine();
