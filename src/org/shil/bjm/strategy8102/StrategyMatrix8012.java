@@ -319,7 +319,7 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 				}
 //			System.out.println(" xoi: " + xoi);
 			}
-			System.out.println("\nFinally: " + roi);
+//			System.out.println("\nFinally: " + roi);
 			this.roi = roi;
 		}
 		return roi;

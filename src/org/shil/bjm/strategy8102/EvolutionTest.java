@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import org.shil.bjm.HelloWorld;
+
 public class EvolutionTest {
 	
 	static int generation = 80;
@@ -28,13 +30,13 @@ public class EvolutionTest {
 		
 		for(int i = 0; i < generation; i++) {
 			System.out.println("start generation: "+i +" evos size: " + evos.size());
+			
 			evos = evoluationOnceMultiCPU(evos);
+			
+			for(StrategyMatrix8012 e : evos) {
+				HelloWorld.print(e.getChangeMatrxByList());
+			}
 		}
-
-//		for(StrategyMatrix8012 e : evos) {
-//			System.out.println(e);
-//			HelloWorld.print(e.getChangeMatrxByList());
-//		}
 
 		writeToDisk(evos);
 	}
