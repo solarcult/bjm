@@ -11,7 +11,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class EvolutionTest {
 	
-	static int generation = 1000;
+	static int generation = 5000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 
 	public static void main(String[] args) {

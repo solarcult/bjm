@@ -9,7 +9,7 @@ import org.shil.bjm.meta.PlayerAction;
 
 public class Seven8012 extends StrategyMatrix8012 {
 		
-	protected int changePrecent = 6;
+	protected int changePrecent = 2;
 	
 	protected int totalPrecent = 100;
 	
