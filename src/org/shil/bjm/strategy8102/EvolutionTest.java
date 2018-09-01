@@ -8,8 +8,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import org.shil.bjm.HelloWorld;
-
 public class EvolutionTest {
 	
 	static int generation = 100;
@@ -63,28 +61,32 @@ public class EvolutionTest {
 	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins) {
 		
 		List<CompletableFuture<StrategyMatrix8012>> guess = new ArrayList<>();
-		List<StrategyMatrix8012> result = new ArrayList<>();
+		List<StrategyMatrix8012> matrixs = new ArrayList<>();
 		for(StrategyMatrix8012 sm : origins) {
 			for(int i=0;i<popluation;i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
 					evo.getROI();
-					result.add(evo);
+					matrixs.add(evo);
 					return evo;
 				});
 				
 				guess.add(completableFuture);
 			}
 		}
-//		System.out.println("done"+guess.size());
+		System.out.println("guess: " + guess.size());
 		
 		CompletableFuture<Void> all = CompletableFuture.allOf(guess.toArray(new CompletableFuture[guess.size()]));
 		all.join();
 //		System.out.println("join done"+guess.size());
-		Collections.sort(result);
-		System.out.println(result.get(0).getROI());
-		System.out.println(result.get(result.size()-1).getROI());
+		Collections.sort(matrixs);
+		System.out.println(matrixs.get(0).getROI());
+		System.out.println(matrixs.get(matrixs.size()-1).getROI());
+		List<StrategyMatrix8012> result = new ArrayList<>();
+		for(int i = 0; i <popluation; i++) {
+			result.add(matrixs.get(i));
+		}
 		
-		return result.subList(0, popluation);
+		return result;
 	}
 }
