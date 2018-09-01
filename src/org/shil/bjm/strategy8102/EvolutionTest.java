@@ -84,6 +84,6 @@ public class EvolutionTest {
 //		System.out.println(result.get(0).getROI());
 //		System.out.println(result.get(result.size()-1).getROI());
 		
-		return result.subList(0, (result.size()/4+1)<result.size()?(result.size()/4+1):result.size()/4);
+		return result.subList(0, popluation);
 	}
 }

@@ -61,17 +61,19 @@ public class Seven8012 extends StrategyMatrix8012 {
 		StrategyMatrix8012 two = one.evolve();
 		System.out.println(one.getChangesMatrix().size());
 		System.out.println(two.getChangesMatrix().size());
+		System.out.println(two.getNotChangesMatrix().size());
 		System.out.println(one.getOne().size());
 		System.out.println(two.getOne().size());
 		
-		int count = 0 ;
-		for(Entry<MatrixKey,PlayerAction> e: one.getOne().entrySet()) {
-			if(e.getValue() != two.getOne().get(e.getKey())) {
-				count++;
-			}
-		}
+//		int count = 0 ;
+//		for(Entry<MatrixKey,PlayerAction> e: one.getOne().entrySet()) {
+//			if(e.getValue() != two.getOne().get(e.getKey())) {
+//				count++;
+//			}
+//		}
 		
-		System.out.println(count);
+//		System.out.println(count);
+		System.out.println(Math.pow(4, two.getChangesMatrix().size()));
 		
 //		HelloWorld.print(one.getChangeMatrxByList());
 	}
