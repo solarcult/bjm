@@ -11,8 +11,8 @@ import org.shil.bjm.HelloWorld;
 
 public class EvolutionTest {
 	
-	static int generation = 80;
-	static int popluation = 60;
+	static int generation = 365;
+	static int popluation = Runtime.getRuntime().availableProcessors() * 2;
 
 	public static void main(String[] args) {
 		
@@ -43,7 +43,7 @@ public class EvolutionTest {
 	
 	public static void writeToDisk(List<StrategyMatrix8012> evos){
 		
-		String fileName="D:\\blackjack.txt";
+		String fileName="C:\\blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
 
