@@ -11,8 +11,8 @@ import org.shil.bjm.HelloWorld;
 
 public class EvolutionTest {
 	
-	static int generation = 365;
-	static int popluation = Runtime.getRuntime().availableProcessors() * 2;
+	static int generation = 365 * 3;
+	static int popluation = Runtime.getRuntime().availableProcessors() ;
 
 	public static void main(String[] args) {
 		
