@@ -12,8 +12,8 @@ import org.shil.bjm.HelloWorld;
 
 public class EvolutionTest {
 	
-	static int generation = 365 * 3;
-	static int popluation = Runtime.getRuntime().availableProcessors() ;
+	static int generation = 100;
+	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 
 	public static void main(String[] args) {
 		
@@ -82,8 +82,8 @@ public class EvolutionTest {
 		all.join();
 //		System.out.println("join done"+guess.size());
 		Collections.sort(result);
-//		System.out.println(result.get(0).getROI());
-//		System.out.println(result.get(result.size()-1).getROI());
+		System.out.println(result.get(0).getROI());
+		System.out.println(result.get(result.size()-1).getROI());
 		
 		return result.subList(0, popluation);
 	}
