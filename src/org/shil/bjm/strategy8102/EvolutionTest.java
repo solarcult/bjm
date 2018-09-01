@@ -3,6 +3,7 @@ package org.shil.bjm.strategy8102;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -29,7 +30,7 @@ public class EvolutionTest {
 //		System.out.println(System.currentTimeMillis() - start);
 		
 		for(int i = 0; i < generation; i++) {
-			System.out.println("start generation: "+i +" evos size: " + evos.size());
+			System.out.println(Calendar.getInstance().getTime() +" start generation: "+i +" evos size: " + evos.size());
 			
 			evos = evoluationOnceMultiCPU(evos);
 			
@@ -43,7 +44,7 @@ public class EvolutionTest {
 	
 	public static void writeToDisk(List<StrategyMatrix8012> evos){
 		
-		String fileName="C:\\blackjack.txt";
+		String fileName="blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
 

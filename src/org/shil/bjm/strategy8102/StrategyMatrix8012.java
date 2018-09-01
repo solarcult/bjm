@@ -340,7 +340,7 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
 		sb.append(roi);
-		sb.append("changeMatrix = ");
+		sb.append("\nchangeMatrix = ");
 		for(Result r: getChangeMatrxByList()) {
 			sb.append("\n");
 			sb.append(r);
