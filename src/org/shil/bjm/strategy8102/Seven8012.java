@@ -17,8 +17,8 @@ public class Seven8012 extends StrategyMatrix8012 {
 		super();
 	}
 	
-	public Seven8012(StrategyMatrix8012 strategyMatrix8012,Map<MatrixKey,PlayerAction> changesMatrix) {
-		super(strategyMatrix8012,changesMatrix);
+	public Seven8012(Map<MatrixKey,PlayerAction> notChangesMatrix,Map<MatrixKey,PlayerAction> changesMatrix) {
+		super(notChangesMatrix,changesMatrix);
 	}
 	
 	
@@ -52,7 +52,7 @@ public class Seven8012 extends StrategyMatrix8012 {
 			throw new RuntimeException("This random has problem! "+e.getMessage());
 		}
 		
-		return new Seven8012(this,changesMatrix);
+		return new Seven8012(this.getNotChangesMatrix(),changesMatrix);
 	}
 	
 	

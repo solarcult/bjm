@@ -2,6 +2,7 @@ package org.shil.bjm.strategy8102;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -10,7 +11,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class EvolutionTest {
 	
-	static int generation = 100;
+	static int generation = 1000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 
 	public static void main(String[] args) {
@@ -41,8 +42,8 @@ public class EvolutionTest {
 	}
 	
 	public static void writeToDisk(List<StrategyMatrix8012> evos){
-		
-		String fileName="blackjack.txt";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MMMMM-dd_HH.mm.ss");
+		String fileName=sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
 			out.write(Calendar.getInstance().getTime().toString());

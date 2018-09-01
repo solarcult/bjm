@@ -201,17 +201,6 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 			}
 		}
 		
-		/*
-		 * Situation.Splited_Pair_And_Can_NOT_Split 11 or 1
-		 * VS
-		 * DealerCard (One ~ K)
-		 这种情况应该在上层直接设置 Stand
-		for(Card dealerCard : Card.values()) {
-			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.One, dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-			changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
-		}
-		*/
 		
 //		两张牌以上不能投降时
 		
@@ -260,8 +249,8 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 		one.putAll(notChangesMatrix);
 	}
 	
-	protected StrategyMatrix8012(StrategyMatrix8012 strategyMatrix8012,Map<MatrixKey,PlayerAction> changesMatrix){
-		this.notChangesMatrix = strategyMatrix8012.notChangesMatrix;
+	protected StrategyMatrix8012(Map<MatrixKey,PlayerAction> notChangesMatrix,Map<MatrixKey,PlayerAction> changesMatrix){
+		this.notChangesMatrix = notChangesMatrix;
 		this.changesMatrix = changesMatrix;
 		this.one = new HashMap<>();
 		one.putAll(changesMatrix);
