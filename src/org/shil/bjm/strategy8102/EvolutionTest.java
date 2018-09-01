@@ -28,7 +28,7 @@ public class EvolutionTest {
 //		System.out.println(System.currentTimeMillis() - start);
 		
 		for(int i = 0; i < generation; i++) {
-			System.out.println(Calendar.getInstance().getTime() +" start generation: "+i +" evos size: " + evos.size());
+			System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
 			
 			evos = evoluationOnceMultiCPU(evos);
 			
@@ -63,7 +63,7 @@ public class EvolutionTest {
 		List<CompletableFuture<StrategyMatrix8012>> guess = new ArrayList<>();
 		List<StrategyMatrix8012> matrixs = new ArrayList<>();
 		for(StrategyMatrix8012 sm : origins) {
-			for(int i=0;i<popluation;i++) {
+			for(int i=0;i<popluation/2;i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
 					evo.getROI();
@@ -74,20 +74,21 @@ public class EvolutionTest {
 				guess.add(completableFuture);
 			}
 		}
-		System.out.println("guess: " + guess.size());
+		System.out.println("start guess: " + guess.size());
 		
 		CompletableFuture<Void> all = CompletableFuture.allOf(guess.toArray(new CompletableFuture[guess.size()]));
 		all.join();
-//		System.out.println("join done"+guess.size());
+
+		System.out.println(Calendar.getInstance().getTime() +" guess done. ");
 		Collections.sort(matrixs);
-		System.out.println("matrixs: " + matrixs.size());
-		System.out.println(matrixs.get(0).getROI());
-		System.out.println(matrixs.get(matrixs.size()-1).getROI());
+		
 		List<StrategyMatrix8012> result = new ArrayList<>();
 		for(int i = 0; i <popluation; i++) {
 			result.add(matrixs.get(i));
 		}
-		System.out.println("result: " + result.size());
+		System.out.println(result.get(0).getROI());
+		System.out.println(result.get(result.size()-1).getROI());
+		System.out.println(Calendar.getInstance().getTime() + " result: " + result.size());
 		return result;
 	}
 }
