@@ -52,7 +52,7 @@ public class EvolutionTest {
 	
 	public static void writeToDisk(int generation, List<StrategyMatrix8012> evos){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
-		String fileName=sdf.format(generation+"_"+Calendar.getInstance().getTime())+"_blackjack.txt";
+		String fileName=generation+"_"+ sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
 			out.write(Calendar.getInstance().getTime().toString());
