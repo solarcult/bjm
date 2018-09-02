@@ -29,7 +29,7 @@ public class EvolutionTest {
 //		System.out.println("e :");
 //		System.out.println(System.currentTimeMillis() - start);
 		
-		for(int i = 0; i < generation; i++) {
+		for(int i = 1; i <= generation; i++) {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
 				
@@ -42,17 +42,17 @@ public class EvolutionTest {
 				e.printStackTrace();
 			}
 			
-			if((generation + 1) % 888 == 0) {
-				writeToDisk(evos);
+			if(i % 250 == 0) {
+				writeToDisk(i,evos);
 			}
 		}
 
-		writeToDisk(evos);
+		writeToDisk(generation,evos);
 	}
 	
-	public static void writeToDisk(List<StrategyMatrix8012> evos){
+	public static void writeToDisk(int generation, List<StrategyMatrix8012> evos){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
-		String fileName=sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
+		String fileName=sdf.format(generation+"_"+Calendar.getInstance().getTime())+"_blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
 			out.write(Calendar.getInstance().getTime().toString());
@@ -78,8 +78,7 @@ public class EvolutionTest {
 			if(!competions.contains(sm)) {
 				competions.add(sm);
 			}
-			int length = popluation;
-			for(int i=0; i < length; i++) {
+			for(int i=0; i < popluation; i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
 					evo.getROI();
@@ -95,7 +94,7 @@ public class EvolutionTest {
 		CompletableFuture<Void> all = CompletableFuture.allOf(guess.toArray(new CompletableFuture[guess.size()]));
 		all.join();
 
-		System.out.println(Calendar.getInstance().getTime() +" guess done. ");
+//		System.out.println(Calendar.getInstance().getTime() +" guess done. ");
 		Collections.sort(competions);
 		
 		List<StrategyMatrix8012> result = new ArrayList<>();
@@ -105,7 +104,7 @@ public class EvolutionTest {
 		}
 		System.out.println(result.get(0).getROI());
 		System.out.println(result.get(result.size()-1).getROI());
-		System.out.println(Calendar.getInstance().getTime() + " result: " + result.size());
+//		System.out.println(Calendar.getInstance().getTime() + " result: " + result.size());
 		return result;
 	}
 }
