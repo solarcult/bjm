@@ -9,6 +9,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import org.apache.commons.math3.stat.Frequency;
+
 public class EvolutionTest {
 	
 	static int generation = 5000;
@@ -57,6 +59,9 @@ public class EvolutionTest {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
 			out.write(Calendar.getInstance().getTime().toString());
 			out.newLine();
+			out.write(analyzeEvos(evos).toString());
+			out.newLine();
+			out.newLine();
 			for(StrategyMatrix8012 e : evos) {
 				out.write(e.toString());
 				out.newLine();
@@ -69,6 +74,16 @@ public class EvolutionTest {
 		}
 	}
 	
+	public static Frequency analyzeEvos(List<StrategyMatrix8012> evos) {
+		Frequency frequency = new Frequency();
+		for(StrategyMatrix8012 e : evos) {
+			for(Result r : e.getChangeMatrxByList()) {
+				frequency.addValue(r.toString());
+			}
+		}
+		return frequency;
+	}
+	
 	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins) {
 		
 		List<CompletableFuture<StrategyMatrix8012>> guess = new ArrayList<>();
@@ -78,7 +93,7 @@ public class EvolutionTest {
 			if(!competions.contains(sm)) {
 				competions.add(sm);
 			}
-			for(int i=0; i < popluation; i++) {
+			for(int i=0; i < popluation/2; i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
 					evo.getROI();

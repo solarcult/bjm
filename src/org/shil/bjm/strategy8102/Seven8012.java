@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 
 public class Seven8012 extends StrategyMatrix8012 {
@@ -33,13 +34,25 @@ public class Seven8012 extends StrategyMatrix8012 {
 					//change action by random include
 					MatrixKey key = e.getKey();
 					if(key.getSituation() == Situation.Start_Hand_WithoutA_WithoutPair) {
-						changesMatrix.put(e.getKey(), PlayerAction.randomStartWithoutPairAction());
+						if(key.getDealerCard() == Card.One1) {
+							changesMatrix.put(e.getKey(), PlayerAction.randomStartWithoutPairActionVSDealerA());
+						}else {
+							changesMatrix.put(e.getKey(), PlayerAction.randomStartWithoutPairAction());
+						}
 					}else if(key.getSituation() == Situation.Start_With_A) {
-						changesMatrix.put(e.getKey(), PlayerAction.randomStartWithoutPairAction());
+						if(key.getDealerCard() == Card.One1) {
+							changesMatrix.put(e.getKey(), PlayerAction.randomStartWithoutPairActionVSDealerA());
+						}else {
+							changesMatrix.put(e.getKey(), PlayerAction.randomStartWithoutPairAction());
+						}
 					}else if(key.getSituation() == Situation.Three_More_Cards) {
 						changesMatrix.put(e.getKey(), PlayerAction.randomThreeCardsAction());
 					}else if(key.getSituation() == Situation.Start_With_Pair) {
-						changesMatrix.put(e.getKey(), PlayerAction.randomStartWithPairAction());
+						if(key.getDealerCard() == Card.One1) {
+							changesMatrix.put(e.getKey(), PlayerAction.randomStartWithPairActionVSDealerA());
+						}else {
+							changesMatrix.put(e.getKey(), PlayerAction.randomStartWithPairAction());
+						}
 					}else if(key.getSituation() == Situation.Splited_Pair_And_Can_Split) {
 						changesMatrix.put(e.getKey(), PlayerAction.randomSplitedPairAndCanSplitAction());
 					}else if(key.getSituation() == Situation.Splited_Pair_And_Can_NOT_Split) {
@@ -85,5 +98,9 @@ public class Seven8012 extends StrategyMatrix8012 {
 		System.out.println(oks.contains(two));
 		oks.add(two);
 		System.out.println(oks.contains(one));
+		oks.add(two.evolve());
+		oks.add(new Standard2017());
+		
+		System.out.println(EvolutionTest.analyzeEvos(oks).toString());
 	}
 }

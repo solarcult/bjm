@@ -35,7 +35,7 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 		 * VS
 		 * DealerCard  (One ~ K)
 		 */
-		for(int start = 4; start <= 8 ; start++) {
+		for(int start = 5; start <= 8 ; start++) {
 			for(Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);

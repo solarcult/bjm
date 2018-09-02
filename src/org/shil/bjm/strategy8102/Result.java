@@ -20,4 +20,34 @@ public class Result implements Comparable<Result>{
 	public String toString() {
 		return "Result [matrixKey=" + matrixKey + ", playerAction=" + playerAction + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((matrixKey == null) ? 0 : matrixKey.hashCode());
+		result = prime * result + ((playerAction == null) ? 0 : playerAction.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Result other = (Result) obj;
+		if (matrixKey == null) {
+			if (other.matrixKey != null)
+				return false;
+		} else if (!matrixKey.equals(other.matrixKey))
+			return false;
+		if (playerAction != other.playerAction)
+			return false;
+		return true;
+	}
+	
+	
 }

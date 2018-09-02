@@ -44,6 +44,28 @@ public enum PlayerAction {
 	}
 	
 	/**
+	 * 起手牌是对的选择,当遇到庄家是A的时候，不能投降
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 */
+	public static PlayerAction randomStartWithPairActionVSDealerA() throws NoSuchAlgorithmException {
+		SecureRandom sr = SecureRandom.getInstanceStrong();
+		int r = sr.nextInt(4);
+		switch(r){
+			case 0 : 
+				return Hit;
+			case 1 :
+				return Stand;
+			case 2:
+				return Double;
+			case 3:
+				return Split;
+			default:
+				return null;
+		}
+	}
+	
+	/**
 	 * 起手牌 不是对的情况
 	 * @return
 	 * @throws NoSuchAlgorithmException
@@ -60,6 +82,26 @@ public enum PlayerAction {
 				return Double;
 			case 3:
 				return Giveup;
+			default:
+				return null;
+		}
+	}
+	
+	/**
+	 * 起手牌 不是对的情况，当遇到庄家是A的时候，不能投降
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 */
+	public static PlayerAction randomStartWithoutPairActionVSDealerA() throws NoSuchAlgorithmException {
+		SecureRandom sr = SecureRandom.getInstanceStrong();
+		int r = sr.nextInt(3);
+		switch(r){
+			case 0 : 
+				return Hit;
+			case 1 :
+				return Stand;
+			case 2:
+				return Double;
 			default:
 				return null;
 		}
