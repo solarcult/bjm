@@ -30,13 +30,17 @@ public class EvolutionTest {
 //		System.out.println(System.currentTimeMillis() - start);
 		
 		for(int i = 0; i < generation; i++) {
-			System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
-			
-			evos = evoluationOnceMultiCPU(evos);
-			
-//			for(StrategyMatrix8012 e : evos) {
-//				HelloWorld.print(e.getChangeMatrxByList());
-//			}
+			try {
+				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
+				
+				evos = evoluationOnceMultiCPU(evos);
+				
+	//			for(StrategyMatrix8012 e : evos) {
+	//				HelloWorld.print(e.getChangeMatrxByList());
+	//			}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		writeToDisk(evos);
