@@ -1,7 +1,9 @@
 package org.shil.bjm.strategy8102;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -65,7 +67,7 @@ public class Seven8012 extends StrategyMatrix8012 {
 		System.out.println(one.getOne().size());
 		System.out.println(two.getOne().size());
 		
-		System.out.println(one.getROI());
+//		System.out.println(one.getROI());
 		
 //		int count = 0 ;
 //		for(Entry<MatrixKey,PlayerAction> e: one.getOne().entrySet()) {
@@ -78,5 +80,10 @@ public class Seven8012 extends StrategyMatrix8012 {
 //		System.out.println(Math.pow(4, two.getChangesMatrix().size()));
 		
 //		HelloWorld.print(one.getChangeMatrxByList());
+		List<StrategyMatrix8012> oks = new ArrayList<>();
+		oks.add(one);
+		System.out.println(oks.contains(two));
+		oks.add(two);
+		System.out.println(oks.contains(one));
 	}
 }

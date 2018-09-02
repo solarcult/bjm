@@ -41,13 +41,17 @@ public class EvolutionTest {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+			
+			if((generation + 1) % 888 == 0) {
+				writeToDisk(evos);
+			}
 		}
 
 		writeToDisk(evos);
 	}
 	
 	public static void writeToDisk(List<StrategyMatrix8012> evos){
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MMMMM-dd_HH.mm.ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
 		String fileName=sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
@@ -68,15 +72,18 @@ public class EvolutionTest {
 	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins) {
 		
 		List<CompletableFuture<StrategyMatrix8012>> guess = new ArrayList<>();
-		List<StrategyMatrix8012> matrixs = new ArrayList<>();
+		List<StrategyMatrix8012> competions = new ArrayList<>();
 		for(StrategyMatrix8012 sm : origins) {
-			matrixs.add(sm);
+			//put the best from past generation in competions list 
+			if(!competions.contains(sm)) {
+				competions.add(sm);
+			}
 			int length = popluation;
 			for(int i=0; i < length; i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
 					evo.getROI();
-					matrixs.add(evo);
+					competions.add(evo);
 					return evo;
 				});
 				
@@ -89,12 +96,12 @@ public class EvolutionTest {
 		all.join();
 
 		System.out.println(Calendar.getInstance().getTime() +" guess done. ");
-		Collections.sort(matrixs);
+		Collections.sort(competions);
 		
 		List<StrategyMatrix8012> result = new ArrayList<>();
-		int length = (popluation > matrixs.size()) ? matrixs.size() : popluation;
+		int length = (popluation > competions.size()) ? competions.size() : popluation;
 		for(int i = 0; i < length; i++) {
-			result.add(matrixs.get(i));
+			result.add(competions.get(i));
 		}
 		System.out.println(result.get(0).getROI());
 		System.out.println(result.get(result.size()-1).getROI());

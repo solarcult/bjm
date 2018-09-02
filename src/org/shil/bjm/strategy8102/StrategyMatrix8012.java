@@ -326,6 +326,31 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 		sb.append("\n");
 		return sb.toString();
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((one == null) ? 0 : one.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StrategyMatrix8012 other = (StrategyMatrix8012) obj;
+		if (one == null) {
+			if (other.one != null)
+				return false;
+		} else if (!one.equals(other.one))
+			return false;
+		return true;
+	}
 	
 	
 }
