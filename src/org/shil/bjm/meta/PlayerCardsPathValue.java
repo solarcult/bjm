@@ -108,6 +108,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		this.action = action;
 		if(action == PlayerAction.Double){
 			this.betMutiV = 2 * betMutiV;
+			this.setDsTimes(getDsTimes()+1);
 		}else if(action == PlayerAction.Split){
 			if(this.getCards().get(0) == Card.One1){
 				//AA only can split 1 time
@@ -131,6 +132,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 				this.action = PlayerAction.Init;
 				this.betMutiV = 2 * betMutiV;
 				this.splitTimes++;
+				this.setDsTimes(getDsTimes()+1);
 			}
 		}else if(action == PlayerAction.Giveup){
 			this.betMutiV = 0.5;
@@ -173,17 +175,6 @@ public class PlayerCardsPathValue extends CardsPathValue{
 			return false;
 		return true;
 	}
-
-//	@Override
-//	public String toString() {
-//		return "PlayerCardsPathValue [getStartValue()=" + getStartValue() + ", getCards()=" + getCards()
-//				+ ", getValue()=" + getValue() + ", prob()=" + prob() + ", outOfCards()=" + outOfCards() 
-//				+ ", action=" + action + ", betMutiV=" + betMutiV 
-//				+ ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
-//				+ isStartWithPairs() + ", getSplitTimes()=" + splitTimes + "]";
-//	}
-	
-	
 	
 	@Override
 	public void addCard(Card card){
@@ -198,8 +189,8 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		return "PlayerCardsPathValue [action=" + action + ", betMutiV=" + betMutiV + ", splitTimes=" + splitTimes
 				+ ", isStartHand()=" + isStartHand() + ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
 				+ isStartWithPairs() + ", getStartValue()=" + getStartValue() + ", prob()=" + prob() + ", getValue()="
-				+ getValue() + ", getCards()=" + getCards() + ", getCardsMap()=" + getCardsMap() + ", outOfCards()="
-				+ outOfCards() + "]";
+				+ getValue() + ", getCards()=" + getCards() + ", getDsTimes()="
+				+ getDsTimes() + "]";
 	}
 
 	public static void main(String[] args){

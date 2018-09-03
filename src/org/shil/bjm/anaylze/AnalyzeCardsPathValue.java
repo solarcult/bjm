@@ -30,7 +30,7 @@ public class AnalyzeCardsPathValue {
 		Map<Integer,AnalyzeStatus> valueMap = new TreeMap<>();
 		for(CardsPathValue cpv : cardsPathValues){
 			totalProb += cpv.prob();
-			AnalyzeStatus as = valueMap.getOrDefault(cpv.getValue(), new AnalyzeStatus(cpv.getValue(),0d,0d,0d,0d,0d));
+			AnalyzeStatus as = valueMap.getOrDefault(cpv.getValue(), new AnalyzeStatus(cpv.getValue(),0d,0d,0d,0d,0d,cpv.getDsTimes()));
 			as.setProb(as.getProb()+cpv.prob());
 			valueMap.put(cpv.getValue(), as);
 		}

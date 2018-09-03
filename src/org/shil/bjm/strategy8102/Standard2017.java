@@ -708,6 +708,8 @@ public class Standard2017 extends Seven8012 {
 		}
 		
 		System.out.println(count);
+		
+		two.winRateWithProb();
 	}
 
 }

@@ -24,13 +24,19 @@ public class AnalyzeStatus {
 	private double tillProb;
 	private double totalProb;
 	
-	public AnalyzeStatus(int value,double precent,double tillPct,double prob,double tillProb,double totalProb){
+	/**
+	 * double和split的次数
+	 */
+	private double dsTimes;
+	
+	public AnalyzeStatus(int value,double precent,double tillPct,double prob,double tillProb,double totalProb,double dsTimes){
 		this.value = value;
 		this.precent = precent;
 		this.tillPct = tillPct;
 		this.prob = prob;
 		this.tillProb = tillProb;
 		this.totalProb = totalProb;
+		this.dsTimes = dsTimes;
 	}
 
 	public int getValue() {
@@ -81,11 +87,21 @@ public class AnalyzeStatus {
 		this.totalProb = totalProb;
 	}
 
+	public double getDsTimes() {
+		return dsTimes;
+	}
+
+	public void setDsTimes(double dsTimes) {
+		this.dsTimes = dsTimes;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		long temp;
+		temp = Double.doubleToLongBits(dsTimes);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(precent);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(prob);
@@ -109,20 +125,17 @@ public class AnalyzeStatus {
 		if (getClass() != obj.getClass())
 			return false;
 		AnalyzeStatus other = (AnalyzeStatus) obj;
-		if (Double.doubleToLongBits(precent) != Double
-				.doubleToLongBits(other.precent))
+		if (Double.doubleToLongBits(dsTimes) != Double.doubleToLongBits(other.dsTimes))
 			return false;
-		if (Double.doubleToLongBits(prob) != Double
-				.doubleToLongBits(other.prob))
+		if (Double.doubleToLongBits(precent) != Double.doubleToLongBits(other.precent))
 			return false;
-		if (Double.doubleToLongBits(tillPct) != Double
-				.doubleToLongBits(other.tillPct))
+		if (Double.doubleToLongBits(prob) != Double.doubleToLongBits(other.prob))
 			return false;
-		if (Double.doubleToLongBits(tillProb) != Double
-				.doubleToLongBits(other.tillProb))
+		if (Double.doubleToLongBits(tillPct) != Double.doubleToLongBits(other.tillPct))
 			return false;
-		if (Double.doubleToLongBits(totalProb) != Double
-				.doubleToLongBits(other.totalProb))
+		if (Double.doubleToLongBits(tillProb) != Double.doubleToLongBits(other.tillProb))
+			return false;
+		if (Double.doubleToLongBits(totalProb) != Double.doubleToLongBits(other.totalProb))
 			return false;
 		if (value != other.value)
 			return false;
@@ -131,10 +144,8 @@ public class AnalyzeStatus {
 
 	@Override
 	public String toString() {
-		return "AnalyzeStatus [value=" + value + ", \tprecent= " + precent
-				+ ", \ttillPct= " + tillPct + ", \tprob= " + prob + ", \ttillProb= "
-				+ tillProb + ", \ttotalProb=" + totalProb + "]";
+		return "AnalyzeStatus [value=" + value + ", precent=" + precent + ", tillPct=" + tillPct + ", prob=" + prob
+				+ ", tillProb=" + tillProb + ", totalProb=" + totalProb + ", dsTimes=" + dsTimes + "]";
 	}
-	
 	
 }

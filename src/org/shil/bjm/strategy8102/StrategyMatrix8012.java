@@ -10,11 +10,14 @@ import java.util.Map.Entry;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.PlayerCards;
+import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.strategy.one.OneStrategy;
+import org.shil.bjm.strategy.one.OneStrategyTest;
 
 public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix8012>{
 	
@@ -23,6 +26,7 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 	protected Map<MatrixKey,PlayerAction> one;
 	
 	protected Double roi;
+	protected Double[] wdlRate;
 	
 	protected StrategyMatrix8012() {
 		notChangesMatrix = new HashMap<>();
@@ -302,6 +306,26 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 		}
 		return roi;
 	}
+	
+	public double winRateWithProb() {
+		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+
+		for(PlayerCardsPathValue pcpv : playerCards){
+//			System.out.println("Player: " +pcpv.getCards());
+			for(Card dealerCard : Card.values()){
+				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+				Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
+//				System.out.println(dealerCard+" : " + oneSet.size());
+				for(PlayerCardsPathValue one : oneSet){
+					if(one.getDsTimes() > 2) {
+						System.out.println(one);
+					}
+				}
+
+			}
+		}
+		return 0;
+	}
 
 	@Override
 	public int compareTo(StrategyMatrix8012 o) {
@@ -351,6 +375,28 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 			return false;
 		return true;
 	}
+
+	public Double[] getWdlRate() {
+		if(wdlRate==null) {
+			
+			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+
+			for(PlayerCardsPathValue pcpv : playerCards){
+//				System.out.println("Player: " +pcpv.getCards());
+				for(Card dealerCard : Card.values()){
+					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
+//					System.out.println(dealerCard+" : " + oneSet.size());
+					for(PlayerCardsPathValue one : oneSet){
+
+					}
+
+				}
+			}
+		}
+		return wdlRate;
+	}
+	
 	
 	
 }

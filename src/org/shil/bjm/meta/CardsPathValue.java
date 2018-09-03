@@ -13,15 +13,20 @@ public abstract class CardsPathValue {
 	//所使用的牌
 	private List<Card> cards;
 	
+	//double和split的次数
+	private int dsTimes;
+	
 	public CardsPathValue(Card ... _cards){
 		cards = new ArrayList<Card>();
 		for(Card card : _cards){
 			addCard(card);
 		}
+		this.dsTimes = 0;
 	}
 	
 	public CardsPathValue(CardsPathValue cardsPathValue){
 		cards = new ArrayList<Card>(cardsPathValue.getCards());
+		this.dsTimes = cardsPathValue.getDsTimes();
 	}
 	
 	public void addCard(Card card){
@@ -108,7 +113,15 @@ public abstract class CardsPathValue {
 
 	@Override
 	public String toString() {
-		return "CardsPathValue [cards=" + cards + "]";
+		return "CardsPathValue [cards=" + cards + ", dsTimes=" + dsTimes + "]";
+	}
+
+	public int getDsTimes() {
+		return dsTimes;
+	}
+
+	public void setDsTimes(int dsTimes) {
+		this.dsTimes = dsTimes;
 	}
 	
 	
