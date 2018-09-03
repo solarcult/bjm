@@ -22,10 +22,15 @@ public enum PlayerAction {
 	/**
 	 * 起手牌是对的选择
 	 * @return
-	 * @throws NoSuchAlgorithmException
+	 * @ 
 	 */
-	public static PlayerAction randomStartWithPairAction() throws NoSuchAlgorithmException {
-		SecureRandom sr = SecureRandom.getInstanceStrong();
+	public static PlayerAction randomStartWithPairAction() {
+		SecureRandom sr = null;
+		try {
+			sr =SecureRandom.getInstanceStrong();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		int r = sr.nextInt(5);
 		switch(r){
 			case 0 : 
@@ -46,10 +51,15 @@ public enum PlayerAction {
 	/**
 	 * 起手牌是对的选择,当遇到庄家是A的时候，不能投降
 	 * @return
-	 * @throws NoSuchAlgorithmException
+	 * @ 
 	 */
-	public static PlayerAction randomStartWithPairActionVSDealerA() throws NoSuchAlgorithmException {
-		SecureRandom sr = SecureRandom.getInstanceStrong();
+	public static PlayerAction randomStartWithPairActionVSDealerA()   {
+		SecureRandom sr = null;
+		try {
+			sr =SecureRandom.getInstanceStrong();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		int r = sr.nextInt(4);
 		switch(r){
 			case 0 : 
@@ -66,12 +76,17 @@ public enum PlayerAction {
 	}
 	
 	/**
-	 * 起手牌 不是对的情况
+	 * 起手牌 不是对的情况 : Ax or other
 	 * @return
-	 * @throws NoSuchAlgorithmException
+	 * @ 
 	 */
-	public static PlayerAction randomStartWithoutPairAction() throws NoSuchAlgorithmException {
-		SecureRandom sr = SecureRandom.getInstanceStrong();
+	public static PlayerAction randomStartWithoutPairAction()  {
+		SecureRandom sr = null;
+		try {
+			sr =SecureRandom.getInstanceStrong();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		int r = sr.nextInt(4);
 		switch(r){
 			case 0 : 
@@ -90,10 +105,15 @@ public enum PlayerAction {
 	/**
 	 * 起手牌 不是对的情况，当遇到庄家是A的时候，不能投降
 	 * @return
-	 * @throws NoSuchAlgorithmException
+	 * @ 
 	 */
-	public static PlayerAction randomStartWithoutPairActionVSDealerA() throws NoSuchAlgorithmException {
-		SecureRandom sr = SecureRandom.getInstanceStrong();
+	public static PlayerAction randomStartWithoutPairActionVSDealerA()   {
+		SecureRandom sr = null;
+		try {
+			sr =SecureRandom.getInstanceStrong();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		int r = sr.nextInt(3);
 		switch(r){
 			case 0 : 
@@ -110,10 +130,15 @@ public enum PlayerAction {
 	/**
 	 * 分牌后又遇到对,这时还能分牌的情况
 	 * @return
-	 * @throws NoSuchAlgorithmException
+	 * @ 
 	 */
-	public static PlayerAction randomSplitedPairAndCanSplitAction() throws NoSuchAlgorithmException {
-		SecureRandom sr = SecureRandom.getInstanceStrong();
+	public static PlayerAction randomSplitedPairAndCanSplitAction()   {
+		SecureRandom sr = null;
+		try {
+			sr =SecureRandom.getInstanceStrong();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		int r = sr.nextInt(4);
 		switch(r){
 			case 0 : 
@@ -132,10 +157,15 @@ public enum PlayerAction {
 	/**
 	 * 分牌后又遇到对,这时不能分牌的情况 （AA分1次，其他分2次 最多）
 	 * @return
-	 * @throws NoSuchAlgorithmException
+	 * @ 
 	 */
-	public static PlayerAction randomSplitedPairAndCanNotSplittAction() throws NoSuchAlgorithmException {
-		SecureRandom sr = SecureRandom.getInstanceStrong();
+	public static PlayerAction randomSplitedPairAndCanNotSplittAction()   {
+		SecureRandom sr = null;
+		try {
+			sr =SecureRandom.getInstanceStrong();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		int r = sr.nextInt(3);
 		switch(r){
 			case 0 : 
@@ -149,8 +179,13 @@ public enum PlayerAction {
 		}
 	}
 	
-	public static PlayerAction randomThreeCardsAction() throws NoSuchAlgorithmException {
-		SecureRandom sr = SecureRandom.getInstanceStrong();
+	public static PlayerAction randomThreeCardsAction()   {
+		SecureRandom sr = null;
+		try {
+			sr =SecureRandom.getInstanceStrong();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		int r = sr.nextInt(2);
 		switch(r){
 			case 0 :

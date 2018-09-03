@@ -13,16 +13,21 @@ import org.apache.commons.math3.stat.Frequency;
 
 public class EvolutionTest {
 	
-	static int generation = 5000;
+	static int write2disk = 250;
+	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 
 	public static void main(String[] args) {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
-		StrategyMatrix8012 origin = new Standard2017();
+//		StrategyMatrix8012 origin = new Standard2017();
 //		StrategyMatrix8012 origin = new Seven8012();
-		evos.add(origin);
+		for(int i = 1; i <= popluation; i++) 
+		{
+			StrategyMatrix8012 origin = new GenMatrix();
+			evos.add(origin);
+		}
 		
 //		System.out.println("s");
 //		long start = System.currentTimeMillis();
@@ -44,7 +49,7 @@ public class EvolutionTest {
 				e.printStackTrace();
 			}
 			
-			if(i % 250 == 0) {
+			if(i % write2disk == 0) {
 				writeToDisk(i,evos);
 			}
 		}
@@ -93,7 +98,7 @@ public class EvolutionTest {
 			if(!competions.contains(sm)) {
 				competions.add(sm);
 			}
-			for(int i=0; i < popluation/2; i++) {
+			for(int i=0; i < popluation; i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
 					evo.getROI();
