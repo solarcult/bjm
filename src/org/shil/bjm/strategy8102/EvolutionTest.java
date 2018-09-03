@@ -101,12 +101,16 @@ public class EvolutionTest {
 			for(int i=0; i < popluation; i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
+					if(origins.contains(evo)) {
+						return null;
+					}
 					evo.getROI();
 					competions.add(evo);
 					return evo;
 				});
-				
-				guess.add(completableFuture);
+				if(completableFuture!=null) {
+					guess.add(completableFuture);
+				}
 			}
 		}
 		System.out.println("start guess: " + guess.size());

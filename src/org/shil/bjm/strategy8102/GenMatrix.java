@@ -219,22 +219,6 @@ public class GenMatrix extends Standard2017 {
 		}
 		
 		/*
-		 * Situation.Start_With_A 11 or 1
-		 * VS
-		 * DealerCard (One ~ K)
-		 */
-		for(Card dealerCard : Card.values()) {
-			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			if(dealerCard == Card.One1){
-				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
-				changesMatrix.put(start_With_A, PlayerAction.randomStartWithoutPairActionVSDealerA());
-			}else {
-				MatrixKey start_With_A = new MatrixKey(StartValue.One, dealerCard, Situation.Start_With_A);
-				changesMatrix.put(start_With_A, PlayerAction.randomStartWithoutPairAction());
-			}
-		}
-		
-		/*
 		 * Situation.Start_With_Pair [2~9]
 		 * VS
 		 * DealerCard (One ~ K)
@@ -762,5 +746,10 @@ public class GenMatrix extends Standard2017 {
 		this.one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
+	}
+	
+	public static void main(String[] args) {
+		GenMatrix g = new GenMatrix();
+		g.getROI();
 	}
 }

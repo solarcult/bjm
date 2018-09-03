@@ -198,17 +198,6 @@ public class Standard2017 extends Seven8012 {
 		}
 		
 		/*
-		 * Situation.Start_With_A 11 or 1
-		 * VS
-		 * DealerCard (One ~ K)
-		 */
-		for(Card dealerCard : Card.values()) {
-			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			MatrixKey start_With_A = new MatrixKey(StartValue.One, dealerCard, Situation.Start_With_A);
-			changesMatrix.put(start_With_A, PlayerAction.Hit);
-		}
-		
-		/*
 		 * Situation.Start_With_Pair [2~9]
 		 * VS
 		 * DealerCard (One ~ K)
