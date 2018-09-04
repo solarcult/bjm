@@ -332,7 +332,7 @@ public class GenMatrix extends Standard2017 {
 						changesMatrix.put(start_With_Pair, PlayerAction.randomStartWithPairAction());
 					}
 				}else if(start == 9) {
-					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)|| (dealerCard==Card.Seven7)||(dealerCard==Card.Eight8)) {
+					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);	
 					}else if(dealerCard==Card.One1) {
@@ -462,7 +462,7 @@ public class GenMatrix extends Standard2017 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.randomSplitedPairAndCanSplitAction());
 					}
 				}else if(start == 9) {
-					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)|| (dealerCard==Card.Seven7)||(dealerCard==Card.Eight8)) {
+					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else {
