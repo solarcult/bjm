@@ -17,7 +17,7 @@ import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.meta.WinRateUtil;
 
-public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix8012>{
+public abstract class StrategyMatrix8012{
 	
 	protected Map<MatrixKey,PlayerAction> notChangesMatrix;
 	protected Map<MatrixKey,PlayerAction> changesMatrix;
@@ -336,16 +336,6 @@ public abstract class StrategyMatrix8012 implements Comparable<StrategyMatrix801
 			wdlRateDSProb = new Double[] {win/total,draw/total,lose/total};
 		}
 		return wdlRateDSProb;
-	}
-
-	@Override
-	public int compareTo(StrategyMatrix8012 o) {
-		if(this.getROI() > o.getROI()) {
-			return -1;
-		}else if(this.getROI() < o.getROI()) {
-			return 1;
-		}
-		return 0;
 	}
 
 	@Override

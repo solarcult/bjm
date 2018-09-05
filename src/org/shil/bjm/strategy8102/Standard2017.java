@@ -706,6 +706,11 @@ public class Standard2017 extends Seven8012 {
 	
 	public static void main(String[] args) {
 		StrategyMatrix8012 one = new Standard2017();
+		
+		long start = System.currentTimeMillis();
+		System.out.println(one.getWdlRateWithDS());
+		System.out.println(System.currentTimeMillis() - start);
+		
 		StrategyMatrix8012 two = one.evolve();
 		System.out.println(one.getChangesMatrix().size());
 		System.out.println(two.getNotChangesMatrix().size());
