@@ -343,11 +343,11 @@ public abstract class StrategyMatrix8012{
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
-		sb.append(roi);
+		sb.append(getROI());
 		sb.append(", wdlRateDS=");
-		sb.append(HelloWorld.builderDoubleWDL(wdlRateDS));
+		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDS()));
 		sb.append(", wdlRateDSProb=");
-		sb.append(HelloWorld.builderDoubleWDL(wdlRateDSProb));
+		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProb()));
 		sb.append("\nchangeMatrix = ");
 		for(Result r: getChangeMatrxByList()) {
 			sb.append("\n");
@@ -360,12 +360,11 @@ public abstract class StrategyMatrix8012{
 	public String getCalcResult() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
-		sb.append(roi);
+		sb.append(getROI());
 		sb.append(", wdlRateDS=");
-		sb.append(HelloWorld.builderDoubleWDL(wdlRateDS));
+		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDS()));
 		sb.append(", wdlRateDSProb=");
-		sb.append(HelloWorld.builderDoubleWDL(wdlRateDSProb));
-		sb.append("\n");
+		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProb()));
 		return sb.toString();
 	}
 
