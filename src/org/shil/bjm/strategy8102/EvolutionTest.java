@@ -60,7 +60,9 @@ public class EvolutionTest {
 					if(origins.contains(evo)) {
 						return null;
 					}
-					evo.getROI();
+//					evo.getROI();
+					evo.getWdlRateWithDS();
+					
 					competions.add(evo);
 					return evo;
 				});
