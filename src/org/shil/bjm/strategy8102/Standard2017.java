@@ -1,6 +1,9 @@
 package org.shil.bjm.strategy8102;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -705,18 +708,22 @@ public class Standard2017 extends Seven8012 {
 	}
 	
 	public static void main(String[] args) {
+		List<StrategyMatrix8012> s = new ArrayList<>();
 		StrategyMatrix8012 one = new Standard2017();
-		
+		one.wdlRateDS = new Double[] { 10d,20d,30d};
 		long start = System.currentTimeMillis();
-		System.out.println(one.getWdlRateWithDS());
+		System.out.println(one.getCalcResult());
 		System.out.println(System.currentTimeMillis() - start);
 		
 		StrategyMatrix8012 two = one.evolve();
 		System.out.println(one.getChangesMatrix().size());
 		System.out.println(two.getNotChangesMatrix().size());
 		System.out.println(two.getOne().size());
-		
+		two.wdlRateDS =  new Double[] { 30d,20d,10d};
 		System.out.println(one.getROI());
+		s.add(one);
+		s.add(two);
+		Collections.sort(s,new Matrix8102WinRateDSComparator());
 		
 		int count = 0 ;
 		for(Entry<MatrixKey,PlayerAction> e: one.getOne().entrySet()) {

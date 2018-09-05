@@ -76,7 +76,6 @@ public class EvolutionTest {
 		CompletableFuture<Void> all = CompletableFuture.allOf(guess.toArray(new CompletableFuture[guess.size()]));
 		all.join();
 
-//		System.out.println(Calendar.getInstance().getTime() +" guess done. ");
 //		Collections.sort(competions,new Matrix8102ROIComparator());
 		Collections.sort(competions,new Matrix8102WinRateDSComparator());
 //		Collections.sort(competions,new Matrix8102WinRateDSProbComparator());
@@ -86,9 +85,8 @@ public class EvolutionTest {
 		for(int i = 0; i < length; i++) {
 			result.add(competions.get(i));
 		}
-		System.out.println(result.get(0).getROI());
-		System.out.println(result.get(result.size()-1).getROI());
-//		System.out.println(Calendar.getInstance().getTime() + " result: " + result.size());
+		System.out.println(result.get(0).getCalcResult());
+		System.out.println(result.get(result.size()-1).getCalcResult());
 		return result;
 	}
 }

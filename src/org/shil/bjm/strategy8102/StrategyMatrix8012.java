@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.DealerCards;
 import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.meta.Card;
@@ -343,11 +344,27 @@ public abstract class StrategyMatrix8012{
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
 		sb.append(roi);
+		sb.append(", wdlRateDS=");
+		sb.append(HelloWorld.builderDoubleWDL(wdlRateDS));
+		sb.append(", wdlRateDSProb=");
+		sb.append(HelloWorld.builderDoubleWDL(wdlRateDSProb));
 		sb.append("\nchangeMatrix = ");
 		for(Result r: getChangeMatrxByList()) {
 			sb.append("\n");
 			sb.append(r);
 		}
+		sb.append("\n");
+		return sb.toString();
+	}
+	
+	public String getCalcResult() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("StrategyMatrix8012 [roi=");
+		sb.append(roi);
+		sb.append(", wdlRateDS=");
+		sb.append(HelloWorld.builderDoubleWDL(wdlRateDS));
+		sb.append(", wdlRateDSProb=");
+		sb.append(HelloWorld.builderDoubleWDL(wdlRateDSProb));
 		sb.append("\n");
 		return sb.toString();
 	}
