@@ -70,7 +70,7 @@ public class DealerCards {
 	public static void main(String[] args){
 		
 		System.out.println(StartOne.size());
-		HelloWorld.print(DealerCards.StartOne);
+//		HelloWorld.print(DealerCards.StartOne);
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.One1));
 		System.out.println(StartTwo.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Two2));

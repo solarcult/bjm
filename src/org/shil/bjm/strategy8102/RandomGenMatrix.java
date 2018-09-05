@@ -7,8 +7,8 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 
-public class GenMatrix extends Standard2017 {
-	public GenMatrix() {
+public class RandomGenMatrix extends Standard2017 {
+	public RandomGenMatrix() {
 		super();
 		Map<MatrixKey,PlayerAction> changesMatrix = new HashMap<>();
 		/*
@@ -749,7 +749,7 @@ public class GenMatrix extends Standard2017 {
 	}
 	
 	public static void main(String[] args) {
-		GenMatrix g = new GenMatrix();
+		RandomGenMatrix g = new RandomGenMatrix();
 		g.getROI();
 	}
 }

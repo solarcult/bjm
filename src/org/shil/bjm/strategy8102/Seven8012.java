@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.shil.bjm.meta.Card;
+import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.meta.PlayerAction;
 
 public class Seven8012 extends StrategyMatrix8012 {
@@ -101,6 +102,6 @@ public class Seven8012 extends StrategyMatrix8012 {
 		oks.add(two.evolve());
 		oks.add(new Standard2017());
 		
-		System.out.println(EvolutionTest.analyzeEvos(oks).toString());
+		System.out.println(FileUtil.analyzeEvos(oks).toString());
 	}
 }

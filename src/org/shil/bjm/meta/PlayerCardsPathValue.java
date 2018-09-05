@@ -14,12 +14,16 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	private double betMutiV ;
 	private int splitTimes;
 	
+	//double和split的次数
+	private int dsTimes;
+	
 	public PlayerCardsPathValue(Card ... _cards){
 		super(_cards);
 		if(_cards.length<2) throw new RuntimeException("PlayerCards Init should have 2 cards at least");
 		action = PlayerAction.Init;
 		betMutiV = 1;
 		splitTimes = 0;
+		dsTimes = 0;
 	}
 	
 	public PlayerCardsPathValue(PlayerCardsPathValue playerCardsPathValue){
@@ -27,6 +31,8 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		action = playerCardsPathValue.getAction();
 		betMutiV = playerCardsPathValue.getBetMutiV();
 		splitTimes = playerCardsPathValue.getSplitTimes();
+		this.dsTimes = playerCardsPathValue.getDsTimes();
+
 	}
 	
 	public boolean isStartHand() {
@@ -227,5 +233,13 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	@Override
 	public double prob(DeckSet deckset) {
 		return ProbUtil.calcProb(getCards(), splitTimes,deckset);
+	}
+	
+	public int getDsTimes() {
+		return dsTimes;
+	}
+
+	public void setDsTimes(int dsTimes) {
+		this.dsTimes = dsTimes;
 	}
 }

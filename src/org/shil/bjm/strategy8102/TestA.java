@@ -3,21 +3,18 @@ package org.shil.bjm.strategy8102;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.math3.stat.Frequency;
-import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
-import org.shil.bjm.meta.PlayerCardsPathValue;
-import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
 
 public class TestA {
 	
 	public static void main(String[] args) {
-		testB();
+		Standard2017 s = new Standard2017();
+		System.out.println(s.getROI());
 	}
 	
 	public static void testB() {
