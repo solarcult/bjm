@@ -10,7 +10,7 @@ import org.shil.bjm.meta.FileUtil;
 
 public class EvolutionTest {
 	
-	static int write2disk = 250;
+	static int write2disk = 50;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 
