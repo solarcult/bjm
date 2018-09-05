@@ -249,6 +249,8 @@ public abstract class StrategyMatrix8012{
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
 		this.roi = null;
+		this.wdlRateDS = null;
+		this.wdlRateDSProb = null;
 	}
 
 	public Map<MatrixKey, PlayerAction> getNotChangesMatrix() {
