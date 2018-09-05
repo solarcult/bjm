@@ -54,7 +54,7 @@ public class HelloWorld {
 	
 	public static String builderDoubleWDL(Double[] result){
 		if(result!=null) {
-			return "w:"+result[0]*100+"  $d:"+result[1]*100+"  $l:"+result[2]*100;
+			return "w:"+result[0]*100+" $d:"+result[1]*100+" $l:"+result[2]*100;
 		}else {
 			return "null not yet.";
 		}

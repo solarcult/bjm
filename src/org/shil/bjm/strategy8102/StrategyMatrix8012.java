@@ -344,9 +344,9 @@ public abstract class StrategyMatrix8012{
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
 		sb.append(getROI());
-		sb.append(", wdlRateDS=");
+		sb.append(",\t wdlRateDS=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDS()));
-		sb.append(", wdlRateDSProb=");
+		sb.append(",\t wdlRateDSProb=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProb()));
 		sb.append("\nchangeMatrix = ");
 		for(Result r: getChangeMatrxByList()) {
@@ -361,9 +361,9 @@ public abstract class StrategyMatrix8012{
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
 		sb.append(getROI());
-		sb.append(", wdlRateDS=");
+		sb.append(",\t wdlRateDS=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDS()));
-		sb.append(", wdlRateDSProb=");
+		sb.append(",\t wdlRateDSProb=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProb()));
 		return sb.toString();
 	}
