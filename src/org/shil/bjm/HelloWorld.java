@@ -1,11 +1,14 @@
 package org.shil.bjm;
 
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.core.DealerCards;
+import org.shil.bjm.strategy8102.StrategyMatrix8012;
 
 public class HelloWorld {
 
@@ -94,5 +97,18 @@ public class HelloWorld {
 			sb.append(e.getKey() +" : " + e.getValue());
 		}
 		return sb.toString();
-	}	
+	}
+	
+	public static void printStrategyMatrix8012(StrategyMatrix8012 x,StrategyMatrix8012 y) {
+		System.out.println(Calendar.getInstance().getTime()+ " calculate done! prepare print: ");
+
+		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
+			System.out.println(x.getCalcResult());
+		});
+		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
+			System.out.println(y.evolve().getCalcResult());
+		});
+		CompletableFuture<Void> ra = CompletableFuture.allOf(a,b);
+		ra.join();
+	}
 }

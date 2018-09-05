@@ -6,11 +6,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
 
 public class EvolutionTest {
 	
-	static int write2disk = 50;
+	static int write2disk = 30;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 
@@ -32,6 +33,10 @@ public class EvolutionTest {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
 				
 				evos = evoluationOnceMultiCPU(evos);
+				
+				if(i % 10 == 0) {
+					HelloWorld.printStrategyMatrix8012(evos.get(0), evos.get(evos.size()-1));
+				}
 				
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -61,7 +66,8 @@ public class EvolutionTest {
 						return null;
 					}
 //					evo.getROI();
-					evo.getWdlRateWithDS();
+//					evo.getWdlRateWithDS();
+					evo.getWdlRateWithDSWithProb();
 					
 					competions.add(evo);
 					return evo;
@@ -77,16 +83,15 @@ public class EvolutionTest {
 		all.join();
 
 //		Collections.sort(competions,new Matrix8102ROIComparator());
-		Collections.sort(competions,new Matrix8102WinRateDSComparator());
-//		Collections.sort(competions,new Matrix8102WinRateDSProbComparator());
+//		Collections.sort(competions,new Matrix8102WinRateDSComparator());
+		Collections.sort(competions,new Matrix8102WinRateDSProbComparator());
 		
 		List<StrategyMatrix8012> result = new ArrayList<>();
 		int length = (popluation > competions.size()) ? competions.size() : popluation;
 		for(int i = 0; i < length; i++) {
 			result.add(competions.get(i));
 		}
-		System.out.println(result.get(0).getCalcResult());
-		System.out.println(result.get(result.size()-1).getCalcResult());
+		
 		return result;
 	}
 }

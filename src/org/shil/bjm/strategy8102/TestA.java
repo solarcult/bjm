@@ -1,9 +1,6 @@
 package org.shil.bjm.strategy8102;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import org.apache.commons.math3.stat.Frequency;
 import org.shil.bjm.meta.Card;
@@ -15,6 +12,14 @@ public class TestA {
 	public static void main(String[] args) {
 		Standard2017 s = new Standard2017();
 		System.out.println(s.getROI());
+		CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
+			System.out.println(s.getCalcResult());
+		});
+		CompletableFuture<Void> completableFuture2 = CompletableFuture.runAsync(()->{
+			System.out.println(s.evolve().getCalcResult());
+		});
+		CompletableFuture<Void> all = CompletableFuture.allOf(completableFuture,completableFuture2);
+		all.join();
 	}
 	
 	public static void testB() {
@@ -36,22 +41,6 @@ public class TestA {
 		frequency.addValue(r22);
 		System.out.println(r1.equals(r2));
 		System.out.println(frequency);
-	}
-	
-	public static void testA() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
-		String fileName=sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
-		System.out.println(sdf.format(Calendar.getInstance().getTime()));
-		
-		List<StrategyMatrix8012> a = new ArrayList<>();
-		a.add(new Standard2017());
-//		EvolutionTest.writeToDisk(a);
-		
-		for(int i=0;i<5000;i++) {
-			if((i + 1) % 888 == 0) {
-				System.out.println(i);
-			}
-		}
 	}
 	
 }

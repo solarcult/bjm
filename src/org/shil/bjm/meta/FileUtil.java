@@ -22,10 +22,11 @@ public class FileUtil {
 			out.write(analyzeEvos(evos).toString());
 			out.newLine();
 			out.newLine();
-			for(StrategyMatrix8012 e : evos) {
-				out.write(e.toString());
-				out.newLine();
-			}
+//			for(StrategyMatrix8012 e : evos) {
+//				out.write(e.toString());
+//				out.newLine();
+//			}
+			out.write(evos.get(0).toString());
 			
 			out.flush();
 			out.close();
