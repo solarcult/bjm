@@ -52,7 +52,7 @@ public class EvolutionTest {
 	
 	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins) {
 		
-		List<CompletableFuture<StrategyMatrix8012>> guess = new ArrayList<>();
+		List<CompletableFuture<Void>> guess = new ArrayList<>();
 		List<StrategyMatrix8012> competions = new ArrayList<>();
 		for(StrategyMatrix8012 sm : origins) {
 			//put the best from past generation in competions list 
@@ -60,21 +60,19 @@ public class EvolutionTest {
 				competions.add(sm);
 			}
 			for(int i=0; i < popluation/2; i++) {
-				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
+				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
 					if(competions.contains(evo)) {
-						return null;
+						return ;
 					}
 //					evo.getROI();
 //					evo.getWdlRateWithDS();
 					evo.getWdlRateWithDSWithProb();
 					
 					competions.add(evo);
-					return evo;
 				});
-				if(completableFuture!=null) {
-					guess.add(completableFuture);
-				}
+				
+				guess.add(completableFuture);
 			}
 		}
 		System.out.println("start guess: " + guess.size());
