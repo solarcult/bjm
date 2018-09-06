@@ -240,6 +240,9 @@ public abstract class StrategyMatrix8012{
 		one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
+		this.roi = null;
+		this.wdlRateDS = null;
+		this.wdlRateDSProb = null;
 	}
 	
 	protected StrategyMatrix8012(Map<MatrixKey,PlayerAction> notChangesMatrix,Map<MatrixKey,PlayerAction> changesMatrix){
