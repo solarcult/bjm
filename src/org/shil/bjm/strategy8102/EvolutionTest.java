@@ -62,7 +62,7 @@ public class EvolutionTest {
 			for(int i=0; i < popluation/2; i++) {
 				CompletableFuture<StrategyMatrix8012> completableFuture = CompletableFuture.supplyAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
-					if(origins.contains(evo)) {
+					if(competions.contains(evo)) {
 						return null;
 					}
 //					evo.getROI();
