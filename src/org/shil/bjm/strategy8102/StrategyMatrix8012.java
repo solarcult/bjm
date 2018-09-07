@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.DealerCards;
@@ -294,6 +295,7 @@ public abstract class StrategyMatrix8012{
 				}
 			}
 			this.roi = roi;
+			System.out.println("roi done: " + roi);
 		}
 		return roi;
 	}
@@ -317,6 +319,7 @@ public abstract class StrategyMatrix8012{
 			}
 			double total = win + draw + lose;
 			wdlRateDS = new Double[] {win/total,draw/total,lose/total};
+			System.out.println("wdlRateDS done: " + wdlRateDS);
 		}
 		return wdlRateDS;
 	}
@@ -340,12 +343,24 @@ public abstract class StrategyMatrix8012{
 			}
 			double total = win + draw + lose;
 			wdlRateDSProb = new Double[] {win/total,draw/total,lose/total};
+			System.out.println("wdlRateDSProb done: " + wdlRateDSProb);
 		}
 		return wdlRateDSProb;
 	}
 
 	@Override
 	public String toString() {
+		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
+			getROI();
+		});
+		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
+			getWdlRateWithDS();
+		});
+		CompletableFuture<Void> c = CompletableFuture.runAsync(()->{
+			getWdlRateWithDSWithProb();
+		});
+		CompletableFuture<Void> abc = CompletableFuture.allOf(a,b,c);
+		abc.join();
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
 		sb.append(getROI());
@@ -363,6 +378,18 @@ public abstract class StrategyMatrix8012{
 	}
 	
 	public String getCalcResult() {
+		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
+			getROI();
+		});
+		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
+			getWdlRateWithDS();
+		});
+		CompletableFuture<Void> c = CompletableFuture.runAsync(()->{
+			getWdlRateWithDSWithProb();
+		});
+		CompletableFuture<Void> abc = CompletableFuture.allOf(a,b,c);
+		abc.join();
+		
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
 		sb.append(getROI());
