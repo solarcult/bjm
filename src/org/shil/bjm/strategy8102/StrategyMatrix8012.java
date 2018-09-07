@@ -319,7 +319,7 @@ public abstract class StrategyMatrix8012{
 			}
 			double total = win + draw + lose;
 			wdlRateDS = new Double[] {win/total,draw/total,lose/total};
-			System.out.println("wdlRateDS done: " + wdlRateDS);
+			System.out.println("wdlRateDS done: " + HelloWorld.builderDoubleWDL(wdlRateDS));
 		}
 		return wdlRateDS;
 	}
@@ -343,7 +343,7 @@ public abstract class StrategyMatrix8012{
 			}
 			double total = win + draw + lose;
 			wdlRateDSProb = new Double[] {win/total,draw/total,lose/total};
-			System.out.println("wdlRateDSProb done: " + wdlRateDSProb);
+			System.out.println("wdlRateDSProb done: " + HelloWorld.builderDoubleWDL(wdlRateDSProb));
 		}
 		return wdlRateDSProb;
 	}

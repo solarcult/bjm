@@ -32,16 +32,16 @@ public class EvolutionTest {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
 				
-				evos = evoluationOnceMultiCPU(evos);
+				evos = evoluationOnceMultiCPU(evos,3);
 				
 				if(i % 10 == 0) {
 					HelloWorld.printStrategyMatrix8012(evos.get(0), evos.get(evos.size()-1));
 				}
-				
+				System.out.println(Calendar.getInstance().getTime() + " for done");
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			
+			System.out.println(Calendar.getInstance().getTime() + " print? ");
 			if(i % write2disk == 0) {
 				FileUtil.writeToDisk(i,evos);
 			}
@@ -50,14 +50,31 @@ public class EvolutionTest {
 		FileUtil.writeToDisk(generation,evos);
 	}
 	
-	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins) {
+	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins,int type) {
 		
 		List<CompletableFuture<Void>> guess = new ArrayList<>();
 		List<StrategyMatrix8012> competions = new ArrayList<>();
 		for(StrategyMatrix8012 sm : origins) {
 			//put the best from past generation in competions list 
 			if(!competions.contains(sm)) {
-				competions.add(sm);
+				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
+					competions.add(sm);
+					switch(type) {
+						case 1:
+							sm.getROI();
+							break;
+						case 2:
+							sm.getWdlRateWithDS();
+							break;
+						case 3:
+							sm.getWdlRateWithDSWithProb();
+							break;
+						default :
+							throw new RuntimeException("wow who am i?");
+					}
+				});
+				
+				guess.add(completableFuture);
 			}
 			for(int i=0; i < popluation/2; i++) {
 				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
@@ -65,9 +82,20 @@ public class EvolutionTest {
 					if(competions.contains(evo)) {
 						return ;
 					}
-//					evo.getROI();
-//					evo.getWdlRateWithDS();
-					evo.getWdlRateWithDSWithProb();
+					
+					switch(type) {
+						case 1:
+							evo.getROI();
+							break;
+						case 2:
+							evo.getWdlRateWithDS();
+							break;
+						case 3:
+							evo.getWdlRateWithDSWithProb();
+							break;
+						default :
+							throw new RuntimeException("wow who am i?");
+					}
 					
 					competions.add(evo);
 				});
@@ -79,17 +107,29 @@ public class EvolutionTest {
 		
 		CompletableFuture<Void> all = CompletableFuture.allOf(guess.toArray(new CompletableFuture[guess.size()]));
 		all.join();
-
-//		Collections.sort(competions,new Matrix8102ROIComparator());
-//		Collections.sort(competions,new Matrix8102WinRateDSComparator());
-		Collections.sort(competions,new Matrix8102WinRateDSProbComparator());
+		System.out.println(Calendar.getInstance().getTime() + " before sort");
 		
+		switch(type) {
+			case 1:
+				Collections.sort(competions,new Matrix8102ROIComparator());
+				break;
+			case 2:
+				Collections.sort(competions,new Matrix8102WinRateDSComparator());
+				break;
+			case 3:
+				Collections.sort(competions,new Matrix8102WinRateDSProbComparator());
+				break;
+			default :
+				throw new RuntimeException("wow who am i?");
+		}
+		
+		System.out.println(Calendar.getInstance().getTime() + " after sort");
 		List<StrategyMatrix8012> result = new ArrayList<>();
 		int length = (popluation > competions.size()) ? competions.size() : popluation;
 		for(int i = 0; i < length; i++) {
 			result.add(competions.get(i));
 		}
-		
+		System.out.println(Calendar.getInstance().getTime() + " finsih return");
 		return result;
 	}
 }
