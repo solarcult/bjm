@@ -295,7 +295,7 @@ public abstract class StrategyMatrix8012{
 				}
 			}
 			this.roi = roi;
-			System.out.println("roi done: " + roi);
+			if(EvolutionTest.debug) System.out.println("roi done: " + roi);
 		}
 		return roi;
 	}
@@ -319,7 +319,7 @@ public abstract class StrategyMatrix8012{
 			}
 			double total = win + draw + lose;
 			wdlRateDS = new Double[] {win/total,draw/total,lose/total};
-			System.out.println("wdlRateDS done: " + HelloWorld.builderDoubleWDL(wdlRateDS));
+			if(EvolutionTest.debug) System.out.println("wdlRateDS done: " + HelloWorld.builderDoubleWDL(wdlRateDS));
 		}
 		return wdlRateDS;
 	}
@@ -343,7 +343,7 @@ public abstract class StrategyMatrix8012{
 			}
 			double total = win + draw + lose;
 			wdlRateDSProb = new Double[] {win/total,draw/total,lose/total};
-			System.out.println("wdlRateDSProb done: " + HelloWorld.builderDoubleWDL(wdlRateDSProb));
+			if(EvolutionTest.debug) System.out.println("wdlRateDSProb done: " + HelloWorld.builderDoubleWDL(wdlRateDSProb));
 		}
 		return wdlRateDSProb;
 	}

@@ -14,6 +14,7 @@ public class EvolutionTest {
 	static int write2disk = 30;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
+	public static boolean debug = false;
 
 	public static void main(String[] args) {
 		
@@ -32,16 +33,16 @@ public class EvolutionTest {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
 				
-				evos = evoluationOnceMultiCPU(evos,3);
+				evos = evoluationOnceMultiCPU(evos,1);
 				
 				if(i % 10 == 0) {
 					HelloWorld.printStrategyMatrix8012(evos.get(0), evos.get(evos.size()-1));
 				}
-				System.out.println(Calendar.getInstance().getTime() + " for done");
+				if(debug) System.out.println(Calendar.getInstance().getTime() + " for done");
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			System.out.println(Calendar.getInstance().getTime() + " print? ");
+
 			if(i % write2disk == 0) {
 				FileUtil.writeToDisk(i,evos);
 			}
@@ -107,7 +108,7 @@ public class EvolutionTest {
 		
 		CompletableFuture<Void> all = CompletableFuture.allOf(guess.toArray(new CompletableFuture[guess.size()]));
 		all.join();
-		System.out.println(Calendar.getInstance().getTime() + " before sort");
+		if(debug) System.out.println(Calendar.getInstance().getTime() + " before sort");
 		
 		switch(type) {
 			case 1:
@@ -123,13 +124,13 @@ public class EvolutionTest {
 				throw new RuntimeException("wow who am i?");
 		}
 		
-		System.out.println(Calendar.getInstance().getTime() + " after sort");
+		if(debug) System.out.println(Calendar.getInstance().getTime() + " after sort");
 		List<StrategyMatrix8012> result = new ArrayList<>();
 		int length = (popluation > competions.size()) ? competions.size() : popluation;
 		for(int i = 0; i < length; i++) {
 			result.add(competions.get(i));
 		}
-		System.out.println(Calendar.getInstance().getTime() + " finsih return");
+		if(debug) System.out.println(Calendar.getInstance().getTime() + " finsih return");
 		return result;
 	}
 }
