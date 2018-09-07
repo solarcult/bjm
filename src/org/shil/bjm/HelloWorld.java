@@ -106,7 +106,7 @@ public class HelloWorld {
 			System.out.println(x.getCalcResult());
 		});
 		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
-			System.out.println(y.evolve().getCalcResult());
+			System.out.println(y.getCalcResult());
 		});
 		CompletableFuture<Void> ra = CompletableFuture.allOf(a,b);
 		ra.join();
