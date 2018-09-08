@@ -102,6 +102,7 @@ public class Strategy8012 {
 		//story continued
 		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
 			//burst, bye~
+			playerCardsPathValue.setAction(PlayerAction.Stand);
 			playerCardsPathValues.add(playerCardsPathValue);
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup || playerCardsPathValue.getAction() == PlayerAction.Stand){
 			// we finish and pray
