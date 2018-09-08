@@ -247,7 +247,7 @@ public class Standard2017 extends Seven8012 {
 						changesMatrix.put(start_With_Pair, PlayerAction.Stand);
 					}else if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);
 					}else{
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Hit);

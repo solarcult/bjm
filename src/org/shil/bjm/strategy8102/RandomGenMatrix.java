@@ -278,7 +278,7 @@ public class RandomGenMatrix extends Standard2017 {
 						changesMatrix.put(start_With_Pair, PlayerAction.randomStartWithPairAction());
 					}else if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);
+						changesMatrix.put(start_With_Pair, PlayerAction.randomStartWithPairAction());
 					}else if(dealerCard==Card.One1) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.randomStartWithPairActionVSDealerA());
