@@ -115,7 +115,7 @@ public class EvolutionTest {
 							evo.getWdlRateWithDSWithProb();
 							break;
 						case 4:
-							sm.getWdlRateWithDSbyRaw();
+							evo.getWdlRateWithDSbyRaw();
 							break;
 						default :
 							throw new RuntimeException("wow who am i?");
