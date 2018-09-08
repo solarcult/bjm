@@ -43,7 +43,7 @@ public class EvolutionTest {
 				
 				evos = evoluationOnceMultiCPU(evos,CalcType);
 				
-				if(i % 10 == 0) {
+				if(i % print2screen == 0) {
 //					System.out.println(evos.get(0).getROI());
 //					System.out.println(evos.get(evos.size()-1).getROI());
 					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
@@ -62,10 +62,6 @@ public class EvolutionTest {
 	}
 	
 	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins,int type) {
-		if(type == 1) {
-			write2disk *= 10;
-			print2screen *= 10;
-		}
 		
 		List<CompletableFuture<Void>> guess = new ArrayList<>();
 		List<StrategyMatrix8012> competions = new ArrayList<>();
