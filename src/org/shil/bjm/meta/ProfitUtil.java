@@ -32,9 +32,9 @@ public class ProfitUtil {
 				throw new RuntimeException("should not here if split or double :" + playerCardsPathValue);
 			}
 			
-			double daCardProb = 1/13;
+			double daCardProb = (double) 1/13;
 			//用户放弃损失一半
-			ROI -= 0.5 * onePot * playerCardsPathValue.prob() * daCardProb;
+			ROI -= onePot * playerCardsPathValue.prob() * daCardProb;
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			return ROI;
@@ -70,9 +70,9 @@ public class ProfitUtil {
 				throw new RuntimeException("should not here if split or double :" + playerCardsPathValue);
 			}
 			
-			double daCardProb = 1/13;
+			double daCardProb = (double)1/13;
 			//用户放弃损失一半
-			ROI -= 0.5 * onePot * playerCardsPathValue.prob() * daCardProb;
+			ROI -= onePot * playerCardsPathValue.prob() * daCardProb;
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			return ROI;
@@ -123,7 +123,7 @@ public class ProfitUtil {
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
 			//用户放弃损失一半
-			ROI -= baseMoney * 0.5 * onePot;
+			ROI -= baseMoney * onePot;
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			return ROI;

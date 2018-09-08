@@ -1,15 +1,43 @@
 package org.shil.bjm.strategy8102;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import org.apache.commons.math3.stat.Frequency;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
+import org.shil.bjm.meta.PlayerCardsPathValue;
+import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
 
 public class TestA {
 	
 	public static void main(String[] args) {
+		testE();
+	}
+	
+	public static void testE() {
+		PlayerCardsPathValue sixteen  = new PlayerCardsPathValue(Card.Seven7,Card.Nine9);
+		sixteen.setAction(PlayerAction.Giveup);
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(sixteen, Card.Seven7));
+		
+		List<PlayerCardsPathValue> ss = new ArrayList<>();
+		
+		for(Card c : Card.values()) {
+			PlayerCardsPathValue oneMore = new PlayerCardsPathValue(sixteen);
+			oneMore.addCard(c);
+			oneMore.setAction(PlayerAction.Stand);
+			ss.add(oneMore);
+		}
+		
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(ss, Card.Seven7));
+		
+	}
+	
+	
+	
+	public static void testD() {
 		StrategyMatrix8012 a = new Standard2017();
 		EvolutionTest.debug = true;
 		a.getWdlRateWithDS();
