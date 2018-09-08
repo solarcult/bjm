@@ -18,7 +18,10 @@ public class EvolutionTest {
 	static int write2disk = 30;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
+	static int producePopluation = popluation/2;
 	public static boolean debug = false;
+	
+	static int CalcType = 4;
 
 	public static void main(String[] args) {
 		
@@ -37,7 +40,7 @@ public class EvolutionTest {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
 				
-				evos = evoluationOnceMultiCPU(evos,1);
+				evos = evoluationOnceMultiCPU(evos,CalcType);
 				
 				if(i % 10 == 0) {
 					HelloWorld.printStrategyMatrix8012(evos.get(0), evos.get(evos.size()-1));
@@ -59,9 +62,19 @@ public class EvolutionTest {
 		
 		List<CompletableFuture<Void>> guess = new ArrayList<>();
 		List<StrategyMatrix8012> competions = new ArrayList<>();
+		//calc the best cpu runing job
+		int total = origins.size() + origins.size() *  producePopluation;
+		if(total/Runtime.getRuntime().availableProcessors() > 0) {
+			if(total % Runtime.getRuntime().availableProcessors() < Runtime.getRuntime().availableProcessors()/2 ) {
+				total = (total/Runtime.getRuntime().availableProcessors()) * Runtime.getRuntime().availableProcessors() -1;
+			}
+		}
+		
 		for(StrategyMatrix8012 sm : origins) {
+			if(total <= 0) break;
 			//put the best from past generation in competions list 
 			if(!competions.contains(sm)) {
+				if(total-- <= 0) break;
 				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
 					competions.add(sm);
 					switch(type) {
@@ -83,7 +96,8 @@ public class EvolutionTest {
 				});
 				guess.add(completableFuture);
 			}
-			for(int i=0; i < popluation/2; i++) {
+			for(int i=0; i < producePopluation; i++) {
+				if(total-- <= 0) break;
 				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
 					StrategyMatrix8012 evo = sm.evolve();
 					if(competions.contains(evo)) {
@@ -136,7 +150,14 @@ public class EvolutionTest {
 		
 		if(debug) System.out.println(Calendar.getInstance().getTime() + " after sort");
 		List<StrategyMatrix8012> result = new ArrayList<>();
-		int length = (popluation > competions.size()) ? competions.size() : popluation;
+		int pop = (popluation > competions.size()) ? competions.size() : popluation;
+		int length = pop;
+		int multi = pop / Runtime.getRuntime().availableProcessors();
+		if(multi>0) {
+			//save cpu resource don't have few cpu fulltime calc and most of cpu is idle.
+			length = Runtime.getRuntime().availableProcessors() * multi -2;
+		}
+		
 		for(int i = 0; i < length; i++) {
 			result.add(competions.get(i));
 		}
