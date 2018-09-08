@@ -8,6 +8,10 @@ import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
+import org.shil.bjm.strategy8102.comparator.Matrix8102ROIComparator;
+import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSComparator;
+import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSProbComparator;
+import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSbyRawComparator;
 
 public class EvolutionTest {
 	
@@ -70,11 +74,13 @@ public class EvolutionTest {
 						case 3:
 							sm.getWdlRateWithDSWithProb();
 							break;
+						case 4:
+							sm.getWdlRateWithDSbyRaw();
+							break;
 						default :
 							throw new RuntimeException("wow who am i?");
 					}
 				});
-				
 				guess.add(completableFuture);
 			}
 			for(int i=0; i < popluation/2; i++) {
@@ -94,13 +100,14 @@ public class EvolutionTest {
 						case 3:
 							evo.getWdlRateWithDSWithProb();
 							break;
+						case 4:
+							sm.getWdlRateWithDSbyRaw();
+							break;
 						default :
 							throw new RuntimeException("wow who am i?");
 					}
-					
 					competions.add(evo);
 				});
-				
 				guess.add(completableFuture);
 			}
 		}
@@ -119,6 +126,9 @@ public class EvolutionTest {
 				break;
 			case 3:
 				Collections.sort(competions,new Matrix8102WinRateDSProbComparator());
+				break;
+			case 4:
+				Collections.sort(competions,new Matrix8102WinRateDSbyRawComparator());
 				break;
 			default :
 				throw new RuntimeException("wow who am i?");

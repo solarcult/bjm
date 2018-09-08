@@ -10,6 +10,13 @@ import org.shil.bjm.meta.StartValue;
 public class TestA {
 	
 	public static void main(String[] args) {
+		StrategyMatrix8012 a = new Standard2017();
+		EvolutionTest.debug = true;
+		a.getWdlRateWithDS();
+		a.getWdlRateWithDSbyRaw();
+	}
+	
+	public static void testC() {
 		Standard2017 s = new Standard2017();
 		System.out.println(s.getROI());
 		CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{

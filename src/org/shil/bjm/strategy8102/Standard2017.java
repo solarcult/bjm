@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSComparator;
 
 public class Standard2017 extends Seven8012 {
 

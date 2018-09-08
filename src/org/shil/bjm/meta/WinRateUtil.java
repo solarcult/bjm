@@ -92,6 +92,29 @@ public class WinRateUtil {
 		return new Double[] {win/total,draw/total,lose/total};
 	}
 	
+	public static Double[] calcWDLValueWithDStimesbyRaw(Collection<PlayerCardsPathValue> playerCardsPathValues,Collection<DealerCardsPathValue> dealerCardsPathValues) {
+		double win = 0;
+		double draw = 0;
+		double lose = 0;
+		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
+			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
+				double result = calcWDLValueWithDStimes(playerCardsPathValue, dealerCardsPathValue);
+				if(result > 0) {
+					win += result;
+				}else if(result < 0) {
+					lose += Math.abs(result);
+				}else {
+					//draw
+					if(playerCardsPathValue.getDsTimes()>0) {
+						draw += playerCardsPathValue.getDsTimes();
+					}
+				}
+			}
+		}
+		
+		return new Double[] {win,draw,lose};
+	}
+	
 	public static Double[] calcWDLValueWithDStimesWithProb(Collection<PlayerCardsPathValue> playerCardsPathValues,Collection<DealerCardsPathValue> dealerCardsPathValues) {
 		double win = 0;
 		double draw = 0;

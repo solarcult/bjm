@@ -111,4 +111,14 @@ public class HelloWorld {
 		CompletableFuture<Void> ra = CompletableFuture.allOf(a,b);
 		ra.join();
 	}
+	
+	public static void printStrategyMatrix8012(StrategyMatrix8012 one) {
+		System.out.println(Calendar.getInstance().getTime()+ " calculate done! prepare print: ");
+		CompletableFuture<Void> x = CompletableFuture.runAsync(()->{
+			System.out.println(one.getCalcResult());
+		});
+		
+		CompletableFuture.allOf(x).join();
+		
+	}
 }

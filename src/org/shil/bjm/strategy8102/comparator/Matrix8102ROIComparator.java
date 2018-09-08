@@ -1,6 +1,8 @@
-package org.shil.bjm.strategy8102;
+package org.shil.bjm.strategy8102.comparator;
 
 import java.util.Comparator;
+
+import org.shil.bjm.strategy8102.StrategyMatrix8012;
 
 public class Matrix8102ROIComparator implements Comparator<StrategyMatrix8012> {
 

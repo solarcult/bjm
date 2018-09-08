@@ -28,6 +28,7 @@ public abstract class StrategyMatrix8012{
 	protected Double roi;
 	protected Double[] wdlRateDS;
 	protected Double[] wdlRateDSProb;
+	protected Double[] wdlRateDSbyRaw;
 	
 	protected StrategyMatrix8012() {
 		notChangesMatrix = new HashMap<>();
@@ -244,6 +245,7 @@ public abstract class StrategyMatrix8012{
 		this.roi = null;
 		this.wdlRateDS = null;
 		this.wdlRateDSProb = null;
+		this.wdlRateDSbyRaw = null;
 	}
 	
 	protected StrategyMatrix8012(Map<MatrixKey,PlayerAction> notChangesMatrix,Map<MatrixKey,PlayerAction> changesMatrix){
@@ -255,6 +257,7 @@ public abstract class StrategyMatrix8012{
 		this.roi = null;
 		this.wdlRateDS = null;
 		this.wdlRateDSProb = null;
+		this.wdlRateDSbyRaw = null;
 	}
 
 	public Map<MatrixKey, PlayerAction> getNotChangesMatrix() {
@@ -324,6 +327,30 @@ public abstract class StrategyMatrix8012{
 		return wdlRateDS;
 	}
 	
+	public Double[] getWdlRateWithDSbyRaw() {
+		if(wdlRateDSbyRaw==null) {
+			double win =0;
+			double draw = 0;
+			double lose = 0;
+			
+			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+			for(PlayerCardsPathValue pcpv : playerCards){
+				for(Card dealerCard : Card.values()){
+					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
+					Double[] wdl = WinRateUtil.calcWDLValueWithDStimesbyRaw(oneSet, DealerCards.fetchDealerCards(dealerCard));
+					win += wdl[0];
+					draw += wdl[1];
+					lose += wdl[2];
+				}
+			}
+			double total = win + draw + lose;
+			wdlRateDSbyRaw = new Double[] {win/total,draw/total,lose/total};
+			if(EvolutionTest.debug) System.out.println("wdlRateDSbyRaw done: " + HelloWorld.builderDoubleWDL(wdlRateDSbyRaw));
+		}
+		return wdlRateDSbyRaw;
+	}
+	
 	public Double[] getWdlRateWithDSWithProb() {
 		if(wdlRateDSProb==null) {
 			double win =0;
@@ -359,8 +386,11 @@ public abstract class StrategyMatrix8012{
 		CompletableFuture<Void> c = CompletableFuture.runAsync(()->{
 			getWdlRateWithDSWithProb();
 		});
-		CompletableFuture<Void> abc = CompletableFuture.allOf(a,b,c);
-		abc.join();
+		CompletableFuture<Void> d = CompletableFuture.runAsync(()->{
+			getWdlRateWithDSbyRaw();
+		});
+		CompletableFuture<Void> abcd = CompletableFuture.allOf(a,b,c,d);
+		abcd.join();
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
 		sb.append(getROI());
@@ -368,6 +398,8 @@ public abstract class StrategyMatrix8012{
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDS()));
 		sb.append(",\t wdlRateDSProb=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProb()));
+		sb.append(",\t wdlRateWithDSbyRaw=");
+		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSbyRaw()));
 		sb.append("\nchangeMatrix = ");
 		for(Result r: getChangeMatrxByList()) {
 			sb.append("\n");
@@ -387,8 +419,11 @@ public abstract class StrategyMatrix8012{
 		CompletableFuture<Void> c = CompletableFuture.runAsync(()->{
 			getWdlRateWithDSWithProb();
 		});
-		CompletableFuture<Void> abc = CompletableFuture.allOf(a,b,c);
-		abc.join();
+		CompletableFuture<Void> d = CompletableFuture.runAsync(()->{
+			getWdlRateWithDSbyRaw();
+		});
+		CompletableFuture<Void> abcd = CompletableFuture.allOf(a,b,c,d);
+		abcd.join();
 		
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
@@ -397,6 +432,8 @@ public abstract class StrategyMatrix8012{
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDS()));
 		sb.append(",\t wdlRateDSProb=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProb()));
+		sb.append(",\t wdlRateWithDSbyRaw=");
+		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSbyRaw()));
 		return sb.toString();
 	}
 
@@ -425,8 +462,4 @@ public abstract class StrategyMatrix8012{
 		return true;
 	}
 
-
-	
-	
-	
 }
