@@ -12,7 +12,6 @@ import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerCardsPathValue;
-import org.shil.bjm.meta.ProbUtil;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.WinRateUtil;
 
@@ -47,6 +46,7 @@ public class OneStrategyTest{
 					Collection<DealerCardsPathValue> dealers = DealerCards.fetchDealerCards(dealerCard);
 					for(DealerCardsPathValue dv : dealers) {
 						double result = WinRateUtil.calcWDLValue(one, dv);
+						if(result == WinRateUtil.IgnoreReturn) continue;
 						if(result>0) {
 							win+=result;
 							total += result;

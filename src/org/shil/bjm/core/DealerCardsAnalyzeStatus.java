@@ -1,6 +1,7 @@
 package org.shil.bjm.core;
 
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.shil.bjm.anaylze.AnalyzeCardsPathValue;
 import org.shil.bjm.anaylze.AnalyzeStatus;
@@ -58,5 +59,13 @@ public class DealerCardsAnalyzeStatus {
 			default:
 				return null;
 		}
+	}
+	
+	public static void main(String[] args) {
+		double daProb = 0;
+		for(Entry<Integer, AnalyzeStatus> e : ASMNine.entrySet()) {
+			daProb += e.getValue().getProb();
+		}
+		System.out.println(daProb);
 	}
 }

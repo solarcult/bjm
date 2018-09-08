@@ -66,7 +66,7 @@ public class EvolutionTest {
 		int total = origins.size() + origins.size() *  producePopluation;
 		if(total/Runtime.getRuntime().availableProcessors() > 0) {
 			if(total % Runtime.getRuntime().availableProcessors() < Runtime.getRuntime().availableProcessors()/2 ) {
-				total = (total/Runtime.getRuntime().availableProcessors()) * Runtime.getRuntime().availableProcessors() -1;
+				total = (total/Runtime.getRuntime().availableProcessors()) * Runtime.getRuntime().availableProcessors();
 			}
 		}
 		
