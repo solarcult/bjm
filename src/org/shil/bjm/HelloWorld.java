@@ -42,6 +42,10 @@ public class HelloWorld {
 		System.out.println(builderDoubleMatrix(result));
 	}
 	
+	public static void printDoubleMatrix(Double[] result){
+		System.out.println(builderDoubleWDL(result));
+	}
+	
 	public static String builderDoubleMatrix(double[] result){
 		StringBuilder sb = new StringBuilder();
 		for(int i=0;i<result.length;i++){

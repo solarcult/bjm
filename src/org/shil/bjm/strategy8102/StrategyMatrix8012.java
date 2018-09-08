@@ -294,7 +294,7 @@ public abstract class StrategyMatrix8012{
 				for(Card dealerCard : Card.values()){
 					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
-					roi += ProfitUtil.moneyCalcOneHandInReturn(oneSet, dealerCard);
+					roi += ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
 				}
 			}
 			this.roi = roi;

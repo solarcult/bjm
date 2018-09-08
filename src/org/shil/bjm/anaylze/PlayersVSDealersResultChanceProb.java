@@ -69,6 +69,13 @@ public class PlayersVSDealersResultChanceProb {
 		return calcPlayerVSDealerAnaylzeStatus(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
 	}
 	
+	public static double[] calcPlayerVSDealerAnaylzeStatusProb(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
+		Collection<PlayerCardsPathValue> players = new HashSet<PlayerCardsPathValue>();
+		players.add(playerCardsPathValue);
+		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
+		return calcPlayerVSDealerAnaylzeStatusProb(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
+	}
+	
 	/**
 	 * 计算现在玩家所有出牌可能与庄家的出牌可能概率
 	 * @param players
@@ -78,6 +85,11 @@ public class PlayersVSDealersResultChanceProb {
 	public static double[] calcPlayerVSDealerAnaylzeStatus(Collection<PlayerCardsPathValue> players, Card dealerCard){
 		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
 		return calcPlayerVSDealerAnaylzeStatus(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
+	}
+	
+	public static double[] calcPlayerVSDealerAnaylzeStatusProb(Collection<PlayerCardsPathValue> players, Card dealerCard){
+		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
+		return calcPlayerVSDealerAnaylzeStatusProb(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
 	}
 	
 	/*
@@ -110,6 +122,32 @@ public class PlayersVSDealersResultChanceProb {
 		return new double[]{winrate/totalrate,drawrate/totalrate,loserate/totalrate};
 	}
 	*/
+	
+	public static double[] calcPlayerVSDealerAnaylzeStatusProb(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
+		double winrate = 0;
+		double drawrate = 0;
+		double loserate = 0;
+		
+		for(Entry<Integer,AnalyzeStatus> pe : playermap.entrySet()){
+			for(Entry<Integer,AnalyzeStatus> de : dealermap.entrySet()){
+				AnalyzeStatus pa = pe.getValue();
+				AnalyzeStatus da = de.getValue();
+				if(pa.getValue() > BlackJackInfo.BlackJack){
+					loserate += pa.getProb() * da.getProb();
+				}else if(da.getValue() > BlackJackInfo.BlackJack){
+					winrate += pa.getProb() * da.getProb();
+				}else if(pa.getValue() > da.getValue()){
+					winrate += pa.getProb() * da.getProb();
+				}else if(pa.getValue() < da.getValue()){
+					loserate += pa.getProb() * da.getProb();
+				}else if(pa.getValue() == da.getValue()){
+					drawrate += pa.getProb() * da.getProb();
+				}
+			}
+		}
+				
+		return new double[]{winrate,drawrate,loserate};
+	}
 	
 	public static double[] calcPlayerVSDealerAnaylzeStatus(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
 		double winrate = 0;

@@ -16,12 +16,13 @@ import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSbyRawComparator;
 public class EvolutionTest {
 	
 	static int write2disk = 30;
+	static int print2screen = 10;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 	static int producePopluation = popluation/2;
 	public static boolean debug = false;
 	
-	static int CalcType = 4;
+	static int CalcType = 1;
 
 	public static void main(String[] args) {
 		
@@ -43,7 +44,9 @@ public class EvolutionTest {
 				evos = evoluationOnceMultiCPU(evos,CalcType);
 				
 				if(i % 10 == 0) {
-					HelloWorld.printStrategyMatrix8012(evos.get(0), evos.get(evos.size()-1));
+//					System.out.println(evos.get(0).getROI());
+//					System.out.println(evos.get(evos.size()-1).getROI());
+					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
 				}
 				if(debug) System.out.println(Calendar.getInstance().getTime() + " for done");
 			}catch(Exception e) {
@@ -59,6 +62,10 @@ public class EvolutionTest {
 	}
 	
 	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins,int type) {
+		if(type == 1) {
+			write2disk *= 10;
+			print2screen *= 10;
+		}
 		
 		List<CompletableFuture<Void>> guess = new ArrayList<>();
 		List<StrategyMatrix8012> competions = new ArrayList<>();
@@ -150,14 +157,7 @@ public class EvolutionTest {
 		
 		if(debug) System.out.println(Calendar.getInstance().getTime() + " after sort");
 		List<StrategyMatrix8012> result = new ArrayList<>();
-		int pop = (popluation > competions.size()) ? competions.size() : popluation;
-		int length = pop;
-		int multi = pop / Runtime.getRuntime().availableProcessors();
-		if(multi>0) {
-			//save cpu resource don't have few cpu fulltime calc and most of cpu is idle.
-			length = Runtime.getRuntime().availableProcessors() * multi -2;
-		}
-		
+		int length = (popluation > competions.size()) ? competions.size() : popluation;
 		for(int i = 0; i < length; i++) {
 			result.add(competions.get(i));
 		}
