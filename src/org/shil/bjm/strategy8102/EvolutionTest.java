@@ -27,7 +27,8 @@ public class EvolutionTest {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
-		StrategyMatrix8012 origin = new Standard2018();
+//		StrategyMatrix8012 origin = new Standard2018();
+		StrategyMatrix8012 origin = new Fianlly2046();
 		evos.add(origin);
 		
 //		for(int i = 1; i <= popluation; i++) 
