@@ -580,6 +580,7 @@ public class Standard2018 extends Seven8012 {
 		 */
 		/*
 		
+//		三张牌(含)以上
 		/*
 		 * Situation.Three_More_Cards [12~16] 
 		 * VS

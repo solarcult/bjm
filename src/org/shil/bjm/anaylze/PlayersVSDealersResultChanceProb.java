@@ -123,6 +123,12 @@ public class PlayersVSDealersResultChanceProb {
 	}
 	*/
 	
+	/**
+	 * 返回原始的胜负平数值概率
+	 * @param playermap
+	 * @param dealermap
+	 * @return
+	 */
 	public static double[] calcPlayerVSDealerAnaylzeStatusProb(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
 		double winrate = 0;
 		double drawrate = 0;
@@ -149,6 +155,12 @@ public class PlayersVSDealersResultChanceProb {
 		return new double[]{winrate,drawrate,loserate};
 	}
 	
+	/**
+	 * 如果上层结果直接展示这个百分比结论是没问题的，但拿来再进一步处理就没有原始的好，请使用calcPlayerVSDealerAnaylzeStatusProb
+	 * @param playermap
+	 * @param dealermap
+	 * @return
+	 */
 	public static double[] calcPlayerVSDealerAnaylzeStatus(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
 		double winrate = 0;
 		double drawrate = 0;
@@ -172,6 +184,7 @@ public class PlayersVSDealersResultChanceProb {
 			}
 		}
 		
+		//由于这里返回的是比率，上层拿这个处理结果再进行预测有一些隔着靴子挠痒痒的感觉，原始数据更有意义些。 如果上层结果直接展示这个结论是没问题的，但拿来再进一步处理就没有原始的好
 		double totalrate = winrate + drawrate + loserate;
 		
 		return new double[]{winrate/totalrate,drawrate/totalrate,loserate/totalrate};
