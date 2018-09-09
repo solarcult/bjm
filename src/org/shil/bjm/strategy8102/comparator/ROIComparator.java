@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import org.shil.bjm.strategy8102.StrategyMatrix8012;
 
-public class Matrix8102ROIComparator implements Comparator<StrategyMatrix8012> {
+public class ROIComparator implements Comparator<StrategyMatrix8012> {
 
 	@Override
 	public int compare(StrategyMatrix8012 arg0, StrategyMatrix8012 arg1) {

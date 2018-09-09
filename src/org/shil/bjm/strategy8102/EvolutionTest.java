@@ -6,11 +6,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
-import org.shil.bjm.strategy8102.comparator.Matrix8102ROIComparator;
-import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSComparator;
-import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSProbComparator;
-import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSbyRawComparator;
+import org.shil.bjm.strategy8102.comparator.ROIComparator;
+import org.shil.bjm.strategy8102.comparator.WdlRateWithDSWithProbRateComparator;
+import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
 
 public class EvolutionTest {
 	
@@ -43,9 +43,9 @@ public class EvolutionTest {
 				evos = evoluationOnceMultiCPU(evos,CalcType);
 				
 				if(i % print2screen == 0) {
-					System.out.println(evos.get(0).getROI());
-					System.out.println(evos.get(evos.size()-1).getROI());
-//					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
+//					System.out.println(evos.get(0).getROI());
+//					System.out.println(evos.get(evos.size()-1).getROI());
+					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
 				}
 				if(debug) System.out.println(Calendar.getInstance().getTime() + " for done");
 			}catch(Exception e) {
@@ -84,13 +84,10 @@ public class EvolutionTest {
 							sm.getROI();
 							break;
 						case 2:
-							sm.getWdlRateWithDS();
+							sm.getWDLwDsTimesByPureByRawRate();
 							break;
 						case 3:
-							sm.getWdlRateWithDSWithProb();
-							break;
-						case 4:
-							sm.getWdlRateWithDSbyRaw();
+							sm.getWdlRateWithDSWithProbRate();
 							break;
 						default :
 							throw new RuntimeException("wow who am i?");
@@ -111,14 +108,10 @@ public class EvolutionTest {
 							evo.getROI();
 							break;
 						case 2:
-							evo.getWdlRateWithDS();
+							evo.getWDLwDsTimesByPureByRawRate();
 							break;
 						case 3:
-							evo.getWdlRateWithDSWithProb();
-							break;
-						case 4:
-							evo.getWdlRateWithDSbyRaw();
-							break;
+							evo.getWdlRateWithDSWithProbRate();
 						default :
 							throw new RuntimeException("wow who am i?");
 					}
@@ -135,16 +128,13 @@ public class EvolutionTest {
 		
 		switch(type) {
 			case 1:
-				Collections.sort(competions,new Matrix8102ROIComparator());
+				Collections.sort(competions,new ROIComparator());
 				break;
 			case 2:
-				Collections.sort(competions,new Matrix8102WinRateDSComparator());
+				Collections.sort(competions,new WDLwDsTimesByPureByRawRateComparator());
 				break;
 			case 3:
-				Collections.sort(competions,new Matrix8102WinRateDSProbComparator());
-				break;
-			case 4:
-				Collections.sort(competions,new Matrix8102WinRateDSbyRawComparator());
+				Collections.sort(competions,new WdlRateWithDSWithProbRateComparator());
 				break;
 			default :
 				throw new RuntimeException("wow who am i?");

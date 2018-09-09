@@ -40,8 +40,8 @@ public class TestA {
 	public static void testD() {
 		StrategyMatrix8012 a = new Standard2017();
 		EvolutionTest.debug = true;
-		a.getWdlRateWithDS();
-		a.getWdlRateWithDSbyRaw();
+		a.getWDLwDsTimesByPureByRawRate();
+		a.getWdlRateWithDSWithProbRate();
 	}
 	
 	public static void testC() {

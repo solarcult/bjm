@@ -17,6 +17,7 @@ import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.meta.WinDrawLose;
 import org.shil.bjm.meta.WinRateUtil;
 
 public abstract class StrategyMatrix8012{
@@ -26,9 +27,8 @@ public abstract class StrategyMatrix8012{
 	protected Map<MatrixKey,PlayerAction> one;
 	
 	protected Double roi;
-	protected Double[] wdlRateDS;
-	protected Double[] wdlRateDSProb;
-	protected Double[] wdlRateDSbyRaw;
+	protected Double[] WDLwDsTimesByPureByRawRate;
+	protected Double[] WdlRateWithDSWithProbRate;
 	
 	protected StrategyMatrix8012() {
 		notChangesMatrix = new HashMap<>();
@@ -243,9 +243,8 @@ public abstract class StrategyMatrix8012{
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
 		this.roi = null;
-		this.wdlRateDS = null;
-		this.wdlRateDSProb = null;
-		this.wdlRateDSbyRaw = null;
+		this.WDLwDsTimesByPureByRawRate = null;
+		this.WdlRateWithDSWithProbRate = null;
 	}
 	
 	protected StrategyMatrix8012(Map<MatrixKey,PlayerAction> notChangesMatrix,Map<MatrixKey,PlayerAction> changesMatrix){
@@ -255,9 +254,8 @@ public abstract class StrategyMatrix8012{
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
 		this.roi = null;
-		this.wdlRateDS = null;
-		this.wdlRateDSProb = null;
-		this.wdlRateDSbyRaw = null;
+		this.WDLwDsTimesByPureByRawRate = null;
+		this.WdlRateWithDSWithProbRate = null;
 	}
 
 	public Map<MatrixKey, PlayerAction> getNotChangesMatrix() {
@@ -303,8 +301,8 @@ public abstract class StrategyMatrix8012{
 		return roi;
 	}
 	
-	public Double[] getWdlRateWithDS() {
-		if(wdlRateDS==null) {
+	public Double[] getWDLwDsTimesByPureByRawRate() {
+		if(WDLwDsTimesByPureByRawRate==null) {
 			double win =0;
 			double draw = 0;
 			double lose = 0;
@@ -314,21 +312,21 @@ public abstract class StrategyMatrix8012{
 				for(Card dealerCard : Card.values()){
 					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
-					Double[] wdl = WinRateUtil.calcWDLValueWithDStimes(oneSet, DealerCards.fetchDealerCards(dealerCard));
-					win += wdl[0];
-					draw += wdl[1];
-					lose += wdl[2];
+					Double[] wdl = WinRateUtil.calcWDLwDsTimesByPureByRaw(oneSet, DealerCards.fetchDealerCards(dealerCard));
+					win += wdl[WinDrawLose.win];
+					draw += wdl[WinDrawLose.draw];
+					lose += wdl[WinDrawLose.lose];
 				}
 			}
 			double total = win + draw + lose;
-			wdlRateDS = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionTest.debug) System.out.println("wdlRateDS done: " + HelloWorld.builderDoubleWDL(wdlRateDS));
+			WDLwDsTimesByPureByRawRate = new Double[] {win/total,draw/total,lose/total};
+			if(EvolutionTest.debug) System.out.println("WDLwDsTimesByPureByRawRate done: " + HelloWorld.builderDoubleWDL(WDLwDsTimesByPureByRawRate));
 		}
-		return wdlRateDS;
+		return WDLwDsTimesByPureByRawRate;
 	}
 	
-	public Double[] getWdlRateWithDSbyRaw() {
-		if(wdlRateDSbyRaw==null) {
+	public Double[] getWdlRateWithDSWithProbRate() {
+		if(WdlRateWithDSWithProbRate==null) {
 			double win =0;
 			double draw = 0;
 			double lose = 0;
@@ -338,41 +336,17 @@ public abstract class StrategyMatrix8012{
 				for(Card dealerCard : Card.values()){
 					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
-					Double[] wdl = WinRateUtil.calcWDLValueWithDStimesbyRaw(oneSet, DealerCards.fetchDealerCards(dealerCard));
-					win += wdl[0];
-					draw += wdl[1];
-					lose += wdl[2];
+					Double[] wdl = WinRateUtil.calcWDLwDsByRawByProb(oneSet, dealerCard);
+					win += wdl[WinDrawLose.win];
+					draw += wdl[WinDrawLose.draw];
+					lose += wdl[WinDrawLose.lose];
 				}
 			}
 			double total = win + draw + lose;
-			wdlRateDSbyRaw = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionTest.debug) System.out.println("wdlRateDSbyRaw done: " + HelloWorld.builderDoubleWDL(wdlRateDSbyRaw));
+			WdlRateWithDSWithProbRate = new Double[] {win/total,draw/total,lose/total};
+			if(EvolutionTest.debug) System.out.println("WdlRateWithDSWithProbRate done: " + HelloWorld.builderDoubleWDL(WdlRateWithDSWithProbRate));
 		}
-		return wdlRateDSbyRaw;
-	}
-	
-	public Double[] getWdlRateWithDSWithProb() {
-		if(wdlRateDSProb==null) {
-			double win =0;
-			double draw = 0;
-			double lose = 0;
-			
-			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-			for(PlayerCardsPathValue pcpv : playerCards){
-				for(Card dealerCard : Card.values()){
-					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
-					Double[] wdl = WinRateUtil.calcWDLValueWithDStimesWithProb(oneSet, DealerCards.fetchDealerCards(dealerCard));
-					win += wdl[0];
-					draw += wdl[1];
-					lose += wdl[2];
-				}
-			}
-			double total = win + draw + lose;
-			wdlRateDSProb = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionTest.debug) System.out.println("wdlRateDSProb done: " + HelloWorld.builderDoubleWDL(wdlRateDSProb));
-		}
-		return wdlRateDSProb;
+		return WdlRateWithDSWithProbRate;
 	}
 
 	@Override
@@ -418,26 +392,23 @@ public abstract class StrategyMatrix8012{
 			getROI();
 		});
 		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
-			getWdlRateWithDS();
+			getWDLwDsTimesByPureByRawRate();
 		});
 		CompletableFuture<Void> c = CompletableFuture.runAsync(()->{
-			getWdlRateWithDSWithProb();
+			getWdlRateWithDSWithProbRate();
 		});
-		CompletableFuture<Void> d = CompletableFuture.runAsync(()->{
-			getWdlRateWithDSbyRaw();
-		});
-		CompletableFuture<Void> abcd = CompletableFuture.allOf(a,b,c,d);
-		abcd.join();
+		
+		CompletableFuture<Void> abc = CompletableFuture.allOf(a,b,c);
+		abc.join();
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("StrategyMatrix8012 [roi=");
+		sb.append("StrategyMatrix8012 [roi= ");
 		sb.append(getROI());
-		sb.append(",\t wdlRateDS=");
-		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDS()));
-		sb.append(",\t wdlRateDSProb=");
-		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProb()));
-		sb.append(",\t wdlRateWithDSbyRaw=");
-		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSbyRaw()));
+		sb.append(",\t WDLwDsTimesByPureByRawRate= ");
+		sb.append(HelloWorld.builderDoubleWDL(getWDLwDsTimesByPureByRawRate()));
+		sb.append(",\t WdlRateWithDSWithProbRate= ");
+		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProbRate()));
+
 		return sb.toString();
 	}
 

@@ -2,11 +2,13 @@ package org.shil.bjm.meta;
 
 import java.util.Collection;
 
+import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
+
 public class WinRateUtil {
 	
 	public static int IgnoreReturn = -7;
 
-	public static double calcWDLValue(PlayerCardsPathValue playerCardsPathValue,DealerCardsPathValue dealerCardsPathValue) {
+	public static double calcWDLTimesByPure(PlayerCardsPathValue playerCardsPathValue,DealerCardsPathValue dealerCardsPathValue) {
 		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
 			return -1;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
@@ -35,7 +37,7 @@ public class WinRateUtil {
 		throw new RuntimeException("WRONG iS HERER 99999999999"+playerCardsPathValue.getValue()+dealerCardsPathValue.getValue());
 	}
 	
-	public static double calcWDLValueWithDStimes(PlayerCardsPathValue playerCardsPathValue,DealerCardsPathValue dealerCardsPathValue) {
+	public static double calcWDLwDsTimesByPure(PlayerCardsPathValue playerCardsPathValue,DealerCardsPathValue dealerCardsPathValue) {
 		int value = 1;
 		if(playerCardsPathValue.getDsTimes()>0) {
 			value *= playerCardsPathValue.getDsTimes();
@@ -70,8 +72,84 @@ public class WinRateUtil {
 		}
 		throw new RuntimeException("WRONG iS HERER 99999999999"+playerCardsPathValue.getValue()+dealerCardsPathValue.getValue());
 	}
-	//TODO speed up
-	public Double[] calcWDLPlayerCardVSDealerCardWithDStimes(PlayerCardsPathValue playerCardsPathValue, Card dealerCard) {
+	
+	/**
+	 * 转换成比率的返回
+	 * @param playerCardsPathValues
+	 * @param dealerCardsPathValues
+	 * @return
+	 * @deprecated
+	 */
+	/*
+	public static Double[] calcWDLwDsTimesByPure(Collection<PlayerCardsPathValue> playerCardsPathValues,Collection<DealerCardsPathValue> dealerCardsPathValues) {
+		double win = 0;
+		double draw = 0;
+		double lose = 0;
+		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
+			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
+				double result = calcWDLwDsTimesByPure(playerCardsPathValue, dealerCardsPathValue);
+				if(result == WinRateUtil.IgnoreReturn) continue;
+				if(result > 0) {
+					win += result;
+				}else if(result < 0) {
+					lose += Math.abs(result);
+				}else {
+					//draw
+					if(playerCardsPathValue.getDsTimes()>0) {
+						//make it right, because result can't tell dstimes
+						draw += playerCardsPathValue.getDsTimes();
+					}else {
+						draw++;
+					}
+				}
+			}
+		}
+		double total = win+draw+lose;
+		
+		return new Double[] {win/total,draw/total,lose/total};
+	}
+	*/
+	
+	/**
+	 * 没有转换成比率，上层去汇总计算
+	 * @param playerCardsPathValues
+	 * @param dealerCardsPathValues
+	 * @return
+	 */
+	public static Double[] calcWDLwDsTimesByPureByRaw(Collection<PlayerCardsPathValue> playerCardsPathValues,Collection<DealerCardsPathValue> dealerCardsPathValues) {
+		double win = 0;
+		double draw = 0;
+		double lose = 0;
+		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
+			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
+				double result = calcWDLwDsTimesByPure(playerCardsPathValue, dealerCardsPathValue);
+				if(result == WinRateUtil.IgnoreReturn) continue;
+				if(result > 0) {
+					win += result;
+				}else if(result < 0) {
+					lose += Math.abs(result);
+				}else {
+					//draw
+					if(playerCardsPathValue.getDsTimes()>0) {
+						//make it right, because result can't tell dstimes
+						draw += playerCardsPathValue.getDsTimes();
+					}else {
+						draw++;
+					}
+				}
+			}
+		}
+		
+		return new Double[] {win,draw,lose};
+	}
+	
+	/**
+	 * 根据概率返回胜负平率
+	 * @param playerCardsPathValue
+	 * @param dealerCard
+	 * @return
+	 */
+	public static Double[] calcWDLwDsByRawByProb(PlayerCardsPathValue playerCardsPathValue, Card dealerCard) {
 		double win = 0;
 		double draw = 0;
 		double lose = 0;
@@ -89,6 +167,7 @@ public class WinRateUtil {
 			double daCardProb = (double)1/13;
 			//用户放弃损失一半
 			lose += 0.5 * value * playerCardsPathValue.prob() * daCardProb;
+			return new Double[] {win,draw,lose};
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			//这里会造成外层统计有稍微的误差,但总数在15亿中,可以忽略
 			//no upper logic should handle this 
@@ -99,85 +178,28 @@ public class WinRateUtil {
 				|| playerCardsPathValue.getAction() == PlayerAction.Split){
 			throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 		}
-		return null;
-	}
-	
-	
-	public static Double[] calcWDLValueWithDStimes(Collection<PlayerCardsPathValue> playerCardsPathValues,Collection<DealerCardsPathValue> dealerCardsPathValues) {
-		double win = 0;
-		double draw = 0;
-		double lose = 0;
-		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
-			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
-				double result = calcWDLValueWithDStimes(playerCardsPathValue, dealerCardsPathValue);
-				if(result == WinRateUtil.IgnoreReturn) continue;
-				if(result > 0) {
-					win += result;
-				}else if(result < 0) {
-					lose += Math.abs(result);
-				}else {
-					//draw
-					if(playerCardsPathValue.getDsTimes()>0) {
-						draw += playerCardsPathValue.getDsTimes();
-					}
-				}
-			}
-		}
-		double total = win+draw+lose;
 		
-		return new Double[] {win/total,draw/total,lose/total};
-	}
-	
-	public static Double[] calcWDLValueWithDStimesbyRaw(Collection<PlayerCardsPathValue> playerCardsPathValues,Collection<DealerCardsPathValue> dealerCardsPathValues) {
-		double win = 0;
-		double draw = 0;
-		double lose = 0;
-		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
-			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
-				double result = calcWDLValueWithDStimes(playerCardsPathValue, dealerCardsPathValue);
-				if(result == WinRateUtil.IgnoreReturn) continue;
-				if(result > 0) {
-					win += result;
-				}else if(result < 0) {
-					lose += Math.abs(result);
-				}else {
-					//draw
-					if(playerCardsPathValue.getDsTimes()>0) {
-						draw += playerCardsPathValue.getDsTimes();
-					}
-				}
-			}
-		}
+		double[] playerchance = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusProb(playerCardsPathValue, dealerCard);
+		win += playerchance[WinDrawLose.win] * value;
+		draw += playerchance[WinDrawLose.draw] * value;
+		lose += playerchance[WinDrawLose.lose] * value;
 		
 		return new Double[] {win,draw,lose};
 	}
 	
-	public static Double[] calcWDLValueWithDStimesWithProb(Collection<PlayerCardsPathValue> playerCardsPathValues,Collection<DealerCardsPathValue> dealerCardsPathValues) {
+	public static Double[] calcWDLwDsByRawByProb(Collection<PlayerCardsPathValue> playerCardsPathValues,Card dealerCard) {
 		double win = 0;
 		double draw = 0;
 		double lose = 0;
+
 		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
-			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
-				double prob = playerCardsPathValue.prob() * dealerCardsPathValue.prob();
-				double result = calcWDLValueWithDStimes(playerCardsPathValue, dealerCardsPathValue);
-				if(result == WinRateUtil.IgnoreReturn) continue;
-				result *= prob;
-				if(result > 0) {
-					win += result;
-				}else if(result < 0) {
-					lose += Math.abs(result);
-				}else {
-					//draw
-					if(playerCardsPathValue.getDsTimes()>0) {
-						draw += playerCardsPathValue.getDsTimes() * prob;
-					}else {
-						draw += prob;
-					}
-				}
-			}
+			Double[] result = calcWDLwDsByRawByProb(playerCardsPathValue, dealerCard);
+			if(result == null) continue;
+			win += result[WinDrawLose.win];
+			draw += result[WinDrawLose.draw];
+			lose += result[WinDrawLose.lose];
 		}
-		double total = win+draw+lose;
 		
-		return new Double[] {win/total,draw/total,lose/total};
+		return new Double[] {win,draw,lose};
 	}
 }

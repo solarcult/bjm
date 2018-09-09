@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
-import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSComparator;
+import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
 
 public class Standard2017 extends Seven8012 {
 
@@ -711,7 +711,7 @@ public class Standard2017 extends Seven8012 {
 	public static void main(String[] args) {
 		List<StrategyMatrix8012> s = new ArrayList<>();
 		StrategyMatrix8012 one = new Standard2017();
-		one.wdlRateDS = new Double[] { 10d,20d,30d};
+		one.WDLwDsTimesByPureByRawRate = new Double[] { 10d,20d,30d};
 		long start = System.currentTimeMillis();
 		System.out.println(one.getCalcResult());
 		System.out.println(System.currentTimeMillis() - start);
@@ -720,11 +720,11 @@ public class Standard2017 extends Seven8012 {
 		System.out.println(one.getChangesMatrix().size());
 		System.out.println(two.getNotChangesMatrix().size());
 		System.out.println(two.getOne().size());
-		two.wdlRateDS =  new Double[] { 30d,20d,10d};
+		two.WDLwDsTimesByPureByRawRate =  new Double[] { 30d,20d,10d};
 		System.out.println(one.getROI());
 		s.add(one);
 		s.add(two);
-		Collections.sort(s,new Matrix8102WinRateDSComparator());
+		Collections.sort(s,new WDLwDsTimesByPureByRawRateComparator());
 		
 		int count = 0 ;
 		for(Entry<MatrixKey,PlayerAction> e: one.getOne().entrySet()) {

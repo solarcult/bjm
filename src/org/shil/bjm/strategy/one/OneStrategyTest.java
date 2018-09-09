@@ -45,7 +45,7 @@ public class OneStrategyTest{
 				for(PlayerCardsPathValue one : oneSet){
 					Collection<DealerCardsPathValue> dealers = DealerCards.fetchDealerCards(dealerCard);
 					for(DealerCardsPathValue dv : dealers) {
-						double result = WinRateUtil.calcWDLValue(one, dv);
+						double result = WinRateUtil.calcWDLTimesByPure(one, dv);
 						if(result == WinRateUtil.IgnoreReturn) continue;
 						if(result>0) {
 							win+=result;
