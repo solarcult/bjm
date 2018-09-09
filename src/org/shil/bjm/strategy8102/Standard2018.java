@@ -150,25 +150,25 @@ public class Standard2018 extends Seven8012 {
 				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
 			}else if(dealerCard.getValue() == 7){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 8){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 9){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(14), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 10){
 				//T,J,Q,K
 				//same result if the cards give to dealer
@@ -298,14 +298,14 @@ public class Standard2018 extends Seven8012 {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-					notChangesMatrix.put(start_With_A, PlayerAction.Double);
-				}else if(dealerCard.getValue() == 4){
+					changesMatrix.put(start_With_A, PlayerAction.Double);
+				}else if(dealerCard.getValue() == 4 || dealerCard.getValue() == 3){
 					//TODO ?
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 					changesMatrix.put(start_With_A, PlayerAction.Double);
 				}else{
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-					notChangesMatrix.put(start_With_A, PlayerAction.Hit);
+					changesMatrix.put(start_With_A, PlayerAction.Hit);
 				}
 			}
 		}
@@ -314,14 +314,14 @@ public class Standard2018 extends Seven8012 {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
-				notChangesMatrix.put(start_With_A, PlayerAction.Double);
+				changesMatrix.put(start_With_A, PlayerAction.Double);
 			}else if(dealerCard.getValue() == 3){
 				//TODO ?
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
-				notChangesMatrix.put(start_With_A, PlayerAction.Hit);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
 			}
 		}
 		//7
@@ -340,7 +340,7 @@ public class Standard2018 extends Seven8012 {
 			}else {
 				//2,7,8
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
-				notChangesMatrix.put(start_With_A, PlayerAction.Stand);
+				changesMatrix.put(start_With_A, PlayerAction.Stand);
 			}
 		}
 		
@@ -356,9 +356,9 @@ public class Standard2018 extends Seven8012 {
 					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
 						//22 vs 5 or 6
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
+						changesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else if((dealerCard==Card.Four4)){
 						//22 vs 4
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -367,9 +367,9 @@ public class Standard2018 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 3) {
 					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
@@ -380,9 +380,9 @@ public class Standard2018 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 4) {
 					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
@@ -393,9 +393,9 @@ public class Standard2018 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 5) {
 					if(dealerCard == Card.Six6) {
@@ -432,9 +432,9 @@ public class Standard2018 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}else if(dealerCard.getValue() ==4){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
 					}else if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Split);
@@ -442,23 +442,23 @@ public class Standard2018 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else{
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 7) {
 					if(dealerCard==Card.Six6){
 						//77 vs 6
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
+						changesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else {
 						if(dealerCard.getValue() >=2 && dealerCard.getValue() <=3){
 							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);
+							changesMatrix.put(start_With_Pair, PlayerAction.Stand);
 							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
+							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
 						}else if(dealerCard.getValue() >=4 && dealerCard.getValue() <=5){
 							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 							changesMatrix.put(start_With_Pair, PlayerAction.Split);
@@ -466,19 +466,19 @@ public class Standard2018 extends Seven8012 {
 							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 						}else if(dealerCard.getValue() == 7){
 							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+							changesMatrix.put(start_With_Pair, PlayerAction.Hit);
 							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 						}else if(dealerCard.getValue() == 8){
 							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+							changesMatrix.put(start_With_Pair, PlayerAction.Hit);
 							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 						}else if(dealerCard.getValue() == 9){
 							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+							changesMatrix.put(start_With_Pair, PlayerAction.Hit);
 							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 						}else if(dealerCard.getValue() == 10){
 							//T,J,Q,K
 							//same result if the cards give to dealer
@@ -520,9 +520,9 @@ public class Standard2018 extends Seven8012 {
 					}else {
 						// 88 vs 9 10
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Giveup);
+						changesMatrix.put(start_With_Pair, PlayerAction.Giveup);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Giveup);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 9) {
 					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
@@ -538,7 +538,7 @@ public class Standard2018 extends Seven8012 {
 					}else {
 						// 9, 10, A
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);	
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}

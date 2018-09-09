@@ -71,7 +71,6 @@ public class WinRateUtil {
 		throw new RuntimeException("WRONG iS HERER 99999999999"+playerCardsPathValue.getValue()+dealerCardsPathValue.getValue());
 	}
 	//TODO speed up
-	/*
 	public Double[] calcWDLPlayerCardVSDealerCardWithDStimes(PlayerCardsPathValue playerCardsPathValue, Card dealerCard) {
 		double win = 0;
 		double draw = 0;
@@ -81,15 +80,19 @@ public class WinRateUtil {
 		if(playerCardsPathValue.getDsTimes()>0) {
 			value *= playerCardsPathValue.getDsTimes();
 		}
-		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
-			lose += -1*value;
-		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
-			if(value>1) throw new RuntimeException("this should not happened");
-			return -0.5*value;
+		
+		if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
+			if(playerCardsPathValue.getBetMutiV()>1 || playerCardsPathValue.getSplitTimes()>0||playerCardsPathValue.getDsTimes()>0){
+				throw new RuntimeException("should not here if split or double :" + playerCardsPathValue);
+			}
+			
+			double daCardProb = (double)1/13;
+			//用户放弃损失一半
+			lose += 0.5 * value * playerCardsPathValue.prob() * daCardProb;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			//这里会造成外层统计有稍微的误差,但总数在15亿中,可以忽略
 			//no upper logic should handle this 
-			return IgnoreReturn;
+			return null;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
 				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
 				|| playerCardsPathValue.getAction() == PlayerAction.Double
@@ -98,7 +101,7 @@ public class WinRateUtil {
 		}
 		return null;
 	}
-	*/
+	
 	
 	public static Double[] calcWDLValueWithDStimes(Collection<PlayerCardsPathValue> playerCardsPathValues,Collection<DealerCardsPathValue> dealerCardsPathValues) {
 		double win = 0;

@@ -377,6 +377,7 @@ public abstract class StrategyMatrix8012{
 
 	@Override
 	public String toString() {
+		/*
 		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
 			getROI();
 		});
@@ -391,15 +392,18 @@ public abstract class StrategyMatrix8012{
 		});
 		CompletableFuture<Void> abcd = CompletableFuture.allOf(a,b,c,d);
 		abcd.join();
+		*/
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi=");
 		sb.append(getROI());
+		/*
 		sb.append(",\t wdlRateDS=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDS()));
 		sb.append(",\t wdlRateDSProb=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProb()));
 		sb.append(",\t wdlRateWithDSbyRaw=");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSbyRaw()));
+		*/
 		sb.append("\nchangeMatrix = ");
 		for(Result r: getChangeMatrxByList()) {
 			sb.append("\n");
