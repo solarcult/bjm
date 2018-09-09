@@ -27,14 +27,14 @@ public class EvolutionTest {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
-		StrategyMatrix8012 origin = new Standard2018();
-		evos.add(origin);
+//		StrategyMatrix8012 origin = new Standard2018();
+//		evos.add(origin);
 		
-//		for(int i = 1; i <= popluation; i++) 
-//		{
-//			StrategyMatrix8012 origin = new RandomGenMatrix();
-//			evos.add(origin);
-//		}
+		for(int i = 1; i <= popluation; i++) 
+		{
+			StrategyMatrix8012 origin = new RandomGenMatrix();
+			evos.add(origin);
+		}
 
 		for(int i = 1; i <= generation; i++) {
 			try {
