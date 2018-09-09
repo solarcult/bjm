@@ -31,8 +31,8 @@ public class ProfitUtil {
 			}
 			
 			double daCardProb = (double) 1/13;
-			//用户放弃损失一半
-			ROI -= 0.5 * onePot * playerCardsPathValue.prob() * daCardProb;
+			//用户放弃损失一半,BetMutiV 包含了0.5,此处不用乘
+			ROI -= onePot * playerCardsPathValue.prob() * daCardProb;
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			return ROI;
@@ -61,8 +61,8 @@ public class ProfitUtil {
 			}
 			
 			double daCardProb = (double)1/13;
-			//用户放弃损失一半
-			ROI -= 0.5 * onePot * playerCardsPathValue.prob() * daCardProb;
+			//用户放弃损失一半,BetMutiV 包含了0.5,此处不用乘
+			ROI -= onePot * playerCardsPathValue.prob() * daCardProb;
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			return ROI;
@@ -113,8 +113,8 @@ public class ProfitUtil {
 			ROI -= baseMoney * onePot;
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
-			//用户放弃损失一半
-			ROI -= 0.5 * baseMoney * onePot;
+			//用户放弃损失一半,BetMutiV 包含了0.5,此处不用乘
+			ROI -= baseMoney * onePot;
 			return ROI;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			return ROI;
