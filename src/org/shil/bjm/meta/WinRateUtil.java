@@ -70,7 +70,7 @@ public class WinRateUtil {
 		}
 		throw new RuntimeException("WRONG iS HERER 99999999999"+playerCardsPathValue.getValue()+dealerCardsPathValue.getValue());
 	}
-	//TODO 
+	//TODO speed up
 	/*
 	public Double[] calcWDLPlayerCardVSDealerCardWithDStimes(PlayerCardsPathValue playerCardsPathValue, Card dealerCard) {
 		double win = 0;

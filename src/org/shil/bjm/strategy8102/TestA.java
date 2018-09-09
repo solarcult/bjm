@@ -18,9 +18,9 @@ public class TestA {
 	}
 	
 	public static void testE() {
-		PlayerCardsPathValue sixteen  = new PlayerCardsPathValue(Card.Seven7,Card.Nine9);
+		PlayerCardsPathValue sixteen  = new PlayerCardsPathValue(Card.Seven7,Card.Eight8);
 		sixteen.setAction(PlayerAction.Giveup);
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(sixteen, Card.Seven7));
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(sixteen, Card.Ten));
 		
 		List<PlayerCardsPathValue> ss = new ArrayList<>();
 		
@@ -31,7 +31,7 @@ public class TestA {
 			ss.add(oneMore);
 		}
 		
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(ss, Card.Seven7));
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(ss, Card.Ten));
 		
 	}
 	

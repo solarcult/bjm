@@ -128,19 +128,20 @@ public class PlayerCardsPathValue extends CardsPathValue{
 					throw new RuntimeException("not A split too many times should not happend ");
 				}
 			}
-			if(this.action == PlayerAction.Split){
-				//old code , i think not 严谨，为什么remove1而不是0，虽然这两个都是一样的牌 . this.getCards().remove(1);
-				if(!getCards().get(0).equals(getCards().get(1))) throw new RuntimeException("split cards should be equal");
-				
-				//only left the first card
-				this.getCards().remove(0);
-				
-				this.action = PlayerAction.Init;
-				this.betMutiV = 2 * betMutiV;
-				this.splitTimes++;
-				this.setDsTimes(getDsTimes()+1);
-			}
+			//old code , i think not 严谨，为什么remove1而不是0，虽然这两个都是一样的牌 . this.getCards().remove(1);
+			if(!getCards().get(0).equals(getCards().get(1))) throw new RuntimeException("split cards should be equal");
+			
+			//only left the first card
+			this.getCards().remove(0);
+			
+			this.action = PlayerAction.Init;
+			this.betMutiV = 2 * betMutiV;
+			this.splitTimes++;
+			this.setDsTimes(getDsTimes()+1);
 		}else if(action == PlayerAction.Giveup){
+			if(this.getDsTimes() > 1) {
+				throw new RuntimeException("split or double can not surrender!");
+			}
 			this.betMutiV = 0.5;
 		}
 	}

@@ -462,4 +462,19 @@ public abstract class StrategyMatrix8012{
 		return true;
 	}
 
+	
+	public String diffWith(StrategyMatrix8012 other){
+		StringBuilder sb = new StringBuilder();
+		
+		for(Entry<MatrixKey,PlayerAction> e: this.one.entrySet()) {
+			if(e.getValue()!= other.one.get(e.getKey())) {
+				sb.append(e);
+				sb.append(" -> ");
+				sb.append(other.one.get(e.getKey()));
+				sb.append("\n");
+			}
+		}
+		
+		return sb.toString();
+	}
 }

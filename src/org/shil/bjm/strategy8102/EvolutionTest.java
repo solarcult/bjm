@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.strategy8102.comparator.Matrix8102ROIComparator;
 import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSComparator;
@@ -15,7 +14,7 @@ import org.shil.bjm.strategy8102.comparator.Matrix8102WinRateDSbyRawComparator;
 
 public class EvolutionTest {
 	
-	static int write2disk = 30;
+	static int write2disk = 300;
 	static int print2screen = 10;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
@@ -28,14 +27,14 @@ public class EvolutionTest {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
-		StrategyMatrix8012 origin = new Standard2017();
-//		StrategyMatrix8012 origin = new Seven8012();
+		StrategyMatrix8012 origin = new Standard2018();
+		evos.add(origin);
+		
 //		for(int i = 1; i <= popluation; i++) 
 //		{
 //			StrategyMatrix8012 origin = new RandomGenMatrix();
 //			evos.add(origin);
 //		}
-		evos.add(origin);
 
 		for(int i = 1; i <= generation; i++) {
 			try {
@@ -44,9 +43,9 @@ public class EvolutionTest {
 				evos = evoluationOnceMultiCPU(evos,CalcType);
 				
 				if(i % print2screen == 0) {
-//					System.out.println(evos.get(0).getROI());
-//					System.out.println(evos.get(evos.size()-1).getROI());
-					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
+					System.out.println(evos.get(0).getROI());
+					System.out.println(evos.get(evos.size()-1).getROI());
+//					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
 				}
 				if(debug) System.out.println(Calendar.getInstance().getTime() + " for done");
 			}catch(Exception e) {
