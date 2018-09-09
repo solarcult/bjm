@@ -113,6 +113,7 @@ public class EvolutionTest {
 							break;
 						case 3:
 							evo.getWdlRateWithDSWithProbRate();
+							break;
 						default :
 							throw new RuntimeException("wow who am i?");
 					}
