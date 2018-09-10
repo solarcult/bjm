@@ -202,4 +202,22 @@ public class WinRateUtil {
 		
 		return new Double[] {win,draw,lose};
 	}
+	
+	@Deprecated
+	public static Double[] calcWDLwDsByRawByProbPrecent(Collection<PlayerCardsPathValue> playerCardsPathValues,Card dealerCard) {
+		double win = 0;
+		double draw = 0;
+		double lose = 0;
+
+		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
+			Double[] result = calcWDLwDsByRawByProb(playerCardsPathValue, dealerCard);
+			if(result == null) continue;
+			win += result[WinDrawLose.win];
+			draw += result[WinDrawLose.draw];
+			lose += result[WinDrawLose.lose];
+		}
+		
+		double total = win + draw + lose;
+		return new Double[] {win/total,draw/total,lose/total};
+	}
 }

@@ -3,13 +3,14 @@ package org.shil.bjm.strategy8102;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 
-public class Fianlly2046 extends Seven8012 {
+public class Finally2046 extends Seven8012 {
 
-	public Fianlly2046() {
+	public Finally2046() {
 		super();
 		Map<MatrixKey,PlayerAction> changesMatrix = new HashMap<>();
 		/*
@@ -589,11 +590,11 @@ public class Fianlly2046 extends Seven8012 {
 	
 	public static void main(String[] args) {
 		
-		StrategyMatrix8012 one = new Fianlly2046();
-		System.out.println(one.getCalcResult());
+		StrategyMatrix8012 one = new Finally2046();
 		StrategyMatrix8012 two = new Standard2018();
-		System.out.println(two.getCalcResult());
-		System.out.println(one.diffWith(two));
+		StrategyMatrix8012 three = new Finally2047();
+		HelloWorld.printStrategyMatrix8012(one,two,three);
+		System.out.println(one.diffWith(three));
 	}
 
 }

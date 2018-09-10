@@ -1,5 +1,6 @@
 package org.shil.bjm;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.core.DealerCards;
+import org.shil.bjm.strategy8102.EvolutionTest;
 import org.shil.bjm.strategy8102.StrategyMatrix8012;
 
 public class HelloWorld {
@@ -103,16 +105,18 @@ public class HelloWorld {
 		return sb.toString();
 	}
 	
-	public static void printStrategyMatrix8012(StrategyMatrix8012 x,StrategyMatrix8012 y) {
-		System.out.println(Calendar.getInstance().getTime()+ " calculate done! prepare print: ");
-
-		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
-			System.out.println(x.getCalcResult());
-		});
-		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
-			System.out.println(y.getCalcResult());
-		});
-		CompletableFuture<Void> ra = CompletableFuture.allOf(a,b);
+	public static void printStrategyMatrix8012(StrategyMatrix8012 ...xs ) {
+		if(EvolutionTest.debug) System.out.println(Calendar.getInstance().getTime()+ " calculate done! prepare print: ");
+		
+		List<CompletableFuture<Void>> guess = new ArrayList<>();
+		for(StrategyMatrix8012 x : xs) {
+			CompletableFuture<Void> i = CompletableFuture.runAsync(()->{
+				System.out.println(x.getClass().getName() + " " + x.getCalcResult());
+			});
+			guess.add(i);
+		}
+		
+		CompletableFuture<Void> ra = CompletableFuture.allOf(guess.toArray(new CompletableFuture[guess.size()]));
 		ra.join();
 	}
 	
