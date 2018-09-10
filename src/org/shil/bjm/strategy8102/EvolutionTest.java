@@ -15,7 +15,7 @@ import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator
 public class EvolutionTest {
 	
 	static int write2disk = 300;
-	static int print2screen = 10;
+	static int print2screen = 100;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 	static int producePopluation = popluation/2;
@@ -27,8 +27,8 @@ public class EvolutionTest {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
-//		StrategyMatrix8012 origin = new Standard2018();
-		StrategyMatrix8012 origin = new Fianlly2046();
+		StrategyMatrix8012 origin = new Standard2018();
+//		StrategyMatrix8012 origin = new Fianlly2046();
 		evos.add(origin);
 		
 //		for(int i = 1; i <= popluation; i++) 

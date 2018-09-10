@@ -299,7 +299,7 @@ public class Fianlly2046 extends Seven8012 {
 				if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 					notChangesMatrix.put(start_With_A, PlayerAction.Double);
-				}else if(dealerCard.getValue() == 4 || dealerCard.getValue() == 3){
+				}else if(dealerCard.getValue() == 4 ){
 					//TODO ?
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 					changesMatrix.put(start_With_A, PlayerAction.Double);
@@ -517,7 +517,7 @@ public class Fianlly2046 extends Seven8012 {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						notChangesMatrix.put(start_With_Pair, PlayerAction.Giveup);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Giveup);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 9) {
 					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
@@ -590,9 +590,9 @@ public class Fianlly2046 extends Seven8012 {
 	public static void main(String[] args) {
 		
 		StrategyMatrix8012 one = new Fianlly2046();
-		System.out.println(one.getROI());
+		System.out.println(one.getCalcResult());
 		StrategyMatrix8012 two = new Standard2018();
-		System.out.println(two.getROI());
+		System.out.println(two.getCalcResult());
 		System.out.println(one.diffWith(two));
 	}
 

@@ -299,7 +299,7 @@ public class Standard2018 extends Seven8012 {
 				if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 					changesMatrix.put(start_With_A, PlayerAction.Double);
-				}else if(dealerCard.getValue() == 4 || dealerCard.getValue() == 3){
+				}else if(dealerCard.getValue() == 4){
 					//TODO ?
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 					changesMatrix.put(start_With_A, PlayerAction.Double);
@@ -400,9 +400,9 @@ public class Standard2018 extends Seven8012 {
 				}else if(start == 5) {
 					if(dealerCard == Card.Six6) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);
+						changesMatrix.put(start_With_Pair, PlayerAction.Double);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Double);
 					}else if(dealerCard.getValue() >=2 && dealerCard.getValue() <=5){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Double);
@@ -596,9 +596,9 @@ public class Standard2018 extends Seven8012 {
 	public static void main(String[] args) {
 		
 		StrategyMatrix8012 one = new Standard2018();
-		System.out.println(one.getROI());
+		System.out.println(one.getCalcResult());
 		StrategyMatrix8012 two = new Standard2017();
-		System.out.println(two.getROI());
+		System.out.println(two.getCalcResult());
 		System.out.println(one.diffWith(two));
 	}
 
