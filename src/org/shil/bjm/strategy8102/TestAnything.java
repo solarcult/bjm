@@ -11,7 +11,26 @@ import org.shil.bjm.meta.WinRateUtil;
 public class TestAnything {
 
 	public static void main(String[] args) {
-		test99vs7();
+		test33vs4();
+	}
+	
+	
+	public static void test33vs4() {
+		Card dealercard = Card.Four4;
+		
+		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Three3,Card.Three3);
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
+		System.out.println("ROI: " + new Finally2047().getROI());
+		
+		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Three3,Card.Three3);
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
+		System.out.println("ROI: " + new TestAnything2048().getROI());
+		
+		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 	}
 	
 	public static void test99vs7() {

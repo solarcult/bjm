@@ -383,7 +383,13 @@ public class TestAnything2048 extends Seven8012 {
 						changesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
-					}else {
+					}else if(dealerCard == Card.Four4){
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+					}
+					else {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);

@@ -14,7 +14,11 @@ import org.shil.bjm.meta.StartValue;
 public class TestA {
 	
 	public static void main(String[] args) {
-		testE();
+		for(int i = 1; i <= 20; i++) 
+		{
+			StrategyMatrix8012 origin = new RandomGenMatrix();
+			System.out.println(origin.getROI());
+		}
 	}
 	
 	public static void testE() {
