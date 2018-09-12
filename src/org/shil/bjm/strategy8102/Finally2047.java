@@ -602,11 +602,10 @@ public class Finally2047 extends Seven8012 {
 	public static void main(String[] args) {
 		
 		StrategyMatrix8012 one = new Finally2047();
-//		System.out.println(one.getCalcResult());
-		StrategyMatrix8012 two = new Finally2046();
-//		System.out.println(two.getCalcResult());
-		HelloWorld.printStrategyMatrix8012(one, two);
-		System.out.println(one.diffWith(two));
+		one.getROI();
+//		StrategyMatrix8012 two = new Finally2046();
+//		HelloWorld.printStrategyMatrix8012(one, two);
+//		System.out.println(one.diffWith(two));
 	}
 
 }

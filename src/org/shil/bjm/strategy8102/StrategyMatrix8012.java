@@ -284,16 +284,21 @@ public abstract class StrategyMatrix8012{
 	public double getROI() {
 		if(this.roi==null) {
 			double roi = 0;
+			EvolutionTest.debug = true;
 			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-	//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
-	//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
-	//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
+//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
+//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
+//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
 			for(PlayerCardsPathValue pcpv : playerCards){
+				double r = 0;
+				if(EvolutionTest.debug) System.out.print(pcpv.getCards() +" "+pcpv.getValue() + " \t : ");
 				for(Card dealerCard : Card.values()){
 					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
 					roi += ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
+					r+=ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
 				}
+				if(EvolutionTest.debug) System.out.println(r);
 			}
 			this.roi = roi;
 			if(EvolutionTest.debug) System.out.println("roi done: " + roi);
