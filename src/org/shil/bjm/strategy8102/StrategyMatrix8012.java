@@ -284,7 +284,7 @@ public abstract class StrategyMatrix8012{
 	public double getROI() {
 		if(this.roi==null) {
 			double roi = 0;
-			EvolutionTest.debug = true;
+//			EvolutionTest.debug = true;
 			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
 //			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
 //			Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();

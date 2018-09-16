@@ -8,6 +8,11 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 
+/**
+ * ROI best
+ * @author vanis
+ *
+ */
 public class Finally2046 extends Seven8012 {
 
 	public Finally2046() {
@@ -593,8 +598,9 @@ public class Finally2046 extends Seven8012 {
 		StrategyMatrix8012 one = new Finally2046();
 		StrategyMatrix8012 two = new Standard2018();
 		StrategyMatrix8012 three = new Finally2047();
-		HelloWorld.printStrategyMatrix8012(one,two,three);
-		System.out.println(one.diffWith(three));
+		StrategyMatrix8012 four = new Standard2017();
+		HelloWorld.printStrategyMatrix8012(one,two,three,four);
+		System.out.println(two.diffWith(three));
 	}
 
 }

@@ -7,6 +7,11 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 
+/**
+ * 55vs 6 double not splite ,roi best
+ * @author vanis
+ *
+ */
 public class Standard2018 extends Seven8012 {
 
 	public Standard2018() {
