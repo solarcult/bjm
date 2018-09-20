@@ -203,6 +203,12 @@ public class WinRateUtil {
 		return new Double[] {win,draw,lose};
 	}
 	
+	/**
+	 * only use this for print xxVSx wdl
+	 * @param playerCardsPathValues
+	 * @param dealerCard
+	 * @return
+	 */
 	@Deprecated
 	public static Double[] calcWDLwDsByRawByProbPrecent(Collection<PlayerCardsPathValue> playerCardsPathValues,Card dealerCard) {
 		double win = 0;
