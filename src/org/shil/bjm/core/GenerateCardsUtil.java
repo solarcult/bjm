@@ -8,6 +8,7 @@ import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerCardsPathValue;
+import org.shil.bjm.simulation.Casion6Deck;
 
 /**
  * 核心类，产生下一张牌的类，希望没有bug
@@ -43,6 +44,18 @@ public class GenerateCardsUtil {
 		}
 		
 		return dealerCardsPathValues;
+	}
+	
+	public static DealerCardsPathValue generateDealerOneMatch(Casion6Deck casion6Deck , DealerCardsPathValue dealerCardsPathValue){		
+		
+		//如果没有达到点数,则再发一张牌,所有13中组合,继续递归
+		if(dealerCardsPathValue.getValue() < BlackJackInfo.DealerStop ){
+			Card one = casion6Deck.fetchOne();
+			dealerCardsPathValue.addCard(one);
+			generateDealerOneMatch(casion6Deck, dealerCardsPathValue);
+		}
+		
+		return dealerCardsPathValue;
 	}
 	
 	/**
