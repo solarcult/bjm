@@ -54,16 +54,11 @@ public class RealMatch {
 		return pr;
 	}
 	
-	public static double oneMatch(Casion6Deck casion6Deck) {
-		double baseMoney = ProfitUtil.baseMoney;
-		int count = 0;
+	public static double oneMatch(Casion6Deck casion6Deck,double baseMoney) {
+		
 		Card dealerCard = casion6Deck.fetchOne();
 		
 		PlayerCardsPathValue p1 = getOnePlayerCards(casion6Deck, new Finally2046(), dealerCard);
-		count = casion6Deck.getCount();
-		if(count >= 5) {
-			baseMoney += (casion6Deck.getCount()/5)*100;
-		}
 		PlayerCardsPathValue p2 = getOnePlayerCards(casion6Deck, new Finally2047(), dealerCard);
 		PlayerCardsPathValue p3 = getOnePlayerCards(casion6Deck, new Standard2017(), dealerCard);
 		PlayerCardsPathValue p4 = getOnePlayerCards(casion6Deck, new Standard2018(), dealerCard);
@@ -71,7 +66,7 @@ public class RealMatch {
 		DealerCardsPathValue dealerCardsPathValue = new DealerCardsPathValue(dealerCard);
 		DealerCardsPathValue dr = GenerateCardsUtil.generateDealerOneMatch(casion6Deck, dealerCardsPathValue);
 		
-		if(EvolutionTest.debug)System.out.println("bet:" + baseMoney+" count: "+count);
+		if(EvolutionTest.debug)System.out.println("bet:" + baseMoney);
 		if(EvolutionTest.debug)System.out.println(p2.getValue()+" : " + p2.getCards()+" ds: "+p2.getDsTimes());	
 		if(EvolutionTest.debug)System.out.println(dr.getValue()+" : " + dr.getCards());
 		double result = ProfitUtil.calcROI(p2, dr,baseMoney);
@@ -89,17 +84,30 @@ public class RealMatch {
 	}
 
 	public static void main(String[] args) {
+		Frequency frequency = new Frequency();
 		EvolutionTest.debug = false;
 		Casion6Deck casion6Deck = new Casion6Deck();
+		double baseMoney = 0d;
 		double result = 0 ;
 		for(int i=0;i<10000;i++) {
+			baseMoney = ProfitUtil.baseMoney;
 			casion6Deck.reset();
-			result += oneMatch(casion6Deck);
+			int count = casion6Deck.getCount();
+			if(EvolutionTest.debug)System.out.println("count: "+count);
+			if(count>=5) {
+				baseMoney += (count/5)*100;
+			}
+			result += oneMatch(casion6Deck,baseMoney);
 			if(i%100 ==0) {
 				System.out.println(i+ " : "+ result);
 			}
+			if(count>=5) {
+				frequency.incrementValue(count,(long)result);
+			}
+			if(result < -30000) break;
 		}
 		System.out.println(result);
+		System.out.println(frequency);
 	}
 
 }
