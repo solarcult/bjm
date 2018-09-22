@@ -11,9 +11,233 @@ import org.shil.bjm.meta.WinRateUtil;
 public class TestAnything {
 
 	public static void main(String[] args) {
-		test33vs4();
+		testTTvsX();
 	}
 	
+	public static void testTTvsX() {
+		for(Card dealercard : Card.values()) {
+			System.out.println(dealercard);
+			PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Ten,Card.Ten);
+			Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
+			
+			PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Ten,Card.Ten);
+			Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
+			System.out.println(new Finally2047().diffWith(new TestAnything2048()));
+			/*
+One1
+0.006332992653769586
+w:50.69051023665474 $d:13.090969130580746 $l:36.2185206327645
+-0.7410681108759323
+w:32.11685480512105 $d:12.898383766650468 $l:54.98476142822849
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Two2
+0.027969672419496737
+w:75.75683872407858 $d:12.401888321248329 $l:11.841272954673093
+0.5412654917203525
+w:54.31062118491028 $d:8.08114779016244 $l:37.608231024927285
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Three3
+0.0284147643415633
+w:76.4254686765728 $d:12.081740865472726 $l:11.492790457954468
+0.6202444495258392
+w:55.65064158900892 $d:7.838242524272339 $l:36.511115886718734
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Four4
+0.028874306539630946
+w:77.16937222014178 $d:11.64406762130161 $l:11.18656015855661
+0.7026421582221426
+w:57.24636751436149 $d:7.189422154765223 $l:35.5642103308733
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Five5
+0.02942081219806749
+w:78.02619008976835 $d:11.1792923560384 $l:10.794517554193263
+0.7949106633161752
+w:58.80743797413093 $d:6.914506109401664 $l:34.27805591646741
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Six6
+0.030802816102304648
+w:80.11734977484774 $d:10.155092255566611 $l:9.727557969585652
+0.886135434111893
+w:60.337474699796815 $d:6.669449941440855 $l:32.993075358762326
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Seven7
+0.03385680485770967
+w:84.75026480605464 $d:7.868157627732522 $l:7.381577566212825
+0.7612745854714191
+w:56.984514194421685 $d:9.522410359652032 $l:33.49307544592627
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Eight8
+0.034651228005782506
+w:86.13109717557217 $d:6.921887942591434 $l:6.947014881836397
+0.5621327344541238
+w:53.91344373355028 $d:9.519424825429128 $l:36.56713144102058
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Nine9
+0.033164970549592145
+w:81.87544312368965 $d:12.036839279403882 $l:6.087717596906468
+0.300435161026119
+w:49.271553402820544 $d:10.727732281636444 $l:40.00071431554302
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+Ten
+0.019079970651596712
+w:54.79983065097889 $d:34.00138989270622 $l:11.1987794563149
+-0.1931185358711543
+w:39.319524920818274 $d:15.401691379473489 $l:45.27878369970823
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+JJJ
+0.019079970651596716
+w:54.79983065097889 $d:34.001389892706214 $l:11.198779456314899
+-0.19311853587115435
+w:39.319524920818274 $d:15.401691379473489 $l:45.27878369970823
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+QQQ
+0.019079970651596716
+w:54.79983065097889 $d:34.00138989270622 $l:11.198779456314895
+-0.19311853587115424
+w:39.319524920818274 $d:15.401691379473489 $l:45.27878369970823
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+
+KKK
+0.019079970651596716
+w:54.7998306509789 $d:34.00138989270622 $l:11.198779456314895
+-0.19311853587115435
+w:39.319524920818274 $d:15.401691379473489 $l:45.27878369970822
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+			 */
+		}
+	}
 	
 	public static void test33vs4() {
 		Card dealercard = Card.Four4;
