@@ -10,7 +10,7 @@ import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.core.DealerCards;
 import org.shil.bjm.strategy8102.EvolutionTest;
-import org.shil.bjm.strategy8102.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class HelloWorld {
 

@@ -1,18 +1,19 @@
 package org.shil.bjm.simulation;
 
 import org.apache.commons.math3.stat.Frequency;
+import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.strategy8102.EvolutionTest;
-import org.shil.bjm.strategy8102.Finally2046;
-import org.shil.bjm.strategy8102.Finally2047;
-import org.shil.bjm.strategy8102.Standard2017;
-import org.shil.bjm.strategy8102.Standard2018;
 import org.shil.bjm.strategy8102.Strategy8012;
-import org.shil.bjm.strategy8102.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.Finally2046;
+import org.shil.bjm.strategy8102.strategy.Finally2047;
+import org.shil.bjm.strategy8102.strategy.Standard2017;
+import org.shil.bjm.strategy8102.strategy.Standard2018;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class RealMatch {
 	
@@ -66,10 +67,12 @@ public class RealMatch {
 		DealerCardsPathValue dealerCardsPathValue = new DealerCardsPathValue(dealerCard);
 		DealerCardsPathValue dr = GenerateCardsUtil.generateDealerOneMatch(casion6Deck, dealerCardsPathValue);
 		
+		PlayerCardsPathValue test = p4;
+		
 		if(EvolutionTest.debug)System.out.println("bet:" + baseMoney);
-		if(EvolutionTest.debug)System.out.println(p2.getValue()+" : " + p2.getCards()+" ds: "+p2.getDsTimes());	
+		if(EvolutionTest.debug)System.out.println(test.getValue()+" : " + test.getCards()+" ds: "+test.getDsTimes());	
 		if(EvolutionTest.debug)System.out.println(dr.getValue()+" : " + dr.getCards());
-		double result = ProfitUtil.calcROI(p2, dr,baseMoney);
+		double result = ProfitUtil.calcROI(test, dr,baseMoney);
 		if(EvolutionTest.debug)System.out.println("roi:" +result);
 		if(EvolutionTest.debug)System.out.println("---");
 		
@@ -89,7 +92,10 @@ public class RealMatch {
 		Casion6Deck casion6Deck = new Casion6Deck();
 		double baseMoney = 0d;
 		double result = 0 ;
-		for(int i=0;i<10000;i++) {
+		double w = 0;
+		double d = 0;
+		double l = 0;
+		for(int i=1;i<=10000;i++) {
 			baseMoney = ProfitUtil.baseMoney;
 			casion6Deck.reset();
 			int count = casion6Deck.getCount();
@@ -97,13 +103,26 @@ public class RealMatch {
 			if(count>=5) {
 				baseMoney += (count/5)*100;
 			}
-			result += oneMatch(casion6Deck,baseMoney);
+			double roi = oneMatch(casion6Deck,baseMoney);
+			/*
+			 * below code is not good,cause can't show the true w d l to me,
+			 * should not use this anymore,
+			 * it makes me crazy.
+			if(roi>0)w++;
+			else if(roi==0)d++;
+			else if(roi<0) l++;
+			*/
+			if(roi>0)w+=roi;
+			else if (roi==0) d+=baseMoney;
+			else if(roi<0) l+=Math.abs(roi);
+			
+			result += roi;
 			if(i%100 ==0) {
 				System.out.println(i+ " : "+ result);
+				HelloWorld.printDoubleWDL(new double[] {w/(w+d+l),d/(w+d+l),l/(w+d+l)});
 			}
-			if(count>=5) {
-				frequency.incrementValue(count,(long)result);
-			}
+			frequency.incrementValue(count,(long)roi);
+			
 			if(result < -30000) break;
 		}
 		System.out.println(result);

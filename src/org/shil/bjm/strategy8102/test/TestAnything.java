@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102;
+package org.shil.bjm.strategy8102.test;
 
 import java.util.Collection;
 
@@ -7,6 +7,8 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.WinRateUtil;
+import org.shil.bjm.strategy8102.Strategy8012;
+import org.shil.bjm.strategy8102.strategy.Finally2047;
 
 public class TestAnything {
 

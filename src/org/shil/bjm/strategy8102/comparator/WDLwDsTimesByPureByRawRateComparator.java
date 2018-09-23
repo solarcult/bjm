@@ -2,7 +2,7 @@ package org.shil.bjm.strategy8102.comparator;
 
 import java.util.Comparator;
 
-import org.shil.bjm.strategy8102.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class WDLwDsTimesByPureByRawRateComparator implements Comparator<StrategyMatrix8012> {
 

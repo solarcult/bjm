@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102;
+package org.shil.bjm.strategy8102.strategy;
 
 import java.util.HashMap;
 import java.util.Map;

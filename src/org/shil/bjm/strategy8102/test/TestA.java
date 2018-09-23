@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102;
+package org.shil.bjm.strategy8102.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,13 @@ import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.strategy8102.EvolutionTest;
+import org.shil.bjm.strategy8102.strategy.MatrixKey;
+import org.shil.bjm.strategy8102.strategy.RandomGenMatrix;
+import org.shil.bjm.strategy8102.strategy.Result;
+import org.shil.bjm.strategy8102.strategy.Situation;
+import org.shil.bjm.strategy8102.strategy.Standard2017;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class TestA {
 	

@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102;
+package org.shil.bjm.strategy8102.strategy;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import org.shil.bjm.meta.PlayerAction;
 
 public class Seven8012 extends StrategyMatrix8012 {
 		
-	protected int changePrecent = 2;
+	protected int changePrecent = 1;
 	
 	protected int totalPrecent = 100;
 	

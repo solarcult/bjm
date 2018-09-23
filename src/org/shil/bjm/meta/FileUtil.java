@@ -7,9 +7,10 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.apache.commons.math3.stat.Frequency;
-import org.shil.bjm.strategy8102.Result;
-import org.shil.bjm.strategy8102.Standard2018;
-import org.shil.bjm.strategy8102.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.Finally2047;
+import org.shil.bjm.strategy8102.strategy.Result;
+import org.shil.bjm.strategy8102.strategy.Standard2018;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class FileUtil {
 	
@@ -29,7 +30,7 @@ public class FileUtil {
 //			}
 			out.write("lift:");
 			out.newLine();
-			out.write(new Standard2018().diffWith(evos.get(0)));
+			out.write(new Finally2047().diffWith(evos.get(0)));
 			out.newLine();
 			out.write(evos.get(0).toString());
 			out.flush();

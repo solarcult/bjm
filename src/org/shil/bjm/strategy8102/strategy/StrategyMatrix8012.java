@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102;
+package org.shil.bjm.strategy8102.strategy;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -19,6 +19,8 @@ import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.meta.WinDrawLose;
 import org.shil.bjm.meta.WinRateUtil;
+import org.shil.bjm.strategy8102.EvolutionTest;
+import org.shil.bjm.strategy8102.Strategy8012;
 
 public abstract class StrategyMatrix8012{
 	
@@ -124,7 +126,7 @@ public abstract class StrategyMatrix8012{
 		for(Card dealerCard : Card.values()) {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			MatrixKey start_With_Pair = new MatrixKey(StartValue.Ten, dealerCard, Situation.Start_With_Pair);
-			notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);
+			changesMatrix.put(start_With_Pair, PlayerAction.Stand);
 		}
 		
 		/*

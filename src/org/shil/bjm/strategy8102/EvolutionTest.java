@@ -10,6 +10,9 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.strategy8102.comparator.ROIComparator;
 import org.shil.bjm.strategy8102.comparator.WdlRateWithDSWithProbRateComparator;
+import org.shil.bjm.strategy8102.strategy.Finally2048;
+import org.shil.bjm.strategy8102.strategy.Standard2018;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
 
 public class EvolutionTest {
@@ -27,8 +30,9 @@ public class EvolutionTest {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
-		StrategyMatrix8012 origin = new Standard2018();
+//		StrategyMatrix8012 origin = new Standard2018();
 //		StrategyMatrix8012 origin = new Fianlly2046();
+		StrategyMatrix8012 origin = new Finally2048();
 		evos.add(origin);
 		
 //		for(int i = 1; i <= popluation; i++) 

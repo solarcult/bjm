@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102;
+package org.shil.bjm.strategy8102.strategy;
 
 public enum Situation {
 	Start_Hand_WithoutA_WithoutPair,
