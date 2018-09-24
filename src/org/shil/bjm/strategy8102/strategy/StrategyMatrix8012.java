@@ -395,7 +395,7 @@ public abstract class StrategyMatrix8012{
 
 		StringBuffer sb = new StringBuffer();		
 		sb.append(getCalcResult());
-		sb.append("\nconstract code = \n");
+		sb.append("\nconstruct code = \n");
 		sb.append("\n{\nsuper();");
 		sb.append("\nMap<MatrixKey,PlayerAction> changesMatrix = new HashMap<>();");
 		for(Result or: getOneMatrxByList()) {
