@@ -97,6 +97,7 @@ public class EvolutionTest {
 							break;
 						case 4:
 							sm.getROI();
+							break;
 						default :
 							throw new RuntimeException("wow who am i?");
 					}
