@@ -21,6 +21,10 @@ import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 public class TestA {
 	
 	public static void main(String[] args) {
+		System.out.println(Situation.Splited_Pair_And_Can_NOT_Split.name());
+	}
+	
+	public static void testPureReturnByRandom() {
 		for(int i = 1; i <= 20; i++) 
 		{
 			StrategyMatrix8012 origin = new RandomGenMatrix();

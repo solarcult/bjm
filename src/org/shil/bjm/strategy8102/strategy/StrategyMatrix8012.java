@@ -283,6 +283,15 @@ public abstract class StrategyMatrix8012{
 		return changeResults;
 	}
 	
+	public List<Result> getOneMatrxByList(){
+		List<Result> changeResults = new LinkedList<>();
+		for(Entry<MatrixKey, PlayerAction> e : one.entrySet()) {
+			changeResults.add(new Result(e.getKey(), e.getValue()));
+		}
+		Collections.sort(changeResults);
+		return changeResults;
+	}
+	
 	public abstract StrategyMatrix8012 evolve();
 	
 	public double getROI() {
@@ -386,7 +395,33 @@ public abstract class StrategyMatrix8012{
 
 		StringBuffer sb = new StringBuffer();		
 		sb.append(getCalcResult());
-		sb.append("\nchangeMatrix = ");
+		sb.append("\nconstract code = \n");
+		sb.append("\n{\nsuper();");
+		sb.append("\nMap<MatrixKey,PlayerAction> changesMatrix = new HashMap<>();");
+		for(Result or: getOneMatrxByList()) {
+			sb.append("\n{\n");
+//			MatrixKey splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+			sb.append(" MatrixKey goodluck = new MatrixKey(");
+			sb.append("StartValue.getOne(");
+			sb.append(or.matrixKey.getStartValue().getValue());
+			sb.append("),Card.getOne(");
+			sb.append(or.matrixKey.getDealerCard().getValue());
+			sb.append("),Situation.");
+			sb.append(or.matrixKey.getSituation().name());
+			sb.append(");\n");
+//			notChangesMatrix.put(start_With_A, PlayerAction.Hit);
+			sb.append(" changesMatrix.put(goodluck,");
+			sb.append("PlayerAction.");
+			sb.append(or.playerAction.name());
+			sb.append(");");
+			sb.append("\n}");
+		}
+		sb.append("\nthis.changesMatrix = changesMatrix;");
+		sb.append("\nthis.one = new HashMap<>();");
+		sb.append("\none.putAll(changesMatrix);");
+		sb.append("\none.putAll(notChangesMatrix);");
+		sb.append("\n}\n");
+		sb.append("\n\nchangeMatrix = ");
 		for(Result r: getChangeMatrxByList()) {
 			sb.append("\n");
 			sb.append(r);
@@ -451,17 +486,22 @@ public abstract class StrategyMatrix8012{
 
 	
 	public String diffWith(StrategyMatrix8012 other){
-		StringBuilder sb = new StringBuilder();
-		
+		List<Result> changeResults = new LinkedList<>();
 		for(Entry<MatrixKey,PlayerAction> e: this.one.entrySet()) {
 			if(e.getValue()!= other.one.get(e.getKey())) {
-				sb.append(e);
-				sb.append(" -> ");
-				sb.append(other.one.get(e.getKey()));
-				sb.append("\n");
+				changeResults.add(new Result(e.getKey(), e.getValue()));
 			}
 		}
-		
+		Collections.sort(changeResults);
+		StringBuilder sb = new StringBuilder();
+		for(Result result : changeResults) {
+			sb.append(result.matrixKey);
+			sb.append(" : ");
+			sb.append(one.get(result.matrixKey));
+			sb.append(" -> ");
+			sb.append(other.one.get(result.matrixKey));
+			sb.append("\n");
+		}
 		return sb.toString();
 	}
 }
