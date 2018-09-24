@@ -24,7 +24,7 @@ public class TestA {
 		for(int i = 1; i <= 20; i++) 
 		{
 			StrategyMatrix8012 origin = new RandomGenMatrix();
-			System.out.println(origin.getROI());
+			System.out.println(origin.getPureReturn());
 		}
 	}
 	
@@ -57,7 +57,7 @@ public class TestA {
 	
 	public static void testC() {
 		Standard2017 s = new Standard2017();
-		System.out.println(s.getROI());
+		System.out.println(s.getPureReturn());
 		CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
 			System.out.println(s.getCalcResult());
 		});

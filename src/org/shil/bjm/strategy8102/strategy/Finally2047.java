@@ -522,15 +522,15 @@ public class Finally2047 extends Seven8012 {
 						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}else if(dealerCard == Card.Eight8) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Giveup);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
 					}else {
 						// 88 vs 9 10
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						notChangesMatrix.put(start_With_Pair, PlayerAction.Giveup);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
 					}
 				}else if(start == 9) {
 					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
@@ -563,6 +563,8 @@ public class Finally2047 extends Seven8012 {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			MatrixKey start_With_Pair = new MatrixKey(StartValue.Ten, dealerCard, Situation.Start_With_Pair);
 			notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);
+			MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.Ten, dealerCard, Situation.Splited_Pair_And_Can_Split);
+			notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 		}
 		
 		
@@ -615,7 +617,7 @@ public class Finally2047 extends Seven8012 {
 	public static void main(String[] args) {
 		
 		StrategyMatrix8012 one = new Finally2047();
-		one.getROI();
+		one.getPureReturn();
 //		StrategyMatrix8012 two = new Finally2046();
 //		HelloWorld.printStrategyMatrix8012(one, two);
 //		System.out.println(one.diffWith(two));

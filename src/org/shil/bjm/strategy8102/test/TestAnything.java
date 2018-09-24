@@ -13,21 +13,46 @@ import org.shil.bjm.strategy8102.strategy.Finally2047;
 public class TestAnything {
 
 	public static void main(String[] args) {
-		testTTvsX();
+		test55vs6();
 	}
 	
-	public static void testTTvsX() {
-		for(Card dealercard : Card.values()) {
-			System.out.println(dealercard);
+	public static void test55vs6() {
+		Card dealerCard = Card.Six6;
+		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Five5,Card.Five5);
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		
+		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Five5,Card.Five5);
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
+		
+		/*
+0.050821012380811936
+w:61.103393898254424 $d:6.826925135263908 $l:32.06968096648167
+0.13017849843510026
+w:48.54846661058604 $d:2.925256293439361 $l:48.5262770959746
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_Pair]=Double -> Split
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Splited_Pair_And_Can_Split]=Double -> Split
+
+
+		 */
+	}
+	
+	public static void testTTvsXSplit() {
+		for(Card dealerCard : Card.values()) {
+			System.out.println(dealerCard);
 			PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Ten,Card.Ten);
-			Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
+			Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
 			
 			PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Ten,Card.Ten);
-			Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
+			Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
 			System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 			/*
 One1
@@ -242,37 +267,37 @@ MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand ->
 	}
 	
 	public static void test33vs4() {
-		Card dealercard = Card.Four4;
+		Card dealerCard = Card.Four4;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Three3,Card.Three3);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Three3,Card.Three3);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 	}
 	
 	public static void test99vs7() {
-		Card dealercard = Card.Seven7;
+		Card dealerCard = Card.Seven7;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Nine9,Card.Nine9);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Nine9,Card.Nine9);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		
@@ -291,19 +316,19 @@ MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Sp
 	}
 	
 	public static void test77vs456() {
-		Card dealercard = Card.Five5;
+		Card dealerCard = Card.Five5;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Seven7,Card.Seven7);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Seven7,Card.Seven7);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		
@@ -350,19 +375,19 @@ MatrixKey [startValue=Seven, dealerCard=Six6, situation=Splited_Pair_And_Can_Spl
 	}
 	
 	public static void test66vs456() {
-		Card dealercard = Card.Four4;
+		Card dealerCard = Card.Four4;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Six6,Card.Six6);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Six6,Card.Six6);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		
@@ -405,19 +430,19 @@ MatrixKey [startValue=Six, dealerCard=Five5, situation=Splited_Pair_And_Can_Spli
 	}
 	
 	public static void test44vs56() {
-		Card dealercard = Card.Five5;
+		Card dealerCard = Card.Five5;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Four4,Card.Four4);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Four4,Card.Four4);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		
@@ -447,19 +472,19 @@ MatrixKey [startValue=Four, dealerCard=Six6, situation=Splited_Pair_And_Can_Spli
 	}
 	
 	public static void test14vs10() {
-		Card dealercard = Card.Ten;
+		Card dealerCard = Card.Ten;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Eight8,Card.Six6);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Eight8,Card.Six6);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		/*
@@ -476,19 +501,19 @@ MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Start_Hand_WithoutA_Wi
 	}
 	
 	public static void testA6vs3() {
-		Card dealercard = Card.Three3;
+		Card dealerCard = Card.Three3;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.One1,Card.Six6);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.One1,Card.Six6);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		/*
@@ -504,21 +529,21 @@ MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A]=Hit -> Dou
 	}
 	
 	public static void testAXvs4() {
-		Card dealercard = Card.Four4;
+		Card dealerCard = Card.Four4;
 		for(Card playercard : Card.values()) {
 			if(playercard.getValue()>=2 && playercard.getValue()<=6) {
 				System.out.println(playercard);
 				PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.One1,playercard);
-				Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-				System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-				HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-				System.out.println("ROI: " + new Finally2047().getROI());
+				Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+				System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+				HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+				System.out.println("ROI: " + new Finally2047().getPureReturn());
 				
 				PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.One1,playercard);
-				Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-				System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-				HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-				System.out.println("ROI: " + new TestAnything2048().getROI());
+				Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+				System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+				HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+				System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 				
 				System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 			}
@@ -587,18 +612,18 @@ MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_A]=Hit -> Dou
 	}
 	
 	public static void test12vs3() {
-		Card dealercard = Card.Three3;
+		Card dealerCard = Card.Three3;
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Five5,Card.Seven7);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Five5,Card.Seven7);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		
@@ -618,17 +643,17 @@ MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Start_Hand_WithoutA_W
 	}
 	
 	public static void testA7vsX() {
-		for(Card dealercard : Card.values()) {
-			System.out.println(dealercard);
+		for(Card dealerCard : Card.values()) {
+			System.out.println(dealerCard);
 			PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.One1,Card.Seven7);
-			Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
+			Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
 			
 			PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.One1,Card.Seven7);
-			Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
+			Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
 			System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		}
 		/*
@@ -765,17 +790,17 @@ MatrixKey [startValue=Seven, dealerCard=One1, situation=Start_With_A]=Stand -> H
 	}
 	
 	public static void testPair88vs2() {
-		Card dealercard = Card.Two2;
+		Card dealerCard = Card.Two2;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Eight8,Card.Eight8);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Eight8,Card.Eight8);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		/*
 0.0613250409583747
@@ -787,19 +812,19 @@ MatrixKey [startValue=Eight, dealerCard=Two2, situation=Start_With_Pair]=Split -
 	}
 	
 	public static void test11vs10() {
-		Card dealercard = Card.Ten;
+		Card dealerCard = Card.Ten;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Eight8,Card.Three3);
-		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealercard));
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealercard));
-		System.out.println("ROI: " + new Finally2047().getROI());
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println("ROI: " + new Finally2047().getPureReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Eight8,Card.Three3);
-		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealercard); 
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealercard)*8);
-		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealercard));
-		System.out.println("ROI: " + new TestAnything2048().getROI());
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard)*8);
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		

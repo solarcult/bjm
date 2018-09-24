@@ -8,9 +8,10 @@ import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
+import org.shil.bjm.strategy8102.comparator.PureReturnComparator;
 import org.shil.bjm.strategy8102.comparator.ROIComparator;
 import org.shil.bjm.strategy8102.comparator.WdlRateWithDSWithProbRateComparator;
-import org.shil.bjm.strategy8102.strategy.Finally2048;
+import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.Standard2018;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
@@ -24,7 +25,7 @@ public class EvolutionTest {
 	static int producePopluation = popluation/2;
 	public static boolean debug = false;
 	
-	static int CalcType = 1;
+	static int CalcType = 4;
 
 	public static void main(String[] args) {
 		
@@ -32,7 +33,7 @@ public class EvolutionTest {
 		
 //		StrategyMatrix8012 origin = new Standard2018();
 //		StrategyMatrix8012 origin = new Fianlly2046();
-		StrategyMatrix8012 origin = new Finally2048();
+		StrategyMatrix8012 origin = new Finally2049();
 		evos.add(origin);
 		
 //		for(int i = 1; i <= popluation; i++) 
@@ -86,7 +87,7 @@ public class EvolutionTest {
 					competions.add(sm);
 					switch(type) {
 						case 1:
-							sm.getROI();
+							sm.getPureReturn();
 							break;
 						case 2:
 							sm.getWDLwDsTimesByPureByRawRate();
@@ -94,6 +95,8 @@ public class EvolutionTest {
 						case 3:
 							sm.getWdlRateWithDSWithProbRate();
 							break;
+						case 4:
+							sm.getROI();
 						default :
 							throw new RuntimeException("wow who am i?");
 					}
@@ -110,13 +113,16 @@ public class EvolutionTest {
 					
 					switch(type) {
 						case 1:
-							evo.getROI();
+							evo.getPureReturn();
 							break;
 						case 2:
 							evo.getWDLwDsTimesByPureByRawRate();
 							break;
 						case 3:
 							evo.getWdlRateWithDSWithProbRate();
+							break;
+						case 4:
+							evo.getROI();
 							break;
 						default :
 							throw new RuntimeException("wow who am i?");
@@ -134,13 +140,16 @@ public class EvolutionTest {
 		
 		switch(type) {
 			case 1:
-				Collections.sort(competions,new ROIComparator());
+				Collections.sort(competions,new PureReturnComparator());
 				break;
 			case 2:
 				Collections.sort(competions,new WDLwDsTimesByPureByRawRateComparator());
 				break;
 			case 3:
 				Collections.sort(competions,new WdlRateWithDSWithProbRateComparator());
+				break;
+			case 4:
+				Collections.sort(competions,new ROIComparator());
 				break;
 			default :
 				throw new RuntimeException("wow who am i?");

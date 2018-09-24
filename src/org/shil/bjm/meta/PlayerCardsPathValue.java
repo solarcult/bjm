@@ -52,7 +52,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	}
 	
 	public boolean isStartWithPairs(){
-		return this.getCards().get(0) == this.getCards().get(1);
+		return this.getCards().get(0).getValue() == this.getCards().get(1).getValue();
 	}
 	
 	public Card findFirstTwoCardsWithOutA(){
@@ -129,7 +129,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 				}
 			}
 			//old code , i think not 严谨，为什么remove1而不是0，虽然这两个都是一样的牌 . this.getCards().remove(1);
-			if(!getCards().get(0).equals(getCards().get(1))) throw new RuntimeException("split cards should be equal");
+			if(getCards().get(0).getValue() != getCards().get(1).getValue()) throw new RuntimeException("split cards should be equal");
 			
 			//only left the first card
 			this.getCards().remove(0);
@@ -201,6 +201,10 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	}
 
 	public static void main(String[] args){
+		
+		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.KKK,Card.JJJ);
+		System.out.println(cardsPathValue.isStartWithPairs());
+		/*
 		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.One1,Card.One1);
 		cardsPathValue.addCard(Card.Eight8);
 //		cardsPathValue.setAction(PlayerAction.Double);
@@ -224,6 +228,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		
 		System.out.println(cardsPathValue);
 		System.out.println(cardsPathValue3);
+		*/
 	}
 
 	@Override

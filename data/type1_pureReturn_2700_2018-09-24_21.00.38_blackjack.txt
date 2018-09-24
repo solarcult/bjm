@@ -1,0 +1,705 @@
+Mon Sep 24 21:00:38 CST 2018
+Value 	 Freq. 	 Pct. 	 Cum Pct. 
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Double]	1	0%	0%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	7	0%	0%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]	8	0%	1%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	1%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	1%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	2%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]	8	0%	2%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	2	0%	2%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Split]	6	0%	2%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Giveup]	8	0%	3%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	3%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]	8	0%	3%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	3%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Split]	8	0%	4%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	4%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	4%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	5%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Ten, situation=Start_With_Pair], playerAction=Giveup]	8	0%	5%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	5%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Three3, situation=Start_With_Pair], playerAction=Split]	8	0%	6%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	6%
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Two2, situation=Start_With_Pair], playerAction=Split]	8	0%	6%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	7%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	7%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Five5, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	7%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Five5, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	8%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Four4, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	8%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Four4, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	8%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	8%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	9%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	9%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	9%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Six6, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	10%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Six6, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	10%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	10%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	11%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	11%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	11%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	12%
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	12%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	12%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	13%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Eight8, situation=Three_More_Cards], playerAction=Hit]	8	0%	13%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	13%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	13%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Three_More_Cards], playerAction=Hit]	8	0%	14%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=One1, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	14%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=One1, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	14%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=One1, situation=Three_More_Cards], playerAction=Hit]	8	0%	15%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	15%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	15%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Seven7, situation=Three_More_Cards], playerAction=Hit]	8	0%	16%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	16%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Giveup]	8	0%	16%
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Three_More_Cards], playerAction=Hit]	8	0%	17%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	17%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Double]	8	0%	17%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Double]	8	0%	18%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Five5, situation=Start_With_A], playerAction=Double]	8	0%	18%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Five5, situation=Start_With_Pair], playerAction=Double]	8	0%	18%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	18%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_A], playerAction=Double]	8	0%	19%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_Pair], playerAction=Double]	8	0%	19%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Double]	8	0%	19%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Double]	8	0%	20%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	20%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]	8	0%	20%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Double]	8	0%	21%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Double]	8	0%	21%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	21%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_A], playerAction=Double]	8	0%	22%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	22%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	22%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]	8	0%	23%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Double]	8	0%	23%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Three3, situation=Start_With_Pair], playerAction=Double]	8	0%	23%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Double]	7	0%	23%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Split]	1	0%	24%
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Two2, situation=Start_With_Pair], playerAction=Double]	8	0%	24%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Double]	8	0%	24%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]	8	0%	24%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	25%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_A], playerAction=Double]	8	0%	25%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	25%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	26%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_A], playerAction=Double]	8	0%	26%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_Pair], playerAction=Hit]	8	0%	26%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	27%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]	8	0%	27%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Double]	8	0%	27%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]	8	0%	28%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	28%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]	8	0%	28%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	29%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_A], playerAction=Double]	8	0%	29%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	29%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	29%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]	8	0%	30%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	7	0%	30%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	1	0%	30%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Three3, situation=Start_With_Pair], playerAction=Hit]	8	0%	30%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	31%
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Two2, situation=Start_With_Pair], playerAction=Hit]	8	0%	31%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	31%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	32%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Eight8, situation=Three_More_Cards], playerAction=Hit]	8	0%	32%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	32%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	33%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Nine9, situation=Three_More_Cards], playerAction=Hit]	8	0%	33%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	33%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	34%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Seven7, situation=Three_More_Cards], playerAction=Hit]	8	0%	34%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	34%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	34%
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Three_More_Cards], playerAction=Hit]	8	0%	35%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	35%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	35%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	36%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Split]	8	0%	36%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	36%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	37%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	37%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	37%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	38%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	38%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	38%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]	8	0%	39%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	39%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	39%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	39%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Stand]	8	0%	40%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=One1, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	40%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	40%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=One1, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	41%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=One1, situation=Start_With_Pair], playerAction=Stand]	8	0%	41%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	1	0%	41%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Stand]	7	0%	41%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	42%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	42%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Split]	8	0%	42%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	43%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	43%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	43%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	44%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	7	0%	44%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Stand]	1	0%	44%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	44%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	45%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Start_With_Pair], playerAction=Stand]	8	0%	45%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	45%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	45%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	46%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair], playerAction=Split]	8	0%	46%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	46%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	47%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	47%
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair], playerAction=Split]	8	0%	47%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Split]	8	0%	48%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	48%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]	8	0%	48%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Split]	8	0%	49%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]	8	0%	49%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Split]	8	0%	49%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	50%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Ten, situation=Start_With_Pair], playerAction=Split]	8	0%	50%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Three3, situation=Start_With_Pair], playerAction=Split]	8	0%	50%
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Two2, situation=Start_With_Pair], playerAction=Split]	8	0%	50%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	51%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Start_With_A], playerAction=Stand]	8	0%	51%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]	8	0%	51%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	52%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_A], playerAction=Double]	8	0%	52%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	52%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	53%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_A], playerAction=Double]	8	0%	53%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]	8	0%	53%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	54%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Start_With_A], playerAction=Hit]	8	0%	54%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]	8	0%	54%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=One1, situation=Start_With_A], playerAction=Hit]	8	0%	55%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	55%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Start_With_A], playerAction=Stand]	8	0%	55%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]	8	0%	55%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	56%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_A], playerAction=Double]	8	0%	56%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	56%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	57%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Ten, situation=Start_With_A], playerAction=Hit]	8	0%	57%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Ten, situation=Start_With_Pair], playerAction=Giveup]	8	0%	57%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	58%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_A], playerAction=Double]	8	0%	58%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_Pair], playerAction=Stand]	8	0%	58%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	59%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Two2, situation=Start_With_A], playerAction=Stand]	8	0%	59%
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Two2, situation=Start_With_Pair], playerAction=Stand]	8	0%	59%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	60%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]	8	0%	60%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	60%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Five5, situation=Start_With_A], playerAction=Double]	8	0%	61%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	61%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	1	0%	61%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]	7	0%	61%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Four4, situation=Start_With_A], playerAction=Double]	8	0%	61%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Four4, situation=Start_With_Pair], playerAction=Stand]	8	0%	62%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	62%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]	8	0%	62%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	63%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]	8	0%	63%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	63%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]	8	0%	64%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	64%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Six6, situation=Start_With_A], playerAction=Double]	8	0%	64%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	65%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	65%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]	8	0%	65%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	66%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A], playerAction=Double]	8	0%	66%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_Pair], playerAction=Hit]	8	0%	66%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	2	0%	66%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	6	0%	66%
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Two2, situation=Start_With_Pair], playerAction=Hit]	8	0%	67%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	67%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	67%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Three_More_Cards], playerAction=Hit]	8	0%	68%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	68%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Giveup]	8	0%	68%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Three_More_Cards], playerAction=Hit]	8	0%	69%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=One1, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Stand]	8	0%	69%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=One1, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	69%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=One1, situation=Three_More_Cards], playerAction=Hit]	8	0%	70%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	70%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	70%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Three_More_Cards], playerAction=Hit]	8	0%	71%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	71%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Giveup]	8	0%	71%
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Three_More_Cards], playerAction=Hit]	8	0%	71%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	72%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	72%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	72%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Split]	8	0%	73%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Five5, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	73%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	73%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	74%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	74%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Four4, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	74%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	75%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	75%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]	8	0%	75%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	76%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	76%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	76%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Split]	8	0%	76%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	77%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair], playerAction=Stand]	8	0%	77%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	77%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	78%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	78%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Split]	8	0%	78%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Six6, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	79%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	79%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	79%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	80%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	80%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair], playerAction=Stand]	8	0%	80%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	81%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	81%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	81%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair], playerAction=Split]	8	0%	82%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]	8	0%	82%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	82%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]	8	0%	82%
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair], playerAction=Split]	8	0%	83%
+Result [matrixKey=MatrixKey [startValue=Thirteen, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Stand]	8	0%	83%
+Result [matrixKey=MatrixKey [startValue=Thirteen, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Stand]	8	0%	83%
+Result [matrixKey=MatrixKey [startValue=Thirteen, dealerCard=Two2, situation=Three_More_Cards], playerAction=Stand]	8	0%	84%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	84%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]	8	0%	84%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	85%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Five5, situation=Start_With_A], playerAction=Double]	8	0%	85%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	85%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	86%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_A], playerAction=Double]	8	0%	86%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_Pair], playerAction=Hit]	8	0%	86%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	87%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]	8	0%	87%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	87%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]	8	0%	87%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	88%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]	8	0%	88%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	88%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Six6, situation=Start_With_A], playerAction=Double]	8	0%	89%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	89%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	89%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]	8	0%	90%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	90%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Three3, situation=Start_With_Pair], playerAction=Hit]	8	0%	90%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	91%
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Two2, situation=Start_With_Pair], playerAction=Hit]	8	0%	91%
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	91%
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	92%
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Three_More_Cards], playerAction=Hit]	8	0%	92%
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]	8	0%	92%
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]	8	0%	92%
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Two2, situation=Three_More_Cards], playerAction=Hit]	8	0%	93%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	93%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]	8	0%	93%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	94%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_A], playerAction=Double]	8	0%	94%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]	8	0%	94%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	95%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_A], playerAction=Double]	8	0%	95%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]	8	0%	95%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Stand]	8	0%	96%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]	8	0%	96%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	96%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]	8	0%	97%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	97%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]	8	0%	97%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]	8	0%	97%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_A], playerAction=Double]	8	0%	98%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]	8	0%	98%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	98%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]	8	0%	99%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	99%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Three3, situation=Start_With_Pair], playerAction=Hit]	8	0%	99%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Hit]	8	0%	100%
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Two2, situation=Start_With_Pair], playerAction=Hit]	8	0%	100%
+
+
+lift:
+MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Three_More_Cards]=Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Three_More_Cards]=Stand -> Hit
+MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair]=Giveup -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=One1, situation=Splited_Pair_And_Can_NOT_Split]=Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_A]=Stand -> Double
+MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Five, dealerCard=Four4, situation=Splited_Pair_And_Can_Split]=Double -> Split
+MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split]=Stand -> Hit
+MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_A]=Stand -> Double
+MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_A]=Stand -> Double
+MatrixKey [startValue=Six, dealerCard=Four4, situation=Splited_Pair_And_Can_Split]=Stand -> Hit
+MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Three_More_Cards]=Stand -> Hit
+MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split]=Stand -> Hit
+MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split]=Stand -> Hit
+MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_A]=Hit -> Double
+MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Start_With_Pair]=Giveup -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Three_More_Cards]=Stand -> Hit
+MatrixKey [startValue=Five, dealerCard=One1, situation=Splited_Pair_And_Can_Split]=Hit -> Stand
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_Pair]=Hit -> Split
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair]=Giveup -> Hit
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Splited_Pair_And_Can_Split]=Hit -> Split
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_A]=Hit -> Double
+MatrixKey [startValue=Three, dealerCard=Four4, situation=Splited_Pair_And_Can_Split]=Hit -> Stand
+MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split]=Stand -> Hit
+MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split]=Hit -> Double
+MatrixKey [startValue=Four, dealerCard=One1, situation=Splited_Pair_And_Can_Split]=Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair]=Hit -> Double
+MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair]=Giveup -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair]=Stand -> Hit
+MatrixKey [startValue=Two, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split]=Hit -> Stand
+MatrixKey [startValue=Eight, dealerCard=Ten, situation=Splited_Pair_And_Can_Split]=Hit -> Stand
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A]=Hit -> Double
+MatrixKey [startValue=Six, dealerCard=Two2, situation=Splited_Pair_And_Can_Split]=Hit -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split]=Hit -> Stand
+MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split]=Stand -> Hit
+MatrixKey [startValue=Five, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split]=Double -> Split
+MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_A]=Hit -> Double
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_Pair]=Double -> Split
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Splited_Pair_And_Can_Split]=Double -> Split
+MatrixKey [startValue=Four, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split]=Hit -> Split
+MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split]=Stand -> Hit
+MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair]=Stand -> Split
+MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_A]=Hit -> Double
+MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_A]=Stand -> Double
+MatrixKey [startValue=Four, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split]=Hit -> Double
+
+StrategyMatrix8012 [roi= 52.00361375663745,	 WDLwDsTimesByPureByRawRate= w:35.96104409770135 $d:3.6469667542772615 $l:60.391989148021395,	 WdlRateWithDSWithProbRate= w:48.039136957331756 $d:8.279727121591732 $l:43.68113592107652
+changeMatrix = 
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Two2, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Three3, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=One, dealerCard=Ten, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Two2, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Three3, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Two, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Two2, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Three3, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Five5, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Six6, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Three, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Two2, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Three3, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Four, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Two2, situation=Start_With_Pair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Three3, situation=Start_With_Pair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_Pair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Five5, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Five5, situation=Start_With_Pair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Five, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Two2, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Four4, situation=Start_With_Pair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Four4, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Five5, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Six6, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Six, dealerCard=Ten, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=One1, situation=Start_With_A], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Two2, situation=Start_With_Pair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Two2, situation=Start_With_A], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_Pair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_A], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Start_With_A], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Start_With_A], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Start_With_A], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Ten, situation=Start_With_Pair], playerAction=Giveup]
+Result [matrixKey=MatrixKey [startValue=Seven, dealerCard=Ten, situation=Start_With_A], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=One1, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Two2, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Three3, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Giveup]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Ten, situation=Start_With_Pair], playerAction=Giveup]
+Result [matrixKey=MatrixKey [startValue=Eight, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=One1, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=One1, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=One1, situation=Start_With_Pair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Nine, dealerCard=Ten, situation=Start_With_Pair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=One1, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=One1, situation=Start_With_Pair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Two2, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Three3, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Four4, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Four4, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Five5, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Five5, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Six6, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Six6, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Start_With_Pair], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split], playerAction=Split]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Ten, situation=Start_With_Pair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Ten, dealerCard=Ten, situation=Splited_Pair_And_Can_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Four4, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Four4, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Five5, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Five5, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Six6, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Six6, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Double]
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Two2, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Thirteen, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Thirteen, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Thirteen, dealerCard=Two2, situation=Three_More_Cards], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Seven7, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Eight8, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Nine9, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=One1, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=One1, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=One1, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Seven7, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Eight8, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Giveup]
+Result [matrixKey=MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=One1, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=One1, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Stand]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=One1, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Giveup]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Three_More_Cards], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair], playerAction=Giveup]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split], playerAction=Hit]
+Result [matrixKey=MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Three_More_Cards], playerAction=Hit]

@@ -761,6 +761,6 @@ public class RandomGenMatrix extends Standard2017 {
 	
 	public static void main(String[] args) {
 		RandomGenMatrix g = new RandomGenMatrix();
-		g.getROI();
+		g.getPureReturn();
 	}
 }

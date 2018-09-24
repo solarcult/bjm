@@ -22,7 +22,7 @@ public class ProfitUtil {
 	 * @deprecated by moneyCalcOneHandInReturnProb
 	 */
 	public static double moneyCalcOneHandInReturn(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
-		double ROI = 0d;
+		double pureReturn = 0d;
 		double onePot = baseMoney * playerCardsPathValue.getBetMutiV();
 		
 		if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
@@ -32,10 +32,10 @@ public class ProfitUtil {
 			
 			double daCardProb = (double) 1/13;
 			//用户放弃损失一半,BetMutiV 包含了0.5,此处不用乘
-			ROI -= onePot * playerCardsPathValue.prob() * daCardProb;
-			return ROI;
+			pureReturn -= onePot * playerCardsPathValue.prob() * daCardProb;
+			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
-			return ROI;
+			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
 				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
 				|| playerCardsPathValue.getAction() == PlayerAction.Double
@@ -45,14 +45,14 @@ public class ProfitUtil {
 		
 		//最终计算投资收益率
 		double[] playerchance = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerCardsPathValue, dealerCard);
-		ROI += playerchance[WinDrawLose.win] * onePot;
-		ROI -= playerchance[WinDrawLose.lose] * onePot;
+		pureReturn += playerchance[WinDrawLose.win] * onePot;
+		pureReturn -= playerchance[WinDrawLose.lose] * onePot;
 		
-		return ROI;
+		return pureReturn;
 	}
 	
 	public static double moneyCalcOneHandInReturnProb(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
-		double ROI = 0d;
+		double pureReturn = 0d;
 		double onePot = baseMoney * playerCardsPathValue.getBetMutiV();
 		
 		if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
@@ -62,10 +62,10 @@ public class ProfitUtil {
 			
 			double daCardProb = (double)1/13;
 			//用户放弃损失一半,BetMutiV 包含了0.5,此处不用乘
-			ROI -= onePot * playerCardsPathValue.prob() * daCardProb;
-			return ROI;
+			pureReturn -= onePot * playerCardsPathValue.prob() * daCardProb;
+			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
-			return ROI;
+			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
 				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
 				|| playerCardsPathValue.getAction() == PlayerAction.Double
@@ -75,27 +75,27 @@ public class ProfitUtil {
 		
 		//最终计算投资收益率
 		double[] playerchance = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusProb(playerCardsPathValue, dealerCard);
-		ROI += playerchance[WinDrawLose.win] * onePot;
-		ROI -= playerchance[WinDrawLose.lose] * onePot;
+		pureReturn += playerchance[WinDrawLose.win] * onePot;
+		pureReturn -= playerchance[WinDrawLose.lose] * onePot;
 		
-		return ROI;
+		return pureReturn;
 	}
 	
 	@Deprecated
 	public static double moneyCalcOneHandInReturn(Collection<PlayerCardsPathValue> playerCardsPathValues,Card dealerCard){
-		double ROI = 0;
+		double pureReturn = 0;
 		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues){
-			ROI += moneyCalcOneHandInReturn(playerCardsPathValue,dealerCard);
+			pureReturn += moneyCalcOneHandInReturn(playerCardsPathValue,dealerCard);
 		}
-		return ROI;
+		return pureReturn;
 	}
 	
 	public static double moneyCalcOneHandInReturnProb(Collection<PlayerCardsPathValue> playerCardsPathValues,Card dealerCard){
-		double ROI = 0;
+		double pureReturn = 0;
 		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues){
-			ROI += moneyCalcOneHandInReturnProb(playerCardsPathValue,dealerCard);
+			pureReturn += moneyCalcOneHandInReturnProb(playerCardsPathValue,dealerCard);
 		}
-		return ROI;
+		return pureReturn;
 	}
 	
 	/**
@@ -106,18 +106,18 @@ public class ProfitUtil {
 	 * @return
 	 */
 	public static double oldFashionWayMoneyCalcOneHandInReturn(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
-		double ROI = 0d;
+		double pureReturn = 0d;
 		double onePot = playerCardsPathValue.prob() * playerCardsPathValue.getBetMutiV();
 		//自己爆了
 		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
-			ROI -= baseMoney * onePot;
-			return ROI;
+			pureReturn -= baseMoney * onePot;
+			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
 			//用户放弃损失一半,BetMutiV 包含了0.5,此处不用乘
-			ROI -= baseMoney * onePot;
-			return ROI;
+			pureReturn -= baseMoney * onePot;
+			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
-			return ROI;
+			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
 				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
 				|| playerCardsPathValue.getAction() == PlayerAction.Double
@@ -127,13 +127,13 @@ public class ProfitUtil {
 		
 		//最终计算投资收益率
 		double[] playerchance = PlayersVSDealersResultChanceProb.oldFashionWayCalcPlayerVSDealerProbs(playerCardsPathValue, dealerCard);
-		ROI += baseMoney * playerchance[WinDrawLose.win] * onePot;
-		ROI -= baseMoney * playerchance[WinDrawLose.lose] * onePot;
+		pureReturn += baseMoney * playerchance[WinDrawLose.win] * onePot;
+		pureReturn -= baseMoney * playerchance[WinDrawLose.lose] * onePot;
 		
-		return ROI;
+		return pureReturn;
 	}
 	
-	public static double calcROI(PlayerCardsPathValue playerCardsPathValue, DealerCardsPathValue dealerCardsPathValue,double baseMoney) {
+	public static double calcPureReturn(PlayerCardsPathValue playerCardsPathValue, DealerCardsPathValue dealerCardsPathValue,double baseMoney) {
 		double onePot = playerCardsPathValue.getBetMutiV() * baseMoney;
 		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
 			return -onePot;

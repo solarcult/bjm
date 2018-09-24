@@ -11,12 +11,15 @@ import org.shil.bjm.strategy8102.EvolutionTest;
 import org.shil.bjm.strategy8102.Strategy8012;
 import org.shil.bjm.strategy8102.strategy.Finally2046;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
+import org.shil.bjm.strategy8102.strategy.Finally2049;
+import org.shil.bjm.strategy8102.strategy.Finally2050;
 import org.shil.bjm.strategy8102.strategy.Standard2017;
 import org.shil.bjm.strategy8102.strategy.Standard2018;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class RealMatch {
 	
+	@Deprecated
 	public static double oneMatch() {
 		Casion6Deck casion6Deck = new Casion6Deck();
 		Card p1 = casion6Deck.fetchOne();
@@ -35,7 +38,7 @@ public class RealMatch {
 //			System.out.println(dr.getValue()+" : " + dr.getCards());
 //		}
 //		System.out.println(dr.getValue());
-		double result = ProfitUtil.calcROI(pr, dr,ProfitUtil.baseMoney);
+		double result = ProfitUtil.calcPureReturn(pr, dr,ProfitUtil.baseMoney);
 //		System.out.println(result);
 		
 		try {
@@ -63,21 +66,23 @@ public class RealMatch {
 		PlayerCardsPathValue p2 = getOnePlayerCards(casion6Deck, new Finally2047(), dealerCard);
 		PlayerCardsPathValue p3 = getOnePlayerCards(casion6Deck, new Standard2017(), dealerCard);
 		PlayerCardsPathValue p4 = getOnePlayerCards(casion6Deck, new Standard2018(), dealerCard);
+		PlayerCardsPathValue p5 = getOnePlayerCards(casion6Deck, new Finally2049(), dealerCard);
+		PlayerCardsPathValue p6 = getOnePlayerCards(casion6Deck, new Finally2050(), dealerCard);
 		
 		DealerCardsPathValue dealerCardsPathValue = new DealerCardsPathValue(dealerCard);
 		DealerCardsPathValue dr = GenerateCardsUtil.generateDealerOneMatch(casion6Deck, dealerCardsPathValue);
 		
-		PlayerCardsPathValue test = p4;
+		PlayerCardsPathValue test = p6;
 		
 		if(EvolutionTest.debug)System.out.println("bet:" + baseMoney);
 		if(EvolutionTest.debug)System.out.println(test.getValue()+" : " + test.getCards()+" ds: "+test.getDsTimes());	
 		if(EvolutionTest.debug)System.out.println(dr.getValue()+" : " + dr.getCards());
-		double result = ProfitUtil.calcROI(test, dr,baseMoney);
+		double result = ProfitUtil.calcPureReturn(test, dr,baseMoney);
 		if(EvolutionTest.debug)System.out.println("roi:" +result);
 		if(EvolutionTest.debug)System.out.println("---");
 		
 		try {
-			if(EvolutionTest.debug) Thread.sleep(5000);
+			if(EvolutionTest.debug) Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

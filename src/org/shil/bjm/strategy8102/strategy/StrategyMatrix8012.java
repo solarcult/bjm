@@ -28,6 +28,8 @@ public abstract class StrategyMatrix8012{
 	protected Map<MatrixKey,PlayerAction> changesMatrix;
 	protected Map<MatrixKey,PlayerAction> one;
 	
+	protected Double pureReturn;
+	protected Double totalSpead;
 	protected Double roi;
 	protected Double[] WDLwDsTimesByPureByRawRate;
 	protected Double[] WdlRateWithDSWithProbRate;
@@ -244,7 +246,7 @@ public abstract class StrategyMatrix8012{
 		one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
-		this.roi = null;
+		this.pureReturn = null;
 		this.WDLwDsTimesByPureByRawRate = null;
 		this.WdlRateWithDSWithProbRate = null;
 	}
@@ -255,7 +257,7 @@ public abstract class StrategyMatrix8012{
 		this.one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
-		this.roi = null;
+		this.pureReturn = null;
 		this.WDLwDsTimesByPureByRawRate = null;
 		this.WdlRateWithDSWithProbRate = null;
 	}
@@ -285,7 +287,8 @@ public abstract class StrategyMatrix8012{
 	
 	public double getROI() {
 		if(this.roi==null) {
-			double roi = 0;
+			double allReturn = 0;
+			double totalSpead = 0;
 //			EvolutionTest.debug = true;
 			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
 //			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
@@ -297,15 +300,37 @@ public abstract class StrategyMatrix8012{
 				for(Card dealerCard : Card.values()){
 					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
-					roi += ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
+					for(PlayerCardsPathValue one : oneSet) {
+						double onebet = ProfitUtil.baseMoney *  one.getDsTimes();
+						totalSpead += onebet;
+					}
+					allReturn += ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
 					r+=ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
 				}
 				if(EvolutionTest.debug) System.out.println(r);
 			}
-			this.roi = roi;
+			this.pureReturn = allReturn;
+			this.totalSpead = totalSpead;
+			this.roi = this.pureReturn/this.totalSpead;
+			if(EvolutionTest.debug) System.out.println("pureReturn done: " + allReturn);
+			if(EvolutionTest.debug) System.out.println("totalSpead done: " + totalSpead);
 			if(EvolutionTest.debug) System.out.println("roi done: " + roi);
 		}
-		return roi;
+		return this.roi;
+	}
+	
+	public double getPureReturn() {
+		if(this.pureReturn==null) {
+			getROI();
+		}
+		return pureReturn;
+	}
+	
+	public double getTotalSpead() {
+		if(this.totalSpead==null) {
+			getROI();
+		}
+		return totalSpead;
 	}
 	
 	public Double[] getWDLwDsTimesByPureByRawRate() {
@@ -372,7 +397,7 @@ public abstract class StrategyMatrix8012{
 	
 	public String getCalcResult() {
 		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
-			getROI();
+			getPureReturn();
 		});
 		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
 			getWDLwDsTimesByPureByRawRate();
@@ -387,6 +412,10 @@ public abstract class StrategyMatrix8012{
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi= ");
 		sb.append(getROI());
+		sb.append(",\t pureReturn= ");
+		sb.append(getPureReturn());
+		sb.append(",\t totalSpead= ");
+		sb.append(getTotalSpead());
 		sb.append(",\t WDLwDsTimesByPureByRawRate= ");
 		sb.append(HelloWorld.builderDoubleWDL(getWDLwDsTimesByPureByRawRate()));
 		sb.append(",\t WdlRateWithDSWithProbRate= ");

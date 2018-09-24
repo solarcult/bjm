@@ -732,7 +732,7 @@ public class Standard2017 extends Seven8012 {
 		System.out.println(two.getNotChangesMatrix().size());
 		System.out.println(two.getOne().size());
 		two.WDLwDsTimesByPureByRawRate =  new Double[] { 30d,20d,10d};
-		System.out.println(one.getROI());
+		System.out.println(one.getPureReturn());
 		s.add(one);
 		s.add(two);
 		Collections.sort(s,new WDLwDsTimesByPureByRawRateComparator());
