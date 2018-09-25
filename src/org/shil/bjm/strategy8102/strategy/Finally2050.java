@@ -87,11 +87,11 @@ public class Finally2050 extends Seven8012 {
 			}else if(dealerCard.getValue() == 3 ){
 				//hit is better move win 1.6 and lose 3.2 to draw
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Stand);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
 			}else if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Stand);
@@ -257,25 +257,25 @@ public class Finally2050 extends Seven8012 {
 				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
 			}else if(dealerCard.getValue() == 7 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Stand);
+				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
+				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() ==8 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
+				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() ==9 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
+				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() ==10 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
@@ -400,9 +400,9 @@ public class Finally2050 extends Seven8012 {
 					}else if((dealerCard==Card.Six6)){
 						//after test split , just balance with 5 and more ROI get
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}else {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
@@ -519,11 +519,11 @@ public class Finally2050 extends Seven8012 {
 						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-					}else if(dealerCard == Card.Eight8) {
+					}else if(dealerCard == Card.Eight8 || dealerCard == Card.Nine9) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						notChangesMatrix.put(start_With_Pair, PlayerAction.Giveup);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}else {
 						// 88 vs 9 10
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -550,16 +550,16 @@ public class Finally2050 extends Seven8012 {
 						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}
 				}else if(start == 10) {
-					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
+					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
-					}else if(dealerCard==Card.Seven7) {
+					}else if((dealerCard==Card.Four4)||(dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || dealerCard==Card.Seven7||(dealerCard==Card.Eight8)) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);	
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}else {
 						// 9, 10, A
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -624,6 +624,22 @@ public class Finally2050 extends Seven8012 {
 		StrategyMatrix8012 two = new Finally2047();
 //		HelloWorld.printStrategyMatrix8012(one, two);
 		System.out.println(one.diffWith(two));
+		/*
+org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [roi= 3.663139462708091E-6,	 pureReturn= 11.363058613320499,	 totalSpead= 3102000.0,	 WDLwDsTimesByPureByRawRate= w:36.80994139677543 $d:3.65259619944506 $l:59.53746240377951,	 WdlRateWithDSWithProbRate= w:45.615921016421126 $d:8.15621974635942 $l:46.227859237219455
+org.shil.bjm.strategy8102.strategy.Finally2050 StrategyMatrix8012 [roi= 5.4458471638950916E-5,	 pureReturn= 228.0067290579597,	 totalSpead= 4186800.0,	 WDLwDsTimesByPureByRawRate= w:37.458788253207615 $d:3.68008882857169 $l:58.8611229182207,	 WdlRateWithDSWithProbRate= w:53.40408462189341 $d:7.3511245360826125 $l:39.24479084202398
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+
+org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [roi= 3.66313946270811E-6,	 pureReturn= 11.363058613320558,	 totalSpead= 3102000.0,	 WDLwDsTimesByPureByRawRate= w:36.80994139677543 $d:3.65259619944506 $l:59.53746240377951,	 WdlRateWithDSWithProbRate= w:45.615921016421105 $d:8.156219746359405 $l:46.22785923721948
+org.shil.bjm.strategy8102.strategy.Finally2050 StrategyMatrix8012 [roi= 1.1295650516821135E-5,	 pureReturn= 36.44880508767844,	 totalSpead= 3226800.0,	 WDLwDsTimesByPureByRawRate= w:36.87963509147896 $d:3.6553225733255426 $l:59.46504233519549,	 WdlRateWithDSWithProbRate= w:47.400598567979124 $d:7.93905404700554 $l:44.660347385015335
+MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+		 */
 	}
 
 }

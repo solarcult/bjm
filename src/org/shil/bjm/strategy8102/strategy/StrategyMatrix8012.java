@@ -404,9 +404,13 @@ public abstract class StrategyMatrix8012{
 			sb.append(" MatrixKey goodluck = new MatrixKey(");
 			sb.append("StartValue.getOne(");
 			sb.append(or.matrixKey.getStartValue().getValue());
-			sb.append("),Card.getOne(");
-			sb.append(or.matrixKey.getDealerCard().getValue());
-			sb.append("),Situation.");
+			if(or.matrixKey.getDealerCard().getValue()==10) {
+				sb.append("),Card.Ten,Situation.");
+			}else {
+				sb.append("),Card.getOne(");
+				sb.append(or.matrixKey.getDealerCard().getValue());
+				sb.append("),Situation.");
+			}
 			sb.append(or.matrixKey.getSituation().name());
 			sb.append(");\n");
 //			notChangesMatrix.put(start_With_A, PlayerAction.Hit);
@@ -430,9 +434,33 @@ public abstract class StrategyMatrix8012{
 		return sb.toString();
 	}
 	
+	public String getSimpleDesc() {
+		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
+			getROI();
+		});
+		CompletableFuture<Void> c = CompletableFuture.runAsync(()->{
+			getWdlRateWithDSWithProbRate();
+		});
+		
+		CompletableFuture<Void> abc = CompletableFuture.allOf(a,c);
+		abc.join();
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append("StrategyMatrix8012 [roi= ");
+		sb.append(getROI());
+		sb.append(",\t pureReturn= ");
+		sb.append(getPureReturn());
+		sb.append(",\t totalSpead= ");
+		sb.append(getTotalSpead());
+		sb.append(",\t WdlRateWithDSWithProbRate= ");
+		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProbRate()));
+
+		return sb.toString();
+	}
+	
 	public String getCalcResult() {
 		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
-			getPureReturn();
+			getROI();
 		});
 		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
 			getWDLwDsTimesByPureByRawRate();
