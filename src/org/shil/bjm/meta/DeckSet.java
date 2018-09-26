@@ -38,7 +38,7 @@ public class DeckSet {
 //		usedCards(Card.One1,3);
 	}
 	
-	private static int usedtime = 3;
+	private static int usedtime = 2;
 	private void used15SmallCard(){
 		usedCards(Card.Two2,usedtime);
 		usedCards(Card.Three3,usedtime);

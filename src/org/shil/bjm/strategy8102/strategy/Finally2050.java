@@ -622,7 +622,7 @@ public class Finally2050 extends Seven8012 {
 		
 		StrategyMatrix8012 one = new Finally2050();
 		StrategyMatrix8012 two = new Finally2047();
-//		HelloWorld.printStrategyMatrix8012(one, two);
+		HelloWorld.printStrategyMatrix8012(one, two);
 		System.out.println(one.diffWith(two));
 		/*
 org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [roi= 3.663139462708091E-6,	 pureReturn= 11.363058613320499,	 totalSpead= 3102000.0,	 WDLwDsTimesByPureByRawRate= w:36.80994139677543 $d:3.65259619944506 $l:59.53746240377951,	 WdlRateWithDSWithProbRate= w:45.615921016421126 $d:8.15621974635942 $l:46.227859237219455

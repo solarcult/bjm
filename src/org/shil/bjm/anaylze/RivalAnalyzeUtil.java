@@ -142,7 +142,7 @@ public class RivalAnalyzeUtil {
 	}
 	
 	public static void testPair(){
-		PlayerCardsPathValue orgin = new PlayerCardsPathValue(Card.Six6,Card.Six6);
+		PlayerCardsPathValue orgin = new PlayerCardsPathValue(Card.Ten,Card.Ten);
 		Card dealerCard = Card.Six6;
 		
 		PlayerCardsPathValue pair = new PlayerCardsPathValue(orgin);
@@ -170,12 +170,12 @@ public class RivalAnalyzeUtil {
 	public static void main(String[] args){
 //		List<DealerVSPlayerChance> ao = makePlayerWithAOneMoreVSDealer();
 //		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
-		List<DealerVSPlayerChance> ao = makePlayerAAVSDealer();
-		HelloWorld.print(ao);
+//		List<DealerVSPlayerChance> ao = makePlayerAAVSDealer();
+//		HelloWorld.print(ao);
 		
-//		testPair();
+		testPair();
 //		makePlayerOneMoreVSNowDealerChangeWithPair();
-//		RivalAnalyzeUtil.testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(Card.Two2,Card.Seven7),Card.Seven7);
+//		RivalAnalyzeUtil.testPlayerCardsPathValueVSDealerCard(new PlayerCardsPathValue(Card.Ten,Card.Ten),Card.Six6);
 //		testVS();
 	}
 }

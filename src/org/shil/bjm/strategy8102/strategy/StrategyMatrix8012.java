@@ -469,7 +469,7 @@ public abstract class StrategyMatrix8012{
 			getWdlRateWithDSWithProbRate();
 		});
 		
-		CompletableFuture<Void> abc = CompletableFuture.allOf(a,b,c);
+		CompletableFuture<Void> abc = CompletableFuture.allOf(a,c);
 		abc.join();
 		
 		StringBuffer sb = new StringBuffer();
@@ -479,8 +479,8 @@ public abstract class StrategyMatrix8012{
 		sb.append(getPureReturn());
 		sb.append(",\t totalSpead= ");
 		sb.append(getTotalSpead());
-		sb.append(",\t WDLwDsTimesByPureByRawRate= ");
-		sb.append(HelloWorld.builderDoubleWDL(getWDLwDsTimesByPureByRawRate()));
+//		sb.append(",\t WDLwDsTimesByPureByRawRate= ");
+//		sb.append(HelloWorld.builderDoubleWDL(getWDLwDsTimesByPureByRawRate()));
 		sb.append(",\t WdlRateWithDSWithProbRate= ");
 		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProbRate()));
 

@@ -73,7 +73,7 @@ public class RealMatch {
 		DealerCardsPathValue dealerCardsPathValue = new DealerCardsPathValue(dealerCard);
 		DealerCardsPathValue dr = GenerateCardsUtil.generateDealerOneMatch(casion6Deck, dealerCardsPathValue);
 		
-		PlayerCardsPathValue test = p2;
+		PlayerCardsPathValue test = p4;
 		
 		if(EvolutionTest.debug)System.out.println("bet:" + baseMoney);
 		if(EvolutionTest.debug)System.out.println(test.getValue()+" : " + test.getCards()+" ds: "+test.getDsTimes());	
