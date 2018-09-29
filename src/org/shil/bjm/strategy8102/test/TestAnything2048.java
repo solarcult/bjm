@@ -236,9 +236,9 @@ public class TestAnything2048 extends Seven8012 {
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Three_More_Cards);
-				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Stand);
 			}
 			else{
 				//A
@@ -534,7 +534,7 @@ public class TestAnything2048 extends Seven8012 {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Giveup);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}else {
 						// 88 vs 9 10
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -550,9 +550,9 @@ public class TestAnything2048 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else if(dealerCard==Card.Seven7) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);	
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}else {
 						// 9, 10, A
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -561,10 +561,23 @@ public class TestAnything2048 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}
 				}else if(start == 10) {
-					MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-					changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
-					MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-					changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
+					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
+					}else if(dealerCard==Card.Seven7) {
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
+					}else {
+						// 9, 10, A
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);	
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
+					}
 				}
 			}
 		}
@@ -619,7 +632,7 @@ public class TestAnything2048 extends Seven8012 {
 		
 		StrategyMatrix8012 one = new TestAnything2048();
 		StrategyMatrix8012 two = new Finally2047();
-//		HelloWorld.printStrategyMatrix8012(one, two);
+		HelloWorld.printStrategyMatrix8012(one, two);
 		System.out.println(one.diffWith(two));
 	}
 

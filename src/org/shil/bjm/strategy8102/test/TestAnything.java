@@ -14,7 +14,45 @@ import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 public class TestAnything {
 
 	public static void main(String[] args) {
-		test16vs789TA();
+		testTTvsXSplit();
+	}
+	
+	public static void test15vsT() {
+	
+		Card dealerCard = Card.Ten;
+		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Seven7,Card.Eight8);
+		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+		System.out.println(new Finally2047().getSimpleDesc());
+		
+		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Seven7,Card.Eight8);
+		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+		System.out.println(new TestAnything2048().getSimpleDesc());
+		
+		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
+		
+/*
+
+-0.052517723338348574
+w:21.24709353187227 $d:0.0 $l:78.75290646812773
+StrategyMatrix8012 [roi= 3.318196944517058E-6,	 pureReturn= 10.877049584126915,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.57075422849452 $d:8.130483724459774 $l:46.2987620470457
+-0.04868925545636904
+w:20.294640212164452 $d:6.096999210435694 $l:73.60836057739985
+StrategyMatrix8012 [roi= 3.4152198578833006E-6,	 pureReturn= 11.19509069414146,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.546767987476386 $d:8.289010312398958 $l:46.16422170012465
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair] : Stand -> Hit
+
+
+
+org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [roi= 3.418571623278883E-6,	 pureReturn= 11.206077781108178,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.594374503731494 $d:8.192905330456915 $l:46.2127201658116
+org.shil.bjm.strategy8102.test.TestAnything2048 StrategyMatrix8012 [roi= 3.465021246532273E-6,	 pureReturn= 11.35833964613279,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.58737163973526 $d:8.26024507765131 $l:46.15238328261342
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Stand
+ */
 	}
 	
 	public static void test16vs789TA() {
@@ -98,6 +136,197 @@ MatrixKey [startValue=Five, dealerCard=Six6, situation=Splited_Pair_And_Can_Spli
 		 */
 	}
 	
+	public static void test99vsXSplit() {
+		for(Card dealerCard : Card.values()) {
+			System.out.println(dealerCard);
+			PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Nine9,Card.Nine9);
+			Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(new Finally2047(), eight2, dealerCard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
+			System.out.println(new Finally2047().getSimpleDesc());
+			System.out.println();
+			PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Nine9,Card.Nine9);
+			Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
+			System.out.println(new TestAnything2048().getSimpleDesc());
+			
+			System.out.println(new Finally2047().diffWith(new TestAnything2048()));
+			System.out.println();
+		}
+		
+/*
+Two2
+0.5806049313684377
+w:50.04173061048813 $d:7.843097794229157 $l:42.11517159528271
+StrategyMatrix8012 [roi= 3.4185716232788503E-6,	 pureReturn= 11.206077781108071,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.59437450373145 $d:8.192905330456902 $l:46.21272016581166
+
+0.010564520954885089
+w:49.316010585210016 $d:13.438862674532254 $l:37.24512674025773
+StrategyMatrix8012 [roi= 1.6916673952789341E-6,	 pureReturn= 4.5411119558867705,	 totalSpead= 2684400.0,	 WdlRateWithDSWithProbRate= w:44.9519267281656 $d:8.234448178692361 $l:46.813625093142036
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Stand
+
+
+Three3
+0.7660090776798112
+w:51.68393932317469 $d:7.214583865185873 $l:41.10147681163943
+StrategyMatrix8012 [roi= 3.4185716232788503E-6,	 pureReturn= 11.206077781108071,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.59437450373145 $d:8.192905330456902 $l:46.21272016581166
+
+0.012910923294557175
+w:50.84898508266252 $d:13.053882387688626 $l:36.097132529648846
+StrategyMatrix8012 [roi= 1.6916673952789341E-6,	 pureReturn= 4.5411119558867705,	 totalSpead= 2684400.0,	 WdlRateWithDSWithProbRate= w:44.9519267281656 $d:8.234448178692361 $l:46.813625093142036
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Stand
+
+
+Four4
+0.9766064774102639
+w:53.31432024167011 $d:6.97597585171001 $l:39.709703906619886
+StrategyMatrix8012 [roi= 3.4185716232788503E-6,	 pureReturn= 11.206077781108071,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.59437450373145 $d:8.192905330456902 $l:46.21272016581166
+
+0.015472152642902026
+w:52.63606408551419 $d:12.406151628064805 $l:34.957784286421024
+StrategyMatrix8012 [roi= 1.6916673952789341E-6,	 pureReturn= 4.5411119558867705,	 totalSpead= 2684400.0,	 WdlRateWithDSWithProbRate= w:44.9519267281656 $d:8.234448178692361 $l:46.813625093142036
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Stand
+
+
+Five5
+1.195864851500358
+w:55.014156116285406 $d:6.72321257559857 $l:38.26263130811601
+StrategyMatrix8012 [roi= 3.4185716232788503E-6,	 pureReturn= 11.206077781108071,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.59437450373145 $d:8.192905330456902 $l:46.21272016581166
+
+0.017761092271922938
+w:54.02494007796772 $d:12.243712207542726 $l:33.731347714489544
+StrategyMatrix8012 [roi= 1.6916673952789341E-6,	 pureReturn= 4.5411119558867705,	 totalSpead= 2684400.0,	 WdlRateWithDSWithProbRate= w:44.9519267281656 $d:8.234448178692361 $l:46.813625093142036
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Stand
+
+
+Six6
+1.4193539848054182
+w:56.715875394434114 $d:6.535206712178352 $l:36.74891789338753
+StrategyMatrix8012 [roi= 3.4185716232788503E-6,	 pureReturn= 11.206077781108071,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.59437450373145 $d:8.192905330456902 $l:46.21272016581166
+
+0.024793778113242904
+w:58.85482152551146 $d:10.619404424062582 $l:30.52577405042597
+StrategyMatrix8012 [roi= 1.6916673952789341E-6,	 pureReturn= 4.5411119558867705,	 totalSpead= 2684400.0,	 WdlRateWithDSWithProbRate= w:44.9519267281656 $d:8.234448178692361 $l:46.813625093142036
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Stand
+
+
+Seven7
+1.1562791415939555
+w:53.28847616960392 $d:9.792402731587684 $l:36.91912109880839
+StrategyMatrix8012 [roi= 3.4185716232788503E-6,	 pureReturn= 11.206077781108071,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.59437450373145 $d:8.192905330456902 $l:46.21272016581166
+
+0.03502738611481565
+w:63.11437111287399 $d:13.793092270091051 $l:23.092536617034966
+StrategyMatrix8012 [roi= 1.6916673952789341E-6,	 pureReturn= 4.5411119558867705,	 totalSpead= 2684400.0,	 WdlRateWithDSWithProbRate= w:44.9519267281656 $d:8.234448178692361 $l:46.813625093142036
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Stand
+
+
+Eight8
+0.695986202109281
+w:49.653179710028006 $d:10.464466677019818 $l:39.88235361295218
+StrategyMatrix8012 [roi= 3.4185716232788503E-6,	 pureReturn= 11.206077781108071,	 totalSpead= 3278000.0,	 WdlRateWithDSWithProbRate= w:45.59437450373145 $d:8.192905330456902 $l:46.21272016581166
+
+0.009208987853843446
+w:37.26328900905531 $d:35.99549138645801 $l:26.74121960448667
+StrategyMatrix8012 [roi= 1.6916673952789341E-6,	 pureReturn= 4.5411119558867705,	 totalSpead= 2684400.0,	 WdlRateWithDSWithProbRate= w:44.9519267281656 $d:8.234448178692361 $l:46.813625093142036
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Stand
+
+
+ */
+	}
+	
 	public static void testTTvsXSplit() {
 		for(Card dealerCard : Card.values()) {
 			System.out.println(dealerCard);
@@ -111,8 +340,8 @@ MatrixKey [startValue=Five, dealerCard=Six6, situation=Splited_Pair_And_Can_Spli
 			Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(new TestAnything2048(), eight22, dealerCard); 
 			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
 			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
-			System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 			System.out.println(new TestAnything2048().getSimpleDesc());
+			System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 			System.out.println();
 			/*
 One1
@@ -376,7 +605,7 @@ MatrixKey [startValue=Three, dealerCard=Six6, situation=Splited_Pair_And_Can_Spl
 	}
 	
 	public static void test99vs7() {
-//		Split
+//		Stand
 		Card dealerCard = Card.Seven7;
 		
 		PlayerCardsPathValue eight2 = new PlayerCardsPathValue(Card.Nine9,Card.Nine9);

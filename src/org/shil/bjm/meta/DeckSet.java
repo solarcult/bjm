@@ -33,12 +33,17 @@ public class DeckSet {
 		}
 		
 		//for test situation
+		
 //		used15SmallCard();
+//		usedCards(Card.Three3,usedtime);
+//		usedCards(Card.Five5,usedtime);
+		
 //		used15BigCard();
-//		usedCards(Card.One1,3);
+//		usedCards(Card.Ten,usedtime);
+//		usedCards(Card.JJJ,usedtime);
 	}
 	
-	private static int usedtime = 2;
+	private static int usedtime = 1;
 	private void used15SmallCard(){
 		usedCards(Card.Two2,usedtime);
 		usedCards(Card.Three3,usedtime);

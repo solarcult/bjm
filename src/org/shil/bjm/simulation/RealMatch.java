@@ -16,6 +16,7 @@ import org.shil.bjm.strategy8102.strategy.Finally2050;
 import org.shil.bjm.strategy8102.strategy.Standard2017;
 import org.shil.bjm.strategy8102.strategy.Standard2018;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.test.TestAnything2048;
 import org.shil.bjm.strategy8102.test.TestMatrix;
 
 public class RealMatch {
@@ -69,11 +70,12 @@ public class RealMatch {
 		PlayerCardsPathValue p4 = getOnePlayerCards(casion6Deck, new Finally2050(), dealerCard);
 		PlayerCardsPathValue p5 = getOnePlayerCards(casion6Deck, new Finally2049(), dealerCard);
 		PlayerCardsPathValue p6 = getOnePlayerCards(casion6Deck, new TestMatrix(), dealerCard);
+		PlayerCardsPathValue p7 = getOnePlayerCards(casion6Deck, new TestAnything2048(), dealerCard);
 		
 		DealerCardsPathValue dealerCardsPathValue = new DealerCardsPathValue(dealerCard);
 		DealerCardsPathValue dr = GenerateCardsUtil.generateDealerOneMatch(casion6Deck, dealerCardsPathValue);
 		
-		PlayerCardsPathValue test = p4;
+		PlayerCardsPathValue test = p7;
 		
 		if(EvolutionTest.debug)System.out.println("bet:" + baseMoney);
 		if(EvolutionTest.debug)System.out.println(test.getValue()+" : " + test.getCards()+" ds: "+test.getDsTimes());	
