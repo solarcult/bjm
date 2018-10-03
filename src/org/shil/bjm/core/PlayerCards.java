@@ -82,6 +82,7 @@ public class PlayerCards {
 		List<Integer> start2sCount = new ArrayList<>();
 		for(PlayerCardsPathValue c : generateTwoStartCards()){
 			if(c.isStartWithA()) continue;
+			if(c.isStartWithPairs()) continue;
 			if(!start2sCount.contains(c.getValue())) {
 				start2sCount.add(c.getValue());
 				countNotSamePCPV.add(c);

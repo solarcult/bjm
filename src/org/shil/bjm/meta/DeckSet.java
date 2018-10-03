@@ -10,6 +10,8 @@ public class DeckSet {
 	public static int OneSameCardInOneDeck = 4;
 	public static int DeckCards = 52;
 	
+	public static int resetValue = 0;
+	
 	private int ndeck;
 	private int totalCards;
 	private int totalOneSameCardsN;
@@ -32,18 +34,176 @@ public class DeckSet {
 			cardsLeftNumberMap.put(card, totalOneSameCardsN);
 		}
 		
+		switch(resetValue) {
+		case -10:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.QQQ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.QQQ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			break;
+		case -9:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.QQQ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.QQQ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			break;
+		case -8:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.QQQ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			break;
+		case -7:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.QQQ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.KKK,usedtime);
+			break;
+		case -6:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.QQQ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			usedCards(Card.Ten,usedtime);
+			break;
+		case -5:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.QQQ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			break;
+		case -4:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.KKK,usedtime);
+			usedCards(Card.One1,usedtime);
+			break;
+		case -3:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			usedCards(Card.One1,usedtime);
+			break;
+		case -2:
+			usedCards(Card.Ten,usedtime);
+			usedCards(Card.JJJ,usedtime);
+			break;
+		case -1:
+			usedCards(Card.Ten,usedtime);
+			break;
+		case 1:
+			usedCards(Card.Four4,usedtime);
+			break;
+		case 2:
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Five5,usedtime);
+			break;
+		case 3:
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Five5,usedtime);
+			break;
+		case 4:
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			break;
+		case 5:
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			break;
+		case 6:
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			usedCards(Card.Four4,usedtime);
+			break;
+		case 7:
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Five5,usedtime);
+			break;
+		case 8:
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Six6,usedtime);
+			break;
+		case 9:
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			break;
+		case 10:
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			usedCards(Card.Two2,usedtime);
+			usedCards(Card.Three3,usedtime);
+			usedCards(Card.Four4,usedtime);
+			usedCards(Card.Five5,usedtime);
+			usedCards(Card.Six6,usedtime);
+			break;
+		default:
+			break;
+		}
+		
 		//for test situation
 		
 //		used15SmallCard();
 //		usedCards(Card.Three3,usedtime);
+//		usedCards(Card.Four4,usedtime);
 //		usedCards(Card.Five5,usedtime);
 		
 //		used15BigCard();
 //		usedCards(Card.Ten,usedtime);
 //		usedCards(Card.JJJ,usedtime);
+//		usedCards(Card.QQQ,usedtime);
+//		usedCards(Card.KKK,usedtime);
 	}
 	
-	private static int usedtime = 1;
+	private static int usedtime =1;
 	private void used15SmallCard(){
 		usedCards(Card.Two2,usedtime);
 		usedCards(Card.Three3,usedtime);

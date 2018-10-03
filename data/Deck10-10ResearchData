@@ -1,0 +1,1220 @@
+DeckSet.resetValue : -10
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -9
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -8
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -7
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -6
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -5
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -4
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -3
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -2
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : -1
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+
+DeckSet.resetValue : 0
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 1
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 2
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 3
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 4
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 5
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 6
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 7
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 8
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 9
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+DeckSet.resetValue : 10
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Eight8, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Nine9, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
+DealerVSPlayerChance [ 	dealerCard=Four4, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Five5, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+
+DealerVSPlayerChance [ 	dealerCard=Six6, 	playerStartValue=17	[isDouble()=true, isHit()=true, isSurrender()=false]
+28
+

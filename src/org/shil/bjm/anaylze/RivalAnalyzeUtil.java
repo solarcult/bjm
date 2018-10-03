@@ -48,6 +48,18 @@ public class RivalAnalyzeUtil {
 	}
 	
 	/**
+	 * 分析具体要一张牌与不要的概率分布
+	 */
+	public static DealerVSPlayerChance analyzeResearchPair(ResearchPair researchPair) {
+		Collection<PlayerCardsPathValue> playerOneMoreCards = GenerateCardsUtil.hitPlayerOneMoreCard(researchPair.getPlayerCardsPathValue());
+		if(playerOneMoreCards.size()!=13) throw new RuntimeException("wtf 13");
+		double[] playerOneMore = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerOneMoreCards, researchPair.getDealerCard());
+		//这里用OK的，因为是直接展示百分比
+		double[] playerNow = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(researchPair.getPlayerCardsPathValue(),researchPair.getDealerCard());
+		return new DealerVSPlayerChance(researchPair.getDealerCard(), researchPair.getPlayerCardsPathValue().getValue(), playerNow,playerOneMore);
+	}
+	
+	/**
 	 * 对Ax的牌进行分析
 	 * @return
 	 */
