@@ -19,6 +19,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Six6, 	playerStartValue=8	[isDou
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Six6, 	playerStartValue=8	[isDouble()=false, isHit()=true, isSurrender()=false]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Three3, 	playerStartValue=9	[isDouble()=false, isHit()=true, isSurrender()=false]
@@ -61,6 +62,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Seven7, 	playerStartValue=9	[isD
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Seven7, 	playerStartValue=9	[isDouble()=true, isHit()=true, isSurrender()=false]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Two2, 	playerStartValue=12	[isDouble()=false, isHit()=true, isSurrender()=false]
@@ -103,6 +105,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Three3, 	playerStartValue=12	[is
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Three3, 	playerStartValue=12	[isDouble()=false, isHit()=false, isSurrender()=false]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Four4, 	playerStartValue=13	[isDouble()=false, isHit()=true, isSurrender()=false]
@@ -166,6 +169,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Six6, 	playerStartValue=13	[isDo
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Six6, 	playerStartValue=13	[isDouble()=true, isHit()=true, isSurrender()=false]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Four4, 	playerStartValue=14	[isDouble()=false, isHit()=true, isSurrender()=false]
@@ -229,6 +233,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Six6, 	playerStartValue=14	[isDo
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Six6, 	playerStartValue=14	[isDouble()=true, isHit()=true, isSurrender()=false]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Four4, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
@@ -292,6 +297,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Six6, 	playerStartValue=15	[isDo
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Six6, 	playerStartValue=15	[isDouble()=true, isHit()=true, isSurrender()=false]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Seven7, 	playerStartValue=15	[isDouble()=false, isHit()=true, isSurrender()=false]
@@ -376,6 +382,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Ten, 	playerStartValue=15	[isDou
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Ten, 	playerStartValue=15	[isDouble()=false, isHit()=false, isSurrender()=true]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Four4, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
@@ -439,6 +446,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Six6, 	playerStartValue=16	[isDo
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Six6, 	playerStartValue=16	[isDouble()=true, isHit()=true, isSurrender()=false]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Seven7, 	playerStartValue=16	[isDouble()=false, isHit()=true, isSurrender()=false]
@@ -523,6 +531,7 @@ DealerVSPlayerChance [ 	deckStatus=7	dealerCard=Ten, 	playerStartValue=16	[isDou
 DealerVSPlayerChance [ 	deckStatus=8	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
 DealerVSPlayerChance [ 	deckStatus=9	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
 DealerVSPlayerChance [ 	deckStatus=10	dealerCard=Ten, 	playerStartValue=16	[isDouble()=false, isHit()=false, isSurrender()=true]
+
 DealerVSPlayerChance [ 	deckStatus=-10	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-9	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
 DealerVSPlayerChance [ 	deckStatus=-8	dealerCard=Four4, 	playerStartValue=17	[isDouble()=false, isHit()=true, isSurrender()=false]
