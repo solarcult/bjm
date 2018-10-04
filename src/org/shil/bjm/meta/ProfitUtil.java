@@ -11,7 +11,7 @@ import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
  */
 public class ProfitUtil {
 	
-	public static double baseMoney = 200d;
+	public static double baseMoney = 300d;
 
 	//计算用户的本次组合与庄家起手牌的最终概率组合值,看看回报率是如何
 	/**

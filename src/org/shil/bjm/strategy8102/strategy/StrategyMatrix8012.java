@@ -19,6 +19,7 @@ import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.meta.WinDrawLose;
 import org.shil.bjm.meta.WinRateUtil;
+import org.shil.bjm.simulation.Casion6Deck;
 import org.shil.bjm.strategy8102.EvolutionTest;
 import org.shil.bjm.strategy8102.Strategy8012;
 
@@ -274,6 +275,10 @@ public abstract class StrategyMatrix8012{
 		return one;
 	}
 	
+	public PlayerAction fetchPlayAction(MatrixKey matrixKey, int count){
+		return one.get(matrixKey);
+	}
+	
 	public List<Result> getChangeMatrxByList(){
 		List<Result> changeResults = new LinkedList<>();
 		for(Entry<MatrixKey, PlayerAction> e : changesMatrix.entrySet()) {
@@ -308,7 +313,7 @@ public abstract class StrategyMatrix8012{
 				if(EvolutionTest.debug) System.out.print(pcpv.getCards() +" "+pcpv.getValue() + " \t : ");
 				for(Card dealerCard : Card.values()){
 					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
+					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
 					for(PlayerCardsPathValue one : oneSet) {
 						double onebet = ProfitUtil.baseMoney *  one.getDsTimes();
 						totalSpead += onebet;
@@ -352,7 +357,7 @@ public abstract class StrategyMatrix8012{
 			for(PlayerCardsPathValue pcpv : playerCards){
 				for(Card dealerCard : Card.values()){
 					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
+					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
 					Double[] wdl = WinRateUtil.calcWDLwDsTimesByPureByRaw(oneSet, DealerCards.fetchDealerCards(dealerCard));
 					win += wdl[WinDrawLose.win];
 					draw += wdl[WinDrawLose.draw];
@@ -376,7 +381,7 @@ public abstract class StrategyMatrix8012{
 			for(PlayerCardsPathValue pcpv : playerCards){
 				for(Card dealerCard : Card.values()){
 					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(this, oneCalc, dealerCard);
+					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
 					Double[] wdl = WinRateUtil.calcWDLwDsByRawByProb(oneSet, dealerCard);
 					win += wdl[WinDrawLose.win];
 					draw += wdl[WinDrawLose.draw];
@@ -516,7 +521,8 @@ public abstract class StrategyMatrix8012{
 	public String diffWith(StrategyMatrix8012 other){
 		List<Result> changeResults = new LinkedList<>();
 		for(Entry<MatrixKey,PlayerAction> e: this.one.entrySet()) {
-			if(e.getValue()!= other.one.get(e.getKey())) {
+//			if(e.getValue()!= other.one.get(e.getKey())) {
+			if(this.fetchPlayAction(e.getKey(), 0)!= other.fetchPlayAction(e.getKey(),0)) {
 				changeResults.add(new Result(e.getKey(), e.getValue()));
 			}
 		}
@@ -525,9 +531,9 @@ public abstract class StrategyMatrix8012{
 		for(Result result : changeResults) {
 			sb.append(result.matrixKey);
 			sb.append(" : ");
-			sb.append(one.get(result.matrixKey));
+			sb.append(this.fetchPlayAction(result.matrixKey,0));
 			sb.append(" -> ");
-			sb.append(other.one.get(result.matrixKey));
+			sb.append(other.fetchPlayAction(result.matrixKey,0));
 			sb.append("\n");
 		}
 		return sb.toString();

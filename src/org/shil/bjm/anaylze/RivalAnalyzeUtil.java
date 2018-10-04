@@ -35,12 +35,7 @@ public class RivalAnalyzeUtil {
 			if (playerCardsPathValue.getValue() < 8) continue;
 			for (Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue; 
-				Collection<PlayerCardsPathValue> playerOneMoreCards = GenerateCardsUtil.hitPlayerOneMoreCard(playerCardsPathValue);
-				if(playerOneMoreCards.size()!=13) throw new RuntimeException("wtf 13");
-				double[] playerOneMore = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerOneMoreCards, dealerCard);
-				//这里用OK的，因为是直接展示百分比
-				double[] playerNow = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerCardsPathValue,dealerCard);
-				DealerVSPlayerChance dealerVSPlayerChance = new DealerVSPlayerChance(dealerCard, playerCardsPathValue.getValue(), playerNow,playerOneMore);
+				DealerVSPlayerChance dealerVSPlayerChance = analyzeResearchPair(new ResearchPair(playerCardsPathValue, dealerCard));
 				diff.add(dealerVSPlayerChance);
 			}
 		}

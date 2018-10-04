@@ -17,7 +17,7 @@ public class Strategy8012 {
 	
 	public static PlayerCardsPathValue generateOneMatch(Casion6Deck casion6Deck, StrategyMatrix8012 strategyMatrix8012, PlayerCardsPathValue playerCardsPathValue,Card dealerCard) {
 		if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) dealerCard = Card.Ten;
-		
+		int count = casion6Deck.getCount();
 		if(playerCardsPathValue.getAction() == PlayerAction.Init){
 			PlayerAction playerAction = null;
 			
@@ -29,7 +29,7 @@ public class Strategy8012 {
 						//AA only can split 1 time
 						if(playerCardsPathValue.getSplitTimes()==0){
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findPairCardFromFirstTwoCards().getValue()), dealerCard, Situation.Start_With_Pair);
-							playerAction = strategyMatrix8012.getOne().get(matrixKey);	
+							playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);	
 						}else if(playerCardsPathValue.getSplitTimes()==1){
 							playerAction = PlayerAction.Stand;					
 						}else {
@@ -39,13 +39,13 @@ public class Strategy8012 {
 						//Not A can split twice
 						if(playerCardsPathValue.getSplitTimes() == 0) {
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findPairCardFromFirstTwoCards().getValue()), dealerCard, Situation.Start_With_Pair);
-							playerAction = strategyMatrix8012.getOne().get(matrixKey);
+							playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 						}else if(playerCardsPathValue.getSplitTimes() == 1) {
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findPairCardFromFirstTwoCards().getValue()), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							playerAction = strategyMatrix8012.getOne().get(matrixKey);
+							playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 						}else if(playerCardsPathValue.getSplitTimes() == 2) {
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-							playerAction = strategyMatrix8012.getOne().get(matrixKey);
+							playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 						}else {
 							throw new RuntimeException("Pair should not split triple times! dealerCard: " +dealerCard + " playerCards: " + playerCardsPathValue);
 						}
@@ -55,11 +55,11 @@ public class Strategy8012 {
 					//Ax card begin
 					if(playerCardsPathValue.getSplitTimes()==0) {
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findFirstTwoCardsWithOutA().getValue()), dealerCard, Situation.Start_With_A);
-						playerAction = strategyMatrix8012.getOne().get(matrixKey);
+						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 					}else if(playerCardsPathValue.getSplitTimes() > 0){
 						//说明是Split来的, Pair8+A这种两张牌的
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-						playerAction = strategyMatrix8012.getOne().get(matrixKey);
+						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 					}
 				// Ax card finished
 				}else {
@@ -67,11 +67,11 @@ public class Strategy8012 {
 					if(playerCardsPathValue.getSplitTimes()==0) {
 						//正常牌型 4+7
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-						playerAction = strategyMatrix8012.getOne().get(matrixKey);
+						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 					}else if(playerCardsPathValue.getSplitTimes() > 0) {
 						//说明是Split来的, Pair8+3这种两张牌的
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-						playerAction = strategyMatrix8012.getOne().get(matrixKey);
+						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 					}
 				// normal cards finished
 				}
@@ -122,7 +122,7 @@ public class Strategy8012 {
 			if(!playerCardsPathValue.outOfCards()){
 				if(playerCardsPathValue.getValue() <= BlackJackInfo.BlackJack){
 					MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Three_More_Cards);
-					playerCardsPathValue.setAction(strategyMatrix8012.getOne().get(matrixKey));
+					playerCardsPathValue.setAction(strategyMatrix8012.fetchPlayAction(matrixKey, count));
 				}
 				generateOneMatch(casion6Deck, strategyMatrix8012, playerCardsPathValue, dealerCard);
 			}
@@ -135,11 +135,11 @@ public class Strategy8012 {
 		return playerCardsPathValue;
 	}
 	
-	public static Collection<PlayerCardsPathValue> generatePlayerCardsPaths(StrategyMatrix8012 strategyMatrix8012, PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
+	public static Collection<PlayerCardsPathValue> generatePlayerCardsPaths(Casion6Deck casion6Deck,StrategyMatrix8012 strategyMatrix8012, PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
 		Collection<PlayerCardsPathValue> playerCardsPathValues = new HashSet<PlayerCardsPathValue>();
 		if(playerCardsPathValue.outOfCards()) throw new RuntimeException("out of card here dealerCard: " +dealerCard + " playerCards: " + playerCardsPathValue);
 		if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) dealerCard = Card.Ten;
-		
+		int count = casion6Deck.getCount();
 		if(playerCardsPathValue.getAction() == PlayerAction.Init){
 			PlayerAction playerAction = null;
 			
@@ -151,7 +151,7 @@ public class Strategy8012 {
 						//AA only can split 1 time
 						if(playerCardsPathValue.getSplitTimes()==0){
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findPairCardFromFirstTwoCards().getValue()), dealerCard, Situation.Start_With_Pair);
-							playerAction = strategyMatrix8012.getOne().get(matrixKey);	
+							playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);	
 						}else if(playerCardsPathValue.getSplitTimes()==1){
 							playerAction = PlayerAction.Stand;					
 						}else {
@@ -161,13 +161,13 @@ public class Strategy8012 {
 						//Not A can split twice
 						if(playerCardsPathValue.getSplitTimes() == 0) {
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findPairCardFromFirstTwoCards().getValue()), dealerCard, Situation.Start_With_Pair);
-							playerAction = strategyMatrix8012.getOne().get(matrixKey);
+							playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 						}else if(playerCardsPathValue.getSplitTimes() == 1) {
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findPairCardFromFirstTwoCards().getValue()), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							playerAction = strategyMatrix8012.getOne().get(matrixKey);
+							playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 						}else if(playerCardsPathValue.getSplitTimes() == 2) {
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-							playerAction = strategyMatrix8012.getOne().get(matrixKey);
+							playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 						}else {
 							throw new RuntimeException("Pair should not split triple times! dealerCard: " +dealerCard + " playerCards: " + playerCardsPathValue);
 						}
@@ -177,11 +177,11 @@ public class Strategy8012 {
 					//Ax card begin
 					if(playerCardsPathValue.getSplitTimes()==0) {
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findFirstTwoCardsWithOutA().getValue()), dealerCard, Situation.Start_With_A);
-						playerAction = strategyMatrix8012.getOne().get(matrixKey);
+						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 					}else if(playerCardsPathValue.getSplitTimes() > 0){
 						//说明是Split来的, Pair8+A这种两张牌的
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-						playerAction = strategyMatrix8012.getOne().get(matrixKey);
+						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 					}
 				// Ax card finished
 				}else {
@@ -189,11 +189,11 @@ public class Strategy8012 {
 					if(playerCardsPathValue.getSplitTimes()==0) {
 						//正常牌型 4+7
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-						playerAction = strategyMatrix8012.getOne().get(matrixKey);
+						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 					}else if(playerCardsPathValue.getSplitTimes() > 0) {
 						//说明是Split来的, Pair8+3这种两张牌的
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-						playerAction = strategyMatrix8012.getOne().get(matrixKey);
+						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
 					}
 				// normal cards finished
 				}
@@ -217,7 +217,7 @@ public class Strategy8012 {
 					//A only get one card then stop
 					if(playerCardsPathValue.getCards().get(0) == Card.One1) aNewPath.setAction(PlayerAction.Stand);
 					//others can get 
-					playerCardsPathValues.addAll(generatePlayerCardsPaths(strategyMatrix8012,aNewPath,dealerCard));
+					playerCardsPathValues.addAll(generatePlayerCardsPaths(casion6Deck,strategyMatrix8012,aNewPath,dealerCard));
 				}
 				playerCardsPathValue.setAction(PlayerAction.SplitAbandon);
 			}
@@ -240,7 +240,7 @@ public class Strategy8012 {
 				PlayerCardsPathValue aNewPath = new PlayerCardsPathValue(playerCardsPathValue);
 				aNewPath.addCard(card);
 				aNewPath.setAction(PlayerAction.DoubleDone);
-				if(!aNewPath.outOfCards()) playerCardsPathValues.addAll(generatePlayerCardsPaths(strategyMatrix8012,aNewPath,dealerCard));
+				if(!aNewPath.outOfCards()) playerCardsPathValues.addAll(generatePlayerCardsPaths(casion6Deck,strategyMatrix8012,aNewPath,dealerCard));
 			}
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Hit){
 			// hit me hardly
@@ -250,9 +250,9 @@ public class Strategy8012 {
 				if(!aNewPath.outOfCards()){
 					if(aNewPath.getValue() <= BlackJackInfo.BlackJack){
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(aNewPath.getValue()), dealerCard, Situation.Three_More_Cards);
-						aNewPath.setAction(strategyMatrix8012.getOne().get(matrixKey));
+						aNewPath.setAction(strategyMatrix8012.fetchPlayAction(matrixKey, count));
 					}
-					playerCardsPathValues.addAll(generatePlayerCardsPaths(strategyMatrix8012,aNewPath,dealerCard));
+					playerCardsPathValues.addAll(generatePlayerCardsPaths(casion6Deck,strategyMatrix8012,aNewPath,dealerCard));
 				}
 			}
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){			

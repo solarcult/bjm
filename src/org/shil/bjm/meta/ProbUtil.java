@@ -27,7 +27,7 @@ public class ProbUtil {
 		DeckSet IN_USED_DECKSET = DeckSet.buildCasionDeckSet();
 		
 		//这里重置是为了每次计算当作独立事件,其实也可以根据已经出现的牌来进行计算,但是现场可能没有机会输入,所以这里先重置
-		IN_USED_DECKSET.reset();
+//		IN_USED_DECKSET.reset();
 		
 		return calcProb(cards,IN_USED_DECKSET);
 	}
@@ -59,7 +59,7 @@ public class ProbUtil {
 		//for mutli cpu thread
 		DeckSet IN_USED_DECKSET = DeckSet.buildCasionDeckSet();
 		
-		IN_USED_DECKSET.reset();
+//		IN_USED_DECKSET.reset();
 		
 		//分牌的牌,当作先消耗掉一张,因为PlayerCardsPathValue.setAction()中分牌时,会remove掉第一张.
 		IN_USED_DECKSET.usedCards(cards.get(0),splitTimes);

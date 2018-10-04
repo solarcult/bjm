@@ -22,9 +22,13 @@ public class Casion6Deck {
 	private Set<Integer> thisTurn;
 	private Set<Integer> lastTurn;
 	
-	public Casion6Deck() {
+	protected Casion6Deck() {
 		thisTurn = new HashSet<>();
 		lastTurn = new HashSet<>();
+	}
+	
+	public static Casion6Deck buildCasion6Deck() {
+		return new Casion6Deck();
 	}
 	
 	public Card fetchOne() {

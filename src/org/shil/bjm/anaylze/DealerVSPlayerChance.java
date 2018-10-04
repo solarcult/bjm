@@ -15,9 +15,9 @@ public class DealerVSPlayerChance implements Comparable<DealerVSPlayerChance>{
 	private double[] origin;
 	private double[] advanced;
 	
-	public static double Double_Limit = 0.0515;
-	public static double Surrender_Limit = -0.485;
-	public static double Hit_Limit = 0.0355;
+	public static double Double_Limit = 0.0505;
+	public static double Surrender_Limit = -0.48;
+	public static double Hit_Limit = 0.0345;
 	
 	private int deckStatus;
 	
@@ -34,7 +34,7 @@ public class DealerVSPlayerChance implements Comparable<DealerVSPlayerChance>{
 				+"deckStatus="+ deckStatus
 				+ "\tdealerCard=" + dealerCard + ", \tplayerStartValue=" + playerStartValue +"\t"
 				+"[isDouble()=" + isDouble() + ", isHit()=" + isHit() + ", isSurrender()=" + isSurrender() + "]"
-//				+ HelloWorld.builder2DoubleWDL(advanced, origin);
+//				+ HelloWorld.builder2DoubleWDL(advanced, origin)
 				;
 	}
 	

@@ -28,34 +28,87 @@ public class DealerCardsAnalyzeStatus {
 	public static Map<Integer,AnalyzeStatus> ASMQ = AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartQ);
 	public static Map<Integer,AnalyzeStatus> ASMK = AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartK);
 	
+	public static boolean refreshDeck = false;
 	public static Map<Integer,AnalyzeStatus> fetchDealerAnalyzeStatusMap(Card card){
 		switch(card){
 			case One1:
-				return ASMOne;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartOne);
+				}else {
+					return ASMOne;
+				}
 			case Two2:
-				return ASMTwo;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartTwo);
+				}else {
+					return ASMTwo;
+				}
 			case Three3:
-				return ASMThree;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartThree);
+				}else {
+					return ASMThree;
+				}
 			case Four4:
-				return ASMFour;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartFour);
+				}else {
+					return ASMFour;
+				}
 			case Five5:
-				return ASMFive;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartFive);
+				}else {
+					return ASMFive;
+				}
 			case Six6:
-				return ASMSix;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartSix);
+				}else {
+					return ASMSix;
+				}
 			case Seven7:
-				return ASMSeven;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartSeven);
+				}else {
+					return ASMSeven;
+				}
 			case Eight8:
-				return ASMEight;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartEight);
+				}else {
+					return ASMEight;
+				}
 			case Nine9: 
-				return ASMNine;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartNine);
+				}else {
+					return ASMNine;
+				}
 			case Ten:
-				return ASMTen;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartTen);
+				}else {
+					return ASMTen;
+				}
 			case JJJ:
-				return ASMJ;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartJ);
+				}else {
+					return ASMJ;
+				}
 			case QQQ:
-				return ASMQ;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartQ);
+				}else {
+					return ASMQ;
+				}
 			case KKK:
-				return ASMK;
+				if(refreshDeck) {
+					return AnalyzeCardsPathValue.analyzeDealerCardsPathValue(DealerCards.StartK);
+				}else {
+					return ASMK;
+				}
 			default:
 				return null;
 		}

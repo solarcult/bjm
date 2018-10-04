@@ -75,7 +75,7 @@ public class RealMatch {
 		DealerCardsPathValue dealerCardsPathValue = new DealerCardsPathValue(dealerCard);
 		DealerCardsPathValue dr = GenerateCardsUtil.generateDealerOneMatch(casion6Deck, dealerCardsPathValue);
 		
-		PlayerCardsPathValue test = p7;
+		PlayerCardsPathValue test = p2;
 		
 		if(EvolutionTest.debug)System.out.println("bet:" + baseMoney);
 		if(EvolutionTest.debug)System.out.println(test.getValue()+" : " + test.getCards()+" ds: "+test.getDsTimes());	
@@ -85,7 +85,7 @@ public class RealMatch {
 		if(EvolutionTest.debug)System.out.println("---");
 		
 		try {
-			if(EvolutionTest.debug) Thread.sleep(4000);
+			if(EvolutionTest.debug) Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,15 +103,17 @@ public class RealMatch {
 		double w = 0;
 		double d = 0;
 		double l = 0;
-		for(int i=1;i<=10000;i++) {
+		for(int i=1;i<=1000;i++) {
 			baseMoney = ProfitUtil.baseMoney;
 			casion6Deck.reset();
 			int count = casion6Deck.getCount();
 			if(EvolutionTest.debug)System.out.println("count: "+count);
 			if(count>=5) {
 				baseMoney += (count/5)*100;
+//				baseMoney += (count/5)*(count/5)*100;
 			}
 			double roi = oneMatch(casion6Deck,baseMoney);
+			
 			/*
 			 * below code is not good,cause can't show the true w d l to me,
 			 * should not use this anymore,
@@ -125,6 +127,7 @@ public class RealMatch {
 			else if(roi<0) l+=Math.abs(roi);
 			
 			result += roi;
+			if(EvolutionTest.debug) System.out.println("\t\ti: "+i+"\t\t t:"+result);
 			if(i%100 ==0) {
 				System.out.println(i+ " : "+ result);
 				HelloWorld.printDoubleWDL(new double[] {w/(w+d+l),d/(w+d+l),l/(w+d+l)});

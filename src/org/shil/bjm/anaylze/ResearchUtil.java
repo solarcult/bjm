@@ -3,10 +3,12 @@ package org.shil.bjm.anaylze;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DeckSet;
+import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 
 public class ResearchUtil {
@@ -14,7 +16,9 @@ public class ResearchUtil {
 	public static List<ResearchPair> listResearchPairs() {
 		List<ResearchPair> researchPairs = new ArrayList<>();
 		//8
+		researchPairs.add(new ResearchPair(new PlayerCardsPathValue(Card.Three3,Card.Five5), Card.Five5));
 		researchPairs.add(new ResearchPair(new PlayerCardsPathValue(Card.Three3,Card.Five5), Card.Six6));
+		
 		//9
 		researchPairs.add(new ResearchPair(new PlayerCardsPathValue(Card.Three3,Card.Six6), Card.Three3));
 		researchPairs.add(new ResearchPair(new PlayerCardsPathValue(Card.Three3,Card.Six6), Card.Seven7));
@@ -52,6 +56,8 @@ public class ResearchUtil {
 		researchPairs.add(new ResearchPair(new PlayerCardsPathValue(Card.One1,Card.Six6), Card.Five5));
 		researchPairs.add(new ResearchPair(new PlayerCardsPathValue(Card.One1,Card.Six6), Card.Six6));
 
+		researchPairs.add(new ResearchPair(new PlayerCardsPathValue(Card.Eight8,Card.Three3), Card.Ten));
+		
 		Collections.sort(researchPairs);
 		
 		return researchPairs;
@@ -72,12 +78,16 @@ public class ResearchUtil {
 		}
 		Collections.sort(dealerVSPlayerChances);
 		HelloWorld.print(dealerVSPlayerChances);
+		FileUtil.writeToDisk(dealerVSPlayerChances);
 
 	}
 	
 
 	public static void main(String[] args) {
 		testDeckMinusTen2Ten();
+//		DealerVSPlayerChance dealerVSPlayerChance = RivalAnalyzeUtil.analyzeResearchPair(new ResearchPair(new PlayerCardsPathValue(Card.Three3,Card.Six6), Card.Three3));
+//		dealerVSPlayerChance.setDeckStatus(DeckSet.resetValue);
+//		System.out.println(dealerVSPlayerChance);
 	}
 
 }
