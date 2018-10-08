@@ -10,7 +10,7 @@ public class DeckSet {
 	public static int OneSameCardInOneDeck = 4;
 	public static int DeckCards = 52;
 	
-	public static int resetValue = 0;
+	public static int resetValue = 10;
 	
 	private int ndeck;
 	private int totalCards;

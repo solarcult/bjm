@@ -3,13 +3,13 @@ package org.shil.bjm.anaylze;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 
-public class ResearchPair implements Comparable<ResearchPair>{
+public class ResearchPDair implements Comparable<ResearchPDair>{
 
 	private PlayerCardsPathValue playerCardsPathValue;
 	
 	private Card dealerCard;
 
-	public ResearchPair(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
+	public ResearchPDair(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
 		this.playerCardsPathValue = playerCardsPathValue;
 		this.dealerCard = dealerCard;
 	}
@@ -47,7 +47,7 @@ public class ResearchPair implements Comparable<ResearchPair>{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ResearchPair other = (ResearchPair) obj;
+		ResearchPDair other = (ResearchPDair) obj;
 		if (dealerCard != other.dealerCard)
 			return false;
 		if (playerCardsPathValue == null) {
@@ -64,7 +64,7 @@ public class ResearchPair implements Comparable<ResearchPair>{
 	}
 
 	@Override
-	public int compareTo(ResearchPair o) {
+	public int compareTo(ResearchPDair o) {
 		if(playerCardsPathValue.getValue() < o.getPlayerCardsPathValue().getValue()) {
 			return -1;
 		}else if(playerCardsPathValue.getValue() > o.getPlayerCardsPathValue().getValue()) {

@@ -15,7 +15,8 @@ import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 public class TestAnything {
 
 	public static void main(String[] args) {
-		testAAvsTSplit();
+//		testAAvsTSplit();
+		testTTvsXSplit();
 	}
 	
 	public static void testAAvsTSplit() {

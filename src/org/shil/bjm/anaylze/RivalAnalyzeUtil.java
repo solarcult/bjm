@@ -35,7 +35,7 @@ public class RivalAnalyzeUtil {
 			if (playerCardsPathValue.getValue() < 8) continue;
 			for (Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue; 
-				DealerVSPlayerChance dealerVSPlayerChance = analyzeResearchPair(new ResearchPair(playerCardsPathValue, dealerCard));
+				DealerVSPlayerChance dealerVSPlayerChance = analyzeResearchPair(new ResearchPDair(playerCardsPathValue, dealerCard));
 				diff.add(dealerVSPlayerChance);
 			}
 		}
@@ -45,7 +45,7 @@ public class RivalAnalyzeUtil {
 	/**
 	 * 分析具体要一张牌与不要的概率分布
 	 */
-	public static DealerVSPlayerChance analyzeResearchPair(ResearchPair researchPair) {
+	public static DealerVSPlayerChance analyzeResearchPair(ResearchPDair researchPair) {
 		Collection<PlayerCardsPathValue> playerOneMoreCards = GenerateCardsUtil.hitPlayerOneMoreCard(researchPair.getPlayerCardsPathValue());
 		if(playerOneMoreCards.size()!=13) throw new RuntimeException("wtf 13");
 		double[] playerOneMore = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerOneMoreCards, researchPair.getDealerCard());
