@@ -29,9 +29,9 @@ public class Finally2047 extends Seven8012 {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			if(dealerCard == Card.Three3) {
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
 			}else if(dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
@@ -660,8 +660,8 @@ public class Finally2047 extends Seven8012 {
 				return PlayerAction.Double;
 			}
 		}else if(nineV3W.equals(matrixKey)||nineV3S.equals(matrixKey)) {
-			if(count >= -4) {
-				return PlayerAction.Double;
+			if(count <= -5) {
+				return PlayerAction.Hit;
 			}
 		}else if(nineV7W.equals(matrixKey)||nineV7S.equals(matrixKey)) {
 			if(count >= -2) {

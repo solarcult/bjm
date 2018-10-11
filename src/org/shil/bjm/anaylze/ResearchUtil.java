@@ -25,6 +25,8 @@ public class ResearchUtil {
 		//12
 		researchPairs.add(new ResearchPDair(new PlayerCardsPathValue(Card.Ten,Card.Two2), Card.Two2));
 		researchPairs.add(new ResearchPDair(new PlayerCardsPathValue(Card.Ten,Card.Two2), Card.Three3));
+		//13
+		researchPairs.add(new ResearchPDair(new PlayerCardsPathValue(Card.Ten,Card.Three3), Card.Two2));
 		//15
 		researchPairs.add(new ResearchPDair(new PlayerCardsPathValue(Card.Seven7,Card.Eight8), Card.Seven7));
 		researchPairs.add(new ResearchPDair(new PlayerCardsPathValue(Card.Seven7,Card.Eight8), Card.Eight8));
