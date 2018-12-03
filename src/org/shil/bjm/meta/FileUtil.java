@@ -66,4 +66,19 @@ public class FileUtil {
 		}
 		return frequency;
 	}
+	
+	public static void writeROIsToDisk(String player, String dealer, List<Double> rois) {
+		String fileName=player+"_vs_"+ dealer;
+		try {
+			BufferedWriter out =new BufferedWriter(new FileWriter(fileName,true));
+			for(Double roi : rois) {
+				out.write(roi.toString());
+				out.newLine();
+			}
+			out.flush();
+			out.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

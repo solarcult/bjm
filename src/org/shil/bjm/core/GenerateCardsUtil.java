@@ -46,6 +46,12 @@ public class GenerateCardsUtil {
 		return dealerCardsPathValues;
 	}
 	
+	/**
+	 * 真实比赛中取得一种结果的庄家牌
+	 * @param casion6Deck
+	 * @param dealerCardsPathValue
+	 * @return
+	 */
 	public static DealerCardsPathValue generateDealerOneMatch(Casion6Deck casion6Deck , DealerCardsPathValue dealerCardsPathValue){		
 		
 		//如果没有达到点数,则再发一张牌,所有13中组合,继续递归

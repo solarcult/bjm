@@ -133,6 +133,13 @@ public class ProfitUtil {
 		return pureReturn;
 	}
 	
+	/**
+	 * 只计算baseMoney的整数结果，没有中间概率的参与
+	 * @param playerCardsPathValue
+	 * @param dealerCardsPathValue
+	 * @param baseMoney
+	 * @return
+	 */
 	public static double calcPureReturn(PlayerCardsPathValue playerCardsPathValue, DealerCardsPathValue dealerCardsPathValue,double baseMoney) {
 		double onePot = playerCardsPathValue.getBetMutiV() * baseMoney;
 		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
@@ -160,7 +167,42 @@ public class ProfitUtil {
 		}
 		
 		return 0;
+	}
+	
+	/**
+	 * 只计算baseMoney的概率结果，非整数结果
+	 * @param playerCardsPathValue
+	 * @param dealerCardsPathValue
+	 * @param baseMoney
+	 * @return 
+	 */
+	public static double calcPureReturnProb(PlayerCardsPathValue playerCardsPathValue, DealerCardsPathValue dealerCardsPathValue,double baseMoney) {
+		double onePot = playerCardsPathValue.prob()*100000 * dealerCardsPathValue.prob()*100000 * playerCardsPathValue.getBetMutiV() * baseMoney;
+		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
+			return -onePot;
+		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
+			//用户放弃损失一半,BetMutiV 包含了0.5,此处不用乘
+			return -onePot;
+		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
+			throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+		}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
+				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
+				|| playerCardsPathValue.getAction() == PlayerAction.Double
+				|| playerCardsPathValue.getAction() == PlayerAction.Split){
+			throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+		}
 		
+		if(dealerCardsPathValue.getValue() > BlackJackInfo.BlackJack) {
+			return onePot;
+		}
+		
+		if(playerCardsPathValue.getValue() > dealerCardsPathValue.getValue()) {
+			return onePot;
+		}else if(playerCardsPathValue.getValue() < dealerCardsPathValue.getValue()) {
+			return -onePot;
+		}
+		
+		return 0;
 	}
 	
 }
