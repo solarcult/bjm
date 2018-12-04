@@ -36,7 +36,7 @@ public class ProbResultPrint {
 				List<Double> rois = new ArrayList<>(15553);
 				for(PlayerCardsPathValue one : oneSet) {
 					for(DealerCardsPathValue dv : dvs) {
-						double roi = ProfitUtil.calcPureReturnProb(one, dv, 1000000000);
+						double roi = ProfitUtil.calcPureReturnProb(one, dv, 1000000);
 						rois.add(roi);
 					}
 				}

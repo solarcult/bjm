@@ -177,7 +177,7 @@ public class ProfitUtil {
 	 * @return 
 	 */
 	public static double calcPureReturnProb(PlayerCardsPathValue playerCardsPathValue, DealerCardsPathValue dealerCardsPathValue,double baseMoney) {
-		double onePot = playerCardsPathValue.prob()*100000 * dealerCardsPathValue.prob()*100000 * playerCardsPathValue.getBetMutiV() * baseMoney;
+		double onePot = playerCardsPathValue.prob()  * dealerCardsPathValue.prob() * playerCardsPathValue.getBetMutiV() * baseMoney;
 		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
 			return -onePot;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){

@@ -10,7 +10,6 @@ import org.apache.commons.math3.stat.Frequency;
 import org.shil.bjm.anaylze.DealerVSPlayerChance;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.Result;
-import org.shil.bjm.strategy8102.strategy.Standard2018;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class FileUtil {
@@ -72,6 +71,7 @@ public class FileUtil {
 		try {
 			BufferedWriter out =new BufferedWriter(new FileWriter(fileName,true));
 			for(Double roi : rois) {
+				if(roi>=0) continue;
 				out.write(roi.toString());
 				out.newLine();
 			}
