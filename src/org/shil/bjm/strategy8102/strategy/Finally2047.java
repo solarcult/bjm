@@ -12,6 +12,7 @@ import org.shil.bjm.meta.StartValue;
  * will use this next time
  * 2018-Sep-10 23:00
  * I guess but I will imporve it now,casue the realmatch test is terrible, Sep-23th
+ * 2019-Feb-01 上个星期去澳门用的就是这套算法,打了3天.以后就用这个.
  */
 public class Finally2047 extends Seven8012 {
 

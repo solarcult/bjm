@@ -630,7 +630,7 @@ public class TestAnything2048 extends Seven8012 {
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
 	}
-	/*
+	
 	public PlayerAction fetchPlayAction(MatrixKey matrixKey, int count) {
 		MatrixKey eightV6W = new MatrixKey(StartValue.Eight, Card.Six6, Situation.Start_Hand_WithoutA_WithoutPair);
 		MatrixKey eightV6S = new MatrixKey(StartValue.Eight, Card.Six6, Situation.Splited_Pair_And_Can_NOT_Split);
@@ -694,7 +694,7 @@ public class TestAnything2048 extends Seven8012 {
 			
 		return one.get(matrixKey);
 	}
-	*/
+	
 	public static void main(String[] args) {
 		
 		StrategyMatrix8012 one = new TestAnything2048();

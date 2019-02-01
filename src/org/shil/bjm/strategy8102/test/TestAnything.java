@@ -16,7 +16,95 @@ public class TestAnything {
 
 	public static void main(String[] args) {
 //		testAAvsTSplit();
-		testTTvsXSplit();
+//		testTTvsXSplit();
+		testA6vs2toT();
+	}
+	
+	public static void testA6vs2toT() {
+		for(Card dealerCard : Card.values()) {
+			System.out.println(dealerCard);
+			PlayerCardsPathValue a6 = new PlayerCardsPathValue(Card.One1,Card.Six6);
+			Collection<PlayerCardsPathValue> a6r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), new Finally2047(), a6, dealerCard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(a6r, dealerCard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(a6r, dealerCard));
+			System.out.println(new Finally2047().getSimpleDesc());
+			
+			PlayerCardsPathValue a66 = new PlayerCardsPathValue(Card.One1,Card.Six6);
+			Collection<PlayerCardsPathValue> a66r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), new TestAnything2048(), a66, dealerCard); 
+			System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(a66r, dealerCard));
+			HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(a66r, dealerCard));
+			System.out.println(new TestAnything2048().getSimpleDesc());
+			System.out.println();
+		}
+		
+		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
+		
+		/*
+One1
+-0.058403858207398636
+w:22.679550496168417 $d:12.465859269968211 $l:64.85459023386338
+StrategyMatrix8012 [roi= 5.279026560066828E-6,	 pureReturn= 24.154713928241776,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:46.038492169573516 $d:8.48371373330272 $l:45.47779409712376
+-0.0891223392542343
+w:11.690559113720402 $d:12.261178104832682 $l:76.04826278144692
+StrategyMatrix8012 [roi= 5.161207796944563E-6,	 pureReturn= 23.61562239569954,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:45.962640294698964 $d:8.506368154705878 $l:45.53099155059516
+
+Two2
+-4.5373403279766293E-4
+w:45.60662641265672 $d:8.42930657617558 $l:45.9640670111677
+StrategyMatrix8012 [roi= 5.279026560066828E-6,	 pureReturn= 24.154713928241776,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:46.038492169573516 $d:8.48371373330272 $l:45.47779409712376
+-0.01837459893150393
+w:36.00120109688355 $d:13.522537165575976 $l:50.47626173754046
+StrategyMatrix8012 [roi= 5.161207796944563E-6,	 pureReturn= 23.61562239569954,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:45.962640294698964 $d:8.506368154705878 $l:45.53099155059516
+
+Three3
+0.003995593759325219
+w:47.69186274484481 $d:7.763905768944293 $l:44.5442314862109
+StrategyMatrix8012 [roi= 5.279026560066828E-6,	 pureReturn= 24.154713928241776,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:46.038492169573516 $d:8.48371373330272 $l:45.47779409712376
+-0.012990152802731206
+w:38.38923736098338 $d:12.988199900326952 $l:48.622562738689666
+StrategyMatrix8012 [roi= 5.161207796944563E-6,	 pureReturn= 23.61562239569954,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:45.962640294698964 $d:8.506368154705878 $l:45.53099155059516
+
+Seven7
+0.0058730095185698635
+w:43.55678818339936 $d:17.12748608058203 $l:39.31572573601861
+StrategyMatrix8012 [roi= 5.279026560066828E-6,	 pureReturn= 24.154713928241776,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:46.038492169573516 $d:8.48371373330272 $l:45.47779409712376
+-0.013153931322986534
+w:26.443931743529504 $d:37.61331925528947 $l:35.942749001181035
+StrategyMatrix8012 [roi= 5.161207796944563E-6,	 pureReturn= 23.61562239569954,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:45.962640294698964 $d:8.506368154705878 $l:45.53099155059516
+
+Eight8
+-0.012961693601109905
+w:39.67086508680478 $d:11.298272739324844 $l:49.030862173870375
+StrategyMatrix8012 [roi= 5.279026560066828E-6,	 pureReturn= 24.154713928241776,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:46.038492169573516 $d:8.48371373330272 $l:45.47779409712376
+-0.0532873968937554
+w:24.3536966138175 $d:12.812305119489414 $l:62.83399826669308
+StrategyMatrix8012 [roi= 5.161207796944563E-6,	 pureReturn= 23.61562239569954,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:45.962640294698964 $d:8.506368154705878 $l:45.53099155059516
+
+Nine9
+-0.02473152375856474
+w:35.474533899921255 $d:11.191615550438451 $l:53.333850549640296
+StrategyMatrix8012 [roi= 5.279026560066828E-6,	 pureReturn= 24.154713928241776,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:46.038492169573516 $d:8.48371373330272 $l:45.47779409712376
+-0.05920695499855675
+w:22.64865025496193 $d:11.947721369542725 $l:65.40362837549534
+StrategyMatrix8012 [roi= 5.161207796944563E-6,	 pureReturn= 23.61562239569954,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:45.962640294698964 $d:8.506368154705878 $l:45.53099155059516
+
+Ten
+-0.0382949892078063
+w:30.86970281968285 $d:10.606724545074059 $l:58.52357263524309
+StrategyMatrix8012 [roi= 5.279026560066828E-6,	 pureReturn= 24.154713928241776,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:46.038492169573516 $d:8.48371373330272 $l:45.47779409712376
+-0.06581813880513701
+w:20.66197961140314 $d:11.146944159803734 $l:68.19107622879314
+StrategyMatrix8012 [roi= 5.161207796944563E-6,	 pureReturn= 23.61562239569954,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:45.962640294698964 $d:8.506368154705878 $l:45.53099155059516
+
+MatrixKey [startValue=Six, dealerCard=One1, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Six, dealerCard=Two2, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Six, dealerCard=Seven7, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Six, dealerCard=Eight8, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Six, dealerCard=Nine9, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Six, dealerCard=Ten, situation=Start_With_A] : Hit -> Stand
+
+		 */
 	}
 	
 	public static void testAAvsTSplit() {
