@@ -16,7 +16,7 @@ import org.shil.bjm.strategy8102.strategy.test.Finally2049;
 import org.shil.bjm.strategy8102.strategy.test.Standard2018;
 import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
 
-public class EvolutionTest {
+public class EvolutionOneWayTest {
 	
 	static int write2disk = 300;
 	static int print2screen = 100;

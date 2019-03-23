@@ -10,7 +10,7 @@ import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
-import org.shil.bjm.strategy8102.EvolutionTest;
+import org.shil.bjm.strategy8102.EvolutionOneWayTest;
 import org.shil.bjm.strategy8102.strategy.MatrixKey;
 import org.shil.bjm.strategy8102.strategy.RandomGenMatrix;
 import org.shil.bjm.strategy8102.strategy.Result;
@@ -54,7 +54,7 @@ public class TestA {
 	
 	public static void testD() {
 		StrategyMatrix8012 a = new Standard2017();
-		EvolutionTest.debug = true;
+		EvolutionOneWayTest.debug = true;
 		a.getTimeRates();
 		a.getProbRate();
 	}

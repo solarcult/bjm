@@ -7,7 +7,7 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
-import org.shil.bjm.strategy8102.EvolutionTest;
+import org.shil.bjm.strategy8102.EvolutionOneWayTest;
 import org.shil.bjm.strategy8102.Strategy8012;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.Standard2017;
@@ -77,15 +77,15 @@ public class RealMatch {
 		
 		PlayerCardsPathValue test = p2;
 		
-		if(EvolutionTest.debug)System.out.println("bet:" + baseMoney);
-		if(EvolutionTest.debug)System.out.println(test.getValue()+" : " + test.getCards()+" ds: "+test.getDsTimes());	
-		if(EvolutionTest.debug)System.out.println(dr.getValue()+" : " + dr.getCards());
+		if(EvolutionOneWayTest.debug)System.out.println("bet:" + baseMoney);
+		if(EvolutionOneWayTest.debug)System.out.println(test.getValue()+" : " + test.getCards()+" ds: "+test.getDsTimes());	
+		if(EvolutionOneWayTest.debug)System.out.println(dr.getValue()+" : " + dr.getCards());
 		double result = ProfitUtil.calcPureReturn(test, dr,baseMoney);
-		if(EvolutionTest.debug)System.out.println("roi:" +result);
-		if(EvolutionTest.debug)System.out.println("---");
+		if(EvolutionOneWayTest.debug)System.out.println("roi:" +result);
+		if(EvolutionOneWayTest.debug)System.out.println("---");
 		
 		try {
-			if(EvolutionTest.debug) Thread.sleep(5000);
+			if(EvolutionOneWayTest.debug) Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,7 +96,7 @@ public class RealMatch {
 
 	public static void main(String[] args) {
 		Frequency frequency = new Frequency();
-		EvolutionTest.debug = false;
+		EvolutionOneWayTest.debug = false;
 		Casion6Deck casion6Deck = new Casion6Deck();
 		double baseMoney = 0d;
 		double result = 0 ;
@@ -107,7 +107,7 @@ public class RealMatch {
 			baseMoney = ProfitUtil.BaseMoney;
 			casion6Deck.reset();
 			int count = casion6Deck.getCount();
-			if(EvolutionTest.debug)System.out.println("count: "+count);
+			if(EvolutionOneWayTest.debug)System.out.println("count: "+count);
 			if(count>=5) {
 				baseMoney += (count/5)*100;
 //				baseMoney += (count/5)*(count/5)*100;
@@ -127,7 +127,7 @@ public class RealMatch {
 			else if(roi<0) l+=Math.abs(roi);
 			
 			result += roi;
-			if(EvolutionTest.debug) System.out.println("\t\ti: "+i+"\t\t t:"+result);
+			if(EvolutionOneWayTest.debug) System.out.println("\t\ti: "+i+"\t\t t:"+result);
 			if(i%100 ==0) {
 				System.out.println(i+ " : "+ result);
 				HelloWorld.printDoubleWDL(new double[] {w/(w+d+l),d/(w+d+l),l/(w+d+l)});

@@ -617,9 +617,9 @@ public class Standard2018 extends Seven8012 {
 	public static void main(String[] args) {
 		
 		StrategyMatrix8012 one = new Standard2018();
-		System.out.println(one.getCalcResult());
+//		System.out.println(one.getCalcResult());
 		StrategyMatrix8012 two = new Standard2017();
-		System.out.println(two.getCalcResult());
+//		System.out.println(two.getCalcResult());
 		System.out.println(one.diffWith(two));
 	}
 

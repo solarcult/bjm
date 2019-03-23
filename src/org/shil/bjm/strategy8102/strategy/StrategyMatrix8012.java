@@ -22,7 +22,7 @@ import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.meta.WinDrawLose;
 import org.shil.bjm.meta.WinRateUtil;
 import org.shil.bjm.simulation.Casion6Deck;
-import org.shil.bjm.strategy8102.EvolutionTest;
+import org.shil.bjm.strategy8102.EvolutionOneWayTest;
 import org.shil.bjm.strategy8102.Strategy8012;
 
 /**
@@ -337,11 +337,12 @@ public abstract class StrategyMatrix8012{
 	 * Start at 2019-Mar-22
 	 */
 	public void getEverythingInOneLoop() {
-		if(EvolutionTest.debug) System.out.println("getEverythingInOneLoop() class : " + this.getClass().getName() );
-		long startTime = System.currentTimeMillis();
+		if(EvolutionOneWayTest.debug) System.out.println("getEverythingInOneLoop() class : " + this.getClass().getName() );
 		if(this.probRates != null && this.timeRates != null) {
+			System.out.println("This Matrix8012 has been calc DONE ! ");
 			return;
 		}
+		long startTime = System.currentTimeMillis();
 		
 		//纯的胜平负计数
 		double winTimes = 0;
@@ -362,7 +363,7 @@ public abstract class StrategyMatrix8012{
 		int processed = 1;
 		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
 		for(PlayerCardsPathValue pcpv : playerCards){
-			if(EvolutionTest.debug) System.out.println(this.getClass().getSimpleName() + " process: " +pcpv.getCards() +" "+pcpv.getValue() + " \t : "+processed+" / "+playerCards.size());
+			if(EvolutionOneWayTest.debug) System.out.println(this.getClass().getSimpleName() + " process: " +pcpv.getCards() +" "+pcpv.getValue() + " \t : "+processed+" / "+playerCards.size());
 			processed++;
 			for(Card dealerCard : Card.values()){
 				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
@@ -434,18 +435,18 @@ public abstract class StrategyMatrix8012{
 		
 		totalProbs = winProbs + drawProbs + loseProbs;
 		probRates = new Double[] {winProbs/totalProbs,drawProbs/totalProbs,loseProbs/totalProbs};
-		if(EvolutionTest.debug) System.out.println("totalProbs : " + totalProbs);
+		if(EvolutionOneWayTest.debug) System.out.println("totalProbs : " + totalProbs);
 		
 		totalTimes = winTimes + drawTimes + loseTimes;
 		timeRates  = new Double[] {winTimes/totalTimes,drawTimes/totalTimes,loseTimes/totalTimes};
-		if(EvolutionTest.debug) System.out.println("totalTimes : " + totalTimes);
+		if(EvolutionOneWayTest.debug) System.out.println("totalTimes : " + totalTimes);
 		
 		this.moneyReturn = returnMoney;
 		this.totalSpead = totalSpendMoney;
 		this.roi = returnMoney / totalSpendMoney;
-		if(EvolutionTest.debug) System.out.println("roi : " + roi);
+		if(EvolutionOneWayTest.debug) System.out.println("roi : " + roi);
 		
-		if(EvolutionTest.debug) System.out.println(this.getClass().getSimpleName() + " total wasted time : " + (System.currentTimeMillis() - startTime));
+		if(EvolutionOneWayTest.debug) System.out.println(this.getClass().getSimpleName() + " total wasted time : " + (System.currentTimeMillis() - startTime));
 	}
 	
 	
@@ -693,7 +694,7 @@ public abstract class StrategyMatrix8012{
 			double total = win + draw + lose;
 			System.out.println("TTTTTTTTTTTTTTTTTTTTt: "+ total);
 			probRates = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionTest.debug) System.out.println("WdlRateWithDSWithProbRate done: " + HelloWorld.builderDoubleWDL(probRates));
+			if(EvolutionOneWayTest.debug) System.out.println("WdlRateWithDSWithProbRate done: " + HelloWorld.builderDoubleWDL(probRates));
 		}
 		return probRates;
 	}
