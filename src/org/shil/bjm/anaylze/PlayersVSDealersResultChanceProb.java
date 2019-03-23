@@ -22,6 +22,9 @@ import org.shil.bjm.strategy.one.OneStrategy;
  * simply and old fashion way to calc prob
  * @author LiangJingJing
  * @date 2017年06月24日 上午00:33:29
+ * 
+ * @since 2019-Mar-23 自从开启了StrategyMatrix8012系列后，这个类已经不用了，1是因为之前的计算统计好像有些问题，2是每次都分开计算太浪费时间了，3已经在那个类里用getEverythingInOneLoop()重写了。
+ * @deprecated
  */
 public class PlayersVSDealersResultChanceProb {
 

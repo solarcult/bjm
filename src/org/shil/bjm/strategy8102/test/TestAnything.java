@@ -814,13 +814,13 @@ MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_Pair] : Split
 		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new Finally2047(), eight2, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
-		System.out.println("ROI: " + new Finally2047().getPureReturn());
+		System.out.println("ROI: " + new Finally2047().getMoneyReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Six6,Card.Six6);
 		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new TestAnything2048(), eight22, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
-		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
+		System.out.println("ROI: " + new TestAnything2048().getMoneyReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		
@@ -869,13 +869,13 @@ MatrixKey [startValue=Six, dealerCard=Five5, situation=Splited_Pair_And_Can_Spli
 		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new Finally2047(), eight2, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
-		System.out.println("ROI: " + new Finally2047().getPureReturn());
+		System.out.println("ROI: " + new Finally2047().getMoneyReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Four4,Card.Four4);
 		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new TestAnything2048(), eight22, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
-		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
+		System.out.println("ROI: " + new TestAnything2048().getMoneyReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		
@@ -910,13 +910,13 @@ MatrixKey [startValue=Four, dealerCard=Six6, situation=Splited_Pair_And_Can_Spli
 		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new Finally2047(), eight2, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
-		System.out.println("ROI: " + new Finally2047().getPureReturn());
+		System.out.println("ROI: " + new Finally2047().getMoneyReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Eight8,Card.Six6);
 		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new TestAnything2048(), eight22, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
-		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
+		System.out.println("ROI: " + new TestAnything2048().getMoneyReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		/*
@@ -939,13 +939,13 @@ MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Start_Hand_WithoutA_Wi
 		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new Finally2047(), eight2, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
-		System.out.println("ROI: " + new Finally2047().getPureReturn());
+		System.out.println("ROI: " + new Finally2047().getMoneyReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.One1,Card.Six6);
 		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new TestAnything2048(), eight22, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
-		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
+		System.out.println("ROI: " + new TestAnything2048().getMoneyReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		/*
@@ -969,13 +969,13 @@ MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A]=Hit -> Dou
 				Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new Finally2047(), eight2, dealerCard); 
 				System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
 				HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
-				System.out.println("ROI: " + new Finally2047().getPureReturn());
+				System.out.println("ROI: " + new Finally2047().getMoneyReturn());
 				
 				PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.One1,playercard);
 				Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new TestAnything2048(), eight22, dealerCard); 
 				System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard));
 				HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
-				System.out.println("ROI: " + new TestAnything2048().getPureReturn());
+				System.out.println("ROI: " + new TestAnything2048().getMoneyReturn());
 				
 				System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 			}
@@ -1206,13 +1206,13 @@ MatrixKey [startValue=Eight, dealerCard=Two2, situation=Splited_Pair_And_Can_Spl
 		Collection<PlayerCardsPathValue> eight2r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new Finally2047(), eight2, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight2r, dealerCard));
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight2r, dealerCard));
-		System.out.println("ROI: " + new Finally2047().getPureReturn());
+		System.out.println("ROI: " + new Finally2047().getMoneyReturn());
 		
 		PlayerCardsPathValue eight22 = new PlayerCardsPathValue(Card.Eight8,Card.Three3);
 		Collection<PlayerCardsPathValue> eight22r = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),new TestAnything2048(), eight22, dealerCard); 
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(eight22r, dealerCard)*8);
 		HelloWorld.printDoubleMatrix(WinRateUtil.calcWDLwDsByRawByProbPrecent(eight22r, dealerCard));
-		System.out.println("ROI: " + new TestAnything2048().getPureReturn());
+		System.out.println("ROI: " + new TestAnything2048().getMoneyReturn());
 		
 		System.out.println(new Finally2047().diffWith(new TestAnything2048()));
 		

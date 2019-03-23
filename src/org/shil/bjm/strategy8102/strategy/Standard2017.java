@@ -720,19 +720,22 @@ public class Standard2017 extends Seven8012 {
 	}
 	
 	public static void main(String[] args) {
-		List<StrategyMatrix8012> s = new ArrayList<>();
+		
 		StrategyMatrix8012 one = new Standard2017();
-		one.WDLwDsTimesByPureByRawRate = new Double[] { 10d,20d,30d};
+		one.getProbRate2();
+		one.testPureProb();
+		/*
+		List<StrategyMatrix8012> s = new ArrayList<>();
+		one.timeRates = new Double[] { 10d,20d,30d};
 		long start = System.currentTimeMillis();
 		System.out.println(one.getCalcResult());
 		System.out.println(System.currentTimeMillis() - start);
-		
 		StrategyMatrix8012 two = one.evolve();
 		System.out.println(one.getChangesMatrix().size());
 		System.out.println(two.getNotChangesMatrix().size());
 		System.out.println(two.getOne().size());
-		two.WDLwDsTimesByPureByRawRate =  new Double[] { 30d,20d,10d};
-		System.out.println(one.getPureReturn());
+		two.timeRates =  new Double[] { 30d,20d,10d};
+		System.out.println(one.getMoneyReturn());
 		s.add(one);
 		s.add(two);
 		Collections.sort(s,new WDLwDsTimesByPureByRawRateComparator());
@@ -747,6 +750,7 @@ public class Standard2017 extends Seven8012 {
 		System.out.println(count);
 		
 //		two.winRateWithProb();
+ */
 	}
 
 }

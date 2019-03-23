@@ -1,8 +1,5 @@
 package org.shil.bjm.meta;
 
-import java.util.Collection;
-import java.util.HashSet;
-
 /**
  * 玩家的牌玩法
  * @author vanis
@@ -11,9 +8,10 @@ import java.util.HashSet;
 public class PlayerCardsPathValue extends CardsPathValue{
 
 	private PlayerAction action;
+	//投入金钱的倍数
 	private double betMutiV ;
+	//分牌的次数
 	private int splitTimes;
-	
 	//double和split的次数
 	private int dsTimes;
 	
@@ -85,22 +83,6 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		}
 		return StartValue.getOne(startvalue);
 	}
-	
-	/*
-	public StartValue getAnaylzeValue() {
-		if(isStartHand()) {
-			if(isStartWithPairs()) {
-				return StartValue.getOne(findPairCardFromFirstTwoCards().getValue());
-			}
-			if(isStartWithA()) {
-				return StartValue.getOne(findFirstTwoCardsWithOutA().getValue());
-			}
-
-		}
-		
-		return StartValue.getOne(getValue());
-	}
-	*/
 	
 	public PlayerAction getAction() {
 		return action;

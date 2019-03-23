@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102.strategy;
+package org.shil.bjm.strategy8102.strategy.test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,11 @@ import java.util.Map;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.strategy8102.strategy.MatrixKey;
+import org.shil.bjm.strategy8102.strategy.Seven8012;
+import org.shil.bjm.strategy8102.strategy.Situation;
+import org.shil.bjm.strategy8102.strategy.Standard2017;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 /**
  * 55vs 6 double not splite ,roi best

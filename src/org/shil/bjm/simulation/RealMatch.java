@@ -9,13 +9,13 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.strategy8102.EvolutionTest;
 import org.shil.bjm.strategy8102.Strategy8012;
-import org.shil.bjm.strategy8102.strategy.Finally2046;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
-import org.shil.bjm.strategy8102.strategy.Finally2049;
-import org.shil.bjm.strategy8102.strategy.Finally2050;
 import org.shil.bjm.strategy8102.strategy.Standard2017;
-import org.shil.bjm.strategy8102.strategy.Standard2018;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.test.Finally2046;
+import org.shil.bjm.strategy8102.strategy.test.Finally2049;
+import org.shil.bjm.strategy8102.strategy.test.Finally2050;
+import org.shil.bjm.strategy8102.strategy.test.Standard2018;
 import org.shil.bjm.strategy8102.test.TestAnything2048;
 import org.shil.bjm.strategy8102.test.TestMatrix;
 
@@ -40,7 +40,7 @@ public class RealMatch {
 //			System.out.println(dr.getValue()+" : " + dr.getCards());
 //		}
 //		System.out.println(dr.getValue());
-		double result = ProfitUtil.calcPureReturn(pr, dr,ProfitUtil.baseMoney);
+		double result = ProfitUtil.calcPureReturn(pr, dr,ProfitUtil.BaseMoney);
 //		System.out.println(result);
 		
 		try {
@@ -104,7 +104,7 @@ public class RealMatch {
 		double d = 0;
 		double l = 0;
 		for(int i=1;i<=1000;i++) {
-			baseMoney = ProfitUtil.baseMoney;
+			baseMoney = ProfitUtil.BaseMoney;
 			casion6Deck.reset();
 			int count = casion6Deck.getCount();
 			if(EvolutionTest.debug)System.out.println("count: "+count);

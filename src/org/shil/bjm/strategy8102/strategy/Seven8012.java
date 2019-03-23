@@ -11,10 +11,20 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.meta.PlayerAction;
 
+/**
+ * 进化打牌方案类，带有evolve()进化函数,LOL
+ * @author vanis
+ *
+ */
 public class Seven8012 extends StrategyMatrix8012 {
-		
-	protected int changePrecent = 1;
 	
+	/*
+	 * 每一个打牌因子的变异率
+	 */
+	protected int changePrecent = 1;
+	/*
+	 * 变异基数
+	 */
 	protected int totalPrecent = 100;
 	
 	public Seven8012() {
@@ -31,6 +41,7 @@ public class Seven8012 extends StrategyMatrix8012 {
 		try {
 			SecureRandom sr = SecureRandom.getInstanceStrong();
 			for(Entry<MatrixKey,PlayerAction> e : getChangesMatrix().entrySet()) {
+				//每一个打牌的决定方案都有变异率哦
 				if(sr.nextInt(totalPrecent) < changePrecent) {
 					//change action by random include
 					MatrixKey key = e.getKey();

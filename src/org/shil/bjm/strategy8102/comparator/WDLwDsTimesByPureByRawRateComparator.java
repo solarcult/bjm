@@ -8,9 +8,9 @@ public class WDLwDsTimesByPureByRawRateComparator implements Comparator<Strategy
 
 	@Override
 	public int compare(StrategyMatrix8012 arg0, StrategyMatrix8012 arg1) {
-		if(arg0.getWDLwDsTimesByPureByRawRate()[0] > arg1.getWDLwDsTimesByPureByRawRate()[0]) {
+		if(arg0.getTimeRates()[0] > arg1.getTimeRates()[0]) {
 			return -1;
-		}else if(arg0.getWDLwDsTimesByPureByRawRate()[0] < arg1.getWDLwDsTimesByPureByRawRate()[0]) {
+		}else if(arg0.getTimeRates()[0] < arg1.getTimeRates()[0]) {
 			return 1;
 		}
 		return 0;

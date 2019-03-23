@@ -7,6 +7,8 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.strategy8102.EvolutionTest;
+import org.shil.bjm.strategy8102.strategy.test.Finally2046;
 
 /**
  * will use this next time
@@ -690,11 +692,14 @@ public class Finally2047 extends Seven8012 {
 	}
 	
 	public static void main(String[] args) {
-		
+		EvolutionTest.debug = true;
 		StrategyMatrix8012 one = new Finally2047();
 		StrategyMatrix8012 two = new Finally2046();
-		HelloWorld.printStrategyMatrix8012(one, two);
+		StrategyMatrix8012 three = new Standard2017();
+		HelloWorld.printStrategyMatrix8012(one, two,three);
 		System.out.println(one.diffWith(two));
+		System.out.println();
+		System.out.println(one.diffWith(three));
 	}
 
 }

@@ -11,7 +11,7 @@ import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
  */
 public class ProfitUtil {
 	
-	public static double baseMoney = 300d;
+	public static double BaseMoney = 300d;
 
 	//计算用户的本次组合与庄家起手牌的最终概率组合值,看看回报率是如何
 	/**
@@ -23,7 +23,7 @@ public class ProfitUtil {
 	 */
 	public static double moneyCalcOneHandInReturn(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
 		double pureReturn = 0d;
-		double onePot = baseMoney * playerCardsPathValue.getBetMutiV();
+		double onePot = BaseMoney * playerCardsPathValue.getBetMutiV();
 		
 		if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
 			if(playerCardsPathValue.getBetMutiV()>1 || playerCardsPathValue.getSplitTimes()>0){
@@ -53,7 +53,7 @@ public class ProfitUtil {
 	
 	public static double moneyCalcOneHandInReturnProb(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
 		double pureReturn = 0d;
-		double onePot = baseMoney * playerCardsPathValue.getBetMutiV();
+		double onePot = BaseMoney * playerCardsPathValue.getBetMutiV();
 		
 		if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
 			if(playerCardsPathValue.getBetMutiV()>1 || playerCardsPathValue.getSplitTimes()>0 || playerCardsPathValue.getDsTimes()>0){
@@ -110,11 +110,11 @@ public class ProfitUtil {
 		double onePot = playerCardsPathValue.prob() * playerCardsPathValue.getBetMutiV();
 		//自己爆了
 		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
-			pureReturn -= baseMoney * onePot;
+			pureReturn -= BaseMoney * onePot;
 			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup){
 			//用户放弃损失一半,BetMutiV 包含了0.5,此处不用乘
-			pureReturn -= baseMoney * onePot;
+			pureReturn -= BaseMoney * onePot;
 			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			return pureReturn;
@@ -127,8 +127,8 @@ public class ProfitUtil {
 		
 		//最终计算投资收益率
 		double[] playerchance = PlayersVSDealersResultChanceProb.oldFashionWayCalcPlayerVSDealerProbs(playerCardsPathValue, dealerCard);
-		pureReturn += baseMoney * playerchance[WinDrawLose.win] * onePot;
-		pureReturn -= baseMoney * playerchance[WinDrawLose.lose] * onePot;
+		pureReturn += BaseMoney * playerchance[WinDrawLose.win] * onePot;
+		pureReturn -= BaseMoney * playerchance[WinDrawLose.lose] * onePot;
 		
 		return pureReturn;
 	}

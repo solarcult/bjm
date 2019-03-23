@@ -12,7 +12,9 @@ import java.util.concurrent.CompletableFuture;
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.DealerCards;
 import org.shil.bjm.core.PlayerCards;
+import org.shil.bjm.meta.BlackJackInfo;
 import org.shil.bjm.meta.Card;
+import org.shil.bjm.meta.DealerCardsPathValue;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
@@ -23,17 +25,48 @@ import org.shil.bjm.simulation.Casion6Deck;
 import org.shil.bjm.strategy8102.EvolutionTest;
 import org.shil.bjm.strategy8102.Strategy8012;
 
+/**
+ * 最基本的StrategyMatrix,提供默认的打牌方案，分两类：可变matrix和不可变matrix，以减少穷举的数量
+ * @author vanis
+ *
+ */
 public abstract class StrategyMatrix8012{
 	
+	/*
+	 * 不可变Matrix，基本是真理的东西
+	 */
 	protected Map<MatrixKey,PlayerAction> notChangesMatrix;
+	/*
+	 * 还在研究的方案
+	 */
 	protected Map<MatrixKey,PlayerAction> changesMatrix;
+	/*
+	 * 将可变不可变合并在一起
+	 */
 	protected Map<MatrixKey,PlayerAction> one;
 	
-	protected Double pureReturn;
+	/*
+	 * 拿回来的钱，包含自己的本金
+	 */
+	protected Double moneyReturn;
+	/*
+	 * 总共花销
+	 */
 	protected Double totalSpead;
+	/*
+	 * 投资回报比
+	 */
 	protected Double roi;
-	protected Double[] WDLwDsTimesByPureByRawRate;
-	protected Double[] WdlRateWithDSWithProbRate;
+	/*
+	 * 根据现实中所有的穷举对战产生的胜平负比率
+	 */
+	protected Double[] timeRates;
+	protected double totalTimes;
+	/*
+	 * 根据出牌概率算出来的胜平负比率，比RawRate要低，为什么？
+	 */
+	protected Double[] probRates;
+	protected double totalProbs;
 	
 	protected StrategyMatrix8012() {
 		notChangesMatrix = new HashMap<>();
@@ -247,9 +280,9 @@ public abstract class StrategyMatrix8012{
 		one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
-		this.pureReturn = null;
-		this.WDLwDsTimesByPureByRawRate = null;
-		this.WdlRateWithDSWithProbRate = null;
+		this.moneyReturn = null;
+		this.timeRates = null;
+		this.probRates = null;
 	}
 	
 	protected StrategyMatrix8012(Map<MatrixKey,PlayerAction> notChangesMatrix,Map<MatrixKey,PlayerAction> changesMatrix){
@@ -258,9 +291,9 @@ public abstract class StrategyMatrix8012{
 		this.one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
-		this.pureReturn = null;
-		this.WDLwDsTimesByPureByRawRate = null;
-		this.WdlRateWithDSWithProbRate = null;
+		this.moneyReturn = null;
+		this.timeRates = null;
+		this.probRates = null;
 	}
 
 	public Map<MatrixKey, PlayerAction> getNotChangesMatrix() {
@@ -299,56 +332,153 @@ public abstract class StrategyMatrix8012{
 	
 	public abstract StrategyMatrix8012 evolve();
 	
-	public double getROI() {
-		if(this.roi==null) {
-			double allReturn = 0;
-			double totalSpead = 0;
-//			EvolutionTest.debug = true;
-			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
-//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
-//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
-			for(PlayerCardsPathValue pcpv : playerCards){
-				double r = 0;
-				if(EvolutionTest.debug) System.out.print(pcpv.getCards() +" "+pcpv.getValue() + " \t : ");
-				for(Card dealerCard : Card.values()){
-					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
-					for(PlayerCardsPathValue one : oneSet) {
-						double onebet = ProfitUtil.baseMoney *  one.getDsTimes();
-						totalSpead += onebet;
-					}
-					allReturn += ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
-					r+=ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
-				}
-				if(EvolutionTest.debug) System.out.println(r);
-			}
-			this.pureReturn = allReturn;
-			this.totalSpead = totalSpead;
-			this.roi = this.pureReturn/this.totalSpead;
-			if(EvolutionTest.debug) System.out.println("pureReturn done: " + allReturn);
-			if(EvolutionTest.debug) System.out.println("totalSpead done: " + totalSpead);
-			if(EvolutionTest.debug) System.out.println("roi done: " + roi);
+	/**
+	 * 在此方法中,一次计算所有你需要的数据,减少计算量,为计算帕累托最优前沿做坚实准备.LOL
+	 * Start at 2019-Mar-22
+	 */
+	public void getEverythingInOneLoop() {
+		if(EvolutionTest.debug) System.out.println("getEverythingInOneLoop() class : " + this.getClass().getName() );
+		long startTime = System.currentTimeMillis();
+		if(this.probRates != null && this.timeRates != null) {
+			return;
 		}
-		return this.roi;
+		
+		//纯的胜平负计数
+		double winTimes = 0;
+		double drawTimes = 0;
+		double loseTimes = 0;
+		
+		//根据概率的胜平负计数
+		double winProbs = 0;
+		double drawProbs = 0;
+		double loseProbs = 0;
+		
+		//赢来的钱，包含自己本金
+		double returnMoney = 0;
+		
+		//总共投入的钱
+		double totalSpendMoney = 0;
+		
+		int processed = 1;
+		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+		for(PlayerCardsPathValue pcpv : playerCards){
+			if(EvolutionTest.debug) System.out.println(this.getClass().getSimpleName() + " process: " +pcpv.getCards() +" "+pcpv.getValue() + " \t : "+processed+" / "+playerCards.size());
+			processed++;
+			for(Card dealerCard : Card.values()){
+				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+				//开局两张牌和dealer的一张牌根据Strategy生成了所有组合的玩家牌 oneSet
+				Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
+				//得到Dealer这张牌的所有组合庄家牌
+				Collection<DealerCardsPathValue> dealerSet = DealerCards.fetchDealerCards(dealerCard);
+				for(PlayerCardsPathValue playerCardsPathValue : oneSet) {
+					for(DealerCardsPathValue dealerCardsPathValue : dealerSet) {
+						//value是记录分牌或Double的次数,默认是0
+						double playtimes = Math.pow(2, playerCardsPathValue.getSplitTimes());
+												
+						double multiProb =  playerCardsPathValue.prob() * dealerCardsPathValue.prob();
+						
+						if(playerCardsPathValue.getAction() == PlayerAction.Giveup) {
+							if(playerCardsPathValue.getValue()>BlackJackInfo.BlackJack) throw new RuntimeException("should not give up but value > 21.");
+							if(playerCardsPathValue.getDsTimes() > 0) throw new RuntimeException("playerCardsPathValue.getDsTimes() > 0 can't give up should not happened");
+							
+							loseTimes += playtimes; //这里只跟玩牌的次数有关
+							loseProbs += multiProb * playtimes; //这里只跟出现的概率有关，所以乘以玩的次数
+							if(playerCardsPathValue.getBetMutiV()!=0.5) throw new RuntimeException("playerCardsPathValue.getBetMutiV()!=0.5 in give up ! ");
+							returnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
+							totalSpendMoney += ProfitUtil.BaseMoney;
+							continue;
+						}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
+							continue;
+						}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
+								|| playerCardsPathValue.getAction() == PlayerAction.Hit 
+								|| playerCardsPathValue.getAction() == PlayerAction.Double
+								|| playerCardsPathValue.getAction() == PlayerAction.Split){
+							throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+						}
+						
+						if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
+							loseTimes += playtimes;
+							loseProbs += multiProb * playtimes;
+							totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							continue;
+						}
+						if(dealerCardsPathValue.getValue() > BlackJackInfo.BlackJack) {
+							winTimes += playtimes;
+							winProbs += multiProb * playtimes;
+							returnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							continue;
+						}
+						if(playerCardsPathValue.getValue() > dealerCardsPathValue.getValue()) {
+							winTimes += playtimes;
+							winProbs += multiProb * playtimes;
+							returnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							continue;
+						}
+						if(playerCardsPathValue.getValue() == dealerCardsPathValue.getValue()) {
+							drawTimes += playtimes;
+							drawProbs += multiProb * playtimes;
+							continue;
+						}
+						if(playerCardsPathValue.getValue() < dealerCardsPathValue.getValue()) {
+							loseTimes += playtimes;
+							loseProbs += multiProb * playtimes;
+							totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							continue;
+						}
+					}
+				}
+			}
+		}
+		
+		totalProbs = winProbs + drawProbs + loseProbs;
+		probRates = new Double[] {winProbs/totalProbs,drawProbs/totalProbs,loseProbs/totalProbs};
+		if(EvolutionTest.debug) System.out.println("totalProbs : " + totalProbs);
+		
+		totalTimes = winTimes + drawTimes + loseTimes;
+		timeRates  = new Double[] {winTimes/totalTimes,drawTimes/totalTimes,loseTimes/totalTimes};
+		if(EvolutionTest.debug) System.out.println("totalTimes : " + totalTimes);
+		
+		this.moneyReturn = returnMoney;
+		this.totalSpead = totalSpendMoney;
+		this.roi = returnMoney / totalSpendMoney;
+		if(EvolutionTest.debug) System.out.println("roi : " + roi);
+		
+		if(EvolutionTest.debug) System.out.println(this.getClass().getSimpleName() + " total wasted time : " + (System.currentTimeMillis() - startTime));
 	}
 	
-	public double getPureReturn() {
-		if(this.pureReturn==null) {
-			getROI();
-		}
-		return pureReturn;
+	
+	public double getMoneyReturn() {
+		if(this.moneyReturn==null) getEverythingInOneLoop();
+		return moneyReturn;
 	}
 	
 	public double getTotalSpead() {
-		if(this.totalSpead==null) {
-			getROI();
-		}
+		if(this.totalSpead==null) getEverythingInOneLoop();
 		return totalSpead;
 	}
 	
-	public Double[] getWDLwDsTimesByPureByRawRate() {
-		if(WDLwDsTimesByPureByRawRate==null) {
+	public Double[] getTimeRates() {
+		if(timeRates == null) getEverythingInOneLoop();
+		return timeRates;
+	}
+	
+	public Double[] getProbRate() {
+		if(probRates == null) getEverythingInOneLoop();
+		return probRates;
+	}
+	
+	public double getROI() {
+		if(this.roi==null) getEverythingInOneLoop();
+		return this.roi;
+	}
+	
+/*
+ * 被新的getEverythingInOneLoop()替代掉的方法
+ * 
+	public Double[] getTimeRates() {
+		if(timeRates==null) {
 			double win =0;
 			double draw = 0;
 			double lose = 0;
@@ -365,14 +495,14 @@ public abstract class StrategyMatrix8012{
 				}
 			}
 			double total = win + draw + lose;
-			WDLwDsTimesByPureByRawRate = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionTest.debug) System.out.println("WDLwDsTimesByPureByRawRate done: " + HelloWorld.builderDoubleWDL(WDLwDsTimesByPureByRawRate));
+			timeRates = new Double[] {win/total,draw/total,lose/total};
+			if(EvolutionTest.debug) System.out.println("WDLwDsTimesByPureByRawRate done: " + HelloWorld.builderDoubleWDL(timeRates));
 		}
-		return WDLwDsTimesByPureByRawRate;
+		return timeRates;
 	}
 	
-	public Double[] getWdlRateWithDSWithProbRate() {
-		if(WdlRateWithDSWithProbRate==null) {
+	public Double[] getProbRate() {
+		if(probRates==null) {
 			double win =0;
 			double draw = 0;
 			double lose = 0;
@@ -389,12 +519,46 @@ public abstract class StrategyMatrix8012{
 				}
 			}
 			double total = win + draw + lose;
-			WdlRateWithDSWithProbRate = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionTest.debug) System.out.println("WdlRateWithDSWithProbRate done: " + HelloWorld.builderDoubleWDL(WdlRateWithDSWithProbRate));
+			probRates = new Double[] {win/total,draw/total,lose/total};
+			if(EvolutionTest.debug) System.out.println("WdlRateWithDSWithProbRate done: " + HelloWorld.builderDoubleWDL(probRates));
 		}
-		return WdlRateWithDSWithProbRate;
+		return probRates;
 	}
-
+	
+	public double getROI() {
+		if(this.roi==null) {
+			double allReturn = 0;
+			double totalSpead = 0;
+//			EvolutionTest.debug = true;
+			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
+//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
+//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
+			for(PlayerCardsPathValue pcpv : playerCards){
+				double r = 0;
+				if(EvolutionTest.debug) System.out.print(pcpv.getCards() +" "+pcpv.getValue() + " \t : ");
+				for(Card dealerCard : Card.values()){
+					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
+					for(PlayerCardsPathValue one : oneSet) {
+						double onebet = ProfitUtil.BaseMoney *  one.getDsTimes();
+						totalSpead += onebet;
+					}
+					allReturn += ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
+					r+=ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
+				}
+				if(EvolutionTest.debug) System.out.println(r);
+			}
+			this.pureReturn = allReturn;
+			this.totalSpead = totalSpead;
+			this.roi = this.pureReturn/this.totalSpead;
+			if(EvolutionTest.debug) System.out.println("pureReturn done: " + allReturn);
+			if(EvolutionTest.debug) System.out.println("totalSpead done: " + totalSpead);
+			if(EvolutionTest.debug) System.out.println("roi done: " + roi);
+		}
+		return this.roi;
+	}
+*/
 	@Override
 	public String toString() {
 
@@ -439,59 +603,29 @@ public abstract class StrategyMatrix8012{
 		return sb.toString();
 	}
 	
+
 	public String getSimpleDesc() {
-		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
-			getROI();
-		});
-		CompletableFuture<Void> c = CompletableFuture.runAsync(()->{
-			getWdlRateWithDSWithProbRate();
-		});
-		
-		CompletableFuture<Void> abc = CompletableFuture.allOf(a,c);
-		abc.join();
-		
+		return getCalcResult();
+	}
+	
+	public String getCalcResult() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [roi= ");
 		sb.append(getROI());
-		sb.append(",\t pureReturn= ");
-		sb.append(getPureReturn());
+		sb.append(",\t moneyReturn= ");
+		sb.append(getMoneyReturn());
 		sb.append(",\t totalSpead= ");
 		sb.append(getTotalSpead());
-		sb.append(",\t WdlRateWithDSWithProbRate= ");
-		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProbRate()));
+		sb.append(",\t totalTimes: "+ this.totalTimes);
+		sb.append(",\t getTimeRates= ");
+		sb.append(HelloWorld.builderDoubleWDL(getTimeRates()));
+		sb.append(",\t totalProbs: "+ this.totalProbs);
+		sb.append(",\t getProbRate= ");
+		sb.append(HelloWorld.builderDoubleWDL(getProbRate()));
 
 		return sb.toString();
 	}
 	
-	public String getCalcResult() {
-		CompletableFuture<Void> a = CompletableFuture.runAsync(()->{
-			getROI();
-		});
-		CompletableFuture<Void> b = CompletableFuture.runAsync(()->{
-			getWDLwDsTimesByPureByRawRate();
-		});
-		CompletableFuture<Void> c = CompletableFuture.runAsync(()->{
-			getWdlRateWithDSWithProbRate();
-		});
-		
-		CompletableFuture<Void> abc = CompletableFuture.allOf(a,c);
-		abc.join();
-		
-		StringBuffer sb = new StringBuffer();
-		sb.append("StrategyMatrix8012 [roi= ");
-		sb.append(getROI());
-		sb.append(",\t pureReturn= ");
-		sb.append(getPureReturn());
-		sb.append(",\t totalSpead= ");
-		sb.append(getTotalSpead());
-//		sb.append(",\t WDLwDsTimesByPureByRawRate= ");
-//		sb.append(HelloWorld.builderDoubleWDL(getWDLwDsTimesByPureByRawRate()));
-		sb.append(",\t WdlRateWithDSWithProbRate= ");
-		sb.append(HelloWorld.builderDoubleWDL(getWdlRateWithDSWithProbRate()));
-
-		return sb.toString();
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -537,5 +671,50 @@ public abstract class StrategyMatrix8012{
 			sb.append("\n");
 		}
 		return sb.toString();
+	}
+	
+	public Double[] getProbRate2() {
+		if(probRates==null) {
+			double win =0;
+			double draw = 0;
+			double lose = 0;
+			
+			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+			for(PlayerCardsPathValue pcpv : playerCards){
+				for(Card dealerCard : Card.values()){
+					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
+					Double[] wdl = WinRateUtil.calcWDLwDsByRawByProb(oneSet, dealerCard);
+					win += wdl[WinDrawLose.win];
+					draw += wdl[WinDrawLose.draw];
+					lose += wdl[WinDrawLose.lose];
+				}
+			}
+			double total = win + draw + lose;
+			System.out.println("TTTTTTTTTTTTTTTTTTTTt: "+ total);
+			probRates = new Double[] {win/total,draw/total,lose/total};
+			if(EvolutionTest.debug) System.out.println("WdlRateWithDSWithProbRate done: " + HelloWorld.builderDoubleWDL(probRates));
+		}
+		return probRates;
+	}
+	
+	public void testPureProb() {
+		double total = 0;
+		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+		for(PlayerCardsPathValue pcpv : playerCards){
+			for(Card dealerCard : Card.values()){
+				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+				Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
+				Collection<DealerCardsPathValue> dealerSet = DealerCards.fetchDealerCards(dealerCard);
+				for(PlayerCardsPathValue playerCardsPathValue : oneSet) {
+					for(DealerCardsPathValue dealerCardsPathValue : dealerSet) {
+						total += playerCardsPathValue.prob() * dealerCardsPathValue.prob();
+						System.out.println(total);
+					}
+				}
+			}
+		}
+		
+		System.out.println(total);
 	}
 }

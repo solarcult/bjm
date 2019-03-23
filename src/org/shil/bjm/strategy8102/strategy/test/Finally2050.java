@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102.strategy;
+package org.shil.bjm.strategy8102.strategy.test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,10 +7,17 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.strategy8102.strategy.Finally2047;
+import org.shil.bjm.strategy8102.strategy.MatrixKey;
+import org.shil.bjm.strategy8102.strategy.Seven8012;
+import org.shil.bjm.strategy8102.strategy.Situation;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 /**
  * improvement by 2047, unlock ten vs all but still can't make it profit
  * 2018-Sep-24 23:00
+ * 基于2047,将对10对所有的牌都可以分.为什么不直接继承Finally2047?这样搞,当2047变化的时候,这里也要变呀.2019Mar22
+ * 发现已经不一样了,废弃掉这个类
  */
 public class Finally2050 extends Seven8012 {
 
@@ -639,6 +646,20 @@ org.shil.bjm.strategy8102.strategy.Finally2050 StrategyMatrix8012 [roi= 1.129565
 MatrixKey [startValue=Ten, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
 MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
 MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+
+
+2019Mar22 Run Result
+org.shil.bjm.strategy8102.strategy.Finally2050 StrategyMatrix8012 [roi= 4.667979938042824E-5,	 pureReturn= 280.1628199214542,	 totalSpead= 6001800.0,	 WdlRateWithDSWithProbRate= w:53.63641919153193 $d:7.611862603262674 $l:38.75171820520541
+org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [roi= 5.279026560066835E-6,	 pureReturn= 24.154713928241808,	 totalSpead= 4575600.0,	 WdlRateWithDSWithProbRate= w:46.0384921695734 $d:8.483713733302752 $l:45.47779409712384
+MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Start_With_Pair] : Giveup -> Hit
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Ten, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Stand
 		 */
 	}
 

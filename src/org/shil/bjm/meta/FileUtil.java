@@ -30,6 +30,11 @@ public class FileUtil {
 		}
 	}
 	
+	/**
+	 * 将计算的代数和结果统计写入文件中 good luck
+	 * @param generation
+	 * @param evos
+	 */
 	public static void writeToDisk(int generation, List<StrategyMatrix8012> evos){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
 		String fileName=generation+"_"+ sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
@@ -40,11 +45,7 @@ public class FileUtil {
 			out.write(analyzeEvos(evos).toString());
 			out.newLine();
 			out.newLine();
-//			for(StrategyMatrix8012 e : evos) {
-//				out.write(e.toString());
-//				out.newLine();
-//			}
-			out.write("lift:");
+			out.write("lift diff with Finally2047 :");
 			out.newLine();
 			out.write(new Finally2047().diffWith(evos.get(0)));
 			out.newLine();
@@ -56,6 +57,11 @@ public class FileUtil {
 		}
 	}
 	
+	/**
+	 * 将打牌的规则进行整合统计,次数，百分比
+	 * @param evos
+	 * @return
+	 */
 	public static Frequency analyzeEvos(List<StrategyMatrix8012> evos) {
 		Frequency frequency = new Frequency();
 		for(StrategyMatrix8012 e : evos) {

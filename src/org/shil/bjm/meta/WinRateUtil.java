@@ -4,6 +4,10 @@ import java.util.Collection;
 
 import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
 
+/**
+ * @since 2019-Mar-23 自从开启了StrategyMatrix8012系列后，这个类已经不用了，1是因为之前的计算统计好像有些问题，2是每次都分开计算太浪费时间了，3已经在那个类里用getEverythingInOneLoop()重写了。
+ * @deprecated
+ */
 public class WinRateUtil {
 	
 	public static int IgnoreReturn = -7;
@@ -156,6 +160,8 @@ public class WinRateUtil {
 		
 		int value = 1;
 		if(playerCardsPathValue.getDsTimes()>0) {
+			//TODO Fix Me 此处用DsTime而不用BetMutliV，的目的是什么？今天看20190323我没想明白,BUG吗？
+			//0323睡醒后想了想，应该用double playtimes = Math.pow(2, playerCardsPathValue.getSplitTimes());代表玩的次数。只有分牌才算开启了新的一次，而Double不应该算新的一次。以前的计算有误。
 			value *= playerCardsPathValue.getDsTimes();
 		}
 		
@@ -164,6 +170,7 @@ public class WinRateUtil {
 				throw new RuntimeException("should not here if split or double :" + playerCardsPathValue);
 			}
 			
+			//因为这张牌有1/13分之一的概率,后面的不计算了,所有把dealer这张牌的所有概率加起来
 			double daCardProb = (double)1/13;
 			//用户放弃损失一半
 			lose += 0.5 * value * playerCardsPathValue.prob() * daCardProb;
@@ -225,5 +232,11 @@ public class WinRateUtil {
 		
 		double total = win + draw + lose;
 		return new Double[] {win/total,draw/total,lose/total};
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(Math.pow(2, 0));
+		System.out.println(Math.pow(2, 1));
+		System.out.println(Math.pow(2, 2));
 	}
 }

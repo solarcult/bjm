@@ -11,9 +11,9 @@ import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.strategy8102.comparator.PureReturnComparator;
 import org.shil.bjm.strategy8102.comparator.ROIComparator;
 import org.shil.bjm.strategy8102.comparator.WdlRateWithDSWithProbRateComparator;
-import org.shil.bjm.strategy8102.strategy.Finally2049;
-import org.shil.bjm.strategy8102.strategy.Standard2018;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.test.Finally2049;
+import org.shil.bjm.strategy8102.strategy.test.Standard2018;
 import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
 
 public class EvolutionTest {
@@ -87,13 +87,13 @@ public class EvolutionTest {
 					competions.add(sm);
 					switch(type) {
 						case 1:
-							sm.getPureReturn();
+							sm.getMoneyReturn();
 							break;
 						case 2:
-							sm.getWDLwDsTimesByPureByRawRate();
+							sm.getTimeRates();
 							break;
 						case 3:
-							sm.getWdlRateWithDSWithProbRate();
+							sm.getProbRate();
 							break;
 						case 4:
 							sm.getROI();
@@ -114,13 +114,13 @@ public class EvolutionTest {
 					
 					switch(type) {
 						case 1:
-							evo.getPureReturn();
+							evo.getMoneyReturn();
 							break;
 						case 2:
-							evo.getWDLwDsTimesByPureByRawRate();
+							evo.getTimeRates();
 							break;
 						case 3:
-							evo.getWdlRateWithDSWithProbRate();
+							evo.getProbRate();
 							break;
 						case 4:
 							evo.getROI();

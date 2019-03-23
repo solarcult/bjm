@@ -28,7 +28,7 @@ public class TestA {
 		for(int i = 1; i <= 20; i++) 
 		{
 			StrategyMatrix8012 origin = new RandomGenMatrix();
-			System.out.println(origin.getPureReturn());
+			System.out.println(origin.getMoneyReturn());
 		}
 	}
 	
@@ -55,13 +55,13 @@ public class TestA {
 	public static void testD() {
 		StrategyMatrix8012 a = new Standard2017();
 		EvolutionTest.debug = true;
-		a.getWDLwDsTimesByPureByRawRate();
-		a.getWdlRateWithDSWithProbRate();
+		a.getTimeRates();
+		a.getProbRate();
 	}
 	
 	public static void testC() {
 		Standard2017 s = new Standard2017();
-		System.out.println(s.getPureReturn());
+		System.out.println(s.getMoneyReturn());
 		CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
 			System.out.println(s.getCalcResult());
 		});

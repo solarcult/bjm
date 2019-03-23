@@ -108,8 +108,6 @@ public class HelloWorld {
 	}
 	
 	public static void printStrategyMatrix8012(StrategyMatrix8012 ...xs ) {
-		if(EvolutionTest.debug) System.out.println(Calendar.getInstance().getTime()+ " calculate done! prepare print: ");
-		
 		List<CompletableFuture<Void>> guess = new ArrayList<>();
 		for(StrategyMatrix8012 x : xs) {
 			CompletableFuture<Void> i = CompletableFuture.runAsync(()->{
@@ -122,13 +120,4 @@ public class HelloWorld {
 		ra.join();
 	}
 	
-	public static void printStrategyMatrix8012(StrategyMatrix8012 one) {
-		System.out.println(Calendar.getInstance().getTime()+ " calculate done! prepare print: ");
-		CompletableFuture<Void> x = CompletableFuture.runAsync(()->{
-			System.out.println(one.getCalcResult());
-		});
-		
-		CompletableFuture.allOf(x).join();
-		
-	}
 }
