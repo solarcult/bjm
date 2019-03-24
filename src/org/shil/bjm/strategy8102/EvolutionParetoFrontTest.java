@@ -32,6 +32,7 @@ public class EvolutionParetoFrontTest {
 		StrategyMatrix8012.paretoFrontType = 0;
 		
 		String testStrategy = "nice to meet you and good luck. StrategyMatrix8012.paretoFrontValue: "+StrategyMatrix8012.paretoFrontType;
+		System.out.println(testStrategy);
 		for(int i = 1; i <= generation; i++) {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
