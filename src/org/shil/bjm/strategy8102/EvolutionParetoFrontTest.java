@@ -31,7 +31,7 @@ public class EvolutionParetoFrontTest {
 		//Very important to check below value and understand what its meaning : [0,1,2]
 		StrategyMatrix8012.paretoFrontValue = 0;
 		
-		String testStrategy = "nice to meet you.";
+		String testStrategy = "nice to meet you and good luck. StrategyMatrix8012.paretoFrontValue: "+StrategyMatrix8012.paretoFrontValue;
 		for(int i = 1; i <= generation; i++) {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
