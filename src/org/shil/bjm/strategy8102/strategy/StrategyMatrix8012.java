@@ -702,7 +702,10 @@ public abstract class StrategyMatrix8012{
 	public void testPureProb() {
 		double total = 0;
 		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
+		int i =1;
 		for(PlayerCardsPathValue pcpv : playerCards){
+			System.out.println(i+"/"+playerCards.size());
+			i++;
 			for(Card dealerCard : Card.values()){
 				PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
 				Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
@@ -710,7 +713,7 @@ public abstract class StrategyMatrix8012{
 				for(PlayerCardsPathValue playerCardsPathValue : oneSet) {
 					for(DealerCardsPathValue dealerCardsPathValue : dealerSet) {
 						total += playerCardsPathValue.prob() * dealerCardsPathValue.prob();
-						System.out.println(total);
+//						System.out.println(total);
 					}
 				}
 			}

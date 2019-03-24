@@ -8,6 +8,7 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
+import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.MatrixKey;
 import org.shil.bjm.strategy8102.strategy.Seven8012;
 import org.shil.bjm.strategy8102.strategy.Situation;
@@ -16,7 +17,7 @@ import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 /**
  * improvement by 2047, unlock ten vs all but still can't make it profit
  * 2018-Sep-24 23:00
- * 基于2047,将对10对所有的牌都可以分.为什么不直接继承Finally2047?这样搞,当2047变化的时候,这里也要变呀.2019Mar22
+ * 基于2047,做的一些88vs9,99vs7,TTvs5,6的微调.写死了结构，不能演化。
  * 发现已经不一样了,废弃掉这个类
  */
 public class Finally2050 extends Seven8012 {
@@ -629,8 +630,11 @@ public class Finally2050 extends Seven8012 {
 		
 		StrategyMatrix8012 one = new Finally2050();
 		StrategyMatrix8012 two = new Finally2047();
-		HelloWorld.printStrategyMatrix8012(one, two);
+		StrategyMatrix8012 three = new Finally2049();
+//		HelloWorld.printStrategyMatrix8012(one, two);
 		System.out.println(one.diffWith(two));
+		System.out.println();
+		System.out.println(one.diffWith(three));
 		/*
 org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [roi= 3.663139462708091E-6,	 pureReturn= 11.363058613320499,	 totalSpead= 3102000.0,	 WDLwDsTimesByPureByRawRate= w:36.80994139677543 $d:3.65259619944506 $l:59.53746240377951,	 WdlRateWithDSWithProbRate= w:45.615921016421126 $d:8.15621974635942 $l:46.227859237219455
 org.shil.bjm.strategy8102.strategy.Finally2050 StrategyMatrix8012 [roi= 5.4458471638950916E-5,	 pureReturn= 228.0067290579597,	 totalSpead= 4186800.0,	 WDLwDsTimesByPureByRawRate= w:37.458788253207615 $d:3.68008882857169 $l:58.8611229182207,	 WdlRateWithDSWithProbRate= w:53.40408462189341 $d:7.3511245360826125 $l:39.24479084202398

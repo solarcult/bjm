@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102.strategy.test;
+package org.shil.bjm.strategy8102.strategy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,17 +7,13 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
-import org.shil.bjm.strategy8102.strategy.Finally2047;
-import org.shil.bjm.strategy8102.strategy.MatrixKey;
-import org.shil.bjm.strategy8102.strategy.Seven8012;
-import org.shil.bjm.strategy8102.strategy.Situation;
-import org.shil.bjm.strategy8102.strategy.Standard2017;
-import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.test.Finally2046;
+import org.shil.bjm.strategy8102.strategy.test.Standard2018;
 
 /**
  * ROI best before and release pair ten and test more
  * Sep-23th 23:39
- * 好像打开了对10可以分牌,have put it into changeMatrix，已经看不懂了，忽略这个类
+ * 这个类是演化算法的起始类
  */
 public class Finally2049 extends Seven8012 {
 
@@ -33,11 +29,11 @@ public class Finally2049 extends Seven8012 {
 		//9
 		for(Card dealerCard : Card.values()){
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			if(dealerCard == Card.Three3 || dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6 ){
+			if(dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
+				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
 			}else{
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
@@ -50,9 +46,9 @@ public class Finally2049 extends Seven8012 {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(10), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
+				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(10), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
 			}else{
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(10), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
@@ -65,9 +61,9 @@ public class Finally2049 extends Seven8012 {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
+				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
 			}else if(dealerCard.getValue()==10){
 				//TODO ?
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
@@ -311,8 +307,8 @@ public class Finally2049 extends Seven8012 {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-					changesMatrix.put(start_With_A, PlayerAction.Double);
-				}else if(dealerCard.getValue() == 4 ){
+					notChangesMatrix.put(start_With_A, PlayerAction.Double);
+				}else if(dealerCard.getValue() >=3 && dealerCard.getValue() <= 4 ){
 					//TODO ?
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 					changesMatrix.put(start_With_A, PlayerAction.Double);
@@ -325,22 +321,20 @@ public class Finally2049 extends Seven8012 {
 		//6
 		for(Card dealerCard : Card.values()){
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
+			if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
-				changesMatrix.put(start_With_A, PlayerAction.Double);
-			}else if(dealerCard.getValue() == 3){
-				//TODO ?
-				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
-				changesMatrix.put(start_With_A, PlayerAction.Double);
+				notChangesMatrix.put(start_With_A, PlayerAction.Double);
+//			}else if(dealerCard.getValue() >=3 && dealerCard.getValue() <= 4 ){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
+//				changesMatrix.put(start_With_A, PlayerAction.Double);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
-				notChangesMatrix.put(start_With_A, PlayerAction.Hit);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
 			}
 		}
 		//7
 		for(Card dealerCard : Card.values()){
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			//TODO ?
 			if(dealerCard.getValue() >=3 && dealerCard.getValue() <=6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
@@ -369,9 +363,9 @@ public class Finally2049 extends Seven8012 {
 					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
 						//22 vs 5 or 6
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else if((dealerCard==Card.Four4)){
 						//22 vs 4
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -388,9 +382,9 @@ public class Finally2049 extends Seven8012 {
 					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
 						//33 vs 5 or 6
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
@@ -445,9 +439,9 @@ public class Finally2049 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
 					}else if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else{
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
@@ -455,61 +449,57 @@ public class Finally2049 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 7) {
-					if(dealerCard==Card.Six6){
-						//77 vs 6
+					if (dealerCard.getValue() >= 2 && dealerCard.getValue() <= 3) {
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Start_With_Pair);
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
+					}else if(dealerCard==Card.Four4){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
-					}else {
-						if(dealerCard.getValue() >=2 && dealerCard.getValue() <=3){
-							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							changesMatrix.put(start_With_Pair, PlayerAction.Stand);
-							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
-						}else if(dealerCard.getValue() >=4 && dealerCard.getValue() <=5){
-							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							changesMatrix.put(start_With_Pair, PlayerAction.Split);
-							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
-						}else if(dealerCard.getValue() == 7){
-							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							changesMatrix.put(start_With_Pair, PlayerAction.Hit);
-							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-						}else if(dealerCard.getValue() == 8){
-							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							changesMatrix.put(start_With_Pair, PlayerAction.Hit);
-							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-						}else if(dealerCard.getValue() == 9){
-							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							changesMatrix.put(start_With_Pair, PlayerAction.Hit);
-							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-						}else if(dealerCard.getValue() == 10){
-							//T,J,Q,K
-							//same result if the cards give to dealer
-							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							changesMatrix.put(start_With_Pair, PlayerAction.Giveup);
-							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-						}
-						else{
-							//A
-							MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-							notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
-							MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-							notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-						}
+					} else if (dealerCard.getValue() >= 5 && dealerCard.getValue() <= 6) {
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Start_With_Pair);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Splited_Pair_And_Can_Split);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+					} else if (dealerCard.getValue() == 7) {
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Start_With_Pair);
+						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+					} else if (dealerCard.getValue() == 8) {
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Start_With_Pair);
+						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+					} else if (dealerCard.getValue() == 9) {
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Start_With_Pair);
+						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+					} else if (dealerCard.getValue() == 10) {
+						// T,J,Q,K
+						// same result if the cards give to dealer
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Start_With_Pair);
+						changesMatrix.put(start_With_Pair, PlayerAction.Giveup);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Splited_Pair_And_Can_Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+					} else {
+						// A
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Start_With_Pair);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Hit);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard,Situation.Splited_Pair_And_Can_Split);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 8) {
 					if((dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Seven7)){
 						//88 vs 3,4,5,6,7
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else if(dealerCard == Card.Two2){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Split);
@@ -535,9 +525,9 @@ public class Finally2049 extends Seven8012 {
 				}else if(start == 9) {
 					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);	
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else if(dealerCard==Card.Seven7) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Split);	
@@ -553,14 +543,14 @@ public class Finally2049 extends Seven8012 {
 				}else if(start == 10) {
 					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);	
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}else if(dealerCard==Card.Seven7) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);	
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}else {
 						// 9, 10, A
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -621,15 +611,17 @@ public class Finally2049 extends Seven8012 {
 	public static void main(String[] args) {
 		
 		StrategyMatrix8012 one = new Finally2049();
+		System.out.println(one.getChangesMatrix().size());
+		System.out.println(one.getNotChangesMatrix().size());
 //		System.out.println(one.getChangesMatrix().get(new MatrixKey(StartValue.Ten, Card.One1, Situation.Start_With_Pair)));
-		
-		
 		StrategyMatrix8012 two = new Standard2018();
 		StrategyMatrix8012 three = new Finally2047();
+		System.out.println(three.getChangesMatrix().size());
+		System.out.println(three.getNotChangesMatrix().size());
 		StrategyMatrix8012 four = new Standard2017();
 		StrategyMatrix8012 five = new Finally2046();
-		HelloWorld.printStrategyMatrix8012(one,two,three,four,five);
-		System.out.println(one.diffWith(three));
+//		HelloWorld.printStrategyMatrix8012(one,two,three,four,five);
+//		System.out.println(one.diffWith(three));
 		
 		/*
 org.shil.bjm.strategy8102.strategy.Standard2017 StrategyMatrix8012 [roi= 7.954808078299989,	 WDLwDsTimesByPureByRawRate= w:36.738307190014005 $d:3.653822270704732 $l:59.60787053928127,	 WdlRateWithDSWithProbRate= w:45.208038419744575 $d:8.312650623252408 $l:46.47931095700302

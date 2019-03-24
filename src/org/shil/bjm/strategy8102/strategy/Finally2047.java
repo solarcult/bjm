@@ -696,7 +696,7 @@ public class Finally2047 extends Seven8012 {
 		StrategyMatrix8012 one = new Finally2047();
 		StrategyMatrix8012 two = new Finally2046();
 		StrategyMatrix8012 three = new Standard2017();
-		HelloWorld.printStrategyMatrix8012(one, two,three);
+//		HelloWorld.printStrategyMatrix8012(one, two,three);
 		System.out.println(one.diffWith(two));
 		System.out.println();
 		System.out.println(one.diffWith(three));

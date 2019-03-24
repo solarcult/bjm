@@ -2,18 +2,20 @@ package org.shil.bjm.strategy8102;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
+import org.shil.bjm.strategy8102.comparator.ParetoComparator;
+import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
-import org.shil.bjm.strategy8102.strategy.test.Finally2049;
 
 public class EvolutionParetoFrontTest {
 
-	static int write2disk = 10;
-	static int print2screen = 5;
+	static int write2disk = 3;
+	static int print2screen = 1;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 	static int producePopluation = popluation/2;
@@ -29,9 +31,13 @@ public class EvolutionParetoFrontTest {
 		for(int i = 1; i <= generation; i++) {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
-				
-				evos = null;
-				
+				//繁殖
+				evos = reproduction(evos);
+				//找到帕累托前沿
+				evos = findParetoFront(evos);
+				//衡量并剪枝
+				evos = cutTheList(evos);
+				//打印出来瞧瞧
 				if(i % print2screen == 0) {
 					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
 				}
@@ -62,11 +68,11 @@ public class EvolutionParetoFrontTest {
 		
 		for(StrategyMatrix8012 sm : origins) {
 			if(total <= 0) break;
-			//put the best from past generation in competions list，把原始的个体放入，此处应该不用重新计算
+			//put the best from past generation in competions list，把原始的个体放入，应该很稀少有重复（只有当其他变异变异出和orgins一样时），同时origins应该不用重新计算相关数据
 			if(!reproductions.contains(sm)) {
 				if(total-- <= 0) break;
+				reproductions.add(sm);
 				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
-					reproductions.add(sm);
 					sm.getEverythingInOneLoop();
 				});
 				lotOfCpuS.add(completableFuture);
@@ -74,13 +80,14 @@ public class EvolutionParetoFrontTest {
 			//开始繁殖
 			for(int i=0; i < producePopluation; i++) {
 				if(total-- <= 0) break;
+				StrategyMatrix8012 evo = sm.evolve();
+				if(reproductions.contains(evo)) {
+					//此处可能造成最终没有达到total期望的个体数,没关系
+					continue;
+				}
+				reproductions.add(evo);
 				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
-					StrategyMatrix8012 evo = sm.evolve();
-					if(reproductions.contains(evo)) {
-						return ;
-					}
-					sm.getEverythingInOneLoop();
-					reproductions.add(evo);
+					evo.getEverythingInOneLoop();
 				});
 				lotOfCpuS.add(completableFuture);
 			}
@@ -93,6 +100,12 @@ public class EvolutionParetoFrontTest {
 		return reproductions;
 	}
 	
+	/**
+	 * 找到帕累托前沿
+	 * 由于上个方法已经对List做了去重，这个方法就不做了。
+	 * @param reproductions
+	 * @return
+	 */
 	public static List<StrategyMatrix8012> findParetoFront(List<StrategyMatrix8012> reproductions){
 		List<StrategyMatrix8012> paretoFronts = new ArrayList<>();
 		for(StrategyMatrix8012 one : reproductions) {
@@ -109,10 +122,11 @@ public class EvolutionParetoFrontTest {
 			//Front里面的点domination这个点,忽略这个个体
 			if(beDominationed) continue;
 			
+			//开始遍历所有个体
 			for(StrategyMatrix8012 two : reproductions) {
 				if(one.equals(two)) continue; //自己忽略掉自己
 				if(paretoFronts.contains(two)) {
-					//之前已经计算过了
+					//之前已经计算过了，其实也没有多少计算量
 					continue;
 				}
 				if(two.getProbRate()[0] > one.getProbRate()[0]
@@ -130,7 +144,19 @@ public class EvolutionParetoFrontTest {
 			paretoFronts.add(one);
 		}
 		
+		System.out.println("ParetoFront size is: " + paretoFronts.size());
+		
 		return paretoFronts;
+	}
+	
+	public static List<StrategyMatrix8012> cutTheList(List<StrategyMatrix8012> competions) {
+		Collections.sort(competions,new ParetoComparator());
+		List<StrategyMatrix8012> result = new ArrayList<>();
+		int length = (popluation > competions.size()) ? competions.size() : popluation;
+		for(int i = 0; i < length; i++) {
+			result.add(competions.get(i));
+		}
+		return result;
 	}
 	
 }
