@@ -524,6 +524,8 @@ public abstract class StrategyMatrix8012{
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [ParetoFrontValue= ");
 		sb.append(getParetoFrontValue());
+		sb.append(",ParetotYPE= ");
+		sb.append(StrategyMatrix8012.paretoFrontType);
 		sb.append(",\t roi= ");
 		sb.append(getROI());
 		sb.append(",\t totalTimes: "+ this.totalTimes);
@@ -587,11 +589,11 @@ public abstract class StrategyMatrix8012{
 		return sb.toString();
 	}
 	
-	public static int paretoFrontValue = 0;
+	public static int paretoFrontType = 0;
 	public double getParetoFrontValue() {
 		getEverythingInOneLoop();
 		
-		if(paretoFrontValue ==0) {
+		if(paretoFrontType ==0) {
 			//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 			//基于DStime的权重，鼓励分牌和Double
 			double roi = 3;
@@ -601,7 +603,7 @@ public abstract class StrategyMatrix8012{
 			double timeRates0 = 4.2;
 			return roi * this.getROI() + probRates0 * this.getProbRates()[0] + timeRates0 * this.getTimeRates()[0];
 		}
-		if(paretoFrontValue == 1){
+		if(paretoFrontType == 1){
 			//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 			//基于DStime的权重，鼓励分牌和Double
 			double roi = 3.25;
@@ -611,7 +613,7 @@ public abstract class StrategyMatrix8012{
 			double timeRates01 = 4;
 			return roi * this.getROI() + probRates01 * (this.getProbRates()[0]+this.getProbRates()[1]) + timeRates01 * (this.getTimeRates()[0]+this.getTimeRates()[1]);
 		}
-		if(paretoFrontValue == 2) {
+		if(paretoFrontType == 2) {
 			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 			//基于DStime的权重，鼓励分牌和Double
 			double roi = 0.01;
@@ -622,7 +624,7 @@ public abstract class StrategyMatrix8012{
 			return roi * this.getROI() + probRates02 * (this.getProbRates()[0]-this.getProbRates()[2]) + timeRates02 * (this.getTimeRates()[0]-this.getTimeRates()[2]);
 		}
 		
-		throw new RuntimeException("ParetoFrontValue is incorrect: " +paretoFrontValue);
+		throw new RuntimeException("ParetoFrontValue is incorrect: " +paretoFrontType);
 	}
 	
 

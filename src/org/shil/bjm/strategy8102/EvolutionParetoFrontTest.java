@@ -29,9 +29,9 @@ public class EvolutionParetoFrontTest {
 		evos.add(origin);
 		
 		//Very important to check below value and understand what its meaning : [0,1,2]
-		StrategyMatrix8012.paretoFrontValue = 0;
+		StrategyMatrix8012.paretoFrontType = 0;
 		
-		String testStrategy = "nice to meet you and good luck. StrategyMatrix8012.paretoFrontValue: "+StrategyMatrix8012.paretoFrontValue;
+		String testStrategy = "nice to meet you and good luck. StrategyMatrix8012.paretoFrontValue: "+StrategyMatrix8012.paretoFrontType;
 		for(int i = 1; i <= generation; i++) {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
@@ -45,7 +45,7 @@ public class EvolutionParetoFrontTest {
 				//打印出来瞧瞧
 				if(i % print2screen == 0) {
 					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
-					testStrategy = "StrategyMatrix8012.paretoFrontValue : "+ StrategyMatrix8012.paretoFrontValue+"\n";
+					testStrategy = "StrategyMatrix8012.paretoFrontValue : "+ StrategyMatrix8012.paretoFrontType+"\n";
 					testStrategy = testStrategy + testSelectedStrategy(evos);
 					
 					System.out.println(testStrategy);
