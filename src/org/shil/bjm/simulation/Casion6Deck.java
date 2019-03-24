@@ -58,7 +58,7 @@ public class Casion6Deck {
 		return sr.nextInt(casion6Deck.length);
 	}
 	
-	public void reset() {
+	public void resetButKeepLastTurnUsed() {
 		this.lastTurn = this.thisTurn;
 		this.thisTurn = new HashSet<>();
 		

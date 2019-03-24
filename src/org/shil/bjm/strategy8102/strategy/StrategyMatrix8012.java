@@ -370,7 +370,7 @@ public abstract class StrategyMatrix8012{
 				Collection<DealerCardsPathValue> dealerSet = DealerCards.fetchDealerCards(dealerCard);
 				for(PlayerCardsPathValue playerCardsPathValue : oneSet) {
 					for(DealerCardsPathValue dealerCardsPathValue : dealerSet) {
-						//value是记录分牌或Double的次数,默认是0
+						//playtime的含义时分牌的次数
 						double playtimes = Math.pow(2, playerCardsPathValue.getSplitTimes());
 												
 						double multiProb =  playerCardsPathValue.prob() * dealerCardsPathValue.prob();
@@ -611,16 +611,16 @@ public abstract class StrategyMatrix8012{
 		sb.append(getParetoFrontValue());
 		sb.append(",\t roi= ");
 		sb.append(getROI());
-		sb.append(",\t moneyReturn= ");
-		sb.append(getMoneyReturn());
-		sb.append(",\t totalSpead= ");
-		sb.append(getTotalSpead());
 		sb.append(",\t totalTimes: "+ this.totalTimes);
 		sb.append(",\t getTimeRates= ");
 		sb.append(HelloWorld.builderDoubleWDL(getTimeRates()));
 		sb.append(",\t totalProbs: "+ this.totalProbs);
 		sb.append(",\t getProbRate= ");
 		sb.append(HelloWorld.builderDoubleWDL(getProbRates()));
+		sb.append(",\t moneyReturn= ");
+		sb.append(getMoneyReturn());
+		sb.append(",\t totalSpead= ");
+		sb.append(getTotalSpead());
 
 		return sb.toString();
 	}
@@ -674,13 +674,33 @@ public abstract class StrategyMatrix8012{
 	
 	public double getParetoFrontValue() {
 		getEverythingInOneLoop();
-		//基于DStime的权重
+		
+		//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+		//基于DStime的权重，鼓励分牌和Double
 		double roi = 3;
-		//基于playtime的权重
-		double probRates0 = 2;
-		//基于playtime的权重
-		double timeRates0 = 5;
+		//基于playtime的权重，鼓励分牌,净概率,关注于赢
+		double probRates0 = 2.8;
+		//基于playtime的权重，鼓励分牌,净胜率,关注于赢
+		double timeRates0 = 4.2;
 		return roi * this.getROI() + probRates0 * this.getProbRates()[0] + timeRates0 * this.getTimeRates()[0];
+		
+//		//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+//		//基于DStime的权重，鼓励分牌和Double
+//		double roi = 3.25;
+//		//基于playtime的权重，鼓励分牌,净概率,关注于不输
+//		double probRates01 = 2.75;
+//		//基于playtime的权重，鼓励分牌,净胜率,关注于不输
+//		double timeRates01 = 4;
+//		return roi * this.getROI() + probRates01 * (this.getProbRates()[0]+this.getProbRates()[1]) + timeRates01 * (this.getTimeRates()[0]+this.getTimeRates()[1]);
+		
+//		//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
+//		//基于DStime的权重，鼓励分牌和Double
+//		double roi = 0.01;
+//		//基于playtime的权重，鼓励分牌,净概率,关注于差值
+//		double probRates02 = 1;
+//		//基于playtime的权重，鼓励分牌,净胜率,关注于差值
+//		double timeRates02 = 1.5;
+//		return roi * this.getROI() + probRates02 * (this.getProbRates()[0]-this.getProbRates()[2]) + timeRates02 * (this.getTimeRates()[0]-this.getTimeRates()[2]);
 	}
 	
 	/*
