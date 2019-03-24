@@ -56,7 +56,7 @@ public class TestA {
 		StrategyMatrix8012 a = new Standard2017();
 		EvolutionOneWayTest.debug = true;
 		a.getTimeRates();
-		a.getProbRate();
+		a.getProbRates();
 	}
 	
 	public static void testC() {

@@ -8,9 +8,9 @@ public class WdlRateWithDSWithProbRateComparator implements Comparator<StrategyM
 
 	@Override
 	public int compare(StrategyMatrix8012 arg0, StrategyMatrix8012 arg1) {
-		if(arg0.getProbRate()[0] > arg1.getProbRate()[0]) {
+		if(arg0.getProbRates()[0] > arg1.getProbRates()[0]) {
 			return -1;
-		}else if(arg0.getProbRate()[0] < arg1.getProbRate()[0]) {
+		}else if(arg0.getProbRates()[0] < arg1.getProbRates()[0]) {
 			return 1;
 		}
 		return 0;

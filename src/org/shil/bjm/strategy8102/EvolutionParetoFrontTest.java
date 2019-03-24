@@ -111,7 +111,7 @@ public class EvolutionParetoFrontTest {
 		for(StrategyMatrix8012 one : reproductions) {
 			boolean beDominationed = false;
 			for(StrategyMatrix8012 front : paretoFronts) {
-				if(front.getProbRate()[0] > one.getProbRate()[0]
+				if(front.getProbRates()[0] > one.getProbRates()[0]
 					&& front.getTimeRates()[0] > one.getTimeRates()[0]
 					&& front.getROI() > one.getROI()) {
 					//Front里面某个点每一点都优于它,则忽略
@@ -129,7 +129,7 @@ public class EvolutionParetoFrontTest {
 					//之前已经计算过了，其实也没有多少计算量
 					continue;
 				}
-				if(two.getProbRate()[0] > one.getProbRate()[0]
+				if(two.getProbRates()[0] > one.getProbRates()[0]
 						&& two.getTimeRates()[0] > one.getTimeRates()[0]
 						&& two.getROI() > one.getROI()) {
 						//two这个点每一点都优于one,放弃one

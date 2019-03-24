@@ -93,7 +93,7 @@ public class EvolutionOneWayTest {
 							sm.getTimeRates();
 							break;
 						case 3:
-							sm.getProbRate();
+							sm.getProbRates();
 							break;
 						case 4:
 							sm.getROI();
@@ -120,7 +120,7 @@ public class EvolutionOneWayTest {
 							evo.getTimeRates();
 							break;
 						case 3:
-							evo.getProbRate();
+							evo.getProbRates();
 							break;
 						case 4:
 							evo.getROI();

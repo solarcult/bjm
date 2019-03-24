@@ -169,6 +169,42 @@ public class ProfitUtil {
 		return 0;
 	}
 	
+	
+	public static double calcPureReturnAfterPareto(PlayerCardsPathValue playerCardsPathValue, DealerCardsPathValue dealerCardsPathValue,double baseMoney) {
+
+		if(playerCardsPathValue.getAction() == PlayerAction.Giveup) {
+			if(playerCardsPathValue.getValue()>BlackJackInfo.BlackJack) throw new RuntimeException("should not give up but value > 21.");
+			if(playerCardsPathValue.getDsTimes() > 0) throw new RuntimeException("playerCardsPathValue.getDsTimes() > 0 can't give up should not happened");
+			if(playerCardsPathValue.getBetMutiV()!=0.5) throw new RuntimeException("playerCardsPathValue.getBetMutiV()!=0.5 in give up ! ");
+			return baseMoney * playerCardsPathValue.getBetMutiV() * -1; //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
+		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
+			return 0;
+		}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
+				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
+				|| playerCardsPathValue.getAction() == PlayerAction.Double
+				|| playerCardsPathValue.getAction() == PlayerAction.Split){
+			throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+		}
+		
+		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
+			return baseMoney * playerCardsPathValue.getBetMutiV() * -1;
+		}
+		if(dealerCardsPathValue.getValue() > BlackJackInfo.BlackJack) {
+			return baseMoney * playerCardsPathValue.getBetMutiV();
+		}
+		if(playerCardsPathValue.getValue() > dealerCardsPathValue.getValue()) {
+			return baseMoney * playerCardsPathValue.getBetMutiV();
+		}
+		if(playerCardsPathValue.getValue() == dealerCardsPathValue.getValue()) {
+			return 0;
+		}
+		if(playerCardsPathValue.getValue() < dealerCardsPathValue.getValue()) {
+			return baseMoney * playerCardsPathValue.getBetMutiV() * -1;
+		}
+	
+		return 0;
+	}
+	
 	/**
 	 * 只计算baseMoney的概率结果，非整数结果
 	 * @param playerCardsPathValue

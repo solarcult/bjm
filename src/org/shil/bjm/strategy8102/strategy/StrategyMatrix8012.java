@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.DealerCards;
@@ -19,8 +18,6 @@ import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.StartValue;
-import org.shil.bjm.meta.WinDrawLose;
-import org.shil.bjm.meta.WinRateUtil;
 import org.shil.bjm.simulation.Casion6Deck;
 import org.shil.bjm.strategy8102.EvolutionOneWayTest;
 import org.shil.bjm.strategy8102.Strategy8012;
@@ -338,8 +335,8 @@ public abstract class StrategyMatrix8012{
 	 */
 	public void getEverythingInOneLoop() {
 		if(EvolutionOneWayTest.debug) System.out.println("getEverythingInOneLoop() class : " + this.getClass().getName() );
-		if(this.probRates != null && this.timeRates != null) {
-			System.out.println("This Matrix8012 has been calc DONE ! ");
+		if(this.probRates != null && this.timeRates != null && this.roi != null) {
+//			System.out.println("This Matrix8012 has been calc DONE ! ");
 			return;
 		}
 		long startTime = System.currentTimeMillis();
@@ -465,7 +462,7 @@ public abstract class StrategyMatrix8012{
 		return timeRates;
 	}
 	
-	public Double[] getProbRate() {
+	public Double[] getProbRates() {
 		if(probRates == null) getEverythingInOneLoop();
 		return probRates;
 	}
@@ -562,7 +559,6 @@ public abstract class StrategyMatrix8012{
 */
 	@Override
 	public String toString() {
-
 		StringBuffer sb = new StringBuffer();		
 		sb.append(getCalcResult());
 		sb.append("\nconstruct code = \n");
@@ -611,7 +607,9 @@ public abstract class StrategyMatrix8012{
 	
 	public String getCalcResult() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("StrategyMatrix8012 [roi= ");
+		sb.append("StrategyMatrix8012 [ParetoFrontValue= ");
+		sb.append(getParetoFrontValue());
+		sb.append(",\t roi= ");
 		sb.append(getROI());
 		sb.append(",\t moneyReturn= ");
 		sb.append(getMoneyReturn());
@@ -622,7 +620,7 @@ public abstract class StrategyMatrix8012{
 		sb.append(HelloWorld.builderDoubleWDL(getTimeRates()));
 		sb.append(",\t totalProbs: "+ this.totalProbs);
 		sb.append(",\t getProbRate= ");
-		sb.append(HelloWorld.builderDoubleWDL(getProbRate()));
+		sb.append(HelloWorld.builderDoubleWDL(getProbRates()));
 
 		return sb.toString();
 	}
@@ -674,6 +672,18 @@ public abstract class StrategyMatrix8012{
 		return sb.toString();
 	}
 	
+	public double getParetoFrontValue() {
+		getEverythingInOneLoop();
+		//基于DStime的权重
+		double roi = 3;
+		//基于playtime的权重
+		double probRates0 = 2;
+		//基于playtime的权重
+		double timeRates0 = 5;
+		return roi * this.getROI() + probRates0 * this.getProbRates()[0] + timeRates0 * this.getTimeRates()[0];
+	}
+	
+	/*
 	public Double[] getProbRate2() {
 		if(probRates==null) {
 			double win =0;
@@ -699,6 +709,7 @@ public abstract class StrategyMatrix8012{
 		return probRates;
 	}
 	
+	//计算完以后，不是100%，而是超过100%，还没想清楚为什么
 	public void testPureProb() {
 		double total = 0;
 		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
@@ -721,4 +732,6 @@ public abstract class StrategyMatrix8012{
 		
 		System.out.println(total);
 	}
+	
+	*/
 }
