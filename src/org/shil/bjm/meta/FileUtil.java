@@ -35,7 +35,7 @@ public class FileUtil {
 	 * @param generation
 	 * @param evos
 	 */
-	public static void writeToDisk(int generation, List<StrategyMatrix8012> evos){
+	public static void writeToDisk(int generation, List<StrategyMatrix8012> evos,String something){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
 		String fileName=generation+"_"+ sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
 		try {
@@ -50,6 +50,8 @@ public class FileUtil {
 			out.write(new Finally2047().diffWith(evos.get(0)));
 			out.newLine();
 			out.write(evos.get(0).toString());
+			out.newLine();
+			out.write(something);
 			out.flush();
 			out.close();
 		}catch(Exception e) {

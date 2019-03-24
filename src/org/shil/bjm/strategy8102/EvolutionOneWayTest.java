@@ -16,6 +16,10 @@ import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 import org.shil.bjm.strategy8102.strategy.test.Standard2018;
 import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
 
+/**
+ * 应该不会再使用,因为依赖于之前的代码都已经改变，现在每次都要计算全量的，之前是基于一个维度的属性，速度快。
+ * @deprecated
+ */
 public class EvolutionOneWayTest {
 	
 	static int write2disk = 300;
@@ -59,11 +63,11 @@ public class EvolutionOneWayTest {
 			}
 
 			if(i % write2disk == 0) {
-				FileUtil.writeToDisk(i,evos);
+				FileUtil.writeToDisk(i,evos,"nice");
 			}
 		}
 
-		FileUtil.writeToDisk(generation,evos);
+		FileUtil.writeToDisk(generation,evos,"nice");
 	}
 	
 	public static List<StrategyMatrix8012> evoluationOnceMultiCPU(List<StrategyMatrix8012> origins,int type) {

@@ -472,91 +472,6 @@ public abstract class StrategyMatrix8012{
 		return this.roi;
 	}
 	
-/*
- * 被新的getEverythingInOneLoop()替代掉的方法
- * 
-	public Double[] getTimeRates() {
-		if(timeRates==null) {
-			double win =0;
-			double draw = 0;
-			double lose = 0;
-			
-			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-			for(PlayerCardsPathValue pcpv : playerCards){
-				for(Card dealerCard : Card.values()){
-					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
-					Double[] wdl = WinRateUtil.calcWDLwDsTimesByPureByRaw(oneSet, DealerCards.fetchDealerCards(dealerCard));
-					win += wdl[WinDrawLose.win];
-					draw += wdl[WinDrawLose.draw];
-					lose += wdl[WinDrawLose.lose];
-				}
-			}
-			double total = win + draw + lose;
-			timeRates = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionTest.debug) System.out.println("WDLwDsTimesByPureByRawRate done: " + HelloWorld.builderDoubleWDL(timeRates));
-		}
-		return timeRates;
-	}
-	
-	public Double[] getProbRate() {
-		if(probRates==null) {
-			double win =0;
-			double draw = 0;
-			double lose = 0;
-			
-			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-			for(PlayerCardsPathValue pcpv : playerCards){
-				for(Card dealerCard : Card.values()){
-					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
-					Double[] wdl = WinRateUtil.calcWDLwDsByRawByProb(oneSet, dealerCard);
-					win += wdl[WinDrawLose.win];
-					draw += wdl[WinDrawLose.draw];
-					lose += wdl[WinDrawLose.lose];
-				}
-			}
-			double total = win + draw + lose;
-			probRates = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionTest.debug) System.out.println("WdlRateWithDSWithProbRate done: " + HelloWorld.builderDoubleWDL(probRates));
-		}
-		return probRates;
-	}
-	
-	public double getROI() {
-		if(this.roi==null) {
-			double allReturn = 0;
-			double totalSpead = 0;
-//			EvolutionTest.debug = true;
-			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
-//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
-//			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
-			for(PlayerCardsPathValue pcpv : playerCards){
-				double r = 0;
-				if(EvolutionTest.debug) System.out.print(pcpv.getCards() +" "+pcpv.getValue() + " \t : ");
-				for(Card dealerCard : Card.values()){
-					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
-					for(PlayerCardsPathValue one : oneSet) {
-						double onebet = ProfitUtil.BaseMoney *  one.getDsTimes();
-						totalSpead += onebet;
-					}
-					allReturn += ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
-					r+=ProfitUtil.moneyCalcOneHandInReturnProb(oneSet, dealerCard);
-				}
-				if(EvolutionTest.debug) System.out.println(r);
-			}
-			this.pureReturn = allReturn;
-			this.totalSpead = totalSpead;
-			this.roi = this.pureReturn/this.totalSpead;
-			if(EvolutionTest.debug) System.out.println("pureReturn done: " + allReturn);
-			if(EvolutionTest.debug) System.out.println("totalSpead done: " + totalSpead);
-			if(EvolutionTest.debug) System.out.println("roi done: " + roi);
-		}
-		return this.roi;
-	}
-*/
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();		
@@ -672,63 +587,45 @@ public abstract class StrategyMatrix8012{
 		return sb.toString();
 	}
 	
+	public static int paretoFrontValue = 0;
 	public double getParetoFrontValue() {
 		getEverythingInOneLoop();
 		
-		//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
-		//基于DStime的权重，鼓励分牌和Double
-		double roi = 3;
-		//基于playtime的权重，鼓励分牌,净概率,关注于赢
-		double probRates0 = 2.8;
-		//基于playtime的权重，鼓励分牌,净胜率,关注于赢
-		double timeRates0 = 4.2;
-		return roi * this.getROI() + probRates0 * this.getProbRates()[0] + timeRates0 * this.getTimeRates()[0];
-		
-//		//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
-//		//基于DStime的权重，鼓励分牌和Double
-//		double roi = 3.25;
-//		//基于playtime的权重，鼓励分牌,净概率,关注于不输
-//		double probRates01 = 2.75;
-//		//基于playtime的权重，鼓励分牌,净胜率,关注于不输
-//		double timeRates01 = 4;
-//		return roi * this.getROI() + probRates01 * (this.getProbRates()[0]+this.getProbRates()[1]) + timeRates01 * (this.getTimeRates()[0]+this.getTimeRates()[1]);
-		
-//		//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
-//		//基于DStime的权重，鼓励分牌和Double
-//		double roi = 0.01;
-//		//基于playtime的权重，鼓励分牌,净概率,关注于差值
-//		double probRates02 = 1;
-//		//基于playtime的权重，鼓励分牌,净胜率,关注于差值
-//		double timeRates02 = 1.5;
-//		return roi * this.getROI() + probRates02 * (this.getProbRates()[0]-this.getProbRates()[2]) + timeRates02 * (this.getTimeRates()[0]-this.getTimeRates()[2]);
-	}
-	
-	/*
-	public Double[] getProbRate2() {
-		if(probRates==null) {
-			double win =0;
-			double draw = 0;
-			double lose = 0;
-			
-			Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-			for(PlayerCardsPathValue pcpv : playerCards){
-				for(Card dealerCard : Card.values()){
-					PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-					Collection<PlayerCardsPathValue> oneSet = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), this, oneCalc, dealerCard);
-					Double[] wdl = WinRateUtil.calcWDLwDsByRawByProb(oneSet, dealerCard);
-					win += wdl[WinDrawLose.win];
-					draw += wdl[WinDrawLose.draw];
-					lose += wdl[WinDrawLose.lose];
-				}
-			}
-			double total = win + draw + lose;
-			System.out.println("TTTTTTTTTTTTTTTTTTTTt: "+ total);
-			probRates = new Double[] {win/total,draw/total,lose/total};
-			if(EvolutionOneWayTest.debug) System.out.println("WdlRateWithDSWithProbRate done: " + HelloWorld.builderDoubleWDL(probRates));
+		if(paretoFrontValue ==0) {
+			//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+			//基于DStime的权重，鼓励分牌和Double
+			double roi = 3;
+			//基于playtime的权重，鼓励分牌,净概率,关注于赢
+			double probRates0 = 2.8;
+			//基于playtime的权重，鼓励分牌,净胜率,关注于赢
+			double timeRates0 = 4.2;
+			return roi * this.getROI() + probRates0 * this.getProbRates()[0] + timeRates0 * this.getTimeRates()[0];
 		}
-		return probRates;
+		if(paretoFrontValue == 1){
+			//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+			//基于DStime的权重，鼓励分牌和Double
+			double roi = 3.25;
+			//基于playtime的权重，鼓励分牌,净概率,关注于不输
+			double probRates01 = 2.75;
+			//基于playtime的权重，鼓励分牌,净胜率,关注于不输
+			double timeRates01 = 4;
+			return roi * this.getROI() + probRates01 * (this.getProbRates()[0]+this.getProbRates()[1]) + timeRates01 * (this.getTimeRates()[0]+this.getTimeRates()[1]);
+		}
+		if(paretoFrontValue == 2) {
+			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
+			//基于DStime的权重，鼓励分牌和Double
+			double roi = 0.01;
+			//基于playtime的权重，鼓励分牌,净概率,关注于差值
+			double probRates02 = 1;
+			//基于playtime的权重，鼓励分牌,净胜率,关注于差值
+			double timeRates02 = 1.5;
+			return roi * this.getROI() + probRates02 * (this.getProbRates()[0]-this.getProbRates()[2]) + timeRates02 * (this.getTimeRates()[0]-this.getTimeRates()[2]);
+		}
+		
+		throw new RuntimeException("ParetoFrontValue is incorrect: " +paretoFrontValue);
 	}
 	
+
 	//计算完以后，不是100%，而是超过100%，还没想清楚为什么
 	public void testPureProb() {
 		double total = 0;
@@ -753,5 +650,4 @@ public abstract class StrategyMatrix8012{
 		System.out.println(total);
 	}
 	
-	*/
 }

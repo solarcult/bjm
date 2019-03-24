@@ -8,6 +8,7 @@ import java.util.concurrent.CompletableFuture;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
+import org.shil.bjm.simulation.RealMatch;
 import org.shil.bjm.strategy8102.comparator.ParetoComparator;
 import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
@@ -27,7 +28,10 @@ public class EvolutionParetoFrontTest {
 		StrategyMatrix8012 origin = new Finally2049();
 		evos.add(origin);
 		
-
+		//Very important to check below value and understand what its meaning : [0,1,2]
+		StrategyMatrix8012.paretoFrontValue = 0;
+		
+		String testStrategy = "nice to meet you.";
 		for(int i = 1; i <= generation; i++) {
 			try {
 				System.out.println(Calendar.getInstance().getTime() +" this is generation : "+i +" evos size: " + evos.size());
@@ -37,21 +41,45 @@ public class EvolutionParetoFrontTest {
 				evos = findParetoFront(evos);
 				//衡量并剪枝
 				evos = cutTheList(evos);
+				
 				//打印出来瞧瞧
 				if(i % print2screen == 0) {
 					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
+					testStrategy = "StrategyMatrix8012.paretoFrontValue : "+ StrategyMatrix8012.paretoFrontValue+"\n";
+					testStrategy = testStrategy + testSelectedStrategy(evos);
+					
+					System.out.println(testStrategy);
 				}
+				
 				if(EvolutionOneWayTest.debug) System.out.println(Calendar.getInstance().getTime() + " for done");
+				
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 
 			if(i % write2disk == 0) {
-				FileUtil.writeToDisk(i,evos);
+				FileUtil.writeToDisk(i,evos,testStrategy);
 			}
 		}
 
-		FileUtil.writeToDisk(generation,evos);
+		FileUtil.writeToDisk(generation,evos,testStrategy);
+	}
+	
+	public static String testSelectedStrategy(List<StrategyMatrix8012> evos) {
+		if(evos.size()==1) {
+			return RealMatch.testSelectedStrategy(evos.get(0));
+		}else if(evos.size()==2) {
+			return RealMatch.testSelectedStrategy(evos.get(0),evos.get(1));
+		}else if(evos.size()==3) {
+			return RealMatch.testSelectedStrategy(evos.get(0),evos.get(1),evos.get(2));
+		}else if(evos.size()==4) {
+			return RealMatch.testSelectedStrategy(evos.get(0),evos.get(1),evos.get(2),evos.get(3));
+		}else if(evos.size()>=5) {
+			int middle = Math.floorDiv(evos.size(), 2);
+			return RealMatch.testSelectedStrategy(evos.get(0),evos.get(Math.floorDiv(middle,2)),evos.get(middle),evos.get(Math.floorDiv(middle,2)+middle),evos.get(evos.size()-1));
+		}
+		
+		return "WTF of testSelectedStrategy, evos.length: " + evos.size();
 	}
 
 	public static List<StrategyMatrix8012> reproduction(List<StrategyMatrix8012> origins){

@@ -722,7 +722,6 @@ public class Standard2017 extends Seven8012 {
 	public static void main(String[] args) {
 		
 		StrategyMatrix8012 one = new Standard2017();
-		/*
 		List<StrategyMatrix8012> s = new ArrayList<>();
 		one.timeRates = new Double[] { 10d,20d,30d};
 		long start = System.currentTimeMillis();
@@ -744,11 +743,8 @@ public class Standard2017 extends Seven8012 {
 				count++;
 			}
 		}
-		
 		System.out.println(count);
 		
-//		two.winRateWithProb();
- */
 	}
 
 }

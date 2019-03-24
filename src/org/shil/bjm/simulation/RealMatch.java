@@ -1,8 +1,5 @@
 package org.shil.bjm.simulation;
 
-import java.util.List;
-
-import org.apache.commons.math3.stat.Frequency;
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.meta.Card;
@@ -17,10 +14,7 @@ import org.shil.bjm.strategy8102.strategy.Standard2017;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 import org.shil.bjm.strategy8102.strategy.test.Finally2051;
 import org.shil.bjm.strategy8102.strategy.test.Finally2046;
-import org.shil.bjm.strategy8102.strategy.test.Finally2050;
-import org.shil.bjm.strategy8102.strategy.test.Standard2018;
-import org.shil.bjm.strategy8102.test.TestAnything2048;
-import org.shil.bjm.strategy8102.test.TestMatrix;
+
 
 public class RealMatch {
 	
@@ -30,98 +24,8 @@ public class RealMatch {
 		PlayerCardsPathValue pr = Strategy8012.generateOneMatch(casion6Deck,strategyMatrix8012, new PlayerCardsPathValue(p1,p2), dealerCard);
 		return pr;
 	}
-	
-	public static double oneMatch(Casion6Deck casion6Deck,double baseMoney) {
-		
-		Card dealerCard = casion6Deck.fetchOne();
-		
-		PlayerCardsPathValue p1 = getOnePlayerCards(casion6Deck, new Finally2046(), dealerCard);
-		PlayerCardsPathValue p2 = getOnePlayerCards(casion6Deck, new Finally2047(), dealerCard);
-		PlayerCardsPathValue p3 = getOnePlayerCards(casion6Deck, new Standard2017(), dealerCard);
-//		PlayerCardsPathValue p4 = getOnePlayerCards(casion6Deck, new Finally2050(), dealerCard);
-		PlayerCardsPathValue p5 = getOnePlayerCards(casion6Deck, new Finally2049(), dealerCard);
-		PlayerCardsPathValue p6 = getOnePlayerCards(casion6Deck, new TestMatrix(), dealerCard);
-		PlayerCardsPathValue p7 = getOnePlayerCards(casion6Deck, new TestAnything2048(), dealerCard);
-		PlayerCardsPathValue p8 = getOnePlayerCards(casion6Deck, new Finally2051(), dealerCard);
-		
-		DealerCardsPathValue dr = GenerateCardsUtil.generateDealerOneMatch(casion6Deck, new DealerCardsPathValue(dealerCard));
-		
-		PlayerCardsPathValue test = p8;
-		
-		if(EvolutionOneWayTest.debug)System.out.println("bet:" + baseMoney);
-		if(EvolutionOneWayTest.debug)System.out.println(test.getValue()+" : " + test.getCards()+" ds: "+test.getDsTimes());	
-		if(EvolutionOneWayTest.debug)System.out.println(dr.getValue()+" : " + dr.getCards());
-//		double result = ProfitUtil.calcPureReturn(test, dr,baseMoney);
-		double money = ProfitUtil.calcPureReturnAfterPareto(test, dr,baseMoney);
-		if(EvolutionOneWayTest.debug)System.out.println("money:" +money);
-		if(EvolutionOneWayTest.debug)System.out.println("---");
-		
-		try {
-			if(EvolutionOneWayTest.debug) Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return money;
-	}
 
-	public static void main(String[] args) {
-		EvolutionOneWayTest.debug = true;
-		String result = testSelectedStrategy(new Finally2046(),new Finally2047(), new Finally2049(),new Finally2051(), new Standard2017());
-		System.out.println(result);
-		
-		/*
-		EvolutionOneWayTest.debug = false;
-		Casion6Deck casion6Deck = new Casion6Deck();
-		double avg = 0;
-		for(int trial= 0 ; trial < 50; trial++) {
-			Frequency frequency = new Frequency();
-			double baseMoney = 0d;
-			double w = 0;
-			double d = 0;
-			double l = 0;
-			double result = 0 ;
-			for(int i=1;i<=1000;i++) {
-				baseMoney = ProfitUtil.BaseMoney;
-				casion6Deck.resetButKeepLastTurnUsed();
-				int count = casion6Deck.getCount();
-				if(EvolutionOneWayTest.debug)System.out.println("count: "+count);
-				if(count>=5) {
-					baseMoney += (count/5)*100;
-				}
-				double roi = oneMatch(casion6Deck,baseMoney);
-				
-				//用胜负次数衡量结果
-				if(roi>0)w++;
-				else if(roi==0)d++;
-				else if(roi<0) l++;
-				
-				//用钱衡量结果
-//				if(roi>0)w+=roi;
-//				else if (roi==0) d+=baseMoney;
-//				else if(roi<0) l+=Math.abs(roi);
-				
-				result += roi;
-				if(EvolutionOneWayTest.debug) System.out.println("\t\ti: "+i+"\t\t t:"+result);
-				if(i%100 ==0) {
-					System.out.println(i+ " : "+ result);
-					HelloWorld.printDoubleWDL(new double[] {w/(w+d+l),d/(w+d+l),l/(w+d+l)});
-				}
-				frequency.incrementValue(count,(long)roi);
-				
-				if(result < -30000) break;
-			}
-			System.out.println(result);
-			System.out.println(frequency);
-			avg += result;
-		}
-		System.out.println("avg: "+avg);
-		System.out.println("avg/50: "+avg/50);
-		*/
-	}
-	
-	static int testLoopTimes = 1000;
+	static int testLoopTimes = 50000;
 	public static String testSelectedStrategy(StrategyMatrix8012 ... strategyMatrix8012s) {
 		Casion6Deck casion6Deck = new Casion6Deck();
 		if(strategyMatrix8012s.length ==1){
@@ -503,6 +407,18 @@ public class RealMatch {
 		}
 		
 		return "testTopStrategy input length : " + strategyMatrix8012s.length;
+	}
+	
+	public static void main(String[] args) {
+		EvolutionOneWayTest.debug = true;
+		String result = testSelectedStrategy(new Finally2046(),new Finally2047(), new Finally2049(),new Finally2051(), new Standard2017());
+		System.out.println(result);
+		
+		int max = 5;
+		int middle = Math.floorDiv(max, 2);
+		System.out.println(middle);
+		System.out.println(Math.floorDiv(middle,2));
+		System.out.println(Math.floorDiv(middle,2)+middle);
 	}
 
 }
