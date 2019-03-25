@@ -131,7 +131,8 @@ public class EvolutionParetoFrontTest {
 	
 	/**
 	 * 找到帕累托前沿
-	 * 由于上个方法已经对List做了去重，这个方法就不做了。
+	 * 对于不同玩法得到相同值的，作为被占领。
+	 * 由于上个方法已经对List做了去重，这个方法就不做了.
 	 * @param reproductions
 	 * @return
 	 */
@@ -140,9 +141,9 @@ public class EvolutionParetoFrontTest {
 		for(StrategyMatrix8012 one : reproductions) {
 			boolean beDominationed = false;
 			for(StrategyMatrix8012 front : paretoFronts) {
-				if(front.getProbRates()[0] > one.getProbRates()[0]
-					&& front.getTimeRates()[0] > one.getTimeRates()[0]
-					&& front.getROI() > one.getROI()) {
+				if(front.probRateFactor() >= one.probRateFactor()
+					&& front.timeRateFactor() >= one.timeRateFactor()
+					&& front.roiFactor() >= one.roiFactor()) {
 					//Front里面某个点每一点都优于它,则忽略
 					beDominationed = true;
 					break;
@@ -158,13 +159,13 @@ public class EvolutionParetoFrontTest {
 					//之前已经计算过了，其实也没有多少计算量
 					continue;
 				}
-				if(two.getProbRates()[0] > one.getProbRates()[0]
-						&& two.getTimeRates()[0] > one.getTimeRates()[0]
-						&& two.getROI() > one.getROI()) {
-						//two这个点每一点都优于one,放弃one
-						beDominationed = true;
-						break;
-					}
+				if(two.probRateFactor() >= one.probRateFactor()
+					&& two.timeRateFactor() >= one.timeRateFactor()
+					&& two.roiFactor() >= one.roiFactor()) {
+					//two这个点每一点都优于one,放弃one
+					beDominationed = true;
+					break;
+				}
 			}
 			//有个点domination这个点,忽略这个个体
 			if(beDominationed) continue;

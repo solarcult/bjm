@@ -590,41 +590,91 @@ public abstract class StrategyMatrix8012{
 	}
 	
 	public static int paretoFrontType = 0;
+	
+	//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+	//基于DStime的权重，鼓励分牌和Double
+	double roi0 = 3;
+	//基于playtime的权重，鼓励分牌,净概率,关注于赢
+	double probRates0 = 2.8;
+	//基于playtime的权重，鼓励分牌,净胜率,关注于赢
+	double timeRates0 = 4.2;
+	
+	//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+	//基于DStime的权重，鼓励分牌和Double
+	double roi01 = 3.25;
+	//基于playtime的权重，鼓励分牌,净概率,关注于不输
+	double probRates01 = 2.75;
+	//基于playtime的权重，鼓励分牌,净胜率,关注于不输
+	double timeRates01 = 4;
+	
+	//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
+	//基于DStime的权重，鼓励分牌和Double
+	double roi02 = 0.01;
+	//基于playtime的权重，鼓励分牌,净概率,关注于差值
+	double probRates02 = 1;
+	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
+	double timeRates02 = 1.5;
+	
 	public double getParetoFrontValue() {
 		getEverythingInOneLoop();
+		
+		return this.roiFactor() + this.probRateFactor() + this.timeRateFactor();
+	}
+	
+	public double roiFactor() {
 		
 		if(paretoFrontType ==0) {
 			//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 			//基于DStime的权重，鼓励分牌和Double
-			double roi = 3;
-			//基于playtime的权重，鼓励分牌,净概率,关注于赢
-			double probRates0 = 2.8;
-			//基于playtime的权重，鼓励分牌,净胜率,关注于赢
-			double timeRates0 = 4.2;
-			return roi * this.getROI() + probRates0 * this.getProbRates()[0] + timeRates0 * this.getTimeRates()[0];
+			return roi0 * this.getROI();
 		}
 		if(paretoFrontType == 1){
 			//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 			//基于DStime的权重，鼓励分牌和Double
-			double roi = 3.25;
-			//基于playtime的权重，鼓励分牌,净概率,关注于不输
-			double probRates01 = 2.75;
-			//基于playtime的权重，鼓励分牌,净胜率,关注于不输
-			double timeRates01 = 4;
-			return roi * this.getROI() + probRates01 * (this.getProbRates()[0]+this.getProbRates()[1]) + timeRates01 * (this.getTimeRates()[0]+this.getTimeRates()[1]);
+			return roi01 * this.getROI();
 		}
 		if(paretoFrontType == 2) {
 			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 			//基于DStime的权重，鼓励分牌和Double
-			double roi = 0.01;
-			//基于playtime的权重，鼓励分牌,净概率,关注于差值
-			double probRates02 = 1;
-			//基于playtime的权重，鼓励分牌,净胜率,关注于差值
-			double timeRates02 = 1.5;
-			return roi * this.getROI() + probRates02 * (this.getProbRates()[0]-this.getProbRates()[2]) + timeRates02 * (this.getTimeRates()[0]-this.getTimeRates()[2]);
+			return roi02 * this.getROI();
 		}
 		
-		throw new RuntimeException("ParetoFrontValue is incorrect: " +paretoFrontType);
+		throw new RuntimeException("roiFactor ParetoFrontValue is incorrect: " +paretoFrontType);
+	
+	}
+	
+	public double probRateFactor() {
+		if(paretoFrontType ==0) {
+			//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+			return probRates0 * this.getProbRates()[0];
+		}
+		if(paretoFrontType == 1){
+			//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+			return probRates01 * (this.getProbRates()[0] + this.getProbRates()[1]);
+		}
+		if(paretoFrontType == 2) {
+			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
+			return probRates02 * (this.getProbRates()[0] - this.getProbRates()[2]);
+		}
+		
+		throw new RuntimeException("probRateFactor ParetoFrontValue is incorrect: " +paretoFrontType);
+	}
+	
+	public double timeRateFactor() {
+		if(paretoFrontType ==0) {
+			//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+			return timeRates0 * this.getTimeRates()[0];
+		}
+		if(paretoFrontType == 1){
+			//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+			return timeRates01 * (this.getTimeRates()[0] + this.getTimeRates()[1]);
+		}
+		if(paretoFrontType == 2) {
+			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
+			return timeRates02 * (this.getTimeRates()[0] - this.getTimeRates()[2]);
+		}
+		
+		throw new RuntimeException("timeRateFactor ParetoFrontValue is incorrect: " +paretoFrontType);
 	}
 	
 
