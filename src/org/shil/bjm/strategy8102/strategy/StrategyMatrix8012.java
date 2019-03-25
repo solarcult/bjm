@@ -524,7 +524,7 @@ public abstract class StrategyMatrix8012{
 		StringBuffer sb = new StringBuffer();
 		sb.append("StrategyMatrix8012 [ParetoFrontValue= ");
 		sb.append(getParetoFrontValue());
-		sb.append(",ParetotYPE= ");
+		sb.append(" ,ParetotYPE= ");
 		sb.append(StrategyMatrix8012.paretoFrontType);
 		sb.append(",\t roiFactor()= ");
 		sb.append(roiFactor());

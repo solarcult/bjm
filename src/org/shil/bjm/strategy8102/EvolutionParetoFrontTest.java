@@ -45,10 +45,8 @@ public class EvolutionParetoFrontTest {
 				
 				//打印出来瞧瞧
 				if(i % print2screen == 0) {
-					HelloWorld.printStrategyMatrix8012(evos.get(0),evos.get(evos.size()-1));
 					testStrategy = "StrategyMatrix8012.paretoFrontValue : "+ StrategyMatrix8012.paretoFrontType+"\n";
 					testStrategy = testStrategy + testSelectedStrategy(evos);
-					
 					System.out.println(testStrategy);
 				}
 				
