@@ -599,27 +599,27 @@ public abstract class StrategyMatrix8012{
 	
 	//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 	//基于DStime的权重，鼓励分牌和Double
-	double roi0 = 3;
+	public static double roi0 = 3;
 	//基于playtime的权重，鼓励分牌,净概率,关注于赢
-	double probRates0 = 2.8;
+	public static double probRates0 = 2.8;
 	//基于playtime的权重，鼓励分牌,净胜率,关注于赢
-	double timeRates0 = 4.2;
+	public static double timeRates0 = 4.2;
 	
 	//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 	//基于DStime的权重，鼓励分牌和Double
-	double roi01 = 3.25;
+	public static double roi01 = 3.25;
 	//基于playtime的权重，鼓励分牌,净概率,关注于不输
-	double probRates01 = 2.75;
+	public static double probRates01 = 2.75;
 	//基于playtime的权重，鼓励分牌,净胜率,关注于不输
-	double timeRates01 = 4;
+	public static double timeRates01 = 4;
 	
 	//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 	//基于DStime的权重，鼓励分牌和Double
-	double roi02 = 0.1;
+	public static double roi02 = 0.07;
 	//基于playtime的权重，鼓励分牌,净概率,关注于差值
-	double probRates02 = 10;
+	public static double probRates02 = 7;
 	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
-	double timeRates02 = 1;
+	public static double timeRates02 = 1.22;
 	
 	public double getParetoFrontValue() {
 		getEverythingInOneLoop();

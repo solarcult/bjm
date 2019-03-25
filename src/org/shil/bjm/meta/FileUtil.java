@@ -40,7 +40,31 @@ public class FileUtil {
 		String fileName=generation+"_"+ sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
-			out.write(Calendar.getInstance().getTime().toString());
+			out.write(Calendar.getInstance().getTime().toString() + " @ StrategyMatrix8012.paretoFrontType: "+StrategyMatrix8012.paretoFrontType);
+			if(StrategyMatrix8012.paretoFrontType == 0) {
+				out.write("roi0: ");
+				out.write(String.valueOf(StrategyMatrix8012.roi0));
+				out.write(" ,probRates0: ");
+				out.write(String.valueOf(StrategyMatrix8012.probRates0));
+				out.write(" ,timeRates0: ");
+				out.write(String.valueOf(StrategyMatrix8012.timeRates0));
+			}
+			if(StrategyMatrix8012.paretoFrontType == 1) {
+				out.write("roi01: ");
+				out.write(String.valueOf(StrategyMatrix8012.roi01));
+				out.write(" ,probRates01: ");
+				out.write(String.valueOf(StrategyMatrix8012.probRates01));
+				out.write(" ,timeRates01: ");
+				out.write(String.valueOf(StrategyMatrix8012.timeRates01));
+			}
+			if(StrategyMatrix8012.paretoFrontType == 2) {
+				out.write("roi02: ");
+				out.write(String.valueOf(StrategyMatrix8012.roi02));
+				out.write(" ,probRates02: ");
+				out.write(String.valueOf(StrategyMatrix8012.probRates02));
+				out.write(" ,timeRates02: ");
+				out.write(String.valueOf(StrategyMatrix8012.timeRates02));
+			}
 			out.newLine();
 			out.write(analyzeEvos(evos).toString());
 			out.newLine();
