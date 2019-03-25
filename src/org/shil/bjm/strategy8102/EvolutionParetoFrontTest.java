@@ -28,7 +28,7 @@ public class EvolutionParetoFrontTest {
 		evos.add(origin);
 		
 		//Very important to check below value and understand what its meaning : [0,1,2]
-		StrategyMatrix8012.paretoFrontType = 0;
+		StrategyMatrix8012.paretoFrontType = 2;
 		
 		String testStrategy = "nice to meet you and good luck. StrategyMatrix8012.paretoFrontValue: "+StrategyMatrix8012.paretoFrontType;
 		System.out.println(testStrategy);
@@ -120,7 +120,7 @@ public class EvolutionParetoFrontTest {
 					evo.getEverythingInOneLoop();
 					proccesed++;
 					if((proccesed) % (Runtime.getRuntime().availableProcessors()/4) == 0) {
-						System.out.println(" . has been progrossing : " + proccesed + "/" + totalprocessed);
+						System.out.println(Calendar.getInstance().getTime() + " . has been progrossing : " + proccesed + "/" + totalprocessed);
 					}
 				});
 				lotOfCpuS.add(completableFuture);
