@@ -15,7 +15,7 @@ import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class EvolutionParetoFrontTest {
 
-	static int write2disk = 3;
+	static int write2disk = 2;
 	static int print2screen = 1;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
