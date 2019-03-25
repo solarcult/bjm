@@ -52,6 +52,10 @@ public class FileUtil {
 			out.write(evos.get(0).toString());
 			out.newLine();
 			out.write(something);
+			out.newLine();
+			out.write(evos.get(1).toString());
+			out.newLine();
+			out.write(evos.get(2).toString());
 			out.flush();
 			out.close();
 		}catch(Exception e) {
