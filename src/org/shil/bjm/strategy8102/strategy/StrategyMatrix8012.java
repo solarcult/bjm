@@ -528,10 +528,10 @@ public abstract class StrategyMatrix8012{
 		sb.append(StrategyMatrix8012.paretoFrontType);
 		sb.append(",\t roiFactor()= ");
 		sb.append(roiFactor());
-		sb.append(",\t timeRateFactor()= ");
-		sb.append(timeRateFactor());
 		sb.append(",\t probRateFactor()= ");
 		sb.append(probRateFactor());
+		sb.append(",\t timeRateFactor()= ");
+		sb.append(timeRateFactor());
 		sb.append(",\t roi= ");
 		sb.append(getROI());
 		sb.append(",\t totalTimes: "+ this.totalTimes);
@@ -615,11 +615,11 @@ public abstract class StrategyMatrix8012{
 	
 	//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 	//基于DStime的权重，鼓励分牌和Double
-	double roi02 = 0.01;
+	double roi02 = 0.1;
 	//基于playtime的权重，鼓励分牌,净概率,关注于差值
-	double probRates02 = 1;
+	double probRates02 = 10;
 	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
-	double timeRates02 = 1.5;
+	double timeRates02 = 1;
 	
 	public double getParetoFrontValue() {
 		getEverythingInOneLoop();
