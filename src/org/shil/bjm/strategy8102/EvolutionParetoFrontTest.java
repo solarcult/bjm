@@ -81,6 +81,8 @@ public class EvolutionParetoFrontTest {
 		return "WTF of testSelectedStrategy, evos.length: " + evos.size();
 	}
 
+	static int proccesed = 0;
+	static int totalprocessed = 0;
 	public static List<StrategyMatrix8012> reproduction(List<StrategyMatrix8012> origins){
 		//calc the best cpu runing job,可以正好把CPU用光，不多不少，如果没算错的话
 		int total = origins.size() + origins.size() *  producePopluation;
@@ -90,6 +92,8 @@ public class EvolutionParetoFrontTest {
 				total = (total/Runtime.getRuntime().availableProcessors()) * Runtime.getRuntime().availableProcessors();
 			}
 		}
+		totalprocessed = total;
+		proccesed = 0;
 		List<CompletableFuture<Void>> lotOfCpuS = new ArrayList<>(total);
 		List<StrategyMatrix8012> reproductions = new ArrayList<>(total);
 		
@@ -115,6 +119,10 @@ public class EvolutionParetoFrontTest {
 				reproductions.add(evo);
 				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
 					evo.getEverythingInOneLoop();
+					proccesed++;
+					if((proccesed) % (Runtime.getRuntime().availableProcessors()/4) == 0) {
+						System.out.println(" . has been progrossing : " + proccesed + "/" + totalprocessed);
+					}
 				});
 				lotOfCpuS.add(completableFuture);
 			}
