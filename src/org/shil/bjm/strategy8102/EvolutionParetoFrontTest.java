@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.simulation.RealMatch;
 import org.shil.bjm.strategy8102.comparator.ParetoComparator;
