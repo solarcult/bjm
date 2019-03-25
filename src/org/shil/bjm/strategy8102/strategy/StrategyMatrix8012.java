@@ -526,6 +526,12 @@ public abstract class StrategyMatrix8012{
 		sb.append(getParetoFrontValue());
 		sb.append(",ParetotYPE= ");
 		sb.append(StrategyMatrix8012.paretoFrontType);
+		sb.append(",\t roiFactor()= ");
+		sb.append(roiFactor());
+		sb.append(",\t timeRateFactor()= ");
+		sb.append(timeRateFactor());
+		sb.append(",\t probRateFactor()= ");
+		sb.append(probRateFactor());
 		sb.append(",\t roi= ");
 		sb.append(getROI());
 		sb.append(",\t totalTimes: "+ this.totalTimes);
