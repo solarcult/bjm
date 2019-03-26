@@ -11,6 +11,7 @@ import org.shil.bjm.simulation.RealMatch;
 import org.shil.bjm.strategy8102.comparator.ParetoComparator;
 import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.test.Pareto2Mar26;
 
 public class EvolutionParetoFrontTest {
 
@@ -27,8 +28,8 @@ public class EvolutionParetoFrontTest {
 		StrategyMatrix8012 origin = new Finally2049();
 		evos.add(origin);
 		
-		//Very important to check below value and understand what its meaning : [0,1,2]
-		StrategyMatrix8012.paretoFrontType = 2;
+		//Very important to check below value and understand what its meaning : [0,1,2,3]
+		StrategyMatrix8012.paretoFrontType = 3;
 		
 		String testStrategy = "nice to meet you and good luck. StrategyMatrix8012.paretoFrontValue: "+StrategyMatrix8012.paretoFrontType;
 		System.out.println(testStrategy);
@@ -85,11 +86,17 @@ public class EvolutionParetoFrontTest {
 	public static List<StrategyMatrix8012> reproduction(List<StrategyMatrix8012> origins){
 		//calc the best cpu runing job,可以正好把CPU用光，不多不少，如果没算错的话
 		int total = origins.size() + origins.size() *  producePopluation;
-		if(total/Runtime.getRuntime().availableProcessors() > 0) {
+		int multi = total/Runtime.getRuntime().availableProcessors();
+		if( multi > 0) {
 			//如果最后一波的计算CPU利用率没有超过CPU的一半，就不要算这些数据了，将总数据减少到正好用光CPU
 			if(total % Runtime.getRuntime().availableProcessors() < Runtime.getRuntime().availableProcessors()/2 ) {
-				total = (total/Runtime.getRuntime().availableProcessors()) * Runtime.getRuntime().availableProcessors();
+				total = multi * Runtime.getRuntime().availableProcessors();
+			}else {
+				//本着把CPU用完的态度.凑个整
+				total = (multi+1) * Runtime.getRuntime().availableProcessors();
 			}
+		}else {
+			total = Runtime.getRuntime().availableProcessors();
 		}
 		totalprocessed = total;
 		proccesed = 0;
@@ -125,7 +132,33 @@ public class EvolutionParetoFrontTest {
 				});
 				lotOfCpuS.add(completableFuture);
 			}
+			
 		}
+		
+		System.out.println("first time: " + reproductions.size());
+		
+		//补偿机制
+		int less = totalprocessed - reproductions.size();
+		int addEveryPF = less / origins.size();
+		for(StrategyMatrix8012 o : origins) {
+			for(int ad = 0; ad < addEveryPF; ad++) {
+				StrategyMatrix8012 evo = o.evolve();
+				if(reproductions.contains(evo)) {
+					//此处可能造成最终没有达到total期望的个体数,没关系
+					continue;
+				}
+				reproductions.add(evo);
+				CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
+					evo.getEverythingInOneLoop();
+					proccesed++;
+					if((proccesed) % (Runtime.getRuntime().availableProcessors()/4) == 0) {
+						System.out.println(Calendar.getInstance().getTime() + " . has been progrossing : " + proccesed + "/" + totalprocessed);
+					}
+				});
+				lotOfCpuS.add(completableFuture);
+			}
+		}
+		
 		System.out.println("start guess: " + lotOfCpuS.size());
 		
 		CompletableFuture<Void> all = CompletableFuture.allOf(lotOfCpuS.toArray(new CompletableFuture[lotOfCpuS.size()]));

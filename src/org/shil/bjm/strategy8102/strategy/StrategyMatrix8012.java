@@ -614,12 +614,21 @@ public abstract class StrategyMatrix8012{
 	public static double timeRates01 = 4;
 	
 	//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
+	//算完的结果就是: getTimeRates= w:47.78862602578159 $d:3.8930589887208806 $l:48.31831498549754 ,造成平局比例大幅减少.没有什么意义.
 	//基于DStime的权重，鼓励分牌和Double
 	public static double roi02 = 0.07;
 	//基于playtime的权重，鼓励分牌,净概率,关注于差值
 	public static double probRates02 = 7;
 	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
 	public static double timeRates02 = 1.22;
+	
+	//Version Three: 
+	//基于DStime的权重，鼓励分牌和Double
+	public static double roi03 = 0.108;
+	//基于playtime的权重，鼓励分牌,净概率,关注于差值
+	public static double probRates03 = 1.08;
+	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
+	public static double timeRates03 = 1.36;
 	
 	public double getParetoFrontValue() {
 		getEverythingInOneLoop();
@@ -644,6 +653,10 @@ public abstract class StrategyMatrix8012{
 			//基于DStime的权重，鼓励分牌和Double
 			return roi02 * this.getROI();
 		}
+		if(paretoFrontType == 3) {
+			//基于DStime的权重，鼓励分牌和Double
+			return roi03 * this.getROI();
+		}
 		
 		throw new RuntimeException("roiFactor ParetoFrontValue is incorrect: " +paretoFrontType);
 	
@@ -662,6 +675,9 @@ public abstract class StrategyMatrix8012{
 			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 			return probRates02 * (this.getProbRates()[0] - this.getProbRates()[2]);
 		}
+		if(paretoFrontType == 3) {
+			return probRates03 * (this.getProbRates()[0] + this.getProbRates()[1] - this.getProbRates()[2]);
+		}
 		
 		throw new RuntimeException("probRateFactor ParetoFrontValue is incorrect: " +paretoFrontType);
 	}
@@ -678,6 +694,10 @@ public abstract class StrategyMatrix8012{
 		if(paretoFrontType == 2) {
 			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 			return timeRates02 * (this.getTimeRates()[0] - this.getTimeRates()[2]);
+		}
+		if(paretoFrontType == 3) {
+			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
+			return timeRates03 * (this.getTimeRates()[0] + this.getTimeRates()[1] - this.getTimeRates()[2]);
 		}
 		
 		throw new RuntimeException("timeRateFactor ParetoFrontValue is incorrect: " +paretoFrontType);

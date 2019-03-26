@@ -13,6 +13,7 @@ import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.Standard2017;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 import org.shil.bjm.strategy8102.strategy.test.Finally2051;
+import org.shil.bjm.strategy8102.strategy.test.Pareto2Mar26;
 import org.shil.bjm.strategy8102.strategy.test.Finally2046;
 
 
@@ -410,8 +411,8 @@ public class RealMatch {
 	}
 	
 	public static void main(String[] args) {
-		EvolutionOneWayTest.debug = true;
-		String result = testSelectedStrategy(new Finally2046(),new Finally2047(), new Finally2049(),new Finally2051(), new Standard2017());
+		EvolutionOneWayTest.debug = false;
+		String result = testSelectedStrategy(new Finally2046(),new Finally2047(), new Finally2049(),new Pareto2Mar26(), new Standard2017());
 		System.out.println(result);
 		
 		int max = 5;

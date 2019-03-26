@@ -37,7 +37,7 @@ public class FileUtil {
 	 */
 	public static void writeToDisk(int generation, List<StrategyMatrix8012> evos,String something){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
-		String fileName=generation+"_"+ sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
+		String fileName="pty_"+StrategyMatrix8012.paretoFrontType+"_"+generation+"_"+ sdf.format(Calendar.getInstance().getTime())+"_blackjack.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
 			out.write(Calendar.getInstance().getTime().toString() + " @ StrategyMatrix8012.paretoFrontType: "+StrategyMatrix8012.paretoFrontType);
@@ -69,22 +69,36 @@ public class FileUtil {
 			out.write(analyzeEvos(evos).toString());
 			out.newLine();
 			out.newLine();
-			out.write("lift diff with Finally2047 :");
-			out.newLine();
-			out.write(new Finally2047().diffWith(evos.get(0)));
+			out.write("zero: ");
 			out.newLine();
 			out.write(evos.get(0).toString());
+			out.newLine();
+			out.write("Zero lift diff with Finally2047 :");
+			out.newLine();
+			out.write(new Finally2047().diffWith(evos.get(0)));
 			out.newLine();
 			out.write(something);
 			out.newLine();
 			out.newLine();
 			if(evos.size()>=2) {
+				out.write("addiation first: ");
+				out.newLine();
 				out.write(evos.get(1).toString());
+				out.newLine();
+				out.write("First lift diff with Finally2047 :");
+				out.newLine();
+				out.write(new Finally2047().diffWith(evos.get(0)));
 				out.newLine();
 				out.newLine();
 			}
 			if(evos.size()>=3) {
+				out.write("addiation second: ");
+				out.newLine();
 				out.write(evos.get(2).toString());
+				out.newLine();
+				out.write("Second lift diff with Finally2047 :");
+				out.newLine();
+				out.write(new Finally2047().diffWith(evos.get(0)));
 				out.newLine();
 			}
 			out.flush();
