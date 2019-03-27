@@ -28,7 +28,7 @@ public class EvolutionParetoFrontTest {
 		StrategyMatrix8012 origin = new Finally2049();
 		evos.add(origin);
 		
-		//Very important to check below value and understand what its meaning : [0,1,2,3]
+		//Very important to check below value and understand what its meaning : [0,1,2,3,4,5,6]
 		StrategyMatrix8012.paretoFrontType = 3;
 		
 		String testStrategy = "nice to meet you and good luck. StrategyMatrix8012.paretoFrontValue: "+StrategyMatrix8012.paretoFrontType;
@@ -135,10 +135,9 @@ public class EvolutionParetoFrontTest {
 			
 		}
 		
-		System.out.println("first time: " + reproductions.size());
-		
 		//补偿机制
 		int less = totalprocessed - reproductions.size();
+		System.out.println("  first time: " + reproductions.size()+" should patch : "+less);
 		int addEveryPF = less / origins.size();
 		for(StrategyMatrix8012 o : origins) {
 			for(int ad = 0; ad < addEveryPF; ad++) {
@@ -152,14 +151,14 @@ public class EvolutionParetoFrontTest {
 					evo.getEverythingInOneLoop();
 					proccesed++;
 					if((proccesed) % (Runtime.getRuntime().availableProcessors()/4) == 0) {
-						System.out.println(Calendar.getInstance().getTime() + " . has been progrossing : " + proccesed + "/" + totalprocessed);
+						System.out.println(Calendar.getInstance().getTime() + " . has been progrossing : " + proccesed + "/" + reproductions.size());
 					}
 				});
 				lotOfCpuS.add(completableFuture);
 			}
 		}
 		
-		System.out.println("start guess: " + lotOfCpuS.size());
+		System.out.println("  start guess: " + lotOfCpuS.size());
 		
 		CompletableFuture<Void> all = CompletableFuture.allOf(lotOfCpuS.toArray(new CompletableFuture[lotOfCpuS.size()]));
 		all.join();

@@ -597,7 +597,7 @@ public abstract class StrategyMatrix8012{
 	
 	public static int paretoFrontType = 0;
 	
-	//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+	//0:Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 	//基于DStime的权重，鼓励分牌和Double
 	public static double roi0 = 3;
 	//基于playtime的权重，鼓励分牌,净概率,关注于赢
@@ -605,7 +605,7 @@ public abstract class StrategyMatrix8012{
 	//基于playtime的权重，鼓励分牌,净胜率,关注于赢
 	public static double timeRates0 = 4.2;
 	
-	//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
+	//1:Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 	//基于DStime的权重，鼓励分牌和Double
 	public static double roi01 = 3.25;
 	//基于playtime的权重，鼓励分牌,净概率,关注于不输
@@ -613,7 +613,7 @@ public abstract class StrategyMatrix8012{
 	//基于playtime的权重，鼓励分牌,净胜率,关注于不输
 	public static double timeRates01 = 4;
 	
-	//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
+	//2:Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 	//算完的结果就是: getTimeRates= w:47.78862602578159 $d:3.8930589887208806 $l:48.31831498549754 ,造成平局比例大幅减少.没有什么意义.
 	//基于DStime的权重，鼓励分牌和Double
 	public static double roi02 = 0.07;
@@ -622,13 +622,37 @@ public abstract class StrategyMatrix8012{
 	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
 	public static double timeRates02 = 1.22;
 	
-	//Version Three: 
+	//3:Version Three: 
 	//基于DStime的权重，鼓励分牌和Double
 	public static double roi03 = 0.108;
 	//基于playtime的权重，鼓励分牌,净概率,关注于差值
 	public static double probRates03 = 1.08;
 	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
 	public static double timeRates03 = 1.36;
+	
+	//4:Version Four: 纯ROI,无它
+	//基于DStime的权重，鼓励分牌和Double
+	public static double roi04 = 1;
+	//基于playtime的权重，鼓励分牌,净概率,关注于差值
+	public static double probRates04 = 0;
+	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
+	public static double timeRates04 = 0;
+	
+	//5:Version Five:纯 ProbRates
+	//基于DStime的权重，鼓励分牌和Double
+	public static double roi05 = 0;
+	//基于playtime的权重，鼓励分牌,净概率,关注于差值
+	public static double probRates05 = 1;
+	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
+	public static double timeRates05 = 0;
+	
+	//6:Version Six:纯timeRates
+	//基于DStime的权重，鼓励分牌和Double
+	public static double roi06 = 0;
+	//基于playtime的权重，鼓励分牌,净概率,关注于差值
+	public static double probRates06 = 0;
+	//基于playtime的权重，鼓励分牌,净胜率,关注于差值
+	public static double timeRates06 = 1;
 	
 	public double getParetoFrontValue() {
 		getEverythingInOneLoop();
@@ -657,6 +681,18 @@ public abstract class StrategyMatrix8012{
 			//基于DStime的权重，鼓励分牌和Double
 			return roi03 * this.getROI();
 		}
+		if(paretoFrontType == 4) {
+			//基于DStime的权重，鼓励分牌和Double
+			return roi04 * this.getROI();
+		}
+		if(paretoFrontType == 5) {
+			//基于DStime的权重，鼓励分牌和Double
+			return roi05 * this.getROI();
+		}
+		if(paretoFrontType == 6) {
+			//基于DStime的权重，鼓励分牌和Double
+			return roi06 * this.getROI();
+		}
 		
 		throw new RuntimeException("roiFactor ParetoFrontValue is incorrect: " +paretoFrontType);
 	
@@ -678,6 +714,15 @@ public abstract class StrategyMatrix8012{
 		if(paretoFrontType == 3) {
 			return probRates03 * (this.getProbRates()[0] + this.getProbRates()[1] - this.getProbRates()[2]);
 		}
+		if(paretoFrontType ==4) {
+			return probRates04 * this.getProbRates()[0] + (probRates04 / 3) * this.getProbRates()[1];
+		}
+		if(paretoFrontType ==5) {
+			return probRates05 * this.getProbRates()[0] + (probRates05 / 3) * this.getProbRates()[1];
+		}
+		if(paretoFrontType ==6) {
+			return probRates06 * this.getProbRates()[0] + (probRates06 / 3) * this.getProbRates()[1];
+		}
 		
 		throw new RuntimeException("probRateFactor ParetoFrontValue is incorrect: " +paretoFrontType);
 	}
@@ -698,6 +743,15 @@ public abstract class StrategyMatrix8012{
 		if(paretoFrontType == 3) {
 			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 			return timeRates03 * (this.getTimeRates()[0] + this.getTimeRates()[1] - this.getTimeRates()[2]);
+		}
+		if(paretoFrontType == 4) {
+			return timeRates04 * this.getTimeRates()[0] + (timeRates04 / 3) * this.getTimeRates()[1];
+		}
+		if(paretoFrontType == 5) {
+			return timeRates05 * this.getTimeRates()[0] + (timeRates05 / 3) * this.getTimeRates()[1];
+		}
+		if(paretoFrontType == 6) {
+			return timeRates06 * this.getTimeRates()[0] + (timeRates06 / 3) * this.getTimeRates()[1];
 		}
 		
 		throw new RuntimeException("timeRateFactor ParetoFrontValue is incorrect: " +paretoFrontType);
