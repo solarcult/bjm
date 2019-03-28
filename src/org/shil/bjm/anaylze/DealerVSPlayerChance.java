@@ -34,7 +34,7 @@ public class DealerVSPlayerChance implements Comparable<DealerVSPlayerChance>{
 				+"deckStatus="+ deckStatus
 				+ "\tdealerCard=" + dealerCard + ", \tplayerStartValue=" + playerStartValue +"\t"
 				+"[isDouble()=" + isDouble() + ", isHit()=" + isHit() + ", isSurrender()=" + isSurrender() + "]"
-//				+ HelloWorld.builder2DoubleWDL(advanced, origin)
+				+ HelloWorld.builder2DoubleWDL(advanced, origin)
 				;
 	}
 	

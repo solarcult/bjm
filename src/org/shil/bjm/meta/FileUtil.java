@@ -4,10 +4,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.math3.stat.Frequency;
 import org.shil.bjm.anaylze.DealerVSPlayerChance;
+import org.shil.bjm.anaylze.DealerVSPlayerResult9102;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.Result;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
@@ -21,6 +23,22 @@ public class FileUtil {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
 			for(DealerVSPlayerChance dealerCardsPathValue : dealerVSPlayerChances) {
 				out.write(dealerCardsPathValue.toString());
+				out.newLine();
+			}
+			out.flush();
+			out.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writeToDisk9102(Collection<DealerVSPlayerResult9102> dealerVSPlayerResult9102s) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
+		String fileName="9102researchG_"+ sdf.format(Calendar.getInstance().getTime())+"_researchG.txt";
+		try {
+			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
+			for(DealerVSPlayerResult9102 dealerVSPlayerResult9102 : dealerVSPlayerResult9102s) {
+				out.write(dealerVSPlayerResult9102.toString());
 				out.newLine();
 			}
 			out.flush();

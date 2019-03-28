@@ -1,0 +1,1560 @@
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720024->17.62777331761041  	$d:0.0->6.149663656683876  	$l:88.30944088627999->76.22256302570572
+	 improve value x$w(high is good):5.937214203890385  	x$d:6.149663656683876  	 x$l(negative is good):-12.086877860574262
+	 	 $w-$l: -76.61888177255996 -> -58.59478970809532  _ #Surrender#	 lift : 18.024092064464647 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720024->62.16103553002701  	$d:0.0->3.845883161809687  	$l:88.30944088627999->33.9930813081633
+	 improve value x$w(high is good):50.47047641630698  	x$d:3.845883161809687  	 x$l(negative is good):-54.31635957811669
+	 	 $w-$l: -76.61888177255996 -> 28.16795422186371  _ @double@	 lift : 104.78683599442368 : good	 :) hit 
+RoI a: 1.292945899230349 o: 1.1663030473643465	 returnMoney: a:6.88932E7 o: 4971600.0	 totalSpendMoney: a: 5.32839E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688357->42.4492425742023  	$d:0.0->6.2757285847003335  	$l:63.99879890311644->51.27502884109737
+	 improve value x$w(high is good):6.448041477318732  	x$d:6.2757285847003335  	 x$l(negative is good):-12.72377006201907
+	 	 $w-$l: -27.99759780623287 -> -8.825786266895069  _  _ 	 lift : 19.171811539337803 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:36.00120109688357->61.817746867767475  	$d:0.0->3.8638793856299194  	$l:63.99879890311644->34.3183737466026
+	 improve value x$w(high is good):25.816545770883906  	x$d:3.8638793856299194  	 x$l(negative is good):-29.680425156513834
+	 	 $w-$l: -27.99759780623287 -> 27.499373121164872  _ @double@	 lift : 55.49697092739774 : good	 :) hit 
+RoI a: 1.286046211823679 o: 1.1592041665105475	 returnMoney: a:1.286886E8 o: 9281400.0	 totalSpendMoney: a: 1.000653E8 o: 8006700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983465->44.593170121173884  	$d:0.0->6.047142814173478  	$l:61.61076263901653->49.35968706465264
+	 improve value x$w(high is good):6.203932760190419  	x$d:6.047142814173478  	 x$l(negative is good):-12.251075574363888
+	 	 $w-$l: -23.221525278033063 -> -4.76651694347876  _  _ 	 lift : 18.4550083345543 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:38.389237360983465->61.79614123419177  	$d:0.0->3.8647008492054464  	$l:61.61076263901653->34.33915791660278
+	 improve value x$w(high is good):23.406903873208307  	x$d:3.8647008492054464  	 x$l(negative is good):-27.27160472241375
+	 	 $w-$l: -23.221525278033063 -> 27.45698331758899  _ @double@	 lift : 50.67850859562205 : good	 :) hit 
+RoI a: 1.2856077170418005 o: 1.1587475085192567	 returnMoney: a:7.4967E7 o: 5406600.0	 totalSpendMoney: a: 5.83125E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734361->46.91720782241359  	$d:0.0->5.7779638482783  	$l:59.08963810265638->47.304828329308116
+	 improve value x$w(high is good):6.006845925069975  	x$d:5.7779638482783  	 x$l(negative is good):-11.784809773348265
+	 	 $w-$l: -18.17927620531277 -> -0.38762050689453154  _  _ 	 lift : 17.79165569841824 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:40.91036189734361->61.776700099195416  	$d:0.0->3.8660777115532987  	$l:59.08963810265638->34.35722218925129
+	 improve value x$w(high is good):20.866338201851804  	x$d:3.8660777115532987  	 x$l(negative is good):-24.73241591340509
+	 	 $w-$l: -18.17927620531277 -> 27.419477909944128  _ @double@	 lift : 45.5987541152569 : good	 :) hit 
+RoI a: 1.2852216705324149 o: 1.1583820125647526	 returnMoney: a:4.3719E7 o: 3153000.0	 totalSpendMoney: a: 3.40167E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301057->49.178366169693284  	$d:0.0->5.631446220886365  	$l:56.48820509698943->45.19018760942035
+	 improve value x$w(high is good):5.666571266682716  	x$d:5.631446220886365  	 x$l(negative is good):-11.298017487569084
+	 	 $w-$l: -12.976410193978861 -> 3.988178560272937  _  _ 	 lift : 16.964588754251796 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:43.51179490301057->61.76474722062151  	$d:0.0->3.8651281114281297  	$l:56.48820509698943->34.37012466795036
+	 improve value x$w(high is good):18.25295231761094  	x$d:3.8651281114281297  	 x$l(negative is good):-22.118080429039075
+	 	 $w-$l: -12.976410193978861 -> 27.394622552671148  _ @double@	 lift : 40.37103274665001 : good	 :) hit 
+RoI a: 1.2849603064372286 o: 1.1580486022291248	 returnMoney: a:2.6367E7 o: 1901400.0	 totalSpendMoney: a: 2.05197E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978772->51.05506991737584  	$d:0.0->5.407461626216221  	$l:56.40624775021228->43.53746845640794
+	 improve value x$w(high is good):7.461317667588119  	x$d:5.407461626216221  	 x$l(negative is good):-12.868779293804337
+	 	 $w-$l: -12.812495500424559 -> 7.5176014609678985  _ @double@	 lift : 20.330096961392456 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:43.59375224978772->61.74629487591855  	$d:0.0->3.8696588069376743  	$l:56.40624775021228->34.38404631714377
+	 improve value x$w(high is good):18.15254262613083  	x$d:3.8696588069376743  	 x$l(negative is good):-22.02220143306851
+	 	 $w-$l: -12.812495500424559 -> 27.362248558774777  _ @double@	 lift : 40.174744059199334 : good	 :) hit 
+RoI a: 1.28463696497053 o: 1.157928594403345	 returnMoney: a:1.49736E7 o: 1080000.0	 totalSpendMoney: a: 1.16559E7 o: 932700.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529596->42.58391768311849  	$d:0.0->7.987641296567645  	$l:73.5560682564704->49.42844102031387
+	 improve value x$w(high is good):16.139985939588897  	x$d:7.987641296567645  	 x$l(negative is good):-24.127627236156528
+	 	 $w-$l: -47.1121365129408 -> -6.844523337195374  _  _ 	 lift : 40.267613175745424 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529596->61.68662155127538  	$d:0.0->3.8641733071717455  	$l:73.5560682564704->34.44920514155287
+	 improve value x$w(high is good):35.24268980774578  	x$d:3.8641733071717455  	 x$l(negative is good):-39.10686311491752
+	 	 $w-$l: -47.1121365129408 -> 27.237416409722503  _ @double@	 lift : 74.34955292266329 : good	 :) hit 
+RoI a: 1.2833222259246917 o: 1.1556480999479437	 returnMoney: a:9243000.0 o: 666000.0	 totalSpendMoney: a: 7202400.0 o: 576300.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:24.35369661381758->32.4111112918074  	$d:0.0->13.780470923141955  	$l:75.64630338618242->53.80841778505064
+	 improve value x$w(high is good):8.057414677989822  	x$d:13.780470923141955  	 x$l(negative is good):-21.83788560113178
+	 	 $w-$l: -51.29260677236485 -> -21.397306493243246  _  _ 	 lift : 29.8953002791216 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.35369661381758->61.62519180732537  	$d:0.0->3.9228767763026218  	$l:75.64630338618242->34.451931416372005
+	 improve value x$w(high is good):37.27149519350779  	x$d:3.9228767763026218  	 x$l(negative is good):-41.19437196981042
+	 	 $w-$l: -51.29260677236485 -> 27.17326039095337  _ @double@	 lift : 78.46586716331821 : good	 :) hit 
+RoI a: 1.282827581417957 o: 1.155247181266262	 returnMoney: a:5542200.0 o: 399600.0	 totalSpendMoney: a: 4320300.0 o: 345900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:22.648650254961996->28.356920706073097  	$d:0.0->7.544406488340629  	$l:77.35134974503801->64.09867280558628
+	 improve value x$w(high is good):5.708270451111101  	x$d:7.544406488340629  	 x$l(negative is good):-13.252676939451732
+	 	 $w-$l: -54.702699490076 -> -35.74175209951318  _  _ 	 lift : 18.960947390562822 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:22.648650254961996->61.57847354206262  	$d:0.0->3.871161348404521  	$l:77.35134974503801->34.55036510953286
+	 improve value x$w(high is good):38.92982328710062  	x$d:3.871161348404521  	 x$l(negative is good):-42.800984635505145
+	 	 $w-$l: -54.702699490076 -> 27.028108432529756  _ @double@	 lift : 81.73080792260576 : good	 :) hit 
+RoI a: 1.281165452653486 o: 1.154746423927178	 returnMoney: a:3693600.0 o: 266400.0	 totalSpendMoney: a: 2883000.0 o: 230700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=8	@@@ 
+[ProbMatrix:
+org->adv	$w:20.661979611403165->26.005421816996723  	$d:0.0->5.321112754394575  	$l:79.33802038859685->68.6734654286087
+	 improve value x$w(high is good):5.343442205593558  	x$d:5.321112754394575  	 x$l(negative is good):-10.664554959988152
+	 	 $w-$l: -58.67604077719367 -> -42.66804361161197  _  _ 	 lift : 16.0079971655817 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:20.661979611403165->61.498501498501504  	$d:0.0->3.836163836163836  	$l:79.33802038859685->34.66533466533466
+	 improve value x$w(high is good):40.83652188709834  	x$d:3.836163836163836  	 x$l(negative is good):-44.672685723262184
+	 	 $w-$l: -58.67604077719367 -> 26.83316683316684  _ @double@	 lift : 85.50920761036052 : good	 :) hit 
+RoI a: 1.2790359443174735 o: 1.1532467532467532	 returnMoney: a:1846800.0 o: 133200.0	 totalSpendMoney: a: 1443900.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720024->23.777436974298585  	$d:0.0->7.212003313021932  	$l:88.30944088627999->69.01055971267948
+	 improve value x$w(high is good):12.08687786057856  	x$d:7.212003313021932  	 x$l(negative is good):-19.298881173600506
+	 	 $w-$l: -76.61888177255996 -> -45.23312273838091  _  _ 	 lift : 31.38575903417906 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720024->66.0069186918367  	$d:0.0->4.4868636887779685  	$l:88.30944088627999->29.50621761938533
+	 improve value x$w(high is good):54.316359578116675  	x$d:4.4868636887779685  	 x$l(negative is good):-58.80322326689466
+	 	 $w-$l: -76.61888177255996 -> 36.50070107245138  _ @double@	 lift : 113.11958284501134 : good	 :) hit 
+RoI a: 1.3821537275617954 o: 1.1663030473643465	 returnMoney: a:7.31556E7 o: 4971600.0	 totalSpendMoney: a: 5.29287E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688357->48.724971158901546  	$d:0.0->7.272755267781072  	$l:63.99879890311644->44.002273573317375
+	 improve value x$w(high is good):12.723770062017977  	x$d:7.272755267781072  	 x$l(negative is good):-19.996525329799063
+	 	 $w-$l: -27.99759780623287 -> 4.722697585584173  _  _ 	 lift : 32.72029539181705 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:36.00120109688357->65.6816262533974  	$d:0.0->4.517562695089017  	$l:63.99879890311644->29.800811051513588
+	 improve value x$w(high is good):29.680425156513827  	x$d:4.517562695089017  	 x$l(negative is good):-34.197987851602846
+	 	 $w-$l: -27.99759780623287 -> 35.880815201883806  _ @double@	 lift : 63.878413008116674 : good	 :) hit 
+RoI a: 1.3757844501528904 o: 1.1592041665105475	 returnMoney: a:1.367322E8 o: 9281400.0	 totalSpendMoney: a: 9.93849E7 o: 8006700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983465->50.640312935345854  	$d:0.0->6.913566450389418  	$l:61.61076263901653->42.446120614264736
+	 improve value x$w(high is good):12.251075574362389  	x$d:6.913566450389418  	 x$l(negative is good):-19.164642024751792
+	 	 $w-$l: -23.221525278033063 -> 8.194192321081118  _ @double@	 lift : 31.415717599114178 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:38.389237360983465->65.66084208339721  	$d:0.0->4.519533703613946  	$l:61.61076263901653->29.81962421298884
+	 improve value x$w(high is good):27.27160472241375  	x$d:4.519533703613946  	 x$l(negative is good):-31.79113842602769
+	 	 $w-$l: -23.221525278033063 -> 35.84121787040838  _ @double@	 lift : 59.06274314844144 : good	 :) hit 
+RoI a: 1.375377490922088 o: 1.1587475085192567	 returnMoney: a:7.96554E7 o: 5406600.0	 totalSpendMoney: a: 5.79153E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734361->52.695171670691444  	$d:0.0->6.6445126758541  	$l:59.08963810265638->40.66031565345447
+	 improve value x$w(high is good):11.784809773347831  	x$d:6.6445126758541  	 x$l(negative is good):-18.429322449201912
+	 	 $w-$l: -18.17927620531277 -> 12.034856017236972  _ @double@	 lift : 30.214132222549743 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:40.91036189734361->65.64277781074871  	$d:0.0->4.520597885526795  	$l:59.08963810265638->29.83662430372449
+	 improve value x$w(high is good):24.7324159134051  	x$d:4.520597885526795  	 x$l(negative is good):-29.25301379893189
+	 	 $w-$l: -18.17927620531277 -> 35.80615350702422  _ @double@	 lift : 53.985429712336995 : good	 :) hit 
+RoI a: 1.375014429437829 o: 1.1583820125647526	 returnMoney: a:4.6455E7 o: 3153000.0	 totalSpendMoney: a: 3.37851E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301057->54.80981239057988  	$d:0.0->6.40440378436696  	$l:56.48820509698943->38.785783825053166
+	 improve value x$w(high is good):11.298017487569311  	x$d:6.40440378436696  	 x$l(negative is good):-17.702421271936267
+	 	 $w-$l: -12.976410193978861 -> 16.024028565526717  _ @double@	 lift : 29.000438759505577 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:43.51179490301057->65.62987533204965  	$d:0.0->4.522902640936626  	$l:56.48820509698943->29.847222027013732
+	 improve value x$w(high is good):22.118080429039082  	x$d:4.522902640936626  	 x$l(negative is good):-26.6409830699757
+	 	 $w-$l: -12.976410193978861 -> 35.782653305035915  _ @double@	 lift : 48.75906349901478 : good	 :) hit 
+RoI a: 1.3747773476027145 o: 1.1580486022291248	 returnMoney: a:2.8017E7 o: 1901400.0	 totalSpendMoney: a: 2.03793E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978772->56.46253154359206  	$d:0.0->6.2150155015574295  	$l:56.40624775021228->37.32245295485052
+	 improve value x$w(high is good):12.868779293804337  	x$d:6.2150155015574295  	 x$l(negative is good):-19.08379479536176
+	 	 $w-$l: -12.812495500424559 -> 19.14007858874153  _ @double@	 lift : 31.95257408916609 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:43.59375224978772->65.61595368285622  	$d:0.0->4.520375089689982  	$l:56.40624775021228->29.863671227453793
+	 improve value x$w(high is good):22.022201433068496  	x$d:4.520375089689982  	 x$l(negative is good):-26.542576522758488
+	 	 $w-$l: -12.812495500424559 -> 35.75228245540243  _ @double@	 lift : 48.56477795582699 : good	 :) hit 
+RoI a: 1.3744493392070485 o: 1.157928594403345	 returnMoney: a:1.5912E7 o: 1080000.0	 totalSpendMoney: a: 1.1577E7 o: 932700.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529596->50.57155897968585  	$d:0.0->7.110552406241916  	$l:73.5560682564704->42.31788861407224
+	 improve value x$w(high is good):24.12762723615625  	x$d:7.110552406241916  	 x$l(negative is good):-31.23817964239816
+	 	 $w-$l: -47.1121365129408 -> 8.253670365613608  _ @double@	 lift : 55.365806878554416 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529596->65.55079485844712  	$d:0.0->4.536899851839987  	$l:73.5560682564704->29.912305289712886
+	 improve value x$w(high is good):39.10686311491752  	x$d:4.536899851839987  	 x$l(negative is good):-43.64376296675751
+	 	 $w-$l: -47.1121365129408 -> 35.63848956873424  _ @double@	 lift : 82.75062608167504 : good	 :) hit 
+RoI a: 1.3733221476510067 o: 1.1556480999479437	 returnMoney: a:9822000.0 o: 666000.0	 totalSpendMoney: a: 7152000.0 o: 576300.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:24.35369661381758->46.19158221494973  	$d:0.0->8.590334729795005  	$l:75.64630338618242->45.218083055255256
+	 improve value x$w(high is good):21.837885601132154  	x$d:8.590334729795005  	 x$l(negative is good):-30.428220330927168
+	 	 $w-$l: -51.29260677236485 -> 0.9734991596944742  _  _ 	 lift : 52.26610593205932 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.35369661381758->65.548068583628  	$d:0.0->4.516645540062713  	$l:75.64630338618242->29.935285876309294
+	 improve value x$w(high is good):41.19437196981042  	x$d:4.516645540062713  	 x$l(negative is good):-45.71101750987313
+	 	 $w-$l: -51.29260677236485 -> 35.6127827073187  _ @double@	 lift : 86.90538947968355 : good	 :) hit 
+RoI a: 1.3729737283398546 o: 1.155247181266262	 returnMoney: a:5895000.0 o: 399600.0	 totalSpendMoney: a: 4293600.0 o: 345900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:22.648650254961996->35.901327194414314  	$d:0.0->14.335368318528193  	$l:77.35134974503801->49.76330448705749
+	 improve value x$w(high is good):13.252676939452318  	x$d:14.335368318528193  	 x$l(negative is good):-27.588045257980518
+	 	 $w-$l: -54.702699490076 -> -13.861977292643168  _  _ 	 lift : 40.84072219743283 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:22.648650254961996->65.44963489046715  	$d:0.0->4.601380414124237  	$l:77.35134974503801->29.94898469540862
+	 improve value x$w(high is good):42.80098463550516  	x$d:4.601380414124237  	 x$l(negative is good):-47.40236504962939
+	 	 $w-$l: -54.702699490076 -> 35.500650195058526  _ @double@	 lift : 90.20334968513453 : good	 :) hit 
+RoI a: 1.372129600503303 o: 1.154746423927178	 returnMoney: a:3925800.0 o: 266400.0	 totalSpendMoney: a: 2861100.0 o: 230700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=9	@@@ 
+[ProbMatrix:
+org->adv	$w:20.661979611403165->31.326534571391353  	$d:0.0->8.119398917080295  	$l:79.33802038859685->60.55406651152836
+	 improve value x$w(high is good):10.664554959988187  	x$d:8.119398917080295  	 x$l(negative is good):-18.783953877068484
+	 	 $w-$l: -58.67604077719367 -> -29.22753194013701  _  _ 	 lift : 29.448508837056664 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:20.661979611403165->65.33466533466533  	$d:0.0->4.535464535464535  	$l:79.33802038859685->30.129870129870127
+	 improve value x$w(high is good):44.67268572326216  	x$d:4.535464535464535  	 x$l(negative is good):-49.20815025872672
+	 	 $w-$l: -58.67604077719367 -> 35.204795204795204  _ @double@	 lift : 93.88083598198888 : good	 :) hit 
+RoI a: 1.3687735454164922 o: 1.1532467532467532	 returnMoney: a:1962000.0 o: 133200.0	 totalSpendMoney: a: 1433400.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720193->30.948569693631246  	$d:0.0->10.163251896865837  	$l:88.30944088627982->58.88817840950291
+	 improve value x$w(high is good):19.25801057991105  	x$d:10.163251896865837  	 x$l(negative is good):-29.421262476776903
+	 	 $w-$l: -76.61888177255962 -> -27.939608715871667  _  _ 	 lift : 48.679273056687954 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720193->70.49378238061466  	$d:0.0->5.129468321811203  	$l:88.30944088627982->24.376749297574126
+	 improve value x$w(high is good):58.80322326689447  	x$d:5.129468321811203  	 x$l(negative is good):-63.932691588705694
+	 	 $w-$l: -76.61888177255962 -> 46.11703308304054  _ @double@	 lift : 122.73591485560016 : good	 :) hit 
+RoI a: 1.4861049291836432 o: 1.1663030473643465	 returnMoney: a:7.81284E7 o: 4971600.0	 totalSpendMoney: a: 5.25726E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688387->55.952651302791644  	$d:0.0->8.078558181980283  	$l:63.998798903116125->35.96879051522807
+	 improve value x$w(high is good):19.951450205907776  	x$d:8.078558181980283  	 x$l(negative is good):-28.030008387888053
+	 	 $w-$l: -27.99759780623226 -> 19.98386078756357  _ @double@	 lift : 47.981458593795836 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:36.00120109688387->70.19918894848641  	$d:0.0->5.179316168862424  	$l:63.998798903116125->24.621494882651167
+	 improve value x$w(high is good):34.19798785160254  	x$d:5.179316168862424  	 x$l(negative is good):-39.37730402046496
+	 	 $w-$l: -27.99759780623226 -> 45.57769406583525  _ @double@	 lift : 73.57529187206751 : good	 :) hit 
+RoI a: 1.480672488578576 o: 1.1592041665105475	 returnMoney: a:1.461366E8 o: 9281400.0	 totalSpendMoney: a: 9.86961E7 o: 8006700.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983444->57.51058538606253  	$d:0.0->7.802699323071272  	$l:61.610762639016556->34.686715290866196
+	 improve value x$w(high is good):19.121348025079087  	x$d:7.802699323071272  	 x$l(negative is good):-26.92404734815036
+	 	 $w-$l: -23.221525278033116 -> 22.823870095196337  _ @double@	 lift : 46.045395373229454 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:38.389237360983444->70.18037578701116  	$d:0.0->5.1822799459911275  	$l:61.610762639016556->24.63734426699771
+	 improve value x$w(high is good):31.791138426027715  	x$d:5.1822799459911275  	 x$l(negative is good):-36.97341837201884
+	 	 $w-$l: -23.221525278033116 -> 45.54303152001346  _ @double@	 lift : 68.76455679804657 : good	 :) hit 
+RoI a: 1.4803219429245063 o: 1.1587475085192567	 returnMoney: a:8.51382E7 o: 5406600.0	 totalSpendMoney: a: 5.75133E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734371->59.29759839129787  	$d:0.0->7.419762066897849  	$l:59.08963810265628->33.28263954180428
+	 improve value x$w(high is good):18.387236493954155  	x$d:7.419762066897849  	 x$l(negative is good):-25.806998560852
+	 	 $w-$l: -18.179276205312572 -> 26.014958849493592  _ @double@	 lift : 44.194235054806164 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:40.91036189734371->70.16337569627551  	$d:0.0->5.185291948214906  	$l:59.08963810265628->24.651332355509584
+	 improve value x$w(high is good):29.253013798931796  	x$d:5.185291948214906  	 x$l(negative is good):-34.4383057471467
+	 	 $w-$l: -18.179276205312572 -> 45.51204334076593  _ @double@	 lift : 63.691319546078496 : good	 :) hit 
+RoI a: 1.4800103726091582 o: 1.1583820125647526	 returnMoney: a:4.96542E7 o: 3153000.0	 totalSpendMoney: a: 3.35499E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301049->61.17486076297691  	$d:0.0->7.092834384205081  	$l:56.48820509698952->31.732304852818018
+	 improve value x$w(high is good):17.663065859966423  	x$d:7.092834384205081  	 x$l(negative is good):-24.7559002441715
+	 	 $w-$l: -12.976410193979032 -> 29.442555910158895  _ @double@	 lift : 42.41896610413793 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:43.51179490301049->70.15277797298627  	$d:0.0->5.186299174970835  	$l:56.48820509698952->24.660922852042898
+	 improve value x$w(high is good):26.640983069975782  	x$d:5.186299174970835  	 x$l(negative is good):-31.82728224494662
+	 	 $w-$l: -12.976410193979032 -> 45.49185512094337  _ @double@	 lift : 58.4682653149224 : good	 :) hit 
+RoI a: 1.4798025467320892 o: 1.1580486022291248	 returnMoney: a:2.99478E7 o: 1901400.0	 totalSpendMoney: a: 2.02377E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978783->62.622155174753544  	$d:0.0->6.841916831692275  	$l:56.40624775021217->30.53592799355418
+	 improve value x$w(high is good):19.02840292496571  	x$d:6.841916831692275  	 x$l(negative is good):-25.870319756657988
+	 	 $w-$l: -12.812495500424337 -> 32.08622718119937  _ @double@	 lift : 44.8987226816237 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:43.59375224978783->70.13632877254621  	$d:0.0->5.190885023628671  	$l:56.40624775021217->24.672786203825122
+	 improve value x$w(high is good):26.542576522758374  	x$d:5.190885023628671  	 x$l(negative is good):-31.733461546387044
+	 	 $w-$l: -12.812495500424337 -> 45.46354256872108  _ @double@	 lift : 58.27603806914542 : good	 :) hit 
+RoI a: 1.4795271275346433 o: 1.157928594403345	 returnMoney: a:1.70082E7 o: 1080000.0	 totalSpendMoney: a: 1.14957E7 o: 932700.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529664->57.556733655077  	$d:0.0->7.6600469106363605  	$l:73.55606825647034->34.78321943428665
+	 improve value x$w(high is good):31.112801911547333  	x$d:7.6600469106363605  	 x$l(negative is good):-38.77284882218369
+	 	 $w-$l: -47.11213651294068 -> 22.773514220790346  _ @double@	 lift : 69.88565073373103 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529664->70.08769471028711  	$d:0.0->5.193609097825651  	$l:73.55606825647034->24.718696191887236
+	 improve value x$w(high is good):43.64376296675745  	x$d:5.193609097825651  	 x$l(negative is good):-48.83737206458311
+	 	 $w-$l: -47.11213651294068 -> 45.36899851839987  _ @double@	 lift : 92.48113503134054 : good	 :) hit 
+RoI a: 1.4785436729177226 o: 1.1556480999479437	 returnMoney: a:1.05018E7 o: 666000.0	 totalSpendMoney: a: 7102800.0 o: 576300.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:24.353696613817604->54.739209261013045  	$d:0.0->7.52189823444704  	$l:75.6463033861824->37.73889250453992
+	 improve value x$w(high is good):30.38551264719544  	x$d:7.52189823444704  	 x$l(negative is good):-37.90741088164248
+	 	 $w-$l: -51.29260677236478 -> 17.000316756473126  _ @double@	 lift : 68.29292352883792 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.353696613817604->70.0647141236907  	$d:0.0->5.21048769097338  	$l:75.6463033861824->24.724798185335914
+	 improve value x$w(high is good):45.7110175098731  	x$d:5.21048769097338  	 x$l(negative is good):-50.92150520084648
+	 	 $w-$l: -51.29260677236478 -> 45.33991593835479  _ @double@	 lift : 96.63252271071957 : good	 :) hit 
+RoI a: 1.478322072072072 o: 1.155247181266262	 returnMoney: a:6301200.0 o: 399600.0	 totalSpendMoney: a: 4262400.0 o: 345900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:22.64865025496202->50.19686977504404  	$d:0.0->9.038164196796416  	$l:77.35134974503798->40.76496602815955
+	 improve value x$w(high is good):27.54821952008202  	x$d:9.038164196796416  	 x$l(negative is good):-36.58638371687843
+	 	 $w-$l: -54.70269949007596 -> 9.43190374688449  _ @double@	 lift : 64.13460323696046 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:22.64865025496202->70.05101530459137  	$d:0.0->5.171551465439632  	$l:77.35134974503798->24.777433229968988
+	 improve value x$w(high is good):47.40236504962935  	x$d:5.171551465439632  	 x$l(negative is good):-52.57391651506899
+	 	 $w-$l: -54.70269949007596 -> 45.27358207462239  _ @double@	 lift : 99.97628156469834 : good	 :) hit 
+RoI a: 1.4774261603375527 o: 1.154746423927178	 returnMoney: a:4201800.0 o: 266400.0	 totalSpendMoney: a: 2844000.0 o: 230700.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=10	@@@ 
+[ProbMatrix:
+org->adv	$w:20.66197961140318->39.40877700793921  	$d:0.0->14.650728477336234  	$l:79.33802038859682->45.940494514724556
+	 improve value x$w(high is good):18.746797396536028  	x$d:14.650728477336234  	 x$l(negative is good):-33.39752587387226
+	 	 $w-$l: -58.67604077719364 -> -6.531717506785345  _  _ 	 lift : 52.1443232704083 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:20.66197961140318->69.87012987012987  	$d:0.0->5.354645354645355  	$l:79.33802038859682->24.775224775224775
+	 improve value x$w(high is good):49.20815025872669  	x$d:5.354645354645355  	 x$l(negative is good):-54.562795613372046
+	 	 $w-$l: -58.67604077719364 -> 45.094905094905094  _ @double@	 lift : 103.77094587209874 : good	 :) hit 
+RoI a: 1.4764618957145872 o: 1.1532467532467532	 returnMoney: a:2098200.0 o: 133200.0	 totalSpendMoney: a: 1421100.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720191->34.09009727634044  	$d:0.0->15.838417044407056  	$l:88.3094408862798->50.07148567925251
+	 improve value x$w(high is good):22.399538162620246  	x$d:15.838417044407056  	 x$l(negative is good):-38.23795520702729
+	 	 $w-$l: -76.6188817725596 -> -15.981388402912078  _  _ 	 lift : 60.63749336964753 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720191->72.41672396151951  	$d:0.0->5.134340640006063  	$l:88.3094408862798->22.448935398474422
+	 improve value x$w(high is good):60.72616484779932  	x$d:5.134340640006063  	 x$l(negative is good):-65.86050548780538
+	 	 $w-$l: -76.6188817725596 -> 49.96778856304509  _ @double@	 lift : 126.58667033560471 : good	 :) hit 
+RoI a: 1.5267215650020258 o: 1.1663030473643465	 returnMoney: a:8.02596E7 o: 4971600.0	 totalSpendMoney: a: 5.25699E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688386->58.95459834798612  	$d:0.0->7.868279326282554  	$l:63.99879890311614->33.177122325731325
+	 improve value x$w(high is good):22.95339725110226  	x$d:7.868279326282554  	 x$l(negative is good):-30.821676577384814
+	 	 $w-$l: -27.997597806232278 -> 25.777476022254792  _ @double@	 lift : 53.77507382848707 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:36.00120109688386->72.14467498854324  	$d:0.0->5.193150736258383  	$l:63.99879890311614->22.662174275198367
+	 improve value x$w(high is good):36.14347389165938  	x$d:5.193150736258383  	 x$l(negative is good):-41.33662462791777
+	 	 $w-$l: -27.997597806232278 -> 49.482500713344876  _ @double@	 lift : 77.48009851957715 : good	 :) hit 
+RoI a: 1.5219295978889702 o: 1.1592041665105475	 returnMoney: a:1.501866E8 o: 9281400.0	 totalSpendMoney: a: 9.86817E7 o: 8006700.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983444->60.42645089802029  	$d:0.0->7.607410091202784  	$l:61.610762639016556->31.966139010776935
+	 improve value x$w(high is good):22.03721353703685  	x$d:7.607410091202784  	 x$l(negative is good):-29.64462362823962
+	 	 $w-$l: -23.221525278033116 -> 28.460311887243357  _ @double@	 lift : 51.68183716527648 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:38.389237360983444->72.12706922730713  	$d:0.0->5.1971175484324075  	$l:61.610762639016556->22.67581322426047
+	 improve value x$w(high is good):33.73783186632369  	x$d:5.1971175484324075  	 x$l(negative is good):-38.93494941475609
+	 	 $w-$l: -23.221525278033116 -> 49.45125600304666  _ @double@	 lift : 72.67278128107978 : good	 :) hit 
+RoI a: 1.521621861321675 o: 1.1587475085192567	 returnMoney: a:8.74998E7 o: 5406600.0	 totalSpendMoney: a: 5.75043E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:40.910361897343705->62.03004488064282  	$d:0.0->7.327100439195747  	$l:59.08963810265628->30.64285468016144
+	 improve value x$w(high is good):21.119682983299114  	x$d:7.327100439195747  	 x$l(negative is good):-28.44678342249484
+	 	 $w-$l: -18.17927620531258 -> 31.38719020048138  _ @double@	 lift : 49.56646640579396 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:40.910361897343705->72.11167538512407  	$d:0.0->5.200552781286827  	$l:59.08963810265628->22.687771833589093
+	 improve value x$w(high is good):31.201313487780368  	x$d:5.200552781286827  	 x$l(negative is good):-36.401866269067185
+	 	 $w-$l: -18.17927620531258 -> 49.423903551534984  _ @double@	 lift : 67.60317975684755 : good	 :) hit 
+RoI a: 1.521352233600143 o: 1.1583820125647526	 returnMoney: a:5.1033E7 o: 3153000.0	 totalSpendMoney: a: 3.35445E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301049->63.78796881568879  	$d:0.0->6.9460344884269025  	$l:56.48820509698952->29.26599669588431
+	 improve value x$w(high is good):20.276173912678303  	x$d:6.9460344884269025  	 x$l(negative is good):-27.222208401105206
+	 	 $w-$l: -12.976410193979032 -> 34.52197211980448  _ @double@	 lift : 47.49838231378351 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:43.51179490301049->72.10080254114605  	$d:0.0->5.2031651885479775  	$l:56.48820509698952->22.696032270305977
+	 improve value x$w(high is good):28.589007638135563  	x$d:5.2031651885479775  	 x$l(negative is good):-33.79217282668354
+	 	 $w-$l: -12.976410193979032 -> 49.40477027084007  _ @double@	 lift : 62.38118046481911 : good	 :) hit 
+RoI a: 1.5211647664091805 o: 1.1580486022291248	 returnMoney: a:3.07794E7 o: 1901400.0	 totalSpendMoney: a: 2.02341E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978783->64.98550107059681  	$d:0.0->6.648194860639315  	$l:56.40624775021217->28.36630406876389
+	 improve value x$w(high is good):21.391748820808978  	x$d:6.648194860639315  	 x$l(negative is good):-28.03994368144828
+	 	 $w-$l: -12.812495500424337 -> 36.61919700183292  _ @double@	 lift : 49.431692502257256 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:43.59375224978783->72.08847762080313  	$d:0.0->5.205730262018458  	$l:56.40624775021217->22.705792117178415
+	 improve value x$w(high is good):28.4947253710153  	x$d:5.205730262018458  	 x$l(negative is good):-33.700455633033755
+	 	 $w-$l: -12.812495500424337 -> 49.382685503624714  _ @double@	 lift : 62.19518100404905 : good	 :) hit 
+RoI a: 1.5209458930389164 o: 1.157928594403345	 returnMoney: a:1.74816E7 o: 1080000.0	 totalSpendMoney: a: 1.14939E7 o: 932700.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529664->59.37790586509117  	$d:0.0->7.309403658015769  	$l:73.55606825647034->33.31269047689305
+	 improve value x$w(high is good):32.933974121561505  	x$d:7.309403658015769  	 x$l(negative is good):-40.24337777957729
+	 	 $w-$l: -47.11213651294068 -> 26.06521538819812  _ @double@	 lift : 73.17735190113879 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529664->72.03379650022023  	$d:0.0->5.2176350458495175  	$l:73.55606825647034->22.748568453930247
+	 improve value x$w(high is good):45.589864756690574  	x$d:5.2176350458495175  	 x$l(negative is good):-50.80749980254009
+	 	 $w-$l: -47.11213651294068 -> 49.285228046289994  _ @double@	 lift : 96.39736455923067 : good	 :) hit 
+RoI a: 1.5199831009716942 o: 1.1556480999479437	 returnMoney: a:1.07934E7 o: 666000.0	 totalSpendMoney: a: 7101000.0 o: 576300.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:24.353696613817608->56.33159041749076  	$d:0.0->7.457854269040047  	$l:75.6463033861824->36.210555313469186
+	 improve value x$w(high is good):31.97789380367315  	x$d:7.457854269040047  	 x$l(negative is good):-39.43574807271321
+	 	 $w-$l: -51.29260677236478 -> 20.12103510402158  _ @double@	 lift : 71.41364187638636 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.353696613817608->72.02615251184201  	$d:0.0->5.21048769097338  	$l:75.6463033861824->22.763359797184602
+	 improve value x$w(high is good):47.67245589802441  	x$d:5.21048769097338  	 x$l(negative is good):-52.88294358899779
+	 	 $w-$l: -51.29260677236478 -> 49.26279271465741  _ @double@	 lift : 100.55539948702219 : good	 :) hit 
+RoI a: 1.5197072072072073 o: 1.155247181266262	 returnMoney: a:6477600.0 o: 399600.0	 totalSpendMoney: a: 4262400.0 o: 345900.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:22.648650254962025->53.085641904874784  	$d:0.0->7.474710064778023  	$l:77.35134974503798->39.43964803034719
+	 improve value x$w(high is good):30.43699164991276  	x$d:7.474710064778023  	 x$l(negative is good):-37.911701714690786
+	 	 $w-$l: -54.70269949007596 -> 13.64599387452759  _ @double@	 lift : 68.34869336460355 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:22.648650254962025->71.97159147744323  	$d:0.0->5.231569470841253  	$l:77.35134974503798->22.796839051715516
+	 improve value x$w(high is good):49.322941222481205  	x$d:5.231569470841253  	 x$l(negative is good):-54.55451069332246
+	 	 $w-$l: -54.70269949007596 -> 49.17475242572772  _ @double@	 lift : 103.87745191580366 : good	 :) hit 
+RoI a: 1.5188938146506228 o: 1.154746423927178	 returnMoney: a:4317000.0 o: 266400.0	 totalSpendMoney: a: 2842200.0 o: 230700.0	deckStatus=0
+	 [isDouble()=true, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=11	@@@ 
+[ProbMatrix:
+org->adv	$w:20.66197961140318->47.749324876757385  	$d:0.0->8.935087283764798  	$l:79.33802038859682->43.31558783947783
+	 improve value x$w(high is good):27.087345265354205  	x$d:8.935087283764798  	 x$l(negative is good):-36.02243254911899
+	 	 $w-$l: -58.67604077719364 -> 4.4337370372795615  _  _ 	 lift : 63.1097778144732 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:20.66197961140318->71.96803196803197  	$d:0.0->5.174825174825175  	$l:79.33802038859682->22.857142857142858
+	 improve value x$w(high is good):51.30605235662878  	x$d:5.174825174825175  	 x$l(negative is good):-56.480877531453956
+	 	 $w-$l: -58.67604077719364 -> 49.11088911088911  _ @double@	 lift : 107.78692988808274 : good	 :) hit 
+RoI a: 1.5179098187947746 o: 1.1532467532467532	 returnMoney: a:2161200.0 o: 133200.0	 totalSpendMoney: a: 1423800.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720193->18.05138440155639  	$d:0.0->6.896952170036284  	$l:88.30944088627982->75.05166342840732
+	 improve value x$w(high is good):6.360825287836198  	x$d:6.896952170036284  	 x$l(negative is good):-13.257777457872493
+	 	 $w-$l: -76.61888177255962 -> -57.00027902685093  _ #Surrender#	 lift : 19.618602745708692 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720193->46.78183383229481  	$d:0.0->3.2065267409063596  	$l:88.30944088627982->50.01163942679884
+	 improve value x$w(high is good):35.09127471857462  	x$d:3.2065267409063596  	 x$l(negative is good):-38.29780145948098
+	 	 $w-$l: -76.61888177255962 -> -3.2298055945040316  _  _ 	 lift : 73.38907617805559 : good	 :) hit 
+RoI a: 0.9666319898878039 o: 1.1663030473643465	 returnMoney: a:5.18484E7 o: 4971600.0	 totalSpendMoney: a: 5.36382E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688387->35.03124957726783  	$d:0.0->4.943168113555773  	$l:63.998798903116125->60.02558230917641
+	 improve value x$w(high is good):-0.9699515196160391  	x$d:4.943168113555773  	 x$l(negative is good):-3.9732165939397177
+	 	 $w-$l: -27.99759780623226 -> -24.99433273190858  _  _ 	 lift : 3.00326507432368 : good	 :| stand
+TimeMatrix:
+org->adv	$w:36.00120109688387->46.568594955570866  	$d:0.0->3.233830128805587  	$l:63.998798903116125->50.197574915623555
+	 improve value x$w(high is good):10.567393858686998  	x$d:3.233830128805587  	 x$l(negative is good):-13.80122398749257
+	 	 $w-$l: -27.99759780623226 -> -3.6289799600526917  _  _ 	 lift : 24.368617846179568 : good	 :) hit 
+RoI a: 0.9624974310248796 o: 1.1592041665105475	 returnMoney: a:9.69438E7 o: 9281400.0	 totalSpendMoney: a: 1.007211E8 o: 8006700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983444->36.2471463134222  	$d:0.0->4.758218611781507  	$l:61.610762639016556->58.994635074796285
+	 improve value x$w(high is good):-2.1420910475612445  	x$d:4.758218611781507  	 x$l(negative is good):-2.616127564220271
+	 	 $w-$l: -23.221525278033116 -> -22.747488761374086  _  _ 	 lift : 0.4740365166590321 : good	 :| stand
+TimeMatrix:
+org->adv	$w:38.389237360983444->46.55495600650876  	$d:0.0->3.2355865056951663  	$l:61.610762639016556->50.20945748779607
+	 improve value x$w(high is good):8.165718645525317  	x$d:3.2355865056951663  	 x$l(negative is good):-11.401305151220484
+	 	 $w-$l: -23.221525278033116 -> -3.654501481287309  _  _ 	 lift : 19.567023796745808 : good	 :) hit 
+RoI a: 0.9622330012727003 o: 1.1587475085192567	 returnMoney: a:5.64774E7 o: 5406600.0	 totalSpendMoney: a: 5.86941E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734371->37.5754546187251  	$d:0.0->4.5632881964123015  	$l:59.08963810265628->57.861257184862616
+	 improve value x$w(high is good):-3.3349072786186156  	x$d:4.5632881964123015  	 x$l(negative is good):-1.2283809177936647
+	 	 $w-$l: -18.179276205312572 -> -20.285802566137516  _  _ 	 lift : -2.106526360824945 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:40.91036189734371->46.54299739718014  	$d:0.0->3.2369922593663363  	$l:59.08963810265628->50.220010343453524
+	 improve value x$w(high is good):5.632635499836425  	x$d:3.2369922593663363  	 x$l(negative is good):-8.869627759202757
+	 	 $w-$l: -18.179276205312572 -> -3.677012946273389  _  _ 	 lift : 14.502263259039182 : good	 :) hit 
+RoI a: 0.9619998072390499 o: 1.1583820125647526	 returnMoney: a:3.29382E7 o: 3153000.0	 totalSpendMoney: a: 3.42393E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301049->38.95772810868901  	$d:0.0->4.361685431292579  	$l:56.48820509698952->56.68058646001841
+	 improve value x$w(high is good):-4.5540667943214785  	x$d:4.361685431292579  	 x$l(negative is good):0.1923813630288933
+	 	 $w-$l: -12.976410193979032 -> -17.7228583513294  _  _ 	 lift : -4.746448157350369 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.51179490301049->46.53473696046325  	$d:0.0->3.2382746068110584  	$l:56.48820509698952->50.22698843272568
+	 improve value x$w(high is good):3.0229420574527595  	x$d:3.2382746068110584  	 x$l(negative is good):-6.261216664263834
+	 	 $w-$l: -12.976410193979032 -> -3.692251472262431  _  _ 	 lift : 9.2841587217166 : good	 :) hit 
+RoI a: 0.961841818577965 o: 1.1580486022291248	 returnMoney: a:1.98654E7 o: 1901400.0	 totalSpendMoney: a: 2.06535E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978783->39.86832919329586  	$d:0.0->4.333858310890321  	$l:56.40624775021217->55.79781249581384
+	 improve value x$w(high is good):-3.7254230564919766  	x$d:4.333858310890321  	 x$l(negative is good):-0.60843525439833
+	 	 $w-$l: -12.812495500424337 -> -15.929483302517983  _  _ 	 lift : -3.1169878020936457 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.59375224978783->46.524977113590815  	$d:0.0->3.2387361753717494  	$l:56.40624775021217->50.23628671103744
+	 improve value x$w(high is good):2.9312248638029814  	x$d:3.2387361753717494  	 x$l(negative is good):-6.16996103917473
+	 	 $w-$l: -12.812495500424337 -> -3.7113095974466215  _  _ 	 lift : 9.101185902977715 : good	 :) hit 
+RoI a: 0.9616446762810679 o: 1.157928594403345	 returnMoney: a:1.12824E7 o: 1080000.0	 totalSpendMoney: a: 1.17324E7 o: 932700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529664->34.946444452996026  	$d:0.0->5.542508479026216  	$l:73.55606825647034->59.51104706797775
+	 improve value x$w(high is good):8.502512709466362  	x$d:5.542508479026216  	 x$l(negative is good):-14.04502118849259
+	 	 $w-$l: -47.11213651294068 -> -24.56460261498173  _  _ 	 lift : 22.54753389795895 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529664->46.48220077683899  	$d:0.0->3.247507307892524  	$l:73.55606825647034->50.270291915268494
+	 improve value x$w(high is good):20.038269033309323  	x$d:3.247507307892524  	 x$l(negative is good):-23.285776341201846
+	 	 $w-$l: -47.11213651294068 -> -3.7880911384295057  _  _ 	 lift : 43.32404537451117 : good	 :) hit 
+RoI a: 0.9608476119526529 o: 1.1556480999479437	 returnMoney: a:6964800.0 o: 666000.0	 totalSpendMoney: a: 7248600.0 o: 576300.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:24.353696613817604->32.03551855189902  	$d:0.0->5.721914517581718  	$l:75.6463033861824->62.242566930519274
+	 improve value x$w(high is good):7.681821938081413  	x$d:5.721914517581718  	 x$l(negative is good):-13.403736455663122
+	 	 $w-$l: -51.29260677236478 -> -30.207048378620254  _  _ 	 lift : 21.085558393744524 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.353696613817604->46.46740943358463  	$d:0.0->3.249049302822069  	$l:75.6463033861824->50.2835412635933
+	 improve value x$w(high is good):22.113712819767024  	x$d:3.249049302822069  	 x$l(negative is good):-25.362762122589096
+	 	 $w-$l: -51.29260677236478 -> -3.8161318300086733  _  _ 	 lift : 47.476474942356106 : good	 :) hit 
+RoI a: 0.9605571645290305 o: 1.155247181266262	 returnMoney: a:4179000.0 o: 399600.0	 totalSpendMoney: a: 4350600.0 o: 345900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:22.64865025496202->28.714389121037826  	$d:0.0->6.031024678531479  	$l:77.35134974503798->65.2545862004307
+	 improve value x$w(high is good):6.0657388660758045  	x$d:6.031024678531479  	 x$l(negative is good):-12.096763544607285
+	 	 $w-$l: -54.70269949007596 -> -36.540197079392875  _  _ 	 lift : 18.162502410683086 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:22.64865025496202->46.43393017905372  	$d:0.0->3.2509752925877766  	$l:77.35134974503798->50.31509452835851
+	 improve value x$w(high is good):23.785279924091697  	x$d:3.2509752925877766  	 x$l(negative is good):-27.03625521667947
+	 	 $w-$l: -54.70269949007596 -> -3.8811643493047887  _  _ 	 lift : 50.82153514077117 : good	 :) hit 
+RoI a: 0.9598842018196857 o: 1.154746423927178	 returnMoney: a:2785200.0 o: 266400.0	 totalSpendMoney: a: 2901600.0 o: 230700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=12	@@@ 
+[ProbMatrix:
+org->adv	$w:20.66197961140318->24.827302928995486  	$d:0.0->6.199006624883023  	$l:79.33802038859682->68.9736904461215
+	 improve value x$w(high is good):4.165323317592307  	x$d:6.199006624883023  	 x$l(negative is good):-10.364329942475322
+	 	 $w-$l: -58.67604077719364 -> -44.14638751712601  _  _ 	 lift : 14.529653260067633 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:20.66197961140318->46.37362637362637  	$d:0.0->3.2567432567432566  	$l:79.33802038859682->50.36963036963037
+	 improve value x$w(high is good):25.711646762223193  	x$d:3.2567432567432566  	 x$l(negative is good):-28.968390018966446
+	 	 $w-$l: -58.67604077719364 -> -3.996003996003994  _  _ 	 lift : 54.68003678118964 : good	 :) hit 
+RoI a: 0.9586947542337877 o: 1.1532467532467532	 returnMoney: a:1392600.0 o: 133200.0	 totalSpendMoney: a: 1452600.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720193->16.948336571599864  	$d:0.0->6.810469040000028  	$l:88.30944088627982->76.24119438840012
+	 improve value x$w(high is good):5.257777457879671  	x$d:6.810469040000028  	 x$l(negative is good):-12.068246497879699
+	 	 $w-$l: -76.61888177255962 -> -59.29285781680025  _ #Surrender#	 lift : 17.326023955759375 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720193->42.29605288089348  	$d:0.0->3.2065267409063596  	$l:88.30944088627982->54.49742037820017
+	 improve value x$w(high is good):30.605493767173286  	x$d:3.2065267409063596  	 x$l(negative is good):-33.81202050807965
+	 	 $w-$l: -76.61888177255962 -> -12.201367497306691  _  _ 	 lift : 64.41751427525293 : good	 :) hit 
+RoI a: 0.8739443158047809 o: 1.1663030473643465	 returnMoney: a:4.68768E7 o: 4971600.0	 totalSpendMoney: a: 5.36382E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688387->31.97441769082254  	$d:0.0->4.856683182964464  	$l:63.998798903116125->63.168899126212985
+	 improve value x$w(high is good):-4.026783406061327  	x$d:4.856683182964464  	 x$l(negative is good):-0.8298997769031402
+	 	 $w-$l: -27.99759780623226 -> -31.194481435390443  _  _ 	 lift : -3.1968836291581813 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:36.00120109688387->42.11011739206876  	$d:0.0->3.233830128805587  	$l:63.998798903116125->54.65605247912566
+	 improve value x$w(high is good):6.1089162951848905  	x$d:3.233830128805587  	 x$l(negative is good):-9.342746423990462
+	 	 $w-$l: -27.99759780623226 -> -12.545935087056904  _  _ 	 lift : 15.451662719175358 : good	 :) hit 
+RoI a: 0.8703479211406547 o: 1.1592041665105475	 returnMoney: a:8.76624E7 o: 9281400.0	 totalSpendMoney: a: 1.007211E8 o: 8006700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983444->33.00536492520466  	$d:0.0->4.677095643288828  	$l:61.610762639016556->62.31753943150651
+	 improve value x$w(high is good):-5.383872435778784  	x$d:4.677095643288828  	 x$l(negative is good):0.7067767924899542
+	 	 $w-$l: -23.221525278033116 -> -29.312174506301847  _  _ 	 lift : -6.090649228268729 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:38.389237360983444->42.098234819896234  	$d:0.0->3.2355865056951663  	$l:61.610762639016556->54.66617867440859
+	 improve value x$w(high is good):3.7089974589127905  	x$d:3.2355865056951663  	 x$l(negative is good):-6.944583964607965
+	 	 $w-$l: -23.221525278033116 -> -12.56794385451236  _  _ 	 lift : 10.653581423520759 : good	 :) hit 
+RoI a: 0.8701181209014194 o: 1.1587475085192567	 returnMoney: a:5.10708E7 o: 5406600.0	 totalSpendMoney: a: 5.86941E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734371->34.138742815137405  	$d:0.0->4.484806884791487  	$l:59.08963810265628->61.376450300071106
+	 improve value x$w(high is good):-6.771619082206307  	x$d:4.484806884791487  	 x$l(negative is good):2.286812197414825
+	 	 $w-$l: -18.179276205312572 -> -27.237707484933697  _  _ 	 lift : -9.058431279621127 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:40.91036189734371->42.08768196423878  	$d:0.0->3.2369922593663363  	$l:59.08963810265628->54.67532577639488
+	 improve value x$w(high is good):1.1773200668950707  	x$d:3.2369922593663363  	 x$l(negative is good):-4.414312326261403
+	 	 $w-$l: -18.179276205312572 -> -12.587643812156097  _  _ 	 lift : 5.591632393156476 : good	 :) hit 
+RoI a: 0.8699126442421428 o: 1.1583820125647526	 returnMoney: a:2.97852E7 o: 3153000.0	 totalSpendMoney: a: 3.42393E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301049->35.319413539980644  	$d:0.0->4.285749680267719  	$l:56.48820509698952->60.394836779751635
+	 improve value x$w(high is good):-8.192381363029845  	x$d:4.285749680267719  	 x$l(negative is good):3.906631682762118
+	 	 $w-$l: -12.976410193979032 -> -25.075423239770995  _  _ 	 lift : -12.099013045791962 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.51179490301049->42.080703874966616  	$d:0.0->3.2382746068110584  	$l:56.48820509698952->54.681021518222316
+	 improve value x$w(high is good):-1.4310910280438733  	x$d:3.2382746068110584  	 x$l(negative is good):-1.8071835787672015
+	 	 $w-$l: -12.976410193979032 -> -12.600317643255698  _  _ 	 lift : 0.3760925507233337 : good	 :| stand
+RoI a: 0.8697799404459292 o: 1.1580486022291248	 returnMoney: a:1.7964E7 o: 1901400.0	 totalSpendMoney: a: 2.06535E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978783->36.20218750418566  	$d:0.0->4.265451322832931  	$l:56.40624775021217->59.532361172981396
+	 improve value x$w(high is good):-7.3915647456021745  	x$d:4.265451322832931  	 x$l(negative is good):3.1261134227692295
+	 	 $w-$l: -12.812495500424337 -> -23.330173668795734  _  _ 	 lift : -10.517678168371397 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.59375224978783->42.07140559665487  	$d:0.0->3.2387361753717494  	$l:56.40624775021217->54.689858227973374
+	 improve value x$w(high is good):-1.5223466531329635  	x$d:3.2387361753717494  	 x$l(negative is good):-1.7163895222387922
+	 	 $w-$l: -12.812495500424337 -> -12.618452631318505  _  _ 	 lift : 0.19404286910583157 : good	 :| stand
+RoI a: 0.8695918993556305 o: 1.157928594403345	 returnMoney: a:1.02024E7 o: 1080000.0	 totalSpendMoney: a: 1.17324E7 o: 932700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529664->32.48895293202217  	$d:0.0->5.492513245171882  	$l:73.55606825647034->62.018533822805956
+	 improve value x$w(high is good):6.045021188492509  	x$d:5.492513245171882  	 x$l(negative is good):-11.537534433664383
+	 	 $w-$l: -47.11213651294068 -> -29.529580890783784  _  _ 	 lift : 17.582555622156892 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529664->42.03740039242382  	$d:0.0->3.247507307892524  	$l:73.55606825647034->54.715092299683654
+	 improve value x$w(high is good):15.593468648894156  	x$d:3.247507307892524  	 x$l(negative is good):-18.840975956786686
+	 	 $w-$l: -47.11213651294068 -> -12.677691907259836  _  _ 	 lift : 34.434444605680845 : good	 :) hit 
+RoI a: 0.8689678006787518 o: 1.1556480999479437	 returnMoney: a:6298800.0 o: 666000.0	 totalSpendMoney: a: 7248600.0 o: 576300.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:24.353696613817604->29.7574330694805  	$d:0.0->5.636454851514731  	$l:75.6463033861824->64.60611207900477
+	 improve value x$w(high is good):5.403736455662894  	x$d:5.636454851514731  	 x$l(negative is good):-11.040191307177622
+	 	 $w-$l: -51.29260677236478 -> -34.848679009524275  _  _ 	 lift : 16.443927762840506 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.353696613817604->42.02415104409901  	$d:0.0->3.249049302822069  	$l:75.6463033861824->54.72679965307893
+	 improve value x$w(high is good):17.670454430281403  	x$d:3.249049302822069  	 x$l(negative is good):-20.91950373310347
+	 	 $w-$l: -51.29260677236478 -> -12.702648608979922  _  _ 	 lift : 38.58995816338486 : good	 :) hit 
+RoI a: 0.8687077644462833 o: 1.155247181266262	 returnMoney: a:3779400.0 o: 399600.0	 totalSpendMoney: a: 4350600.0 o: 345900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:22.64865025496202->26.745413799569235  	$d:0.0->5.791702914731648  	$l:77.35134974503798->67.46288328569912
+	 improve value x$w(high is good):4.096763544607214  	x$d:5.791702914731648  	 x$l(negative is good):-9.888466459338858
+	 	 $w-$l: -54.70269949007596 -> -40.71746948612988  _  _ 	 lift : 13.985230003946075 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:22.64865025496202->41.9925977793338  	$d:0.0->3.2509752925877766  	$l:77.35134974503798->54.756426928078426
+	 improve value x$w(high is good):19.343947524371778  	x$d:3.2509752925877766  	 x$l(negative is good):-22.594922816959553
+	 	 $w-$l: -54.70269949007596 -> -12.763829148744627  _  _ 	 lift : 41.93887034133133 : good	 :) hit 
+RoI a: 0.8680727874276262 o: 1.154746423927178	 returnMoney: a:2518800.0 o: 266400.0	 totalSpendMoney: a: 2901600.0 o: 230700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=13	@@@ 
+[ProbMatrix:
+org->adv	$w:20.66197961140318->23.02630955387856  	$d:0.0->6.124781703639609  	$l:79.33802038859682->70.84890874248183
+	 improve value x$w(high is good):2.364329942475379  	x$d:6.124781703639609  	 x$l(negative is good):-8.489111646114992
+	 	 $w-$l: -58.67604077719364 -> -47.82259918860327  _  _ 	 lift : 10.853441588590368 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:20.66197961140318->41.938061938061935  	$d:0.0->3.2567432567432566  	$l:79.33802038859682->54.8051948051948
+	 improve value x$w(high is good):21.276082326658756  	x$d:3.2567432567432566  	 x$l(negative is good):-24.532825583402015
+	 	 $w-$l: -58.67604077719364 -> -12.867132867132863  _  _ 	 lift : 45.808907910060775 : good	 :) hit 
+RoI a: 0.8669971086327963 o: 1.1532467532467532	 returnMoney: a:1259400.0 o: 133200.0	 totalSpendMoney: a: 1452600.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720193->15.717935017918034  	$d:0.0->6.680173428176299  	$l:88.30944088627982->77.60189155390566
+	 improve value x$w(high is good):4.027375904197841  	x$d:6.680173428176299  	 x$l(negative is good):-10.707549332374157
+	 	 $w-$l: -76.61888177255962 -> -61.883956535987636  _ #Surrender#	 lift : 14.734925236571982 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720193->37.81027192949214  	$d:0.0->3.2065267409063596  	$l:88.30944088627982->58.9832013296015
+	 improve value x$w(high is good):26.119712815771948  	x$d:3.2065267409063596  	 x$l(negative is good):-29.326239556678317
+	 	 $w-$l: -76.61888177255962 -> -21.172929400109357  _  _ 	 lift : 55.44595237245027 : good	 :) hit 
+RoI a: 0.781256641721758 o: 1.1663030473643465	 returnMoney: a:4.19052E7 o: 4971600.0	 totalSpendMoney: a: 5.36382E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688387->28.786025749898442  	$d:0.0->4.730002989580019  	$l:63.998798903116125->66.48397126052154
+	 improve value x$w(high is good):-7.215175346985426  	x$d:4.730002989580019  	 x$l(negative is good):2.4851723574054176
+	 	 $w-$l: -27.99759780623226 -> -37.69794551062311  _  _ 	 lift : -9.700347704390843 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:36.00120109688387->37.65163982856665  	$d:0.0->3.233830128805587  	$l:63.998798903116125->59.114530042627756
+	 improve value x$w(high is good):1.650438731682783  	x$d:3.233830128805587  	 x$l(negative is good):-4.884268860488369
+	 	 $w-$l: -27.99759780623226 -> -21.462890214061105  _  _ 	 lift : 6.5347075921711575 : good	 :) hit 
+RoI a: 0.7781984112564299 o: 1.1592041665105475	 returnMoney: a:7.8381E7 o: 9281400.0	 totalSpendMoney: a: 1.007211E8 o: 8006700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983444->29.639166568822645  	$d:0.0->4.554072179065445  	$l:61.610762639016556->65.8067612521119
+	 improve value x$w(high is good):-8.750070792160798  	x$d:4.554072179065445  	 x$l(negative is good):4.195998613095341
+	 	 $w-$l: -23.221525278033116 -> -36.16759468328926  _  _ 	 lift : -12.94606940525614 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:38.389237360983444->37.64151363328371  	$d:0.0->3.2355865056951663  	$l:61.610762639016556->59.122899861021125
+	 improve value x$w(high is good):-0.7477237276997357  	x$d:3.2355865056951663  	 x$l(negative is good):-2.4878627779954314
+	 	 $w-$l: -23.221525278033116 -> -21.48138622773742  _  _ 	 lift : 1.740139050295697 : good	 :| stand
+RoI a: 0.7780032405301385 o: 1.1587475085192567	 returnMoney: a:4.56642E7 o: 5406600.0	 totalSpendMoney: a: 5.86941E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734371->30.581463744682893  	$d:0.0->4.3690501227650715  	$l:59.08963810265628->65.04948613255203
+	 improve value x$w(high is good):-10.32889815266082  	x$d:4.3690501227650715  	 x$l(negative is good):5.959848029895753
+	 	 $w-$l: -18.179276205312572 -> -34.46802238786915  _  _ 	 lift : -16.288746182556572 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:40.91036189734371->37.63236653129742  	$d:0.0->3.2369922593663363  	$l:59.08963810265628->59.13064120933625
+	 improve value x$w(high is good):-3.277995366046291  	x$d:3.2369922593663363  	 x$l(negative is good):0.041003106679966095
+	 	 $w-$l: -18.179276205312572 -> -21.49827467803882  _  _ 	 lift : -3.318998472726248 : bad	 :| stand
+RoI a: 0.7778254812452358 o: 1.1583820125647526	 returnMoney: a:2.66322E7 o: 3153000.0	 totalSpendMoney: a: 3.42393E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301049->31.565807808278407  	$d:0.0->4.17383326920648  	$l:56.48820509698952->64.26035892251511
+	 improve value x$w(high is good):-11.945987094732082  	x$d:4.17383326920648  	 x$l(negative is good):7.772153825525592
+	 	 $w-$l: -12.976410193979032 -> -32.69455111423671  _  _ 	 lift : -19.718140920257675 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.51179490301049->37.62667078946998  	$d:0.0->3.2382746068110584  	$l:56.48820509698952->59.13505460371895
+	 improve value x$w(high is good):-5.885124113540506  	x$d:3.2382746068110584  	 x$l(negative is good):2.6468495067294313
+	 	 $w-$l: -12.976410193979032 -> -21.508383814248965  _  _ 	 lift : -8.531973620269934 : bad	 :| stand
+RoI a: 0.7777180623138935 o: 1.1580486022291248	 returnMoney: a:1.60626E7 o: 1901400.0	 totalSpendMoney: a: 2.06535E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978783->32.41224695662199  	$d:0.0->4.165873941559393  	$l:56.40624775021217->63.42187910181861
+	 improve value x$w(high is good):-11.181505293165841  	x$d:4.165873941559393  	 x$l(negative is good):7.015631351606444
+	 	 $w-$l: -12.812495500424337 -> -31.00963214519662  _  _ 	 lift : -18.197136644772282 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.59375224978783->37.61783407971893  	$d:0.0->3.2387361753717494  	$l:56.40624775021217->59.14342974490931
+	 improve value x$w(high is good):-5.975918170068901  	x$d:3.2387361753717494  	 x$l(negative is good):2.7371819946971456
+	 	 $w-$l: -12.812495500424337 -> -21.525595665190384  _  _ 	 lift : -8.713100164766047 : bad	 :| stand
+RoI a: 0.7775391224301933 o: 1.157928594403345	 returnMoney: a:9122400.0 o: 1080000.0	 totalSpendMoney: a: 1.17324E7 o: 932700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529664->29.8560884463434  	$d:0.0->5.396314368332394  	$l:73.55606825647034->64.74759718532421
+	 improve value x$w(high is good):3.4121567028137356  	x$d:5.396314368332394  	 x$l(negative is good):-8.80847107114613
+	 	 $w-$l: -47.11213651294068 -> -34.89150873898082  _  _ 	 lift : 12.220627773959864 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529664->37.592600008008645  	$d:0.0->3.247507307892524  	$l:73.55606825647034->59.15989268409882
+	 improve value x$w(high is good):11.148668264478982  	x$d:3.247507307892524  	 x$l(negative is good):-14.396175572371519
+	 	 $w-$l: -47.11213651294068 -> -21.567292676090176  _  _ 	 lift : 25.5448438368505 : good	 :) hit 
+RoI a: 0.7770879894048506 o: 1.1556480999479437	 returnMoney: a:5632800.0 o: 666000.0	 totalSpendMoney: a: 7248600.0 o: 576300.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:24.353696613817604->27.351180237263932  	$d:0.0->5.4700348486878285  	$l:75.6463033861824->67.17878491404822
+	 improve value x$w(high is good):2.9974836234463282  	x$d:5.4700348486878285  	 x$l(negative is good):-8.467518472134174
+	 	 $w-$l: -51.29260677236478 -> -39.8276046767843  _  _ 	 lift : 11.465002095580484 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.353696613817604->37.580892654613386  	$d:0.0->3.249049302822069  	$l:75.6463033861824->59.17005804256454
+	 improve value x$w(high is good):13.227196040795782  	x$d:3.249049302822069  	 x$l(negative is good):-16.476245343617855
+	 	 $w-$l: -51.29260677236478 -> -21.58916538795116  _  _ 	 lift : 29.70344138441362 : good	 :) hit 
+RoI a: 0.7768583643635361 o: 1.155247181266262	 returnMoney: a:3379800.0 o: 399600.0	 totalSpendMoney: a: 4350600.0 o: 345900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:22.64865025496202->24.49729097640261  	$d:0.0->5.672743331821293  	$l:77.35134974503798->69.82996569177611
+	 improve value x$w(high is good):1.8486407214405887  	x$d:5.672743331821293  	 x$l(negative is good):-7.521384053261869
+	 	 $w-$l: -54.70269949007596 -> -45.3326747153735  _  _ 	 lift : 9.370024774702458 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:22.64865025496202->37.55126537961389  	$d:0.0->3.2509752925877766  	$l:77.35134974503798->59.19775932779834
+	 improve value x$w(high is good):14.902615124651867  	x$d:3.2509752925877766  	 x$l(negative is good):-18.15359041723964
+	 	 $w-$l: -54.70269949007596 -> -21.646493948184453  _  _ 	 lift : 33.0562055418915 : good	 :) hit 
+RoI a: 0.7762613730355666 o: 1.154746423927178	 returnMoney: a:2252400.0 o: 266400.0	 totalSpendMoney: a: 2901600.0 o: 230700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=14	@@@ 
+[ProbMatrix:
+org->adv	$w:20.66197961140318->21.113934776985527  	$d:0.0->5.856238795824972  	$l:79.33802038859682->73.0298264271895
+	 improve value x$w(high is good):0.4519551655823477  	x$d:5.856238795824972  	 x$l(negative is good):-6.308193961407312
+	 	 $w-$l: -58.67604077719364 -> -51.91589165020398  _ #Surrender#	 lift : 6.760149126989656 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:20.66197961140318->37.5024975024975  	$d:0.0->3.2567432567432566  	$l:79.33802038859682->59.240759240759246
+	 improve value x$w(high is good):16.84051789109432  	x$d:3.2567432567432566  	 x$l(negative is good):-20.09726114783757
+	 	 $w-$l: -58.67604077719364 -> -21.738261738261745  _  _ 	 lift : 36.93777903893189 : good	 :) hit 
+RoI a: 0.7752994630318051 o: 1.1532467532467532	 returnMoney: a:1126200.0 o: 133200.0	 totalSpendMoney: a: 1452600.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720193->14.354866881082993  	$d:0.0->6.432393337453533  	$l:88.30944088627982->79.21273978146348
+	 improve value x$w(high is good):2.6643077673628  	x$d:6.432393337453533  	 x$l(negative is good):-9.096701104816333
+	 	 $w-$l: -76.61888177255962 -> -64.85787290038049  _ #Surrender#	 lift : 11.761008872179135 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720193->33.32449097809081  	$d:0.0->3.2065267409063596  	$l:88.30944088627982->63.46898228100283
+	 improve value x$w(high is good):21.633931864370616  	x$d:3.2065267409063596  	 x$l(negative is good):-24.840458605276986
+	 	 $w-$l: -76.61888177255962 -> -30.14449130291202  _  _ 	 lift : 46.4743904696476 : good	 :) hit 
+RoI a: 0.6885689676387351 o: 1.1663030473643465	 returnMoney: a:3.69336E7 o: 4971600.0	 totalSpendMoney: a: 5.36382E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688387->25.47278627418218  	$d:0.0->4.651551543934042  	$l:63.998798903116125->69.87566218188377
+	 improve value x$w(high is good):-10.528414822701688  	x$d:4.651551543934042  	 x$l(negative is good):5.876863278767644
+	 	 $w-$l: -27.99759780623226 -> -44.40287590770159  _  _ 	 lift : -16.405278101469328 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:36.00120109688387->33.193162265064544  	$d:0.0->3.233830128805587  	$l:63.998798903116125->63.57300760612986
+	 improve value x$w(high is good):-2.8080388318193243  	x$d:3.233830128805587  	 x$l(negative is good):-0.4257912969862616
+	 	 $w-$l: -27.99759780623226 -> -30.379845341065316  _  _ 	 lift : -2.382247534833054 : bad	 :| stand
+RoI a: 0.686048901372205 o: 1.1592041665105475	 returnMoney: a:6.90996E7 o: 9281400.0	 totalSpendMoney: a: 1.007211E8 o: 8006700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983444->26.15267726364104  	$d:0.0->4.477624461417292  	$l:61.610762639016556->69.36969827494167
+	 improve value x$w(high is good):-12.236560097342405  	x$d:4.477624461417292  	 x$l(negative is good):7.758935635925113
+	 	 $w-$l: -23.221525278033116 -> -43.21702101130063  _  _ 	 lift : -19.995495733267514 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:38.389237360983444->33.18479244667118  	$d:0.0->3.2355865056951663  	$l:61.610762639016556->63.57962104763365
+	 improve value x$w(high is good):-5.204444914312262  	x$d:3.2355865056951663  	 x$l(negative is good):1.9688584086170948
+	 	 $w-$l: -23.221525278033116 -> -30.394828600962466  _  _ 	 lift : -7.173303322929348 : bad	 :| stand
+RoI a: 0.6858883601588576 o: 1.1587475085192567	 returnMoney: a:4.02576E7 o: 5406600.0	 totalSpendMoney: a: 5.86941E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734371->26.91127321163706  	$d:0.0->4.295289481842683  	$l:59.08963810265628->68.79343730652026
+	 improve value x$w(high is good):-13.999088685706653  	x$d:4.295289481842683  	 x$l(negative is good):9.70379920386398
+	 	 $w-$l: -18.179276205312572 -> -41.882164094883194  _  _ 	 lift : -23.702887889570622 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:40.91036189734371->33.17705109835607  	$d:0.0->3.2369922593663363  	$l:59.08963810265628->63.585956642277594
+	 improve value x$w(high is good):-7.733310798987645  	x$d:3.2369922593663363  	 x$l(negative is good):4.4963185396213134
+	 	 $w-$l: -18.179276205312572 -> -30.408905543921527  _  _ 	 lift : -12.229629338608955 : bad	 :| stand
+RoI a: 0.6857383182483286 o: 1.1583820125647526	 returnMoney: a:2.34792E7 o: 3153000.0	 totalSpendMoney: a: 3.42393E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301049->27.70167320197161  	$d:0.0->4.106175206380345  	$l:56.48820509698952->68.19215159164804
+	 improve value x$w(high is good):-15.81012170103888  	x$d:4.106175206380345  	 x$l(negative is good):11.703946494658524
+	 	 $w-$l: -12.976410193979032 -> -40.49047838967643  _  _ 	 lift : -27.5140681956974 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.51179490301049->33.17263770397335  	$d:0.0->3.2382746068110584  	$l:56.48820509698952->63.58908768921558
+	 improve value x$w(high is good):-10.339157199037139  	x$d:3.2382746068110584  	 x$l(negative is good):7.100882592226064
+	 	 $w-$l: -12.976410193979032 -> -30.416449985242235  _  _ 	 lift : -17.4400397912632 : bad	 :| stand
+RoI a: 0.6856561841818578 o: 1.1580486022291248	 returnMoney: a:1.41612E7 o: 1901400.0	 totalSpendMoney: a: 2.06535E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978783->28.543917404152037  	$d:0.0->4.103633919795399  	$l:56.40624775021217->67.35244867605256
+	 improve value x$w(high is good):-15.049834845635797  	x$d:4.103633919795399  	 x$l(negative is good):10.946200925840394
+	 	 $w-$l: -12.812495500424337 -> -38.80853127190052  _  _ 	 lift : -25.996035771476183 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.59375224978783->33.16426256278299  	$d:0.0->3.2387361753717494  	$l:56.40624775021217->63.597001261845264
+	 improve value x$w(high is good):-10.429489687004846  	x$d:3.2387361753717494  	 x$l(negative is good):7.190753511633098
+	 	 $w-$l: -12.812495500424337 -> -30.432738699062277  _  _ 	 lift : -17.62024319863794 : bad	 :| stand
+RoI a: 0.6854863455047561 o: 1.157928594403345	 returnMoney: a:8042400.0 o: 1080000.0	 totalSpendMoney: a: 1.17324E7 o: 932700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529664->27.227405197747846  	$d:0.0->5.3688176136686225  	$l:73.55606825647034->67.40377718858353
+	 improve value x$w(high is good):0.783473454218182  	x$d:5.3688176136686225  	 x$l(negative is good):-6.152291067886807
+	 	 $w-$l: -47.11213651294068 -> -40.17637199083569  _  _ 	 lift : 6.935764522104987 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529664->33.147799623593485  	$d:0.0->3.247507307892524  	$l:73.55606825647034->63.604693068513996
+	 improve value x$w(high is good):6.703867880063822  	x$d:3.247507307892524  	 x$l(negative is good):-9.951375187956344
+	 	 $w-$l: -47.11213651294068 -> -30.456893444920514  _  _ 	 lift : 16.655243068020166 : good	 :) hit 
+RoI a: 0.6852081781309495 o: 1.1556480999479437	 returnMoney: a:4966800.0 o: 666000.0	 totalSpendMoney: a: 7248600.0 o: 576300.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:24.353696613817604->24.778485252917978  	$d:0.0->5.525279176702177  	$l:75.6463033861824->69.69623557037986
+	 improve value x$w(high is good):0.4247886391003739  	x$d:5.525279176702177  	 x$l(negative is good):-5.950067815802541
+	 	 $w-$l: -51.29260677236478 -> -44.917750317461866  _  _ 	 lift : 6.374856454902911 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.353696613817604->33.13763426512776  	$d:0.0->3.249049302822069  	$l:75.6463033861824->63.61331643205017
+	 improve value x$w(high is good):8.783937651310154  	x$d:3.249049302822069  	 x$l(negative is good):-12.032986954132227
+	 	 $w-$l: -51.29260677236478 -> -30.475682166922414  _  _ 	 lift : 20.816924605442367 : good	 :) hit 
+RoI a: 0.6850089642807888 o: 1.155247181266262	 returnMoney: a:2980200.0 o: 399600.0	 totalSpendMoney: a: 4350600.0 o: 345900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:22.64865025496202->22.05037342632403  	$d:0.0->5.63231047949952  	$l:77.35134974503798->72.31731609417645
+	 improve value x$w(high is good):-0.5982768286379923  	x$d:5.63231047949952  	 x$l(negative is good):-5.034033650861531
+	 	 $w-$l: -54.70269949007596 -> -50.26694266785241  _ #Surrender#	 lift : 4.435756822223547 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:22.64865025496202->33.10993297989397  	$d:0.0->3.2509752925877766  	$l:77.35134974503798->63.63909172751826
+	 improve value x$w(high is good):10.461282724931948  	x$d:3.2509752925877766  	 x$l(negative is good):-13.712258017519716
+	 	 $w-$l: -54.70269949007596 -> -30.52915874762429  _  _ 	 lift : 24.173540742451667 : good	 :) hit 
+RoI a: 0.684449958643507 o: 1.154746423927178	 returnMoney: a:1986000.0 o: 266400.0	 totalSpendMoney: a: 2901600.0 o: 230700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=15	@@@ 
+[ProbMatrix:
+org->adv	$w:20.66197961140318->18.933061112188838  	$d:0.0->5.702280552541271  	$l:79.33802038859682->75.3646583352699
+	 improve value x$w(high is good):-1.7289184992143412  	x$d:5.702280552541271  	 x$l(negative is good):-3.973362053326923
+	 	 $w-$l: -58.67604077719364 -> -56.431597223081056  _ #Surrender#	 lift : 2.244443554112585 : good	 :| stand
+TimeMatrix:
+org->adv	$w:20.66197961140318->33.06693306693307  	$d:0.0->3.2567432567432566  	$l:79.33802038859682->63.676323676323676
+	 improve value x$w(high is good):12.404953455529888  	x$d:3.2567432567432566  	 x$l(negative is good):-15.661696712273141
+	 	 $w-$l: -58.67604077719364 -> -30.60939060939061  _  _ 	 lift : 28.066650167803033 : good	 :) hit 
+RoI a: 0.6836018174308137 o: 1.1532467532467532	 returnMoney: a:993000.0 o: 133200.0	 totalSpendMoney: a: 1452600.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:11.690559113720193->13.663670858572836  	$d:0.0->6.557766852356391  	$l:88.30944088627982->79.77856228907078
+	 improve value x$w(high is good):1.973111744852643  	x$d:6.557766852356391  	 x$l(negative is good):-8.530878597209039
+	 	 $w-$l: -76.61888177255962 -> -66.11489143049793  _ #Surrender#	 lift : 10.503990342061687 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:11.690559113720193->28.838710026689473  	$d:0.0->3.2065267409063596  	$l:88.30944088627982->67.95476323240418
+	 improve value x$w(high is good):17.148150912969278  	x$d:3.2065267409063596  	 x$l(negative is good):-20.35467765387564
+	 	 $w-$l: -76.61888177255962 -> -39.11605320571469  _  _ 	 lift : 37.502828566844926 : good	 :) hit 
+RoI a: 0.5958812935557122 o: 1.1663030473643465	 returnMoney: a:3.1962E7 o: 4971600.0	 totalSpendMoney: a: 5.36382E7 o: 4262700.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:36.00120109688387->23.084312562046808  	$d:0.0->4.78339550066627  	$l:63.998798903116125->72.13229193728694
+	 improve value x$w(high is good):-12.91688853483706  	x$d:4.78339550066627  	 x$l(negative is good):8.133493034170812
+	 	 $w-$l: -27.99759780623226 -> -49.047979375240125  _ #Surrender#	 lift : -21.050381569007865 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:36.00120109688387->28.73468470156244  	$d:0.0->3.233830128805587  	$l:63.998798903116125->68.03148516963196
+	 improve value x$w(high is good):-7.266516395321428  	x$d:3.233830128805587  	 x$l(negative is good):4.032686266515839
+	 	 $w-$l: -27.99759780623226 -> -39.29680046806953  _  _ 	 lift : -11.299202661837265 : bad	 :| stand
+RoI a: 0.5938993914879802 o: 1.1592041665105475	 returnMoney: a:5.98182E7 o: 9281400.0	 totalSpendMoney: a: 1.007211E8 o: 8006700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:38.389237360983444->23.591313332291364  	$d:0.0->4.604710592863855  	$l:61.610762639016556->71.80397607484478
+	 improve value x$w(high is good):-14.79792402869208  	x$d:4.604710592863855  	 x$l(negative is good):10.193213435828227
+	 	 $w-$l: -23.221525278033116 -> -48.21266274255341  _ #Surrender#	 lift : -24.991137464520296 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:38.389237360983444->28.72807126005866  	$d:0.0->3.2355865056951663  	$l:61.610762639016556->68.03634223424618
+	 improve value x$w(high is good):-9.661166100924785  	x$d:3.2355865056951663  	 x$l(negative is good):6.425579595229621
+	 	 $w-$l: -23.221525278033116 -> -39.308270974187515  _  _ 	 lift : -16.0867456961544 : bad	 :| stand
+RoI a: 0.5937734797875766 o: 1.1587475085192567	 returnMoney: a:3.4851E7 o: 5406600.0	 totalSpendMoney: a: 5.86941E7 o: 4665900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734371->24.168729960535195  	$d:0.0->4.417412038017149  	$l:59.08963810265628->71.41385800144765
+	 improve value x$w(high is good):-16.741631936808517  	x$d:4.417412038017149  	 x$l(negative is good):12.32421989879137
+	 	 $w-$l: -18.179276205312572 -> -47.245128040912455  _  _ 	 lift : -29.065851835599883 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:40.91036189734371->28.72173566541471  	$d:0.0->3.2369922593663363  	$l:59.08963810265628->68.04127207521896
+	 improve value x$w(high is good):-12.188626231929003  	x$d:3.2369922593663363  	 x$l(negative is good):8.951633972562675
+	 	 $w-$l: -18.179276205312572 -> -39.31953640980424  _  _ 	 lift : -21.140260204491668 : bad	 :| stand
+RoI a: 0.5936511552514216 o: 1.1583820125647526	 returnMoney: a:2.03262E7 o: 3153000.0	 totalSpendMoney: a: 3.42393E7 o: 2721900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:43.51179490301049->24.772500922508115  	$d:0.0->4.221179197718468  	$l:56.48820509698952->71.00631987977341
+	 improve value x$w(high is good):-18.739293980502374  	x$d:4.221179197718468  	 x$l(negative is good):14.518114782783897
+	 	 $w-$l: -12.976410193979032 -> -46.233818957265306  _  _ 	 lift : -33.25740876328627 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.51179490301049->28.718604618476718  	$d:0.0->3.2382746068110584  	$l:56.48820509698952->68.04312077471224
+	 improve value x$w(high is good):-14.793190284533772  	x$d:3.2382746068110584  	 x$l(negative is good):11.554915677722718
+	 	 $w-$l: -12.976410193979032 -> -39.32451615623551  _  _ 	 lift : -26.34810596225648 : bad	 :| stand
+RoI a: 0.5935943060498221 o: 1.1580486022291248	 returnMoney: a:1.22598E7 o: 1901400.0	 totalSpendMoney: a: 2.06535E7 o: 1641900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978783->25.6158789952601  	$d:0.0->4.247241909141996  	$l:56.40624775021217->70.13687909559789
+	 improve value x$w(high is good):-17.977873254527733  	x$d:4.247241909141996  	 x$l(negative is good):13.730631345385724
+	 	 $w-$l: -12.812495500424337 -> -44.521000100337794  _  _ 	 lift : -31.708504599913457 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.59375224978783->28.710691045847042  	$d:0.0->3.2387361753717494  	$l:56.40624775021217->68.0505727787812
+	 improve value x$w(high is good):-14.883061203940791  	x$d:3.2387361753717494  	 x$l(negative is good):11.644325028569035
+	 	 $w-$l: -12.812495500424337 -> -39.33988173293416  _  _ 	 lift : -26.527386232509826 : bad	 :| stand
+RoI a: 0.5934335685793188 o: 1.157928594403345	 returnMoney: a:6962400.0 o: 1080000.0	 totalSpendMoney: a: 1.17324E7 o: 932700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529664->25.572316083373792  	$d:0.0->5.644867133842997  	$l:73.55606825647034->68.7828167827832
+	 improve value x$w(high is good):-0.8716156601558716  	x$d:5.644867133842997  	 x$l(negative is good):-4.773251473687139
+	 	 $w-$l: -47.11213651294068 -> -43.210500699409415  _  _ 	 lift : 3.9016358135312625 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:26.443931743529664->28.70299923917831  	$d:0.0->3.247507307892524  	$l:73.55606825647034->68.04949345292917
+	 improve value x$w(high is good):2.2590674956486474  	x$d:3.247507307892524  	 x$l(negative is good):-5.50657480354117
+	 	 $w-$l: -47.11213651294068 -> -39.34649421375085  _  _ 	 lift : 7.765642299189823 : good	 :) hit 
+RoI a: 0.5933283668570483 o: 1.1556480999479437	 returnMoney: a:4300800.0 o: 666000.0	 totalSpendMoney: a: 7248600.0 o: 576300.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:24.353696613817604->23.281351199640575  	$d:0.0->5.632810949116572  	$l:75.6463033861824->71.08583785124284
+	 improve value x$w(high is good):-1.072345414177029  	x$d:5.632810949116572  	 x$l(negative is good):-4.560465534939553
+	 	 $w-$l: -51.29260677236478 -> -47.804486651602275  _  _ 	 lift : 3.4881201207625057 : good	 :) hit 
+TimeMatrix:
+org->adv	$w:24.353696613817604->28.694375875642137  	$d:0.0->3.249049302822069  	$l:75.6463033861824->68.0565748215358
+	 improve value x$w(high is good):4.340679261824533  	x$d:3.249049302822069  	 x$l(negative is good):-7.589728564646592
+	 	 $w-$l: -51.29260677236478 -> -39.36219894589366  _  _ 	 lift : 11.930407826471118 : good	 :) hit 
+RoI a: 0.5931595641980416 o: 1.155247181266262	 returnMoney: a:2580600.0 o: 399600.0	 totalSpendMoney: a: 4350600.0 o: 345900.0	deckStatus=0
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:22.64865025496202->20.663170440912335  	$d:0.0->5.752083790433024  	$l:77.35134974503798->73.58474576865464
+	 improve value x$w(high is good):-1.985479814049686  	x$d:5.752083790433024  	 x$l(negative is good):-3.7666039763833368
+	 	 $w-$l: -54.70269949007596 -> -52.92157532774231  _ #Surrender#	 lift : 1.7811241623336471 : good	 :| stand
+TimeMatrix:
+org->adv	$w:22.64865025496202->28.668600580174054  	$d:0.0->3.2509752925877766  	$l:77.35134974503798->68.08042412723817
+	 improve value x$w(high is good):6.019950325212033  	x$d:3.2509752925877766  	 x$l(negative is good):-9.270925617799804
+	 	 $w-$l: -54.70269949007596 -> -39.41182354706412  _  _ 	 lift : 15.290875943011839 : good	 :) hit 
+RoI a: 0.5926385442514475 o: 1.154746423927178	 returnMoney: a:1719600.0 o: 266400.0	 totalSpendMoney: a: 2901600.0 o: 230700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=16	@@@ 
+[ProbMatrix:
+org->adv	$w:20.66197961140318->17.59785250311478  	$d:0.0->5.892434456229113  	$l:79.33802038859682->76.5097130406561
+	 improve value x$w(high is good):-3.0641271082883996  	x$d:5.892434456229113  	 x$l(negative is good):-2.828307347940722
+	 	 $w-$l: -58.67604077719364 -> -58.911860537541315  _ #Surrender#	 lift : -0.2358197603476775 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:20.66197961140318->28.63136863136863  	$d:0.0->3.2567432567432566  	$l:79.33802038859682->68.1118881118881
+	 improve value x$w(high is good):7.969389019965451  	x$d:3.2567432567432566  	 x$l(negative is good):-11.22613227670871
+	 	 $w-$l: -58.67604077719364 -> -39.480519480519476  _  _ 	 lift : 19.195521296674162 : good	 :) hit 
+RoI a: 0.5919041718298224 o: 1.1532467532467532	 returnMoney: a:859800.0 o: 133200.0	 totalSpendMoney: a: 1452600.0 o: 115500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=false]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:11.69055911371993->12.888104377604503  	$d:12.26117810483252->5.662934517469921  	$l:76.04826278144755->81.44896110492557
+	 improve value x$w(high is good):1.1975452638845727  	x$d:-6.5982435873625995  	 x$l(negative is good):5.400698323478025
+	 	 $w-$l: -64.35770366772762 -> -68.56085672732107  _ #Surrender#	 lift : -4.203153059593456 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:11.69055911371993->24.352929075288145  	$d:12.26117810483252->2.5655462139380782  	$l:76.04826278144755->73.08152471077378
+	 improve value x$w(high is good):12.662369961568215  	x$d:-9.695631890894443  	 x$l(negative is good):-2.9667380706737703
+	 	 $w-$l: -64.35770366772762 -> -48.72859563548564  _ #Surrender#	 lift : 15.629108032241978 : good	 :) hit 
+RoI a: 0.4998833190723311 o: 1.2723224568138196	 returnMoney: a:2.69904E7 o: 4971600.0	 totalSpendMoney: a: 5.39934E7 o: 3907500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:36.001201096883875->20.534374729379802  	$d:13.52253716557596->3.788178078344028  	$l:50.47626173754016->75.67744719227618
+	 improve value x$w(high is good):-15.466826367504073  	x$d:-9.734359087231931  	 x$l(negative is good):25.201185454736013
+	 	 $w-$l: -14.475060640656285 -> -55.14307246289637  _ #Surrender#	 lift : -40.66801182224008 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:36.001201096883875->24.276207138060336  	$d:13.52253716557596->2.5910991852016245  	$l:50.47626173754016->73.13269367673804
+	 improve value x$w(high is good):-11.72499395882354  	x$d:-10.931437980374335  	 x$l(negative is good):22.65643193919788
+	 	 $w-$l: -14.475060640656285 -> -48.8564865386777  _ #Surrender#	 lift : -34.38142589802142 : bad	 :| stand
+RoI a: 0.4984391967263076 o: 1.26489226869455	 returnMoney: a:5.05368E7 o: 9281400.0	 totalSpendMoney: a: 1.013901E8 o: 7337700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:38.38923736098375->20.862690591821803  	$d:12.988199900326917->3.6497090008424395  	$l:48.62256273868934->75.48760040733576
+	 improve value x$w(high is good):-17.526546769161946  	x$d:-9.338490899484476  	 x$l(negative is good):26.865037668646423
+	 	 $w-$l: -10.233325377705594 -> -54.62490981551396  _ #Surrender#	 lift : -44.39158443780836 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:38.38923736098375->24.271350073446133  	$d:12.988199900326917->2.5926237332396918  	$l:48.62256273868934->73.13602619331418
+	 improve value x$w(high is good):-14.117887287537616  	x$d:-10.395576167087224  	 x$l(negative is good):24.51346345462484
+	 	 $w-$l: -10.233325377705594 -> -48.864676119868044  _ #Surrender#	 lift : -38.631350742162454 : bad	 :| stand
+RoI a: 0.4983472710932383 o: 1.2644355574265067	 returnMoney: a:2.94444E7 o: 5406600.0	 totalSpendMoney: a: 5.90841E7 o: 4275900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:40.91036189734374->21.252808665218172  	$d:12.625786573319997->3.4870600534631606  	$l:46.46385152933626->75.26013128131868
+	 improve value x$w(high is good):-19.65755323212557  	x$d:-9.138726519856837  	 x$l(negative is good):28.796279751982418
+	 	 $w-$l: -5.5534896319925195 -> -54.00732261610051  _ #Surrender#	 lift : -48.45383298410798 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:40.91036189734374->24.266420232473358  	$d:12.625786573319997->2.5943416222265556  	$l:46.46385152933626->73.13923814530008
+	 improve value x$w(high is good):-16.643941664870383  	x$d:-10.031444951093441  	 x$l(negative is good):26.675386615963824
+	 	 $w-$l: -5.5534896319925195 -> -48.87281791282673  _ #Surrender#	 lift : -43.31932828083421 : bad	 :| stand
+RoI a: 0.49825483727772024 o: 1.2639807576668671	 returnMoney: a:1.71732E7 o: 3153000.0	 totalSpendMoney: a: 3.44667E7 o: 2494500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:43.511794903010816->21.66034678689206  	$d:11.806623590884918->3.35530946297495  	$l:44.681581506104266->74.984343750133
+	 improve value x$w(high is good):-21.851448116118757  	x$d:-8.451314127909967  	 x$l(negative is good):30.302762244028727
+	 	 $w-$l: -1.1697866030934534 -> -53.32399696324093  _ #Surrender#	 lift : -52.15421036014747 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.511794903010816->24.264571532980085  	$d:11.806623590884918->2.5945550886168465  	$l:44.681581506104266->73.14087337840307
+	 improve value x$w(high is good):-19.24722337003073  	x$d:-9.212068502268071  	 x$l(negative is good):28.459291872298806
+	 	 $w-$l: -1.1697866030934534 -> -48.87630184542299  _ #Surrender#	 lift : -47.70651524232953 : bad	 :| stand
+RoI a: 0.4982179703620334 o: 1.2638085742771685	 returnMoney: a:1.03584E7 o: 1901400.0	 totalSpendMoney: a: 2.07909E7 o: 1504500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:43.59375224978789->22.52978757106799  	$d:16.61756111896344->2.985694787958354  	$l:39.78868663124866->74.48451764097366
+	 improve value x$w(high is good):-21.063964678719902  	x$d:-13.631866331005085  	 x$l(negative is good):34.695831009725005
+	 	 $w-$l: 3.805065618539233 -> -51.95473006990567  _ #Surrender#	 lift : -55.75979568844491 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:43.59375224978789->24.257119528911105  	$d:16.61756111896344->2.597916718212633  	$l:39.78868663124866->73.14496375287627
+	 improve value x$w(high is good):-19.336632720876786  	x$d:-14.019644400750806  	 x$l(negative is good):33.356277121627606
+	 	 $w-$l: 3.805065618539233 -> -48.88784422396517  _ #Surrender#	 lift : -52.6929098425044 : bad	 :| stand
+RoI a: 0.49808215002413186 o: 1.263157894736842	 returnMoney: a:5882400.0 o: 1080000.0	 totalSpendMoney: a: 1.18101E7 o: 855000.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:26.443931743529575->23.883849883884732  	$d:37.61331925528948->2.727023113209399  	$l:35.94274900118095->73.38912700290588
+	 improve value x$w(high is good):-2.5600818596448427  	x$d:-34.886296142080084  	 x$l(negative is good):37.44637800172493
+	 	 $w-$l: -9.498817257651377 -> -49.50527711902114  _ #Surrender#	 lift : -40.00645986136976 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:26.443931743529575->24.258198854763144  	$d:37.61331925528948->2.5948023865775034  	$l:35.94274900118095->73.14699875865935
+	 improve value x$w(high is good):-2.185732888766431  	x$d:-35.01851686871198  	 x$l(negative is good):37.2042497574784
+	 	 $w-$l: -9.498817257651377 -> -48.888799903896206  _ #Surrender#	 lift : -39.38998264624483 : bad	 :| stand
+RoI a: 0.4980883864337102 o: 1.2627986348122866	 returnMoney: a:3634800.0 o: 666000.0	 totalSpendMoney: a: 7297500.0 o: 527400.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:24.353696613817547->21.58082881542481  	$d:12.812305119489405->4.852200925407073  	$l:62.83399826669304->73.56697025916812
+	 improve value x$w(high is good):-2.7728677983927383  	x$d:-7.960104194082333  	 x$l(negative is good):10.732971992475079
+	 	 $w-$l: -38.48030165287549 -> -51.986141443743314  _ #Surrender#	 lift : -13.505839790867824 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:24.353696613817547->24.251117486156517  	$d:12.812305119489405->2.608579625058376  	$l:62.83399826669304->73.14030288878511
+	 improve value x$w(high is good):-0.10257912766103061  	x$d:-10.20372549443103  	 x$l(negative is good):10.306304622092078
+	 	 $w-$l: -38.48030165287549 -> -48.8891854026286  _ #Surrender#	 lift : -10.408883749753105 : bad	 :| stand
+RoI a: 0.4980134264967804 o: 1.260170293282876	 returnMoney: a:2181000.0 o: 399600.0	 totalSpendMoney: a: 4379400.0 o: 317100.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:22.648650254961993->19.081920898012523  	$d:11.947721369542725->4.873697906144271  	$l:65.40362837549529->76.04438119584321
+	 improve value x$w(high is good):-3.5667293569494696  	x$d:-7.074023463398454  	 x$l(negative is good):10.640752820347927
+	 	 $w-$l: -42.7549781205333 -> -56.962460297830695  _ #Surrender#	 lift : -14.207482177297399 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:22.648650254961993->24.227268180454136  	$d:11.947721369542725->2.610783234970491  	$l:65.40362837549529->73.16194858457537
+	 improve value x$w(high is good):1.5786179254921429  	x$d:-9.336938134572234  	 x$l(negative is good):7.7583202090800825
+	 	 $w-$l: -42.7549781205333 -> -48.93468040412124  _ #Surrender#	 lift : -6.17970228358794 : bad	 :| stand
+RoI a: 0.49753492193919474 o: 1.2595744680851064	 returnMoney: a:1453200.0 o: 266400.0	 totalSpendMoney: a: 2920800.0 o: 211500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=17	@@@ 
+[ProbMatrix:
+org->adv	$w:20.66197961140317->16.156953626010694  	$d:11.14694415980374->5.074400968584228  	$l:68.1910762287931->78.76864540540507
+	 improve value x$w(high is good):-4.505025985392475  	x$d:-6.072543191219512  	 x$l(negative is good):10.577569176611973
+	 	 $w-$l: -47.52909661738992 -> -62.61169177939438  _ #Surrender#	 lift : -15.082595162004452 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:20.66197961140317->24.195804195804197  	$d:11.14694415980374->2.617382617382617  	$l:68.1910762287931->73.18681318681318
+	 improve value x$w(high is good):3.533824584401028  	x$d:-8.529561542421122  	 x$l(negative is good):4.995736958020089
+	 	 $w-$l: -47.52909661738992 -> -48.99100899100899  _ #Surrender#	 lift : -1.4619123736190676 : bad	 :| stand
+RoI a: 0.4969224456298728 o: 1.2577903682719547	 returnMoney: a:726600.0 o: 133200.0	 totalSpendMoney: a: 1462200.0 o: 105900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:23.951737218553255->11.21770556173942  	$d:12.909287024549704->4.716674685541824  	$l:63.138975756897054->84.06561975271875
+	 improve value x$w(high is good):-12.734031656813835  	x$d:-8.19261233900788  	 x$l(negative is good):20.926643995821692
+	 	 $w-$l: -39.18723853834379 -> -72.84791419097932  _ #Surrender#	 lift : -33.66067565263553 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:23.951737218553255->19.22616759691853  	$d:12.909287024549704->1.924565686969797  	$l:63.138975756897054->78.84926671611167
+	 improve value x$w(high is good):-4.725569621634726  	x$d:-10.984721337579906  	 x$l(negative is good):15.710290959214618
+	 	 $w-$l: -39.18723853834379 -> -59.62309911919314  _ #Surrender#	 lift : -20.43586058084935 : bad	 :| stand
+RoI a: 0.39206897693776843 o: 1.454126679462572	 returnMoney: a:2.13084E7 o: 5682000.0	 totalSpendMoney: a: 5.43486E7 o: 3907500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:49.52373826245993->16.989219474392538  	$d:12.987832638618027->2.8356363978457355  	$l:37.48842909892204->80.17514412776173
+	 improve value x$w(high is good):-32.53451878806739  	x$d:-10.152196240772291  	 x$l(negative is good):42.686715028839686
+	 	 $w-$l: 12.035309163537894 -> -63.185924653369185  _ #Surrender#	 lift : -75.22123381690709 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:49.52373826245993->19.174998630954267  	$d:12.987832638618027->1.947215360981332  	$l:37.48842909892204->78.8777860080644
+	 improve value x$w(high is good):-30.348739631505662  	x$d:-11.040617277636695  	 x$l(negative is good):41.389356909142364
+	 	 $w-$l: 12.035309163537894 -> -59.702787377110134  _ #Surrender#	 lift : -71.73809654064802 : bad	 :| stand
+RoI a: 0.3911158403414452 o: 1.4474749539971377	 returnMoney: a:3.99174E7 o: 1.06194E7	 totalSpendMoney: a: 1.020603E8 o: 7336500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:51.377437261310575->17.179066259331794  	$d:12.608160000728164->2.722179169276781  	$l:36.01440273796126->80.09875457139142
+	 improve value x$w(high is good):-34.198371001978785  	x$d:-9.885980831451382  	 x$l(negative is good):44.08435183343016
+	 	 $w-$l: 15.363034523349317 -> -62.91968831205963  _ #Surrender#	 lift : -78.28272283540895 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:51.377437261310575->19.17166611437813  	$d:12.608160000728164->1.9486717872881314  	$l:36.01440273796126->78.87966209833374
+	 improve value x$w(high is good):-32.20577114693245  	x$d:-10.659488213440033  	 x$l(negative is good):42.86525936037248
+	 	 $w-$l: 15.363034523349317 -> -59.707995983955605  _ #Surrender#	 lift : -75.07103050730493 : bad	 :| stand
+RoI a: 0.39105367492395926 o: 1.4470563469230229	 returnMoney: a:2.32578E7 o: 6186600.0	 totalSpendMoney: a: 5.94747E7 o: 4275300.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:53.536148470663704->17.406535385348587  	$d:11.956641196756621->2.6090100693433524  	$l:34.50721033257969->79.98445454530807
+	 improve value x$w(high is good):-36.129613085315114  	x$d:-9.347631127413269  	 x$l(negative is good):45.47724421272838
+	 	 $w-$l: 19.028938138084015 -> -62.577919159959485  _ #Surrender#	 lift : -81.6068572980435 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:53.536148470663704->19.16845416239222  	$d:11.956641196756621->1.9499953369676724  	$l:34.50721033257969->78.8815505006401
+	 improve value x$w(high is good):-34.36769430827148  	x$d:-10.006645859788948  	 x$l(negative is good):44.374340168060414
+	 	 $w-$l: 19.028938138084015 -> -59.71309633824789  _ #Surrender#	 lift : -78.7420344763319 : bad	 :| stand
+RoI a: 0.39099343703793377 o: 1.4466498255744016	 returnMoney: a:1.35654E7 o: 3607800.0	 totalSpendMoney: a: 3.46947E7 o: 2493900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:55.31841849389549->17.682322916534304  	$d:11.799022879112558->2.4873233836708657  	$l:32.88255862699195->79.83035369979483
+	 improve value x$w(high is good):-37.63609557736119  	x$d:-9.311699495441692  	 x$l(negative is good):46.947795072802876
+	 	 $w-$l: 22.435859866903545 -> -62.14803078326052  _ #Surrender#	 lift : -84.58389065016408 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:55.31841849389549->19.16681892928924  	$d:11.799022879112558->1.9508355704226341  	$l:32.88255862699195->78.88234550028812
+	 improve value x$w(high is good):-36.15159956460626  	x$d:-9.848187308689923  	 x$l(negative is good):45.99978687329617
+	 	 $w-$l: 22.435859866903545 -> -59.71552657099889  _ #Surrender#	 lift : -82.15138643790243 : bad	 :| stand
+RoI a: 0.39096343229024816 o: 1.4464606181455633	 returnMoney: a:8182200.0 o: 2176200.0	 totalSpendMoney: a: 2.09283E7 o: 1504500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:60.211313368751206->18.182149025693295  	$d:10.178665250030647->2.239808556013313  	$l:29.610021381218143->79.57804241829339
+	 improve value x$w(high is good):-42.029164343057914  	x$d:-7.938856694017334  	 x$l(negative is good):49.968021037075246
+	 	 $w-$l: 30.601291987533063 -> -61.3958933926001  _ #Surrender#	 lift : -91.99718538013316 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:60.211313368751206->19.16272855481604  	$d:10.178665250030647->1.9521488482569218  	$l:29.610021381218143->78.88512259692703
+	 improve value x$w(high is good):-41.048584813935165  	x$d:-8.226516401773726  	 x$l(negative is good):49.27510121570889
+	 	 $w-$l: 30.601291987533063 -> -59.72239404211099  _ #Surrender#	 lift : -90.32368602964405 : bad	 :| stand
+RoI a: 0.39088523266377306 o: 1.4459269662921348	 returnMoney: a:4647000.0 o: 1235400.0	 totalSpendMoney: a: 1.18884E7 o: 854400.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:64.05725099881892->19.277539663760606  	$d:13.683227968413862->1.6823601095905936  	$l:22.25952103276724->79.04010022664879
+	 improve value x$w(high is good):-44.77971133505831  	x$d:-12.000867858823268  	 x$l(negative is good):56.78057919388155
+	 	 $w-$l: 41.797729966051676 -> -59.762560562888176  _ #Surrender#	 lift : -101.56029052893984 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:64.05725099881892->19.160693549032956  	$d:13.683227968413862->1.9541104392744164  	$l:22.25952103276724->78.88519601169263
+	 improve value x$w(high is good):-44.89655744978596  	x$d:-11.729117529139446  	 x$l(negative is good):56.62567497892539
+	 	 $w-$l: 41.797729966051676 -> -59.724502462659665  _ #Surrender#	 lift : -101.52223242871135 : bad	 :| stand
+RoI a: 0.3908515417602614 o: 1.4457694491766042	 returnMoney: a:2871000.0 o: 763800.0	 totalSpendMoney: a: 7345500.0 o: 528300.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:37.16600173330691->19.099696407498463  	$d:36.65615787743353->2.005167961279355  	$l:26.17784038925955->78.89513563122219
+	 improve value x$w(high is good):-18.06630532580845  	x$d:-34.650989916154174  	 x$l(negative is good):52.71729524196264
+	 	 $w-$l: 10.988161344047365 -> -59.795439223723726  _ #Surrender#	 lift : -70.78360056777109 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:37.16600173330691->19.1673894189072  	$d:36.65615787743353->1.9480952698645673  	$l:26.17784038925955->78.88451531122823
+	 improve value x$w(high is good):-17.998612314399715  	x$d:-34.70806260756896  	 x$l(negative is good):52.70667492196868
+	 	 $w-$l: 10.988161344047365 -> -59.717125892321036  _ #Surrender#	 lift : -70.70528723636839 : bad	 :| stand
+RoI a: 0.3909641423419746 o: 1.445920303605313	 returnMoney: a:1723800.0 o: 457200.0	 totalSpendMoney: a: 4409100.0 o: 316200.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:34.59637162450472->16.622285470823424  	$d:11.614773791183866->4.183837766649402  	$l:53.788854584311416->79.19387676252717
+	 improve value x$w(high is good):-17.974086153681295  	x$d:-7.430936024534464  	 x$l(negative is good):25.405022178215752
+	 	 $w-$l: -19.1924829598067 -> -62.57159129170374  _ #Surrender#	 lift : -43.379108331897044 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:34.59637162450472->19.145743723116933  	$d:11.614773791183866->1.970591177353206  	$l:53.788854584311416->78.88366509952985
+	 improve value x$w(high is good):-15.450627901387787  	x$d:-9.64418261383066  	 x$l(negative is good):25.094810515218434
+	 	 $w-$l: -19.1924829598067 -> -59.73792137641291  _ #Surrender#	 lift : -40.54543841660622 : bad	 :| stand
+RoI a: 0.3906122448979592 o: 1.4411347517730497	 returnMoney: a:1148400.0 o: 304800.0	 totalSpendMoney: a: 2940000.0 o: 211500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=18	@@@ 
+[ProbMatrix:
+org->adv	$w:31.808923771206903->13.89802126126157  	$d:11.058306770903725->4.2639613481553535  	$l:57.13276945788937->81.83801739058308
+	 improve value x$w(high is good):-17.91090250994533  	x$d:-6.794345422748371  	 x$l(negative is good):24.70524793269371
+	 	 $w-$l: -25.32384568668246 -> -67.9399961293215  _ #Surrender#	 lift : -42.61615044263904 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:31.808923771206903->19.12087912087912  	$d:11.058306770903725->1.9780219780219779  	$l:57.13276945788937->78.9010989010989
+	 improve value x$w(high is good):-12.688044650327782  	x$d:-9.080284792881747  	 x$l(negative is good):21.768329443209538
+	 	 $w-$l: -25.32384568668246 -> -59.78021978021978  _ #Surrender#	 lift : -34.45637409353732 : bad	 :| stand
+RoI a: 0.3901345291479821 o: 1.4390934844192635	 returnMoney: a:574200.0 o: 152400.0	 totalSpendMoney: a: 1471800.0 o: 105900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=One1, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:36.8610242431039->8.601046913949505  	$d:12.97246950552538->3.766141780175145  	$l:50.16650625137071->87.63281130587534
+	 improve value x$w(high is good):-28.259977329154395  	x$d:-9.206327725350235  	 x$l(negative is good):37.46630505450462
+	 	 $w-$l: -13.30548200826681 -> -79.03176439192583  _ #Surrender#	 lift : -65.72628238365901 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:36.8610242431039->13.458425591580633  	$d:12.97246950552538->1.2835851600015158  	$l:50.16650625137071->85.25798924841786
+	 improve value x$w(high is good):-23.402598651523263  	x$d:-11.688884345523864  	 x$l(negative is good):35.091482997047144
+	 	 $w-$l: -13.30548200826681 -> -71.79956365683722  _ #Surrender#	 lift : -58.49408164857041 : bad	 :| stand
+RoI a: 0.27266844350849484 o: 1.6359309021113244	 returnMoney: a:1.4916E7 o: 6392400.0	 totalSpendMoney: a: 5.47038E7 o: 3907500.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Two2, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:62.51157090107811->12.491522538905311  	$d:12.972739588691537->1.8812046486720433  	$l:24.515689510230352->85.62727281242265
+	 improve value x$w(high is good):-50.0200483621728  	x$d:-11.091534940019494  	 x$l(negative is good):61.111583302192294
+	 	 $w-$l: 37.99588139084775 -> -73.13575027351735  _ #Surrender#	 lift : -111.13163166436509 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:62.51157090107811->13.429906299627909  	$d:12.972739588691537->1.3016022158365446  	$l:24.515689510230352->85.26849148453555
+	 improve value x$w(high is good):-49.0816646014502  	x$d:-11.671137372854993  	 x$l(negative is good):60.75280197430519
+	 	 $w-$l: 37.99588139084775 -> -71.83858518490764  _ #Surrender#	 lift : -109.8344665757554 : bad	 :| stand
+RoI a: 0.2721403103016286 o: 1.6305779377479652	 returnMoney: a:2.79576E7 o: 1.19598E7	 totalSpendMoney: a: 1.027323E8 o: 7334700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Three3, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:63.985597262038766->12.567912095276496  	$d:12.168445273918964->1.829699811583968  	$l:23.845957464042268->85.60238809313954
+	 improve value x$w(high is good):-51.41768516676227  	x$d:-10.338745462334996  	 x$l(negative is good):61.75643062909727
+	 	 $w-$l: 40.139639797996495 -> -73.03447599786304  _ #Surrender#	 lift : -113.17411579585954 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:63.985597262038766->13.428030209358571  	$d:12.168445273918964->1.3027414943444005  	$l:23.845957464042268->85.26922829629703
+	 improve value x$w(high is good):-50.5575670526802  	x$d:-10.865703779574563  	 x$l(negative is good):61.42327083225476
+	 	 $w-$l: 40.139639797996495 -> -71.84119808693845  _ #Surrender#	 lift : -111.98083788493496 : bad	 :| stand
+RoI a: 0.2721054345919671 o: 1.6302379448304907	 returnMoney: a:1.629E7 o: 6967800.0	 totalSpendMoney: a: 5.98665E7 o: 4274100.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Four4, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:65.49278966742037->12.682212121360145  	$d:11.772196743127544->1.74313562126368  	$l:22.735013589452077->85.57465225737617
+	 improve value x$w(high is good):-52.81057754606022  	x$d:-10.029061121863865  	 x$l(negative is good):62.83963866792409
+	 	 $w-$l: 42.75777607796829 -> -72.89244013601602  _ #Surrender#	 lift : -115.65021621398431 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:65.49278966742037->13.4261418070522  	$d:11.772196743127544->1.3039534035896871  	$l:22.735013589452077->85.26990478935811
+	 improve value x$w(high is good):-52.066647860368164  	x$d:-10.468243339537857  	 x$l(negative is good):62.53489119990603
+	 	 $w-$l: 42.75777607796829 -> -71.8437629823059  _ #Surrender#	 lift : -114.60153906027419 : bad	 :| stand
+RoI a: 0.2720705088007147 o: 1.6298881001082903	 returnMoney: a:9501600.0 o: 4063800.0	 totalSpendMoney: a: 3.49233E7 o: 2493300.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Five5, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:67.11744137300802->12.836312966872901  	$d:11.39036265374107->1.6486807061690731  	$l:21.4921959732509->85.51500632695802
+	 improve value x$w(high is good):-54.28112840613512  	x$d:-9.741681947571998  	 x$l(negative is good):64.02281035370711
+	 	 $w-$l: 45.62524539975712 -> -72.67869336008512  _ #Surrender#	 lift : -118.30393875984224 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:67.11744137300802->13.425346807404178  	$d:11.39036265374107->1.3043050499655653  	$l:21.4921959732509->85.27034814263025
+	 improve value x$w(high is good):-53.69209456560384  	x$d:-10.086057603775505  	 x$l(negative is good):63.778152169379354
+	 	 $w-$l: 45.62524539975712 -> -71.84500133522607  _ #Surrender#	 lift : -117.4702467349832 : bad	 :| stand
+RoI a: 0.272055368052292 o: 1.6297626171952921	 returnMoney: a:5731200.0 o: 2451000.0	 totalSpendMoney: a: 2.10663E7 o: 1503900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Six6, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:70.38997861878185->13.088624248374153  	$d:10.26104820861603->1.484573196430779  	$l:19.348973172602125->85.42680255519507
+	 improve value x$w(high is good):-57.3013543704077  	x$d:-8.776475012185252  	 x$l(negative is good):66.07782938259294
+	 	 $w-$l: 51.04100544617973 -> -72.33817830682092  _ #Surrender#	 lift : -123.37918375300066 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:70.38997861878185->13.422569710765272  	$d:10.26104820861603->1.30638097830121  	$l:19.348973172602125->85.27104931093352
+	 improve value x$w(high is good):-56.96740890801658  	x$d:-8.95466723031482  	 x$l(negative is good):65.92207613833139
+	 	 $w-$l: 51.04100544617973 -> -71.84847960016825  _ #Surrender#	 lift : -122.88948504634799 : bad	 :| stand
+RoI a: 0.27200481335706583 o: 1.6292134831460674	 returnMoney: a:3255000.0 o: 1392000.0	 totalSpendMoney: a: 1.19667E7 o: 854400.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Seven7, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:77.74047896723276->13.62656644001812  	$d:7.499285078149495->1.1330054202834452  	$l:14.76023595461774->85.24042813969844
+	 improve value x$w(high is good):-64.11391252721464  	x$d:-6.36627965786605  	 x$l(negative is good):70.4801921850807
+	 	 $w-$l: 62.98024301261502 -> -71.61386169968031  _ #Surrender#	 lift : -134.59410471229535 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:77.74047896723276->13.42249629599968  	$d:7.499285078149495->1.3054098426300405  	$l:14.76023595461774->85.27209386137028
+	 improve value x$w(high is good):-64.31798267123308  	x$d:-6.193875235519455  	 x$l(negative is good):70.51185790675254
+	 	 $w-$l: 62.98024301261502 -> -71.84959756537059  _ #Surrender#	 lift : -134.8298405779856 : bad	 :| stand
+RoI a: 0.2720006491662271 o: 1.6293348493462194	 returnMoney: a:2011200.0 o: 859800.0	 totalSpendMoney: a: 7394100.0 o: 527700.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Eight8, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:73.82215961074043->13.771531035444584  	$d:12.81894991004818->1.0238847783776535  	$l:13.358890479211393->85.20458418617775
+	 improve value x$w(high is good):-60.050628575295846  	x$d:-11.795065131670528  	 x$l(negative is good):71.84569370696636
+	 	 $w-$l: 60.46326913152904 -> -71.43305315073317  _ #Surrender#	 lift : -131.89632228226222 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:73.82215961074043->13.423176996464074  	$d:12.81894991004818->1.307625592100874  	$l:13.358890479211393->85.26919741143504
+	 improve value x$w(high is good):-60.398982614276356  	x$d:-11.511324317947306  	 x$l(negative is good):71.91030693222365
+	 	 $w-$l: 60.46326913152904 -> -71.84602041497098  _ #Surrender#	 lift : -132.30928954650003 : bad	 :| stand
+RoI a: 0.27202055026025823 o: 1.6291390728476822	 returnMoney: a:1207200.0 o: 516600.0	 totalSpendMoney: a: 4437900.0 o: 317100.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Nine9, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:46.211145415688584->13.472789904139573  	$d:35.89826456997848->1.3922202713241747  	$l:17.89059001433294->85.13498982453625
+	 improve value x$w(high is good):-32.73835551154901  	x$d:-34.5060442986543  	 x$l(negative is good):67.2443998102033
+	 	 $w-$l: 28.32055540135564 -> -71.66219992039667  _ #Surrender#	 lift : -99.98275532175231 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:46.211145415688584->13.424027208162448  	$d:35.89826456997848->1.3003901170351104  	$l:17.89059001433294->85.27558267480244
+	 improve value x$w(high is good):-32.787118207526134  	x$d:-34.59787445294337  	 x$l(negative is good):67.38499266046949
+	 	 $w-$l: 28.32055540135564 -> -71.85155546664  _ #Surrender#	 lift : -100.17211086799564 : bad	 :| stand
+RoI a: 0.27201783723522854 o: 1.6296296296296295	 returnMoney: a:805200.0 o: 343200.0	 totalSpendMoney: a: 2960100.0 o: 210600.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
+
+
+		 @@@ dealerCard=Ten, 	playerStartValue=19	@@@ 
+[ProbMatrix:
+org->adv	$w:42.867230542110605->10.828649276083596  	$d:11.133738186513343->3.6049441784792373  	$l:45.999031271376055->85.56640654543718
+	 improve value x$w(high is good):-32.03858126602701  	x$d:-7.528794008034105  	 x$l(negative is good):39.56737527406112
+	 	 $w-$l: -3.131800729265449 -> -74.7377572693536  _ #Surrender#	 lift : -71.60595654008814 : bad	 :| stand
+TimeMatrix:
+org->adv	$w:42.867230542110605->13.406593406593407  	$d:11.133738186513343->1.3386613386613389  	$l:45.999031271376055->85.25474525474526
+	 improve value x$w(high is good):-29.460637135517196  	x$d:-9.795076847852004  	 x$l(negative is good):39.255713983369205
+	 	 $w-$l: -3.131800729265449 -> -71.84815184815186  _ #Surrender#	 lift : -68.71635111888641 : bad	 :| stand
+RoI a: 0.2717699473471041 o: 1.6203966005665722	 returnMoney: a:402600.0 o: 171600.0	 totalSpendMoney: a: 1481400.0 o: 105900.0	deckStatus=0
+	 [isDouble()=false, isHit()=false, isSurrender()=true]
