@@ -1,4 +1,4 @@
-Double_Limit: 0.0405 	 Hit_Limit: 0.0345 	 Surrender_Limit: -0.48
+Double_Limit: 0.0405 	 Hit_Limit: 0.03 	 Surrender_Limit: -0.48
 
 		 @@@ dealerCard=One1, 	playerStartValue=8	@@@ 
 ProbMatrix: total: a: 4.2313234207106684E-4 o: 4.231323420710258E-4
@@ -496,13 +496,13 @@ RoI diff: -0.19967105747654268 a: 0.9666319898878039 o: 1.1663030473643465	 retu
 ProbMatrix: total: a: 4.2313234207092204E-4 o: 4.231323420710243E-4
 org->adv	$w:36.0012010968838->35.031249577265704  	$d:0.0->4.943168113555984  	$l:63.998798903116196->60.025582309178304
 	 improve value x$w(high is good):-0.9699515196180926  	x$d:4.943168113555984  	 x$l(negative is good):-3.9732165939378916
-	 	 $w-$l: -27.997597806232395 -> -24.9943327319126  _  _ 	 lift : 3.003265074319794 : good	 :) hit 
+	 	 $w-$l: -27.997597806232395 -> -24.9943327319126  _  _ 	 lift : 3.003265074319794 : good	 :| stand
 TimeMatrix: total: a: 346957.0 o: 26689.0
 org->adv	$w:36.0012010968838->46.568594955570866  	$d:0.0->3.233830128805587  	$l:63.998798903116196->50.197574915623555
 	 improve value x$w(high is good):10.567393858687069  	x$d:3.233830128805587  	 x$l(negative is good):-13.80122398749264
 	 	 $w-$l: -27.997597806232395 -> -3.6289799600526917  _  _ 	 lift : 24.368617846179703 : good	 :) hit 
 RoI diff: -0.19670673548566786 a: 0.9624974310248796 o: 1.1592041665105475	 returnMoney: a:9.69438E7 o: 9281400.0	 totalSpendMoney: a: 1.007211E8 o: 8006700.0	deckStatus=0
-	 [isDouble()=false, isHit()=false, isSurrender()=false]
+	 [isDouble()=false, isHit()=true, isSurrender()=false]
 
 		 @@@ dealerCard=Three3, 	playerStartValue=12	@@@ 
 ProbMatrix: total: a: 4.231323420709464E-4 o: 4.231323420710243E-4
