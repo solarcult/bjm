@@ -37,6 +37,7 @@ public class FileUtil {
 		String fileName="9102researchG_"+ sdf.format(Calendar.getInstance().getTime())+"_researchG.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
+			
 			for(DealerVSPlayerResult9102 dealerVSPlayerResult9102 : dealerVSPlayerResult9102s) {
 				out.write(dealerVSPlayerResult9102.toString());
 				out.newLine();

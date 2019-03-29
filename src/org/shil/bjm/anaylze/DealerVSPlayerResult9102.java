@@ -16,7 +16,7 @@ public class DealerVSPlayerResult9102 {
 	private DvsP2D9102 advanced;
 	
 	
-	public static double Double_Limit = 0.0505;
+	public static double Double_Limit = 0.0405;
 	public static double Surrender_Limit = -0.48;
 	public static double Hit_Limit = 0.0345;
 	
@@ -31,19 +31,21 @@ public class DealerVSPlayerResult9102 {
 
 	@Override
 	public String toString() {
-		return  "\n\n\t\t @@@ dealerCard=" + dealerCard + ", \tplayerStartValue=" + playerStartValue +"\t@@@ \n"
-				+"[ProbMatrix:"
+		return  "\n\n Double_Limit: "+Double_Limit +" \t Hit_Limit: "+Hit_Limit +" \t Surrender_Limit: "+Surrender_Limit
+				+"\n\t\t @@@ dealerCard=" + dealerCard + ", \tplayerStartValue=" + playerStartValue +"\t@@@ \n"
+				+"ProbMatrix: total: a: "+advanced.getTotalProbs() +" o: "+origin.getTotalProbs()
 				+ HelloWorld.builder2DoubleWDL(advanced.getProbRates(), origin.getProbRates())
-				+ "TimeMatrix:"
+				+ "TimeMatrix: total: a: " + advanced.getTotalTimes() + " o: "+origin.getTotalTimes()
 				+ HelloWorld.builder2DoubleWDL(advanced.getTimeRates(), origin.getProbRates())
-				+"RoI a: "+advanced.getRoi() +" o: "+ origin.getRoi() +"\t returnMoney: a:" + advanced.getReturnMoney() +" o: "+origin.getReturnMoney() +"\t totalSpendMoney: a: "+ advanced.getTotalSpendMoney() +" o: "+origin.getTotalSpendMoney()
+				+"RoI diff: "+ (advanced.getRoi()-origin.getRoi()) + " a: "+advanced.getRoi() +" o: "+ origin.getRoi() +"\t returnMoney: a:" + advanced.getReturnMoney() +" o: "+origin.getReturnMoney() +"\t totalSpendMoney: a: "+ advanced.getTotalSpendMoney() +" o: "+origin.getTotalSpendMoney()
 				+"\tdeckStatus="+ deckStatus
 				+"\n\t [isDouble()=" + isDouble() + ", isHit()=" + isHit() + ", isSurrender()=" + isSurrender() + "]";
 	}
 	
 	public boolean isDouble() {
 		return ((advanced.getProbRates()[0]-advanced.getProbRates()[2]) > Double_Limit)
-				&& ((advanced.getTimeRates()[0]-advanced.getTimeRates()[2]) > Double_Limit);
+				&& ((advanced.getTimeRates()[0]-advanced.getTimeRates()[2]) > Double_Limit
+				&& advanced.getRoi() > origin.getRoi());
 	}
 	
 	public boolean isHit() {

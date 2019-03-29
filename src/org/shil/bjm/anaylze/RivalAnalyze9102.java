@@ -69,7 +69,7 @@ public class RivalAnalyze9102 {
 			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
 				//playtime的含义时分牌的次数
 				double playtimes = Math.pow(2, playerCardsPathValue.getSplitTimes());
-										
+				if(playtimes!=1) throw new RuntimeException("playtimes!=1 what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 				double multiProb =  playerCardsPathValue.prob() * dealerCardsPathValue.prob();
 				
 				if(playerCardsPathValue.getAction() == PlayerAction.Giveup) {
@@ -131,7 +131,7 @@ public class RivalAnalyze9102 {
 		double totalTimes = winTimes + drawTimes + loseTimes;
 		Double[] timeRates  = new Double[] {winTimes/totalTimes,drawTimes/totalTimes,loseTimes/totalTimes};
 		
-		return new DvsP2D9102(probRates,timeRates,returnMoney,totalSpendMoney);
+		return new DvsP2D9102(probRates,totalProbs,timeRates,totalTimes,returnMoney,totalSpendMoney);
 	}
 
 
