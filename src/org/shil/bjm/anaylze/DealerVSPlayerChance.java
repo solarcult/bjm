@@ -17,7 +17,7 @@ public class DealerVSPlayerChance implements Comparable<DealerVSPlayerChance>{
 	
 	public static double Double_Limit = 0.0505;
 	public static double Surrender_Limit = -0.48;
-	public static double Hit_Limit = 0.0345;
+	public static double Hit_Limit = 0.03;
 	
 	private int deckStatus;
 	
