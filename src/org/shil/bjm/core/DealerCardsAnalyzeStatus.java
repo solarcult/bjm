@@ -1,11 +1,14 @@
 package org.shil.bjm.core;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.commons.math3.stat.Frequency;
 import org.shil.bjm.anaylze.AnalyzeCardsPathValue;
 import org.shil.bjm.anaylze.AnalyzeStatus;
 import org.shil.bjm.meta.Card;
+import org.shil.bjm.meta.DealerCardsPathValue;
 
 /**
  * 预先计算庄家牌组合的分布
@@ -114,11 +117,39 @@ public class DealerCardsAnalyzeStatus {
 		}
 	}
 	
-	public static void main(String[] args) {
-		double daProb = 0;
-		for(Entry<Integer, AnalyzeStatus> e : ASMNine.entrySet()) {
-			daProb += e.getValue().getProb();
+	public static void analyzeTimes(Card dealerCard) {
+		Frequency frequency = new Frequency();
+		Collection<DealerCardsPathValue> dealers = DealerCards.fetchDealerCards(dealerCard);
+		for(DealerCardsPathValue dealerCardsPathValue : dealers) {
+			frequency.addValue(dealerCardsPathValue.getValue());
 		}
-		System.out.println(daProb);
+		System.out.println(frequency);
+	}
+	
+	public static void main(String[] args) {
+		
+		analyzeTimes(Card.Seven7);
+		/** 庄家如果是7,则它不爆牌的胜率竟然是42%,大部分时间都爆牌,此刻我们什么牌都不应该要啊.
+		 * 这是根据次数来计算的结果,如果根据概率,则不是这样说的.
+		 * 好奇怪,要仔细考虑.综合两者来分析吗?
+Value 	 Freq. 	 Pct. 	 Cum Pct. 
+17	163	8%	8%
+18	160	8%	17%
+19	162	8%	25%
+20	162	8%	34%
+21	164	9%	42%
+22	170	9%	51%
+23	180	9%	60%
+24	200	10%	71%
+25	240	12%	83%
+26	320	17%	100%
+
+		 */
+		
+//		double daProb = 0;
+//		for(Entry<Integer, AnalyzeStatus> e : ASMNine.entrySet()) {
+//			daProb += e.getValue().getProb();
+//		}
+//		System.out.println(daProb);
 	}
 }

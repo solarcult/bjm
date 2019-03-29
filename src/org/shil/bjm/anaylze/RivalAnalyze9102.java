@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.DealerCards;
 import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.core.PlayerCards;
@@ -32,14 +31,14 @@ public class RivalAnalyze9102 {
 			if (playerCardsPathValue.getValue() < 8) continue;
 			for (Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue; 
-				DealerVSPlayerResult9102 dealerVSPlayerChance = analyzeResearchPair(new ResearchPDair(playerCardsPathValue, dealerCard));
+				DealerVSPlayerResult9102 dealerVSPlayerChance = analyzeHitOneMoreCardResearchPair(new ResearchPDair(playerCardsPathValue, dealerCard));
 				diff.add(dealerVSPlayerChance);
 			}
 		}
 		return diff;
 	}
 	
-	public static DealerVSPlayerResult9102 analyzeResearchPair(ResearchPDair researchPair) {
+	public static DealerVSPlayerResult9102 analyzeHitOneMoreCardResearchPair(ResearchPDair researchPair) {
 		
 		Collection<DealerCardsPathValue> dealerCardsPathValues = DealerCards.fetchDealerCards(researchPair.getDealerCard());
 		List<PlayerCardsPathValue> origin = new ArrayList<>();
@@ -50,7 +49,7 @@ public class RivalAnalyze9102 {
 		
 		return new DealerVSPlayerResult9102(researchPair.getDealerCard(), researchPair.getPlayerCardsPathValue().getStartValue().getValue(), originDvP, advancedDvP); 
 	}
-
+	
 	public static DvsP2D9102 anaylze(Collection<DealerCardsPathValue> dealerCardsPathValues, Collection<PlayerCardsPathValue> playerCardsPathValues) {
 
 		//纯的胜平负计数
@@ -72,7 +71,7 @@ public class RivalAnalyze9102 {
 			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
 				//playtime的含义时分牌的次数
 				double playtimes = Math.pow(2, playerCardsPathValue.getSplitTimes());
-				if(playtimes!=1) throw new RuntimeException("playtimes!=1 what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+				if(playtimes!=1 || playerCardsPathValue.getBetMutiV()!=1) throw new RuntimeException("playtimes!=1 what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 				double multiProb =  playerCardsPathValue.prob() * dealerCardsPathValue.prob();
 				
 				if(playerCardsPathValue.getAction() == PlayerAction.Giveup) {
@@ -117,6 +116,8 @@ public class RivalAnalyze9102 {
 				if(playerCardsPathValue.getValue() == dealerCardsPathValue.getValue()) {
 					drawTimes += playtimes;
 					drawProbs += multiProb * playtimes;
+					returnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 					continue;
 				}
 				if(playerCardsPathValue.getValue() < dealerCardsPathValue.getValue()) {
@@ -133,6 +134,8 @@ public class RivalAnalyze9102 {
 		
 		double totalTimes = winTimes + drawTimes + loseTimes;
 		Double[] timeRates  = new Double[] {winTimes/totalTimes,drawTimes/totalTimes,loseTimes/totalTimes};
+//		Double[] timeRates  = new Double[] {winTimes,drawTimes,loseTimes};
+
 		
 		RivalAnalyze9102.totalProbs += totalProbs;
 		RivalAnalyze9102.totalTimes += totalTimes;
