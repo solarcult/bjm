@@ -23,6 +23,9 @@ import org.shil.bjm.meta.ProfitUtil;
  */
 public class RivalAnalyze9102 {
 	
+	public static double totalProbs = 0;
+	public static double totalTimes = 0;
+	
 	public static List<DealerVSPlayerResult9102> makePlayerWithoutAOneMoreVSDealer(){
 		List<DealerVSPlayerResult9102> diff = new ArrayList<DealerVSPlayerResult9102>();
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithoutA()) {
@@ -131,6 +134,9 @@ public class RivalAnalyze9102 {
 		double totalTimes = winTimes + drawTimes + loseTimes;
 		Double[] timeRates  = new Double[] {winTimes/totalTimes,drawTimes/totalTimes,loseTimes/totalTimes};
 		
+		RivalAnalyze9102.totalProbs += totalProbs;
+		RivalAnalyze9102.totalTimes += totalTimes;
+		
 		return new DvsP2D9102(probRates,totalProbs,timeRates,totalTimes,returnMoney,totalSpendMoney);
 	}
 
@@ -141,7 +147,6 @@ public class RivalAnalyze9102 {
 //		List<DealerVSPlayerChance> ao = makePlayerAAVSDealer();
 //		HelloWorld.print(ao);
 		FileUtil.writeToDisk9102(dealerVSPlayerResult9102s);
-		
 	}
 
 }

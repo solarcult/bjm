@@ -10,6 +10,7 @@ import java.util.List;
 import org.apache.commons.math3.stat.Frequency;
 import org.shil.bjm.anaylze.DealerVSPlayerChance;
 import org.shil.bjm.anaylze.DealerVSPlayerResult9102;
+import org.shil.bjm.anaylze.RivalAnalyze9102;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.Result;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
@@ -37,11 +38,15 @@ public class FileUtil {
 		String fileName="9102researchG_"+ sdf.format(Calendar.getInstance().getTime())+"_researchG.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
-			
+			out.write("Double_Limit: "+DealerVSPlayerResult9102.Double_Limit +" \t Hit_Limit: "+DealerVSPlayerResult9102.Hit_Limit +" \t Surrender_Limit: "+DealerVSPlayerResult9102.Surrender_Limit);
+			out.newLine();
 			for(DealerVSPlayerResult9102 dealerVSPlayerResult9102 : dealerVSPlayerResult9102s) {
 				out.write(dealerVSPlayerResult9102.toString());
 				out.newLine();
 			}
+			out.newLine();
+			out.write("RivalAnalyze9102.totalProbs: "+ RivalAnalyze9102.totalProbs +" , RivalAnalyze9102.totalTimes: "+RivalAnalyze9102.totalTimes);
+			out.newLine();
 			out.flush();
 			out.close();
 		}catch(Exception e) {

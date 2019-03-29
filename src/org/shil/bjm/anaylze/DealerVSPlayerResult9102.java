@@ -31,8 +31,7 @@ public class DealerVSPlayerResult9102 {
 
 	@Override
 	public String toString() {
-		return  "\n\n Double_Limit: "+Double_Limit +" \t Hit_Limit: "+Hit_Limit +" \t Surrender_Limit: "+Surrender_Limit
-				+"\n\t\t @@@ dealerCard=" + dealerCard + ", \tplayerStartValue=" + playerStartValue +"\t@@@ \n"
+		return  "\n\t\t @@@ dealerCard=" + dealerCard + ", \tplayerStartValue=" + playerStartValue +"\t@@@ \n"
 				+"ProbMatrix: total: a: "+advanced.getTotalProbs() +" o: "+origin.getTotalProbs()
 				+ HelloWorld.builder2DoubleWDL(advanced.getProbRates(), origin.getProbRates())
 				+ "TimeMatrix: total: a: " + advanced.getTotalTimes() + " o: "+origin.getTotalTimes()
