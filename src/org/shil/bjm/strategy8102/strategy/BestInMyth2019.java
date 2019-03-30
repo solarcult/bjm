@@ -3,6 +3,7 @@ package org.shil.bjm.strategy8102.strategy;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
@@ -633,6 +634,8 @@ public class BestInMyth2019 extends Seven8012 {
 		StrategyMatrix8012 one = new BestInMyth2019();
 		StrategyMatrix8012 two = new Finally2047();
 		System.out.println(two.diffWith(one));
+		
+		HelloWorld.printStrategyMatrix8012(one,two);
 	}
 	
 /*
