@@ -91,7 +91,7 @@ public class EvolutionOneWayTest {
 					competions.add(sm);
 					switch(type) {
 						case 1:
-							sm.getMoneyReturn();
+							sm.getTimeMoneyReturn();
 							break;
 						case 2:
 							sm.getTimeRates();
@@ -100,7 +100,7 @@ public class EvolutionOneWayTest {
 							sm.getProbRates();
 							break;
 						case 4:
-							sm.getROI();
+							sm.getTimeRoi();
 							break;
 						default :
 							throw new RuntimeException("wow who am i?");
@@ -118,7 +118,7 @@ public class EvolutionOneWayTest {
 					
 					switch(type) {
 						case 1:
-							evo.getMoneyReturn();
+							evo.getTimeMoneyReturn();
 							break;
 						case 2:
 							evo.getTimeRates();
@@ -127,7 +127,7 @@ public class EvolutionOneWayTest {
 							evo.getProbRates();
 							break;
 						case 4:
-							evo.getROI();
+							evo.getTimeRoi();
 							break;
 						default :
 							throw new RuntimeException("wow who am i?");

@@ -63,15 +63,20 @@ public class RivalAnalyze9102 {
 		double loseProbs = 0;
 		
 		//赢来的钱，包含自己本金
-		double returnMoney = 0;
+		double probReturnMoney = 0;
 		//总共投入的钱
-		double totalSpendMoney = 0;
+		double probTotalSpendMoney = 0;
+
+		//赢来的钱，包含自己本金
+		double timeReturnMoney = 0;
+		//总共投入的钱
+		double timeTotalSpendMoney = 0;
 		
 		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
 			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
 				//playtime的含义时分牌的次数
 				double playtimes = Math.pow(2, playerCardsPathValue.getSplitTimes());
-				if(playtimes!=1 || playerCardsPathValue.getBetMutiV()!=1) throw new RuntimeException("playtimes!=1 what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+//				if(playtimes!=1 || playerCardsPathValue.getBetMutiV()!=1) throw new RuntimeException("playtimes!=1 what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 				double multiProb =  playerCardsPathValue.prob() * dealerCardsPathValue.prob();
 				
 				if(playerCardsPathValue.getAction() == PlayerAction.Giveup) {
@@ -81,8 +86,13 @@ public class RivalAnalyze9102 {
 					loseTimes += playtimes; //这里只跟玩牌的次数有关
 					loseProbs += multiProb * playtimes; //这里只跟出现的概率有关，所以乘以玩的次数
 					if(playerCardsPathValue.getBetMutiV()!=0.5) throw new RuntimeException("playerCardsPathValue.getBetMutiV()!=0.5 in give up ! ");
-					returnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
-					totalSpendMoney += ProfitUtil.BaseMoney;
+					
+					probReturnMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
+					probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney;
+					
+					timeReturnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
+					timeTotalSpendMoney += ProfitUtil.BaseMoney;
+					
 					throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 				}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 					throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
@@ -96,34 +106,50 @@ public class RivalAnalyze9102 {
 				if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
 					loseTimes += playtimes;
 					loseProbs += multiProb * playtimes;
-					totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					
+					probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 					continue;
 				}
 				if(dealerCardsPathValue.getValue() > BlackJackInfo.BlackJack) {
 					winTimes += playtimes;
 					winProbs += multiProb * playtimes;
-					returnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
-					totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+
+					probReturnMoney += 2 * multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+					probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					
+					timeReturnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+					timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 					continue;
 				}
 				if(playerCardsPathValue.getValue() > dealerCardsPathValue.getValue()) {
 					winTimes += playtimes;
 					winProbs += multiProb * playtimes;
-					returnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
-					totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					
+					probReturnMoney += 2 * multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+					probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					
+					timeReturnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+					timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 					continue;
 				}
 				if(playerCardsPathValue.getValue() == dealerCardsPathValue.getValue()) {
 					drawTimes += playtimes;
 					drawProbs += multiProb * playtimes;
-					returnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
-					totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					
+					probReturnMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+					probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					
+					timeReturnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+					timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 					continue;
 				}
 				if(playerCardsPathValue.getValue() < dealerCardsPathValue.getValue()) {
 					loseTimes += playtimes;
 					loseProbs += multiProb * playtimes;
-					totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					
+					probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+					timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 					continue;
 				}
 			}
@@ -134,13 +160,11 @@ public class RivalAnalyze9102 {
 		
 		double totalTimes = winTimes + drawTimes + loseTimes;
 		Double[] timeRates  = new Double[] {winTimes/totalTimes,drawTimes/totalTimes,loseTimes/totalTimes};
-//		Double[] timeRates  = new Double[] {winTimes,drawTimes,loseTimes};
-
 		
 		RivalAnalyze9102.totalProbs += totalProbs;
 		RivalAnalyze9102.totalTimes += totalTimes;
 		
-		return new DvsP2D9102(probRates,totalProbs,timeRates,totalTimes,returnMoney,totalSpendMoney);
+		return new DvsP2D9102(probRates,totalProbs,timeRates,totalTimes,probReturnMoney,probTotalSpendMoney,timeReturnMoney,timeTotalSpendMoney,playerCardsPathValues.size());
 	}
 
 

@@ -8,9 +8,9 @@ public class ROIComparator implements Comparator<StrategyMatrix8012> {
 
 	@Override
 	public int compare(StrategyMatrix8012 arg0, StrategyMatrix8012 arg1) {
-		if(arg0.getROI() > arg1.getROI()) {
+		if(arg0.getTimeRoi() > arg1.getTimeRoi()) {
 			return -1;
-		}else if(arg0.getROI() < arg1.getROI()) {
+		}else if(arg0.getTimeRoi() < arg1.getTimeRoi()) {
 			return 1;
 		}
 		return 0;

@@ -45,15 +45,26 @@ public abstract class StrategyMatrix8012{
 	/*
 	 * 拿回来的钱，包含自己的本金
 	 */
-	protected Double moneyReturn;
+	protected Double probMoneyReturn;
 	/*
 	 * 总共花销
 	 */
-	protected Double totalSpead;
+	protected Double probTotalSpead;
+	
+	/*
+	 * 拿回来的钱，包含自己的本金
+	 */
+	protected Double timeMoneyReturn;
+	/*
+	 * 总共花销
+	 */
+	protected Double timeTotalSpead;
+	
 	/*
 	 * 投资回报比
 	 */
-	protected Double roi;
+	protected Double probRoi;
+	protected Double timeRoi;
 	/*
 	 * 根据现实中所有的穷举对战产生的胜平负比率
 	 */
@@ -277,7 +288,6 @@ public abstract class StrategyMatrix8012{
 		one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
-		this.moneyReturn = null;
 		this.timeRates = null;
 		this.probRates = null;
 	}
@@ -288,7 +298,6 @@ public abstract class StrategyMatrix8012{
 		this.one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
-		this.moneyReturn = null;
 		this.timeRates = null;
 		this.probRates = null;
 	}
@@ -335,7 +344,7 @@ public abstract class StrategyMatrix8012{
 	 */
 	public void getEverythingInOneLoop() {
 		if(EvolutionOneWayTest.debug) System.out.println("getEverythingInOneLoop() class : " + this.getClass().getName() );
-		if(this.probRates != null && this.timeRates != null && this.roi != null) {
+		if(this.probRates != null && this.timeRates != null && this.probRoi != null&& this.timeRoi != null) {
 //			System.out.println("This Matrix8012 has been calc DONE ! ");
 			return;
 		}
@@ -352,10 +361,14 @@ public abstract class StrategyMatrix8012{
 		double loseProbs = 0;
 		
 		//赢来的钱，包含自己本金
-		double returnMoney = 0;
-		
+		double probReturnMoney = 0;
 		//总共投入的钱
-		double totalSpendMoney = 0;
+		double probTotalSpendMoney = 0;
+
+		//赢来的钱，包含自己本金
+		double timeReturnMoney = 0;
+		//总共投入的钱
+		double timeTotalSpendMoney = 0;
 		
 		int processed = 1;
 		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
@@ -382,8 +395,11 @@ public abstract class StrategyMatrix8012{
 							loseTimes += playtimes; //这里只跟玩牌的次数有关
 							loseProbs += multiProb * playtimes; //这里只跟出现的概率有关，所以乘以玩的次数
 							if(playerCardsPathValue.getBetMutiV()!=0.5) throw new RuntimeException("playerCardsPathValue.getBetMutiV()!=0.5 in give up ! ");
-							returnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
-							totalSpendMoney += ProfitUtil.BaseMoney;
+
+							probReturnMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
+							probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney;
+							timeReturnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
+							timeTotalSpendMoney += ProfitUtil.BaseMoney;
 							continue;
 						}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 							continue;
@@ -397,33 +413,47 @@ public abstract class StrategyMatrix8012{
 						if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
 							loseTimes += playtimes;
 							loseProbs += multiProb * playtimes;
-							totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							
+							probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 							continue;
 						}
 						if(dealerCardsPathValue.getValue() > BlackJackInfo.BlackJack) {
 							winTimes += playtimes;
 							winProbs += multiProb * playtimes;
-							returnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
-							totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+
+							probReturnMoney += 2 * multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+							probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							timeReturnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+							timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 							continue;
 						}
 						if(playerCardsPathValue.getValue() > dealerCardsPathValue.getValue()) {
 							winTimes += playtimes;
 							winProbs += multiProb * playtimes;
-							returnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
-							totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							
+							probReturnMoney += 2 * multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+							probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							timeReturnMoney += 2 * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+							timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 							continue;
 						}
 						if(playerCardsPathValue.getValue() == dealerCardsPathValue.getValue()) {
 							drawTimes += playtimes;
 							drawProbs += multiProb * playtimes;
+							
+							probReturnMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+							probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							timeReturnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); 
+							timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
 							continue;
 						}
 						if(playerCardsPathValue.getValue() < dealerCardsPathValue.getValue()) {
 							loseTimes += playtimes;
 							loseProbs += multiProb * playtimes;
-							totalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
-							continue;
+							
+							probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
+							timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();							continue;
 						}
 					}
 				}
@@ -438,25 +468,54 @@ public abstract class StrategyMatrix8012{
 		timeRates  = new Double[] {winTimes/totalTimes,drawTimes/totalTimes,loseTimes/totalTimes};
 		if(EvolutionOneWayTest.debug) System.out.println("totalTimes : " + totalTimes);
 		
-		this.moneyReturn = returnMoney;
-		this.totalSpead = totalSpendMoney;
-		this.roi = returnMoney / totalSpendMoney;
-		if(EvolutionOneWayTest.debug) System.out.println("roi : " + roi);
+		this.probMoneyReturn = probReturnMoney;
+		this.probTotalSpead = probTotalSpendMoney;
+		this.probRoi = probMoneyReturn/probTotalSpead;
+		
+		this.timeMoneyReturn = timeReturnMoney;
+		this.timeTotalSpead = timeTotalSpendMoney;
+		this.timeRoi = timeMoneyReturn/timeTotalSpead;
+		
+		if(EvolutionOneWayTest.debug) System.out.println("probRoi : " + this.probRoi);
+		if(EvolutionOneWayTest.debug) System.out.println("timeRoi : " + this.timeRoi);
 		
 		if(EvolutionOneWayTest.debug) System.out.println(this.getClass().getSimpleName() + " total wasted time : " + (System.currentTimeMillis() - startTime));
 	}
 	
 	
-	public double getMoneyReturn() {
-		if(this.moneyReturn==null) getEverythingInOneLoop();
-		return moneyReturn;
-	}
 	
-	public double getTotalSpead() {
-		if(this.totalSpead==null) getEverythingInOneLoop();
-		return totalSpead;
+	public Double getProbMoneyReturn() {
+		return probMoneyReturn;
 	}
-	
+
+	public Double getProbTotalSpead() {
+		return probTotalSpead;
+	}
+
+	public Double getTimeMoneyReturn() {
+		return timeMoneyReturn;
+	}
+
+	public Double getTimeTotalSpead() {
+		return timeTotalSpead;
+	}
+
+	public Double getProbRoi() {
+		return probRoi;
+	}
+
+	public Double getTimeRoi() {
+		return timeRoi;
+	}
+
+	public double getTotalTimes() {
+		return totalTimes;
+	}
+
+	public double getTotalProbs() {
+		return totalProbs;
+	}
+
 	public Double[] getTimeRates() {
 		if(timeRates == null) getEverythingInOneLoop();
 		return timeRates;
@@ -466,11 +525,7 @@ public abstract class StrategyMatrix8012{
 		if(probRates == null) getEverythingInOneLoop();
 		return probRates;
 	}
-	
-	public double getROI() {
-		if(this.roi==null) getEverythingInOneLoop();
-		return this.roi;
-	}
+
 	
 	@Override
 	public String toString() {
@@ -532,18 +587,24 @@ public abstract class StrategyMatrix8012{
 		sb.append(probRateFactor());
 		sb.append(",\t timeRateFactor()= ");
 		sb.append(timeRateFactor());
-		sb.append(",\t roi= ");
-		sb.append(getROI());
+		sb.append(",\t timeRoi= ");
+		sb.append(getTimeRoi());
+		sb.append(",\t probRoi= ");
+		sb.append(getProbRoi());
 		sb.append(",\t totalTimes: "+ this.totalTimes);
 		sb.append(",\t getTimeRates= ");
 		sb.append(HelloWorld.builderDoubleWDL(getTimeRates()));
 		sb.append(",\t totalProbs: "+ this.totalProbs);
 		sb.append(",\t getProbRate= ");
 		sb.append(HelloWorld.builderDoubleWDL(getProbRates()));
-		sb.append(",\t moneyReturn= ");
-		sb.append(getMoneyReturn());
-		sb.append(",\t totalSpead= ");
-		sb.append(getTotalSpead());
+		sb.append(",\t timeMoneyReturn= ");
+		sb.append(getTimeMoneyReturn());
+		sb.append(",\t timeTotalSpead= ");
+		sb.append(getTimeTotalSpead());
+		sb.append(",\t probMoneyReturn= ");
+		sb.append(getProbMoneyReturn());
+		sb.append(",\t probTotalSpead= ");
+		sb.append(getProbTotalSpead());
 
 		return sb.toString();
 	}
@@ -665,33 +726,33 @@ public abstract class StrategyMatrix8012{
 		if(paretoFrontType ==0) {
 			//Version Zero: 关于赢率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 			//基于DStime的权重，鼓励分牌和Double
-			return roi0 * this.getROI();
+			return roi0 * this.getTimeRoi();
 		}
 		if(paretoFrontType == 1){
 			//Version One: 关于不输率,此时的数据roi影响应该不大,取值范围都在[0~1],prob和time的数据都在0.4~0.5之间,roi在0.7~0.9之间 
 			//基于DStime的权重，鼓励分牌和Double
-			return roi01 * this.getROI();
+			return roi01 * this.getTimeRoi();
 		}
 		if(paretoFrontType == 2) {
 			//Version Two: 关于于胜率比败率差多多少,用胜-负得到的值可能在[0.1 ~ -0.1]之前,这时roi在0.7~0.9之间的影响就变大了
 			//基于DStime的权重，鼓励分牌和Double
-			return roi02 * this.getROI();
+			return roi02 * this.getTimeRoi();
 		}
 		if(paretoFrontType == 3) {
 			//基于DStime的权重，鼓励分牌和Double
-			return roi03 * this.getROI();
+			return roi03 * this.getTimeRoi();
 		}
 		if(paretoFrontType == 4) {
 			//基于DStime的权重，鼓励分牌和Double
-			return roi04 * this.getROI();
+			return roi04 * this.getTimeRoi();
 		}
 		if(paretoFrontType == 5) {
 			//基于DStime的权重，鼓励分牌和Double
-			return roi05 * this.getROI();
+			return roi05 * this.getTimeRoi();
 		}
 		if(paretoFrontType == 6) {
 			//基于DStime的权重，鼓励分牌和Double
-			return roi06 * this.getROI();
+			return roi06 * this.getTimeRoi();
 		}
 		
 		throw new RuntimeException("roiFactor ParetoFrontValue is incorrect: " +paretoFrontType);

@@ -732,7 +732,7 @@ public class Standard2017 extends Seven8012 {
 		System.out.println(two.getNotChangesMatrix().size());
 		System.out.println(two.getOne().size());
 		two.timeRates =  new Double[] { 30d,20d,10d};
-		System.out.println(one.getMoneyReturn());
+		System.out.println(one.getTimeMoneyReturn());
 		s.add(one);
 		s.add(two);
 		Collections.sort(s,new WDLwDsTimesByPureByRawRateComparator());

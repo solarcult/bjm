@@ -7,9 +7,9 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 
-public class BestInMath2019 extends Seven8012 {
+public class BestInMyth2019 extends Seven8012 {
 
-	public BestInMath2019() {
+	public BestInMyth2019() {
 
 		super();
 		Map<MatrixKey,PlayerAction> changesMatrix = new HashMap<>();
@@ -40,9 +40,9 @@ public class BestInMath2019 extends Seven8012 {
 				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
 			}else if(dealerCard == Card.Seven7 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 			}else{
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(9), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
@@ -97,13 +97,12 @@ public class BestInMath2019 extends Seven8012 {
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Three_More_Cards);
 				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 3 ){
-				//hit is better move win 1.6 and lose 3.2 to draw
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Stand);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Three_More_Cards);
-				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Stand);
 			}else if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(12), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Stand);
@@ -242,9 +241,9 @@ public class BestInMath2019 extends Seven8012 {
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
+				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
+				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}
 			else{
 				//A
@@ -269,25 +268,25 @@ public class BestInMath2019 extends Seven8012 {
 				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
 			}else if(dealerCard.getValue() == 7 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() ==8 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() ==9 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Stand);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Stand);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Stand);
 			}else if(dealerCard.getValue() ==10 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(16), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Giveup);
@@ -631,9 +630,9 @@ public class BestInMath2019 extends Seven8012 {
 	}
 	
 	public static void main(String[] args) {
-		StrategyMatrix8012 one = new BestInMath2019();
+		StrategyMatrix8012 one = new BestInMyth2019();
 		StrategyMatrix8012 two = new Finally2047();
-		System.out.println(one.diffWith(two));
+		System.out.println(two.diffWith(one));
 	}
 	
 /*

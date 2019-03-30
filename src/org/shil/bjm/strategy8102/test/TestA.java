@@ -28,7 +28,7 @@ public class TestA {
 		for(int i = 1; i <= 20; i++) 
 		{
 			StrategyMatrix8012 origin = new RandomGenMatrix();
-			System.out.println(origin.getMoneyReturn());
+			System.out.println(origin.getTimeMoneyReturn());
 		}
 	}
 	
@@ -61,7 +61,7 @@ public class TestA {
 	
 	public static void testC() {
 		Standard2017 s = new Standard2017();
-		System.out.println(s.getMoneyReturn());
+		System.out.println(s.getTimeMoneyReturn());
 		CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(()->{
 			System.out.println(s.getCalcResult());
 		});
