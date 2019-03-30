@@ -2,6 +2,7 @@ package org.shil.bjm.anaylze;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
+import org.shil.bjm.meta.DeckSet;
 
 /**
  * 记录庄家牌与玩家起始牌 当前的概率org和再来一张的概率adv
@@ -34,16 +35,19 @@ public class DealerVSPlayerResult9102 {
 
 	@Override
 	public String toString() {
+		double onet = origin.getProbReturnMoney() - origin.getProbTotalSpendMoney();
+		double anet = advanced.getProbReturnMoney() - advanced.getProbTotalSpendMoney();
 		return  "\n\t\t @@@   dealerCard=" + dealerCard + ", \tplayerStartValue=" + playerStartValue +"\t@@@ \n"
-				+"[ProbMatrix: total: o: "+origin.getTotalProbs() +  "  -> a: "+advanced.getTotalProbs()
+				+ "\nnet money diff:  " + (anet - onet)+" , up % -> "+ 100 * ((anet - onet)/Math.abs(onet))  +" .  o: "+onet +" -> a: " +anet
+				+"\n\n[ProbMatrix: total: o: "+origin.getTotalProbs() +  "  -> a: "+advanced.getTotalProbs()
 				+ HelloWorld.builder2DoubleWDL(advanced.getProbRates(), origin.getProbRates())
-				+ "[TimeMatrix: total:  o: "+origin.getTotalTimes() + " -> a: " + advanced.getTotalTimes()
+				+"\n[TimeMatrix: total:  o: "+origin.getTotalTimes() + " -> a: " + advanced.getTotalTimes()
 				+ HelloWorld.builder2DoubleWDL(advanced.getTimeRates(), origin.getTimeRates())
-				+"[Prob_ROI diff: "+ (advanced.getProbRoi()-origin.getProbRoi()) +" (up%-> "+ 100 * (advanced.getProbRoi()-origin.getProbRoi())/origin.getProbRoi() +") . o: "+ origin.getProbRoi() + " -> a: "+advanced.getProbRoi()+"\t returnMoney: o:" + origin.getProbReturnMoney() +" a: "+ advanced.getProbReturnMoney() +"\t totalSpendMoney: o: "+ origin.getProbTotalSpendMoney() +" a: "+advanced.getProbTotalSpendMoney()+"\n"
-				+"[Time_ROI diff: "+ (advanced.getTimeRoi()-origin.getTimeRoi()) +" (up%-> "+ 100 * (advanced.getTimeRoi()-origin.getTimeRoi())/origin.getTimeRoi() +") . o: "+ origin.getTimeRoi() + " -> a: "+advanced.getTimeRoi()+"\t returnMoney: o:" + origin.getTimeReturnMoney() +" a: "+ advanced.getTimeReturnMoney() +"\t totalSpendMoney: o: "+ origin.getTimeTotalSpendMoney() +" a: "+advanced.getTimeTotalSpendMoney()+"\n"
-				+"[[Per_Prob_ROI diff: "+ (advanced.getPerProbRoi()-origin.getPerProbRoi()) +" (up%-> "+ 100 * (advanced.getPerProbRoi()-origin.getPerProbRoi())/origin.getPerProbRoi() +") . o: "+ origin.getPerProbRoi() + " -> a: "+advanced.getPerProbRoi()+"\t per returnMoney: o:" + origin.getPerProbReturnMoney() +" a: "+ advanced.getPerProbReturnMoney() +"\t per totalSpendMoney: o: "+ origin.getPerProbTotalSpendMoney() +" a: "+advanced.getPerProbTotalSpendMoney()+"\n"
-
-				+"\t [isDouble()=" + isDouble() + ", isHit()=" + isHit() + ", isSurrender()=" + isSurrender() + "]" +"\tdeckStatus="+ deckStatus;
+				+"\n[Prob_ROI diff: "+ (advanced.getProbRoi()-origin.getProbRoi()) +" (up%-> "+ 100 * (advanced.getProbRoi()-origin.getProbRoi())/origin.getProbRoi() +") . o: "+ origin.getProbRoi() + " -> a: "+advanced.getProbRoi()+"\t returnMoney: o:" + origin.getProbReturnMoney() +" a: "+ advanced.getProbReturnMoney() +"\t totalSpendMoney: o: "+ origin.getProbTotalSpendMoney() +" a: "+advanced.getProbTotalSpendMoney()+"\n"
+				+"\n[Time_ROI diff: "+ (advanced.getTimeRoi()-origin.getTimeRoi()) +" (up%-> "+ 100 * (advanced.getTimeRoi()-origin.getTimeRoi())/origin.getTimeRoi() +") . o: "+ origin.getTimeRoi() + " -> a: "+advanced.getTimeRoi()+"\t returnMoney: o:" + origin.getTimeReturnMoney() +" a: "+ advanced.getTimeReturnMoney() +"\t totalSpendMoney: o: "+ origin.getTimeTotalSpendMoney() +" a: "+advanced.getTimeTotalSpendMoney()+"\n"
+				+"\n[[Per_Prob_ROI diff: "+ (advanced.getPerProbRoi()-origin.getPerProbRoi()) +" (up%-> "+ 100 * (advanced.getPerProbRoi()-origin.getPerProbRoi())/origin.getPerProbRoi() +") . o: "+ origin.getPerProbRoi() + " -> a: "+advanced.getPerProbRoi()+"\t per returnMoney: o:" + origin.getPerProbReturnMoney() +" a: "+ advanced.getPerProbReturnMoney() +"\t per totalSpendMoney: o: "+ origin.getPerProbTotalSpendMoney() +" a: "+advanced.getPerProbTotalSpendMoney()+"\n"
+				+"\n\t Decide:"+ ((((anet - onet)/Math.abs(onet) + (advanced.getProbRoi()-origin.getProbRoi())/origin.getProbRoi())>0)?" $Change$ ":" !Not Change! ") +" [isDouble()=" + isDouble() + ", isHit()=" + isHit() + ", isSurrender()=" + isSurrender() + "]" +"\tdeckStatus="+ deckStatus +"\t ! DeckSet.resetValue= "+ DeckSet.resetValue;
+		
 	}
 	
 	public boolean isDouble() {

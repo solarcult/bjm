@@ -17,7 +17,7 @@ public class DvsP2D9102 {
 	
 	//per prob rates
 	private Double[] perProbRates;
-	private double totalPlayerCardset;
+	private double totalPlayTimes;
 	
 	//赢来的钱，包含自己本金
 	double probReturnMoney = 0;
@@ -39,7 +39,7 @@ public class DvsP2D9102 {
 	double timeRoi = 0;
 	
 	
-	public DvsP2D9102(Double[] probRates,double totalProbs,Double[] timeRates,double totalTimes,double probReturnMoney,double probTotalSpendMoney,double timeReturnMoney,double timeTotalSpendMoney,double totalPlayerCardset) {
+	public DvsP2D9102(Double[] probRates,double totalProbs,Double[] timeRates,double totalTimes,double probReturnMoney,double probTotalSpendMoney,double timeReturnMoney,double timeTotalSpendMoney,double totalPlayTimes) {
 		this.probRates = probRates;
 		this.totalProbs = totalProbs;
 		this.timeRates = timeRates;
@@ -50,11 +50,11 @@ public class DvsP2D9102 {
 		this.timeReturnMoney = timeReturnMoney;
 		this.timeTotalSpendMoney = timeTotalSpendMoney;
 		this.timeRoi = timeReturnMoney/timeTotalSpendMoney;
-		this.totalPlayerCardset = totalPlayerCardset;
-		this.perProbReturnMoney = probReturnMoney/totalPlayerCardset;
-		this.perProbTotalSpendMoney = probTotalSpendMoney/totalPlayerCardset;
-		this.perProbRoi = (perProbReturnMoney/perProbTotalSpendMoney)/totalPlayerCardset;
-		this.perProbRates = new Double[] {probRates[0]/totalPlayerCardset,probRates[1]/totalPlayerCardset,probRates[2]/totalPlayerCardset};
+		this.totalPlayTimes = totalPlayTimes;
+		this.perProbReturnMoney = probReturnMoney/totalPlayTimes;
+		this.perProbTotalSpendMoney = probTotalSpendMoney/totalPlayTimes;
+		this.perProbRoi = (perProbReturnMoney/perProbTotalSpendMoney)/totalPlayTimes;
+		this.perProbRates = new Double[] {probRates[0]/totalPlayTimes,probRates[1]/totalPlayTimes,probRates[2]/totalPlayTimes};
 	}
 
 	public Double[] getProbRates() {
@@ -135,7 +135,7 @@ public class DvsP2D9102 {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(timeTotalSpendMoney);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(totalPlayerCardset);
+		temp = Double.doubleToLongBits(totalPlayTimes);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(totalProbs);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -177,7 +177,7 @@ public class DvsP2D9102 {
 			return false;
 		if (Double.doubleToLongBits(timeTotalSpendMoney) != Double.doubleToLongBits(other.timeTotalSpendMoney))
 			return false;
-		if (Double.doubleToLongBits(totalPlayerCardset) != Double.doubleToLongBits(other.totalPlayerCardset))
+		if (Double.doubleToLongBits(totalPlayTimes) != Double.doubleToLongBits(other.totalPlayTimes))
 			return false;
 		if (Double.doubleToLongBits(totalProbs) != Double.doubleToLongBits(other.totalProbs))
 			return false;
@@ -190,11 +190,19 @@ public class DvsP2D9102 {
 	public String toString() {
 		return "DvsP2D9102 [probRates=" + Arrays.toString(probRates) + ", totalProbs=" + totalProbs + ", timeRates="
 				+ Arrays.toString(timeRates) + ", totalTimes=" + totalTimes + ", perProbRates="
-				+ Arrays.toString(perProbRates) + ", totalPlayerCardset=" + totalPlayerCardset + ", probReturnMoney="
+				+ Arrays.toString(perProbRates) + ", totalPlayTimes=" + totalPlayTimes + ", probReturnMoney="
 				+ probReturnMoney + ", probTotalSpendMoney=" + probTotalSpendMoney + ", probRoi=" + probRoi
 				+ ", perProbReturnMoney=" + perProbReturnMoney + ", perProbTotalSpendMoney=" + perProbTotalSpendMoney
 				+ ", perProbRoi=" + perProbRoi + ", timeReturnMoney=" + timeReturnMoney + ", timeTotalSpendMoney="
 				+ timeTotalSpendMoney + ", timeRoi=" + timeRoi + "]";
 	}
 
+	public Double[] getPerProbRates() {
+		return perProbRates;
+	}
+
+	public double getTotalPlayTimes() {
+		return totalPlayTimes;
+	}
+	
 }

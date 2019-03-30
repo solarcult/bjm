@@ -10,7 +10,10 @@ public class DeckSet {
 	public static int OneSameCardInOneDeck = 4;
 	public static int DeckCards = 52;
 	
-	public static int resetValue = 10;
+	/**
+	 * 很重要,用完一定要复位,变成0,对概率影响很大.
+	 */
+	public static int resetValue = 0;
 	
 	private int ndeck;
 	private int totalCards;

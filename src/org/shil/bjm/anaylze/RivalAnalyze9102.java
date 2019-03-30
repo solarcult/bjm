@@ -72,6 +72,8 @@ public class RivalAnalyze9102 {
 		//总共投入的钱
 		double timeTotalSpendMoney = 0;
 		
+		double totalPlayTimes = 0;
+		
 		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
 			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
 				//playtime的含义时分牌的次数
@@ -102,7 +104,7 @@ public class RivalAnalyze9102 {
 						|| playerCardsPathValue.getAction() == PlayerAction.Split){
 					throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 				}
-				
+								
 				if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
 					loseTimes += playtimes;
 					loseProbs += multiProb * playtimes;
