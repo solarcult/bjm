@@ -44,7 +44,16 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 		
 //		MatrixKey start_Hand_WithoutA_WithoutPair123 = new MatrixKey(StartValue.getOne(12), Card.Three3, Situation.Start_Hand_WithoutA_WithoutPair);
 //		this.getOne().put(start_Hand_WithoutA_WithoutPair123, PlayerAction.Hit);
+		
+//		MatrixKey start_Hand_WithoutA_WithoutPair122 = new MatrixKey(StartValue.getOne(13), Card.Two2, Situation.Start_Hand_WithoutA_WithoutPair);
+//		this.getOne().put(start_Hand_WithoutA_WithoutPair122, PlayerAction.Hit);
 
+//		MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(14), Card.Ten, Situation.Start_Hand_WithoutA_WithoutPair);
+//		this.getOne().put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+		
+//		MatrixKey start_Hand_WithoutA_WithoutPair159 = new MatrixKey(StartValue.getOne(15), Card.Nine9, Situation.Start_Hand_WithoutA_WithoutPair);
+//		this.getOne().put(start_Hand_WithoutA_WithoutPair159, PlayerAction.Stand);
+		
 //		MatrixKey start_Hand_WithoutA_WithoutPair1510 = new MatrixKey(StartValue.getOne(15), Card.Ten, Situation.Start_Hand_WithoutA_WithoutPair);
 //		this.getOne().put(start_Hand_WithoutA_WithoutPair1510, PlayerAction.Stand);
 		

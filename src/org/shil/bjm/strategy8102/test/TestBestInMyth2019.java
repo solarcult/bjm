@@ -468,6 +468,141 @@ org->adv	$w:57.937375425962834->46.55495600650876  	$d:0.0->3.2355865056951663  
 
 		 */
 	}
+	
+	
+	public static void test13vs2() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		Card dealerCard = Card.Two2;
+		PlayerCardsPathValue nine = new PlayerCardsPathValue(Card.Five5,Card.Eight8);
+		Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, nine, dealerCard); 
+//		HelloWorld.print(origin);
+		PlayerCardsPathValue ninet = new PlayerCardsPathValue(Card.Five5,Card.Eight8);
+		Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, ninet, dealerCard); 
+//		HelloWorld.print(advanced);
+		System.out.println(o.diffWith(t));
+
+		DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, nine.getValue() , RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+		
+		System.out.println(result);
+		/**
+MatrixKey [startValue=Thirteen, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair] : Stand -> Hit
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=13	@@@ 
+
+net money diff:  -0.0027894809141025545 , up % -> -6.949944816851024 .  o: -0.04013673471678658 -> a: -0.042926215630889136
+
+[ProbMatrix: total: o: 4.5662969234576184E-4  -> a: 4.5662969234563905E-4
+org->adv	$w:35.35037055569647->31.870437504729832  	$d:0.0->4.923583777530266  	$l:64.64962944430353->63.205978717739896
+	 improve value x$w(high is good):-3.4799330509666397  	x$d:4.923583777530266  	 x$l(negative is good):-1.4436507265636322
+	 	 $w-$l: -29.29925888860705 -> -31.335541213010064  _  _ 	 lift : -2.036282324403016 : bad	 :| stand
+
+[TimeMatrix: total:  o: 26689.0 -> a: 346957.0
+org->adv	$w:57.960208325527375->42.11011739206876  	$d:0.0->3.233830128805587  	$l:42.03979167447263->54.65605247912566
+	 improve value x$w(high is good):-15.850090933458617  	x$d:3.233830128805587  	 x$l(negative is good):12.616260804653031
+	 	 $w-$l: 15.920416651054742 -> -12.545935087056904  _  _ 	 lift : -28.466351738111644 : bad	 :| stand
+
+[Prob_ROI diff: -0.020362823244931216 (up%-> -2.8801428280429895) . o: 0.7070074111139629 -> a: 0.6866445878690317	 returnMoney: o:0.0968521729869446 a: 0.09406269207289081	 totalSpendMoney: o: 0.13698890770373118 a: 0.13698890770377994
+
+[Time_ROI diff: -0.2846635173811165 (up%-> -24.556805919531378) . o: 1.1592041665105475 -> a: 0.874540649129431	 returnMoney: o:9281400.0 a: 9.10284E7	 totalSpendMoney: o: 8006700.0 a: 1.040871E8
+
+[[Per_Prob_ROI diff: -0.654188596662499 (up%-> -92.52924175600332) . o: 0.7070074111139629 -> a: 0.05281881445146398	 per returnMoney: o:0.0968521729869446 a: 0.007235591697914678	 per totalSpendMoney: o: 0.13698890770373118 a: 0.01053760828490615
+
+	 Decide: !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+		 */
+	}
+	
+	public static void test14vs10() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		Card dealerCard = Card.Ten;
+		PlayerCardsPathValue nine = new PlayerCardsPathValue(Card.Six6,Card.Eight8);
+		Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, nine, dealerCard); 
+//		HelloWorld.print(origin);
+		PlayerCardsPathValue ninet = new PlayerCardsPathValue(Card.Six6,Card.Eight8);
+		Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, ninet, dealerCard); 
+//		HelloWorld.print(advanced);
+		System.out.println(o.diffWith(t));
+
+		DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, nine.getValue() , RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+		
+		System.out.println(result);
+		/**
+MatrixKey [startValue=Fourteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair] : Stand -> Hit
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=14	@@@ 
+
+net money diff:  0.01008719906575374 , up % -> 12.804818925306897 .  o: -0.0787765850075227 -> a: -0.06868938594176896
+
+[ProbMatrix: total: o: 4.566296923457447E-4  -> a: 4.5662969234573284E-4
+org->adv	$w:21.24709353187226->21.446969000092288  	$d:0.0->6.9637642815737895  	$l:78.75290646812773->71.58926671833392
+	 improve value x$w(high is good):0.19987546822002855  	x$d:6.9637642815737895  	 x$l(negative is good):-7.163639749793816
+	 	 $w-$l: -57.505812936255474 -> -50.142297718241636  _ #Surrender#	 lift : 7.363515218013839 : good	 :) hit 
+
+[TimeMatrix: total:  o: 385.0 -> a: 18865.0
+org->adv	$w:57.66233766233766->30.38430956798304  	$d:0.0->3.45613570103366  	$l:42.33766233766234->66.1595547309833
+	 improve value x$w(high is good):-27.278028094354624  	x$d:3.45613570103366  	 x$l(negative is good):23.821892393320965
+	 	 $w-$l: 15.324675324675324 -> -35.77524516300027  _  _ 	 lift : -51.0999204876756 : bad	 :| stand
+
+[Prob_ROI diff: 0.0736351521801385 (up%-> 17.328288236148627) . o: 0.4249418706374462 -> a: 0.4985770228175847	 returnMoney: o:0.05821232269620068 a: 0.06829952176195617	 totalSpendMoney: o: 0.13698890770372338 a: 0.13698890770372513
+
+[Time_ROI diff: -0.5109992048767559 (up%-> -44.30961573818717) . o: 1.1532467532467532 -> a: 0.6422475483699973	 returnMoney: o:133200.0 a: 3634800.0	 totalSpendMoney: o: 115500.0 a: 5659500.0
+
+[[Per_Prob_ROI diff: -0.41476682935545467 (up%-> -97.60554513803778) . o: 0.4249418706374462 -> a: 0.010175041281991525	 per returnMoney: o:0.05821232269620068 a: 0.00139386779106033	 per totalSpendMoney: o: 0.13698890770372338 a: 0.002795691993953574
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+		 */
+	}
+	
+	public static void test15vs9() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		Card dealerCard = Card.Nine9;
+		PlayerCardsPathValue nine = new PlayerCardsPathValue(Card.Seven7,Card.Eight8);
+		Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//		HelloWorld.print(origin);
+		PlayerCardsPathValue ninet = new PlayerCardsPathValue(Card.Seven7,Card.Eight8);
+		Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//		HelloWorld.print(advanced);
+		System.out.println(t.diffWith(o));
+
+		DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, nine.getValue() , RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+		
+		System.out.println(result);
+		
+		/**
+MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair] : Stand -> Hit
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=15	@@@ 
+
+net money diff:  0.010068057789132098 , up % -> 13.572155681878915 .  o: -0.07418171457150784 -> a: -0.06411365678237574
+
+[ProbMatrix: total: o: 4.5662969234574503E-4  -> a: 4.566296923457359E-4
+org->adv	$w:22.924189332195212->23.385153559597963  	$d:0.0->6.4276138971253856  	$l:77.07581066780477->70.18723254327665
+	 improve value x$w(high is good):0.46096422740275145  	x$d:6.4276138971253856  	 x$l(negative is good):-6.888578124528124
+	 	 $w-$l: -54.15162133560957 -> -46.80207898367868  _  _ 	 lift : 7.349542351930882 : good	 :) hit 
+
+[TimeMatrix: total:  o: 769.0 -> a: 19225.0
+org->adv	$w:57.737321196358906->29.815344603381018  	$d:0.0->3.3810143042912877  	$l:42.26267880364109->66.80364109232771
+	 improve value x$w(high is good):-27.921976592977888  	x$d:3.3810143042912877  	 x$l(negative is good):24.54096228868662
+	 	 $w-$l: 15.474642392717813 -> -36.98829648894669  _  _ 	 lift : -52.4629388816645 : bad	 :| stand
+
+[Prob_ROI diff: 0.07349542351929944 (up%-> 16.030103061502945) . o: 0.45848378664390627 -> a: 0.5319792101632057	 returnMoney: o:0.06280719313221579 a: 0.07287525092134636	 totalSpendMoney: o: 0.13698890770372363 a: 0.1369889077037221
+
+[Time_ROI diff: -0.5246293888166449 (up%-> -45.43243243243243) . o: 1.154746423927178 -> a: 0.6301170351105332	 returnMoney: o:266400.0 a: 3634200.0	 totalSpendMoney: o: 230700.0 a: 5767500.0
+
+[[Per_Prob_ROI diff: -0.43720461823737805 (up%-> -95.35879587753989) . o: 0.45848378664390627 -> a: 0.02127916840652823	 per returnMoney: o:0.06280719313221579 a: 0.0029150100368538546	 per totalSpendMoney: o: 0.13698890770372363 a: 0.005479556308148884
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+		 */
+	}
 
 	public static void test15vs10() {
 		StrategyMatrix8012 o = new BestInMyth2019();
@@ -718,7 +853,14 @@ org->adv	$w:28.63136863136863->57.66233766233766  	$d:3.2567432567432566->0.0  	
 
 //		test12vs2();
 //		test12vs3();
+		
+//		test13vs2();
+		
+//		test14vs10();
+		
+//		test15vs9();
 //		test15vs10();
+		
 //		test16vs7();
 //		test16vs8();
 //		test16vs9();
