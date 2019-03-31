@@ -2561,27 +2561,2541 @@ org->adv	$w:31.450834879406308->65.97402597402598  	$d:3.5837409343902853->8.311
 
 		 */
 	}
+	
+	public static void test22vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(t.diffWith(o));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 2) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		/**
+MatrixKey [startValue=Two, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=One1, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Two2, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Three3, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Ten, situation=Start_With_Pair] : Split -> Hit
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=2	@@@ 
+
+net money diff:  3.9655199185732277 , up % -> 98.52939696358942 .  o: -4.024707387622241 -> a: -0.05918746904901369
+
+[ProbMatrix: total: o: 0.03240646915678342  -> a: 4.3760345515222814E-4
+org->adv	$w:23.698845428525082->22.210525501245552  	$d:11.20412030240084->10.494395570261513  	$l:65.09703426907407->67.29507892849294
+	 improve value x$w(high is good):-1.4883199272795302  	x$d:-0.7097247321393265  	 x$l(negative is good):2.198044659418869
+	 	 $w-$l: -41.39818884054899 -> -45.084553427247386  _  _ 	 lift : -3.6863645866983985 : bad	 :| stand
+
+[TimeMatrix: total:  o: 2.017507492E9 -> a: 1.28918257E8
+org->adv	$w:31.54476394876258->31.583756209176794  	$d:3.5044237644892973->3.5082913043107613  	$l:64.95081228674813->64.90795248651244
+	 improve value x$w(high is good):0.038992260414214996  	x$d:0.003867539821464039  	 x$l(negative is good):-0.04285980023568925
+	 	 $w-$l: -33.40604833798555 -> -33.32419627733565  _  _ 	 lift : 0.0818520606499007 : good	 :| stand
+
+[Prob_ROI diff: -0.03686364589686819 (up%-> -6.29053013240467) . o: 0.5860181116845933 -> a: 0.5491544657877251	 returnMoney: o:5.697233357176419 a: 0.07209356748698541	 totalSpendMoney: o: 9.72194074479866 a: 0.1312810365359991
+
+[Time_ROI diff: 8.185206064990069E-4 (up%-> 0.12291215434297399) . o: 0.6659395166201445 -> a: 0.6667580372266435	 returnMoney: o:4.030613892E11 a: 2.57871852E10	 totalSpendMoney: o: 6.052522476E11 a: 3.86754771E10
+
+[[Per_Prob_ROI diff: 4.729932097221694E-5 (up%-> 357.5992574103177) . o: 1.3226906933406913E-5 -> a: 6.052622790562385E-5	 per returnMoney: o:1.2859120544354857E-4 a: 7.945945937064412E-6	 per totalSpendMoney: o: 2.1943213508178897E-4 a: 1.4469418773944571E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=2	@@@ 
+
+net money diff:  0.6738024045756826 , up % -> 97.37752791781237 .  o: -0.6919485624490065 -> a: -0.018146157873323854
+
+[ProbMatrix: total: o: 0.03240646916490661  -> a: 4.376034551643172E-4
+org->adv	$w:42.02860847895912->41.20997730666696  	$d:5.475731456337717->3.757669853924292  	$l:52.495660064703166->55.03235283940876
+	 improve value x$w(high is good):-0.8186311722921644  	x$d:-1.7180616024134245  	 x$l(negative is good):2.5366927747055925
+	 	 $w-$l: -10.467051585744041 -> -13.822375532741804  _  _ 	 lift : -3.3553239469977623 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.86502732E8 -> a: 1.3477945E7
+org->adv	$w:56.9896488165117->57.10990065622021  	$d:4.134120673363649->4.131431015633318  	$l:38.87623051012464->38.75866832814647
+	 improve value x$w(high is good):0.12025183970850861  	x$d:-0.002689657730330808  	 x$l(negative is good):-0.11756218197817248
+	 	 $w-$l: 18.113418306387064 -> 18.351232328073745  _ @double@	 lift : 0.23781402168668309 : good	 :| stand
+
+[Prob_ROI diff: -0.07681581537806026 (up%-> -8.18415354726581) . o: 0.938592060063721 -> a: 0.8617762446856607	 returnMoney: o:10.576114869853381 a: 0.11313487867540153	 totalSpendMoney: o: 11.268063432302387 a: 0.1312810365487254
+
+[Time_ROI diff: -0.004045434722914187 (up%-> -0.3406516184707327) . o: 1.1875577580036518 -> a: 1.1835123232807376	 returnMoney: o:6.79281432E10 a: 4.7853942E9	 totalSpendMoney: o: 5.71998648E10 a: 4.0433835E9
+
+[[Per_Prob_ROI diff: 0.001272155331858219 (up%-> 292.89909739476946) . o: 4.343322813807131E-4 -> a: 0.001706487613238932	 per returnMoney: o:0.004894083697294485 a: 2.240294627235674E-4	 per totalSpendMoney: o: 0.0052142820140223915 a: 2.599624486113374E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=2	@@@ 
+
+net money diff:  0.3495268541753379 , up % -> 96.22553616243813 .  o: -0.36323710744027693 -> a: -0.013710253264939049
+
+[ProbMatrix: total: o: 0.03240646916543177  -> a: 4.3760345516449025E-4
+org->adv	$w:43.3941410457297->42.960231507069835  	$d:5.22542734509634->3.63609928428861  	$l:51.38043160917395->53.40366920864156
+	 improve value x$w(high is good):-0.4339095386598615  	x$d:-1.5893280608077296  	 x$l(negative is good):2.0232375994676133
+	 	 $w-$l: -7.986290563444253 -> -10.443437701571723  _  _ 	 lift : -2.457147138127469 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.05324916E8 -> a: 7854265.0
+org->adv	$w:57.041678533121264->57.09385919624561  	$d:4.1340379516656816->4.133805009125615  	$l:38.82428351521306->38.77233579462877
+	 improve value x$w(high is good):0.05218066312434644  	x$d:-2.3294254006689386E-4  	 x$l(negative is good):-0.05194772058428754
+	 	 $w-$l: 18.217395017908206 -> 18.321523401616837  _ @double@	 lift : 0.10412838370862931 : good	 :| stand
+
+[Prob_ROI diff: -0.07426800017254997 (up%-> -7.657808349661934) . o: 0.9698336231648922 -> a: 0.8955656229923422	 returnMoney: o:11.677887666203034 a: 0.11757078328429729	 totalSpendMoney: o: 12.041124773643311 a: 0.13128103654923634
+
+[Time_ROI diff: -0.007440444662057288 (up%-> -0.6249031349111019) . o: 1.1906556786782256 -> a: 1.1832152340161683	 returnMoney: o:3.89216952E10 a: 2.7879858E9	 totalSpendMoney: o: 3.26892954E10 a: 2.3562795E9
+
+[[Per_Prob_ROI diff: 0.0013091399141497732 (up%-> 281.98581852981437) . o: 4.642573591023897E-4 -> a: 0.001773397273252163	 per returnMoney: o:0.005590180788034004 a: 2.3281343224613326E-4	 per totalSpendMoney: o: 0.005764061643677985 a: 2.599624486123492E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=2	@@@ 
+
+net money diff:  0.004074579889025737 , up % -> 45.48946320256725 .  o: -0.008957194924199025 -> a: -0.004882615035173288
+
+[ProbMatrix: total: o: 4.37603455164407E-4  -> a: 0.03240646916583721
+org->adv	$w:45.105345123119434->45.82935970538983  	$d:2.966393695202135->3.377985211916067  	$l:51.92826118167844->50.7926550826941
+	 improve value x$w(high is good):0.7240145822703923  	x$d:0.4115915167139321  	 x$l(negative is good):-1.13560609898434
+	 	 $w-$l: -6.822916058559003 -> -4.9632953773042665  _  _ 	 lift : 1.8596206812547367 : good	 :| stand
+
+[TimeMatrix: total:  o: 2295469.0 -> a: 3.0739324E7
+org->adv	$w:68.51902595940089->68.44654098444065  	$d:4.762338328245774->4.764515966584041  	$l:26.718635712353333->26.788943048975312
+	 improve value x$w(high is good):-0.07248497496024697  	x$d:0.002177638338266341  	 x$l(negative is good):0.07030733662197974
+	 	 $w-$l: 41.80039024704756 -> 41.65759793546534  _ @double@	 lift : -0.14279231158221828 : bad	 :| stand
+
+[Prob_ROI diff: 0.06782366565374842 (up%-> 7.279007110392795) . o: 0.9317708394172521 -> a: 0.9995945050710006	 returnMoney: o:0.12232384162520724 a: 12.036242158635757	 totalSpendMoney: o: 0.13128103654940626 a: 12.04112477367093
+
+[Time_ROI diff: -1.854992774774633E-4 (up%-> -0.013081718403897383) . o: 1.4180039024704756 -> a: 1.4178184031929981	 returnMoney: o:9.764952E8 a: 1.39778772E10	 totalSpendMoney: o: 6.886407E8 a: 9.8587218E9
+
+[[Per_Prob_ROI diff: -0.0027263389277306406 (up%-> -74.0271877522207) . o: 0.003682888693348823 -> a: 9.565497656181824E-4	 per returnMoney: o:4.8349344515892186E-4 a: 0.011517935080034217	 per totalSpendMoney: o: 5.188973776656374E-4 a: 0.01152260743891955
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=2	@@@ 
+
+net money diff:  0.44164610908757373 , up % -> 11681.149837743109 .  o: -0.0037808444821122444 -> a: 0.4378652646054615
+
+[ProbMatrix: total: o: 4.376034551646907E-4  -> a: 0.032406469165924504
+org->adv	$w:47.133428058588464->47.82670181654309  	$d:2.853181489435314->3.249054582978149  	$l:50.01339045197623->48.924243600478775
+	 improve value x$w(high is good):0.6932737579546284  	x$d:0.3958730935428352  	 x$l(negative is good):-1.0891468514974534
+	 	 $w-$l: -2.879962393387764 -> -1.0975417839356794  _  _ 	 lift : 1.7824206094520845 : good	 :| stand
+
+[TimeMatrix: total:  o: 1384669.0 -> a: 1.8542524E7
+org->adv	$w:68.50741946270192->68.43491209718806  	$d:4.764171076264436->4.766362982730938  	$l:26.728409461033646->26.798724920080996
+	 improve value x$w(high is good):-0.07250736551385728  	x$d:0.00219190646650258  	 x$l(negative is good):0.07031545904735026
+	 	 $w-$l: 41.77901000166827 -> 41.63618717710706  _ @double@	 lift : -0.14282282456120066 : bad	 :| stand
+
+[Prob_ROI diff: 0.06516377369732695 (up%-> 6.709611662342314) . o: 0.9712003760673444 -> a: 1.0363641497646714	 returnMoney: o:0.1275001920672986 a: 12.478990038292796	 totalSpendMoney: o: 0.13128103654941084 a: 12.041124773687335
+
+[Time_ROI diff: -1.8550063956879193E-4 (up%-> -0.013083787195763972) . o: 1.4177901000166826 -> a: 1.4176045993771138	 returnMoney: o:5.88951E8 a: 8.4304404E9	 totalSpendMoney: o: 4.154007E8 a: 5.9469618E9
+
+[[Per_Prob_ROI diff: -0.002847000635814865 (up%-> -74.16504138701185) . o: 0.003838736664297804 -> a: 9.91736028482939E-4	 per returnMoney: o:5.039533283292435E-4 a: 0.011941617261524207	 per totalSpendMoney: o: 5.188973776656555E-4 a: 0.011522607438935248
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=2	@@@ 
+
+net money diff:  0.6981392530453552 , up % -> 51515.805188520564 .  o: -0.001355194295208112 -> a: 0.696784058750147
+
+[ProbMatrix: total: o: 4.3760345516469695E-4  -> a: 0.03240646916601712
+org->adv	$w:48.044061082459265->48.80396073693846  	$d:2.8795929515254723->3.2807536784115907  	$l:49.07634596601526->47.91528558464995
+	 improve value x$w(high is good):0.7598996544791916  	x$d:0.40116072688611837  	 x$l(negative is good):-1.16106038136531
+	 	 $w-$l: -1.032284883555995 -> 0.8886751522885095  _  _ 	 lift : 1.9209600358445045 : good	 :| stand
+
+[TimeMatrix: total:  o: 786577.0 -> a: 1.0533292E7
+org->adv	$w:68.49348506249228->68.42096468986144  	$d:4.76583983513375->4.767930102004198  	$l:26.740675102373956->26.81110520813436
+	 improve value x$w(high is good):-0.07252037263084787  	x$d:0.0020902668704474436  	 x$l(negative is good):0.07043010576040487
+	 	 $w-$l: 41.752809960118334 -> 41.60985948172708  _ @double@	 lift : -0.14295047839125163 : bad	 :| stand
+
+[Prob_ROI diff: 0.06818987304131074 (up%-> 6.890112898033867) . o: 0.9896771511649557 -> a: 1.0578670242062664	 returnMoney: o:0.12992584225426304 a: 12.737908832446271	 totalSpendMoney: o: 0.13128103654947115 a: 12.041124773696124
+
+[Time_ROI diff: -1.8716159661225085E-4 (up%-> -0.013203378237433748) . o: 1.4175280996011834 -> a: 1.4173409380045712	 returnMoney: o:3.344985E8 a: 4.788117E9	 totalSpendMoney: o: 2.359731E8 a: 3.3782394E9
+
+[[Per_Prob_ROI diff: -0.002899454454084737 (up%-> -74.12134108784443) . o: 0.003911767395908915 -> a: 0.0010123129418241781	 per returnMoney: o:5.13540878475348E-4 a: 0.012189386442532316	 per totalSpendMoney: o: 5.188973776658939E-4 a: 0.01152260743894366
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=2	@@@ 
+
+net money diff:  0.004999618737683717 , up % -> 29.908521598261068 .  o: -0.016716368681942484 -> a: -0.011716749944258767
+
+[ProbMatrix: total: o: 0.03240646916469638  -> a: 4.3760345516300397E-4
+org->adv	$w:43.434341605301675->40.93110124992979  	$d:9.48445447624941->9.212860393026254  	$l:47.08120391844891->49.85603835704396
+	 improve value x$w(high is good):-2.5032403553718865  	x$d:-0.2715940832231549  	 x$l(negative is good):2.7748344385950503
+	 	 $w-$l: -3.6468623131472313 -> -8.924937107114172  _  _ 	 lift : -5.278074793966941 : bad	 :| stand
+
+[TimeMatrix: total:  o: 2.64183604E8 -> a: 1.7429233E7
+org->adv	$w:31.43171140931214->31.435577228211937  	$d:3.55030208460628->3.553214303807861  	$l:65.01798650608158->65.01120846798021
+	 improve value x$w(high is good):0.003865818899797091  	x$d:0.0029122192015811343  	 x$l(negative is good):-0.00677803810137334
+	 	 $w-$l: -33.58627509676944 -> -33.57563123976827  _  _ 	 lift : 0.0106438570011691 : good	 :| stand
+
+[Prob_ROI diff: -0.08776585361593714 (up%-> -8.78962492351015) . o: 0.9985164825541578 -> a: 0.9107506289382207	 returnMoney: o:11.251347063125122 a: 0.11956428660386793	 totalSpendMoney: o: 11.268063431807064 a: 0.1312810365481267
+
+[Time_ROI diff: -8.103604267301057E-4 (up%-> -0.12184880749642647) . o: 0.6650540480290474 -> a: 0.6642436876023173	 returnMoney: o:5.27687028E10 a: 3.4731774E9	 totalSpendMoney: o: 7.9344984E10 a: 5.2287699E9
+
+[[Per_Prob_ROI diff: 7.705975689158654E-5 (up%-> 330.43697009258966) . o: 2.3320561518886375E-5 -> a: 1.0038031841047291E-4	 per returnMoney: o:2.6277756646017055E-4 a: 1.317803224995789E-5	 per totalSpendMoney: o: 2.631679807508014E-4 a: 1.446941877528124E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=2	@@@ 
+
+net money diff:  0.834658684136047 , up % -> 97.51164740928755 .  o: -0.8559579356020084 -> a: -0.021299251465961386
+
+[ProbMatrix: total: o: 0.03240646916540962  -> a: 4.3760345516371385E-4
+org->adv	$w:39.50622616244205->37.219735332759335  	$d:9.588104491587245->9.336364727999026  	$l:50.90566934597071->53.44389993924163
+	 improve value x$w(high is good):-2.2864908296827124  	x$d:-0.25173976358821903  	 x$l(negative is good):2.5382305932709244
+	 	 $w-$l: -11.399443183528657 -> -16.2241646064823  _  _ 	 lift : -4.824721422953643 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.58565172E8 -> a: 1.0461169E7
+org->adv	$w:31.422368084714087->31.42623926637644  	$d:3.551972938925075->3.5548990748548275  	$l:65.02565897636083->65.01886165876873
+	 improve value x$w(high is good):0.0038711816623546724  	x$d:0.002926135929752327  	 x$l(negative is good):-0.006797317592102559
+	 	 $w-$l: -33.60329089164675 -> -33.59262239239228  _  _ 	 lift : 0.010668499254468111 : good	 :| stand
+
+[Prob_ROI diff: -0.0862784656278035 (up%-> -9.337124214166316) . o: 0.9240368195691508 -> a: 0.8377583539413473	 returnMoney: o:10.41210549653937 a: 0.1099817850828259	 totalSpendMoney: o: 11.268063432141378 a: 0.13128103654878728
+
+[Time_ROI diff: -8.100149387475497E-4 (up%-> -0.1218280472007309) . o: 0.6648837910148248 -> a: 0.6640737760760772	 returnMoney: o:3.16641012E10 a: 2.0840964E9	 totalSpendMoney: o: 4.7623512E10 a: 3.1383507E9
+
+[[Per_Prob_ROI diff: 7.07542461176283E-5 (up%-> 327.85322963981497) . o: 2.158107339536051E-5 -> a: 9.233531951298881E-5	 per returnMoney: o:2.4317690395262093E-4 a: 1.2121876455728634E-5	 per totalSpendMoney: o: 2.631679807586094E-4 a: 1.4469418775354048E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=2	@@@ 
+
+net money diff:  1.7562605609944326 , up % -> 98.20961565594446 .  o: -1.7882776032309309 -> a: -0.03201704223649826
+
+[ProbMatrix: total: o: 0.03240646916566996  -> a: 4.376034551638452E-4
+org->adv	$w:35.19673111079843->33.103216287322915  	$d:9.647829220350257->9.405397527687901  	$l:55.15543966885132->57.49138618498918
+	 improve value x$w(high is good):-2.093514823475516  	x$d:-0.24243169266235576  	 x$l(negative is good):2.3359465161378594
+	 	 $w-$l: -19.95870855805289 -> -24.388169897666263  _  _ 	 lift : -4.429461339613372 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.05755956E8 -> a: 6977137.0
+org->adv	$w:31.394199679874298->31.398064850955343  	$d:3.5541525434274357->3.5570750581506423  	$l:65.05164777669827->65.04486009089402
+	 improve value x$w(high is good):0.0038651710810455597  	x$d:0.002922514723206593  	 x$l(negative is good):-0.006787685804255261
+	 	 $w-$l: -33.65744809682398 -> -33.646795239938676  _  _ 	 lift : 0.010652856885301487 : good	 :| stand
+
+[Prob_ROI diff: -0.08517850973435415 (up%-> -10.124668089168063) . o: 0.8412968107614598 -> a: 0.7561183010271056	 returnMoney: o:9.479785828960372 a: 0.09926399431252428	 totalSpendMoney: o: 11.268063432191303 a: 0.13128103654902254
+
+[Time_ROI diff: -8.099104196807039E-4 (up%-> -0.12191167664529225) . o: 0.6643419580202939 -> a: 0.6635320476006132	 returnMoney: o:2.11013448E10 a: 1.3888662E9	 totalSpendMoney: o: 3.1762776E10 a: 2.0931411E9
+
+[[Per_Prob_ROI diff: 6.368852420650549E-5 (up%-> 324.1366787640352) . o: 1.9648663165599172E-5 -> a: 8.333718737210467E-5	 per returnMoney: o:2.2140238290773226E-4 a: 1.0940592341290011E-5	 per totalSpendMoney: o: 2.631679807597754E-4 a: 1.4469418775379977E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=2	@@@ 
+
+net money diff:  2.7877581984045516 , up % -> 98.44052585109321 .  o: -2.831921278662687 -> a: -0.044163080258135354
+
+[ProbMatrix: total: o: 0.032406469165942975  -> a: 4.376034551641211E-4
+org->adv	$w:30.36541427439755->28.461717408386626  	$d:9.867878313267996->9.43645887451807  	$l:59.766707412334455->62.10182371709531
+	 improve value x$w(high is good):-1.9036968660109252  	x$d:-0.4314194387499253  	 x$l(negative is good):2.3351163047608523
+	 	 $w-$l: -29.4012931379369 -> -33.64010630870868  _  _ 	 lift : -4.238813170771777 : bad	 :| stand
+
+[TimeMatrix: total:  o: 5.380606E7 -> a: 3493105.0
+org->adv	$w:31.3359164376652->31.357545793785185  	$d:3.559959603063298->3.5634199372764344  	$l:65.1041239592715->65.07903426893839
+	 improve value x$w(high is good):0.021629356119984067  	x$d:0.0034603342131362957  	 x$l(negative is good):-0.025089690333118142
+	 	 $w-$l: -33.7682075216063 -> -33.7214884751532  _  _ 	 lift : 0.046719046453097546 : good	 :| stand
+
+[Prob_ROI diff: -0.06656583541316763 (up%-> -9.116549844080518) . o: 0.7301647723276542 -> a: 0.6635989369144866	 returnMoney: o:7.66308081239645 a: 0.0871179562911132	 totalSpendMoney: o: 10.495002091059137 a: 0.13128103654924855
+
+[Time_ROI diff: 4.887338157288923E-6 (up%-> 7.373995106489947E-4) . o: 0.6627802279103108 -> a: 0.6627851152484681	 returnMoney: o:1.07044488E10 a: 6.945534E8	 totalSpendMoney: o: 1.6150827E10 a: 1.0479315E9
+
+[[Per_Prob_ROI diff: 5.6378076915845635E-5 (up%-> 336.3467400244691) . o: 1.676189188328216E-5 -> a: 7.31399687991278E-5	 per returnMoney: o:1.7591609036515346E-4 a: 9.601890917129196E-6	 per totalSpendMoney: o: 2.4092656484146684E-4 a: 1.4469418775404888E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+		 */
+	}
+	
+	public static void test33vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(t.diffWith(o));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 3) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		/**
+MatrixKey [startValue=Three, dealerCard=One1, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Two2, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Three3, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Three, dealerCard=Five5, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Three, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Three, dealerCard=Six6, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Three, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Three, dealerCard=Ten, situation=Start_With_Pair] : Split -> Hit
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=3	@@@ 
+
+net money diff:  4.122302192588374 , up % -> 98.41276768559362 .  o: -4.18878798913388 -> a: -0.06648579654550618
+
+[ProbMatrix: total: o: 0.032406469158699804  -> a: 4.37603455162977E-4
+org->adv	$w:23.02483065829329->19.797255352467474  	$d:10.86441480274277->9.761620007805401  	$l:66.11075453896393->70.44112463972712
+	 improve value x$w(high is good):-3.227575305825816  	x$d:-1.1027947949373686  	 x$l(negative is good):4.33037010076319
+	 	 $w-$l: -43.08592388067065 -> -50.643869287259655  _ #Surrender#	 lift : -7.5579454065890115 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.2376039E9 -> a: 4.4175781E7
+org->adv	$w:31.5649538596315->31.607051836842455  	$d:3.5065227250819104->3.5101835551022855  	$l:64.92852341528659->64.88276460805525
+	 improve value x$w(high is good):0.042097977210953985  	x$d:0.0036608300203750943  	 x$l(negative is good):-0.04575880723133707
+	 	 $w-$l: -33.36356955565509 -> -33.2757127712128  _  _ 	 lift : 0.08785678444228617 : good	 :| stand
+
+[Prob_ROI diff: -0.07557945409247707 (up%-> -13.279571459306029) . o: 0.5691407612367843 -> a: 0.4935613071443072	 returnMoney: o:5.533152756892186 a: 0.0647952400013024	 totalSpendMoney: o: 9.721940746026066 a: 0.1312810365468086
+
+[Time_ROI diff: 8.785678444227507E-4 (up%-> 0.1318449740726336) . o: 0.6663643044434492 -> a: 0.6672428722878719	 returnMoney: o:2.474085186E11 a: 8.8427925E9	 totalSpendMoney: o: 3.7128117E11 a: 1.32527343E10
+
+[[Per_Prob_ROI diff: 1.3842379690515714E-4 (up%-> 680.9301504836952) . o: 2.0328633826366554E-5 -> a: 1.587524307315237E-4	 per returnMoney: o:1.9763377350759674E-4 a: 2.084118366075986E-5	 per totalSpendMoney: o: 3.472493747910871E-4 a: 4.222612947790562E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=3	@@@ 
+
+net money diff:  0.8849680625749596 , up % -> 97.77426444962839 .  o: -0.9051134954135911 -> a: -0.02014543283863146
+
+[ProbMatrix: total: o: 0.03240646916541569  -> a: 4.3760345516288704E-4
+org->adv	$w:41.67821417160104->40.36435509521707  	$d:3.9702844049577886->3.9260172787550958  	$l:54.35150142344117->55.70962762602784
+	 improve value x$w(high is good):-1.3138590763839701  	x$d:-0.0442671262026928  	 x$l(negative is good):1.3581262025866678
+	 	 $w-$l: -12.673287251840131 -> -15.345272530810766  _  _ 	 lift : -2.6719852789706344 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.16684308E8 -> a: 5150977.0
+org->adv	$w:57.48595775191983->57.11671785760255  	$d:4.164083485844557->4.097552755525796  	$l:38.34995876223562->38.78572938687165
+	 improve value x$w(high is good):-0.3692398943172748  	x$d:-0.06653073031876122  	 x$l(negative is good):0.435770624636028
+	 	 $w-$l: 19.135998989684204 -> 18.330988470730897  _ @double@	 lift : -0.8050105189533086 : bad	 :| stand
+
+[Prob_ROI diff: -0.07312716617912929 (up%-> -7.951418776975951) . o: 0.9196744408793508 -> a: 0.8465472747002215	 returnMoney: o:10.362949936975452 a: 0.11113560371041795	 totalSpendMoney: o: 11.268063432389043 a: 0.1312810365490494
+
+[Time_ROI diff: -0.01783252424957138 (up%-> -1.4846303083293722) . o: 1.2011424089568803 -> a: 1.183309884707309	 returnMoney: o:4.35466224E10 a: 1.8285606E9	 totalSpendMoney: o: 3.62543376E10 a: 1.5452931E9
+
+[[Per_Prob_ROI diff: 0.003726043937554887 (up%-> 564.3713660293912) . o: 6.602113717726854E-4 -> a: 0.004386255309327573	 per returnMoney: o:0.007439303615919205 a: 5.758321435772951E-4	 per totalSpendMoney: o: 0.008089062047659041 a: 6.802126246064737E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=3	@@@ 
+
+net money diff:  0.5088648720863501 , up % -> 97.02442034937275 .  o: -0.5244709221183612 -> a: -0.015606050032011057
+
+[ProbMatrix: total: o: 0.032406469165709995  -> a: 4.3760345516344085E-4
+org->adv	$w:43.28784674784457->42.158977239547184  	$d:3.766388092187953->3.7945327140988097  	$l:52.94576515996747->54.046490046354
+	 improve value x$w(high is good):-1.1288695082973845  	x$d:0.02814462191085676  	 x$l(negative is good):1.10072488638653
+	 	 $w-$l: -9.657918412122907 -> -11.887512806806816  _  _ 	 lift : -2.229594394683909 : bad	 :| stand
+
+[TimeMatrix: total:  o: 6.4638268E7 -> a: 3001729.0
+org->adv	$w:57.60645690568318->57.10065765430523  	$d:4.164034840785028->4.099903755468932  	$l:38.22950825353179->38.79943859022583
+	 improve value x$w(high is good):-0.505799251377951  	x$d:-0.06413108531609613  	 x$l(negative is good):0.5699303366940427
+	 	 $w-$l: 19.376948652151388 -> 18.301219064079397  _ @double@	 lift : -1.0757295880719886 : bad	 :| stand
+
+[Prob_ROI diff: -0.07531848929558027 (up%-> -7.874850968541133) . o: 0.9564433612326952 -> a: 0.881124871937115	 returnMoney: o:11.516653851541845 a: 0.11567498651716053	 totalSpendMoney: o: 12.041124773660206 a: 0.1312810365491716
+
+[Time_ROI diff: -0.023675208035815798 (up%-> -1.962000105560124) . o: 1.2066873986766098 -> a: 1.183012190640794	 returnMoney: o:2.47169412E10 a: 1.0653246E9	 totalSpendMoney: o: 2.0483301E10 a: 9.005187E8
+
+[[Per_Prob_ROI diff: 0.0038413840476912166 (up%-> 530.5560718681719) . o: 7.240297965425399E-4 -> a: 0.004565413844233757	 per returnMoney: o:0.008718133120016536 a: 5.993522617469458E-4	 per totalSpendMoney: o: 0.009115158799137173 a: 6.802126246071066E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=3	@@@ 
+
+net money diff:  0.09798633287938827 , up % -> 90.10224682688616 .  o: -0.10875015477433081 -> a: -0.010763821894942543
+
+[ProbMatrix: total: o: 0.03240646916594721  -> a: 4.376034551639779E-4
+org->adv	$w:45.41130005421672->44.30320794392362  	$d:3.1330252056809194->3.1945157790099232  	$l:51.455674740102374->52.502276277066464
+	 improve value x$w(high is good):-1.1080921102931  	x$d:0.06149057332900387  	 x$l(negative is good):1.04660153696409
+	 	 $w-$l: -6.044374685885656 -> -8.199068333142845  _  _ 	 lift : -2.1546936472571887 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.9851724E7 -> a: 880081.0
+org->adv	$w:68.38299786960567->68.45949406929589  	$d:4.758982141802899->4.690931857408579  	$l:26.85801998859142->26.849574073295525
+	 improve value x$w(high is good):0.0764961996902116  	x$d:-0.06805028439432004  	 x$l(negative is good):-0.008445915295894224
+	 	 $w-$l: 41.52497788101426 -> 41.609919996000365  _ @double@	 lift : 0.08494211498610849 : good	 :| stand
+
+[Prob_ROI diff: -0.072959122174444 (up%-> -7.362406239649062) . o: 0.9909684388445492 -> a: 0.9180093166701052	 returnMoney: o:11.93237461895292 a: 0.12051721465446158	 totalSpendMoney: o: 12.041124773727251 a: 0.13128103654940412
+
+[Time_ROI diff: -0.0011367019178103455 (up%-> -0.08020555479184759) . o: 1.417235901877814 -> a: 1.4160991999600037	 returnMoney: o:9.3430452E9 a: 3.738846E8	 totalSpendMoney: o: 6.5924418E9 a: 2.640243E8
+
+[[Per_Prob_ROI diff: 0.008042251107857565 (up%-> 565.6536376388103) . o: 0.0014217624660610463 -> a: 0.00946401357391861	 per returnMoney: o:0.017119619252443215 a: 0.0012424455119016658	 per totalSpendMoney: o: 0.01727564529946521 a: 0.0013534127479320013
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=3	@@@ 
+
+net money diff:  0.3438567351532813 , up % -> 6212.921138432762 .  o: -0.005534542085625455 -> a: 0.3383221930676559
+
+[ProbMatrix: total: o: 4.376034551642393E-4  -> a: 0.03240646916600612
+org->adv	$w:46.36607217113361->47.42605060988293  	$d:3.05205859274655->3.014240968157023  	$l:50.581869236119836->49.55970842196006
+	 improve value x$w(high is good):1.0599784387493187  	x$d:-0.037817624589526755  	 x$l(negative is good):-1.0221608141597756
+	 	 $w-$l: -4.215797064986226 -> -2.133657812077139  _  _ 	 lift : 2.0821392529090876 : good	 :| stand
+
+[TimeMatrix: total:  o: 530881.0 -> a: 1.1974924E7
+org->adv	$w:68.447919590266->68.37133997677147  	$d:4.692577055875045->4.760848586596458  	$l:26.859503353858962->26.86781143663208
+	 improve value x$w(high is good):-0.07657961349453046  	x$d:0.06827153072141279  	 x$l(negative is good):0.008308082773119452
+	 	 $w-$l: 41.588416236407035 -> 41.50352854013938  _ @double@	 lift : -0.0848876962676548 : bad	 :| stand
+
+[Prob_ROI diff: 0.07025519573604111 (up%-> 7.334737209605072) . o: 0.9578420293509589 -> a: 1.028097225087	 returnMoney: o:0.12574649446377803 a: 12.379446966780314	 totalSpendMoney: o: 0.13128103654940348 a: 12.041124773712658
+
+[Time_ROI diff: 0.0011377376531751526 (up%-> 0.08035527788343202) . o: 1.4158841623640703 -> a: 1.4170219000172455	 returnMoney: o:2.254998E8 a: 5.6350452E9	 totalSpendMoney: o: 1.592643E8 a: 3.9766818E9
+
+[[Per_Prob_ROI diff: -0.008399628209619715 (up%-> -85.06245407556429) . o: 0.009874660096401637 -> a: 0.0014750318867819221	 per returnMoney: o:0.0012963556130286395 a: 0.01776104299394593	 per totalSpendMoney: o: 0.0013534127479319948 a: 0.017275645299444274
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=3	@@@ 
+
+net money diff:  0.592693762114458 , up % -> 19646.95721632126 .  o: -0.003016720378573895 -> a: 0.5896770417358841
+
+[ProbMatrix: total: o: 4.3760345516444667E-4  -> a: 0.03240646916606409
+org->adv	$w:47.19629961775042->48.36967006274423  	$d:3.309490527119699->3.0352553987446234  	$l:49.49420985512988->48.59507453851115
+	 improve value x$w(high is good):1.1733704449938074  	x$d:-0.27423512837507547  	 x$l(negative is good):-0.8991353166187324
+	 	 $w-$l: -2.2979102373794635 -> -0.22540447576692157  _  _ 	 lift : 2.072505761612542 : good	 :| stand
+
+[TimeMatrix: total:  o: 301573.0 -> a: 6802492.0
+org->adv	$w:68.43384520497524->68.35741960446259  	$d:4.694717365281375->4.762313575671975  	$l:26.871437429743377->26.88026681986543
+	 improve value x$w(high is good):-0.0764256005126498  	x$d:0.06759621039060004  	 x$l(negative is good):0.008829390122052416
+	 	 $w-$l: 41.56240777523186 -> 41.47715278459717  _ @double@	 lift : -0.08525499063469222 : bad	 :| stand
+
+[Prob_ROI diff: 0.07195102591207181 (up%-> 7.364328243834635) . o: 0.9770208976264566 -> a: 1.0489719235385284	 returnMoney: o:0.12826431617084091 a: 12.630801815443409	 totalSpendMoney: o: 0.1312810365494148 a: 12.041124773707525
+
+[Time_ROI diff: 0.001133536260327972 (up%-> 0.08007325377848641) . o: 1.4156240777523186 -> a: 1.4167576140126465	 returnMoney: o:1.280742E8 a: 3.2004546E9	 totalSpendMoney: o: 9.04719E7 a: 2.2589994E9
+
+[[Per_Prob_ROI diff: -0.008567399148965418 (up%-> -85.05833595458829) . o: 0.010072380387901614 -> a: 0.0015049812389361958	 per returnMoney: o:0.0013223125378437207 a: 0.01812166688011967	 per totalSpendMoney: o: 0.0013534127479321114 a: 0.01727564529943691
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=3	@@@ 
+
+net money diff:  0.2748017400920024 , up % -> 92.5616308372999 .  o: -0.29688515382257563 -> a: -0.02208341373057318
+
+[ProbMatrix: total: o: 0.03240646916516243  -> a: 4.37603455163064E-4
+org->adv	$w:42.17246599543624->36.63968963763087  	$d:9.109256074828089->9.899140402054236  	$l:48.71827792973568->53.46116996031489
+	 improve value x$w(high is good):-5.532776357805368  	x$d:0.7898843272261473  	 x$l(negative is good):4.742892030579213
+	 	 $w-$l: -6.545811934299434 -> -16.821480322684017  _  _ 	 lift : -10.275668388384585 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.58743756E8 -> a: 5972389.0
+org->adv	$w:31.476160863927145->31.458868469552133  	$d:3.5532244808419424->3.555110023811242  	$l:64.9706146552309->64.98602150663663
+	 improve value x$w(high is good):-0.017292394375012066  	x$d:0.0018855429692994363  	 x$l(negative is good):0.015406851405728617
+	 	 $w-$l: -33.49445379130376 -> -33.527153037084496  _  _ 	 lift : -0.0326992457807318 : bad	 :| stand
+
+[Prob_ROI diff: -0.14186731631188487 (up%-> -14.570631144614891) . o: 0.9736525130849745 -> a: 0.8317851967730896	 returnMoney: o:10.971178277808452 a: 0.10919762281877346	 totalSpendMoney: o: 11.268063431631028 a: 0.13128103654934664
+
+[Time_ROI diff: -0.001849864771978793 (up%-> -0.27751648628675357) . o: 0.6665783344011339 -> a: 0.6647284696291551	 returnMoney: o:3.18044718E10 a: 1.1910051E9	 totalSpendMoney: o: 4.77130296E10 a: 1.7917167E9
+
+[[Per_Prob_ROI diff: 2.3081194303936183E-4 (up%-> 628.4165773520116) . o: 3.67291302231308E-5 -> a: 2.6754107326249264E-4	 per returnMoney: o:4.1386616914287417E-4 a: 3.512306941742472E-5	 per totalSpendMoney: o: 4.2506557892153714E-4 a: 4.222612947872198E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=3	@@@ 
+
+net money diff:  1.076096951725412 , up % -> 97.09494135918848 .  o: -1.1082935286448645 -> a: -0.03219657691945252
+
+[ProbMatrix: total: o: 0.032406469165670984  -> a: 4.3760345516388695E-4
+org->adv	$w:38.351425187353996->33.41211573558469  	$d:9.284466845065209->8.650842640264798  	$l:52.364107967580786->57.93704162415051
+	 improve value x$w(high is good):-4.939309451769304  	x$d:-0.6336242048004106  	 x$l(negative is good):5.572933656569724
+	 	 $w-$l: -14.012682780226793 -> -24.524925888565818  _  _ 	 lift : -10.512243108339025 : bad	 :| stand
+
+[TimeMatrix: total:  o: 9.5279308E7 -> a: 3584677.0
+org->adv	$w:31.46681753817943->31.449500192067514  	$d:3.5548809821330773->3.5568895049679514  	$l:64.97830147968749->64.99361030296453
+	 improve value x$w(high is good):-0.017317346111916265  	x$d:0.0020085228348740713  	 x$l(negative is good):0.015308823277038641
+	 	 $w-$l: -33.511483941508054 -> -33.544110110897016  _  _ 	 lift : -0.03262616938896623 : bad	 :| stand
+
+[Prob_ROI diff: -0.14689220442472162 (up%-> -16.29161578332455) . o: 0.9016429455393531 -> a: 0.7547507411146315	 returnMoney: o:10.159769903330904 a: 0.09908445962998494	 totalSpendMoney: o: 11.268063431975769 a: 0.13128103654943746
+
+[Time_ROI diff: -0.001848969536411893 (up%-> -0.2774531370367828) . o: 0.6664078684274417 -> a: 0.6645588988910298	 returnMoney: o:1.90844238E10 a: 7.146687E8	 totalSpendMoney: o: 2.86377528E10 a: 1.0754031E9
+
+[[Per_Prob_ROI diff: 2.0875047405294965E-4 (up%-> 613.7425401093117) . o: 3.4012710609202644E-5 -> a: 2.427631846621523E-4	 per returnMoney: o:3.8325738063793065E-4 a: 3.187020251848985E-5	 per totalSpendMoney: o: 4.250655789345418E-4 a: 4.222612947875119E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=3	@@@ 
+
+net money diff:  1.9726970168215 , up % -> 97.93812672015146 .  o: -2.0142278425013043 -> a: -0.04153082567980447
+
+[ProbMatrix: total: o: 0.03240646916583224  -> a: 4.3760345516437874E-4
+org->adv	$w:34.19444574779021->29.843731133855716  	$d:9.309966143760134->8.677484588654524  	$l:56.495588108449645->61.478784277489765
+	 improve value x$w(high is good):-4.350714613934496  	x$d:-0.6324815551056098  	 x$l(negative is good):4.98319616904012
+	 	 $w-$l: -22.301142360659433 -> -31.635053143634046  _  _ 	 lift : -9.333910782974614 : bad	 :| stand
+
+[TimeMatrix: total:  o: 6.3547084E7 -> a: 2390821.0
+org->adv	$w:31.43861644383242->31.421340200709295  	$d:3.5570821786252225->3.558986640990689  	$l:65.00430137754236->65.01967315830002
+	 improve value x$w(high is good):-0.017276243123124146  	x$d:0.001904462365466486  	 x$l(negative is good):0.015371780757661213
+	 	 $w-$l: -33.565684933709946 -> -33.59833295759072  _  _ 	 lift : -0.03264802388077692 : bad	 :| stand
+
+[Prob_ROI diff: -0.13759507317630693 (up%-> -16.75445816475617) . o: 0.8212445417408064 -> a: 0.6836494685644995	 returnMoney: o:9.253835589613283 a: 0.08975021086959052	 totalSpendMoney: o: 11.268063432114587 a: 0.131281036549395
+
+[Time_ROI diff: -0.0018487549683330329 (up%-> -0.2776469385301804) . o: 0.6658654253924259 -> a: 0.6640166704240928	 returnMoney: o:1.27181058E10 a: 4.762635E8	 totalSpendMoney: o: 1.91001144E10 a: 7.172463E8
+
+[[Per_Prob_ROI diff: 1.889138469998998E-4 (up%-> 609.7960979448306) . o: 3.0979838611068184E-5 -> a: 2.1989368561096799E-4	 per returnMoney: o:3.4908278658618894E-4 a: 2.886787097767466E-5	 per totalSpendMoney: o: 4.2506557893977847E-4 a: 4.222612947873753E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=3	@@@ 
+
+net money diff:  2.9780162821533627 , up % -> 98.27535564399011 .  o: -3.0302777971533894 -> a: -0.05226151500002693
+
+[ProbMatrix: total: o: 0.032406469166007736  -> a: 4.37603455164481E-4
+org->adv	$w:29.485561440566617->25.721250637638455  	$d:9.575631009347472->8.74861514661239  	$l:60.938807550085905->65.53013421574916
+	 improve value x$w(high is good):-3.7643108029281613  	x$d:-0.827015862735081  	 x$l(negative is good):4.591326665663253
+	 	 $w-$l: -31.453246109519288 -> -39.8088835781107  _  _ 	 lift : -8.355637468591414 : bad	 :| stand
+
+[TimeMatrix: total:  o: 3.267418E7 -> a: 1196965.0
+org->adv	$w:31.367654827144857->31.38078389927859  	$d:3.5624704277199917->3.5654342441090594  	$l:65.06987474513515->65.05378185661235
+	 improve value x$w(high is good):0.013129072133732933  	x$d:0.0029638163890677305  	 x$l(negative is good):-0.016092888522805993
+	 	 $w-$l: -33.70221991799029 -> -33.672997957333756  _  _ 	 lift : 0.029221960656533597 : good	 :| stand
+
+[Prob_ROI diff: -0.10935351482722633 (up%-> -15.374517819978859) . o: 0.7112646790465439 -> a: 0.6019111642193176	 returnMoney: o:7.464724293851153 a: 0.07901952154936068	 totalSpendMoney: o: 10.495002091004542 a: 0.1312810365493876
+
+[Time_ROI diff: -4.681955400281934E-4 (up%-> -0.07053918680067227) . o: 0.6637382159666906 -> a: 0.6632700204266624	 returnMoney: o:6.5121102E9 a: 2.381733E8	 totalSpendMoney: o: 9.811263E9 a: 3.590895E8
+
+[[Per_Prob_ROI diff: 1.675042361100582E-4 (up%-> 641.8135303480592) . o: 2.609858287331831E-5 -> a: 1.936028189833765E-4	 per returnMoney: o:2.73904681827731E-4 a: 2.5416378755021126E-5	 per totalSpendMoney: o: 3.85095295600651E-4 a: 4.222612947873516E-5
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+		 */
+	}
+	
+	public static void test44vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(t.diffWith(o));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 4) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		
+		/**
+MatrixKey [startValue=Four, dealerCard=One1, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Two2, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Three3, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Ten, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Four, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=4	@@@ 
+
+net money diff:  4.357050494446583 , up % -> 98.74019682431631 .  o: -4.412641086992032 -> a: -0.055590592545448445
+
+[ProbMatrix: total: o: 0.03240646916176022  -> a: 4.3760345516289105E-4
+org->adv	$w:22.0879177808398->23.08589762982195  	$d:10.435684897512782->11.483480775401345  	$l:67.47639732164743->65.43062159477671
+	 improve value x$w(high is good):0.9979798489821512  	x$d:1.0477958778885625  	 x$l(negative is good):-2.0457757268707155
+	 	 $w-$l: -45.388479540807616 -> -42.34472396495475  _  _ 	 lift : 3.043755575852863 : good	 :) hit 
+
+[TimeMatrix: total:  o: 7.40743588E8 -> a: 1.6382977E7
+org->adv	$w:31.57897979671746->31.691737100039873  	$d:3.507713657050245->3.5213502405576227  	$l:64.91330654623229->64.78691265940249
+	 improve value x$w(high is good):0.11275730332241451  	x$d:0.013636583507377509  	 x$l(negative is good):-0.12639388682980268
+	 	 $w-$l: -33.33432674951484 -> -33.09517555936262  _  _ 	 lift : 0.23915119015221475 : good	 :| stand
+
+[Prob_ROI diff: 0.030437555740380318 (up%-> 5.5734679209548625) . o: 0.5461152046097301 -> a: 0.5765527603501104	 returnMoney: o:5.309299660544687 a: 0.07569044400449175	 totalSpendMoney: o: 9.721940747536719 a: 0.1312810365499402
+
+[Time_ROI diff: 0.002391511901522203 (up%-> 0.3587321307828837) . o: 0.6666567325048516 -> a: 0.6690482444063738	 returnMoney: o:1.4814651E11 a: 3.2883006E9	 totalSpendMoney: o: 2.222230764E11 a: 4.9148931E9
+
+[[Per_Prob_ROI diff: 4.6790810224006874E-4 (up%-> 1455.9496447361548) . o: 3.213765695343553E-5 -> a: 5.000457591935042E-4	 per returnMoney: o:3.1244039666596167E-4 a: 6.564652558932502E-5	 per totalSpendMoney: o: 5.721144440379403E-4 a: 1.1386039596699063E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=4	@@@ 
+
+net money diff:  1.0518251304459 , up % -> 99.74929399657293 .  o: -1.0544687468986371 -> a: -0.00264361645273703
+
+[ProbMatrix: total: o: 0.03240646916555644  -> a: 4.3760345516358906E-4
+org->adv	$w:41.10359660548314->45.05313047217716  	$d:3.572829308843507->7.88003127069062  	$l:55.32357408567336->47.066838257132225
+	 improve value x$w(high is good):3.9495338666940185  	x$d:4.307201961847113  	 x$l(negative is good):-8.256735828541132
+	 	 $w-$l: -14.219977480190217 -> -2.0137077849550655  _  _ 	 lift : 12.20626969523515 : good	 :) hit 
+
+[TimeMatrix: total:  o: 7.312786E7 -> a: 1948297.0
+org->adv	$w:57.70542717918998->57.266782220575195  	$d:4.157436030536105->4.262902421961334  	$l:38.137136790273914->38.47031535746347
+	 improve value x$w(high is good):-0.4386449586147876  	x$d:0.10546639142522896  	 x$l(negative is good):0.33317856718955596
+	 	 $w-$l: 19.568290388916072 -> 18.79646686311173  _ @double@	 lift : -0.7718235258043438 : bad	 :| stand
+
+[Prob_ROI diff: 0.07344322130864112 (up%-> 8.102562338414568) . o: 0.9064197008450512 -> a: 0.9798629221536923	 returnMoney: o:10.213594685476847 a: 0.1286374200965535	 totalSpendMoney: o: 11.268063432375484 a: 0.13128103654929052
+
+[Time_ROI diff: -0.022780534609235126 (up%-> -1.8815300319395791) . o: 1.2107452032403525 -> a: 1.1879646686311174	 returnMoney: o:2.80740372E10 a: 6.943524E8	 totalSpendMoney: o: 2.31874032E10 a: 5.844891E8
+
+[[Per_Prob_ROI diff: 0.012403185041418614 (up%-> 1216.4818892993228) . o: 0.0010195947141114186 -> a: 0.013422779755530032	 per returnMoney: o:0.011488857913922214 a: 0.001762156439678815	 per totalSpendMoney: o: 0.012674986988048914 a: 0.0017983703636889113
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=4	@@@ 
+
+net money diff:  0.6686463108249203 , up % -> 100.1994152958846 .  o: -0.6673155814836207 -> a: 0.0013307293412995747
+
+[ProbMatrix: total: o: 0.03240646916585252  -> a: 4.376034551639522E-4
+org->adv	$w:42.74250388428663->46.69084971492393  	$d:3.377712768197163->7.631949895291239  	$l:53.87978334751622->45.677200389784836
+	 improve value x$w(high is good):3.948345830637301  	x$d:4.2542371270940755  	 x$l(negative is good):-8.20258295773138
+	 	 $w-$l: -11.137279463229593 -> 1.0136493251390932  _  _ 	 lift : 12.150928788368686 : good	 :) hit 
+
+[TimeMatrix: total:  o: 3.9255772E7 -> a: 1135369.0
+org->adv	$w:57.932983715108186->57.25072641581723  	$d:4.15524117064874->4.265221262866962  	$l:37.91177511424307->38.4840523213158
+	 improve value x$w(high is good):-0.6822572992909528  	x$d:0.10998009221822258  	 x$l(negative is good):0.5722772070727302
+	 	 $w-$l: 20.021208600865116 -> 18.76667409450143  _ @double@	 lift : -1.254534506363686 : bad	 :| stand
+
+[Prob_ROI diff: 0.06555619814248259 (up%-> 6.940246211125458) . o: 0.944580295111054 -> a: 1.0101364932535366	 returnMoney: o:11.373809192111551 a: 0.1326117658906298	 totalSpendMoney: o: 12.041124773595172 a: 0.13128103654933024
+
+[Time_ROI diff: -0.032560597449743156 (up%-> -2.668404192007164) . o: 1.2202273383947575 -> a: 1.1876667409450143	 returnMoney: o:1.57025592E10 a: 4.04532E8	 totalSpendMoney: o: 1.28685522E10 a: 3.406107E8
+
+[[Per_Prob_ROI diff: 0.012681329176992882 (up%-> 1096.8517966368424) . o: 0.0011561570319596744 -> a: 0.013837486208952556	 per returnMoney: o:0.0139214310796959 a: 0.0018165995327483536	 per totalSpendMoney: o: 0.014738218817129953 a: 0.0017983703636894554
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=4	@@@ 
+
+net money diff:  0.25132335366293057 , up % -> 102.27953275091804 .  o: -0.24572203930084413 -> a: 0.005601314362086468
+
+[ProbMatrix: total: o: 0.03240646916601212  -> a: 4.3760345516437944E-4
+org->adv	$w:44.868097339706466->48.668323851198636  	$d:2.800842489522054->6.930011450440861  	$l:52.33106017077148->44.40166469836051
+	 improve value x$w(high is good):3.80022651149217  	x$d:4.129168960918808  	 x$l(negative is good):-7.929395472410967
+	 	 $w-$l: -7.462962831065018 -> 4.266659152838126  _ @double@	 lift : 11.729621983903144 : good	 :) hit 
+
+[TimeMatrix: total:  o: 1.2448156E7 -> a: 335701.0
+org->adv	$w:68.26604679440071->68.56309632679081  	$d:4.703379359963034->5.007432209019336  	$l:27.03057384563625->26.42947146418986
+	 improve value x$w(high is good):0.2970495323901048  	x$d:0.30405284905630214  	 x$l(negative is good):-0.6011023814463918
+	 	 $w-$l: 41.23547294876446 -> 42.133624862600946  _ @double@	 lift : 0.8981519138364868 : good	 :| stand
+
+[Prob_ROI diff: 0.0630734923735009 (up%-> 6.438744048708616) . o: 0.9795930991565228 -> a: 1.0426665915300237	 returnMoney: o:11.795402734399712 a: 0.13688235091137166	 totalSpendMoney: o: 12.041124773700556 a: 0.1312810365492852
+
+[Time_ROI diff: 0.005564438433903751 (up%-> 0.3930321534759697) . o: 1.4157718101921057 -> a: 1.4213362486260095	 returnMoney: o:6.1888644E9 a: 1.431432E8	 totalSpendMoney: o: 4.3713714E9 a: 1.007103E8
+
+[[Per_Prob_ROI diff: 0.02597884534236679 (up%-> 1180.1416513966308) . o: 0.0022013328070933096 -> a: 0.0281801781494601	 per returnMoney: o:0.026506522998651038 a: 0.0036995229976046393	 per totalSpendMoney: o: 0.027058707356630463 a: 0.0035481361229536537
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=4	@@@ 
+
+net money diff:  -0.19720260493658412 , up % -> -95.15063617108302 .  o: 0.20725305985554243 -> a: 0.010050454918958313
+
+[ProbMatrix: total: o: 0.03240646916605258  -> a: 4.376034551644781E-4
+org->adv	$w:46.90879957851145->50.457337075624466  	$d:2.6912325459232957->6.741004980329239  	$l:50.39996787556527->42.8016579440463
+	 improve value x$w(high is good):3.548537497113017  	x$d:4.049772434405943  	 x$l(negative is good):-7.598309931518969
+	 	 $w-$l: -3.491168297053815 -> 7.655679131578169  _ @double@	 lift : 11.146847428631984 : good	 :) hit 
+
+[TimeMatrix: total:  o: 7508956.0 -> a: 202501.0
+org->adv	$w:68.25433522316551->68.5522540629429  	$d:4.705208020928609->5.0083703290354125  	$l:27.04045675590588->26.439375608021688
+	 improve value x$w(high is good):0.2979188397773811  	x$d:0.30316230810680356  	 x$l(negative is good):-0.6010811478841909
+	 	 $w-$l: 41.213878467259626 -> 42.11287845492121  _ @double@	 lift : 0.8989999876615806 : good	 :| stand
+
+[Prob_ROI diff: 0.05934468997651465 (up%-> 5.834052691500904) . o: 1.0172121013402653 -> a: 1.07655679131678	 returnMoney: o:12.248377833546137 a: 0.1413314914682973	 totalSpendMoney: o: 12.041124773690594 a: 0.13128103654933898
+
+[Time_ROI diff: 0.0055719663958366805 (up%-> 0.3936236486152093) . o: 1.4155568181533755 -> a: 1.4211287845492122	 returnMoney: o:3.7326696E9 a: 8.6334E7	 totalSpendMoney: o: 2.6368914E9 a: 6.07503E7
+
+[[Per_Prob_ROI diff: 0.026810259604395825 (up%-> 1172.869012100484) . o: 0.0022858698906522814 -> a: 0.029096129495048105	 per returnMoney: o:0.0275244445697666 a: 0.0038197700396837104	 per totalSpendMoney: o: 0.027058707356608078 a: 0.0035481361229551074
+
+	 Decide: !Not Change!  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=4	@@@ 
+
+net money diff:  -0.4297709450560363 , up % -> -96.54853118807085 .  o: 0.44513462790942704 -> a: 0.015363682853390737
+
+[ProbMatrix: total: o: 0.032406469166085805  -> a: 4.3760345516457086E-4
+org->adv	$w:47.7732492685654->52.62732579514143  	$d:2.731575281960226->6.448244164616362  	$l:49.495175449474374->40.92443004024221
+	 improve value x$w(high is good):4.85407652657603  	x$d:3.716668882656136  	 x$l(negative is good):-8.570745409232167
+	 	 $w-$l: -1.7219261809089725 -> 11.70289575489923  _ @double@	 lift : 13.4248219358082 : good	 :) hit 
+
+[TimeMatrix: total:  o: 4265548.0 -> a: 115033.0
+org->adv	$w:68.240469923208->68.53598532594994  	$d:4.706687159539642->5.012474681178444  	$l:27.052842917252367->26.45153999287161
+	 improve value x$w(high is good):0.2955154027419411  	x$d:0.30578752163880285  	 x$l(negative is good):-0.6013029243807573
+	 	 $w-$l: 41.187627005955626 -> 42.084445333078335  _ @double@	 lift : 0.8968183271227115 : good	 :| stand
+
+[Prob_ROI diff: 0.08006109646713466 (up%-> 7.720692171073526) . o: 1.0369678610823638 -> a: 1.1170289575494985	 returnMoney: o:12.486259401606087 a: 0.14664471940276388	 totalSpendMoney: o: 12.04112477369666 a: 0.13128103654937315
+
+[Time_ROI diff: 0.005551127843015813 (up%-> 0.3922245475935293) . o: 1.4152933254877675 -> a: 1.4208444533307834	 returnMoney: o:2.1199908E9 a: 4.90332E7	 totalSpendMoney: o: 1.4979162E9 a: 3.45099E7
+
+[[Per_Prob_ROI diff: 0.02785970696929725 (up%-> 1195.5596761115596) . o: 0.0023302648563648626 -> a: 0.030189971825662115	 per returnMoney: o:0.028059009891249636 a: 0.003963370794669294	 per totalSpendMoney: o: 0.02705870735662171 a: 0.003548136122956031
+
+	 Decide: !Not Change!  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=4	@@@ 
+
+net money diff:  0.7243637791585236 , up % -> 101.52332280235244 .  o: -0.7134949479231771 -> a: 0.010868831235346377
+
+[ProbMatrix: total: o: 0.032406469165538375  -> a: 4.3760345516426517E-4
+org->adv	$w:40.213819729584586->48.253457855782806  	$d:8.726194218075282->11.772140823232693  	$l:51.05998605234012->39.97440132098451
+	 improve value x$w(high is good):8.03963812619822  	x$d:3.045946605157411  	 x$l(negative is good):-11.08558473135561
+	 	 $w-$l: -10.846166322755534 -> 8.279056534798295  _ @double@	 lift : 19.12522285755383 : good	 :) hit 
+
+[TimeMatrix: total:  o: 9.1570228E7 -> a: 2214913.0
+org->adv	$w:31.535011576033206->31.543044805823072  	$d:3.5558718932096576->3.5661897329601655  	$l:64.90911653075713->64.89076546121676
+	 improve value x$w(high is good):0.008033229789866425  	x$d:0.010317839750507929  	 x$l(negative is good):-0.018351069540372578
+	 	 $w-$l: -33.37410495472393 -> -33.34772065539369  _  _ 	 lift : 0.026384299330245442 : good	 :| stand
+
+[Prob_ROI diff: 0.14611066930669736 (up%-> 15.598783525115147) . o: 0.9366798960409242 -> a: 1.0827905653476215	 returnMoney: o:10.554568483942207 a: 0.14214986778474392	 totalSpendMoney: o: 11.268063431865384 a: 0.13128103654939755
+
+[Time_ROI diff: -0.0023685988862941487 (up%-> -0.35410814273376756) . o: 0.6688913923323573 -> a: 0.6665227934460631	 returnMoney: o:1.84352964E10 a: 4.42887E8	 totalSpendMoney: o: 2.75609712E10 a: 6.644739E8
+
+[[Per_Prob_ROI diff: 8.786956950954009E-4 (up%-> 1454.5178998758975) . o: 6.041147346281356E-5 -> a: 9.391071685582145E-4	 per returnMoney: o:6.807203149914355E-4 a: 1.232869625192922E-4	 per totalSpendMoney: o: 7.267374028936075E-4 a: 1.1386039596651999E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=4	@@@ 
+
+net money diff:  1.4657380255534376 , up % -> 99.46186031998047 .  o: -1.4736684200737713 -> a: -0.007930394520333714
+
+[ProbMatrix: total: o: 0.03240646916586674  -> a: 4.376034551643808E-4
+org->adv	$w:36.81222586076046->38.36043516128193  	$d:8.588687380660616->17.238352784787118  	$l:54.59908675857893->44.401212053930955
+	 improve value x$w(high is good):1.5482093005214637  	x$d:8.649665404126502  	 x$l(negative is good):-10.197874704647973
+	 	 $w-$l: -17.786860897818467 -> -6.04077689264903  _  _ 	 lift : 11.746084005169438 : good	 :) hit 
+
+[TimeMatrix: total:  o: 5.4961204E7 -> a: 1329409.0
+org->adv	$w:31.52567036195204->31.53326026828463  	$d:3.5575239581723865->3.5685782178396566  	$l:64.91680567987557->64.89816151387572
+	 improve value x$w(high is good):0.007589906332587049  	x$d:0.011054259667270028  	 x$l(negative is good):-0.018644165999845086
+	 	 $w-$l: -33.39113531792353 -> -33.36490124559109  _  _ 	 lift : 0.02623407233243724 : good	 :| stand
+
+[Prob_ROI diff: 0.07037498970393508 (up%-> 8.096363757472755) . o: 0.8692172413693813 -> a: 0.9395922310733164	 returnMoney: o:9.794395012018091 a: 0.1233506420291003	 totalSpendMoney: o: 11.268063432091862 a: 0.13128103654943402
+
+[Time_ROI diff: -0.0023698164330261395 (up%-> -0.35438054550299863) . o: 0.6687208039771153 -> a: 0.6663509875440892	 returnMoney: o:1.10621946E10 a: 2.657559E8	 totalSpendMoney: o: 1.65423216E10 a: 3.988227E8
+
+[[Per_Prob_ROI diff: 7.58850420547711E-4 (up%-> 1353.6288985772899) . o: 5.6060447685867864E-5 -> a: 8.149108682335789E-4	 per returnMoney: o:6.316926805558265E-4 a: 1.0698234347710348E-4	 per totalSpendMoney: o: 7.267374029082143E-4 a: 1.1386039596655162E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=4	@@@ 
+
+net money diff:  2.2913650411150592 , up % -> 98.807907526738 .  o: -2.3190097821826683 -> a: -0.02764474106760889
+
+[ProbMatrix: total: o: 0.032406469165969225  -> a: 4.3760345516451974E-4
+org->adv	$w:32.841639457633434->33.70129935686582  	$d:8.86538524531047->11.539720912746317  	$l:58.292975297056095->54.75897973038787
+	 improve value x$w(high is good):0.8596598992323834  	x$d:2.6743356674358463  	 x$l(negative is good):-3.5339955666682243
+	 	 $w-$l: -25.451335839422658 -> -21.057680373522054  _  _ 	 lift : 4.393655465900603 : good	 :) hit 
+
+[TimeMatrix: total:  o: 3.6656692E7 -> a: 886657.0
+org->adv	$w:31.497430264574884->31.50530588491378  	$d:3.559753837034722->3.569813355108007  	$l:64.94281589839039->64.92488075997821
+	 improve value x$w(high is good):0.007875620338896994  	x$d:0.010059518073284757  	 x$l(negative is good):-0.017935138412184415
+	 	 $w-$l: -33.44538563381551 -> -33.41957487506443  _  _ 	 lift : 0.02581075875108252 : good	 :| stand
+
+[Prob_ROI diff: -0.004773047292270571 (up%-> -0.6009909176720027) . o: 0.7941962435571303 -> a: 0.7894231962648597	 returnMoney: o:8.949053650014283 a: 0.1036362954817916	 totalSpendMoney: o: 11.268063432196952 a: 0.1312810365494005
+
+[Time_ROI diff: -0.0023733013807691883 (up%-> -0.3551902292178541) . o: 0.6681775526301249 -> a: 0.6658042512493557	 returnMoney: o:7.3720008E9 a: 1.77102E8	 totalSpendMoney: o: 1.10329968E10 a: 2.659971E8
+
+[[Per_Prob_ROI diff: 6.334469164754943E-4 (up%-> 1236.67097642801) . o: 5.122194411848631E-5 -> a: 6.846688605939807E-4	 per returnMoney: o:5.771721154475513E-4 a: 8.988403771187476E-5	 per totalSpendMoney: o: 7.26737402914992E-4 a: 1.1386039596652253E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=4	@@@ 
+
+net money diff:  3.259849589633172 , up % -> 98.80422416554366 .  o: -3.2993018437869486 -> a: -0.0394522541537763
+
+[ProbMatrix: total: o: 0.0324064691660637  -> a: 4.376034551645484E-4
+org->adv	$w:28.305944529504572->29.967470310016303  	$d:9.161913538356838->10.013305378962434  	$l:62.53214193213857->60.019224311021254
+	 improve value x$w(high is good):1.661525780511731  	x$d:0.8513918406055954  	 x$l(negative is good):-2.5129176211173174
+	 	 $w-$l: -34.226197402634 -> -30.051754001004955  _  _ 	 lift : 4.174443401629047 : good	 :) hit 
+
+[TimeMatrix: total:  o: 1.92115E7 -> a: 443905.0
+org->adv	$w:31.402493298284885->31.464389903245067  	$d:3.5643755042552643->3.576891451999865  	$l:65.03313119745985->64.95871864475508
+	 improve value x$w(high is good):0.061896604960182344  	x$d:0.01251594774460063  	 x$l(negative is good):-0.07441255270477143
+	 	 $w-$l: -33.63063789917498 -> -33.49432874151001  _  _ 	 lift : 0.13630915766496554 : good	 :| stand
+
+[Prob_ROI diff: 0.013851320060710548 (up%-> 2.02022913692884) . o: 0.6856311399293734 -> a: 0.699482459990084	 returnMoney: o:7.195700247214439 a: 0.09182878239561952	 totalSpendMoney: o: 10.495002091001387 a: 0.13128103654939582
+
+[Time_ROI diff: 7.17555674486503E-5 (up%-> 0.010790554987963014) . o: 0.6649849570174513 -> a: 0.6650567125849	 returnMoney: o:3.8385984E9 a: 8.85666E7	 totalSpendMoney: o: 5.772459E9 a: 1.331715E8
+
+[[Per_Prob_ROI diff: 5.644677360378922E-4 (up%-> 1337.7508267527812) . o: 4.2195282166864017E-5 -> a: 6.066630182047563E-4	 per returnMoney: o:4.428395745716314E-4 a: 7.964334986610539E-5	 per totalSpendMoney: o: 6.45886029355738E-4 a: 1.138603959665185E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+		 */
+	}
+	
+	public static void test44vs56() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(o.diffWith(t));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 4) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					if(dealerCard != Card.Five5 && dealerCard != Card.Six6) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		/**
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+
+		 @@@   dealerCard=Five5, 	playerStartValue=4	@@@ 
+
+net money diff:  0.19720260493658412 , up % -> 1962.1261577383739 .  o: 0.010050454918958313 -> a: 0.20725305985554243
+
+[ProbMatrix: total: o: 4.376034551644781E-4  -> a: 0.03240646916605258
+org->adv	$w:50.457337075624466->46.90879957851145  	$d:6.741004980329239->2.6912325459232957  	$l:42.8016579440463->50.39996787556527
+	 improve value x$w(high is good):-3.548537497113017  	x$d:-4.049772434405943  	 x$l(negative is good):7.598309931518969
+	 	 $w-$l: 7.655679131578169 -> -3.491168297053815  _  _ 	 lift : -11.146847428631984 : bad	 :| stand
+
+[TimeMatrix: total:  o: 202501.0 -> a: 7508956.0
+org->adv	$w:68.5522540629429->68.25433522316551  	$d:5.0083703290354125->4.705208020928609  	$l:26.439375608021688->27.04045675590588
+	 improve value x$w(high is good):-0.2979188397773811  	x$d:-0.30316230810680356  	 x$l(negative is good):0.6010811478841909
+	 	 $w-$l: 42.11287845492121 -> 41.213878467259626  _ @double@	 lift : -0.8989999876615806 : bad	 :| stand
+
+[Prob_ROI diff: -0.05934468997651465 (up%-> -5.5124532635131835) . o: 1.07655679131678 -> a: 1.0172121013402653	 returnMoney: o:0.1413314914682973 a: 12.248377833546137	 totalSpendMoney: o: 0.13128103654933898 a: 12.041124773690594
+
+[Time_ROI diff: -0.0055719663958366805 (up%-> -0.39208032772372076) . o: 1.4211287845492122 -> a: 1.4155568181533755	 returnMoney: o:8.6334E7 a: 3.7326696E9	 totalSpendMoney: o: 6.07503E7 a: 2.6368914E9
+
+[[Per_Prob_ROI diff: -0.026810259604395825 (up%-> -92.1437320691011) . o: 0.029096129495048105 -> a: 0.0022858698906522814	 per returnMoney: o:0.0038197700396837104 a: 0.0275244445697666	 per totalSpendMoney: o: 0.0035481361229551074 a: 0.027058707356608078
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Four, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+
+		 @@@   dealerCard=Six6, 	playerStartValue=4	@@@ 
+
+net money diff:  0.4297709450560363 , up % -> 2797.3172133085695 .  o: 0.015363682853390737 -> a: 0.44513462790942704
+
+[ProbMatrix: total: o: 4.3760345516457086E-4  -> a: 0.032406469166085805
+org->adv	$w:52.62732579514143->47.7732492685654  	$d:6.448244164616362->2.731575281960226  	$l:40.92443004024221->49.495175449474374
+	 improve value x$w(high is good):-4.85407652657603  	x$d:-3.716668882656136  	 x$l(negative is good):8.570745409232167
+	 	 $w-$l: 11.70289575489923 -> -1.7219261809089725  _  _ 	 lift : -13.4248219358082 : bad	 :| stand
+
+[TimeMatrix: total:  o: 115033.0 -> a: 4265548.0
+org->adv	$w:68.53598532594994->68.240469923208  	$d:5.012474681178444->4.706687159539642  	$l:26.45153999287161->27.052842917252367
+	 improve value x$w(high is good):-0.2955154027419411  	x$d:-0.30578752163880285  	 x$l(negative is good):0.6013029243807573
+	 	 $w-$l: 42.084445333078335 -> 41.187627005955626  _ @double@	 lift : -0.8968183271227115 : bad	 :| stand
+
+[Prob_ROI diff: -0.08006109646713466 (up%-> -7.167325065839838) . o: 1.1170289575494985 -> a: 1.0369678610823638	 returnMoney: o:0.14664471940276388 a: 12.486259401606087	 totalSpendMoney: o: 0.13128103654937315 a: 12.04112477369666
+
+[Time_ROI diff: -0.005551127843015813 (up%-> -0.39069215704806415) . o: 1.4208444533307834 -> a: 1.4152933254877675	 returnMoney: o:4.90332E7 a: 2.1199908E9	 totalSpendMoney: o: 3.45099E7 a: 1.4979162E9
+
+[[Per_Prob_ROI diff: -0.02785970696929725 (up%-> -92.28132815154174) . o: 0.030189971825662115 -> a: 0.0023302648563648626	 per returnMoney: o:0.003963370794669294 a: 0.028059009891249636	 per totalSpendMoney: o: 0.003548136122956031 a: 0.02705870735662171
+
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+		 */
+	}
+	
+	public static void test55vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(t.diffWith(o));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 5) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		/**
+MatrixKey [startValue=Five, dealerCard=One1, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Five, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Five, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Two2, situation=Start_With_Pair] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Three3, situation=Start_With_Pair] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_Pair] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Five5, situation=Start_With_Pair] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_Pair] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Double
+MatrixKey [startValue=Five, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Five, dealerCard=Ten, situation=Start_With_Pair] : Split -> Hit
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=5	@@@ 
+
+net money diff:  4.653577625609455 , up % -> 99.39120066370366 .  o: -4.682082110422558 -> a: -0.02850448481310279
+
+[ProbMatrix: total: o: 0.03240646916367095  -> a: 4.376034551636016E-4
+org->adv	$w:20.934277696442255->32.70384438872668  	$d:9.971491454247396->12.879742856072124  	$l:69.09423084931035->54.41641275520119
+	 improve value x$w(high is good):11.769566692284425  	x$d:2.908251401824728  	 x$l(negative is good):-14.677818094109156
+	 	 $w-$l: -48.15995315286809 -> -21.71256836647451  _  _ 	 lift : 26.44738478639358 : good	 :) hit 
+
+[TimeMatrix: total:  o: 4.55654212E8 -> a: 5470465.0
+org->adv	$w:31.590329730124388->31.80998324639679  	$d:3.509202280785676->3.5296451032956067  	$l:64.90046798908993->64.6603716503076
+	 improve value x$w(high is good):0.21965351627240182  	x$d:0.02044282250993046  	 x$l(negative is good):-0.24009633878233672
+	 	 $w-$l: -33.31013825896555 -> -32.85038840391081  _  _ 	 lift : 0.4597498550547363 : good	 :| stand
+
+[Prob_ROI diff: 0.264473847881905 (up%-> 51.017285665491386) . o: 0.5184004684529852 -> a: 0.7828743163348901	 returnMoney: o:5.039858638528278 a: 0.10277655173652765	 totalSpendMoney: o: 9.721940748950836 a: 0.13128103654963044
+
+[Time_ROI diff: 0.004597498550547252 (up%-> 0.6893849275621453) . o: 0.6668986174103445 -> a: 0.6714961159608918	 returnMoney: o:9.11625492E10 a: 1.1020188E9	 totalSpendMoney: o: 1.366962636E11 a: 1.6411395E9
+
+[[Per_Prob_ROI diff: 0.0019843534775603883 (up%-> 4042.5806595149465) . o: 4.9086305127638024E-5 -> a: 0.002033439782688026	 per returnMoney: o:4.772141500358184E-4 a: 2.6695208243253935E-4	 per totalSpendMoney: o: 9.205511550942937E-4 a: 3.4098970532371543E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=5	@@@ 
+
+net money diff:  1.332568394005095 , up % -> 103.71829192506534 .  o: -1.2847959306617316 -> a: 0.047772463343363325
+
+[ProbMatrix: total: o: 0.032406469165971084  -> a: 4.376034551648256E-4
+org->adv	$w:40.38510136803743->55.15457999287062  	$d:3.2533875310674825->7.885571179974714  	$l:56.361511100895086->36.95984882715466
+	 improve value x$w(high is good):14.76947862483319  	x$d:4.632183648907231  	 x$l(negative is good):-19.401662273740428
+	 	 $w-$l: -15.976409732857661 -> 18.19473116571596  _ @double@	 lift : 34.17114089857362 : good	 :) hit 
+
+[TimeMatrix: total:  o: 4.5584812E7 -> a: 346957.0
+org->adv	$w:57.87777736145978->70.19918894848641  	$d:4.176891197884068->5.179316168862424  	$l:37.945331440656155->24.621494882651167
+	 improve value x$w(high is good):12.321411587026631  	x$d:1.002424970978356  	 x$l(negative is good):-13.323836558004988
+	 	 $w-$l: 19.932445920803627 -> 45.57769406583525  _ @double@	 lift : 25.645248145031623 : good	 :) hit 
+
+[Prob_ROI diff: 0.2993853053386093 (up%-> 33.92229703922714) . o: 0.8825620063181614 -> a: 1.1819473116567707	 returnMoney: o:9.65541081488676 a: 0.31033453644220826	 totalSpendMoney: o: 10.940206745548492 a: 0.26256207309884494
+
+[Time_ROI diff: 0.23665674055064345 (up%-> 19.412092468793055) . o: 1.219120200107709 -> a: 1.4557769406583525	 returnMoney: o:1.79409564E10 a: 3.030552E8	 totalSpendMoney: o: 1.47163146E10 a: 2.081742E8
+
+[[Per_Prob_ROI diff: 0.089356967325247 (up%-> 5720.469063627947) . o: 0.0015620566483507284 -> a: 0.09091902397359773	 per returnMoney: o:0.017089222681215505 a: 0.023871887418631405	 per totalSpendMoney: o: 0.019363197779731844 a: 0.020197082546064997
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=5	@@@ 
+
+net money diff:  0.9536828966692954 , up % -> 106.05545204809457 .  o: -0.8992304292256605 -> a: 0.054452467443634855
+
+[ProbMatrix: total: o: 0.0324064691660597  -> a: 4.376034551647308E-4
+org->adv	$w:42.05331243816076->56.543931171348106  	$d:3.0691600156732823->7.651030674495936  	$l:54.87752754616595->35.80503815415595
+	 improve value x$w(high is good):14.490618733187347  	x$d:4.581870658822654  	 x$l(negative is good):-19.07248939201
+	 	 $w-$l: -12.824215108005188 -> 20.73889301719215  _ @double@	 lift : 33.56310812519734 : good	 :) hit 
+
+[TimeMatrix: total:  o: 2.3205076E7 -> a: 202189.0
+org->adv	$w:58.29881358716516->70.18037578701116  	$d:4.174345302726007->5.1822799459911275  	$l:37.52684111010884->24.63734426699771
+	 improve value x$w(high is good):11.881562199846002  	x$d:1.0079346432651208  	 x$l(negative is good):-12.889496843111129
+	 	 $w-$l: 20.771972477056316 -> 45.54303152001346  _ @double@	 lift : 24.771059042957138 : good	 :) hit 
+
+[Prob_ROI diff: 0.28415917247822176 (up%-> 30.778814277839064) . o: 0.9232297576934863 -> a: 1.207388930171708	 returnMoney: o:10.814037657585677 a: 0.31701454054247796	 totalSpendMoney: o: 11.713268086811338 a: 0.2625620730988431
+
+[Time_ROI diff: 0.22006070615932138 (up%-> 17.813349506807498) . o: 1.235369609040813 -> a: 1.4554303152001344	 returnMoney: o:9.7989888E9 a: 1.765632E8	 totalSpendMoney: o: 7.93203E9 a: 1.213134E8
+
+[[Per_Prob_ROI diff: 0.09100339455837678 (up%-> 4859.535033767281) . o: 0.0018726769932930758 -> a: 0.09287607155166985	 per returnMoney: o:0.021935167662445593 a: 0.02438573388788292	 per totalSpendMoney: o: 0.023759164476290746 a: 0.020197082546064855
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=5	@@@ 
+
+net money diff:  0.540793074373148 , up % -> 112.82398610261 .  o: -0.47932455947914576 -> a: 0.06146851489400229
+
+[ProbMatrix: total: o: 0.03240646916606296  -> a: 4.376034551646689E-4
+org->adv	$w:44.19377776924805->58.014486582575294  	$d:2.535348680666999->7.382067953066125  	$l:53.270873550084964->34.603445464358565
+	 improve value x$w(high is good):13.820708813327244  	x$d:4.846719272399126  	 x$l(negative is good):-18.6674280857264
+	 	 $w-$l: -9.077095780836913 -> 23.41104111821673  _ @double@	 lift : 32.48813689905364 : good	 :) hit 
+
+[TimeMatrix: total:  o: 7657612.0 -> a: 117949.0
+org->adv	$w:68.02669030501937->70.16337569627551  	$d:4.690339494871247->5.185291948214906  	$l:27.28297020010938->24.651332355509584
+	 improve value x$w(high is good):2.1366853912561368  	x$d:0.4949524533436591  	 x$l(negative is good):-2.631637844599794
+	 	 $w-$l: 40.74372010490998 -> 45.51204334076593  _ @double@	 lift : 4.768323235855942 : good	 :) hit 
+
+[Prob_ROI diff: 0.27503191625892354 (up%-> 28.676684725470036) . o: 0.9590784949232499 -> a: 1.2341104111821735	 returnMoney: o:11.23394352731656 a: 0.3240305879927952	 totalSpendMoney: o: 11.713268086795706 a: 0.2625620730987929
+
+[Time_ROI diff: 0.042551322449185136 (up%-> 3.012335617356993) . o: 1.4125691109584742 -> a: 1.4551204334076593	 returnMoney: o:4.0448052E9 a: 1.02978E8	 totalSpendMoney: o: 2.8634388E9 a: 7.07694E7
+
+[[Per_Prob_ROI diff: 0.09146919285294634 (up%-> 2641.803205304246) . o: 0.0034623772379900716 -> a: 0.09493157009093642	 per returnMoney: o:0.04055575280619697 a: 0.02492542984559963	 per totalSpendMoney: o: 0.04228616637832385 a: 0.020197082546060993
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=5	@@@ 
+
+net money diff:  0.09826487684066276 , up % -> 333.2508245455272 .  o: -0.029486761803116934 -> a: 0.06877811503754583
+
+[ProbMatrix: total: o: 0.032406469166095464  -> a: 4.376034551646534E-4
+org->adv	$w:46.25803323898587->59.54792395042783  	$d:2.44028627779838->7.099144477826533  	$l:51.30168048321575->33.352931571745636
+	 improve value x$w(high is good):13.289890711441963  	x$d:4.658858200028153  	 x$l(negative is good):-17.948748911470112
+	 	 $w-$l: -5.043647244229882 -> 26.19499237868219  _ @double@	 lift : 31.238639622912075 : good	 :) hit 
+
+[TimeMatrix: total:  o: 4619212.0 -> a: 71149.0
+org->adv	$w:68.0148908515132->70.15277797298627  	$d:4.692228890988333->5.186299174970835  	$l:27.292880257498464->24.660922852042898
+	 improve value x$w(high is good):2.137887121473071  	x$d:0.4940702839825022  	 x$l(negative is good):-2.631957405455566
+	 	 $w-$l: 40.72201059401473 -> 45.49185512094337  _ @double@	 lift : 4.769844526928635 : good	 :) hit 
+
+[Prob_ROI diff: 0.26446730506631866 (up%-> 26.513475032331907) . o: 0.9974826187205317 -> a: 1.2619499237868503	 returnMoney: o:11.683781325001991 a: 0.3313401881363373	 totalSpendMoney: o: 11.713268086805108 a: 0.2625620730987915
+
+[Time_ROI diff: 0.042565200957002114 (up%-> 3.013778453486472) . o: 1.4123533502524317 -> a: 1.4549185512094338	 returnMoney: o:2.439528E9 a: 6.21096E7	 totalSpendMoney: o: 1.7272788E9 a: 4.26894E7
+
+[[Per_Prob_ROI diff: 0.09347205077633731 (up%-> 2595.7101987658416) . o: 0.0036010202841896453 -> a: 0.09707307106052696	 per returnMoney: o:0.04217971597473643 a: 0.025487706779718254	 per totalSpendMoney: o: 0.04228616637835779 a: 0.020197082546060882
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=5	@@@ 
+
+net money diff:  -0.11903622909621864 , up % -> -60.96051729902213 .  o: 0.1952677476674367 -> a: 0.07623151857121807
+
+[ProbMatrix: total: o: 0.0324064691661135  -> a: 4.376034551646558E-4
+org->adv	$w:47.11413900231145->61.10339389825331  	$d:2.457565322534111->6.826925135264099  	$l:50.428295675154445->32.06968096648259
+	 improve value x$w(high is good):13.989254895941862  	x$d:4.3693598127299875  	 x$l(negative is good):-18.35861470867185
+	 	 $w-$l: -3.314156672842994 -> 29.033712931770715  _ @double@	 lift : 32.34786960461371 : good	 :) hit 
+
+[TimeMatrix: total:  o: 2623996.0 -> a: 40417.0
+org->adv	$w:68.00109451386359->70.13632877254621  	$d:4.693376056975697->5.190885023628671  	$l:27.305529429160714->24.672786203825122
+	 improve value x$w(high is good):2.1352342586826154  	x$d:0.4975089666529744  	 x$l(negative is good):-2.6327432253355916
+	 	 $w-$l: 40.69556508470288 -> 45.46354256872108  _ @double@	 lift : 4.767977484018204 : good	 :) hit 
+
+[Prob_ROI diff: 0.2736664831564657 (up%-> 26.917909373086665) . o: 1.0166706461612716 -> a: 1.2903371293177373	 returnMoney: o:11.908535834484141 a: 0.33879359167001316	 totalSpendMoney: o: 11.713268086816704 a: 0.2625620730987951
+
+[Time_ROI diff: 0.04254713057440829 (up%-> 3.013064460746732) . o: 1.4120882951128026 -> a: 1.454635425687211	 returnMoney: o:1.3855416E9 a: 3.52752E7	 totalSpendMoney: o: 9.812004E8 a: 2.42502E7
+
+[[Per_Prob_ROI diff: 0.09558641111383415 (up%-> 2604.3277612573083) . o: 0.0036702911413764323 -> a: 0.09925670225521058	 per returnMoney: o:0.04299110409561062 a: 0.026061045513077936	 per totalSpendMoney: o: 0.04228616637839965 a: 0.02019708254606116
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=5	@@@ 
+
+net money diff:  1.1948171139052994 , up % -> 104.6091724051058 .  o: -1.142172417996285 -> a: 0.05264469590901433
+
+[ProbMatrix: total: o: 0.032406469165869256  -> a: 4.376034551646755E-4
+org->adv	$w:38.497483949669736->56.25444575813202  	$d:8.42139867299897->7.541489442300053  	$l:53.08111737733129->36.20406479956792
+	 improve value x$w(high is good):17.756961808462286  	x$d:-0.8799092306989174  	 x$l(negative is good):-16.877052577763372
+	 	 $w-$l: -14.583633427661551 -> 20.0503809585641  _ @double@	 lift : 34.63401438622565 : good	 :) hit 
+
+[TimeMatrix: total:  o: 5.4456508E7 -> a: 24973.0
+org->adv	$w:31.589565015810418->70.08769471028711  	$d:3.5588877641585097->5.193609097825651  	$l:64.85154722003108->24.718696191887236
+	 improve value x$w(high is good):38.49812969447669  	x$d:1.6347213336671413  	 x$l(negative is good):-40.13285102814385
+	 	 $w-$l: -33.261982204220665 -> 45.36899851839987  _ @double@	 lift : 78.63098072262054 : good	 :) hit 
+
+[Prob_ROI diff: 0.30490516548350144 (up%-> 34.04484447262351) . o: 0.8955986441021485 -> a: 1.20050380958565	 returnMoney: o:9.798034327151843 a: 0.31520676900780936	 totalSpendMoney: o: 10.940206745148128 a: 0.26256207309879503
+
+[Time_ROI diff: 0.7826130962924612 (up%-> 116.62048108751826) . o: 0.6710768888915374 -> a: 1.4536899851839986	 returnMoney: o:1.10136276E10 a: 2.17818E7	 totalSpendMoney: o: 1.64118714E10 a: 1.49838E7
+
+[[Per_Prob_ROI diff: 0.09225162437727033 (up%-> 97288.73508030223) . o: 9.482251393352553E-5 -> a: 0.09234644689120386	 per returnMoney: o:0.0010373779065274583 a: 0.02424667453906226	 per totalSpendMoney: o: 0.0011583066961512046 a: 0.020197082546061156
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=5	@@@ 
+
+net money diff:  1.9257884185685918 , up % -> 102.03885227745977 .  o: -1.887308976518149 -> a: 0.0384794420504429
+
+[ProbMatrix: total: o: 0.032406469166033354  -> a: 4.3760345516467733E-4
+org->adv	$w:34.89852245632507->53.59621222030901  	$d:8.651601619574052->7.462945086405402  	$l:56.44987592410088->38.94084269328559
+	 improve value x$w(high is good):18.697689763983945  	x$d:-1.1886565331686496  	 x$l(negative is good):-17.50903323081529
+	 	 $w-$l: -21.551353467775808 -> 14.655369527023426  _ @double@	 lift : 36.206722994799236 : good	 :) hit 
+
+[TimeMatrix: total:  o: 3.2685244E7 -> a: 14989.0
+org->adv	$w:31.580220114006185->70.0647141236907  	$d:3.5604996554408466->5.21048769097338  	$l:64.85928023055297->24.724798185335914
+	 improve value x$w(high is good):38.484494009684525  	x$d:1.6499880355325338  	 x$l(negative is good):-40.134482045217055
+	 	 $w-$l: -33.27906011654677 -> 45.33991593835479  _ @double@	 lift : 78.61897605490157 : good	 :) hit 
+
+[Prob_ROI diff: 0.31906496680810703 (up%-> 38.55822512544452) . o: 0.8274887284621316 -> a: 1.1465536952702386	 returnMoney: o:9.052897768777688 a: 0.3010415151492376	 totalSpendMoney: o: 10.940206745295837 a: 0.2625620730987947
+
+[Time_ROI diff: 0.7824934155543923 (up%-> 116.6323917706169) . o: 0.6709057438291557 -> a: 1.453399159383548	 returnMoney: o:6.608784E9 a: 1.3071E7	 totalSpendMoney: o: 9.8505402E9 a: 8993400.0
+
+[[Per_Prob_ROI diff: 0.08810882679771467 (up%-> 100567.87971614026) . o: 8.761129999599064E-5 -> a: 0.08819643809771066	 per returnMoney: o:9.58485735180274E-4 a: 0.023157039626864433	 per totalSpendMoney: o: 0.0011583066961668436 a: 0.020197082546061132
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=5	@@@ 
+
+net money diff:  2.7386079969451553 , up % -> 100.73957472364583 .  o: -2.7185026385686566 -> a: 0.020105358376498794
+
+[ProbMatrix: total: o: 0.03240646916608264  -> a: 4.3760345516467706E-4
+org->adv	$w:31.038007165249482->49.44728044144826  	$d:8.62362782336907->8.762812529497918  	$l:60.338365011381434->41.789907029053815
+	 improve value x$w(high is good):18.409273276198775  	x$d:0.13918470612884803  	 x$l(negative is good):-18.54845798232762
+	 	 $w-$l: -29.300357846131952 -> 7.657373412394447  _ @double@	 lift : 36.9577312585264 : good	 :) hit 
+
+[TimeMatrix: total:  o: 2.1799612E7 -> a: 9997.0
+org->adv	$w:31.55191018996118->70.05101530459137  	$d:3.5627881817346108->5.171551465439632  	$l:64.88530162830422->24.777433229968988
+	 improve value x$w(high is good):38.4991051146302  	x$d:1.608763283705021  	 x$l(negative is good):-40.10786839833523
+	 	 $w-$l: -33.333391438343035 -> 45.27358207462239  _ @double@	 lift : 78.60697351296541 : good	 :) hit 
+
+[Prob_ROI diff: 0.3250610526762181 (up%-> 43.254233854046966) . o: 0.7515126814477253 -> a: 1.0765737341239434	 returnMoney: o:8.221704106818073 a: 0.28266743147529755	 totalSpendMoney: o: 10.94020674538673 a: 0.26256207309879875
+
+[Time_ROI diff: 0.782374532571865 (up%-> 116.709384383242) . o: 0.6703612881743588 -> a: 1.4527358207462238	 returnMoney: o:4.4041896E9 a: 8713800.0	 totalSpendMoney: o: 6.5698746E9 a: 5998200.0
+
+[[Per_Prob_ROI diff: 0.08273379691282992 (up%-> 103979.71067319025) . o: 7.956725055031501E-5 -> a: 0.08281336416338024	 per returnMoney: o:8.704821711824324E-4 a: 0.021743648575022888	 per totalSpendMoney: o: 0.001158306696176467 a: 0.020197082546061444
+
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=5	@@@ 
+
+net money diff:  3.6248594137320618 , up % -> 99.84430829057096 .  o: -3.6305118196450907 -> a: -0.005652405913028735
+
+[ProbMatrix: total: o: 0.032406469166120784  -> a: 4.3760345516457883E-4
+org->adv	$w:26.901705155950033->39.520367832248226  	$d:8.557796562625402->16.653687489386797  	$l:64.54049828142456->43.82594467836498
+	 improve value x$w(high is good):12.618662676298193  	x$d:8.095890926761395  	 x$l(negative is good):-20.714553603059578
+	 	 $w-$l: -37.63879312547453 -> -4.305576846116754  _  _ 	 lift : 33.33321627935778 : good	 :) hit 
+
+[TimeMatrix: total:  o: 1.148686E7 -> a: 148225.0
+org->adv	$w:31.44805455973173->31.580367684263788  	$d:3.566892954210289->3.5898127846179797  	$l:64.98505248605798->64.82981953111823
+	 improve value x$w(high is good):0.13231312453205746  	x$d:0.022919830407690522  	 x$l(negative is good):-0.15523295493974842
+	 	 $w-$l: -33.53699792632625 -> -33.24945184685445  _  _ 	 lift : 0.287546079471801 : good	 :| stand
+
+[Prob_ROI diff: 0.30287192056119594 (up%-> 46.30557133790746) . o: 0.654072310977521 -> a: 0.956944231538717	 returnMoney: o:6.864490271410923 a: 0.12562863063638358	 totalSpendMoney: o: 10.495002091056014 a: 0.1312810365494123
+
+[Time_ROI diff: 7.204379997381993E-4 (up%-> 0.10804651464920417) . o: 0.6667850435317173 -> a: 0.6675054815314555	 returnMoney: o:2.303787E9 a: 2.96823E7	 totalSpendMoney: o: 3.455067E9 a: 4.44675E7
+
+[[Per_Prob_ROI diff: 0.002418942936594018 (up%-> 3630.6020618811353) . o: 6.662649597407773E-5 -> a: 0.0024855694325680955	 per returnMoney: o:6.992452145676808E-4 a: 3.263081315230742E-4	 per totalSpendMoney: o: 0.0010690640818025888 a: 3.409897053231489E-4
+
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+		 */
+	}
+	
+	public static void test66vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(t.diffWith(o));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 6) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		/**
+MatrixKey [startValue=Six, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=One1, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Two2, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Six, dealerCard=Four4, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Six, dealerCard=Five5, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Six, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Six, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Six, dealerCard=Six6, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Six, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Six, dealerCard=Ten, situation=Start_With_Pair] : Split -> Hit
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=6	@@@ 
+
+net money diff:  4.834972670894469 , up % -> 98.60422812443504 .  o: -4.903413132338408 -> a: -0.06844046144393903
+
+[ProbMatrix: total: o: 0.032406469165197765  -> a: 4.376034551644617E-4
+org->adv	$w:19.880939026578933->19.380994124279503  	$d:9.80155523113255->9.105226055580633  	$l:70.31750574228853->71.51377982013986
+	 improve value x$w(high is good):-0.4999449022994291  	x$d:-0.6963291755519165  	 x$l(negative is good):1.1962740778513279
+	 	 $w-$l: -50.436566715709596 -> -52.13278569586036  _ #Surrender#	 lift : -1.6962189801507654 : bad	 :| stand
+
+[TimeMatrix: total:  o: 2.59570012E8 -> a: 2742337.0
+org->adv	$w:31.61818708087127->31.0800605468985  	$d:3.5113339671918653->3.4557386637747296  	$l:64.87047895193687->65.46420078932677
+	 improve value x$w(high is good):-0.5381265339727683  	x$d:-0.0555953034171357  	 x$l(negative is good):0.5937218373898929
+	 	 $w-$l: -33.2522918710656 -> -34.38414024242826  _  _ 	 lift : -1.1318483713626593 : bad	 :| stand
+
+[Prob_ROI diff: -0.016962189788473192 (up%-> -3.422319372359501) . o: 0.49563433282904557 -> a: 0.4786721430405724	 returnMoney: o:4.818527617201943 a: 0.06284057510589838	 totalSpendMoney: o: 9.721940749540352 a: 0.13128103654983742
+
+[Time_ROI diff: -0.011318483713626648 (up%-> -1.6957112132993535) . o: 0.667477081289344 -> a: 0.6561585975757174	 returnMoney: o:5.19771102E10 a: 5.398224E8	 totalSpendMoney: o: 7.78710036E10 a: 8.227011E8
+
+[[Per_Prob_ROI diff: 0.002397903584446019 (up%-> 2914.9250040493985) . o: 8.226295980565072E-5 -> a: 0.00248016654425167	 per returnMoney: o:7.997556211123558E-4 a: 3.2559883474558745E-4	 per totalSpendMoney: o: 0.0016136001244050377 a: 6.802126246105566E-4
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=6	@@@ 
+
+net money diff:  1.0842580503123893 , up % -> 96.9916838428353 .  o: -1.1178876449545037 -> a: -0.033629594642114305
+
+[ProbMatrix: total: o: 0.0324064691659784  -> a: 4.376034551647138E-4
+org->adv	$w:40.63774743225059->34.732539471798866  	$d:3.8511074579222933->4.918430262303315  	$l:55.51114510982711->60.34903026589782
+	 improve value x$w(high is good):-5.905207960451726  	x$d:1.0673228043810217  	 x$l(negative is good):4.837885156070705
+	 	 $w-$l: -14.873397677576516 -> -25.61649079409895  _  _ 	 lift : -10.743093116522434 : bad	 :| stand
+
+[TimeMatrix: total:  o: 2.6368732E7 -> a: 346957.0
+org->adv	$w:59.0700379525265->46.568594955570866  	$d:4.206891707951675->3.233830128805587  	$l:36.723070339521826->50.197574915623555
+	 improve value x$w(high is good):-12.501442996955632  	x$d:-0.9730615791460879  	 x$l(negative is good):13.47450457610173
+	 	 $w-$l: 22.346967613004676 -> -3.6289799600526917  _  _ 	 lift : -25.97594757305737 : bad	 :| stand
+
+[Prob_ROI diff: -0.15695641025609908 (up%-> -17.424277410783066) . o: 0.9007915023148456 -> a: 0.7438350920587465	 returnMoney: o:10.150175787496659 a: 0.09765144190730492	 totalSpendMoney: o: 11.268063432451163 a: 0.13128103654941922
+
+[Time_ROI diff: -0.2941001072440992 (up%-> -23.381912634749913) . o: 1.2578103076435723 -> a: 0.9637102003994731	 returnMoney: o:1.15211208E10 a: 1.003098E8	 totalSpendMoney: o: 9.1596648E9 a: 1.040871E8
+
+[[Per_Prob_ROI diff: 0.0544464178435502 (up%-> 1964.393064730423) . o: 0.0027716661609687556 -> a: 0.05721808400451896	 per returnMoney: o:0.031231310115374337 a: 0.007511649377484993	 per totalSpendMoney: o: 0.03467096440754204 a: 0.010098541273032249
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=6	@@@ 
+
+net money diff:  0.6885653682080607 , up % -> 95.69078506404374 .  o: -0.7195733296024471 -> a: -0.03100796139438647
+
+[ProbMatrix: total: o: 0.032406469166055954  -> a: 4.3760345516469576E-4
+org->adv	$w:42.339563522893826->35.80987075630178  	$d:3.6449852085698473->4.7607303290472105  	$l:54.01545126853633->59.42939891465101
+	 improve value x$w(high is good):-6.529692766592049  	x$d:1.1157451204773632  	 x$l(negative is good):5.4139476461146785
+	 	 $w-$l: -11.675887745642505 -> -23.619528158349233  _  _ 	 lift : -11.94364041270673 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.2006916E7 -> a: 202189.0
+org->adv	$w:60.23211955509641->46.55495600650876  	$d:4.2081413745211504->3.2355865056951663  	$l:35.559739070382435->50.20945748779607
+	 improve value x$w(high is good):-13.67716354858765  	x$d:-0.9725548688259842  	 x$l(negative is good):14.649718417413638
+	 	 $w-$l: 24.672380484713972 -> -3.654501481287309  _  _ 	 lift : -28.32688196600128 : bad	 :| stand
+
+[Prob_ROI diff: -0.1764356376028885 (up%-> -18.7649505228514) . o: 0.9402403560192201 -> a: 0.7638047184163316	 returnMoney: o:11.32155144406385 a: 0.100273075155035	 totalSpendMoney: o: 12.041124773666297 a: 0.13128103654942147
+
+[Time_ROI diff: -0.3273228195334469 (up%-> -25.35857204364506) . o: 1.2907778047205738 -> a: 0.9634549851871269	 returnMoney: o:6.058776E9 a: 5.844E7	 totalSpendMoney: o: 4.6938954E9 a: 6.06567E7
+
+[[Per_Prob_ROI diff: 0.05503784406539435 (up%-> 1480.9590398245075) . o: 0.0037163650435542294 -> a: 0.05875420910894858	 per returnMoney: o:0.044749215193928264 a: 0.007713313473464231	 per totalSpendMoney: o: 0.047593378552040703 a: 0.01009854127303242
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=6	@@@ 
+
+net money diff:  0.2602948979913565 , up % -> 90.48933361564383 .  o: -0.28765257471888006 -> a: -0.02735767672752354
+
+[ProbMatrix: total: o: 0.032406469166144286  -> a: 4.3760345516467505E-4
+org->adv	$w:44.41098005324091->39.58049180346542  	$d:3.2827981036209373->0.0  	$l:52.30622184313817->60.41950819653458
+	 improve value x$w(high is good):-4.830488249775492  	x$d:-3.2827981036209373  	 x$l(negative is good):8.113286353396411
+	 	 $w-$l: -7.895241789897256 -> -20.83901639306916  _  _ 	 lift : -12.943774603171903 : bad	 :| stand
+
+[TimeMatrix: total:  o: 4609084.0 -> a: 9073.0
+org->adv	$w:67.81573084803834->57.91910062823763  	$d:4.5757465040776->0.0  	$l:27.608522647884048->42.08089937176237
+	 improve value x$w(high is good):-9.896630219800713  	x$d:-4.5757465040776  	 x$l(negative is good):14.472376723878323
+	 	 $w-$l: 40.2072082001543 -> 15.838201256475259  _ @double@	 lift : -24.36900694367904 : bad	 :| stand
+
+[Prob_ROI diff: -0.18450098579120444 (up%-> -18.90164330311795) . o: 0.9761108218604981 -> a: 0.7916098360692937	 returnMoney: o:11.753472198980779 a: 0.10392335982188142	 totalSpendMoney: o: 12.041124773699659 a: 0.13128103654940496
+
+[Time_ROI diff: -0.2543288445353249 (up%-> -18.002894453391182) . o: 1.4127108571000775 -> a: 1.1583820125647526	 returnMoney: o:2.8531812E9 a: 3153000.0	 totalSpendMoney: o: 2.0196498E9 a: 2721900.0
+
+[[Per_Prob_ROI diff: 0.7858340323896458 (up%-> 13605.622281773067) . o: 0.005775803679647918 -> a: 0.7916098360692937	 per returnMoney: o:0.0695471727750342 a: 0.10392335982188142	 per totalSpendMoney: o: 0.07124925901597431 a: 0.13128103654940496
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=6	@@@ 
+
+net money diff:  0.1905934512820901 , up % -> 749.8695341550798 .  o: -0.025416881550847703 -> a: 0.1651765697312424
+
+[ProbMatrix: total: o: 4.3760345516467207E-4  -> a: 0.032406469166145466
+org->adv	$w:38.107831564400016->46.469073339761316  	$d:4.423671980891322->3.1367986235505616  	$l:57.468496454708664->50.39412803668814
+	 improve value x$w(high is good):8.3612417753613  	x$d:-1.28687335734076  	 x$l(negative is good):-7.074368418020526
+	 	 $w-$l: -19.360664890308648 -> -3.925054696926822  _  _ 	 lift : 15.435610193381827 : good	 :) hit 
+
+[TimeMatrix: total:  o: 71149.0 -> a: 2780284.0
+org->adv	$w:46.53473696046325->67.80400851136072  	$d:3.2382746068110584->4.577230239788453  	$l:50.22698843272568->27.618761248850838
+	 improve value x$w(high is good):21.26927155089747  	x$d:1.3389556329773948  	 x$l(negative is good):-22.608227183874845
+	 	 $w-$l: -3.692251472262431 -> 40.185247262509876  _ @double@	 lift : 43.87749873477231 : good	 :) hit 
+
+[Prob_ROI diff: 0.20732435159575102 (up%-> 25.710077013125776) . o: 0.8063933510969479 -> a: 1.013717702692699	 returnMoney: o:0.10586415499854851 a: 12.20630134342643	 totalSpendMoney: o: 0.1312810365493962 a: 12.041124773695188
+
+[Time_ROI diff: 0.44941698032514343 (up%-> 46.664675189214606) . o: 0.9630774852773757 -> a: 1.4124944656025191	 returnMoney: o:2.05566E7 a: 1.7208276E9	 totalSpendMoney: o: 2.13447E7 a: 1.2182898E9
+
+[[Per_Prob_ROI diff: -0.056031928174956364 (up%-> -90.3299940759134) . o: 0.06203025777668831 -> a: 0.0059983296017319465	 per returnMoney: o:0.008143396538349886 a: 0.07222663516820373	 per totalSpendMoney: o: 0.010098541273030478 a: 0.07124925901594786
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=6	@@@ 
+
+net money diff:  0.44358876136103503 , up % -> 1945.237608312475 .  o: -0.0228038343216002 -> a: 0.4207849270394348
+
+[ProbMatrix: total: o: 4.3760345516467364E-4  -> a: 0.0324064691661446
+org->adv	$w:39.11497339361959->47.314925863092974  	$d:4.399810776396415->3.397837877864038  	$l:56.48521582998399->49.287236259042984
+	 improve value x$w(high is good):8.19995246947338  	x$d:-1.0019728985323773  	 x$l(negative is good):-7.197979570941008
+	 	 $w-$l: -17.370242436364396 -> -1.972310395950011  _  _ 	 lift : 15.397932040414386 : good	 :) hit 
+
+[TimeMatrix: total:  o: 40417.0 -> a: 1579372.0
+org->adv	$w:46.524977113590815->67.78972908219217  	$d:3.2387361753717494->4.5792884766856705  	$l:50.23628671103744->27.630982441122164
+	 improve value x$w(high is good):21.264751968601352  	x$d:1.3405523013139211  	 x$l(negative is good):-22.605304269915273
+	 	 $w-$l: -3.7113095974466215 -> 40.158746641069996  _ @double@	 lift : 43.87005623851662 : good	 :) hit 
+
+[Prob_ROI diff: 0.20864807395597695 (up%-> 25.250960441858545) . o: 0.8262975756363738 -> a: 1.0349456495923508	 returnMoney: o:0.10847720222779751 a: 12.461909700737763	 totalSpendMoney: o: 0.1312810365493977 a: 12.041124773698328
+
+[Time_ROI diff: 0.44934122420664846 (up%-> 46.666043782306225) . o: 0.9628869040255338 -> a: 1.4122281282321822	 returnMoney: o:1.16751E7 a: 9.773514E8	 totalSpendMoney: o: 1.21251E7 a: 6.920634E8
+
+[[Per_Prob_ROI diff: -0.05743741321704443 (up%-> -90.36531073524165) . o: 0.06356135197202875 -> a: 0.006123938754984324	 per returnMoney: o:0.008344400171369039 a: 0.07373911065525304	 per totalSpendMoney: o: 0.010098541273030594 a: 0.07124925901596645
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=6	@@@ 
+
+net money diff:  1.2976170658439696 , up % -> 97.83646168429868 .  o: -1.326312341539042 -> a: -0.028695275695072492
+
+[ProbMatrix: total: o: 0.03240646916605486  -> a: 4.3760345516454695E-4
+org->adv	$w:36.623741333337726->35.274437136656935  	$d:9.605620472021975->7.5932272447408575  	$l:53.770638194640284->57.132335618602205
+	 improve value x$w(high is good):-1.3493041966807908  	x$d:-2.012393227281118  	 x$l(negative is good):3.361697423961921
+	 	 $w-$l: -17.146896861302558 -> -21.857898481945266  _  _ 	 lift : -4.711001620642707 : bad	 :| stand
+
+[TimeMatrix: total:  o: 2.6517484E7 -> a: 370753.0
+org->adv	$w:31.842402544675807->30.933802288855382  	$d:3.5686115620923915->3.49990424892044  	$l:64.5889858932318->65.56629346222418
+	 improve value x$w(high is good):-0.9086002558204243  	x$d:-0.06870731317195133  	 x$l(negative is good):0.9773075689923871
+	 	 $w-$l: -32.746583348555994 -> -34.6324911733688  _  _ 	 lift : -1.8859078248128047 : bad	 :| stand
+
+[Prob_ROI diff: -0.10087354683383043 (up%-> -11.433091756064327) . o: 0.8822945620140344 -> a: 0.781421015180204	 returnMoney: o:9.941751090646509 a: 0.10258576085439206	 totalSpendMoney: o: 11.268063432185551 a: 0.13128103654946455
+
+[Time_ROI diff: -0.027807141768486532 (up%-> -4.080391320998438) . o: 0.6814822300347986 -> a: 0.653675088266312	 returnMoney: o:5.4826254E9 a: 7.27056E7	 totalSpendMoney: o: 8.045148E9 a: 1.112259E8
+
+[[Per_Prob_ROI diff: 0.0038543470388022914 (up%-> 1982.010687578944) . o: 1.944665113542064E-4 -> a: 0.004048813550156498	 per returnMoney: o:0.0021912609853750294 a: 5.315324396600625E-4	 per totalSpendMoney: o: 0.0024835934388771326 a: 6.802126246086246E-4
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=6	@@@ 
+
+net money diff:  2.1239456037681106 , up % -> 98.32104391957914 .  o: -2.160214659137848 -> a: -0.036269055369737596
+
+[ProbMatrix: total: o: 0.032406469166107586  -> a: 4.3760345516462794E-4
+org->adv	$w:33.40374626843834->32.36933386467774  	$d:8.336731851987368->7.6342992101321645  	$l:58.25952187957428->59.996366925190095
+	 improve value x$w(high is good):-1.034412403760598  	x$d:-0.7024326418552036  	 x$l(negative is good):1.7368450456158158
+	 	 $w-$l: -24.855775611135943 -> -27.627033060512353  _  _ 	 lift : -2.7712574493764075 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.5916012E7 -> a: 222529.0
+org->adv	$w:31.832936542143848->30.924508715717952  	$d:3.5704295774594796->3.5015660880154944  	$l:64.59663388039667->65.57392519626656
+	 improve value x$w(high is good):-0.9084278264258963  	x$d:-0.06886348944398524  	 x$l(negative is good):0.9772913158698913
+	 	 $w-$l: -32.763697338252825 -> -34.64941648054861  _  _ 	 lift : -1.885719142295783 : bad	 :| stand
+
+[Prob_ROI diff: -0.08455906876147345 (up%-> -10.461492876218436) . o: 0.8082887381560728 -> a: 0.7237296693945994	 returnMoney: o:9.107848773131911 a: 0.09501198117971735	 totalSpendMoney: o: 11.26806343226976 a: 0.13128103654945494
+
+[Time_ROI diff: -0.027804288886927986 (up%-> -4.08100333521601) . o: 0.681310124081442 -> a: 0.653505835194514	 returnMoney: o:3.2898858E9 a: 4.36272E7	 totalSpendMoney: o: 4.828764E9 a: 6.67587E7
+
+[[Per_Prob_ROI diff: 0.003571739769584996 (up%-> 2004.8508125419532) . o: 1.7815489049064864E-4 -> a: 0.0037498946600756445	 per returnMoney: o:0.0020074606068177015 a: 4.922900579259966E-4	 per totalSpendMoney: o: 0.002483593438895693 a: 6.802126246085748E-4
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=6	@@@ 
+
+net money diff:  2.9035156810778795 , up % -> 98.47275682083415 .  o: -2.9485471665637117 -> a: -0.045031485485832454
+
+[ProbMatrix: total: o: 0.032406469166140796  -> a: 4.3760345516463255E-4
+org->adv	$w:29.831105948909347->28.882581742440642  	$d:8.410041178765875->7.933244549200934  	$l:61.75885287232477->63.18417370835843
+	 improve value x$w(high is good):-0.9485242064687043  	x$d:-0.47679662956494084  	 x$l(negative is good):1.4253208360336558
+	 	 $w-$l: -31.92774692341543 -> -34.30159196591778  _  _ 	 lift : -2.373845042502354 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.0615276E7 -> a: 148417.0
+org->adv	$w:31.80458049324389->30.89673015894406  	$d:3.572530756619046->3.5036417661049613  	$l:64.62288875013707->65.59962807495097
+	 improve value x$w(high is good):-0.9078503342998303  	x$d:-0.06888899051408481  	 x$l(negative is good):0.9767393248139058
+	 	 $w-$l: -32.818308256893175 -> -34.70289791600692  _  _ 	 lift : -1.8845896591137445 : bad	 :| stand
+
+[Prob_ROI diff: -0.08134299029808811 (up%-> -11.017202745622441) . o: 0.7383270706387682 -> a: 0.6569840803406801	 returnMoney: o:8.319516265757672 a: 0.08624955106360026	 totalSpendMoney: o: 11.268063432321384 a: 0.1312810365494327
+
+[Time_ROI diff: -0.027790471218001822 (up%-> -4.082262516640243) . o: 0.6807614920579326 -> a: 0.6529710208399307	 returnMoney: o:2.1924414E9 a: 2.90736E7	 totalSpendMoney: o: 3.220572E9 a: 4.45251E7
+
+[[Per_Prob_ROI diff: 0.0032413279504641553 (up%-> 1991.7873116223361) . o: 1.627346419746018E-4 -> a: 0.003404062592438757	 per returnMoney: o:0.001833704268405923 a: 4.468888656145091E-4	 per totalSpendMoney: o: 0.0024835934389070714 a: 6.802126246084596E-4
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=6	@@@ 
+
+net money diff:  3.78282740166407 , up % -> 98.55381979823099 .  o: -3.8383366666138805 -> a: -0.055509264949810136
+
+[ProbMatrix: total: o: 0.032406469166140005  -> a: 4.3760345516463206E-4
+org->adv	$w:25.825531932791375->24.80618102382986  	$d:8.577241898194968->8.104863220513488  	$l:65.59722616901365->67.08895575565664
+	 improve value x$w(high is good):-1.0193509089615134  	x$d:-0.4723786776814798  	 x$l(negative is good):1.4917295866429896
+	 	 $w-$l: -39.77169423622228 -> -42.28277473182678  _  _ 	 lift : -2.511080495604495 : bad	 :| stand
+
+[TimeMatrix: total:  o: 6173860.0 -> a: 74305.0
+org->adv	$w:31.551865445604534->30.856604535361008  	$d:3.571963083063108->3.5098580176300382  	$l:64.87617147133236->65.63353744700895
+	 improve value x$w(high is good):-0.6952609102435261  	x$d:-0.06210506543306993  	 x$l(negative is good):0.757365975676592
+	 	 $w-$l: -33.32430602572782 -> -34.77693291164794  _  _ 	 lift : -1.4526268859201164 : bad	 :| stand
+
+[Prob_ROI diff: -0.05709779002029136 (up%-> -9.002126251629257) . o: 0.6342700427019392 -> a: 0.5771722526816478	 returnMoney: o:6.656665424466484 a: 0.07577177159961133	 totalSpendMoney: o: 10.495002091080364 a: 0.13128103654942147
+
+[Time_ROI diff: -0.01851655384161155 (up%-> -2.760585979196487) . o: 0.6707472247251322 -> a: 0.6522306708835206	 returnMoney: o:1.2483726E9 a: 1.45392E7	 totalSpendMoney: o: 1.861167E9 a: 2.22915E7
+
+[[Per_Prob_ROI diff: 0.002870425651612838 (up%-> 2389.9470013738132) . o: 1.201041550278241E-4 -> a: 0.0029905298066406623	 per returnMoney: o:0.0012604933581644544 a: 3.925998528477271E-4	 per totalSpendMoney: o: 0.0019873134048627845 a: 6.802126246084014E-4
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+		 */
+	}
+	
+	public static void test77vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(t.diffWith(o));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 7) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		/**
+MatrixKey [startValue=Seven, dealerCard=One1, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=Two2, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Seven, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Seven, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Seven, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Seven, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Seven, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Seven, dealerCard=Ten, situation=Start_With_Pair] : Split -> Giveup
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=7	@@@ 
+
+net money diff:  4.765635415818406 , up % -> 98.3930692686094 .  o: -4.843466568573443 -> a: -0.07783115275503695
+
+[ProbMatrix: total: o: 0.03240646916556775  -> a: 4.3760345516440915E-4
+org->adv	$w:19.371103657399345->16.50004826544945  	$d:11.437837047431247->7.71399683650005  	$l:69.1910592951694->75.78595489805049
+	 improve value x$w(high is good):-2.871055391949895  	x$d:-3.723840210931196  	 x$l(negative is good):6.594895602881095
+	 	 $w-$l: -49.81995563777005 -> -59.28590663260104  _ #Surrender#	 lift : -9.465950994830985 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.62380452E8 -> a: 696241.0
+org->adv	$w:31.681535164097212->30.604345334445977  	$d:3.520689793374882->3.4028447046353203  	$l:64.7977750425279->65.9928099609187
+	 improve value x$w(high is good):-1.0771898296512354  	x$d:-0.1178450887395619  	 x$l(negative is good):1.1950349183908031
+	 	 $w-$l: -33.11623987843069 -> -35.38846462647273  _  _ 	 lift : -2.27222474804204 : bad	 :| stand
+
+[Prob_ROI diff: -0.09465950994506755 (up%-> -18.86397494239223) . o: 0.5018004436188216 -> a: 0.40714093367375404	 returnMoney: o:4.878474180943502 a: 0.053449883794393235	 totalSpendMoney: o: 9.721940749516945 a: 0.13128103654943019
+
+[Time_ROI diff: -0.0227222474804204 (up%-> -3.3972742320587193) . o: 0.6688376012156931 -> a: 0.6461153537352727	 returnMoney: o:3.25818456E10 a: 1.349556E8	 totalSpendMoney: o: 4.87141356E10 a: 2.088723E8
+
+[[Per_Prob_ROI diff: 0.008176702194091301 (up%-> 6180.590674357271) . o: 1.322964523118433E-4 -> a: 0.008308998646403144	 per returnMoney: o:0.0012861782707470344 a: 0.0010908139549876171	 per totalSpendMoney: o: 0.0025631270101547443 a: 0.0026792048275393917
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=7	@@@ 
+
+net money diff:  0.6433306992166721 , up % -> 94.35836771729569 .  o: -0.6817950699869417 -> a: -0.03846437077026971
+
+[ProbMatrix: total: o: 0.03240646916610977  -> a: 4.3760345516467684E-4
+org->adv	$w:40.93195528999128->35.3503705556954  	$d:7.776712556525983->0.0  	$l:51.29133215348273->64.6496294443046
+	 improve value x$w(high is good):-5.58158473429588  	x$d:-7.776712556525983  	 x$l(negative is good):13.358297290821866
+	 	 $w-$l: -10.359376863491448 -> -29.29925888860919  _  _ 	 lift : -18.939882025117743 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.547962E7 -> a: 26689.0
+org->adv	$w:59.950179655572946->57.960208325527375  	$d:4.437860877721804->0.0  	$l:35.61195946670526->42.03979167447263
+	 improve value x$w(high is good):-1.9899713300455701  	x$d:-4.437860877721804  	 x$l(negative is good):6.4278322077673735
+	 	 $w-$l: 24.338220188867687 -> 15.920416651054742  _ @double@	 lift : -8.417803537812945 : bad	 :| stand
+
+[Prob_ROI diff: -0.23248573479555013 (up%-> -24.74586811067275) . o: 0.9394931459093988 -> a: 0.7070074111138487	 returnMoney: o:10.586268362397796 a: 0.09281666577914238	 totalSpendMoney: o: 11.268063432384738 a: 0.1312810365494121
+
+[Time_ROI diff: -0.13333473161879095 (up%-> -10.315722939693591) . o: 1.2925388981293384 -> a: 1.1592041665105475	 returnMoney: o:7.6168428E9 a: 9281400.0	 totalSpendMoney: o: 5.8929312E9 a: 8006700.0
+
+[[Per_Prob_ROI diff: 0.7021395709796031 (up%-> 14424.047454640162) . o: 0.0048678401342455895 -> a: 0.7070074111138487	 per returnMoney: o:0.05485113141138754 a: 0.09281666577914238	 per totalSpendMoney: o: 0.05838374835432506 a: 0.1312810365494121
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=7	@@@ 
+
+net money diff:  0.27070281236065247 , up % -> 89.12476519605336 .  o: -0.30373467101447105 -> a: -0.03303185865381858
+
+[ProbMatrix: total: o: 0.032406469166165436  -> a: 4.37603455164674E-4
+org->adv	$w:42.60052166145818->37.41940971749486  	$d:7.427758584716539->0.0  	$l:49.9717197538253->62.58059028250514
+	 improve value x$w(high is good):-5.181111943963323  	x$d:-7.427758584716539  	 x$l(negative is good):12.608870528679844
+	 	 $w-$l: -7.3711980923671145 -> -25.161180565010287  _  _ 	 lift : -17.789982472643175 : bad	 :| stand
+
+[TimeMatrix: total:  o: 5661292.0 -> a: 15553.0
+org->adv	$w:62.955240605854634->57.937375425962834  	$d:4.5750687298941655->0.0  	$l:32.469690664251196->42.06262457403716
+	 improve value x$w(high is good):-5.0178651798918  	x$d:-4.5750687298941655  	 x$l(negative is good):9.592933909785962
+	 	 $w-$l: 30.485549941603434 -> 15.874750851925674  _ @double@	 lift : -14.610799089677762 : bad	 :| stand
+
+[Prob_ROI diff: -0.22638702999809435 (up%-> -23.224536728406157) . o: 0.974775224347955 -> a: 0.7483881943498607	 returnMoney: o:11.737390102670012 a: 0.09824917789558982	 totalSpendMoney: o: 12.041124773684484 a: 0.1312810365494084
+
+[Time_ROI diff: -0.1974717155515493 (up%-> -14.560456897139485) . o: 1.356219224070806 -> a: 1.1587475085192567	 returnMoney: o:3.784134E9 a: 5406600.0	 totalSpendMoney: o: 2.7902082E9 a: 4665900.0
+
+[[Per_Prob_ROI diff: 0.7403322007602082 (up%-> 9189.831055862856) . o: 0.00805599358965252 -> a: 0.7483881943498607	 per returnMoney: o:0.09700322398900836 a: 0.09824917789558982	 per totalSpendMoney: o: 0.09951342788168994 a: 0.1312810365494084
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=7	@@@ 
+
+net money diff:  0.14086960267247173 , up % -> 514.9180029996775 .  o: -0.02735767672752354 -> a: 0.11351192594494819
+
+[ProbMatrix: total: o: 4.3760345516467505E-4  -> a: 0.03240646916616056
+org->adv	$w:39.58049180346542->44.71711174005393  	$d:0.0->6.823328766452659  	$l:60.41950819653458->48.45955949349341
+	 improve value x$w(high is good):5.1366199365885095  	x$d:6.823328766452659  	 x$l(negative is good):-11.95994870304117
+	 	 $w-$l: -20.83901639306916 -> -3.7424477534394764  _  _ 	 lift : 17.096568639629684 : good	 :) hit 
+
+[TimeMatrix: total:  o: 9073.0 -> a: 2649316.0
+org->adv	$w:57.91910062823763->67.21583986206251  	$d:0.0->4.840645660993252  	$l:42.08089937176237->27.943514476944237
+	 improve value x$w(high is good):9.29673923382488  	x$d:4.840645660993252  	 x$l(negative is good):-14.137384894818133
+	 	 $w-$l: 15.838201256475259 -> 39.27232538511827  _ @double@	 lift : 23.434124128643013 : good	 :) hit 
+
+[Prob_ROI diff: 0.2178171840869051 (up%-> 27.51572481318163) . o: 0.7916098360692937 -> a: 1.0094270201561988	 returnMoney: o:0.10392335982188142 a: 12.154636699642046	 totalSpendMoney: o: 0.13128103654940496 a: 12.041124773697097
+
+[Time_ROI diff: 0.2535077753364241 (up%-> 21.88464363108826) . o: 1.1583820125647526 -> a: 1.4118897879011767	 returnMoney: o:3153000.0 a: 2.02143E9	 totalSpendMoney: o: 2721900.0 a: 1.4317194E9
+
+[[Per_Prob_ROI diff: -0.781203371943972 (up%-> -98.68540489883318) . o: 0.7916098360692937 -> a: 0.01040646412532164	 per returnMoney: o:0.10392335982188142 a: 0.12530553298600047	 per totalSpendMoney: o: 0.13128103654940496 a: 0.1241353069453309
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=7	@@@ 
+
+net money diff:  0.5618425412707765 , up % -> 2622.55192487151 .  o: -0.021423504943502827 -> a: 0.5404190363272736
+
+[ProbMatrix: total: o: 4.376034551646746E-4  -> a: 0.032406469166156776
+org->adv	$w:41.84059422952501->46.744049503732136  	$d:0.0->6.471699800461297  	$l:58.15940577047499->46.78425069580656
+	 improve value x$w(high is good):4.903455274207126  	x$d:6.471699800461297  	 x$l(negative is good):-11.375155074668427
+	 	 $w-$l: -16.31881154094998 -> -0.040201192074429404  _  _ 	 lift : 16.27861034887555 : good	 :) hit 
+
+[TimeMatrix: total:  o: 5473.0 -> a: 1598116.0
+org->adv	$w:57.90243011145624->67.20363227700618  	$d:0.0->4.8432028713810515  	$l:42.09756988854376->27.953164851612772
+	 improve value x$w(high is good):9.301202165549938  	x$d:4.8432028713810515  	 x$l(negative is good):-14.144405036930987
+	 	 $w-$l: 15.804860222912476 -> 39.2504674253934  _ @double@	 lift : 23.44560720248093 : good	 :) hit 
+
+[Prob_ROI diff: 0.20806922464838462 (up%-> 24.864515965879846) . o: 0.8368118845904988 -> a: 1.0448811092388834	 returnMoney: o:0.1098575316058996 a: 12.58154381002325	 totalSpendMoney: o: 0.13128103654940243 a: 12.041124773695977
+
+[Time_ROI diff: 0.25362668724933113 (up%-> 21.901212674591186) . o: 1.1580486022291248 -> a: 1.4116752894784559	 returnMoney: o:1901400.0 a: 1.2191784E9	 totalSpendMoney: o: 1641900.0 a: 8.636394E8
+
+[[Per_Prob_ROI diff: -0.8260399143921598 (up%-> -98.71273694880537) . o: 0.8368118845904988 -> a: 0.010771970198339002	 per returnMoney: o:0.1098575316058996 a: 0.12970663721673453	 per totalSpendMoney: o: 0.13128103654940243 a: 0.12413530694531935
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=7	@@@ 
+
+net money diff:  0.9478210788751946 , up % -> 4678.548989540627 .  o: -0.020258868315671058 -> a: 0.9275622105595236
+
+[ProbMatrix: total: o: 4.376034551646736E-4  -> a: 0.03240646916615001
+org->adv	$w:42.28416043620767->47.79788558761865  	$d:0.0->7.67464222220213  	$l:57.715839563792315->44.52747219017923
+	 improve value x$w(high is good):5.513725151410981  	x$d:7.67464222220213  	 x$l(negative is good):-13.188367373613083
+	 	 $w-$l: -15.43167912758464 -> 3.27041339743942  _  _ 	 lift : 18.70209252502406 : good	 :) hit 
+
+[TimeMatrix: total:  o: 3109.0 -> a: 907828.0
+org->adv	$w:57.896429720167255->67.19026071017858  	$d:0.0->4.841886348515358  	$l:42.103570279832745->27.967852941306067
+	 improve value x$w(high is good):9.293830990011323  	x$d:4.841886348515358  	 x$l(negative is good):-14.135717338526678
+	 	 $w-$l: 15.792859440334512 -> 39.22240776887252  _ @double@	 lift : 23.429548328538008 : good	 :) hit 
+
+[Prob_ROI diff: 0.23134964559736637 (up%-> 27.35653767400611) . o: 0.845683208724152 -> a: 1.0770328543215184	 returnMoney: o:0.11102216823373112 a: 12.96868698425778	 totalSpendMoney: o: 0.13128103654940218 a: 12.041124773698256
+
+[Time_ROI diff: 0.2534711563509351 (up%-> 21.890050697084924) . o: 1.157928594403345 -> a: 1.4113997507542801	 returnMoney: o:1080000.0 a: 6.92433E8	 totalSpendMoney: o: 932700.0 a: 4.906002E8
+
+[[Per_Prob_ROI diff: -0.8345797772363013 (up%-> -98.68704600336075) . o: 0.845683208724152 -> a: 0.011103431487850703	 per returnMoney: o:0.11102216823373112 a: 0.1336978039614204	 per totalSpendMoney: o: 0.13128103654940218 a: 0.12413530694534285
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=7	@@@ 
+
+net money diff:  0.3073870654519115 , up % -> 87.68863479992089 .  o: -0.3505437918531591 -> a: -0.043156726401247555
+
+[ProbMatrix: total: o: 0.03240646916604106  -> a: 4.3760345516460984E-4
+org->adv	$w:37.85989474633073->30.27205592112242  	$d:17.230171455296425->6.58234637625147  	$l:44.90993379837286->63.14559770262612
+	 improve value x$w(high is good):-7.587838825208312  	x$d:-10.647825079044955  	 x$l(negative is good):18.235663904253258
+	 	 $w-$l: -7.050039052042129 -> -32.873541781503704  _  _ 	 lift : -25.823502729461573 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1.3377844E7 -> a: 94129.0
+org->adv	$w:32.31106596847743->30.460325723209635  	$d:3.5965287082133717->3.4463342859267603  	$l:64.0924053233092->66.0933399908636
+	 improve value x$w(high is good):-1.8507402452677937  	x$d:-0.1501944222866114  	 x$l(negative is good):2.0009346675544037
+	 	 $w-$l: -31.78133935483177 -> -35.63301426765396  _  _ 	 lift : -3.8516749128221948 : bad	 :| stand
+
+[Prob_ROI diff: -0.29762592025491796 (up%-> -30.71822042897585) . o: 0.968890502439958 -> a: 0.67126458218504	 returnMoney: o:10.917519640434735 a: 0.08812431014815099	 totalSpendMoney: o: 11.268063432287894 a: 0.13128103654939854
+
+[Time_ROI diff: -0.05584949998692923 (up%-> -7.983982059005092) . o: 0.6995193573103896 -> a: 0.6436698573234604	 returnMoney: o:2.870307E9 a: 1.81764E7	 totalSpendMoney: o: 4.103256E9 a: 2.82387E7
+
+[[Per_Prob_ROI diff: 0.013278934236282786 (up%-> 3159.071467575727) . o: 4.2034295116701004E-4 -> a: 0.013699277187449796	 per returnMoney: o:0.004736451037064961 a: 0.0017984553091459385	 per totalSpendMoney: o: 0.004888530773226852 a: 0.002679204827538746
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=7	@@@ 
+
+net money diff:  1.7904576374013628 , up % -> 97.28862544002406 .  o: -1.8403565980127183 -> a: -0.0498989606113555
+
+[ProbMatrix: total: o: 0.032406469166096095  -> a: 4.3760345516467023E-4
+org->adv	$w:33.47508303474355->27.6231265497384  	$d:11.526486861464313->6.744479208163505  	$l:54.99843010379214->65.63239424209809
+	 improve value x$w(high is good):-5.851956485005147  	x$d:-4.782007653300808  	 x$l(negative is good):10.633964138305949
+	 	 $w-$l: -21.523347069048594 -> -38.009267692359685  _  _ 	 lift : -16.485920623311095 : bad	 :| stand
+
+[TimeMatrix: total:  o: 8029492.0 -> a: 56497.0
+org->adv	$w:32.301719710288026->30.451174398640635  	$d:3.5975874937044585->3.4479706887091353  	$l:64.10069279600752->66.10085491265023
+	 improve value x$w(high is good):-1.850545311647391  	x$d:-0.14961680499532326  	 x$l(negative is good):2.000162116642713
+	 	 $w-$l: -31.798973085719496 -> -35.649680514009596  _  _ 	 lift : -3.850707428290101 : bad	 :| stand
+
+[Prob_ROI diff: -0.21676766468311215 (up%-> -25.90822814765414) . o: 0.8366749877595909 -> a: 0.6199073230764788	 returnMoney: o:9.427706834327786 a: 0.08138207593804299	 totalSpendMoney: o: 11.268063432340504 a: 0.1312810365493985
+
+[Time_ROI diff: -0.055838044895691996 (up%-> -7.984377542958304) . o: 0.699341239755596 -> a: 0.643503194859904	 returnMoney: o:1.7223432E9 a: 1.09068E7	 totalSpendMoney: o: 2.462808E9 a: 1.69491E7
+
+[[Per_Prob_ROI diff: 0.012288187217593196 (up%-> 3385.337431013412) . o: 3.6298264111045165E-4 -> a: 0.012651169858703648	 per returnMoney: o:0.004090111424871057 a: 0.0016608586926131223	 per totalSpendMoney: o: 0.004888530773249676 a: 0.0026792048275387447
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=7	@@@ 
+
+net money diff:  2.646408164826776 , up % -> 97.86676953014765 .  o: -2.704092694110594 -> a: -0.05768452928381826
+
+[ProbMatrix: total: o: 0.03240646916611178  -> a: 4.3760345516466454E-4
+org->adv	$w:30.358944524864185->24.587116075539324  	$d:9.893371401348773->6.88604068039515  	$l:59.747684073787035->68.52684324406553
+	 improve value x$w(high is good):-5.771828449324861  	x$d:-3.0073307209536226  	 x$l(negative is good):8.779159170278497
+	 	 $w-$l: -29.38873954892285 -> -43.9397271685262  _  _ 	 lift : -14.550987619603351 : bad	 :| stand
+
+[TimeMatrix: total:  o: 5355316.0 -> a: 37681.0
+org->adv	$w:32.27290415728969->30.423821023858178  	$d:3.6003104205242047->3.4500145962155995  	$l:64.1267854221861->66.12616437992622
+	 improve value x$w(high is good):-1.8490831334315097  	x$d:-0.15029582430860522  	 x$l(negative is good):1.9993789577401202
+	 	 $w-$l: -31.853881264896415 -> -35.70234335606804  _  _ 	 lift : -3.848462091171628 : bad	 :| stand
+
+[Prob_ROI diff: -0.19941879531781082 (up%-> -26.238572082100546) . o: 0.7600215236325705 -> a: 0.5606027283147597	 returnMoney: o:8.563970738254794 a: 0.07359650726558534	 totalSpendMoney: o: 11.268063432365388 a: 0.1312810365494036
+
+[Time_ROI diff: -0.05581071019310835 (up%-> -7.986795418209308) . o: 0.6987872766324279 -> a: 0.6429765664393196	 returnMoney: o:1.1478168E9 a: 7268400.0	 totalSpendMoney: o: 1.642584E9 a: 1.13043E7
+
+[[Per_Prob_ROI diff: 0.011111144664283723 (up%-> 3369.797782668536) . o: 3.297273421399438E-4 -> a: 0.011440872006423667	 per returnMoney: o:0.0037153886066181316 a: 0.0015019695360323538	 per totalSpendMoney: o: 0.004888530773260472 a: 0.0026792048275388488
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=7	@@@ 
+
+net money diff:  3.4244261429687155 , up % -> 97.06935687308837 .  o: -3.527813774892855 -> a: -0.10338763192413948
+
+[ProbMatrix: total: o: 0.03240646916612822  -> a: 8.75206910329346E-4
+org->adv	$w:26.75645988894637->10.623546765936112  	$d:9.924759171030573->0.0  	$l:63.31878094002305->89.37645323406387
+	 improve value x$w(high is good):-16.13291312301026  	x$d:-9.924759171030573  	 x$l(negative is good):26.05767229404082
+	 	 $w-$l: -36.56232105107669 -> -78.75290646812778  _ #Surrender#	 lift : -42.19058541705108 : bad	 :| stand
+
+[TimeMatrix: total:  o: 3540460.0 -> a: 770.0
+org->adv	$w:31.748812301226394->28.83116883116883  	$d:3.5872739700490897->0.0  	$l:64.66391372872452->71.16883116883118
+	 improve value x$w(high is good):-2.9176434700575626  	x$d:-3.5872739700490897  	 x$l(negative is good):6.504917440106652
+	 	 $w-$l: -32.91510142749813 -> -42.33766233766234  _  _ 	 lift : -9.422560910164213 : bad	 :| stand
+
+[Prob_ROI diff: -0.1888771113768964 (up%-> -28.451443952654472) . o: 0.6638577349227102 -> a: 0.4749806235458138	 returnMoney: o:6.967188316205978 a: 0.09353392289996366	 totalSpendMoney: o: 10.495002091098833 a: 0.19692155482410315
+
+[Time_ROI diff: 0.040001045608119234 (up%-> 5.902054031061454) . o: 0.6777478721407986 -> a: 0.7177489177489178	 returnMoney: o:7.259676E8 a: 124350.0	 totalSpendMoney: o: 1.071147E9 a: 173250.0
+
+[[Per_Prob_ROI diff: 0.4747628938852947 (up%-> 218051.54738835647) . o: 2.1772966051909157E-4 -> a: 0.4749806235458138	 per returnMoney: o:0.002285073242442105 a: 0.09353392289996366	 per totalSpendMoney: o: 0.0034421128537549467 a: 0.19692155482410315
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+		 */
+	}
+	
+	public static void test88vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(t.diffWith(o));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 8) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		
+		/**
+MatrixKey [startValue=Eight, dealerCard=One1, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Eight, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Eight, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Two2, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Three3, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Four4, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Five5, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Six6, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Eight, dealerCard=Seven7, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Eight, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+
+MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Giveup
+MatrixKey [startValue=Eight, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Eight, dealerCard=Ten, situation=Start_With_Pair] : Split -> Giveup
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=8	@@@ 
+
+net money diff:  3.9656353834898006 , up % -> 97.9248937119159 .  o: -4.04967034751782 -> a: -0.08403496402801902
+
+[ProbMatrix: total: o: 0.03240646916591752  -> a: 4.376034551645542E-4
+org->adv	$w:23.35856201361099->14.57027312064735  	$d:11.627917857307947->6.84795123190131  	$l:65.01352012908107->78.58177564745135
+	 improve value x$w(high is good):-8.788288892963639  	x$d:-4.7799666254066375  	 x$l(negative is good):13.568255518370279
+	 	 $w-$l: -41.65495811547008 -> -64.011502526804  _ #Surrender#	 lift : -22.356544411333918 : bad	 :| stand
+
+[TimeMatrix: total:  o: 9.7928428E7 -> a: 184717.0
+org->adv	$w:31.70250011569674->28.838710026689473  	$d:3.522537909012488->3.2065267409063596  	$l:64.77496197529076->67.95476323240418
+	 improve value x$w(high is good):-2.863790089007267  	x$d:-0.3160111681061286  	 x$l(negative is good):3.179801257113411
+	 	 $w-$l: -33.07246185959403 -> -39.11605320571469  _  _ 	 lift : -6.043591346120669 : bad	 :| stand
+
+[Prob_ROI diff: -0.22356544409707252 (up%-> -38.31781362771994) . o: 0.5834504188290649 -> a: 0.3598849747319924	 returnMoney: o:5.6722704023301525 a: 0.04724607252136475	 totalSpendMoney: o: 9.721940749847972 a: 0.13128103654938378
+
+[Time_ROI diff: -0.06043591346120658 (up%-> -9.030051775461883) . o: 0.6692753814040597 -> a: 0.6088394679428532	 returnMoney: o:1.96623258E10 a: 3.37389E7	 totalSpendMoney: o: 2.93785284E10 a: 5.54151E7
+
+[[Per_Prob_ROI diff: 0.027429011091136258 (up%-> 10779.788719356784) . o: 2.5444850363238764E-4 -> a: 0.027683459594768645	 per returnMoney: o:0.002473733276201549 a: 0.0036343132708742116	 per totalSpendMoney: o: 0.00423983460525424 a: 0.010098541273029522
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=8	@@@ 
+
+net money diff:  0.22243949363422894 , up % -> 578.3000974142004 .  o: -0.03846437077026971 -> a: 0.18397512286395923
+
+[ProbMatrix: total: o: 4.3760345516467684E-4  -> a: 0.03240646916621595
+org->adv	$w:35.3503705556954->45.27004092890542  	$d:0.0->8.042785442415386  	$l:64.6496294443046->46.6871736286792
+	 improve value x$w(high is good):9.919670373210025  	x$d:8.042785442415386  	 x$l(negative is good):-17.962455815625397
+	 	 $w-$l: -29.29925888860919 -> -1.417132699773771  _  _ 	 lift : 27.88212618883542 : good	 :) hit 
+
+[TimeMatrix: total:  o: 26689.0 -> a: 7793188.0
+org->adv	$w:57.960208325527375->63.005999598623816  	$d:0.0->4.666690961388331  	$l:42.03979167447263->32.32730943998784
+	 improve value x$w(high is good):5.045791273096441  	x$d:4.666690961388331  	 x$l(negative is good):-9.712482234484789
+	 	 $w-$l: 15.920416651054742 -> 30.678690158635973  _ @double@	 lift : 14.758273507581233 : good	 :) hit 
+
+[Prob_ROI diff: 0.30931971767517297 (up%-> 43.75056227315325) . o: 0.7070074111138487 -> a: 1.0163271287890216	 returnMoney: o:0.09281666577914238 a: 11.452038555282252	 totalSpendMoney: o: 0.1312810365494121 a: 11.268063432418293
+
+[Time_ROI diff: 0.20626174239788453 (up%-> 17.793392083706575) . o: 1.1592041665105475 -> a: 1.365465908908432	 returnMoney: o:9281400.0 a: 4.8979284E9	 totalSpendMoney: o: 8006700.0 a: 3.5870016E9
+
+[[Per_Prob_ROI diff: -0.6965298118479825 (up%-> -98.51803544048296) . o: 0.7070074111138487 -> a: 0.010477599265866203	 per returnMoney: o:0.09281666577914238 a: 0.11806225314723971	 per totalSpendMoney: o: 0.1312810365494121 a: 0.11616560239606488
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=8	@@@ 
+
+net money diff:  0.5481711284454205 , up % -> 1659.5225058038031 .  o: -0.03303185865381858 -> a: 0.515139269791602
+
+[ProbMatrix: total: o: 4.37603455164674E-4  -> a: 0.03240646916618333
+org->adv	$w:37.41940971749486->46.90311684866204  	$d:0.0->7.789570722845644  	$l:62.58059028250514->45.30731242849232
+	 improve value x$w(high is good):9.48370713116718  	x$d:7.789570722845644  	 x$l(negative is good):-17.273277854012825
+	 	 $w-$l: -25.161180565010287 -> 1.595804420169722  _  _ 	 lift : 26.75698498518001 : good	 :) hit 
+
+[TimeMatrix: total:  o: 15553.0 -> a: 4541476.0
+org->adv	$w:57.937375425962834->62.98842050469935  	$d:0.0->4.669230884408505  	$l:42.06262457403716->32.34234861089214
+	 improve value x$w(high is good):5.051045078736514  	x$d:4.669230884408505  	 x$l(negative is good):-9.72027596314502
+	 	 $w-$l: 15.874750851925674 -> 30.646071893807207  _ @double@	 lift : 14.771321041881535 : good	 :) hit 
+
+[Prob_ROI diff: 0.29732855838956884 (up%-> 39.72918875983391) . o: 0.7483881943498607 -> a: 1.0457167527394295	 returnMoney: o:0.09824917789558982 a: 11.783202702199524	 totalSpendMoney: o: 0.1312810365494084 a: 11.268063432407923
+
+[Time_ROI diff: 0.20639104995820756 (up%-> 17.811563644434592) . o: 1.1587475085192567 -> a: 1.3651385584774642	 returnMoney: o:5406600.0 a: 2.8535808E9	 totalSpendMoney: o: 4665900.0 a: 2.0903232E9
+
+[[Per_Prob_ROI diff: -0.7376076092700727 (up%-> -98.55949289938314) . o: 0.7483881943498607 -> a: 0.010780585079787934	 per returnMoney: o:0.09824917789558982 a: 0.12147631651752087	 per totalSpendMoney: o: 0.1312810365494084 a: 0.11616560239595797
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=8	@@@ 
+
+net money diff:  0.9031669673015154 , up % -> 3301.329189232186 .  o: -0.02735767672752354 -> a: 0.8758092905739918
+
+[ProbMatrix: total: o: 4.3760345516467505E-4  -> a: 0.03240646916616127
+org->adv	$w:39.58049180346542->48.89491117376683  	$d:0.0->7.103469967841819  	$l:60.41950819653458->44.001618858391346
+	 improve value x$w(high is good):9.314419370301408  	x$d:7.103469967841819  	 x$l(negative is good):-16.417889338143233
+	 	 $w-$l: -20.83901639306916 -> 4.893292315375486  _ @double@	 lift : 25.732308708444645 : good	 :) hit 
+
+[TimeMatrix: total:  o: 9073.0 -> a: 1996060.0
+org->adv	$w:57.91910062823763->68.65985992405038  	$d:0.0->5.0529543200104206  	$l:42.08089937176237->26.287185755939202
+	 improve value x$w(high is good):10.740759295812751  	x$d:5.0529543200104206  	 x$l(negative is good):-15.793713615823169
+	 	 $w-$l: 15.838201256475259 -> 42.37267416811118  _ @double@	 lift : 26.53447291163592 : good	 :) hit 
+
+[Prob_ROI diff: 0.28611508053487456 (up%-> 36.14344687220756) . o: 0.7916098360692937 -> a: 1.0777249166041682	 returnMoney: o:0.10392335982188142 a: 12.143872722976864	 totalSpendMoney: o: 0.13128103654940496 a: 11.268063432402872
+
+[Time_ROI diff: 0.28648480058907544 (up%-> 24.731461424782886) . o: 1.1583820125647526 -> a: 1.444866813153828	 returnMoney: o:3153000.0 a: 1.4787264E9	 totalSpendMoney: o: 2721900.0 a: 1.0234344E9
+
+[[Per_Prob_ROI diff: -0.7768464810473188 (up%-> -98.13502127572318) . o: 0.7916098360692937 -> a: 0.01476335502197491	 per returnMoney: o:0.10392335982188142 a: 0.16635442086269678	 per totalSpendMoney: o: 0.13128103654940496 a: 0.15435703332058728
+
+	 multi Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=8	@@@ 
+
+net money diff:  1.2656015903096753 , up % -> 5907.537509138991 .  o: -0.021423504943502827 -> a: 1.2441780853661726
+
+[ProbMatrix: total: o: 4.376034551646746E-4  -> a: 0.03240646916615214
+org->adv	$w:41.84059422952501->50.672199342318  	$d:0.0->6.909613248465122  	$l:58.15940577047499->42.41818740921687
+	 improve value x$w(high is good):8.831605112792992  	x$d:6.909613248465122  	 x$l(negative is good):-15.74121836125812
+	 	 $w-$l: -16.31881154094998 -> 8.254011933101129  _ @double@	 lift : 24.57282347405111 : good	 :) hit 
+
+[TimeMatrix: total:  o: 5473.0 -> a: 1204060.0
+org->adv	$w:57.90243011145624->68.64907064432005  	$d:0.0->5.05390096839028  	$l:42.09756988854376->26.29702838728967
+	 improve value x$w(high is good):10.746640532863807  	x$d:5.05390096839028  	 x$l(negative is good):-15.800541501254088
+	 	 $w-$l: 15.804860222912476 -> 42.352042257030384  _ @double@	 lift : 26.547182034117906 : good	 :) hit 
+
+[Prob_ROI diff: 0.2736044343120174 (up%-> 32.696050253386176) . o: 0.8368118845904988 -> a: 1.1104163189025162	 returnMoney: o:0.1098575316058996 a: 12.512241517770818	 totalSpendMoney: o: 0.13128103654940243 a: 11.268063432404645
+
+[Time_ROI diff: 0.2866159210981569 (up%-> 24.74990432581592) . o: 1.1580486022291248 -> a: 1.4446645233272817	 returnMoney: o:1901400.0 a: 8.9187E8	 totalSpendMoney: o: 1641900.0 a: 6.173544E8
+
+[[Per_Prob_ROI diff: -0.8216007021397794 (up%-> -98.18224588693992) . o: 0.8368118845904988 -> a: 0.015211182450719401	 per returnMoney: o:0.1098575316058996 a: 0.17140056873658654	 per totalSpendMoney: o: 0.13128103654940243 a: 0.15435703332061157
+
+	 multi Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=8	@@@ 
+
+net money diff:  1.705022958008656 , up % -> 8416.180664394522 .  o: -0.020258868315671058 -> a: 1.684764089692985
+
+[ProbMatrix: total: o: 4.376034551646736E-4  -> a: 0.032406469166145604
+org->adv	$w:42.28416043620767->52.884405811433155  	$d:0.0->6.610702933616495  	$l:57.715839563792315->40.50489125495036
+	 improve value x$w(high is good):10.600245375225484  	x$d:6.610702933616495  	 x$l(negative is good):-17.210948308841957
+	 	 $w-$l: -15.43167912758464 -> 12.379514556482796  _ @double@	 lift : 27.811193684067437 : good	 :) hit 
+
+[TimeMatrix: total:  o: 3109.0 -> a: 683980.0
+org->adv	$w:57.896429720167255->68.63270855872979  	$d:0.0->5.058042632825521  	$l:42.103570279832745->26.30924880844469
+	 improve value x$w(high is good):10.736278838562534  	x$d:5.058042632825521  	 x$l(negative is good):-15.794321471388056
+	 	 $w-$l: 15.792859440334512 -> 42.32345975028509  _ @double@	 lift : 26.53060030995058 : good	 :) hit 
+
+[Prob_ROI diff: 0.3038335294269069 (up%-> 35.927582136257406) . o: 0.845683208724152 -> a: 1.149516738151059	 returnMoney: o:0.11102216823373112 a: 12.952827522101762	 totalSpendMoney: o: 0.13128103654940218 a: 11.268063432408777
+
+[Time_ROI diff: 0.28646414322180647 (up%-> 24.739361702127677) . o: 1.157928594403345 -> a: 1.4443927376251515	 returnMoney: o:1080000.0 a: 5.065416E8	 totalSpendMoney: o: 932700.0 a: 3.506952E8
+
+[[Per_Prob_ROI diff: -0.8299364040919458 (up%-> -98.1379783269006) . o: 0.845683208724152 -> a: 0.015746804632206284	 per returnMoney: o:0.11102216823373112 a: 0.1774359934534488	 per totalSpendMoney: o: 0.13128103654940218 a: 0.1543570333206682
+
+	 multi Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=8	@@@ 
+
+net money diff:  1.2501528322772102 , up % -> 2317.7627447035393 .  o: -0.05393791211520724 -> a: 1.196214920162003
+
+[ProbMatrix: total: o: 4.3760345516464464E-4  -> a: 0.03240646916609904
+org->adv	$w:26.600058528193816->48.664053809397664  	$d:5.714046380375477->11.581442052229129  	$l:67.68589509143071->39.75450413837321
+	 improve value x$w(high is good):22.063995281203848  	x$d:5.867395671853652  	 x$l(negative is good):-27.9313909530575
+	 	 $w-$l: -41.085836563236896 -> 8.909549671024457  _ @double@	 lift : 49.99538623426136 : good	 :) hit 
+
+[TimeMatrix: total:  o: 24973.0 -> a: 4664188.0
+org->adv	$w:28.70299923917831->33.82526604845259  	$d:3.247507307892524->3.6579571835440596  	$l:68.04949345292917->62.516776768003346
+	 improve value x$w(high is good):5.122266809274279  	x$d:0.41044987565153557  	 x$l(negative is good):-5.532716684925823
+	 	 $w-$l: -39.34649421375085 -> -28.691510719550756  _  _ 	 lift : 10.6549834942001 : good	 :) hit 
+
+[Prob_ROI diff: 0.5170181265655135 (up%-> 87.75786608944422) . o: 0.5891416343676364 -> a: 1.10615976093315	 returnMoney: o:0.07734312443418831 a: 12.46427835255117	 totalSpendMoney: o: 0.13128103654939555 a: 11.268063432389168
+
+[Time_ROI diff: 0.1524434314756531 (up%-> 25.133490554178945) . o: 0.6065350578624915 -> a: 0.7589784893381446	 returnMoney: o:4544100.0 a: 1.1302398E9	 totalSpendMoney: o: 7491900.0 a: 1.4891592E9
+
+[[Per_Prob_ROI diff: -0.043944475754784176 (up%-> -96.96788539234439) . o: 0.045318587259048956 -> a: 0.0013741115042647826	 per returnMoney: o:0.005949471110322178 a: 0.015483575593231267	 per totalSpendMoney: o: 0.010098541273030427 a: 0.013997594325949277
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+
+Hard to decide? Change is better!? 
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=8	@@@ 
+
+net money diff:  0.24202764373753177 , up % -> 80.2004320472435 .  o: -0.3017784786931834 -> a: -0.05975083495565166
+
+[ProbMatrix: total: o: 0.032406469166122984  -> a: 4.376034551646556E-4
+org->adv	$w:38.6009393498078->24.31551805109732  	$d:17.167639093177556->5.855280790061905  	$l:44.23142155701464->69.82920115884077
+	 improve value x$w(high is good):-14.285421298710482  	x$d:-11.312358303115651  	 x$l(negative is good):25.597779601826133
+	 	 $w-$l: -5.630482207206838 -> -45.513683107743454  _  _ 	 lift : -39.883200900536615 : bad	 :| stand
+
+[TimeMatrix: total:  o: 2799484.0 -> a: 14989.0
+org->adv	$w:33.81416003806416->28.694375875642137  	$d:3.6616747943549597->3.249049302822069  	$l:62.52416516758088->68.0565748215358
+	 improve value x$w(high is good):-5.119784162422022  	x$d:-0.41262549153289063  	 x$l(negative is good):5.532409653954922
+	 	 $w-$l: -28.710005129516723 -> -39.36219894589366  _  _ 	 lift : -10.652193816376936 : bad	 :| stand
+
+[Prob_ROI diff: -0.4283550792259466 (up%-> -44.014287652421324) . o: 0.9732182481485234 -> a: 0.5448631689225768	 returnMoney: o:10.966284953704934 a: 0.07153020159374475	 totalSpendMoney: o: 11.268063432398117 a: 0.1312810365493964
+
+[Time_ROI diff: -0.15241114898087282 (up%-> -20.0860999486204) . o: 0.7587891595219363 -> a: 0.6063780105410634	 returnMoney: o:6.7821E8 a: 2726700.0	 totalSpendMoney: o: 8.938056E8 a: 4496700.0
+
+[[Per_Prob_ROI diff: 0.040703584687696456 (up%-> 3366.807572292372) . o: 0.0012089667678863644 -> a: 0.04191255145558282	 per returnMoney: o:0.013622714228204887 a: 0.005502323199518827	 per totalSpendMoney: o: 0.013997594325960394 a: 0.010098541273030493
+
+	 multi Decide: !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=8	@@@ 
+
+net money diff:  1.7690407267854005 , up % -> 94.58964381799554 .  o: -1.8702266499589495 -> a: -0.10118592317354894
+
+[ProbMatrix: total: o: 0.03240646916613499  -> a: 8.752069103293465E-4
+org->adv	$w:33.96572842756517->11.462094666097586  	$d:11.305428941084106->0.0  	$l:54.728842631350716->88.53790533390242
+	 improve value x$w(high is good):-22.503633761467583  	x$d:-11.305428941084106  	 x$l(negative is good):33.8090627025517
+	 	 $w-$l: -20.76311420378555 -> -77.07581066780482  _ #Surrender#	 lift : -56.312696464019275 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1867132.0 -> a: 1538.0
+org->adv	$w:33.78550632735126->28.868660598179453  	$d:3.6613372809206846->0.0  	$l:62.55315639172806->71.13133940182055
+	 improve value x$w(high is good):-4.916845729171804  	x$d:-3.6613372809206846  	 x$l(negative is good):8.578183010092495
+	 	 $w-$l: -28.767650064376802 -> -42.262678803641094  _  _ 	 lift : -13.495028739264292 : bad	 :| stand
+
+[Prob_ROI diff: -0.3478628661390664 (up%-> -41.70896911888162) . o: 0.8340241283537001 -> a: 0.4861612622146337	 returnMoney: o:9.397836782444436 a: 0.09573563165055413	 totalSpendMoney: o: 11.268063432403386 a: 0.19692155482410306
+
+[Time_ROI diff: -0.03995210431034357 (up%-> -5.269329496041231) . o: 0.7582009122860697 -> a: 0.7182488079757261	 returnMoney: o:4.519854E8 a: 248550.0	 totalSpendMoney: o: 5.961288E8 a: 346050.0
+
+[[Per_Prob_ROI diff: 0.485125207396803 (up%-> 46824.27985930029) . o: 0.0010360548178306834 -> a: 0.4861612622146337	 per returnMoney: o:0.011674331406763275 a: 0.09573563165055413	 per totalSpendMoney: o: 0.01399759432596694 a: 0.19692155482410306
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=8	@@@ 
+
+net money diff:  2.7319982130357188 , up % -> 96.35366621767123 .  o: -2.835385844959858 -> a: -0.10338763192413948
+
+[ProbMatrix: total: o: 0.032406469166140525  -> a: 8.75206910329346E-4
+org->adv	$w:30.31865638609946->10.623546765936112  	$d:9.938021296608676->0.0  	$l:59.74332231729187->89.37645323406387
+	 improve value x$w(high is good):-19.695109620163347  	x$d:-9.938021296608676  	 x$l(negative is good):29.633130916772004
+	 	 $w-$l: -29.42466593119241 -> -78.75290646812778  _ #Surrender#	 lift : -49.32824053693536 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1794100.0 -> a: 770.0
+org->adv	$w:32.06554818571986->28.83116883116883  	$d:3.602028872415138->0.0  	$l:64.33242294186499->71.16883116883118
+	 improve value x$w(high is good):-3.234379354551031  	x$d:-3.602028872415138  	 x$l(negative is good):6.836408226966185
+	 	 $w-$l: -32.266874756145135 -> -42.33766233766234  _  _ 	 lift : -10.070787581517205 : bad	 :| stand
+
+[Prob_ROI diff: -0.2548540329561754 (up%-> -34.91942054076474) . o: 0.7298346565019892 -> a: 0.4749806235458138	 returnMoney: o:7.659616246160444 a: 0.09353392289996366	 totalSpendMoney: o: 10.495002091120302 a: 0.19692155482410315
+
+[Time_ROI diff: 0.02702073499878488 (up%-> 3.9119201552196516) . o: 0.6907281827501329 -> a: 0.7177489177489178	 returnMoney: o:3.779934E8 a: 124350.0	 totalSpendMoney: o: 5.47239E8 a: 173250.0
+
+[[Per_Prob_ROI diff: 0.4745094584996537 (up%-> 100709.81758235542) . o: 4.711650461600963E-4 -> a: 0.4749806235458138	 per returnMoney: o:0.004944878144713004 a: 0.09353392289996366	 per totalSpendMoney: o: 0.0067753402783216924 a: 0.19692155482410315
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+	 Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
+		 */
+	}
+	
+	public static void test99vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(t.diffWith(o));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 9) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		/**
+MatrixKey [startValue=Nine, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=One1, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Four4, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Six6, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Eight8, situation=Start_With_Pair] : Stand -> Split
+MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Stand
+MatrixKey [startValue=Nine, dealerCard=Ten, situation=Start_With_Pair] : Split -> Stand
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=9	@@@ 
+
+net money diff:  3.195519855707107 , up % -> 98.47002203661172 .  o: -3.245170245335168 -> a: -0.049650389628061106
+
+[ProbMatrix: total: o: 0.03240646916587313  -> a: 4.3760345516467175E-4
+org->adv	$w:27.59370926174709->24.548959667640275  	$d:11.432721131405609->13.082155614562495  	$l:60.9735696068473->62.36888471779722
+	 improve value x$w(high is good):-3.044749594106815  	x$d:1.6494344831568863  	 x$l(negative is good):1.395315110949923
+	 	 $w-$l: -33.37986034510021 -> -37.81992505015695  _  _ 	 lift : -4.44006470505674 : bad	 :| stand
+
+[TimeMatrix: total:  o: 6.5531908E7 -> a: 14209.0
+org->adv	$w:31.717031648155274->66.64789921880498  	$d:3.52136855224786->8.332746850587656  	$l:64.76159979959687->25.019353930607362
+	 improve value x$w(high is good):34.93086757064971  	x$d:4.811378298339795  	 x$l(negative is good):-39.7422458689895
+	 	 $w-$l: -33.04456815144158 -> 41.62854528819762  _ @double@	 lift : 74.67311343963921 : good	 :) hit 
+
+[Prob_ROI diff: -0.044400647031592966 (up%-> -6.664748417349587) . o: 0.6662013965299841 -> a: 0.6218007494983911	 returnMoney: o:6.476770504565759 a: 0.0816306469213487	 totalSpendMoney: o: 9.721940749900927 a: 0.1312810365494098
+
+[Time_ROI diff: 0.746731134396392 (up%-> 111.52659519624466) . o: 0.6695543184855841 -> a: 1.4162854528819762	 returnMoney: o:1.31631516E10 a: 6037200.0	 totalSpendMoney: o: 1.96595724E10 a: 4262700.0
+
+[[Per_Prob_ROI diff: 0.6213673068201023 (up%-> 143356.2816825337) . o: 4.3344267828886407E-4 -> a: 0.6218007494983911	 per returnMoney: o:0.004213904036802706 a: 0.0816306469213487	 per totalSpendMoney: o: 0.006325270494405288 a: 0.1312810365494098
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=9	@@@ 
+
+net money diff:  0.8550606156272773 , up % -> 5395.799893368171 .  o: 0.015846781432317547 -> a: 0.8709073970595949
+
+[ProbMatrix: total: o: 4.3760345516467185E-4  -> a: 0.03240646916618171
+org->adv	$w:49.31601058521037->49.626851908925765  	$d:13.438862674532265->7.851121236544391  	$l:37.24512674025737->42.52202685452984
+	 improve value x$w(high is good):0.31084132371539397  	x$d:-5.587741437987874  	 x$l(negative is good):5.276900114272472
+	 	 $w-$l: 12.070883844953006 -> 7.104825054395924  _ @double@	 lift : -4.966058790557081 : bad	 :| stand
+
+[TimeMatrix: total:  o: 26689.0 -> a: 5871580.0
+org->adv	$w:66.31571059237888->61.61203628324914  	$d:8.370489714863801->4.513333719373661  	$l:25.313799692757318->33.8746299973772
+	 improve value x$w(high is good):-4.703674309129738  	x$d:-3.8571559954901398  	 x$l(negative is good):8.56083030461988
+	 	 $w-$l: 41.00191089962157 -> 27.73740628587194  _ @double@	 lift : -13.264504613749628 : bad	 :| stand
+
+[Prob_ROI diff: -0.037725777607824806 (up%-> -3.366242534503479) . o: 1.1207088384494364 -> a: 1.0829830608416116	 returnMoney: o:0.14712781798172964 a: 11.365909488171683	 totalSpendMoney: o: 0.1312810365494121 a: 10.495002091112088
+
+[Time_ROI diff: -0.0757283560253188 (up%-> -5.3707326051225905) . o: 1.4100191089962157 -> a: 1.334290752970897	 returnMoney: o:1.12896E7 a: 3.1836132E9	 totalSpendMoney: o: 8006700.0 a: 2.3859966E9
+
+[[Per_Prob_ROI diff: -1.1058734540543458 (up%-> -98.67624989773292) . o: 1.1207088384494364 -> a: 0.014835384395090571	 per returnMoney: o:0.14712781798172964 a: 0.15569739024892718	 per totalSpendMoney: o: 0.1312810365494121 a: 0.1437671519330423
+
+	 multi Decide: $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=9	@@@ 
+
+net money diff:  1.1360531735111181 , up % -> 5866.10860479809 .  o: 0.01936638494183182 -> a: 1.1554195584529499
+
+[ProbMatrix: total: o: 4.376034551646747E-4  -> a: 0.03240646916616634
+org->adv	$w:50.848985082662935->51.12932979564198  	$d:13.053882387688573->7.581313300926598  	$l:36.0971325296485->41.28935690343144
+	 improve value x$w(high is good):0.2803447129790442  	x$d:-5.4725690867619745  	 x$l(negative is good):5.192224373782942
+	 	 $w-$l: 14.751852553014439 -> 9.839972892210536  _ @double@	 lift : -4.911879660803903 : bad	 :| stand
+
+[TimeMatrix: total:  o: 15553.0 -> a: 3421660.0
+org->adv	$w:66.295891467884->61.595015284978636  	$d:8.371375297370284->4.51605361140499  	$l:25.332733234745707->33.88893110361637
+	 improve value x$w(high is good):-4.700876182905368  	x$d:-3.8553216859652935  	 x$l(negative is good):8.556197868870665
+	 	 $w-$l: 40.963158233138294 -> 27.706084181362268  _ @double@	 lift : -13.25707405177603 : bad	 :| stand
+
+[Prob_ROI diff: -0.03742616457371084 (up%-> -3.2614867421353146) . o: 1.1475185255300995 -> a: 1.1100923609563886	 returnMoney: o:0.15064742149124022 a: 11.650421649566718	 totalSpendMoney: o: 0.1312810365494084 a: 10.495002091113768
+
+[Time_ROI diff: -0.07565384783013007 (up%-> -5.366923441443227) . o: 1.409631582331383 -> a: 1.333977734501253	 returnMoney: o:6577200.0 a: 1.8548136E9	 totalSpendMoney: o: 4665900.0 a: 1.3904382E9
+
+[[Per_Prob_ROI diff: -1.132311780859464 (up%-> -98.67481488687858) . o: 1.1475185255300995 -> a: 0.015206744670635458	 per returnMoney: o:0.15064742149124022 a: 0.1595948171173523	 per totalSpendMoney: o: 0.1312810365494084 a: 0.14376715193306533
+
+	 multi Decide: $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=9	@@@ 
+
+net money diff:  1.4417014871497411 , up % -> 6212.027162280279 .  o: 0.02320822896435193 -> a: 1.464909716114093
+
+[ProbMatrix: total: o: 4.3760345516467576E-4  -> a: 0.03240646916615379
+org->adv	$w:52.63606408551471->52.93003279358507  	$d:12.406151628064727->6.963120094039697  	$l:34.957784286420555->40.106847112375235
+	 improve value x$w(high is good):0.29396870807035924  	x$d:-5.44303153402503  	 x$l(negative is good):5.14906282595468
+	 	 $w-$l: 17.678279799094156 -> 12.82318568120983  _ @double@	 lift : -4.855094117884323 : bad	 :| stand
+
+[TimeMatrix: total:  o: 9073.0 -> a: 1342804.0
+org->adv	$w:66.27355891105478->69.35665964653069  	$d:8.376501708365481->5.010113166180619  	$l:25.349939380579745->25.63322718728869
+	 improve value x$w(high is good):3.0831007354759095  	x$d:-3.366388542184862  	 x$l(negative is good):0.2832878067089446
+	 	 $w-$l: 40.92361953047503 -> 43.723432459242005  _ @double@	 lift : 2.799812928766976 : good	 :| stand
+
+[Prob_ROI diff: -0.03720114727808599 (up%-> -3.1612585892314393) . o: 1.1767827979909191 -> a: 1.1395816507128331	 returnMoney: o:0.15448926551375688 a: 11.959911807240745	 totalSpendMoney: o: 0.13128103654940496 a: 10.495002091126652
+
+[Time_ROI diff: 0.047672321553105634 (up%-> 3.382848220329481) . o: 1.4092361953047503 -> a: 1.456908516857856	 returnMoney: o:3835800.0 a: 8.962164E8	 totalSpendMoney: o: 2721900.0 a: 6.151494E8
+
+[[Per_Prob_ROI diff: -1.1535260296090246 (up%-> -98.02369915488228) . o: 1.1767827979909191 -> a: 0.023256768381894555	 per returnMoney: o:0.15448926551375688 a: 0.24407983280083154	 per totalSpendMoney: o: 0.13128103654940496 a: 0.21418371614544188
+
+	 multi Decide: $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=9	@@@ 
+
+net money diff:  1.7671556388407446 , up % -> 6633.059167704058 .  o: 0.026641638407884444 -> a: 1.793797277248629
+
+[ProbMatrix: total: o: 4.376034551646743E-4  -> a: 0.03240646916614898
+org->adv	$w:54.024940077968076->54.64411553233135  	$d:12.24371220754265->6.7109330015833395  	$l:33.73134771448927->38.64495146608532
+	 improve value x$w(high is good):0.6191754543632726  	x$d:-5.532779205959311  	 x$l(negative is good):4.91360375159605
+	 	 $w-$l: 20.29359236347881 -> 15.99916406624603  _ @double@	 lift : -4.294428297232777 : bad	 :| stand
+
+[TimeMatrix: total:  o: 5473.0 -> a: 810004.0
+org->adv	$w:66.270783847981->69.34484274151733  	$d:8.368353736524758->5.01281475153209  	$l:25.360862415494246->25.642342506950584
+	 improve value x$w(high is good):3.074058893536332  	x$d:-3.355538984992668  	 x$l(negative is good):0.2814800914563378
+	 	 $w-$l: 40.909921432486755 -> 43.702500234566735  _ @double@	 lift : 2.792578802079987 : good	 :| stand
+
+[Prob_ROI diff: -0.032016731654316954 (up%-> -2.661549216817423) . o: 1.2029359236347812 -> a: 1.1709191919804642	 returnMoney: o:0.15792267495728687 a: 12.288799368375162	 totalSpendMoney: o: 0.13128103654940243 a: 10.495002091126533
+
+[Time_ROI diff: 0.04760618903094671 (up%-> 3.3784838247714126) . o: 1.4090992143248675 -> a: 1.4567054033558142	 returnMoney: o:2313600.0 a: 5.405388E8	 totalSpendMoney: o: 1641900.0 a: 3.710694E8
+
+[[Per_Prob_ROI diff: -1.1790396135943635 (up%-> -98.01350100442484) . o: 1.2029359236347812 -> a: 0.02389631004041764	 per returnMoney: o:0.15792267495728687 a: 0.2507918238443911	 per totalSpendMoney: o: 0.13128103654940243 a: 0.21418371614543946
+
+	 multi Decide: $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=9	@@@ 
+
+net money diff:  2.0918403100382066 , up % -> 5624.637763242969 .  o: 0.03719066716986455 -> a: 2.129030977208071
+
+[ProbMatrix: total: o: 4.376034551646735E-4  -> a: 0.032406469166145174
+org->adv	$w:58.85482152551174->56.36681217741412  	$d:10.619404424062525->6.527581216054348  	$l:30.525774050425746->37.105606606531545
+	 improve value x$w(high is good):-2.48800934809762  	x$d:-4.091823208008177  	 x$l(negative is good):6.579832556105799
+	 	 $w-$l: 28.32904747508599 -> 19.261205570882574  _ @double@	 lift : -9.067841904203416 : bad	 :| stand
+
+[TimeMatrix: total:  o: 3109.0 -> a: 460132.0
+org->adv	$w:66.22708266323578->69.33184390566186  	$d:8.394982309424252->5.012474681178444  	$l:25.37793502733998->25.655681413159705
+	 improve value x$w(high is good):3.104761242426079  	x$d:-3.3825076282458078  	 x$l(negative is good):0.2777463858197251
+	 	 $w-$l: 40.84914763589579 -> 43.676162492502144  _ @double@	 lift : 2.827014856606358 : good	 :| stand
+
+[Prob_ROI diff: -0.08042905950558854 (up%-> -6.26740875024444) . o: 1.2832904747508556 -> a: 1.202861415245267	 returnMoney: o:0.16847170371926673 a: 12.62403306833513	 totalSpendMoney: o: 0.13128103654940218 a: 10.49500209112706
+
+[Time_ROI diff: 0.04796522798498226 (up%-> 3.4054326057389783) . o: 1.4084914763589578 -> a: 1.45645670434394	 returnMoney: o:1313700.0 a: 3.070068E8	 totalSpendMoney: o: 932700.0 a: 2.107902E8
+
+[[Per_Prob_ROI diff: -1.258742282602993 (up%-> -98.08708997449479) . o: 1.2832904747508556 -> a: 0.024548192147862594	 per returnMoney: o:0.16847170371926673 a: 0.25763332792520677	 per totalSpendMoney: o: 0.13128103654940218 a: 0.21418371614545018
+
+	 multi Decide: $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=9	@@@ 
+
+net money diff:  -1.6818776332363863 , up % -> -96.97068079372487 .  o: 1.7344187124086101 -> a: 0.05254107917222384
+
+[ProbMatrix: total: o: 0.032406469166116246  -> a: 4.376034551646725E-4
+org->adv	$w:53.049754413466154->63.11437111287409  	$d:9.919990486014141->13.793092270091043  	$l:37.0302551005197->23.092536617034863
+	 improve value x$w(high is good):10.064616699407935  	x$d:3.8731017840769013  	 x$l(negative is good):-13.93771848348484
+	 	 $w-$l: 16.01949931294645 -> 40.02183449583923  _ @double@	 lift : 24.002335182892775 : good	 :) hit 
+
+[TimeMatrix: total:  o: 4571980.0 -> a: 1921.0
+org->adv	$w:32.74065065901426->66.26756897449245  	$d:3.6120455470058923->8.328995314940135  	$l:63.647303793979844->25.40343571056741
+	 improve value x$w(high is good):33.52691831547819  	x$d:4.716949767934243  	 x$l(negative is good):-38.24386808341244
+	 	 $w-$l: -30.906653134965588 -> 40.86413326392504  _ @double@	 lift : 71.77078639889064 : good	 :) hit 
+
+[Prob_ROI diff: 0.2349569474520803 (up%-> 20.163454136118634) . o: 1.165261397506312 -> a: 1.4002183449583923	 returnMoney: o:12.229420803519242 a: 0.18382211572162577	 totalSpendMoney: o: 10.495002091110631 a: 0.13128103654940193
+
+[Time_ROI diff: 0.6922604810265877 (up%-> 96.63302410557498) . o: 0.7163808516126627 -> a: 1.4086413326392504	 returnMoney: o:1.014786E9 a: 811800.0	 totalSpendMoney: o: 1.4165454E9 a: 576300.0
+
+[[Per_Prob_ROI diff: 1.3987489106614108 (up%-> 95189.61912994208) . o: 0.001469434296981478 -> a: 1.4002183449583923	 per returnMoney: o:0.015421716019570292 a: 0.18382211572162577	 per totalSpendMoney: o: 0.013234554969874694 a: 0.13128103654940193
+
+	 multi Decide: !Not Change!  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: !Not Change! 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=9	@@@ 
+
+net money diff:  1.0301658213959812 , up % -> 7457.684005711485 .  o: 0.013813481780764997 -> a: 1.0439793031767461
+
+[ProbMatrix: total: o: 4.3760345516467196E-4  -> a: 0.032406469166128805
+org->adv	$w:37.26328900905532->49.37570992741854  	$d:35.99549138645804->10.62534033423842  	$l:26.74121960448663->39.99894973834303
+	 improve value x$w(high is good):12.11242091836322  	x$d:-25.370151052219622  	 x$l(negative is good):13.257730133856398
+	 	 $w-$l: 10.52206940456869 -> 9.376760189075512  _ @double@	 lift : -1.1453092154931788 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1153.0 -> a: 2744140.0
+org->adv	$w:66.08846487424111->32.73200346921075  	$d:8.586296617519515->3.6124979046258576  	$l:25.32523850823938->63.655498626163386
+	 improve value x$w(high is good):-33.35646140503036  	x$d:-4.973798712893657  	 x$l(negative is good):38.330260117924006
+	 	 $w-$l: 40.76322636600174 -> -30.923495156952637  _  _ 	 lift : -71.68672152295437 : bad	 :| stand
+
+[Prob_ROI diff: -0.005746745006596887 (up%-> -0.519963572665365) . o: 1.1052206940456852 -> a: 1.0994739490390883	 returnMoney: o:0.14509451833016662 a: 11.538981394292213	 totalSpendMoney: o: 0.13128103654940163 a: 10.495002091115467
+
+[Time_ROI diff: -0.691421607198683 (up%-> -49.11947708564889) . o: 1.4076322636600174 -> a: 0.7162106564613344	 returnMoney: o:486900.0 a: 6.089382E8	 totalSpendMoney: o: 345900.0 a: 8.502222E8
+
+[[Per_Prob_ROI diff: -1.1038342199611466 (up%-> -99.87455228697688) . o: 1.1052206940456852 -> a: 0.001386474084538573	 per returnMoney: o:0.14509451833016662 a: 0.014551048416509726	 per totalSpendMoney: o: 0.13128103654940163 a: 0.013234554969880791
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=9	@@@ 
+
+net money diff:  0.39261589395544866 , up % -> 94.21750280047526 .  o: -0.416712269255207 -> a: -0.02409637529975832
+
+[ProbMatrix: total: o: 0.0324064691661383  -> a: 4.3760345516467207E-4
+org->adv	$w:38.9220124343768->34.955174809922354  	$d:16.986896951425063->11.734847635517626  	$l:44.091090614198144->53.30997755456003
+	 improve value x$w(high is good):-3.966837624454449  	x$d:-5.252049315907437  	 x$l(negative is good):9.218886940361884
+	 	 $w-$l: -5.169078179821341 -> -18.35480274463767  _  _ 	 lift : -13.185724564816331 : bad	 :| stand
+
+[TimeMatrix: total:  o: 1830220.0 -> a: 769.0
+org->adv	$w:32.70120531957907->66.05981794538361  	$d:3.6181442668094546->8.322496749024708  	$l:63.68065041361148->25.617685305591674
+	 improve value x$w(high is good):33.35861262580455  	x$d:4.704352482215254  	 x$l(negative is good):-38.06296510801981
+	 	 $w-$l: -30.979445094032414 -> 40.442132639791936  _ @double@	 lift : 71.42157773382436 : good	 :) hit 
+
+[Prob_ROI diff: -0.1438422450523138 (up%-> -14.978976486073186) . o: 0.9602942176059371 -> a: 0.8164519725536233	 returnMoney: o:10.078289821863828 a: 0.10718466124964314	 totalSpendMoney: o: 10.495002091119035 a: 0.13128103654940146
+
+[Time_ROI diff: 0.6887803525760737 (up%-> 96.24663452368806) . o: 0.7156409738218455 -> a: 1.4044213263979193	 returnMoney: o:4.058118E8 a: 324000.0	 totalSpendMoney: o: 5.670606E8 a: 230700.0
+
+[[Per_Prob_ROI diff: 0.8152410088492023 (up%-> 67321.67164654397) . o: 0.001210963704421106 -> a: 0.8164519725536233	 per returnMoney: o:0.012709066610168763 a: 0.10718466124964314	 per totalSpendMoney: o: 0.013234554969885291 a: 0.13128103654940146
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=9	@@@ 
+
+net money diff:  2.0208428857003518 , up % -> 98.4675742266947 .  o: -2.052292748725497 -> a: -0.03144986302514555
+
+[ProbMatrix: total: o: 0.0324064691661385  -> a: 4.376034551646722E-4
+org->adv	$w:33.74931136878756->32.43849443867282  	$d:11.16260697024685->11.166875604703378  	$l:55.08808166096559->56.39462995662381
+	 improve value x$w(high is good):-1.3108169301147399  	x$d:0.00426863445652792  	 x$l(negative is good):1.3065482956582173
+	 	 $w-$l: -21.338770292178033 -> -23.956135517950994  _  _ 	 lift : -2.6173652257729607 : bad	 :| stand
+
+[TimeMatrix: total:  o: 916300.0 -> a: 385.0
+org->adv	$w:32.66070064389392->65.97402597402598  	$d:3.619993451926225->8.311688311688311  	$l:63.719305904179855->25.71428571428571
+	 improve value x$w(high is good):33.31332533013206  	x$d:4.691694859762086  	 x$l(negative is good):-38.00502018989414
+	 	 $w-$l: -31.058605260285937 -> 40.25974025974026  _ @double@	 lift : 71.3183455200262 : good	 :) hit 
+
+[Prob_ROI diff: -0.04401182303967044 (up%-> -5.471042009179509) . o: 0.8044504678601596 -> a: 0.7604386448204892	 returnMoney: o:8.442709342396217 a: 0.09983117352425608	 totalSpendMoney: o: 10.495002091121714 a: 0.13128103654940163
+
+[Time_ROI diff: 0.6877431762704342 (up%-> 96.20747152942847) . o: 0.7148542263269684 -> a: 1.4025974025974026	 returnMoney: o:2.029464E8 a: 162000.0	 totalSpendMoney: o: 2.83899E8 a: 115500.0
+
+[[Per_Prob_ROI diff: 0.7594242053906529 (up%-> 74861.46368672066) . o: 0.0010144394298362668 -> a: 0.7604386448204892	 per returnMoney: o:0.01064654393744794 a: 0.09983117352425608	 per totalSpendMoney: o: 0.013234554969888668 a: 0.13128103654940163
+
+	 multi Decide: $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+	pob+nt Decide: $Change$ 
+
+--------------------------------
+
+
+		 */
+	}
 
 	public static void main(String[] args) {
 //		test8vs6();
-		
 //		test9vs2();
 //		test9vs3();
 //		test9vs456();
 //		test9vs7();
-		
 //		test11vs10();
-
 //		test12vs2();
 //		test12vs3();
-		
 //		test13vs2();
-		
 //		test14vs10();
-		
 //		test15vs9();
 //		test15vs10();
-		
 //		test16vs7();
 //		test16vs8();
 //		test16vs9();
@@ -2591,6 +5105,15 @@ org->adv	$w:31.450834879406308->65.97402597402598  	$d:3.5837409343902853->8.311
 //		testA6vsAll();
 //		testA7vsAll();
 
+//		test22vsAll();
+//		test33vsAll();
+//		test44vsAll();
+//		test44vs56();
+//		test55vsAll();
+//		test66vsAll();
+//		test77vsAll();
+//		test88vsAll();
+		test99vsAll();
 	}
 
 }

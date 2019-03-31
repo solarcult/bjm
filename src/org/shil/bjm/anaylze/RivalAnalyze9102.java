@@ -95,7 +95,7 @@ public class RivalAnalyze9102 {
 					timeReturnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
 					timeTotalSpendMoney += ProfitUtil.BaseMoney;
 					
-					throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+//					throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 				}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 					throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 				}else if(//playerCardsPathValue.getAction() == PlayerAction.Init ||

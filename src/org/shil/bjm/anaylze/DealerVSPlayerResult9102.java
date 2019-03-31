@@ -46,8 +46,9 @@ public class DealerVSPlayerResult9102 {
 				+"\n[Prob_ROI diff: "+ (advanced.getProbRoi()-origin.getProbRoi()) +" (up%-> "+ 100 * (advanced.getProbRoi()-origin.getProbRoi())/origin.getProbRoi() +") . o: "+ origin.getProbRoi() + " -> a: "+advanced.getProbRoi()+"\t returnMoney: o:" + origin.getProbReturnMoney() +" a: "+ advanced.getProbReturnMoney() +"\t totalSpendMoney: o: "+ origin.getProbTotalSpendMoney() +" a: "+advanced.getProbTotalSpendMoney()+"\n"
 				+"\n[Time_ROI diff: "+ (advanced.getTimeRoi()-origin.getTimeRoi()) +" (up%-> "+ 100 * (advanced.getTimeRoi()-origin.getTimeRoi())/origin.getTimeRoi() +") . o: "+ origin.getTimeRoi() + " -> a: "+advanced.getTimeRoi()+"\t returnMoney: o:" + origin.getTimeReturnMoney() +" a: "+ advanced.getTimeReturnMoney() +"\t totalSpendMoney: o: "+ origin.getTimeTotalSpendMoney() +" a: "+advanced.getTimeTotalSpendMoney()+"\n"
 				+"\n[[Per_Prob_ROI diff: "+ (advanced.getPerProbRoi()-origin.getPerProbRoi()) +" (up%-> "+ 100 * (advanced.getPerProbRoi()-origin.getPerProbRoi())/origin.getPerProbRoi() +") . o: "+ origin.getPerProbRoi() + " -> a: "+advanced.getPerProbRoi()+"\t per returnMoney: o:" + origin.getPerProbReturnMoney() +" a: "+ advanced.getPerProbReturnMoney() +"\t per totalSpendMoney: o: "+ origin.getPerProbTotalSpendMoney() +" a: "+advanced.getPerProbTotalSpendMoney()+"\n"
-				+"\n\t Decide:"+ ((((anet - onet)/Math.abs(onet) + (advanced.getProbRoi()-origin.getProbRoi())/origin.getProbRoi())>0)?" $Change$ ":" !Not Change! ") +" [isDouble()=" + isDouble() + ", isHit()=" + isHit() + ", isSurrender()=" + isSurrender() + "]" +"\tdeckStatus="+ deckStatus +"\t ! DeckSet.resetValue= "+ DeckSet.resetValue;
-		
+				+"\n\t multi Decide:"+ (((((anet - onet)/Math.abs(onet) + (advanced.getProbRoi()-origin.getProbRoi())/origin.getProbRoi())>0)&&(advanced.getProbRoi()-origin.getProbRoi() + anet - onet)>0)?" $Change$ ":" !Not Change! ") +" [isDouble()=" + isDouble() + ", isHit()=" + isHit() + ", isSurrender()=" + isSurrender() + "]" +"\tdeckStatus="+ deckStatus +"\t ! DeckSet.resetValue= "+ DeckSet.resetValue
+				//probRoi计算时只使用了splittime，而net使用了split和double的数据，本应该更大
+				+"\n\tpob+nt Decide:"+ (((advanced.getProbRoi()-origin.getProbRoi() + anet - onet)>0)?" $Change$ ":" !Not Change! ") ;
 	}
 	
 	public boolean isDouble() {
