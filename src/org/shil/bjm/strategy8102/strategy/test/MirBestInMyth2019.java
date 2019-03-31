@@ -68,6 +68,61 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 		
 //		MatrixKey start_Hand_WithoutA_WithoutPair1610 = new MatrixKey(StartValue.getOne(16), Card.Ten, Situation.Start_Hand_WithoutA_WithoutPair);
 //		this.getOne().put(start_Hand_WithoutA_WithoutPair1610, PlayerAction.Hit);
+		
+		
+		/*
+		 * Situation.Start_With_A [2~7]
+		 */
+//		for(int start = 2; start <= 5; start++) {
+//			for(Card dealerCard : Card.values()){
+//				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//				if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
+//					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
+//					this.getOne().put(start_With_A, PlayerAction.Hit);
+//				}else if(dealerCard.getValue() == 4 ){
+//					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
+//					this.getOne().put(start_With_A, PlayerAction.Double);
+//				}else{
+//					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
+//					this.getOne().put(start_With_A, PlayerAction.Double);
+//				}
+//			}
+//		}
+		//6
+//		for(Card dealerCard : Card.values()){
+//			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Hit);
+//			}else if(dealerCard.getValue() == 3){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//			}else{
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//			}
+//		}
+		//7
+//		for(Card dealerCard : Card.values()){
+//			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//			//after test stand
+//			if(dealerCard.getValue() >=3 && dealerCard.getValue() <=6){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Hit);
+//			}else if(dealerCard.getValue() >=9 && dealerCard.getValue() <=10){
+//				//after test hit
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Stand);
+//			}else if(dealerCard == Card.One1){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Stand);
+//			}else {
+//				//2,7,8
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Hit);
+//			}
+//		}
+		
 	}
 	
 	public static void main(String[] args) {

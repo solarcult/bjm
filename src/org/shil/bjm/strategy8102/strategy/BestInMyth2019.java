@@ -317,9 +317,8 @@ public class BestInMyth2019 extends Seven8012 {
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 					notChangesMatrix.put(start_With_A, PlayerAction.Double);
 				}else if(dealerCard.getValue() == 4 ){
-					//no w-l = 3 < 5.5 double decide
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-					notChangesMatrix.put(start_With_A, PlayerAction.Hit);
+					notChangesMatrix.put(start_With_A, PlayerAction.Double);
 				}else{
 					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 					notChangesMatrix.put(start_With_A, PlayerAction.Hit);
@@ -333,9 +332,8 @@ public class BestInMyth2019 extends Seven8012 {
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
 				notChangesMatrix.put(start_With_A, PlayerAction.Double);
 			}else if(dealerCard.getValue() == 3){
-				//no w-l = 3 < 5.5 double decide
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
-				notChangesMatrix.put(start_With_A, PlayerAction.Hit);
+				notChangesMatrix.put(start_With_A, PlayerAction.Double);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
 				notChangesMatrix.put(start_With_A, PlayerAction.Hit);
@@ -639,12 +637,25 @@ public class BestInMyth2019 extends Seven8012 {
 	}
 	
 /*
-MatrixKey [startValue=Nine, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair] : Double -> Hit
-MatrixKey [startValue=Nine, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair] : Double -> Hit
-MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair] : Double -> Hit
-MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Double -> Hit
-MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Three_More_Cards] : Hit -> Stand
-MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Stand
-MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Stand
+MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair] : Stand -> Hit
+MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair] : Giveup -> Hit
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair] : Giveup -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+
+org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [ParetoFrontValue= 5.19499910609649 ,ParetotYPE= 0,	 roiFactor()= 2.377242232860487,	 probRateFactor()= 1.2666116288366418,	 timeRateFactor()= 1.5511452443993614,	 timeRoi= 0.7924140776201624,	 probRoi= 1.0247914256932815,	 totalTimes: 1.679170447E9,	 getTimeRates= w:36.93202962855622 $d:3.6770501833397264 $l:59.39092018810405,	 totalProbs: 1.8345960850845027,	 getProbRate= w:45.23612960130864 $d:7.628846338436479 $l:47.135024060254885,	 timeMoneyReturn= 4.09414827E11,	 timeTotalSpead= 5.166677859E11,	 probMoneyReturn= 625.307503209686,	 probTotalSpead= 610.1802645222753
+org.shil.bjm.strategy8102.strategy.BestInMyth2019 StrategyMatrix8012 [ParetoFrontValue= 5.140575998965832 ,ParetotYPE= 0,	 roiFactor()= 2.3426120771628307,	 probRateFactor()= 1.2692335579114378,	 timeRateFactor()= 1.5287303638915632,	 timeRoi= 0.7808706923876102,	 probRoi= 1.0255673368829286,	 totalTimes: 1.795937131E9,	 getTimeRates= w:36.39834199741817 $d:3.667205597744279 $l:59.93445240483754,	 totalProbs: 1.834596085426637,	 getProbRate= w:45.32976992540849 $d:7.795779237086753 $l:46.87445083750476,	 timeMoneyReturn= 4.308421554E11,	 timeTotalSpead= 5.517458391E11,	 probMoneyReturn= 630.2766720698845,	 probTotalSpead= 614.5639095581223
+
+-----------------以上是不涉及分牌时的方案和数据--------------------------------
+
+
+
  */
 }
