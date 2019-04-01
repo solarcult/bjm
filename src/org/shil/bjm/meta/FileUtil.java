@@ -35,10 +35,10 @@ public class FileUtil {
 	
 	public static void writeToDisk9102(Collection<DealerVSPlayerResult9102> dealerVSPlayerResult9102s) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
-		String fileName="9102_H_"+DealerVSPlayerResult9102.Hit_Limit +"_D_"+DealerVSPlayerResult9102.Double_Limit+ sdf.format(Calendar.getInstance().getTime())+"_researchG.txt";
+		String fileName="9102_H_"+DealerVSPlayerResult9102.ROI_Hit +"_D_"+DealerVSPlayerResult9102.Double_Limit+ sdf.format(Calendar.getInstance().getTime())+"_researchG.txt";
 		try {
 			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
-			out.write("Double_Limit: "+DealerVSPlayerResult9102.Double_Limit +" \t Hit_Limit: "+DealerVSPlayerResult9102.Hit_Limit +" \t Surrender_Limit: "+DealerVSPlayerResult9102.Surrender_Limit);
+			out.write("Double_Limit: "+DealerVSPlayerResult9102.Double_Limit +" \t ROI_Hit: "+DealerVSPlayerResult9102.ROI_Hit +" \t ROI_Surrender: "+DealerVSPlayerResult9102.ROI_Surrender);
 			out.newLine();
 			for(DealerVSPlayerResult9102 dealerVSPlayerResult9102 : dealerVSPlayerResult9102s) {
 				out.write(dealerVSPlayerResult9102.toString());

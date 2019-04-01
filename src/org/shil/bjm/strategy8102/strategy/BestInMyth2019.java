@@ -8,6 +8,11 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 
+/**
+ * 我要选择这个做为接下来去澳门的主力玩法，这是一个追求价值的玩法，有些激进。
+ * @since 2019 April 01 23:26
+ * @author shil
+ */
 public class BestInMyth2019 extends Seven8012 {
 
 	public BestInMyth2019() {
@@ -77,9 +82,9 @@ public class BestInMyth2019 extends Seven8012 {
 			}else if(dealerCard.getValue()==10){
 				//Done, not double, just hit
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 			}else{
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
@@ -554,9 +559,9 @@ public class BestInMyth2019 extends Seven8012 {
 						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else if(dealerCard==Card.Seven7) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);	
+						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
+						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else {
 						// 9, 10, A
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -633,7 +638,7 @@ public class BestInMyth2019 extends Seven8012 {
 		StrategyMatrix8012 two = new Finally2047();
 		System.out.println(two.diffWith(one));
 		
-//		HelloWorld.printStrategyMatrix8012(one,two);
+		HelloWorld.printStrategyMatrix8012(one,two);
 	}
 	
 /*

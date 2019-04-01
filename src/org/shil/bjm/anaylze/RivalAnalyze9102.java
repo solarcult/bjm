@@ -71,9 +71,7 @@ public class RivalAnalyze9102 {
 		double timeReturnMoney = 0;
 		//总共投入的钱
 		double timeTotalSpendMoney = 0;
-		
-		double totalPlayTimes = 0;
-		
+				
 		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
 			for(DealerCardsPathValue dealerCardsPathValue : dealerCardsPathValues) {
 				//playtime的含义时分牌的次数
@@ -94,7 +92,7 @@ public class RivalAnalyze9102 {
 					
 					timeReturnMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV(); //这里的playerCardsPathValue.getBetMutiV()只能是0.5，如果不是0.5就说明代码有Bug。
 					timeTotalSpendMoney += ProfitUtil.BaseMoney;
-					
+					continue;
 //					throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 				}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 					throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
