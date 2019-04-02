@@ -1,5 +1,6 @@
 package org.shil.bjm.simulation;
 
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.core.GenerateCardsUtil;
 import org.shil.bjm.meta.Card;
@@ -8,6 +9,7 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.strategy8102.EvolutionOneWayTest;
 import org.shil.bjm.strategy8102.Strategy8012;
+import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.Standard2017;
@@ -19,14 +21,147 @@ import org.shil.bjm.strategy8102.strategy.test.Finally2046;
 
 public class RealMatch {
 	
+	public static DescriptiveStatistics m0 = new DescriptiveStatistics();
+	public static DescriptiveStatistics m1 = new DescriptiveStatistics();
+	public static DescriptiveStatistics m2 = new DescriptiveStatistics();
+	public static DescriptiveStatistics m3 = new DescriptiveStatistics();
+	public static DescriptiveStatistics m4 = new DescriptiveStatistics();
+	
+	public static void summary() {
+		int looptime = 1000;
+		for(int i=0;i<looptime;i++) {
+			
+//			String result = testSelectedStrategy(new Finally2046(),new Finally2047(), new Finally2049(),new BestInMyth2019(), new Standard2017());
+			String result = testSameStartCard(new Finally2046(),new Finally2047(), new Finally2049(),new BestInMyth2019(), new Standard2017());
+			System.out.println(result);
+			System.out.println();
+			
+			if(i% 20==0) {
+				System.out.println("-------"+i+"--------");
+				System.out.println(m0);
+				System.out.println(m1);
+				System.out.println(m2);
+				System.out.println(m3);
+				System.out.println(m4);
+				System.out.println();
+			}
+		}
+		
+		System.out.println("-------finally----------");
+		System.out.println(m0);
+		System.out.println(m1);
+		System.out.println(m2);
+		System.out.println(m3);
+		System.out.println(m4);
+
+	}
 	public static PlayerCardsPathValue getOnePlayerCards(Casion6Deck casion6Deck,StrategyMatrix8012 strategyMatrix8012,Card dealerCard) {
 		Card p1 = casion6Deck.fetchOne();
 		Card p2 = casion6Deck.fetchOne();		
 		PlayerCardsPathValue pr = Strategy8012.generateOneMatch(casion6Deck,strategyMatrix8012, new PlayerCardsPathValue(p1,p2), dealerCard);
 		return pr;
 	}
+	
+	public static String testSameStartCard(StrategyMatrix8012 ... strategyMatrix8012s) {
 
-	static int testLoopTimes = 50000;
+		double w0 = 0;
+		double d0 = 0;
+		double l0 = 0;
+		double w1 = 0;
+		double d1 = 0;
+		double l1 = 0;
+		double w2 = 0;
+		double d2 = 0;
+		double l2= 0;
+		double w3 = 0;
+		double d3 = 0;
+		double l3 = 0;
+		double w4 = 0;
+		double d4 = 0;
+		double l4 = 0;
+		StrategyMatrix8012 s0 = strategyMatrix8012s[0];
+		StrategyMatrix8012 s1 = strategyMatrix8012s[1];
+		StrategyMatrix8012 s2 = strategyMatrix8012s[2];
+		StrategyMatrix8012 s3 = strategyMatrix8012s[3];
+		StrategyMatrix8012 s4 = strategyMatrix8012s[4];
+		double g0 = 0;
+		double g1 = 0;
+		double g2 = 0;
+		double g3 = 0;
+		double g4 = 0;
+		
+		for(int i=0;i<testLoopTimes;i++) {
+			Casion6Deck casion6Deck = new Casion6Deck();
+			Card dealerCard = casion6Deck.fetchOne();
+			
+			Card p1 = casion6Deck.fetchOne();
+			Card p2 = casion6Deck.fetchOne();		
+			PlayerCardsPathValue p0s = Strategy8012.generateOneMatch(casion6Deck,s0, new PlayerCardsPathValue(p1,p2), dealerCard);
+			PlayerCardsPathValue p1s = Strategy8012.generateOneMatch(casion6Deck,s1, new PlayerCardsPathValue(p1,p2),dealerCard);
+			PlayerCardsPathValue p2s = Strategy8012.generateOneMatch(casion6Deck,s2, new PlayerCardsPathValue(p1,p2),dealerCard);
+			PlayerCardsPathValue p3s = Strategy8012.generateOneMatch(casion6Deck,s3, new PlayerCardsPathValue(p1,p2),dealerCard);
+			PlayerCardsPathValue p4s = Strategy8012.generateOneMatch(casion6Deck,s4, new PlayerCardsPathValue(p1,p2),dealerCard);
+			
+			DealerCardsPathValue dcs = GenerateCardsUtil.generateDealerOneMatch(casion6Deck, new DealerCardsPathValue(dealerCard));
+			
+			double m0 = ProfitUtil.calcPureReturnAfterPareto(p0s, dcs,ProfitUtil.BaseMoney);
+			double m1 = ProfitUtil.calcPureReturnAfterPareto(p1s, dcs,ProfitUtil.BaseMoney);
+			double m2 = ProfitUtil.calcPureReturnAfterPareto(p2s, dcs,ProfitUtil.BaseMoney);
+			double m3 = ProfitUtil.calcPureReturnAfterPareto(p3s, dcs,ProfitUtil.BaseMoney);
+			double m4 = ProfitUtil.calcPureReturnAfterPareto(p4s, dcs,ProfitUtil.BaseMoney);
+			
+			//用胜负次数衡量结果
+			if(m0 > 0) w0+=Math.pow(2, p0s.getSplitTimes());
+			else if(m0 == 0) d0+=Math.pow(2, p0s.getSplitTimes());
+			else if(m0 < 0) l0+=Math.pow(2, p0s.getSplitTimes());
+			g0 += m0;
+			
+			if(m1 > 0) w1+=Math.pow(2, p1s.getSplitTimes());
+			else if(m1 == 0) d1+=Math.pow(2, p1s.getSplitTimes());
+			else if(m1 < 0) l1+=Math.pow(2, p1s.getSplitTimes());
+			g1 += m1;
+			
+			if(m2 > 0) w2+=Math.pow(2, p2s.getSplitTimes());
+			else if(m2 == 0) d2+=Math.pow(2, p2s.getSplitTimes());
+			else if(m2 < 0) l2+=Math.pow(2, p2s.getSplitTimes());
+			g2 += m2;
+			
+			if(m3 > 0) w3+=Math.pow(2, p3s.getSplitTimes());
+			else if(m3 == 0) d3+=Math.pow(2, p3s.getSplitTimes());
+			else if(m3 < 0) l3+=Math.pow(2, p3s.getSplitTimes());
+			g3 += m3;
+			
+			if(m4 > 0) w4+=Math.pow(2, p4s.getSplitTimes());
+			else if(m4 == 0) d4+=Math.pow(2, p4s.getSplitTimes());
+			else if(m4 < 0) l4+=Math.pow(2, p4s.getSplitTimes());
+			g4 += m4;
+		}
+		
+		m0.addValue(g0);
+		m1.addValue(g1);
+		m2.addValue(g2);
+		m3.addValue(g3);
+		m4.addValue(g4);
+		
+		
+		double[] r0 = new double[] {w0/(w0+d0+l0),d0/(w0+d0+l0),l0/(w0+d0+l0)};
+		double[] r1 = new double[] {w1/(w1+d1+l1),d1/(w1+d1+l1),l1/(w1+d1+l1)};
+		double[] r2 = new double[] {w2/(w2+d2+l2),d2/(w2+d2+l2),l2/(w2+d2+l2)};
+		double[] r3 = new double[] {w3/(w3+d3+l3),d3/(w3+d3+l3),l3/(w3+d3+l3)};
+		double[] r4 = new double[] {w4/(w4+d4+l4),d4/(w4+d4+l4),l4/(w4+d4+l4)};
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("S[0] : tMoney: " + g0 + "\t " + testLoopTimes + " : " + HelloWorld.builderDoubleWDL(r0));
+		sb.append("\nS[1] : tMoney: " + g1 + "\t " + testLoopTimes + " : " + HelloWorld.builderDoubleWDL(r1));
+		sb.append("\nS[2] : tMoney: " + g2 + "\t " + testLoopTimes + " : " + HelloWorld.builderDoubleWDL(r2));
+		sb.append("\nS[3] : tMoney: " + g3 + "\t " + testLoopTimes + " : " + HelloWorld.builderDoubleWDL(r3));
+		sb.append("\nS[4] : tMoney: " + g4 + "\t " + testLoopTimes + " : " + HelloWorld.builderDoubleWDL(r4));
+
+		return sb.toString();
+	
+	}
+
+	static int testLoopTimes = 1000;
 	public static String testSelectedStrategy(StrategyMatrix8012 ... strategyMatrix8012s) {
 		Casion6Deck casion6Deck = new Casion6Deck();
 		if(strategyMatrix8012s.length ==1){
@@ -330,7 +465,7 @@ public class RealMatch {
 			double g4 = 0;
 			
 			for(int i=0;i<testLoopTimes;i++) {
-				if(EvolutionOneWayTest.debug) System.out.println("testLoopTimes : " + i);
+//				if(EvolutionOneWayTest.debug) System.out.println("testLoopTimes : " + i);
 
 				casion6Deck.resetButKeepLastTurnUsed();
 				//去掉运气的成分
@@ -383,6 +518,12 @@ public class RealMatch {
 				g4 += m4;
 			}
 			
+			m0.addValue(g0);
+			m1.addValue(g1);
+			m2.addValue(g2);
+			m3.addValue(g3);
+			m4.addValue(g4);
+			
 			
 			double[] r0 = new double[] {w0/(w0+d0+l0),d0/(w0+d0+l0),l0/(w0+d0+l0)};
 			double[] r1 = new double[] {w1/(w1+d1+l1),d1/(w1+d1+l1),l1/(w1+d1+l1)};
@@ -411,8 +552,11 @@ public class RealMatch {
 	}
 	
 	public static void main(String[] args) {
-		EvolutionOneWayTest.debug = false;
-		String result = testSelectedStrategy(new Finally2046(),new Finally2047(), new Finally2049(),new Pareto2Mar26(), new Standard2017());
+		EvolutionOneWayTest.debug = true;
+		summary();
+		/*
+		
+		String result = testSelectedStrategy(new Finally2046(),new Finally2047(), new Finally2049(),new BestInMyth2019(), new Standard2017());
 		System.out.println(result);
 		
 		int max = 5;
@@ -420,6 +564,165 @@ public class RealMatch {
 		System.out.println(middle);
 		System.out.println(Math.floorDiv(middle,2));
 		System.out.println(Math.floorDiv(middle,2)+middle);
+		*/
+		
+		/**
+-------finally----------
+DescriptiveStatistics:
+n: 1000
+min: -38400.0
+max: 25200.0
+mean: -8634.0
+std dev: 10555.936803609702
+median: -9000.0
+skewness: 0.11280387359235769
+kurtosis: -0.12110232933090348
+
+DescriptiveStatistics:
+n: 1000
+min: -38100.0
+max: 22050.0
+mean: -9177.75
+std dev: 9974.389248389014
+median: -9150.0
+skewness: 0.12340257513661944
+kurtosis: 0.04177352691270597
+
+DescriptiveStatistics:
+n: 1000
+min: -37800.0
+max: 27000.0
+mean: -8513.400000000001
+std dev: 10472.104153674369
+median: -8550.0
+skewness: 0.018351791800234645
+kurtosis: -0.19771137185003074
+
+DescriptiveStatistics:
+n: 1000
+min: -45450.0
+max: 20550.0
+mean: -8222.550000000003
+std dev: 10320.07087477416
+median: -8550.0
+skewness: 0.10896563178123257
+kurtosis: -0.08953787744623698
+
+DescriptiveStatistics:
+n: 1000
+min: -38550.0
+max: 25050.0
+mean: -9347.550000000003
+std dev: 10010.816797367332
+median: -9750.0
+skewness: 0.10966212638028511
+kurtosis: -0.0866449416118451
+
+
+-------finally----------
+DescriptiveStatistics:
+n: 1000
+min: -46500.0
+max: 22200.0
+mean: -8636.55
+std dev: 10293.129510144623
+median: -8550.0
+skewness: -0.08824093956026509
+kurtosis: 0.12867596675205029
+
+DescriptiveStatistics:
+n: 1000
+min: -36900.0
+max: 24900.0
+mean: -9053.699999999995
+std dev: 9758.955042089032
+median: -9300.0
+skewness: 0.08610314910265034
+kurtosis: -0.022972076735887192
+
+DescriptiveStatistics:
+n: 1000
+min: -37800.0
+max: 21900.0
+mean: -8703.15
+std dev: 10079.178161433125
+median: -8700.0
+skewness: 0.0952013847014482
+kurtosis: -0.15295684010634636
+
+DescriptiveStatistics:
+n: 1000
+min: -35100.0
+max: 21150.0
+mean: -8584.800000000001
+std dev: 9592.818466234261
+median: -8475.0
+skewness: 0.08356844160755826
+kurtosis: -0.011981590755436589
+
+DescriptiveStatistics:
+n: 1000
+min: -39300.0
+max: 20550.0
+mean: -9738.599999999999
+std dev: 9652.720085294426
+median: -9450.0
+skewness: -0.06614949829015723
+kurtosis: 0.04313713955272114
+
+-------940--------
+DescriptiveStatistics:
+n: 941
+min: -48150.0
+max: 19650.0
+mean: -8792.295430393204
+std dev: 10461.847943120196
+median: -9300.0
+skewness: -0.056906675597976526
+kurtosis: 0.10321108784065514
+
+DescriptiveStatistics:
+n: 941
+min: -45900.0
+max: 19050.0
+mean: -9114.930924548347
+std dev: 10325.719166160534
+median: -9450.0
+skewness: -0.10295812258431196
+kurtosis: -0.10576730924973887
+
+DescriptiveStatistics:
+n: 941
+min: -45750.0
+max: 22050.0
+mean: -8724.867162592986
+std dev: 10312.984384930724
+median: -8550.0
+skewness: -0.05218272653152485
+kurtosis: -0.022925935559016786
+
+DescriptiveStatistics:
+n: 941
+min: -41250.0
+max: 21900.0
+mean: -8253.825717321994
+std dev: 9850.686401584366
+median: -8400.0
+skewness: -0.06870153431188339
+kurtosis: -0.1931247440959436
+
+DescriptiveStatistics:
+n: 941
+min: -42300.0
+max: 17850.0
+mean: -10215.462274176401
+std dev: 9920.222335998817
+median: -9600.0
+skewness: -0.14264925841889942
+kurtosis: -0.22332313227160627
+
+
+		 */
 	}
 
 }

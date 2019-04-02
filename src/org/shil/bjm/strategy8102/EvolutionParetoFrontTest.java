@@ -9,6 +9,7 @@ import java.util.concurrent.CompletableFuture;
 import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.simulation.RealMatch;
 import org.shil.bjm.strategy8102.comparator.ParetoComparator;
+import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
 import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 import org.shil.bjm.strategy8102.strategy.test.Pareto2Mar26;
@@ -25,11 +26,11 @@ public class EvolutionParetoFrontTest {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
-		StrategyMatrix8012 origin = new Finally2049();
+		StrategyMatrix8012 origin = new BestInMyth2019();
 		evos.add(origin);
 		
 		//Very important to check below value and understand what its meaning : [0,1,2,3,4,5,6]
-		StrategyMatrix8012.paretoFrontType = 3;
+		StrategyMatrix8012.paretoFrontType = 4;
 		
 		String testStrategy = "nice to meet you and good luck. StrategyMatrix8012.paretoFrontValue: "+StrategyMatrix8012.paretoFrontType;
 		System.out.println(testStrategy);
