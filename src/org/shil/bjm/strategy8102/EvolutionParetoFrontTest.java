@@ -10,9 +10,7 @@ import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.simulation.RealMatch;
 import org.shil.bjm.strategy8102.comparator.ParetoComparator;
 import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
-import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
-import org.shil.bjm.strategy8102.strategy.test.Pareto2Mar26;
 
 public class EvolutionParetoFrontTest {
 
