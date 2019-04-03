@@ -179,9 +179,7 @@ public class EvolutionParetoFrontTest {
 		for(StrategyMatrix8012 one : reproductions) {
 			boolean beDominationed = false;
 			for(StrategyMatrix8012 front : paretoFronts) {
-				if(front.probRateFactor() >= one.probRateFactor()
-					&& front.timeRateFactor() >= one.timeRateFactor()
-					&& front.roiFactor() >= one.roiFactor()) {
+				if(front.getParetoFrontValue() >= one.getParetoFrontValue()) {
 					//Front里面某个点每一点都优于它,则忽略
 					beDominationed = true;
 					break;
@@ -197,9 +195,7 @@ public class EvolutionParetoFrontTest {
 					//之前已经计算过了，其实也没有多少计算量
 					continue;
 				}
-				if(two.probRateFactor() >= one.probRateFactor()
-					&& two.timeRateFactor() >= one.timeRateFactor()
-					&& two.roiFactor() >= one.roiFactor()) {
+				if(two.getParetoFrontValue() >= one.getParetoFrontValue()) {
 					//two这个点每一点都优于one,放弃one
 					beDominationed = true;
 					break;
