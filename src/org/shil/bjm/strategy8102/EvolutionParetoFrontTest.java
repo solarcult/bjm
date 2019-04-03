@@ -177,7 +177,9 @@ public class EvolutionParetoFrontTest {
 		for(StrategyMatrix8012 one : reproductions) {
 			boolean beDominationed = false;
 			for(StrategyMatrix8012 front : paretoFronts) {
-				if(front.getParetoFrontValue() >= one.getParetoFrontValue()) {
+				//多维度用>=,但维度用>,因为会有正好变异了某个特性,但没有影响到效果,造成结果相等的情况.其实多维度,也会有这种情况.
+//				if(front.getParetoFrontValue() >= one.getParetoFrontValue()) {
+				if(front.getParetoFrontValue() > one.getParetoFrontValue()) {
 					//Front里面某个点每一点都优于它,则忽略
 					beDominationed = true;
 					break;
@@ -193,7 +195,9 @@ public class EvolutionParetoFrontTest {
 					//之前已经计算过了，其实也没有多少计算量
 					continue;
 				}
-				if(two.getParetoFrontValue() >= one.getParetoFrontValue()) {
+				//多维度用>=,但维度用>,因为会有正好变异了某个特性,但没有影响到效果,造成结果相等的情况.其实多维度,也会有这种情况.
+//				if(two.getParetoFrontValue() >= one.getParetoFrontValue()) {
+				if(two.getParetoFrontValue() > one.getParetoFrontValue()) {
 					//two这个点每一点都优于one,放弃one
 					beDominationed = true;
 					break;
