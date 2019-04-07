@@ -605,7 +605,6 @@ public class Finally2046 extends Seven8012 {
 		 */
 
 		this.changesMatrix = changesMatrix;
-		this.one = new HashMap<>();
 		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
 	}

@@ -478,7 +478,7 @@ public class BestInMyth2019 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 3) {
-					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
+					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)|| (dealerCard==Card.Four4)){
 						//33 vs 5 or 6
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Split);
@@ -510,11 +510,11 @@ public class BestInMyth2019 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 					}
 				}else if(start == 5) {
-					if(dealerCard == Card.Six6) {
+					if(dealerCard == Card.Six6 || dealerCard == Card.Five5) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Double);
+						changesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Double);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Double);
@@ -611,9 +611,9 @@ public class BestInMyth2019 extends Seven8012 {
 						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else if(dealerCard == Card.Two2){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Stand);
+						changesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else if(dealerCard == Card.One1) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
@@ -644,9 +644,9 @@ public class BestInMyth2019 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else if(dealerCard==Card.Seven7) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);	
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}else {
 						// 9, 10, A
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -666,9 +666,9 @@ public class BestInMyth2019 extends Seven8012 {
 		for(Card dealerCard : Card.values()) {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			MatrixKey start_With_Pair = new MatrixKey(StartValue.Ten, dealerCard, Situation.Start_With_Pair);
-			notChangesMatrix.put(start_With_Pair, PlayerAction.Stand);
+			changesMatrix.put(start_With_Pair, PlayerAction.Stand);
 			MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.Ten, dealerCard, Situation.Splited_Pair_And_Can_Split);
-			notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
+			changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 		}
 		
 		
@@ -713,7 +713,6 @@ public class BestInMyth2019 extends Seven8012 {
 		 */
 
 		this.changesMatrix = changesMatrix;
-		this.one = new HashMap<>();
 		one.putAll(notChangesMatrix);
 		one.putAll(changesMatrix);
 	}

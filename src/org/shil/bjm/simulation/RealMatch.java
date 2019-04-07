@@ -570,158 +570,53 @@ public class RealMatch {
 -------finally----------
 DescriptiveStatistics:
 n: 1000
-min: -38400.0
-max: 25200.0
-mean: -8634.0
-std dev: 10555.936803609702
-median: -9000.0
-skewness: 0.11280387359235769
-kurtosis: -0.12110232933090348
+min: -27900.0
+max: 20000.0
+mean: -5177.299999999999
+std dev: 7124.906947393048
+median: -5300.0
+skewness: 0.04017135377569612
+kurtosis: -0.09137296622584179
 
 DescriptiveStatistics:
 n: 1000
-min: -38100.0
-max: 22050.0
-mean: -9177.75
-std dev: 9974.389248389014
-median: -9150.0
-skewness: 0.12340257513661944
-kurtosis: 0.04177352691270597
+min: -24300.0
+max: 19500.0
+mean: -5400.700000000001
+std dev: 6916.622671447321
+median: -5600.0
+skewness: 0.05798730994382364
+kurtosis: -0.17187911099820719
 
 DescriptiveStatistics:
 n: 1000
-min: -37800.0
-max: 27000.0
-mean: -8513.400000000001
-std dev: 10472.104153674369
-median: -8550.0
-skewness: 0.018351791800234645
-kurtosis: -0.19771137185003074
+min: -29000.0
+max: 13300.0
+mean: -5211.900000000001
+std dev: 7136.862279264863
+median: -5300.0
+skewness: -0.08929428112932794
+kurtosis: 0.08817632874237091
 
 DescriptiveStatistics:
 n: 1000
-min: -45450.0
-max: 20550.0
-mean: -8222.550000000003
-std dev: 10320.07087477416
-median: -8550.0
-skewness: 0.10896563178123257
-kurtosis: -0.08953787744623698
+min: -25300.0
+max: 16000.0
+mean: -5194.4000000000015
+std dev: 7172.265334608759
+median: -5600.0
+skewness: 0.0646481667278315
+kurtosis: -0.25818068700475516
 
 DescriptiveStatistics:
 n: 1000
-min: -38550.0
-max: 25050.0
-mean: -9347.550000000003
-std dev: 10010.816797367332
-median: -9750.0
-skewness: 0.10966212638028511
-kurtosis: -0.0866449416118451
-
-
--------finally----------
-DescriptiveStatistics:
-n: 1000
-min: -46500.0
-max: 22200.0
-mean: -8636.55
-std dev: 10293.129510144623
-median: -8550.0
-skewness: -0.08824093956026509
-kurtosis: 0.12867596675205029
-
-DescriptiveStatistics:
-n: 1000
-min: -36900.0
-max: 24900.0
-mean: -9053.699999999995
-std dev: 9758.955042089032
-median: -9300.0
-skewness: 0.08610314910265034
-kurtosis: -0.022972076735887192
-
-DescriptiveStatistics:
-n: 1000
-min: -37800.0
-max: 21900.0
-mean: -8703.15
-std dev: 10079.178161433125
-median: -8700.0
-skewness: 0.0952013847014482
-kurtosis: -0.15295684010634636
-
-DescriptiveStatistics:
-n: 1000
-min: -35100.0
-max: 21150.0
-mean: -8584.800000000001
-std dev: 9592.818466234261
-median: -8475.0
-skewness: 0.08356844160755826
-kurtosis: -0.011981590755436589
-
-DescriptiveStatistics:
-n: 1000
-min: -39300.0
-max: 20550.0
-mean: -9738.599999999999
-std dev: 9652.720085294426
-median: -9450.0
-skewness: -0.06614949829015723
-kurtosis: 0.04313713955272114
-
--------940--------
-DescriptiveStatistics:
-n: 941
-min: -48150.0
-max: 19650.0
-mean: -8792.295430393204
-std dev: 10461.847943120196
-median: -9300.0
-skewness: -0.056906675597976526
-kurtosis: 0.10321108784065514
-
-DescriptiveStatistics:
-n: 941
-min: -45900.0
-max: 19050.0
-mean: -9114.930924548347
-std dev: 10325.719166160534
-median: -9450.0
-skewness: -0.10295812258431196
-kurtosis: -0.10576730924973887
-
-DescriptiveStatistics:
-n: 941
-min: -45750.0
-max: 22050.0
-mean: -8724.867162592986
-std dev: 10312.984384930724
-median: -8550.0
-skewness: -0.05218272653152485
-kurtosis: -0.022925935559016786
-
-DescriptiveStatistics:
-n: 941
-min: -41250.0
-max: 21900.0
-mean: -8253.825717321994
-std dev: 9850.686401584366
-median: -8400.0
-skewness: -0.06870153431188339
-kurtosis: -0.1931247440959436
-
-DescriptiveStatistics:
-n: 941
-min: -42300.0
-max: 17850.0
-mean: -10215.462274176401
-std dev: 9920.222335998817
-median: -9600.0
-skewness: -0.14264925841889942
-kurtosis: -0.22332313227160627
-
-
+min: -27100.0
+max: 15900.0
+mean: -6055.299999999999
+std dev: 7032.142129744815
+median: -6000.0
+skewness: -0.05337906392393866
+kurtosis: -0.09853169829499997
 		 */
 	}
 

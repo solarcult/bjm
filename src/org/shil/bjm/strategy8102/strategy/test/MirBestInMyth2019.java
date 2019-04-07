@@ -186,12 +186,12 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //						this.getOne().put(start_With_Pair, PlayerAction.Hit);
 //						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 //						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-//					}else if((dealerCard==Card.Four4)){
+//					}else if(dealerCard==Card.Four4 || dealerCard == Card.Seven7){
 //						//22 vs 4
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-//						this.getOne().put(start_With_Pair, PlayerAction.Split);
+//						this.getOne().put(start_With_Pair, PlayerAction.Hit);
 //						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 //					}else {
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 //						this.getOne().put(start_With_Pair, PlayerAction.Split);
@@ -199,18 +199,18 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 //					}
 				}else if(start == 3) {
-					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
-						//33 vs 5 or 6
-						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						this.getOne().put(start_With_Pair, PlayerAction.Hit);
-						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-					}else {
-						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						this.getOne().put(start_With_Pair, PlayerAction.Split);
-						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
-					}
+//					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)|| (dealerCard==Card.Four4)){
+//						//33 vs 5 or 6
+//						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+//						this.getOne().put(start_With_Pair, PlayerAction.Hit);
+//						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+//					}else {
+//						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+//						this.getOne().put(start_With_Pair, PlayerAction.Split);
+//						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+//					}
 				}else if(start == 4) {
 //					if((dealerCard==Card.Five5)){
 //						//after test no split just hit
@@ -231,11 +231,11 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 //					}
 				}else if(start == 5) {
-//					if(dealerCard == Card.Six6) {
+//					if(dealerCard == Card.Six6 || dealerCard == Card.Five5) {
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-//						this.getOne().put(start_With_Pair, PlayerAction.Split);
+//						this.getOne().put(start_With_Pair, PlayerAction.Double);
 //						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Double);
 //					}else if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 //						this.getOne().put(start_With_Pair, PlayerAction.Split);
@@ -265,9 +265,9 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 //					}else if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-//						this.getOne().put(start_With_Pair, PlayerAction.Hit);
+//						this.getOne().put(start_With_Pair, PlayerAction.Stand);
 //						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
 //					}else{
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 //						this.getOne().put(start_With_Pair, PlayerAction.Split);
@@ -324,7 +324,7 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //						}
 //					}
 				}else if(start == 8) {
-					if((dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
+//					if((dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
 //						//88 vs 3,4,5,6,7
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 //						this.getOne().put(start_With_Pair, PlayerAction.Stand);
@@ -337,9 +337,9 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
 //					}else if(dealerCard == Card.Two2){
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-//						this.getOne().put(start_With_Pair, PlayerAction.Split);
+//						this.getOne().put(start_With_Pair, PlayerAction.Stand);
 //						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
 //					}else if(dealerCard == Card.One1) {
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 //						this.getOne().put(start_With_Pair, PlayerAction.Split);
@@ -361,7 +361,7 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //						this.getOne().put(start_With_Pair, PlayerAction.Split);
 //						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 //						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
-					}
+//					}
 				}else if(start == 9) {
 //					if((dealerCard==Card.Two2) ||(dealerCard==Card.Three3) || (dealerCard==Card.Four4)||(dealerCard==Card.Five5) || (dealerCard==Card.Six6)||(dealerCard==Card.Eight8)) {
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -370,9 +370,9 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 //					}else if(dealerCard==Card.Seven7) {
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-//						this.getOne().put(start_With_Pair, PlayerAction.Hit);	
+//						this.getOne().put(start_With_Pair, PlayerAction.Stand);	
 //						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);	
+//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 //					}else {
 //						// 9, 10, A
 //						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
@@ -382,6 +382,14 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 //					}
 				}
 			}
+		}
+		
+		for(Card dealerCard : Card.values()) {
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+			MatrixKey start_With_Pair = new MatrixKey(StartValue.Ten, dealerCard, Situation.Start_With_Pair);
+			this.getOne().put(start_With_Pair, PlayerAction.Split);
+			MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.Ten, dealerCard, Situation.Splited_Pair_And_Can_Split);
+			this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 		}
 		
 	}

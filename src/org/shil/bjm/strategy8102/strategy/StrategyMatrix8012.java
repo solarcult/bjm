@@ -136,6 +136,30 @@ public abstract class StrategyMatrix8012{
 			}
 		}
 		
+		for(Card dealerCard : Card.values()){
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+			//after test stand
+			if(dealerCard.getValue() == 4 || dealerCard.getValue() == 5){
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
+			}else if(dealerCard.getValue() ==6){
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
+			}
+			else if(dealerCard.getValue() >=9 && dealerCard.getValue() <=10){
+				//after test hit
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else if(dealerCard == Card.One1){
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else {
+				//2,7,8
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
+			}
+		}
+		
 		/*
 		 * Situation.Start_With_A [8,9,10]
 		 * VS

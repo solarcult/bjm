@@ -59,6 +59,9 @@ public class Strategy8012 {
 //					if(playerCardsPathValue.getSplitTimes()==0) {
 						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findFirstTwoCardsWithOutA().getValue()), dealerCard, Situation.Start_With_A);
 						playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
+						if(playerAction == null) {
+							System.out.println("I am null");
+						}
 //					}else if(playerCardsPathValue.getSplitTimes() > 0){
 //						//说明是Split来的, Pair8+A这种两张牌的
 //						MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.getValue()), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
@@ -299,11 +302,12 @@ public class Strategy8012 {
 	}
 	
 	public static void main(String[] args) {
-//		Card dealerCard = Card.Six6;
+		Card dealerCard = Card.Six6;
 		StrategyMatrix8012 strategyMatrix8012 = new BestInMyth2019();
-//		
-//		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.One1,Card.Two2,Card.One1);
-//		playerCardsPathValue.setAction(PlayerAction.Hit);
+		
+		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.One1,Card.Two2,Card.One1);
+		playerCardsPathValue.setAction(PlayerAction.Hit);
+//		System.out.println(strategyMatrix8012.fetchPlayAction( new MatrixKey(StartValue.getOne(playerCardsPathValue.getRestValueWithoutA()), dealerCard, Situation.A_Three_More_Cards), 0))
 //		PlayerCardsPathValue playerCardsPathValue2 = new PlayerCardsPathValue(Card.One1,Card.Two2,Card.One1,Card.One1);//,Card.Four4);
 //		playerCardsPathValue2.setAction(PlayerAction.Hit);
 //		
@@ -312,10 +316,10 @@ public class Strategy8012 {
 //		
 //		Collection<PlayerCardsPathValue> result = generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), strategyMatrix8012, playerCardsPathValue2, dealerCard);
 //		HelloWorld.print(result);
-		Card dealerCard = Card.Five5;
-		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Three3,Card.Three3);
-		Collection<PlayerCardsPathValue> result = generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), strategyMatrix8012, new PlayerCardsPathValue(playerCardsPathValue), dealerCard);
+//		Card dealerCard = Card.Five5;
+//		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Three3,Card.Three3);
+//		Collection<PlayerCardsPathValue> result = generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), strategyMatrix8012, new PlayerCardsPathValue(playerCardsPathValue), dealerCard);
 //		HelloWorld.print(result);
-		FileUtil.writePlayerCardsPathValues(playerCardsPathValue, dealerCard, result);
+//		FileUtil.writePlayerCardsPathValues(playerCardsPathValue, dealerCard, result);
 	}
 }
