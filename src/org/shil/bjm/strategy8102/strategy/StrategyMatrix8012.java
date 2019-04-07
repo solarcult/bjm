@@ -131,6 +131,8 @@ public abstract class StrategyMatrix8012{
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey a_Three_More_Cards = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(a_Three_More_Cards, PlayerAction.Hit);
 			}
 		}
 		
@@ -144,6 +146,8 @@ public abstract class StrategyMatrix8012{
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 				notChangesMatrix.put(start_With_A, PlayerAction.Stand);
+				MatrixKey a_Three_More_Cards = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
+				notChangesMatrix.put(a_Three_More_Cards, PlayerAction.Stand);
 			}
 		}
 		

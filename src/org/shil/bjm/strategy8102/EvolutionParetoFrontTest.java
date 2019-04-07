@@ -126,7 +126,7 @@ public class EvolutionParetoFrontTest {
 					evo.getEverythingInOneLoop();
 					proccesed++;
 					if((proccesed) % (Runtime.getRuntime().availableProcessors()/4) == 0) {
-						System.out.println(Calendar.getInstance().getTime() + " . has been progrossing : " + proccesed + "/" + totalprocessed);
+						System.out.println(Calendar.getInstance().getTime() + " . has been progrossing : " + proccesed + "/" + reproductions.size());
 					}
 				});
 				lotOfCpuS.add(completableFuture);

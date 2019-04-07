@@ -341,6 +341,331 @@ org->adv	$w:31.583368815954522->65.55079485844712  	$d:3.5686603950992692->4.536
 		//net money diff:  -0.008462686829091945 , up % -> -35.77679585124392   没有大幅度提高，还变成负的了 use : Hit
 	}
 	
+	public static void test11vsEveryone() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		System.out.println(t.diffWith(o));
+		
+		for(Card dealerCard : Card.values()) {
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+			PlayerCardsPathValue nine = new PlayerCardsPathValue(Card.Six6,Card.Five5);
+			Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
+			PlayerCardsPathValue ninet = new PlayerCardsPathValue(Card.Six6,Card.Five5);
+			Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
+
+	
+			DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, nine.getValue() , RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+			
+			System.out.println(result);
+			System.out.println();
+			System.out.println("-----------------------------");
+		}
+		
+		/**
+MatrixKey [startValue=Eleven, dealerCard=One1, situation=Splited_Pair_And_Can_NOT_Split] : Double -> Hit
+MatrixKey [startValue=Eleven, dealerCard=One1, situation=Start_Hand_WithoutA_WithoutPair] : Double -> Hit
+MatrixKey [startValue=Eleven, dealerCard=Two2, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Two2, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Four4, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Four4, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Five5, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Five5, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Six6, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Six6, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split] : Hit -> Double
+MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Double -> Hit
+MatrixKey [startValue=Eleven, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair] : Double -> Hit
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=11	@@@ 
+
+net money diff:  0.03314091841600088 , up % -> 70.23274010761294 .  o: -0.04718727813441603 -> a: -0.014046359718415155 (anet/onet: 0.29767259892387066
+
+[ProbMatrix: total: o: 4.566296923457266E-4  -> a: 4.5662969234528446E-4
+org->adv	$w:33.77945864264582->35.757660095404766  	$d:15.218053885059083->18.231032302729968  	$l:51.00248747229509->46.01130760186526
+	 improve value x$w(high is good):1.9782014527589453  	x$d:3.012978417670885  	 x$l(negative is good):-4.991179870429825
+	 	 $w-$l: -17.223028829649266 -> -10.253647506460496  _ #Surrender#	 lift : 6.969381323188772 : good	 :) hit 
+
+[TimeMatrix: total:  o: 184717.0 -> a: 5470465.0
+org->adv	$w:72.41672396151951->31.87491374133643  	$d:5.134340640006063->3.529809623130758  	$l:22.448935398474422->64.59527663553281
+	 improve value x$w(high is good):-40.54181022018308  	x$d:-1.6045310168753053  	 x$l(negative is good):42.146341237058394
+	 	 $w-$l: 49.96778856304509 -> -32.720362894196384  _ #Surrender#	 lift : -82.68815145724147 : bad	 :| stand
+
+[Prob_ROI diff: 0.06969381323495216 (up%-> 8.419468875166501) . o: 0.8277697117037436 -> a: 0.8974635249386957	 returnMoney: o:0.22679053727310589 a: 0.12294254798508404 (probReturnRate: 0.5420973443747966	 totalSpendMoney: o: 0.2739778154075219 a: 0.1369889077034992 (probTotalSpendRate: 0.4999999999990446
+
+[Time_ROI diff: -0.8268815145724147 (up%-> -55.137274643801334) . o: 1.499677885630451 -> a: 0.6727963710580362	 returnMoney: o:1.662096E8 a: 1.1041527E9 (timeReturnRate: 6.6431343315909555	 totalSpendMoney: o: 1.108302E8 a: 1.6411395E9 (timeTotalSpendRate: 14.807692307692308
+
+[[Per_Prob_ROI diff: -0.06134351911723041 (up%-> -96.33908286915022) . o: 0.06367459320798027 -> a: 0.0023310740907498593	 per returnMoney: o:0.017445425944085068 a: 3.1933129346775076E-4	 per totalSpendMoney: o: 0.021075216569809378 a: 3.558153446844135E-4
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.10283473165095304
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.03314091841600088     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.084194688751665 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Two2, 	playerStartValue=11	@@@ 
+
+net money diff:  0.03217519304334088 , up % -> 97.56654126191403 .  o: 0.03297769156023239 -> a: 0.06515288460357327 (anet/onet: 1.9756654126191404
+
+[ProbMatrix: total: o: 4.5662969234546867E-4  -> a: 4.5662969234574026E-4
+org->adv	$w:57.990530754602624->58.03501857069702  	$d:8.092195306199326->7.71031328829066  	$l:33.917273939198054->34.25466814101233
+	 improve value x$w(high is good):0.04448781609439578  	x$d:-0.3818820179086657  	 x$l(negative is good):0.33739420181427704
+	 	 $w-$l: 24.073256815404566 -> 23.780350429684688  _ @double@	 lift : -0.2929063857198766 : bad	 :| stand
+
+[TimeMatrix: total:  o: 667225.0 -> a: 346957.0
+org->adv	$w:59.41249203791824->72.14467498854324  	$d:4.382030049833265->5.193150736258383  	$l:36.20547791224849->22.662174275198367
+	 improve value x$w(high is good):12.732182950625003  	x$d:0.8111206864251184  	 x$l(negative is good):-13.543303637050123
+	 	 $w-$l: 23.20701412566975 -> 49.482500713344876  _ @double@	 lift : 26.27548658767513 : good	 :) hit 
+
+[Prob_ROI diff: -0.00292906385770042 (up%-> -0.23607535845186675) . o: 1.2407325681547678 -> a: 1.2378035042970674	 returnMoney: o:0.1699665992639499 a: 0.3391307000111351 (probReturnRate: 1.9952784928318859	 totalSpendMoney: o: 0.13698890770371752 a: 0.27397781540756183 (probTotalSpendRate: 2.0000000000009255
+
+[Time_ROI diff: 0.26275486587675134 (up%-> 21.326291180853094) . o: 1.2320701412566974 -> a: 1.4948250071334488	 returnMoney: o:2.466204E8 a: 3.11184E8 (timeReturnRate: 1.261793428280872	 totalSpendMoney: o: 2.001675E8 a: 2.081742E8 (timeTotalSpendRate: 1.04
+
+[[Per_Prob_ROI diff: 0.04558635145050679 (up%-> 91.85370123374643) . o: 0.04962930272619071 -> a: 0.0952156541766975	 per returnMoney: o:0.006798663970557997 a: 0.02608697692393347	 per totalSpendMoney: o: 0.005479556308148701 a: 0.021075216569812448
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.029246129185640457
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.03217519304334088     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9976392464154813 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Three3, 	playerStartValue=11	@@@ 
+
+net money diff:  0.035678173947230746 , up % -> 99.03887269447122 .  o: 0.03602441443098378 -> a: 0.07170258837821453 (anet/onet: 1.9903887269447122
+
+[ProbMatrix: total: o: 4.5662969234564334E-4  -> a: 4.566296923457639E-4
+org->adv	$w:59.22836494013149->59.350012920743936  	$d:7.840592315195439->7.47092098189501  	$l:32.931042744673064->33.17906609736105
+	 improve value x$w(high is good):0.12164798061244397  	x$d:-0.36967133330042845  	 x$l(negative is good):0.24802335268798714
+	 	 $w-$l: 26.297322195458428 -> 26.170946823382877  _ @double@	 lift : -0.12637537207554894 : bad	 :| stand
+
+[TimeMatrix: total:  o: 388825.0 -> a: 202189.0
+org->adv	$w:59.397158104545746->72.12706922730713  	$d:4.385006108146338->5.1971175484324075  	$l:36.21783578730792->22.67581322426047
+	 improve value x$w(high is good):12.729911122761386  	x$d:0.8121114402860696  	 x$l(negative is good):-13.54202256304745
+	 	 $w-$l: 23.179322317237826 -> 49.45125600304666  _ @double@	 lift : 26.271933685808836 : good	 :) hit 
+
+[Prob_ROI diff: -0.0012637537212676353 (up%-> -0.10006179856379964) . o: 1.262973221955293 -> a: 1.2617094682340253	 returnMoney: o:0.17301332213470486 a: 0.345680403785706 (probReturnRate: 1.9979987640290837	 totalSpendMoney: o: 0.13698890770372107 a: 0.2739778154074915 (probTotalSpendRate: 2.00000000000036
+
+[Time_ROI diff: 0.26271933685808824 (up%-> 21.328201187978372) . o: 1.2317932231723783 -> a: 1.4945125600304665	 returnMoney: o:1.436856E8 a: 1.813044E8 (timeReturnRate: 1.261813292354975	 totalSpendMoney: o: 1.166475E8 a: 1.213134E8 (timeTotalSpendRate: 1.04
+
+[[Per_Prob_ROI diff: 0.046535645601328696 (up%-> 92.1152657719927) . o: 0.050518928878211716 -> a: 0.09705457447954041	 per returnMoney: o:0.006920532885388194 a: 0.026590800291208156	 per totalSpendMoney: o: 0.005479556308148843 a: 0.02107521656980704
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.03441442022596311
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.035678173947230746     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.998999382014362 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Four4, 	playerStartValue=11	@@@ 
+
+net money diff:  0.03927680726027094 , up % -> 100.0000000000937 .  o: 0.03927680726023414 -> a: 0.07855361452050508 (anet/onet: 2.000000000000937
+
+[ProbMatrix: total: o: 4.5662969234574373E-4  -> a: 4.5662969234575674E-4
+org->adv	$w:60.71891519139423->60.71891519139424  	$d:7.233693405970254->7.233693405970093  	$l:32.04739140263552->32.04739140263566
+	 improve value x$w(high is good):7.105427357601002E-15  	x$d:-1.6076029396572267E-13  	 x$l(negative is good):1.4210854715202004E-13
+	 	 $w-$l: 28.671523788758712 -> 28.67152378875858  _ @double@	 lift : -1.3322676295501878E-13 : bad	 :| stand
+
+[TimeMatrix: total:  o: 117949.0 -> a: 117949.0
+org->adv	$w:72.11167538512407->72.11167538512407  	$d:5.200552781286827->5.200552781286827  	$l:22.687771833589093->22.687771833589093
+	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
+	 	 $w-$l: 49.423903551534984 -> 49.423903551534984  _ @double@	 lift : 0.0 : bad	 :| stand
+
+[Prob_ROI diff: 1.4876988529977098E-13 (up%-> 1.1561989857523498E-11) . o: 1.2867152378875768 -> a: 1.2867152378877256	 returnMoney: o:0.17626571496396373 a: 0.3525314299279504 (probReturnRate: 2.00000000000013	 totalSpendMoney: o: 0.1369889077037296 a: 0.2739778154074453 (probTotalSpendRate: 1.9999999999998987
+
+[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.4942390355153499 -> a: 1.4942390355153499	 returnMoney: o:5.28732E7 a: 1.057464E8 (timeReturnRate: 2.0	 totalSpendMoney: o: 3.53847E7 a: 7.07694E7 (timeTotalSpendRate: 2.0
+
+[[Per_Prob_ROI diff: 1.1421419365831298E-14 (up%-> 1.1539340437093645E-11) . o: 0.09897809522212131 -> a: 0.09897809522213273	 per returnMoney: o:0.013558901151074134 a: 0.02711780230215003	 per totalSpendMoney: o: 0.010537608284902276 a: 0.021075216569803486
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.03927680726041971
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.03927680726027094     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0000000000001157 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Five5, 	playerStartValue=11	@@@ 
+
+net money diff:  0.042821749785717816 , up % -> 100.00000000005484 .  o: 0.042821749785694335 -> a: 0.08564349957141215 (anet/onet: 2.0000000000005485
+
+[ProbMatrix: total: o: 4.5662969234572714E-4  -> a: 4.5662969234573755E-4
+org->adv	$w:62.144404755701984->62.14440475570208  	$d:6.970473085628755->6.970473085628612  	$l:30.885122158669258->30.885122158669297
+	 improve value x$w(high is good):9.237055564881302E-14  	x$d:-1.4299672557172016E-13  	 x$l(negative is good):3.907985046680551E-14
+	 	 $w-$l: 31.25928259703273 -> 31.25928259703278  _ @double@	 lift : 4.9960036108132044E-14 : good	 :| stand
+
+[TimeMatrix: total:  o: 71149.0 -> a: 71149.0
+org->adv	$w:72.10080254114605->72.10080254114605  	$d:5.2031651885479775->5.2031651885479775  	$l:22.696032270305977->22.696032270305977
+	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
+	 	 $w-$l: 49.40477027084007 -> 49.40477027084007  _ @double@	 lift : 0.0 : bad	 :| stand
+
+[Prob_ROI diff: 9.50350909079134E-14 (up%-> 7.240256767185871E-12) . o: 1.3125928259703343 -> a: 1.3125928259704294	 returnMoney: o:0.17981065748941177 a: 0.3596213149788389 (probReturnRate: 2.0000000000000857	 totalSpendMoney: o: 0.13698890770371744 a: 0.2739778154074268 (probTotalSpendRate: 1.999999999999941
+
+[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.4940477027084007 -> a: 1.4940477027084007	 returnMoney: o:3.189E7 a: 6.378E7 (timeReturnRate: 2.0	 totalSpendMoney: o: 2.13447E7 a: 4.26894E7 (timeTotalSpendRate: 2.0
+
+[[Per_Prob_ROI diff: 7.299716386910404E-15 (up%-> 7.229683962327247E-12) . o: 0.10096867892079495 -> a: 0.10096867892080225	 per returnMoney: o:0.013831589037647059 a: 0.0276631780752953	 per totalSpendMoney: o: 0.01053760828490134 a: 0.02107521656980206
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.04282174978581285
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.042821749785717816     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0000000000000724 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Six6, 	playerStartValue=11	@@@ 
+
+net money diff:  0.04602575930374503 , up % -> 100.00000000003149 .  o: 0.04602575930373054 -> a: 0.09205151860747557 (anet/onet: 2.000000000000315
+
+[ProbMatrix: total: o: 4.5662969234574156E-4  -> a: 4.56629692345743E-4
+org->adv	$w:63.461995970514906->63.46199597051486  	$d:6.6741731040382755->6.674173104038264  	$l:29.863830925446827->29.863830925446873
+	 improve value x$w(high is good):-4.263256414560601E-14  	x$d:-1.1546319456101628E-14  	 x$l(negative is good):4.618527782440651E-14
+	 	 $w-$l: 33.59816504506808 -> 33.598165045067994  _ @double@	 lift : -8.881784197001252E-14 : bad	 :| stand
+
+[TimeMatrix: total:  o: 40417.0 -> a: 40417.0
+org->adv	$w:72.08847762080313->72.08847762080313  	$d:5.205730262018458->5.205730262018458  	$l:22.705792117178415->22.705792117178415
+	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
+	 	 $w-$l: 49.382685503624714 -> 49.382685503624714  _ @double@	 lift : 0.0 : bad	 :| stand
+
+[Prob_ROI diff: 5.928590951498336E-14 (up%-> 4.4376290269394164E-12) . o: 1.3359816504506732 -> a: 1.3359816504507325	 returnMoney: o:0.18301466700744978 a: 0.36602933401490895 (probReturnRate: 2.000000000000051	 totalSpendMoney: o: 0.13698890770371924 a: 0.2739778154074334 (probTotalSpendRate: 1.9999999999999627
+
+[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.493826855036247 -> a: 1.493826855036247	 returnMoney: o:1.81128E7 a: 3.62256E7 (timeReturnRate: 2.0	 totalSpendMoney: o: 1.21251E7 a: 2.42502E7 (timeTotalSpendRate: 2.0
+
+[[Per_Prob_ROI diff: 4.538036613155327E-15 (up%-> 4.415814839306988E-12) . o: 0.10276781926543642 -> a: 0.10276781926544096	 per returnMoney: o:0.014078051308265368 a: 0.028156102616531457	 per totalSpendMoney: o: 0.01053760828490148 a: 0.021075216569802567
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.046025759303804314
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.04602575930374503     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0000000000000442 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=11	@@@ 
+
+net money diff:  0.024170440467895682 , up % -> 60.21414980428771 .  o: 0.0401407983778832 -> a: 0.06431123884577888 (anet/onet: 1.602141498042877
+
+[ProbMatrix: total: o: 4.566296923456104E-4  -> a: 4.566296923457565E-4
+org->adv	$w:59.735692519546625->58.08188882005745  	$d:9.83084026572913->7.309377932766119  	$l:30.433467214724253->34.608733247176424
+	 improve value x$w(high is good):-1.653803699489174  	x$d:-2.5214623329630106  	 x$l(negative is good):4.175266032452171
+	 	 $w-$l: 29.30222530482237 -> 23.473155572881023  _ @double@	 lift : -5.82906973194135 : bad	 :| stand
+
+[TimeMatrix: total:  o: 739585.0 -> a: 24973.0
+org->adv	$w:31.726846812739577->72.03379650022023  	$d:3.575518703056444->5.2176350458495175  	$l:64.69763448420397->22.748568453930247
+	 improve value x$w(high is good):40.30694968748065  	x$d:1.6421163427930736  	 x$l(negative is good):-41.94906603027373
+	 	 $w-$l: -32.9707876714644 -> 49.285228046289994  _ @double@	 lift : 82.2560157177544 : good	 :) hit 
+
+[Prob_ROI diff: -0.05829069731862546 (up%-> -4.5080969937866335) . o: 1.293022253047476 -> a: 1.2347315557288505	 returnMoney: o:0.1771297060816934 a: 0.3382890542532131 (probReturnRate: 1.9098380601229696	 totalSpendMoney: o: 0.1369889077038102 a: 0.2739778154074342 (probTotalSpendRate: 1.9999999999986409
+
+[Time_ROI diff: 0.8225601571775439 (up%-> 122.7166676442302) . o: 0.6702921232853559 -> a: 1.4928522804628999	 returnMoney: o:1.487214E8 a: 2.23686E7 (timeReturnRate: 0.15040606126623338	 totalSpendMoney: o: 2.218755E8 a: 1.49838E7 (timeTotalSpendRate: 0.06753246753246753
+
+[[Per_Prob_ROI diff: 0.09162085108211594 (up%-> 2728.029435184011) . o: 0.0033584993585648727 -> a: 0.09497935044068082	 per returnMoney: o:4.600771586537491E-4 a: 0.026022234942554852	 per totalSpendMoney: o: 3.558153446852213E-4 a: 0.021075216569802633
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.03412025685072978
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.024170440467895682     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9549190300621337 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=11	@@@ 
+
+net money diff:  0.01720866503169488 , up % -> 54.36298317188558 .  o: 0.031655115351717 -> a: 0.04886378038341188 (anet/onet: 1.5436298317188557
+
+[ProbMatrix: total: o: 4.566296923457123E-4  -> a: 4.566296923457502E-4
+org->adv	$w:56.5490368696284->55.20387651665285  	$d:10.009720813175187->7.4271874748299895  	$l:33.441242317196405->37.36893600851716
+	 improve value x$w(high is good):-1.3451603529755545  	x$d:-2.582533338345198  	 x$l(negative is good):3.927693691320755
+	 	 $w-$l: 23.107794552431994 -> 17.834940508135688  _ @double@	 lift : -5.272854044296304 : bad	 :| stand
+
+[TimeMatrix: total:  o: 443905.0 -> a: 14989.0
+org->adv	$w:31.717822507067954->72.02615251184201  	$d:3.576891451999865->5.21048769097338  	$l:64.70528604093218->22.763359797184602
+	 improve value x$w(high is good):40.308330004774064  	x$d:1.6335962389735155  	 x$l(negative is good):-41.941926243747574
+	 	 $w-$l: -32.98746353386423 -> 49.26279271465741  _ @double@	 lift : 82.25025624852165 : good	 :) hit 
+
+[Prob_ROI diff: -0.052728540442190885 (up%-> -4.283119572885041) . o: 1.2310779455235659 -> a: 1.178349405081375	 returnMoney: o:0.16864402305554088 a: 0.3228415957908529 (probReturnRate: 1.9143376085408548	 totalSpendMoney: o: 0.13698890770382388 a: 0.27397781540744104 (probTotalSpendRate: 1.999999999998491
+
+[Time_ROI diff: 0.8225025624852164 (up%-> 122.73861069277108) . o: 0.6701253646613577 -> a: 1.492627927146574	 returnMoney: o:8.92416E7 a: 1.34238E7 (timeReturnRate: 0.1504208799483649	 totalSpendMoney: o: 1.331715E8 a: 8993400.0 (timeTotalSpendRate: 0.06753246753246753
+
+[[Per_Prob_ROI diff: 0.08744465687602858 (up%-> 2734.6922280337894) . o: 0.003197605053307963 -> a: 0.09064226192933654	 per returnMoney: o:4.380364235208854E-4 a: 0.024833968906988687	 per totalSpendMoney: o: 3.5581534468525684E-4 a: 0.021075216569803157
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.035519875410496005
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.01720866503169488     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9571688042711496 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=11	@@@ 
+
+net money diff:  0.010543040114744717 , up % -> 48.22224976712395 .  o: 0.021863434753997213 -> a: 0.03240647486874193 (anet/onet: 1.4822224976712395
+
+[ProbMatrix: total: o: 4.566296923457048E-4  -> a: 4.566296923457471E-4
+org->adv	$w:52.995612293287856->52.242933435374226  	$d:9.968779125046364->7.342271411376896  	$l:37.03560858166577->40.414795153248875
+	 improve value x$w(high is good):-0.7526788579136294  	x$d:-2.6265077136694677  	 x$l(negative is good):3.379186571583105
+	 	 $w-$l: 15.960003711622084 -> 11.82813828212535  _ @double@	 lift : -4.131865429496734 : bad	 :| stand
+
+[TimeMatrix: total:  o: 296065.0 -> a: 9997.0
+org->adv	$w:31.689324979311976->71.97159147744323  	$d:3.579619340347559->5.231569470841253  	$l:64.73105568034046->22.796839051715516
+	 improve value x$w(high is good):40.28226649813125  	x$d:1.6519501304936934  	 x$l(negative is good):-41.934216628624945
+	 	 $w-$l: -33.041730701028484 -> 49.17475242572772  _ @double@	 lift : 82.2164831267562 : good	 :) hit 
+
+[Prob_ROI diff: -0.04131865429469128 (up%-> -3.5631815257142443) . o: 1.1596000371159565 -> a: 1.1182813828212652	 returnMoney: o:0.15885234245777471 a: 0.3063842902761869 (probReturnRate: 1.9287363694849406	 totalSpendMoney: o: 0.1369889077037775 a: 0.273977815407445 (probTotalSpendRate: 1.9999999999991969
+
+[Time_ROI diff: 0.822164831267562 (up%-> 122.78764667535853) . o: 0.6695826929897151 -> a: 1.491747524257277	 returnMoney: o:5.9472E7 a: 8947800.0 (timeReturnRate: 0.150453995157385	 totalSpendMoney: o: 8.88195E7 a: 5998200.0 (timeTotalSpendRate: 0.06753246753246753
+
+[[Per_Prob_ROI diff: 0.08300969668405188 (up%-> 2756.0134702000014) . o: 0.003011948148353133 -> a: 0.08602164483240501	 per returnMoney: o:4.1260348690331096E-4 a: 0.023568022328937455	 per totalSpendMoney: o: 3.558153446851364E-4 a: 0.02107521656980346
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.030775614179946564
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.010543040114744717     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9643681847428576 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 @@@   dealerCard=Ten, 	playerStartValue=11	@@@ 
+
+net money diff:  -8.218735776321096E-4 , up % -> -8.859056302288101 .  o: 0.00927721361720929 -> a: 0.00845534003957718 (anet/onet: 0.911409436977119
+
+[ProbMatrix: total: o: 4.5662969234574487E-4  -> a: 4.5662969234574644E-4
+org->adv	$w:47.36210689326546->47.411373626604174  	$d:8.661904758654629->11.349533540395356  	$l:43.975988348079895->41.23909283300048
+	 improve value x$w(high is good):0.04926673333871179  	x$d:2.6876287817407274  	 x$l(negative is good):-2.736895515079418
+	 	 $w-$l: 3.386118545185568 -> 6.172280793603696  _ @double@	 lift : 2.786162248418128 : good	 :) hit 
+
+[TimeMatrix: total:  o: 5005.0 -> a: 148225.0
+org->adv	$w:71.96803196803197->31.651205936920224  	$d:5.174825174825175->3.5837409343902853  	$l:22.857142857142858->64.76505312868949
+	 improve value x$w(high is good):-40.316826031111745  	x$d:-1.5910842404348897  	 x$l(negative is good):41.907910271546626
+	 	 $w-$l: 49.11088911088911 -> -33.11384719176927  _ #Surrender#	 lift : -82.22473630265837 : bad	 :| stand
+
+[Prob_ROI diff: 0.02786162248425561 (up%-> 2.6949094207534414) . o: 1.0338611854518684 -> a: 1.061722807936124	 returnMoney: o:0.28325502902465544 a: 0.14544424774331435 (probReturnRate: 0.51347454710382	 totalSpendMoney: o: 0.27397781540744615 a: 0.13698890770373717 (probTotalSpendRate: 0.5000000000000515
+
+[Time_ROI diff: -0.8222473630265837 (up%-> -55.14334787549312) . o: 1.491108891108891 -> a: 0.6688615280823073	 returnMoney: o:4477800.0 a: 2.97426E7 (timeReturnRate: 6.642235026128903	 totalSpendMoney: o: 3003000.0 a: 4.44675E7 (timeTotalSpendRate: 14.807692307692308
+
+[[Per_Prob_ROI diff: -0.07677006191724271 (up%-> -96.53237968189664) . o: 0.07952778349629758 -> a: 0.0027577215790548673	 per returnMoney: o:0.021788848386511957 a: 3.7777726686575154E-4	 per totalSpendMoney: o: 0.02107521656980355 a: 3.558153446850316E-4
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.0270397489066235
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -8.218735776321096E-4     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.026949094207534 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+-----------------------------
+
+		 */
+	}
 	
 	public static void test11vs10() {
 		StrategyMatrix8012 o = new BestInMyth2019();
@@ -1005,18 +1330,12 @@ org->adv	$w:28.668600580174054->0.0  	$d:3.2509752925877766->0.0  	$l:68.0804241
 //		HelloWorld.print(advanced);
 		System.out.println(o.diffWith(t));
 		
-		double onet = ProfitUtil.moneyCalcOneHandInReturnProb(origin,dealerCard) ;
-		double anet =  ProfitUtil.moneyCalcOneHandInReturnProb(advanced,dealerCard);
-		System.out.println("net money diff:  " + (anet - onet)+" , up % -> "+ 100 * ((anet - onet)/Math.abs(onet))  +" .  o: "+onet +" -> a: " +anet);
-
 		DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, nine.getValue() , RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
 		
 		System.out.println(result);
 		/**
  
  MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Start_Hand_WithoutA_WithoutPair] : Stand -> Hit
-
-net money diff:  0.0012359413561666699 , up % -> 1.5689196936483634 .  o: -0.07877658500752284 -> a: -0.07754064365135617
 
 		 @@@   dealerCard=JJJ, 	playerStartValue=16	@@@ 
 
@@ -1075,9 +1394,9 @@ org->adv	$w:57.66233766233766->28.63136863136863  	$d:0.0->3.2567432567432566  	
 MatrixKey [startValue=Two, dealerCard=One1, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Two, dealerCard=Two2, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Two, dealerCard=Three3, situation=Start_With_A] : Hit -> Double
-MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_A] : Double -> Hit
+MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Two, dealerCard=Seven7, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Two, dealerCard=Eight8, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Two, dealerCard=Nine9, situation=Start_With_A] : Hit -> Double
@@ -1085,9 +1404,9 @@ MatrixKey [startValue=Two, dealerCard=Ten, situation=Start_With_A] : Hit -> Doub
 MatrixKey [startValue=Three, dealerCard=One1, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Three, dealerCard=Two2, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Three, dealerCard=Three3, situation=Start_With_A] : Hit -> Double
-MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Three, dealerCard=Five5, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Three, dealerCard=Six6, situation=Start_With_A] : Double -> Hit
+MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Three, dealerCard=Five5, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Three, dealerCard=Six6, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Three, dealerCard=Seven7, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Three, dealerCard=Eight8, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Three, dealerCard=Nine9, situation=Start_With_A] : Hit -> Double
@@ -1095,9 +1414,9 @@ MatrixKey [startValue=Three, dealerCard=Ten, situation=Start_With_A] : Hit -> Do
 MatrixKey [startValue=Four, dealerCard=One1, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Four, dealerCard=Two2, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Four, dealerCard=Three3, situation=Start_With_A] : Hit -> Double
-MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_A] : Double -> Hit
+MatrixKey [startValue=Four, dealerCard=Four4, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Four, dealerCard=Seven7, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Four, dealerCard=Eight8, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Four, dealerCard=Nine9, situation=Start_With_A] : Hit -> Double
@@ -1105,9 +1424,9 @@ MatrixKey [startValue=Four, dealerCard=Ten, situation=Start_With_A] : Hit -> Dou
 MatrixKey [startValue=Five, dealerCard=One1, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Five, dealerCard=Two2, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Five, dealerCard=Three3, situation=Start_With_A] : Hit -> Double
-MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Five, dealerCard=Five5, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_A] : Double -> Hit
+MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Five, dealerCard=Five5, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Five, dealerCard=Seven7, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Five, dealerCard=Eight8, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Five, dealerCard=Nine9, situation=Start_With_A] : Hit -> Double
@@ -1116,1042 +1435,1084 @@ MatrixKey [startValue=Five, dealerCard=Ten, situation=Start_With_A] : Hit -> Dou
 
 		 @@@   dealerCard=One1, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.09236591876196641 , up % -> -208.82846729968628 .  o: -0.04423052084628558 -> a: -0.136596439608252 (anet/onet: 3.088284672996863
+net money diff:  -0.09595963582751015 , up % -> -236.13972286132517 .  o: -0.040636803780727385 -> a: -0.13659643960823753 (anet/onet: 3.3613972286132516
 
-[ProbMatrix: total: o: 4.566296923438159E-4  -> a: 4.5662969234560875E-4
-org->adv	$w:27.4186083387825->21.647648448753348  	$d:12.875117412343531->6.847951231901512  	$l:59.70627424887396->71.50440031934514
-	 improve value x$w(high is good):-5.770959890029154  	x$d:-6.027166180442019  	 x$l(negative is good):11.798126070471177
-	 	 $w-$l: -32.287665910091455 -> -49.85675187059179  _ #Surrender#	 lift : -17.569085960500335 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969228852545E-4  -> a: 4.566296923456564E-4
+org->adv	$w:28.752672270079387->21.647648448751518  	$d:12.830353074841435->6.847951231900836  	$l:58.41697465507918->71.50440031934764
+	 improve value x$w(high is good):-7.105023821327869  	x$d:-5.9824018429405985  	 x$l(negative is good):13.087425664268459
+	 	 $w-$l: -29.66430238499979 -> -49.85675187059611  _ #Surrender#	 lift : -20.192449485596324 : bad	 :| stand
 
-[TimeMatrix: total:  o: 5.1848641E7 -> a: 184717.0
-org->adv	$w:31.233374082070924->64.72495763790013  	$d:3.472785332984909->3.2065267409063596  	$l:65.29384058494416->32.0685156211935
-	 improve value x$w(high is good):33.49158355582921  	x$d:-0.2662585920785494  	 x$l(negative is good):-33.225324963750666
-	 	 $w-$l: -34.06046650287324 -> 32.65644201670664  _ @double@	 lift : 66.71690851957987 : good	 :) hit 
+[TimeMatrix: total:  o: 1.82798785E8 -> a: 184717.0
+org->adv	$w:31.47781097122719->64.72495763790013  	$d:3.5045572102681097->3.2065267409063596  	$l:65.01763181850471->32.0685156211935
+	 improve value x$w(high is good):33.24714666667295  	x$d:-0.29803046936175015  	 x$l(negative is good):-32.94911619731121
+	 	 $w-$l: -33.53982084727752 -> 32.65644201670664  _ @double@	 lift : 66.19626286398416 : good	 :) hit 
 
-[Prob_ROI diff: -0.17569085964249953 (up%-> -25.94665536112395) . o: 0.6771233409364136 -> a: 0.501432481293914	 returnMoney: o:0.09275838685166897 a: 0.13738137579928947 (probReturnRate: 1.4810668928404032	 totalSpendMoney: o: 0.13698890769795455 a: 0.27397781540754146 (probTotalSpendRate: 2.0000000000849147
+[Prob_ROI diff: -0.2019244950061485 (up%-> -28.70867878048718) . o: 0.703356976300119 -> a: 0.5014324812939704	 returnMoney: o:0.09635210387631009 a: 0.13738137579930593 (probReturnRate: 1.4258264248766823	 totalSpendMoney: o: 0.13698890765703747 a: 0.27397781540754346 (probTotalSpendRate: 2.000000000682307
 
-[Time_ROI diff: 0.6671690851957988 (up%-> 101.17892102237423) . o: 0.6593953349712676 -> a: 1.3265644201670663	 returnMoney: o:1.02566256E10 a: 1.470234E8 (timeReturnRate: 0.014334480533246725	 totalSpendMoney: o: 1.55545923E10 a: 1.108302E8 (timeTotalSpendRate: 0.00712523979172376
+[Time_ROI diff: 0.6619626286398415 (up%-> 99.60289561041978) . o: 0.6646017915272249 -> a: 1.3265644201670663	 returnMoney: o:3.644652E10 a: 1.470234E8 (timeReturnRate: 0.004033948920226129	 totalSpendMoney: o: 5.48396355E10 a: 1.108302E8 (timeTotalSpendRate: 0.0020209871745044696
 
-[[Per_Prob_ROI diff: 0.03838616524673397 (up%-> 20686.204199019907) . o: 1.85564083567118E-4 -> a: 0.03857172933030109	 per returnMoney: o:2.5420221115831452E-5 a: 0.010567798138406883	 per totalSpendMoney: o: 3.7541492929009193E-5 a: 0.02107521656981088
+[[Per_Prob_ROI diff: 0.03851705719845155 (up%-> 70450.98826838711) . o: 5.467213185387633E-5 -> a: 0.03857172933030542	 per returnMoney: o:7.489475621944041E-6 a: 0.010567798138408148	 per totalSpendMoney: o: 1.0648185593240378E-5 a: 0.021075216569811036
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.2680567784044659
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.09236591876196641
- probRunR/probTalSR= 0.7405334463887605 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.29788413083365867
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.09595963582751015     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.7129132121951283 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Two2, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.005113118351336932 , up % -> -117.45483568905016 .  o: -0.004353263381061123 -> a: -0.009466381732398055 (anet/onet: 2.1745483568905017
+net money diff:  -0.015702027565924204 , up % -> -251.8107664406802 .  o: 0.006235645833524428 -> a: -0.009466381732399776 (anet/onet: -1.5181076644068021
 
-[ProbMatrix: total: o: 4.5662969234549003E-4  -> a: 4.56629692345824E-4
-org->adv	$w:45.71563211825035->45.76985190214849  	$d:5.390913957283854->5.005132602138644  	$l:48.8934539244658->49.22501549571287
-	 improve value x$w(high is good):0.05421978389814086  	x$d:-0.38578135514520984  	 x$l(negative is good):0.33156157124706453
-	 	 $w-$l: -3.177821806215453 -> -3.455163593564375  _ #Surrender#	 lift : -0.27734178734892256 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234453853E-4  -> a: 4.566296923457761E-4
+org->adv	$w:49.19313027009314->45.76985190215065  	$d:6.16567431146966->5.005132602139198  	$l:44.6411954184372->49.22501549571015
+	 improve value x$w(high is good):-3.423278367942494  	x$d:-1.1605417093304622  	 x$l(negative is good):4.583820077272954
+	 	 $w-$l: 4.551934851655948 -> -3.455163593559507  _ #Surrender#	 lift : -8.007098445215455 : bad	 :| stand
 
-[TimeMatrix: total:  o: 667225.0 -> a: 346957.0
-org->adv	$w:55.386563752856986->64.40250520957929  	$d:3.36318333395781->3.233830128805587  	$l:41.25025291318521->32.363664661615125
-	 improve value x$w(high is good):9.015941456722302  	x$d:-0.12935320515222326  	 x$l(negative is good):-8.886588251570082
-	 	 $w-$l: 14.13631083967178 -> 32.038840547964156  _ @double@	 lift : 17.90252970829238 : good	 :) hit 
+[TimeMatrix: total:  o: 1.0275265E7 -> a: 346957.0
+org->adv	$w:55.28629188638931->64.40250520957929  	$d:3.841458103513632->3.233830128805587  	$l:40.87225001009706->32.363664661615125
+	 improve value x$w(high is good):9.116213323189982  	x$d:-0.6076279747080453  	 x$l(negative is good):-8.508585348481937
+	 	 $w-$l: 14.414041876292243 -> 32.038840547964156  _ @double@	 lift : 17.624798671671915 : good	 :) hit 
 
-[Prob_ROI diff: -0.0027734178737734982 (up%-> -0.2864444826082867) . o: 0.9682217819381607 -> a: 0.9654483640643872	 returnMoney: o:0.1326356443226314 a: 0.2645114336752056 (probReturnRate: 1.9942711103494255	 totalSpendMoney: o: 0.13698890770369251 a: 0.27397781540760363 (probTotalSpendRate: 2.0000000000015956
+[Prob_ROI diff: -0.0800709844587636 (up%-> -7.658489015231352) . o: 1.0455193485231469 -> a: 0.9654483640643833	 returnMoney: o:0.14322455353622515 a: 0.26451143367522273 (probReturnRate: 1.8468302197103448	 totalSpendMoney: o: 0.13698890770270072 a: 0.2739778154076225 (probTotalSpendRate: 2.0000000000162133
 
-[Time_ROI diff: 0.1790252970829238 (up%-> 15.685218469554544) . o: 1.1413631083967177 -> a: 1.3203884054796415	 returnMoney: o:2.284638E8 a: 2.748708E8 (timeReturnRate: 1.2031262720833673	 totalSpendMoney: o: 2.001675E8 a: 2.081742E8 (timeTotalSpendRate: 1.04
+[Time_ROI diff: 0.17624798671671904 (up%-> 15.404401752302697) . o: 1.1441404187629225 -> a: 1.3203884054796415	 returnMoney: o:3.5269038E9 a: 2.748708E8 (timeReturnRate: 0.07793544014441221	 totalSpendMoney: o: 3.0825795E9 a: 2.081742E8 (timeTotalSpendRate: 0.06753246753246753
 
-[[Per_Prob_ROI diff: 0.0355363874966572 (up%-> 91.75683753344559) . o: 0.038728871277526423 -> a: 0.07426525877418362	 per returnMoney: o:0.005305425772905255 a: 0.020347033359631197	 per totalSpendMoney: o: 0.005479556308147701 a: 0.021075216569815664
+[[Per_Prob_ROI diff: 0.07154962410269465 (up%-> 2634.7293637796874) . o: 0.002715634671488693 -> a: 0.07426525877418334	 per returnMoney: o:3.7201182736681856E-4 a: 0.02034703335963252	 per totalSpendMoney: o: 3.558153446823395E-4 a: 0.021075216569817114
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.00788653622511043
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.005113118351336932
- probRunR/probTalSR= 0.9971355551739173 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.0957730120246878
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.015702027565924204     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9234151098476866 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Three3, 	playerStartValue=2	@@@ 
 
-net money diff:  -4.0739557621879974E-4 , up % -> -397.2053041471188 .  o: -1.0256549244566648E-4 -> a: -5.099610686644662E-4 (anet/onet: 4.972053041471188
+net money diff:  -0.010573948469004835 , up % -> -105.06718707389173 .  o: 0.010063987400336871 -> a: -5.099610686679634E-4 (anet/onet: -0.050671870738917414
 
-[ProbMatrix: total: o: 4.566296923457011E-4  -> a: 4.5662969234582846E-4
-org->adv	$w:47.35337623689279->47.48445941311347  	$d:5.2183761412132466->4.844948925096121  	$l:47.42824762189396->47.670591661790404
-	 improve value x$w(high is good):0.13108317622067744  	x$d:-0.3734272161171255  	 x$l(negative is good):0.24234403989644449
-	 	 $w-$l: -0.07487138500116841 -> -0.186132248676929  _ #Surrender#	 lift : -0.1112608636757606 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923452084E-4  -> a: 4.566296923458118E-4
+org->adv	$w:50.68581873249828->47.48445941311518  	$d:5.974933559420112->4.844948925096264  	$l:43.3392477080816->47.67059166178856
+	 improve value x$w(high is good):-3.2013593193830943  	x$d:-1.129984634323848  	 x$l(negative is good):4.331343953706963
+	 	 $w-$l: 7.346571024416676 -> -0.18613224867338185  _ #Surrender#	 lift : -7.532703273090058 : bad	 :| stand
 
-[TimeMatrix: total:  o: 388825.0 -> a: 202189.0
-org->adv	$w:55.36963929788465->64.38184075295887  	$d:3.365009965922973->3.2355865056951663  	$l:41.265350736192374->32.38257274134597
-	 improve value x$w(high is good):9.012201455074212  	x$d:-0.1294234602278066  	 x$l(negative is good):-8.882777994846407
-	 	 $w-$l: 14.104288561692279 -> 31.999268011612898  _ @double@	 lift : 17.894979449920616 : good	 :) hit 
+[TimeMatrix: total:  o: 5987905.0 -> a: 202189.0
+org->adv	$w:55.26959763055693->64.38184075295887  	$d:3.84348115075306->3.2355865056951663  	$l:40.886921218690006->32.38257274134597
+	 improve value x$w(high is good):9.112243122401935  	x$d:-0.6078946450578937  	 x$l(negative is good):-8.504348477344038
+	 	 $w-$l: 14.382676411866925 -> 31.999268011612898  _ @double@	 lift : 17.616591599745973 : good	 :) hit 
 
-[Prob_ROI diff: -0.0011126086370155663 (up%-> -0.11134422866763827) . o: 0.9992512861503539 -> a: 0.9981386775133383	 returnMoney: o:0.1368863422112699 a: 0.27346785433885085 (probReturnRate: 1.9977731154272609	 totalSpendMoney: o: 0.13698890770371558 a: 0.2739778154075153 (probTotalSpendRate: 2.000000000000614
+[Prob_ROI diff: -0.07532703273335473 (up%-> -7.017181081270377) . o: 1.0734657102466802 -> a: 0.9981386775133255	 returnMoney: o:0.14705289510359612 a: 0.2734678543388571 (probReturnRate: 1.8596563783814248	 totalSpendMoney: o: 0.13698890770325925 a: 0.2739778154075251 (probTotalSpendRate: 2.000000000007348
 
-[Time_ROI diff: 0.17894979449920623 (up%-> 15.683003395832419) . o: 1.1410428856169228 -> a: 1.319992680116129	 returnMoney: o:1.330998E8 a: 1.601328E8 (timeReturnRate: 1.203103235316657	 totalSpendMoney: o: 1.166475E8 a: 1.213134E8 (timeTotalSpendRate: 1.04
+[Time_ROI diff: 0.1761659159974598 (up%-> 15.401450772416357) . o: 1.1438267641186692 -> a: 1.319992680116129	 returnMoney: o:2.0547378E9 a: 1.601328E8 (timeReturnRate: 0.07793344727487858	 totalSpendMoney: o: 1.7963715E9 a: 1.213134E8 (timeTotalSpendRate: 0.06753246753246753
 
-[[Per_Prob_ROI diff: 0.03680984682424263 (up%-> 92.09356879102376) . o: 0.039970051446014156 -> a: 0.07677989827025679	 per returnMoney: o:0.005475453688450796 a: 0.02103598879529622	 per totalSpendMoney: o: 0.005479556308148623 a: 0.02107521656980887
+[[Per_Prob_ROI diff: 0.07399167564623846 (up%-> 2653.721944900838) . o: 0.002788222624017352 -> a: 0.07677989827025582	 per returnMoney: o:3.819555716976523E-4 a: 0.021035988795296702	 per totalSpendMoney: o: 3.5581534468379024E-4 a: 0.02107521656980962
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.001520004213234366
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -4.0739557621879974E-4
- probRunR/probTalSR= 0.9988865577133237 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.08590098120235956
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.010573948469004835     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9298281891872963 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Four4, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.004446620605799284 , up % -> -50.00000000006336 .  o: 0.0088932412115873 -> a: 0.004446620605788015 (anet/onet: 0.49999999999936645
+net money diff:  -0.00528980305626231 , up % -> -37.296668870018316 .  o: 0.0141830442678344 -> a: 0.00889324121157209 (anet/onet: 0.6270333112998168
 
-[ProbMatrix: total: o: 4.566296923458165E-4  -> a: 4.5662969234580873E-4
-org->adv	$w:49.28416596967558->49.28416596967569  	$d:4.677639344247018->4.677639344247115  	$l:46.038194686077404->46.03819468607719
-	 improve value x$w(high is good):1.1368683772161603E-13  	x$d:9.769962616701378E-14  	 x$l(negative is good):-2.1316282072803006E-13
-	 	 $w-$l: 3.24597128359817 -> 3.2459712835984975  _ #Surrender#	 lift : 3.275157922644212E-13 : good	 :| stand
+[ProbMatrix: total: o: 4.5662969234542975E-4  -> a: 4.566296923458104E-4
+org->adv	$w:52.53725451645508->49.28416596967663  	$d:5.2789162957544224->4.677639344247068  	$l:42.1838291877905->46.03819468607629
+	 improve value x$w(high is good):-3.25308854677845  	x$d:-0.6012769515073542  	 x$l(negative is good):3.8543654982857873
+	 	 $w-$l: 10.353425328664578 -> 3.2459712836003405  _ #Surrender#	 lift : -7.107454045064237 : bad	 :| stand
 
-[TimeMatrix: total:  o: 117949.0 -> a: 117949.0
-org->adv	$w:64.36425912894556->64.36425912894556  	$d:3.2369922593663363->3.2369922593663363  	$l:32.398748611688106->32.398748611688106
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.96551051725745 -> 31.96551051725745  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 1751089.0 -> a: 117949.0
+org->adv	$w:64.86517818340472->64.36425912894556  	$d:4.181169546493639->3.2369922593663363  	$l:30.953652270101635->32.398748611688106
+	 improve value x$w(high is good):-0.5009190544591604  	x$d:-0.9441772871273031  	 x$l(negative is good):1.4450963415864706
+	 	 $w-$l: 33.911525913303095 -> 31.96551051725745  _ @double@	 lift : -1.9460153960456417 : bad	 :| stand
 
-[Prob_ROI diff: -4.1300296516055823E-14 (up%-> -4.000184801652618E-12) . o: 1.0324597128360973 -> a: 1.032459712836056	 returnMoney: o:0.28287105661904277 a: 0.1414355283095168 (probReturnRate: 0.4999999999999838	 totalSpendMoney: o: 0.27397781540745547 a: 0.1369889077037288 (probTotalSpendRate: 0.5000000000000039
+[Prob_ROI diff: -0.07107454045186667 (up%-> -6.440628393736285) . o: 1.1035342532879078 -> a: 1.032459712836041	 returnMoney: o:0.15117195197158942 a: 0.2828710566190346 (probReturnRate: 1.8711874321249495	 totalSpendMoney: o: 0.13698890770375502 a: 0.2739778154074625 (probTotalSpendRate: 1.9999999999996532
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3196551051725747 -> a: 1.3196551051725747	 returnMoney: o:9.33912E7 a: 4.66956E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 7.07694E7 a: 3.53847E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.019460153960456195 (up%-> -1.4532097836787459) . o: 1.3391152591330309 -> a: 1.3196551051725747	 returnMoney: o:7.03473E8 a: 9.33912E7 (timeReturnRate: 0.1327573339701737	 totalSpendMoney: o: 5.253267E8 a: 7.07694E7 (timeTotalSpendRate: 0.13471502590673576
 
-[[Per_Prob_ROI diff: -3.191891195797325E-15 (up%-> -4.019002875316305E-12) . o: 0.07941997791046904 -> a: 0.07941997791046584	 per returnMoney: o:0.021759312047618676 a: 0.010879656023808986	 per totalSpendMoney: o: 0.021075216569804267 a: 0.010537608284902215
+[[Per_Prob_ROI diff: 0.07370218385197813 (up%-> 1288.9968246160688) . o: 0.005717794058486569 -> a: 0.0794199779104647	 per returnMoney: o:7.832743625470955E-4 a: 0.021759312047618048	 per totalSpendMoney: o: 7.097870865479535E-4 a: 0.02107521656980481
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.004446620605840584
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.004446620605799284
- probRunR/probTalSR= 0.9999999999999598 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.07636434350812898
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.00528980305626231     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.935593716062637 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Five5, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.009301161425345178 , up % -> -50.00000000002148 .  o: 0.018602322850682362 -> a: 0.009301161425337184 (anet/onet: 0.49999999999978517
+net money diff:  -7.529072901771294E-5 , up % -> -0.4031067925057418 .  o: 0.018677613579691915 -> a: 0.018602322850674202 (anet/onet: 0.9959689320749426
 
-[ProbMatrix: total: o: 4.5662969234579003E-4  -> a: 4.5662969234578374E-4
-org->adv	$w:51.14352749256983->51.14352749257065  	$d:4.502663672552427->4.502663672552482  	$l:44.35380883487774->44.353808834876865
-	 improve value x$w(high is good):8.171241461241152E-13  	x$d:5.5067062021407764E-14  	 x$l(negative is good):-8.739675649849232E-13
-	 	 $w-$l: 6.78971865769209 -> 6.789718657693788  _ @double@	 lift : 1.6986412276764895E-12 : good	 :| stand
+[ProbMatrix: total: o: 4.566296923455357E-4  -> a: 4.566296923457833E-4
+org->adv	$w:54.26243795484454->51.143527492570726  	$d:5.109522592078602->4.502663672552508  	$l:40.628039453076866->44.35380883487676
+	 improve value x$w(high is good):-3.118910462273817  	x$d:-0.6068589195260943  	 x$l(negative is good):3.7257693817998927
+	 	 $w-$l: 13.63439850176768 -> 6.789718657693966  _ @double@	 lift : -6.844679844073714 : bad	 :| stand
 
-[TimeMatrix: total:  o: 71149.0 -> a: 71149.0
-org->adv	$w:64.35086930244978->64.35086930244978  	$d:3.2382746068110584->3.2382746068110584  	$l:32.41085609073915->32.41085609073915
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.94001321171063 -> 31.94001321171063  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 1056289.0 -> a: 71149.0
+org->adv	$w:64.85204333283788->64.35086930244978  	$d:4.183703512959048->3.2382746068110584  	$l:30.964253154203064->32.41085609073915
+	 improve value x$w(high is good):-0.5011740303880998  	x$d:-0.9454289061479897  	 x$l(negative is good):1.4466029365360882
+	 	 $w-$l: 33.887790178634816 -> 31.94001321171063  _ @double@	 lift : -1.9477769669241862 : bad	 :| stand
 
-[Prob_ROI diff: -2.9531932455029164E-14 (up%-> -2.765428435080841E-12) . o: 1.0678971865770182 -> a: 1.0678971865769886	 returnMoney: o:0.29258013825811624 a: 0.14629006912905457 (probReturnRate: 0.49999999999998784	 totalSpendMoney: o: 0.2739778154074339 a: 0.13698890770371738 (probTotalSpendRate: 0.5000000000000017
+[Prob_ROI diff: -0.06844679844175583 (up%-> -6.023422427023877) . o: 1.1363439850187433 -> a: 1.0678971865769875	 returnMoney: o:0.15566652128342587 a: 0.29258013825811113 (probReturnRate: 1.87953155145931	 totalSpendMoney: o: 0.13698890770373395 a: 0.27397781540743693 (probTotalSpendRate: 1.999999999999774
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3194001321171063 -> a: 1.3194001321171063	 returnMoney: o:5.63244E7 a: 2.81622E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 4.26894E7 a: 2.13447E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.019477769669241862 (up%-> -1.4547831167617578) . o: 1.3388779017863481 -> a: 1.3194001321171063	 returnMoney: o:4.242726E8 a: 5.63244E7 (timeReturnRate: 0.13275521445410332	 totalSpendMoney: o: 3.168867E8 a: 4.26894E7 (timeTotalSpendRate: 0.13471502590673576
 
-[[Per_Prob_ROI diff: -2.2620794126737565E-15 (up%-> -2.7537325441429995E-12) . o: 0.08214593742900139 -> a: 0.08214593742899913	 per returnMoney: o:0.022506164481393556 a: 0.011253082240696505	 per totalSpendMoney: o: 0.021075216569802605 a: 0.010537608284901337
+[[Per_Prob_ROI diff: 0.07625814476050813 (up%-> 1295.1907285834145) . o: 0.005887792668490898 -> a: 0.08214593742899903	 per returnMoney: o:8.065622864426211E-4 a: 0.022506164481393164	 per totalSpendMoney: o: 7.097870865478443E-4 a: 0.02107521656980284
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.00930116142537471
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.009301161425345178
- probRunR/probTalSR= 0.9999999999999724 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.06852208917077354
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -7.529072901771294E-5     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9397657757297613 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Six6, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.012467338844491277 , up % -> -50.00000000002104 .  o: 0.024934677688972062 -> a: 0.012467338844480785 (anet/onet: 0.4999999999997896
+net money diff:  0.002884373217659497 , up % -> 13.08087705280088 .  o: 0.02205030447130374 -> a: 0.024934677688963236 (anet/onet: 1.1308087705280088
 
-[ProbMatrix: total: o: 4.5662969234577127E-4  -> a: 4.5662969234576807E-4
-org->adv	$w:52.31633056799142->52.31633056799143  	$d:4.468323063002996->4.468323063003022  	$l:43.21534636900558->43.21534636900554
-	 improve value x$w(high is good):7.105427357601002E-15  	x$d:2.5757174171303632E-14  	 x$l(negative is good):-4.263256414560601E-14
-	 	 $w-$l: 9.10098419898584 -> 9.100984198985895  _ @double@	 lift : 5.551115123125783E-14 : good	 :| stand
+[ProbMatrix: total: o: 4.566296923456127E-4  -> a: 4.5662969234576964E-4
+org->adv	$w:55.67771173950037->52.31633056799178  	$d:4.7409925307703->4.4683230630030035  	$l:39.58129572972933->43.21534636900522
+	 improve value x$w(high is good):-3.36138117150859  	x$d:-0.2726694677672965  	 x$l(negative is good):3.634050639275891
+	 	 $w-$l: 16.09641600977104 -> 9.100984198986561  _ @double@	 lift : -6.99543181078448 : bad	 :| stand
 
-[TimeMatrix: total:  o: 40417.0 -> a: 40417.0
-org->adv	$w:64.33926318133459->64.33926318133459  	$d:3.2387361753717494->3.2387361753717494  	$l:32.422000643293664->32.422000643293664
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.91726253804092 -> 31.91726253804092  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 600037.0 -> a: 40417.0
+org->adv	$w:64.84000153323879->64.33926318133459  	$d:4.1810755003441455->3.2387361753717494  	$l:30.978922966417073->32.422000643293664
+	 improve value x$w(high is good):-0.5007383519042037  	x$d:-0.9423393249723961  	 x$l(negative is good):1.443077676876591
+	 	 $w-$l: 33.86107856682172 -> 31.91726253804092  _ @double@	 lift : -1.9438160287807982 : bad	 :| stand
 
-[Prob_ROI diff: -3.8413716652030416E-14 (up%-> -3.520932183523384E-12) . o: 1.0910098419899117 -> a: 1.0910098419898733	 returnMoney: o:0.29891249309640905 a: 0.14945624654819964 (probReturnRate: 0.4999999999999837	 totalSpendMoney: o: 0.273977815407437 a: 0.13698890770371885 (probTotalSpendRate: 0.5000000000000013
+[Prob_ROI diff: -0.06995431810830577 (up%-> -6.025536404361495) . o: 1.1609641600981844 -> a: 1.0910098419898786	 returnMoney: o:0.1590392121750656 a: 0.2989124930964031 (probReturnRate: 1.879489271912195	 totalSpendMoney: o: 0.13698890770376185 a: 0.2739778154074399 (probTotalSpendRate: 1.999999999999388
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3191726253804092 -> a: 1.3191726253804092	 returnMoney: o:3.19902E7 a: 1.59951E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 2.42502E7 a: 1.21251E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.019438160287807982 (up%-> -1.4521144230960834) . o: 1.3386107856682172 -> a: 1.3191726253804092	 returnMoney: o:2.409648E8 a: 3.19902E7 (timeReturnRate: 0.13275880958546643	 totalSpendMoney: o: 1.800111E8 a: 2.42502E7 (timeTotalSpendRate: 0.13471502590673576
 
-[[Per_Prob_ROI diff: -2.9837243786801082E-15 (up%-> -3.555276536469601E-12) . o: 0.083923833999224 -> a: 0.08392383399922101	 per returnMoney: o:0.022993268699723773 a: 0.01149663434986151	 per totalSpendMoney: o: 0.021075216569802845 a: 0.01053760828490145
+[[Per_Prob_ROI diff: 0.07790847565674379 (up%-> 1295.1593441506332) . o: 0.006015358342477639 -> a: 0.08392383399922143	 per returnMoney: o:8.240373687827232E-4 a: 0.022993268699723315	 per totalSpendMoney: o: 7.097870865479889E-4 a: 0.021075216569803067
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.01246733884452969
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.012467338844491277
- probRunR/probTalSR= 0.9999999999999647 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.06706994489064627
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.002884373217659497     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.939744635956385 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Seven7, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.03937686139655788 , up % -> -266.4153985291219 .  o: 0.014780249795603911 -> a: -0.02459661160095397 (anet/onet: -1.6641539852912188
+net money diff:  -0.04138245656695483 , up % -> -246.53186450114882 .  o: 0.016785844966001134 -> a: -0.024596611600953694 (anet/onet: -1.4653186450114883
 
-[ProbMatrix: total: o: 4.5662969234496414E-4  -> a: 4.56629692345766E-4
-org->adv	$w:50.03990044240136->42.65418059753724  	$d:10.709576184385526->5.714046380374858  	$l:39.250523373213106->51.6317730220879
-	 improve value x$w(high is good):-7.38571984486412  	x$d:-4.995529804010668  	 x$l(negative is good):12.381249648874793
-	 	 $w-$l: 10.789377069188255 -> -8.977592424550663  _ #Surrender#	 lift : -19.766969493738916 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923443994E-4  -> a: 4.566296923457636E-4
+org->adv	$w:51.73326845410487->42.65418059753767  	$d:8.786896779533674->5.71404638037491  	$l:39.47983476636145->51.63177302208742
+	 improve value x$w(high is good):-9.079087856567206  	x$d:-3.0728503991587637  	 x$l(negative is good):12.151938255725973
+	 	 $w-$l: 12.253433687743426 -> -8.977592424549757  _ #Surrender#	 lift : -21.231026112293183 : bad	 :| stand
 
-[TimeMatrix: total:  o: 7009729.0 -> a: 24973.0
-org->adv	$w:31.086394352763136->64.26140231449966  	$d:3.5171687807046466->3.247507307892524  	$l:65.39643686653221->32.49109037760782
-	 improve value x$w(high is good):33.175007961736526  	x$d:-0.2696614728121225  	 x$l(negative is good):-32.905346488924394
-	 	 $w-$l: -34.310042513769076 -> 31.770311936891844  _ @double@	 lift : 66.08035445066092 : good	 :) hit 
+[TimeMatrix: total:  o: 1.2911041E7 -> a: 24973.0
+org->adv	$w:31.227845996306574->64.26140231449966  	$d:3.537809228550974->3.247507307892524  	$l:65.23434477514245->32.49109037760782
+	 improve value x$w(high is good):33.03355631819309  	x$d:-0.29030192065844984  	 x$l(negative is good):-32.74325439753463
+	 	 $w-$l: -34.006498778835876 -> 31.770311936891844  _ @double@	 lift : 65.77681071572772 : good	 :) hit 
 
-[Prob_ROI diff: -0.19766969494138498 (up%-> -17.841935767651993) . o: 1.107893770695927 -> a: 0.9102240757545421	 returnMoney: o:0.15176915749870504 a: 0.24938120380648152 (probReturnRate: 1.6431612846543564	 totalSpendMoney: o: 0.13698890770310113 a: 0.2739778154074355 (probTotalSpendRate: 2.0000000000090026
+[Prob_ROI diff: -0.2123102611314528 (up%-> -18.91347588710909) . o: 1.1225343368859961 -> a: 0.9102240757545433	 returnMoney: o:0.1537747526679982 a: 0.2493812038064823 (probReturnRate: 1.6217304822781913	 totalSpendMoney: o: 0.13698890770199706 a: 0.273977815407436 (probTotalSpendRate: 2.0000000000251252
 
-[Time_ROI diff: 0.6608035445066092 (up%-> 100.59430235513827) . o: 0.6568995748623092 -> a: 1.3177031193689184	 returnMoney: o:1.3814064E9 a: 1.97442E7 (timeReturnRate: 0.014292825051338984	 totalSpendMoney: o: 2.1029187E9 a: 1.49838E7 (timeTotalSpendRate: 0.00712523979172376
+[Time_ROI diff: 0.6577681071572772 (up%-> 99.67164872081842) . o: 0.6599350122116412 -> a: 1.3177031193689184	 returnMoney: o:2.5561344E9 a: 1.97442E7 (timeReturnRate: 0.007724241730012319	 totalSpendMoney: o: 3.8733123E9 a: 1.49838E7 (timeTotalSpendRate: 0.0038684719535783366
 
-[[Per_Prob_ROI diff: 0.06971362087419689 (up%-> 22961.136644910606) . o: 3.0361572230636535E-4 -> a: 0.07001723659650325	 per returnMoney: o:4.1591986160237064E-5 a: 0.019183169523575502	 per totalSpendMoney: o: 3.7541492930419605E-5 a: 0.02107521656980273
+[[Per_Prob_ROI diff: 0.06985021765038132 (up%-> 41821.732966364594) . o: 1.6701894612200507E-4 -> a: 0.07001723659650333	 per returnMoney: o:2.2879742994792175E-5 a: 0.01918316952357556	 per totalSpendMoney: o: 2.038222105371181E-5 a: 0.021075216569802768
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.23704655633794286
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.03937686139655788
- probRunR/probTalSR= 0.82158064232348 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.2536927176984076
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.04138245656695483     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.810865241128909 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Eight8, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.046276317912723575 , up % -> -1352.4500043302178 .  o: 0.003421665700362897 -> a: -0.04285465221236068 (anet/onet: -12.524500043302178
+net money diff:  -0.0502347218945732 , up % -> -680.6808615324178 .  o: 0.0073800696822119705 -> a: -0.04285465221236123 (anet/onet: -5.806808615324178
 
-[ProbMatrix: total: o: 4.5662969234540774E-4  -> a: 4.5662969234575333E-4
-org->adv	$w:45.751107018592194->39.25153437708825  	$d:10.99555440072089->5.855280790061584  	$l:43.253338580686915->54.89318483285016
-	 improve value x$w(high is good):-6.499572641503946  	x$d:-5.140273610659306  	 x$l(negative is good):11.639846252163245
-	 	 $w-$l: 2.4977684379052842 -> -15.641650455761912  _ #Surrender#	 lift : -18.139418893667198 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923453456E-4  -> a: 4.566296923457506E-4
+org->adv	$w:47.27236695676928->39.25153437708829  	$d:10.842614452941415->5.855280790061618  	$l:41.885018590289306->54.89318483285008
+	 improve value x$w(high is good):-8.020832579680992  	x$d:-4.987333662879797  	 x$l(negative is good):13.008166242560776
+	 	 $w-$l: 5.387348366479977 -> -15.641650455761791  _ #Surrender#	 lift : -21.028998822241768 : bad	 :| stand
 
-[TimeMatrix: total:  o: 4207297.0 -> a: 14989.0
-org->adv	$w:31.07705493574616->64.24044299152712  	$d:3.518838817416503->3.249049302822069  	$l:65.40410624683733->32.51050770565081
-	 improve value x$w(high is good):33.163388055780956  	x$d:-0.269789514594434  	 x$l(negative is good):-32.89359854118652
-	 	 $w-$l: -34.327051311091175 -> 31.729935285876316  _ @double@	 lift : 66.05698659696749 : good	 :) hit 
+[TimeMatrix: total:  o: 7749313.0 -> a: 14989.0
+org->adv	$w:31.218457687797613->64.24044299152712  	$d:3.5391008209372883->3.249049302822069  	$l:65.2424414912651->32.51050770565081
+	 improve value x$w(high is good):33.02198530372951  	x$d:-0.29005151811521923  	 x$l(negative is good):-32.73193378561429
+	 	 $w-$l: -34.02398380346749 -> 31.729935285876316  _ @double@	 lift : 65.75391908934381 : good	 :) hit 
 
-[Prob_ROI diff: -0.18139418893894543 (up%-> -17.697379338403056) . o: 1.0249776843813405 -> a: 0.8435834954423951	 returnMoney: o:0.14041057340387467 a: 0.23112316319508058 (probReturnRate: 1.6460524132344485	 totalSpendMoney: o: 0.13698890770351177 a: 0.27397781540744126 (probTotalSpendRate: 2.000000000003049
+[Prob_ROI diff: -0.21028998822845013 (up%-> -19.954006954987584) . o: 1.0538734836708439 -> a: 0.8435834954423937	 returnMoney: o:0.144368977384983 a: 0.2311231631950813 (probReturnRate: 1.6009198609113533	 totalSpendMoney: o: 0.13698890770277103 a: 0.27397781540744254 (probTotalSpendRate: 2.0000000000138733
 
-[Time_ROI diff: 0.6605698659696749 (up%-> 100.58477335908557) . o: 0.6567294868890882 -> a: 1.317299352858763	 returnMoney: o:8.289168E8 a: 1.1847E7 (timeReturnRate: 0.014292146087520484	 totalSpendMoney: o: 1.2621891E9 a: 8993400.0 (timeTotalSpendRate: 0.00712523979172376
+[Time_ROI diff: 0.6575391908934379 (up%-> 99.66336690210709) . o: 0.6597601619653252 -> a: 1.317299352858763	 returnMoney: o:1.5338064E9 a: 1.1847E7 (timeReturnRate: 0.007723921350178223	 totalSpendMoney: o: 2.3247939E9 a: 8993400.0 (timeTotalSpendRate: 0.0038684719535783366
 
-[[Per_Prob_ROI diff: 0.06461014535009259 (up%-> 23001.712522628248) . o: 2.808927608608771E-4 -> a: 0.06489103811095347	 per returnMoney: o:3.8479192492155294E-5 a: 0.017778704861160045	 per totalSpendMoney: o: 3.754149293053214E-5 a: 0.021075216569803174
+[[Per_Prob_ROI diff: 0.06473423503348412 (up%-> 41283.778404271434) . o: 1.5680307746925213E-4 -> a: 0.06489103811095337	 per returnMoney: o:2.148028230694584E-5 a: 0.0177787048611601	 per totalSpendMoney: o: 2.0382221053826965E-5 a: 0.02107521656980327
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.227670506851669
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.046276317912723575
- probRunR/probTalSR= 0.8230262066159695 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.26052471012302336
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0502347218945732     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8004599304501241 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Nine9, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.051975336040728654 , up % -> -534.1657900199674 .  o: -0.009730188082390262 -> a: -0.061705524123118916 (anet/onet: 6.341657900199674
+net money diff:  -0.05645864351769783 , up % -> -1076.0420860228794 .  o: -0.005246880605420612 -> a: -0.061705524123118444 (anet/onet: 11.760420860228793
 
-[ProbMatrix: total: o: 4.566296923455723E-4  -> a: 4.5662969234574905E-4
-org->adv	$w:40.84141237462624->35.75537633503675  	$d:11.214273091895858->5.967159535571918  	$l:47.9443145334779->58.27746412939133
-	 improve value x$w(high is good):-5.086036039589487  	x$d:-5.24711355632394  	 x$l(negative is good):10.333149595913433
-	 	 $w-$l: -7.102902158851659 -> -22.522087794354583  _ #Surrender#	 lift : -15.419185635502924 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923445846E-4  -> a: 4.566296923457445E-4
+org->adv	$w:42.54188573948372->35.75537633503666  	$d:11.086078551110107->5.967159535571965  	$l:46.372035709406184->58.277464129391376
+	 improve value x$w(high is good):-6.7865094044470595  	x$d:-5.118919015538142  	 x$l(negative is good):11.905428419985192
+	 	 $w-$l: -3.8301499699224695 -> -22.522087794354718  _ #Surrender#	 lift : -18.691937824432248 : bad	 :| stand
 
-[TimeMatrix: total:  o: 2806081.0 -> a: 9997.0
-org->adv	$w:31.049139351287437->64.19925977793338  	$d:3.5209247345318966->3.2509752925877766  	$l:65.42993591418067->32.54976492947884
-	 improve value x$w(high is good):33.15012042664594  	x$d:-0.26994944194411996  	 x$l(negative is good):-32.880170984701834
-	 	 $w-$l: -34.38079656289324 -> 31.64949484845454  _ @double@	 lift : 66.03029141134778 : good	 :) hit 
+[TimeMatrix: total:  o: 9893185.0 -> a: 9997.0
+org->adv	$w:31.29135864739212->64.19925977793338  	$d:3.5526678213335745->3.2509752925877766  	$l:65.1559735312743->32.54976492947884
+	 improve value x$w(high is good):32.90790113054126  	x$d:-0.3016925287457979  	 x$l(negative is good):-32.60620860179546
+	 	 $w-$l: -33.86461488388218 -> 31.64949484845454  _ @double@	 lift : 65.51410973233672 : good	 :) hit 
 
-[Prob_ROI diff: -0.15419185635701038 (up%-> -16.598134919171013) . o: 0.9289709784134677 -> a: 0.7747791220564573	 returnMoney: o:0.12725871962115018 a: 0.21227229128432723 (probReturnRate: 1.6680373016188035	 totalSpendMoney: o: 0.13698890770354044 a: 0.27397781540744615 (probTotalSpendRate: 2.0000000000026663
+[Prob_ROI diff: -0.18691937825684102 (up%-> -19.43638034123447) . o: 0.9616985003133001 -> a: 0.774779122056459	 returnMoney: o:0.13174202709634666 a: 0.2122722912843278 (probReturnRate: 1.6112723931983155	 totalSpendMoney: o: 0.13698890770176728 a: 0.27397781540744626 (probTotalSpendRate: 2.000000000028555
 
-[Time_ROI diff: 0.6603029141134777 (up%-> 100.62647510592691) . o: 0.6561920343710677 -> a: 1.3164949484845454	 returnMoney: o:5.523984E8 a: 7896600.0 (timeReturnRate: 0.014295117436980266	 totalSpendMoney: o: 8.418243E8 a: 5998200.0 (timeTotalSpendRate: 0.00712523979172376
+[Time_ROI diff: 0.6551410973233672 (up%-> 99.0606006411087) . o: 0.6613538511611782 -> a: 1.3164949484845454	 returnMoney: o:1.9628688E9 a: 7896600.0 (timeReturnRate: 0.004022989208448369	 totalSpendMoney: o: 2.9679555E9 a: 5998200.0 (timeTotalSpendRate: 0.0020209871745044696
 
-[[Per_Prob_ROI diff: 0.05934381165892948 (up%-> 23310.261975380385) . o: 2.5458234541339206E-4 -> a: 0.059598394004342865	 per returnMoney: o:3.4874957418786015E-5 a: 0.016328637791102094	 per totalSpendMoney: o: 3.754149293053999E-5 a: 0.02107521656980355
+[[Per_Prob_ROI diff: 0.059523640914540175 (up%-> 79626.99745461681) . o: 7.475308980282161E-5 -> a: 0.059598394004343	 per returnMoney: o:1.024034411942065E-5 a: 0.01632863779110214	 per totalSpendMoney: o: 1.0648185596717239E-5 a: 0.02107521656980356
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.20616719239773904
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.051975336040728654
- probRunR/probTalSR= 0.8340186508082899 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.24337802177453885
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.05645864351769783     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8056361965876553 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Ten, 	playerStartValue=2	@@@ 
 
-net money diff:  -0.058572784299781674 , up % -> -232.88023436205862 .  o: -0.02515146227855415 -> a: -0.08372424657833583 (anet/onet: 3.3288023436205862
+net money diff:  -0.0617780039442206 , up % -> -281.496951319538 .  o: -0.021946242634114363 -> a: -0.08372424657833497 (anet/onet: 3.81496951319538
 
-[ProbMatrix: total: o: 4.5662969234546683E-4  -> a: 4.566296923457457E-4
-org->adv	$w:35.085582133552315->31.67211610342513  	$d:11.468617595299499->6.096999210435667  	$l:53.445800271148194->62.23088468613921
-	 improve value x$w(high is good):-3.4134660301271857  	x$d:-5.371618384863831  	 x$l(negative is good):8.785084414991019
-	 	 $w-$l: -18.36021813759588 -> -30.55876858271408  _ #Surrender#	 lift : -12.198550445118201 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923450586E-4  -> a: 4.5662969234574476E-4
+org->adv	$w:36.243991129215146->31.672116103424987  	$d:11.491565427022174->6.0969992104356825  	$l:52.26444344376267->62.23088468613933
+	 improve value x$w(high is good):-4.57187502579016  	x$d:-5.394566216586491  	 x$l(negative is good):9.96644124237666
+	 	 $w-$l: -16.02045231454753 -> -30.558768582714347  _ #Surrender#	 lift : -14.538316268166817 : bad	 :| stand
 
-[TimeMatrix: total:  o: 1404865.0 -> a: 5005.0
-org->adv	$w:31.00881579368836->64.11588411588411  	$d:3.527171649945012->3.2567432567432566  	$l:65.46401255636663->32.62737262737262
-	 improve value x$w(high is good):33.10706832219576  	x$d:-0.2704283932017555  	 x$l(negative is good):-32.836639928994
-	 	 $w-$l: -34.45519676267826 -> 31.488511488511488  _ @double@	 lift : 65.94370825118976 : good	 :) hit 
+[TimeMatrix: total:  o: 4953025.0 -> a: 5005.0
+org->adv	$w:31.250720519278623->64.11588411588411  	$d:3.5588756366059124->3.2567432567432566  	$l:65.19040384411547->32.62737262737262
+	 improve value x$w(high is good):32.86516359660549  	x$d:-0.30213237986265584  	 x$l(negative is good):-32.56303121674284
+	 	 $w-$l: -33.93968332483684 -> 31.488511488511488  _ @double@	 lift : 65.42819481334833 : good	 :) hit 
 
-[Prob_ROI diff: -0.12198550445223943 (up%-> -14.941919450210607) . o: 0.8163978186251034 -> a: 0.694412314172864	 returnMoney: o:0.1118374454250939 a: 0.1902535688291107 (probReturnRate: 1.701161610996722	 totalSpendMoney: o: 0.13698890770364805 a: 0.27397781540744653 (probTotalSpendRate: 2.0000000000010982
+[Prob_ROI diff: -0.1453831626865586 (up%-> -17.311734427321092) . o: 0.8397954768594261 -> a: 0.6944123141728675	 returnMoney: o:0.11504266506893036 a: 0.19025356882911185 (probReturnRate: 1.6537653114617712	 totalSpendMoney: o: 0.13698890770304473 a: 0.2739778154074468 (probTotalSpendRate: 2.0000000000099085
 
-[Time_ROI diff: 0.6594370825118975 (up%-> 100.60859899513875) . o: 0.6554480323732174 -> a: 1.3148851148851148	 returnMoney: o:2.762448E8 a: 3948600.0 (timeReturnRate: 0.014293843721221177	 totalSpendMoney: o: 4.214595E8 a: 3003000.0 (timeTotalSpendRate: 0.00712523979172376
+[Time_ROI diff: 0.6542819481334833 (up%-> 99.04311409083437) . o: 0.6606031667516316 -> a: 1.3148851148851148	 returnMoney: o:9.815952E8 a: 3948600.0 (timeReturnRate: 0.0040226358075100615	 totalSpendMoney: o: 1.4859075E9 a: 3003000.0 (timeTotalSpendRate: 0.0020209871745044696
 
-[[Per_Prob_ROI diff: 0.0531925999277917 (up%-> 23775.148917398576) . o: 2.237319316593871E-4 -> a: 0.053416331859451084	 per returnMoney: o:3.064879293644667E-5 a: 0.014634889909931593	 per totalSpendMoney: o: 3.754149293056948E-5 a: 0.02107521656980358
+[[Per_Prob_ROI diff: 0.05335105432529981 (up%-> 81729.57973788568) . o: 6.527753415152944E-5 -> a: 0.05341633185945134	 per returnMoney: o:8.942298100966216E-6 a: 0.01463488990993168	 per totalSpendMoney: o: 1.0648185596816534E-5 a: 0.0210752165698036
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.18055828875202112
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.058572784299781674
- probRunR/probTalSR= 0.8505808054978939 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.20716116663077921
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0617780039442206     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.826882655726789 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=One1, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.0890765342023777 , up % -> -186.9988075367593 .  o: -0.047634814026751196 -> a: -0.1367113482291289 (anet/onet: 2.8699880753675933
+net money diff:  -0.09231831611978573 , up % -> -207.95677099172022 .  o: -0.044393032109284566 -> a: -0.1367113482290703 (anet/onet: 3.0795677099172023
 
-[ProbMatrix: total: o: 4.5662969234554814E-4  -> a: 4.56629692345604E-4
-org->adv	$w:26.42138768528781->21.647648448753074  	$d:12.384471982266449->6.806010383257564  	$l:61.19414033244575->71.54634116798935
-	 improve value x$w(high is good):-4.7737392365347375  	x$d:-5.578461599008885  	 x$l(negative is good):10.352200835543606
-	 	 $w-$l: -34.77275264715794 -> -49.89869271923628  _ #Surrender#	 lift : -15.125940072078347 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969232542687E-4  -> a: 4.566296923456419E-4
+org->adv	$w:27.6258593045692->21.647648448754275  	$d:12.341984514945175->6.806010383256973  	$l:60.03215618048562->71.54634116798874
+	 improve value x$w(high is good):-5.978210855814925  	x$d:-5.535974131688201  	 x$l(negative is good):11.514184987503121
+	 	 $w-$l: -32.40629687591642 -> -49.898692719234475  _ #Surrender#	 lift : -17.492395843318054 : bad	 :| stand
 
-[TimeMatrix: total:  o: 2.5249393E7 -> a: 184717.0
-org->adv	$w:31.224354581514095->64.72495763790013  	$d:3.47178247017661->3.2065267409063596  	$l:65.30386294830929->32.0685156211935
-	 improve value x$w(high is good):33.50060305638604  	x$d:-0.2652557292702502  	 x$l(negative is good):-33.23534732711579
-	 	 $w-$l: -34.07950836679519 -> 32.65644201670664  _ @double@	 lift : 66.73595038350183 : good	 :) hit 
+[TimeMatrix: total:  o: 9.0724465E7 -> a: 184717.0
+org->adv	$w:31.47711920924527->64.72495763790013  	$d:3.504514465861->3.2065267409063596  	$l:65.01836632489373->32.0685156211935
+	 improve value x$w(high is good):33.24783842865486  	x$d:-0.2979877249546403  	 x$l(negative is good):-32.949850703700235
+	 	 $w-$l: -33.54124711564846 -> 32.65644201670664  _ @double@	 lift : 66.1976891323551 : good	 :) hit 
 
-[Prob_ROI diff: -0.15125940073907118 (up%-> -23.189603558870136) . o: 0.6522724735465075 -> a: 0.5010130728074363	 returnMoney: o:0.08935409367515952 a: 0.13726646717838925 (probReturnRate: 1.536207928843325	 totalSpendMoney: o: 0.13698890770191072 a: 0.27397781540751814 (probTotalSpendRate: 2.0000000000269855
+[Prob_ROI diff: -0.17492395846711728 (up%-> -25.878735795438153) . o: 0.6759370312747367 -> a: 0.5010130728076194	 returnMoney: o:0.09259587558328318 a: 0.1372664671784309 (probReturnRate: 1.4824252842122523	 totalSpendMoney: o: 0.13698890769256775 a: 0.2739778154075012 (probTotalSpendRate: 2.0000000001632667
 
-[Time_ROI diff: 0.6673595038350183 (up%-> 101.23703378129278) . o: 0.659204916332048 -> a: 1.3265644201670663	 returnMoney: o:4.9933572E9 a: 1.470234E8 (timeReturnRate: 0.029443797852074353	 totalSpendMoney: o: 7.5748179E9 a: 1.108302E8 (timeTotalSpendRate: 0.014631401238041642
+[Time_ROI diff: 0.661976891323551 (up%-> 99.6071792793784) . o: 0.6645875288435154 -> a: 1.3265644201670663	 returnMoney: o:1.80883044E10 a: 1.470234E8 (timeReturnRate: 0.008128091873553388	 totalSpendMoney: o: 2.72173395E10 a: 1.108302E8 (timeTotalSpendRate: 0.0040720438527799534
 
-[[Per_Prob_ROI diff: 0.0381724032822263 (up%-> 10399.39034429906) . o: 3.6706385680726364E-4 -> a: 0.03853946713903356	 per returnMoney: o:5.0283676800877616E-5 a: 0.01055895901372225	 per totalSpendMoney: o: 7.708998745183496E-5 a: 0.02107521656980909
+[[Per_Prob_ROI diff: 0.038433603860852705 (up%-> 36304.94399585596) . o: 1.0586327819494702E-4 -> a: 0.03853946713904765	 per returnMoney: o:1.4502094844680217E-5 a: 0.010558959013725455	 per totalSpendMoney: o: 2.1454801518021572E-5 a: 0.021075216569807785
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.2403359349414489
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0890765342023777
- probRunR/probTalSR= 0.7681039644112987 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.267242274586903
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.09231831611978573     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.7412126420456184 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Two2, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.005183153285407971 , up % -> -117.6209913683032 .  o: -0.00440665669036755 -> a: -0.00958980997577552 (anet/onet: 2.176209913683032
+net money diff:  -0.0125054445440482 , up % -> -428.909873680479 .  o: 0.002915634568339237 -> a: -0.009589809975708963 (anet/onet: -3.2890987368047897
 
-[ProbMatrix: total: o: 4.566296923455474E-4  -> a: 4.566296923458001E-4
-org->adv	$w:45.718739387477505->45.769851902148076  	$d:5.345723044474793->4.960082150430789  	$l:48.9355375680477->49.27006594742114
-	 improve value x$w(high is good):0.051112514670570874  	x$d:-0.3856408940440046  	 x$l(negative is good):0.33452837937343816
-	 	 $w-$l: -3.216798180570196 -> -3.5002140452730646  _ #Surrender#	 lift : -0.2834158647028684 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234588544E-4  -> a: 4.5662969234574975E-4
+org->adv	$w:48.207718830195674->45.76985190214771  	$d:5.712935079076491->4.960082150431331  	$l:46.079346090727825->49.27006594742096
+	 improve value x$w(high is good):-2.437866928047967  	x$d:-0.7528529286451597  	 x$l(negative is good):3.1907198566931356
+	 	 $w-$l: 2.1283727394678484 -> -3.5002140452732533  _ #Surrender#	 lift : -5.628586784741102 : bad	 :| stand
 
-[TimeMatrix: total:  o: 667225.0 -> a: 346957.0
-org->adv	$w:55.386563752856986->64.40250520957929  	$d:3.36318333395781->3.233830128805587  	$l:41.25025291318521->32.363664661615125
-	 improve value x$w(high is good):9.015941456722302  	x$d:-0.12935320515222326  	 x$l(negative is good):-8.886588251570082
-	 	 $w-$l: 14.13631083967178 -> 32.038840547964156  _ @double@	 lift : 17.90252970829238 : good	 :) hit 
+[TimeMatrix: total:  o: 5150977.0 -> a: 346957.0
+org->adv	$w:55.293219131050286->64.40250520957929  	$d:3.8315061395148917->3.233830128805587  	$l:40.87527472943482->32.363664661615125
+	 improve value x$w(high is good):9.109286078529003  	x$d:-0.5976760107093049  	 x$l(negative is good):-8.511610067819696
+	 	 $w-$l: 14.417944401615463 -> 32.038840547964156  _ @double@	 lift : 17.6208961463487 : good	 :) hit 
 
-[Prob_ROI diff: -0.002834158648484908 (up%-> -0.2928358015854683) . o: 0.967832018195944 -> a: 0.9649978595474591	 returnMoney: o:0.1325822510132521 a: 0.2643880054317779 (probReturnRate: 1.9941432839705766	 totalSpendMoney: o: 0.13698890770361966 a: 0.2739778154075534 (probTotalSpendRate: 2.000000000002293
+[Prob_ROI diff: -0.0562858678519903 (up%-> -5.5112860747621015) . o: 1.021283727399687 -> a: 0.9649978595476968	 returnMoney: o:0.13990454227170093 a: 0.2643880054318036 (probReturnRate: 1.8897742785102012	 totalSpendMoney: o: 0.1369889077033617 a: 0.27397781540751254 (probTotalSpendRate: 2.0000000000057607
 
-[Time_ROI diff: 0.1790252970829238 (up%-> 15.685218469554544) . o: 1.1413631083967177 -> a: 1.3203884054796415	 returnMoney: o:2.284638E8 a: 2.748708E8 (timeReturnRate: 1.2031262720833673	 totalSpendMoney: o: 2.001675E8 a: 2.081742E8 (timeTotalSpendRate: 1.04
+[Time_ROI diff: 0.17620896146348697 (up%-> 15.400465581253625) . o: 1.1441794440161546 -> a: 1.3203884054796415	 returnMoney: o:1.7680926E9 a: 2.748708E8 (timeReturnRate: 0.1554617671042795	 totalSpendMoney: o: 1.5452931E9 a: 2.081742E8 (timeTotalSpendRate: 0.13471502590673576
 
-[[Per_Prob_ROI diff: 0.03551732385273602 (up%-> 91.74454653541257) . o: 0.03871328072783776 -> a: 0.07423060458057378	 per returnMoney: o:0.005303290040530084 a: 0.02033753887936753	 per totalSpendMoney: o: 0.005479556308144787 a: 0.0210752165698118
+[[Per_Prob_ROI diff: 0.06893897905002375 (up%-> 1302.7939836593014) . o: 0.005291625530568327 -> a: 0.07423060458059207	 per returnMoney: o:7.248940014077769E-4 a: 0.020337538879369507	 per totalSpendMoney: o: 7.097870865459155E-4 a: 0.021075216569808656
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.008017311933892879
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.005183153285407971
- probRunR/probTalSR= 0.9970716419841452 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.0687913123960385
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0125054445440482     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.944887139252379 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Three3, 	playerStartValue=3	@@@ 
 
-net money diff:  -4.748321528242616E-4 , up % -> -308.69453537048173 .  o: -1.5381942289791062E-4 -> a: -6.286515757221722E-4 (anet/onet: 4.0869453537048175
+net money diff:  -0.007504496893596779 , up % -> -109.14289875134568 .  o: 0.006875845317883544 -> a: -6.286515757132349E-4 (anet/onet: -0.0914289875134568
 
-[ProbMatrix: total: o: 4.5662969234564095E-4  -> a: 4.566296923458152E-4
-org->adv	$w:47.35640329379054->47.48445941311356  	$d:5.174907369968317->4.801627714240922  	$l:47.46868933624114->47.71391287264551
-	 improve value x$w(high is good):0.12805611932301986  	x$d:-0.3732796557273943  	 x$l(negative is good):0.24522353640436734
-	 	 $w-$l: -0.11228604245059337 -> -0.2294534595319475  _ #Surrender#	 lift : -0.11716741708135414 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234583475E-4  -> a: 4.566296923457921E-4
+org->adv	$w:49.741525009082125->47.48445941311352  	$d:5.536221565757449->4.801627714241132  	$l:44.72225342516043->47.71391287264535
+	 improve value x$w(high is good):-2.257065595968605  	x$d:-0.7345938515163173  	 x$l(negative is good):2.9916594474849205
+	 	 $w-$l: 5.019271583921691 -> -0.22945345953183094  _ #Surrender#	 lift : -5.248725043453523 : bad	 :| stand
 
-[TimeMatrix: total:  o: 388825.0 -> a: 202189.0
-org->adv	$w:55.36963929788465->64.38184075295887  	$d:3.365009965922973->3.2355865056951663  	$l:41.265350736192374->32.38257274134597
-	 improve value x$w(high is good):9.012201455074212  	x$d:-0.1294234602278066  	 x$l(negative is good):-8.882777994846407
-	 	 $w-$l: 14.104288561692279 -> 31.999268011612898  _ @double@	 lift : 17.894979449920616 : good	 :) hit 
+[TimeMatrix: total:  o: 3001729.0 -> a: 202189.0
+org->adv	$w:55.27650897199581->64.38184075295887  	$d:3.833523945699295->3.2355865056951663  	$l:40.88996708230489->32.38257274134597
+	 improve value x$w(high is good):9.105331780963056  	x$d:-0.5979374400041286  	 x$l(negative is good):-8.507394340958925
+	 	 $w-$l: 14.386541889690912 -> 31.999268011612898  _ @double@	 lift : 17.612726121921984 : good	 :) hit 
 
-[Prob_ROI diff: -0.0011716741716796264 (up%-> -0.1172991277161682) . o: 0.9988771395766535 -> a: 0.9977054654049738	 returnMoney: o:0.1368350882807622 a: 0.27334916383175994 (probReturnRate: 1.9976540174468569	 totalSpendMoney: o: 0.13698890770366012 a: 0.2739778154074821 (probTotalSpendRate: 2.0000000000011817
+[Prob_ROI diff: -0.0524872504370717 (up%-> -4.997868452647356) . o: 1.0501927158420779 -> a: 0.9977054654050062	 returnMoney: o:0.14386475302148585 a: 0.27334916383173796 (probReturnRate: 1.9000426309487628	 totalSpendMoney: o: 0.1369889077036023 a: 0.2739778154074512 (probTotalSpendRate: 2.0000000000018
 
-[Time_ROI diff: 0.17894979449920623 (up%-> 15.683003395832419) . o: 1.1410428856169228 -> a: 1.319992680116129	 returnMoney: o:1.330998E8 a: 1.601328E8 (timeReturnRate: 1.203103235316657	 totalSpendMoney: o: 1.166475E8 a: 1.213134E8 (timeTotalSpendRate: 1.04
+[Time_ROI diff: 0.17612726121921995 (up%-> 15.397550997657481) . o: 1.143865418896909 -> a: 1.319992680116129	 returnMoney: o:1.0300722E9 a: 1.601328E8 (timeReturnRate: 0.15545784072223287	 totalSpendMoney: o: 9.005187E8 a: 1.213134E8 (timeTotalSpendRate: 0.13471502590673576
 
-[[Per_Prob_ROI diff: 0.036791488678854935 (up%-> 92.08211706208432) . o: 0.03995508558306613 -> a: 0.07674657426192107	 per returnMoney: o:0.005473403531230488 a: 0.021026858756289228	 per totalSpendMoney: o: 0.005479556308146405 a: 0.021075216569806317
+[[Per_Prob_ROI diff: 0.07130516122647237 (up%-> 1310.4162606645432) . o: 0.00544141303545118 -> a: 0.07674657426192355	 per returnMoney: o:7.454132280906002E-4 a: 0.021026858756287535	 per totalSpendMoney: o: 7.097870865471623E-4 a: 0.021075216569803937
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.001646506324503888
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -4.748321528242616E-4
- probRunR/probTalSR= 0.9988270087228382 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.05999174733066848
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.007504496893596779     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9500213154735264 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Four4, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.004388928070784559 , up % -> -50.000000000216914 .  o: 0.008777856141531037 -> a: 0.004388928070746478 (anet/onet: 0.49999999999783085
+net money diff:  -0.002338706268250862 , up % -> -21.03803479928756 .  o: 0.011116562409764913 -> a: 0.008777856141514051 (anet/onet: 0.7896196520071245
 
-[ProbMatrix: total: o: 4.5662969234581014E-4  -> a: 4.5662969234580835E-4
-org->adv	$w:49.28416596967552->49.284165969675506  	$d:4.635524594950188->4.635524594950163  	$l:46.080309435374296->46.08030943537433
-	 improve value x$w(high is good):-1.4210854715202004E-14  	x$d:-2.4868995751603507E-14  	 x$l(negative is good):3.552713678800501E-14
-	 	 $w-$l: 3.2038565343012246 -> 3.2038565343011696  _ #Surrender#	 lift : -5.551115123125783E-14 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923453428E-4  -> a: 4.566296923458049E-4
+org->adv	$w:51.61224369231364->49.28416596967598  	$d:4.890448777707865->4.635524594950216  	$l:43.49730752997849->46.0803094353738
+	 improve value x$w(high is good):-2.3280777226376586  	x$d:-0.25492418275764894  	 x$l(negative is good):2.5830019053953066
+	 	 $w-$l: 8.114936162335152 -> 3.2038565343021794  _ #Surrender#	 lift : -4.911079628032971 : bad	 :| stand
 
-[TimeMatrix: total:  o: 117949.0 -> a: 117949.0
-org->adv	$w:64.36425912894556->64.36425912894556  	$d:3.2369922593663363->3.2369922593663363  	$l:32.398748611688106->32.398748611688106
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.96551051725745 -> 31.96551051725745  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 880081.0 -> a: 117949.0
+org->adv	$w:64.82937365992449->64.36425912894556  	$d:4.159617126150889->3.2369922593663363  	$l:31.011009213924627->32.398748611688106
+	 improve value x$w(high is good):-0.46511453097892286  	x$d:-0.9226248667845525  	 x$l(negative is good):1.3877393977634789
+	 	 $w-$l: 33.818364445999855 -> 31.96551051725745  _ @double@	 lift : -1.852853928742404 : bad	 :| stand
 
-[Prob_ROI diff: -1.4099832412739488E-13 (up%-> -1.3662117760153685E-11) . o: 1.0320385653432458 -> a: 1.0320385653431048	 returnMoney: o:0.2827556715489719 a: 0.14137783577447546 (probReturnRate: 0.4999999999999629	 totalSpendMoney: o: 0.2739778154074409 a: 0.13698890770372898 (probTotalSpendRate: 0.5000000000000312
+[Prob_ROI diff: -0.0491107962811157 (up%-> -4.542461756378642) . o: 1.081149361624301 -> a: 1.0320385653431854	 returnMoney: o:0.14810547011345712 a: 0.282755671548942 (probReturnRate: 1.9091507648727304	 totalSpendMoney: o: 0.1369889077036922 a: 0.27397781540742794 (probTotalSpendRate: 2.0000000000003175
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3196551051725747 -> a: 1.3196551051725747	 returnMoney: o:9.33912E7 a: 4.66956E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 7.07694E7 a: 3.53847E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.01852853928742393 (up%-> -1.3846036277704477) . o: 1.3381836444599986 -> a: 1.3196551051725747	 returnMoney: o:3.53313E8 a: 9.33912E7 (timeReturnRate: 0.2643299284204091	 totalSpendMoney: o: 2.640243E8 a: 7.07694E7 (timeTotalSpendRate: 0.26804123711340205
 
-[[Per_Prob_ROI diff: -1.0852430065710905E-14 (up%-> -1.3670185939933303E-11) . o: 0.07938758194948045 -> a: 0.0793875819494696	 per returnMoney: o:0.021750436272997838 a: 0.010875218136498112	 per totalSpendMoney: o: 0.021075216569803143 a: 0.010537608284902229
+[[Per_Prob_ROI diff: 0.06824171224200877 (up%-> 612.2600930485594) . o: 0.01114586970746702 -> a: 0.07938758194947579	 per returnMoney: o:0.0015268605166335785 a: 0.021750436272995537	 per totalSpendMoney: o: 0.0014122567804504352 a: 0.02107521656980215
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.004388928070925557
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.004388928070784559
- probRunR/probTalSR= 0.9999999999998634 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.05144950254936656
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.002338706268250862     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9545753824362136 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Five5, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.009247318837343366 , up % -> -50.000000000083745 .  o: 0.018494637674655756 -> a: 0.00924731883731239 (anet/onet: 0.4999999999991626
+net money diff:  0.0027612211201722137 , up % -> 17.550041407811808 .  o: 0.0157334165544655 -> a: 0.018494637674637715 (anet/onet: 1.175500414078118
 
-[ProbMatrix: total: o: 4.5662969234578423E-4  -> a: 4.566296923457834E-4
-org->adv	$w:51.143527492569675->51.14352749256965  	$d:4.4633593311059085->4.46335933110591  	$l:44.39311317632442->44.39311317632443
-	 improve value x$w(high is good):-2.1316282072803006E-14  	x$d:1.7763568394002505E-15  	 x$l(negative is good):7.105427357601002E-15
-	 	 $w-$l: 6.750414316245257 -> 6.750414316245223  _ @double@	 lift : -3.3306690738754696E-14 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234552895E-4  -> a: 4.566296923457807E-4
+org->adv	$w:53.37564689438514->51.14352749257023  	$d:4.733881776281488->4.463359331105933  	$l:41.89047132933338->44.39311317632384
+	 improve value x$w(high is good):-2.232119401814913  	x$d:-0.2705224451755548  	 x$l(negative is good):2.502641846990457
+	 	 $w-$l: 11.485175565051764 -> 6.750414316246389  _ @double@	 lift : -4.734761248805375 : bad	 :| stand
 
-[TimeMatrix: total:  o: 71149.0 -> a: 71149.0
-org->adv	$w:64.35086930244978->64.35086930244978  	$d:3.2382746068110584->3.2382746068110584  	$l:32.41085609073915->32.41085609073915
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.94001321171063 -> 31.94001321171063  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 530881.0 -> a: 71149.0
+org->adv	$w:64.81622058427406->64.35086930244978  	$d:4.1621380309334866->3.2382746068110584  	$l:31.02164138479245->32.41085609073915
+	 improve value x$w(high is good):-0.4653512818242831  	x$d:-0.9238634241224282  	 x$l(negative is good):1.3892147059467028
+	 	 $w-$l: 33.79457919948162 -> 31.94001321171063  _ @double@	 lift : -1.8545659877709841 : bad	 :| stand
 
-[Prob_ROI diff: -1.163513729807164E-13 (up%-> -1.0899383737847224E-11) . o: 1.0675041431626608 -> a: 1.0675041431625445	 returnMoney: o:0.2924724530820784 a: 0.14623622654103072 (probReturnRate: 0.49999999999997097	 totalSpendMoney: o: 0.27397781540742266 a: 0.13698890770371833 (probTotalSpendRate: 0.5000000000000255
+[Prob_ROI diff: -0.04734761248824815 (up%-> -4.246987301070069) . o: 1.114851755650846 -> a: 1.0675041431625978	 returnMoney: o:0.15272232425819915 a: 0.29247245308204983 (probReturnRate: 1.915060253978213	 totalSpendMoney: o: 0.13698890770373365 a: 0.2739778154074121 (probTotalSpendRate: 1.9999999999995972
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3194001321171063 -> a: 1.3194001321171063	 returnMoney: o:5.63244E7 a: 2.81622E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 4.26894E7 a: 2.13447E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.01854565987770984 (up%-> -1.3861293924366778) . o: 1.3379457919948161 -> a: 1.3194001321171063	 returnMoney: o:2.13087E8 a: 5.63244E7 (timeReturnRate: 0.26432583874192234	 totalSpendMoney: o: 1.592643E8 a: 4.26894E7 (timeTotalSpendRate: 0.26804123711340205
 
-[[Per_Prob_ROI diff: -8.965050923848139E-15 (up%-> -1.0917584044661377E-11) . o: 0.08211570332020468 -> a: 0.08211570332019572	 per returnMoney: o:0.022497881006313725 a: 0.011248940503156208	 per totalSpendMoney: o: 0.021075216569801745 a: 0.01053760828490141
+[[Per_Prob_ROI diff: 0.07062238625163439 (up%-> 614.4647870612463) . o: 0.011493317068565422 -> a: 0.08211570332019981	 per returnMoney: o:0.0015744569511154552 a: 0.022497881006311525	 per totalSpendMoney: o: 0.0014122567804508623 a: 0.021075216569800933
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.009247318837459717
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.009247318837343366
- probRunR/probTalSR= 0.9999999999998909 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.044586391368075934
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.0027612211201722137     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9575301269892993 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Six6, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.012394113142484703 , up % -> -50.00000000003807 .  o: 0.024788226284950532 -> a: 0.012394113142465829 (anet/onet: 0.4999999999996193
+net money diff:  0.005842210269450587 , up % -> 30.836088519482896 .  o: 0.018946016015485734 -> a: 0.02478822628493632 (anet/onet: 1.308360885194829
 
-[ProbMatrix: total: o: 4.5662969234576927E-4  -> a: 4.566296923457676E-4
-org->adv	$w:52.31633056799129->52.31633056799121  	$d:4.414869317553665->4.41486931755367  	$l:43.26880011445504->43.26880011445512
-	 improve value x$w(high is good):-7.815970093361102E-14  	x$d:5.329070518200751E-15  	 x$l(negative is good):7.815970093361102E-14
-	 	 $w-$l: 9.047530453536245 -> 9.04753045353609  _ @double@	 lift : -1.5543122344752192E-13 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234565743E-4  -> a: 4.566296923457679E-4
+org->adv	$w:54.72099903751966->52.316330567991464  	$d:4.3883304771435565->4.414869317553656  	$l:40.89067048533677->43.268800114454876
+	 improve value x$w(high is good):-2.404668469528197  	x$d:0.02653884041009924  	 x$l(negative is good):2.3781296291181064
+	 	 $w-$l: 13.830328552182886 -> 9.04753045353659  _ @double@	 lift : -4.782798098646296 : bad	 :| stand
 
-[TimeMatrix: total:  o: 40417.0 -> a: 40417.0
-org->adv	$w:64.33926318133459->64.33926318133459  	$d:3.2387361753717494->3.2387361753717494  	$l:32.422000643293664->32.422000643293664
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.91726253804092 -> 31.91726253804092  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 301573.0 -> a: 40417.0
+org->adv	$w:64.80420992595491->64.33926318133459  	$d:4.159523564775361->3.2387361753717494  	$l:31.036266509269726->32.422000643293664
+	 improve value x$w(high is good):-0.4649467446203204  	x$d:-0.9207873894036114  	 x$l(negative is good):1.385734134023938
+	 	 $w-$l: 33.767943416685185 -> 31.91726253804092  _ @double@	 lift : -1.8506808786442674 : bad	 :| stand
 
-[Prob_ROI diff: -7.172040739078511E-14 (up%-> -6.576985933793069E-12) . o: 1.0904753045354718 -> a: 1.0904753045354	 returnMoney: o:0.298766041692381 a: 0.14938302084618527 (probReturnRate: 0.49999999999998246	 totalSpendMoney: o: 0.2739778154074305 a: 0.13698890770371944 (probTotalSpendRate: 0.5000000000000153
+[Prob_ROI diff: -0.04782798098649055 (up%-> -4.201690498025876) . o: 1.1383032855219124 -> a: 1.0904753045354219	 returnMoney: o:0.1559349237192292 a: 0.2987660416923608 (probReturnRate: 1.915966190039046	 totalSpendMoney: o: 0.13698890770374347 a: 0.2739778154074245 (probTotalSpendRate: 1.9999999999995441
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3191726253804092 -> a: 1.3191726253804092	 returnMoney: o:3.19902E7 a: 1.59951E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 2.42502E7 a: 1.21251E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.01850680878644262 (up%-> -1.383501032739524) . o: 1.3376794341668519 -> a: 1.3191726253804092	 returnMoney: o:1.210224E8 a: 3.19902E7 (timeReturnRate: 0.2643328838297704	 totalSpendMoney: o: 9.04719E7 a: 2.42502E7 (timeTotalSpendRate: 0.26804123711340205
 
-[[Per_Prob_ROI diff: -5.509481759702339E-15 (up%-> -6.568077477613396E-12) . o: 0.08388271573349783 -> a: 0.08388271573349232	 per returnMoney: o:0.022982003207106232 a: 0.011491001603552712	 per totalSpendMoney: o: 0.021075216569802345 a: 0.010537608284901495
+[[Per_Prob_ROI diff: 0.07214763031574231 (up%-> 614.8027708993453) . o: 0.011735085417751675 -> a: 0.08388271573349398	 per returnMoney: o:0.0016075765331879299 a: 0.022982003207104678	 per totalSpendMoney: o: 0.0014122567804509636 a: 0.021075216569801884
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.012394113142556423
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.012394113142484703
- probRunR/probTalSR= 0.9999999999999343 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.04198577071703996
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.005842210269450587     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9579830950197413 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Seven7, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.033951618226214925 , up % -> -376.04101675491785 .  o: 0.009028700783548477 -> a: -0.024922917442666448 (anet/onet: -2.7604101675491783
+net money diff:  -0.03576124610821202 , up % -> -329.9516670119578 .  o: 0.010838328665548458 -> a: -0.02492291744266356 (anet/onet: -2.299516670119578
 
-[ProbMatrix: total: o: 4.566296923455011E-4  -> a: 4.5662969234576287E-4
-org->adv	$w:48.19251647157821->42.65418059753736  	$d:10.205793230252409->5.594947014161844  	$l:41.60169029816937->51.75087238830079
-	 improve value x$w(high is good):-5.538335874040847  	x$d:-4.610846216090565  	 x$l(negative is good):10.149182090131418
-	 	 $w-$l: 6.590826173408837 -> -9.096691790763433  _ #Surrender#	 lift : -15.68751796417227 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234545636E-4  -> a: 4.5662969234576005E-4
+org->adv	$w:49.72021986946225->42.65418059753724  	$d:8.471389654353416->5.594947014161869  	$l:41.80839047618433->51.750872388300884
+	 improve value x$w(high is good):-7.066039271925007  	x$d:-2.876442640191547  	 x$l(negative is good):9.942481912116556
+	 	 $w-$l: 7.911829393277925 -> -9.09669179076364  _ #Surrender#	 lift : -17.008521184041562 : bad	 :| stand
 
-[TimeMatrix: total:  o: 3413617.0 -> a: 24973.0
-org->adv	$w:31.07741729666802->64.26140231449966  	$d:3.5161531009483484->3.247507307892524  	$l:65.40642960238362->32.49109037760782
-	 improve value x$w(high is good):33.183985017831645  	x$d:-0.26864579305582437  	 x$l(negative is good):-32.915339224775806
-	 	 $w-$l: -34.32901230571561 -> 31.770311936891844  _ @double@	 lift : 66.09932424260745 : good	 :) hit 
+[TimeMatrix: total:  o: 6364273.0 -> a: 24973.0
+org->adv	$w:31.22505901302474->64.26140231449966  	$d:3.5375603780667486->3.247507307892524  	$l:65.23738060890851->32.49109037760782
+	 improve value x$w(high is good):33.03634330147492  	x$d:-0.29005307017422455  	 x$l(negative is good):-32.74629023130069
+	 	 $w-$l: -34.01232159588377 -> 31.770311936891844  _ @double@	 lift : 65.78263353277562 : good	 :) hit 
 
-[Prob_ROI diff: -0.15687517964123765 (up%-> -14.717512310682967) . o: 1.0659082617336562 -> a: 0.9090330820924185	 returnMoney: o:0.14601760848732973 a: 0.2490548979647662 (probReturnRate: 1.7056497537855324	 totalSpendMoney: o: 0.13698890770378125 a: 0.27397781540743266 (probTotalSpendRate: 1.999999999999052
+[Prob_ROI diff: -0.1700852118427889 (up%-> -15.761498326799716) . o: 1.0791182939352173 -> a: 0.9090330820924284	 returnMoney: o:0.1478272363690306 a: 0.24905489796476704 (probReturnRate: 1.684770033466873	 totalSpendMoney: o: 0.13698890770348215 a: 0.2739778154074306 (probTotalSpendRate: 2.000000000003404
 
-[Time_ROI diff: 0.6609932424260745 (up%-> 100.65224624048153) . o: 0.6567098769428439 -> a: 1.3177031193689184	 returnMoney: o:6.725268E8 a: 1.97442E7 (timeReturnRate: 0.02935823524058818	 totalSpendMoney: o: 1.0240851E9 a: 1.49838E7 (timeTotalSpendRate: 0.014631401238041642
+[Time_ROI diff: 0.6578263353277561 (up%-> 99.68926794168317) . o: 0.6598767840411622 -> a: 1.3177031193689184	 returnMoney: o:1.2598908E9 a: 1.97442E7 (timeReturnRate: 0.01567135818437598	 totalSpendMoney: o: 1.9092819E9 a: 1.49838E7 (timeTotalSpendRate: 0.00784787201931784
 
-[[Per_Prob_ROI diff: 0.06932578587401801 (up%-> 11557.460047993567) . o: 5.998358253987935E-4 -> a: 0.06992562169941681	 per returnMoney: o:8.217085452297677E-5 a: 0.019158069074212785	 per totalSpendMoney: o: 7.708998745288758E-5 a: 0.02107521656980251
+[[Per_Prob_ROI diff: 0.0695998993046288 (up%-> 21367.858157177892) . o: 3.257223947887767E-4 -> a: 0.06992562169941757	 per returnMoney: o:4.462035507667691E-5 a: 0.01915806907421285	 per totalSpendMoney: o: 4.134890060473352E-5 a: 0.021075216569802355
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.19082679786745257
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.033951618226214925
- probRunR/probTalSR= 0.8528248768931704 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.20584645795100093
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.03576124610821202     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8423850167320027 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Eight8, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.04117470042867827 , up % -> -2295.250392723092 .  o: -0.001793908871956601 -> a: -0.04296860930063487 (anet/onet: 23.952503927230918
+net money diff:  -0.04474405153477129 , up % -> -2520.1637470630926 .  o: 0.0017754422341371423 -> a: -0.04296860930063415 (anet/onet: -24.201637470630924
 
-[ProbMatrix: total: o: 4.5662969234589194E-4  -> a: 4.5662969234575056E-4
-org->adv	$w:44.065852582940856->39.25153437708824  	$d:10.558766273058207->5.813687244209912  	$l:45.37538114400094->54.93477837870186
-	 improve value x$w(high is good):-4.814318205852615  	x$d:-4.745079028848296  	 x$l(negative is good):9.559397234700917
-	 	 $w-$l: -1.3095285610600804 -> -15.68324400161361  _ #Surrender#	 lift : -14.37371544055353 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234582277E-4  -> a: 4.5662969234574834E-4
+org->adv	$w:45.43687330208631->39.2515343770881  	$d:10.42230156767513->5.813687244209935  	$l:44.14082513023856->54.934778378701964
+	 improve value x$w(high is good):-6.185338924998213  	x$d:-4.608614323465194  	 x$l(negative is good):10.793953248463403
+	 	 $w-$l: 1.2960481718477523 -> -15.683244001613867  _ #Surrender#	 lift : -16.97929217346162 : bad	 :| stand
 
-[TimeMatrix: total:  o: 2048881.0 -> a: 14989.0
-org->adv	$w:31.068080576665995->64.24044299152712  	$d:3.517822655390918->3.249049302822069  	$l:65.4140967679431->32.51050770565081
-	 improve value x$w(high is good):33.17236241486113  	x$d:-0.26877335256884916  	 x$l(negative is good):-32.90358906229228
-	 	 $w-$l: -34.34601619127709 -> 31.729935285876316  _ @double@	 lift : 66.07595147715341 : good	 :) hit 
+[TimeMatrix: total:  o: 3819889.0 -> a: 14989.0
+org->adv	$w:31.215671450139->64.24044299152712  	$d:3.538846285847573->3.249049302822069  	$l:65.24548226401343->32.51050770565081
+	 improve value x$w(high is good):33.02477154138812  	x$d:-0.28979698302550405  	 x$l(negative is good):-32.73497455836262
+	 	 $w-$l: -34.029810813874434 -> 31.729935285876316  _ @double@	 lift : 65.75974609975074 : good	 :) hit 
 
-[Prob_ROI diff: -0.14373715440486456 (up%-> -14.564440954554609) . o: 0.986904714388745 -> a: 0.8431675599838805	 returnMoney: o:0.13519499883195799 a: 0.23100920610680556 (probReturnRate: 1.7087111809064832	 totalSpendMoney: o: 0.1369889077039146 a: 0.27397781540744043 (probTotalSpendRate: 1.9999999999971623
+[Prob_ROI diff: -0.16979292173612193 (up%-> -16.762047957469562) . o: 1.012960481720005 -> a: 0.8431675599838832	 returnMoney: o:0.13876434993782705 a: 0.2310092061068064 (probReturnRate: 1.6647590408509778	 totalSpendMoney: o: 0.1369889077036899 a: 0.27397781540744054 (probTotalSpendRate: 2.000000000000443
 
-[Time_ROI diff: 0.660759514771534 (up%-> 100.64271449187284) . o: 0.656539838087229 -> a: 1.317299352858763	 returnMoney: o:4.035516E8 a: 1.1847E7 (timeReturnRate: 0.029356840612204237	 totalSpendMoney: o: 6.146643E8 a: 8993400.0 (timeTotalSpendRate: 0.014631401238041642
+[Time_ROI diff: 0.6575974609975075 (up%-> 99.68100275446977) . o: 0.6597018918612556 -> a: 1.317299352858763	 returnMoney: o:7.559964E8 a: 1.1847E7 (timeReturnRate: 0.015670709543061316	 totalSpendMoney: o: 1.1459667E9 a: 8993400.0 (timeTotalSpendRate: 0.00784787201931784
 
-[[Per_Prob_ROI diff: 0.06430366619645479 (up%-> 11578.383724904344) . o: 5.553768792283315E-4 -> a: 0.06485904307568312	 per returnMoney: o:7.608047204949802E-5 a: 0.017769938931292736	 per totalSpendMoney: o: 7.708998745296263E-5 a: 0.021075216569803108
+[[Per_Prob_ROI diff: 0.06455328983640775 (up%-> 21112.871932069495) . o: 3.0575323927558255E-4 -> a: 0.06485904307568333	 per returnMoney: o:4.1884802275227E-5 a: 0.0177699389312928	 per totalSpendMoney: o: 4.134890060479623E-5 a: 0.02107521656980312
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.18491185483354283
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.04117470042867827
- probRunR/probTalSR= 0.8543555904544539 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.21453697327089322
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.04474405153477129     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8323795204253045 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Nine9, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.04735619613226846 , up % -> -327.5962733032755 .  o: -0.014455657768862346 -> a: -0.06181185390113081 (anet/onet: 4.275962733032754
+net money diff:  -0.051410845569248825 , up % -> -494.2871299474736 .  o: -0.010401008331880318 -> a: -0.06181185390112914 (anet/onet: 5.942871299474736
 
-[ProbMatrix: total: o: 4.5662969234580537E-4  -> a: 4.56629692345747E-4
-org->adv	$w:39.33590959491823->35.75537633503663  	$d:10.775751411877609->5.92834990499862  	$l:49.888338993204165->58.31627375996475
-	 improve value x$w(high is good):-3.580533259881598  	x$d:-4.847401506878989  	 x$l(negative is good):8.427934766760586
-	 	 $w-$l: -10.552429398285934 -> -22.56089742492813  _ #Surrender#	 lift : -12.008468026642195 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923460385E-4  -> a: 4.5662969234574276E-4
+org->adv	$w:40.8717341360839->35.75537633503647  	$d:10.663940103669493->5.928349904998679  	$l:48.46432576024661->58.316273759964844
+	 improve value x$w(high is good):-5.116357801047428  	x$d:-4.735590198670813  	 x$l(negative is good):9.851947999718234
+	 	 $w-$l: -7.592591624162703 -> -22.56089742492837  _ #Surrender#	 lift : -14.96830580076567 : bad	 :| stand
 
-[TimeMatrix: total:  o: 1366513.0 -> a: 9997.0
-org->adv	$w:31.04017305360432->64.19925977793338  	$d:3.519907970140057->3.2509752925877766  	$l:65.43991897625561->32.54976492947884
-	 improve value x$w(high is good):33.15908672432906  	x$d:-0.26893267755228045  	 x$l(negative is good):-32.89015404677677
-	 	 $w-$l: -34.3997459226513 -> 31.64949484845454  _ @double@	 lift : 66.04924077110583 : good	 :) hit 
+[TimeMatrix: total:  o: 4910065.0 -> a: 9997.0
+org->adv	$w:31.290665194859947->64.19925977793338  	$d:3.5526209938157645->3.2509752925877766  	$l:65.15671381132428->32.54976492947884
+	 improve value x$w(high is good):32.90859458307343  	x$d:-0.30164570122798784  	 x$l(negative is good):-32.60694888184544
+	 	 $w-$l: -33.86604861646434 -> 31.64949484845454  _ @double@	 lift : 65.51554346491888 : good	 :) hit 
 
-[Prob_ROI diff: -0.1200846802668778 (up%-> -13.425147207353499) . o: 0.8944757060176035 -> a: 0.7743910257507257	 returnMoney: o:0.12253324993492987 a: 0.21216596150631473 (probReturnRate: 1.7314970558520522	 totalSpendMoney: o: 0.1369889077037922 a: 0.27397781540744554 (probTotalSpendRate: 1.9999999999989861
+[Prob_ROI diff: -0.14968305801088622 (up%-> -16.198166428558753) . o: 0.9240740837616176 -> a: 0.7743910257507314	 returnMoney: o:0.1265878993715786 a: 0.2121659615063159 (probReturnRate: 1.67603667143205	 totalSpendMoney: o: 0.13698890770345892 a: 0.27397781540744504 (probTotalSpendRate: 2.0000000000038485
 
-[Time_ROI diff: 0.6604924077110584 (up%-> 100.68442828472547) . o: 0.656002540773487 -> a: 1.3164949484845454	 returnMoney: o:2.689308E8 a: 7896600.0 (timeReturnRate: 0.029362943924608115	 totalSpendMoney: o: 4.099539E8 a: 5998200.0 (timeTotalSpendRate: 0.014631401238041642
+[Time_ROI diff: 0.6551554346491888 (up%-> 99.06491611996627) . o: 0.6613395138353566 -> a: 1.3164949484845454	 returnMoney: o:9.74166E8 a: 7896600.0 (timeReturnRate: 0.008106010679904657	 totalSpendMoney: o: 1.4730195E9 a: 5998200.0 (timeTotalSpendRate: 0.0040720438527799534
 
-[[Per_Prob_ROI diff: 0.05906517763650104 (up%-> 11734.116416348676) . o: 5.033628058624669E-4 -> a: 0.05956854044236351	 per returnMoney: o:6.895512095381534E-5 a: 0.016320458577408825	 per totalSpendMoney: o: 7.708998745289376E-5 a: 0.021075216569803504
+[[Per_Prob_ROI diff: 0.059423814665737235 (up%-> 41059.592873357884) . o: 1.4472577662672163E-4 -> a: 0.059568540442363954	 per returnMoney: o:1.982582605662938E-5 a: 0.016320458577408915	 per totalSpendMoney: o: 2.1454801519727317E-5 a: 0.021075216569803466
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.16744087639914626
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.04735619613226846
- probRunR/probTalSR= 0.865748527926465 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.20109390358013504
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.051410845569248825     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8380183357144124 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Ten, 	playerStartValue=3	@@@ 
 
-net money diff:  -0.05451519335315473 , up % -> -186.00812959956167 .  o: -0.029307962759754128 -> a: -0.08382315611290886 (anet/onet: 2.860081295995617
+net money diff:  -0.05740086203506256 , up % -> -217.24405105003157 .  o: -0.02642229407784477 -> a: -0.08382315611290733 (anet/onet: 3.1724405105003157
 
-[ProbMatrix: total: o: 4.5662969234573994E-4  -> a: 4.566296923457459E-4
-org->adv	$w:33.791189221781146->31.672116103425207  	$d:11.023215796790172->6.060897917187931  	$l:55.185594981428686->62.26698597938686
-	 improve value x$w(high is good):-2.1190731183559386  	x$d:-4.962317879602241  	 x$l(negative is good):7.081390997958174
-	 	 $w-$l: -21.39440575964754 -> -30.59486987596165  _ #Surrender#	 lift : -9.20046411631411 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234590094E-4  -> a: 4.566296923457439E-4
+org->adv	$w:34.835794428924146->31.67211610342493  	$d:11.040503441437023->6.060897917187964  	$l:54.12370212963883->62.2669859793871
+	 improve value x$w(high is good):-3.163678325499216  	x$d:-4.97960552424906  	 x$l(negative is good):8.143283849748272
+	 	 $w-$l: -19.287907700714683 -> -30.59486987596217  _ #Surrender#	 lift : -11.306962175247486 : bad	 :| stand
 
-[TimeMatrix: total:  o: 684145.0 -> a: 5005.0
-org->adv	$w:30.99986114054769->64.11588411588411  	$d:3.526153081583582->3.2567432567432566  	$l:65.47398577786872->32.62737262737262
-	 improve value x$w(high is good):33.11602297533642  	x$d:-0.2694098248403254  	 x$l(negative is good):-32.8466131504961
-	 	 $w-$l: -34.47412463732103 -> 31.488511488511488  _ @double@	 lift : 65.96263612583253 : good	 :) hit 
+[TimeMatrix: total:  o: 2458225.0 -> a: 5005.0
+org->adv	$w:31.250027967334155->64.11588411588411  	$d:3.558828016149864->3.2567432567432566  	$l:65.19114401651598->32.62737262737262
+	 improve value x$w(high is good):32.86585614854996  	x$d:-0.3020847594066076  	 x$l(negative is good):-32.563771389143355
+	 	 $w-$l: -33.94111604918182 -> 31.488511488511488  _ @double@	 lift : 65.4296275376933 : good	 :) hit 
 
-[Prob_ROI diff: -0.09200464116378826 (up%-> -11.704592027176718) . o: 0.7860559424041782 -> a: 0.6940513012403899	 returnMoney: o:0.1076809449439693 a: 0.1901546592945375 (probReturnRate: 1.7659081594564625	 totalSpendMoney: o: 0.13698890770372343 a: 0.27397781540744637 (probTotalSpendRate: 1.9999999999999964
+[Prob_ROI diff: -0.11306962175427737 (up%-> -14.009006399531) . o: 0.8071209229946726 -> a: 0.6940513012403953	 returnMoney: o:0.11056661362578857 a: 0.1901546592945388 (probReturnRate: 1.7198198720105065	 totalSpendMoney: o: 0.13698890770363334 a: 0.27397781540744615 (probTotalSpendRate: 2.00000000000131
 
-[Time_ROI diff: 0.6596263612583252 (up%-> 100.66654701022478) . o: 0.6552587536267896 -> a: 1.3148851148851148	 returnMoney: o:1.344876E8 a: 3948600.0 (timeReturnRate: 0.029360327643589448	 totalSpendMoney: o: 2.052435E8 a: 3003000.0 (timeTotalSpendRate: 0.014631401238041642
+[Time_ROI diff: 0.6542962753769331 (up%-> 99.04743105621743) . o: 0.6605888395081817 -> a: 1.3148851148851148	 returnMoney: o:4.871628E8 a: 3948600.0 (timeReturnRate: 0.008105298680441117	 totalSpendMoney: o: 7.374675E8 a: 3003000.0 (timeTotalSpendRate: 0.0040720438527799534
 
-[[Per_Prob_ROI diff: 0.052946211638150664 (up%-> 11969.303074438998) . o: 4.423499957254801E-4 -> a: 0.05338856163387615	 per returnMoney: o:6.059704273718025E-5 a: 0.014627281484195193	 per totalSpendMoney: o: 7.708998745285506E-5 a: 0.021075216569803566
+[[Per_Prob_ROI diff: 0.05326215271876384 (up%-> 42134.807241461116) . o: 1.26408915112713E-4 -> a: 0.053388561633876556	 per returnMoney: o:1.7316619205291867E-5 a: 0.014627281484195294	 per totalSpendMoney: o: 2.1454801519754635E-5 a: 0.02107521656980355
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.146519834516943
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.05451519335315473
- probRunR/probTalSR= 0.8829540797282328 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.17047048378933993
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.05740086203506256     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.85990993600469 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=One1, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.08569219196224498 , up % -> -166.4549091151065 .  o: -0.051480723769454784 -> a: -0.13717291573169976 (anet/onet: 2.664549091151065
+net money diff:  -0.08879548415970426 , up % -> -183.54733038612622 .  o: -0.0483774315719582 -> a: -0.13717291573166246 (anet/onet: 2.8354733038612623
 
-[ProbMatrix: total: o: 4.5662969234617535E-4  -> a: 4.5662969234562295E-4
-org->adv	$w:25.264918243689056->21.563507098126326  	$d:11.889950170214163->6.805824151403211  	$l:62.84513158609677->71.63066875047046
-	 improve value x$w(high is good):-3.70141114556273  	x$d:-5.084126018810952  	 x$l(negative is good):8.785537164373693
-	 	 $w-$l: -37.58021334240772 -> -50.06716165234414  _ #Surrender#	 lift : -12.486948309936425 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969233988676E-4  -> a: 4.566296923456461E-4
+org->adv	$w:26.41979520474289->21.563507098128127  	$d:11.845556449206933->6.805824151402717  	$l:61.73464834605017->71.63066875046916
+	 improve value x$w(high is good):-4.8562881066147625  	x$d:-5.039732297804216  	 x$l(negative is good):9.896020404418984
+	 	 $w-$l: -35.31485314130728 -> -50.06716165234104  _ #Surrender#	 lift : -14.752308511033762 : bad	 :| stand
 
-[TimeMatrix: total:  o: 1.2290785E7 -> a: 184717.0
-org->adv	$w:31.20581801731948->64.72495763790013  	$d:3.469721421373818->3.2065267409063596  	$l:65.32446056130671->32.0685156211935
-	 improve value x$w(high is good):33.51913962058065  	x$d:-0.2631946804674583  	 x$l(negative is good):-33.25594494011321
-	 	 $w-$l: -34.11864254398723 -> 32.65644201670664  _ @double@	 lift : 66.77508456069387 : good	 :) hit 
+[TimeMatrix: total:  o: 4.5028321E7 -> a: 184717.0
+org->adv	$w:31.473933927050048->64.72495763790013  	$d:3.504194615650892->3.2065267409063596  	$l:65.02187145729906->32.0685156211935
+	 improve value x$w(high is good):33.251023710850085  	x$d:-0.2976678747445325  	 x$l(negative is good):-32.95335583610556
+	 	 $w-$l: -33.547937530249015 -> 32.65644201670664  _ @double@	 lift : 66.20437954695566 : good	 :) hit 
 
-[Prob_ROI diff: -0.12486948310706208 (up%-> -20.004791716212576) . o: 0.6241978665834523 -> a: 0.49932838347639025	 returnMoney: o:0.08550818393424997 a: 0.13680489967583936 (probReturnRate: 1.5999041656765054	 totalSpendMoney: o: 0.13698890770370475 a: 0.2739778154075391 (probTotalSpendRate: 2.0000000000009464
+[Prob_ROI diff: -0.1475230851262817 (up%-> -22.80633070910958) . o: 0.6468514686027781 -> a: 0.4993283834764964	 returnMoney: o:0.08861147612802373 a: 0.13680489967586024 (probReturnRate: 1.5438733858604028	 totalSpendMoney: o: 0.13698890769998193 a: 0.2739778154075227 (probTotalSpendRate: 2.0000000000551785
 
-[Time_ROI diff: 0.6677508456069385 (up%-> 101.35657056744435) . o: 0.6588135745601278 -> a: 1.3265644201670663	 returnMoney: o:2.4292008E9 a: 1.470234E8 (timeReturnRate: 0.06052336225148617	 totalSpendMoney: o: 3.6872355E9 a: 1.108302E8 (timeTotalSpendRate: 0.03005780346820809
+[Time_ROI diff: 0.6620437954695565 (up%-> 99.62727579312067) . o: 0.6645206246975098 -> a: 1.3265644201670663	 returnMoney: o:8.9766744E9 a: 1.470234E8 (timeReturnRate: 0.016378381731212175	 totalSpendMoney: o: 1.35084963E10 a: 1.108302E8 (timeTotalSpendRate: 0.008204480908804039
 
-[[Per_Prob_ROI diff: 0.0376882596212977 (up%-> 5222.758089652009) . o: 7.216160307323148E-4 -> a: 0.038409875652030016	 per returnMoney: o:9.885339183150286E-5 a: 0.010523453821218413	 per totalSpendMoney: o: 1.5836867942624827E-4 a: 0.021075216569810703
+[[Per_Prob_ROI diff: 0.03820575717030806 (up%-> 18717.44138329475) . o: 2.0411848173012878E-4 -> a: 0.03840987565203819	 per returnMoney: o:2.7961967853589057E-5 a: 0.010523453821220018	 per totalSpendMoney: o: 4.3227802997785396E-5 a: 0.021075216569809437
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.21056167506930706
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.08569219196224498
- probRunR/probTalSR= 0.7999520828378742 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.23631856928598596
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.08879548415970426     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.7719366929089042 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Two2, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.005429814830619578 , up % -> -117.1258746179134 .  o: -0.00463587985859884 -> a: -0.010065694689218418 (anet/onet: 2.171258746179134
+net money diff:  -0.009731201522265753 , up % -> -2909.237762726838 .  o: -3.3449316679928787E-4 -> a: -0.010065694689065041 (anet/onet: 30.09237762726838
 
-[ProbMatrix: total: o: 4.5662969234560967E-4  -> a: 4.5662969234580553E-4
-org->adv	$w:45.633595383274226->45.68145028051858  	$d:5.348681323931475->4.963190778060364  	$l:49.017723292794294->49.35535894142106
-	 improve value x$w(high is good):0.04785489724435621  	x$d:-0.38549054587111176  	 x$l(negative is good):0.3376356486267653
-	 	 $w-$l: -3.3841279095200685 -> -3.6739086609024807  _ #Surrender#	 lift : -0.28978075138241244 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923452166E-4  -> a: 4.56629692345768E-4
+org->adv	$w:47.23217488865802->45.68145028052316  	$d:5.29147485664138->4.963190778060729  	$l:47.4763502547006->49.355358941416114
+	 improve value x$w(high is good):-1.550724608134864  	x$d:-0.32828407858065134  	 x$l(negative is good):1.8790086867155154
+	 	 $w-$l: -0.24417536604257606 -> -3.6739086608929608  _ #Surrender#	 lift : -3.4297332948503847 : bad	 :| stand
 
-[TimeMatrix: total:  o: 667225.0 -> a: 346957.0
-org->adv	$w:55.386563752856986->64.40250520957929  	$d:3.36318333395781->3.233830128805587  	$l:41.25025291318521->32.363664661615125
-	 improve value x$w(high is good):9.015941456722302  	x$d:-0.12935320515222326  	 x$l(negative is good):-8.886588251570082
-	 	 $w-$l: 14.13631083967178 -> 32.038840547964156  _ @double@	 lift : 17.90252970829238 : good	 :) hit 
+[TimeMatrix: total:  o: 2588833.0 -> a: 346957.0
+org->adv	$w:55.306966498032125->64.40250520957929  	$d:3.811756107867908->3.233830128805587  	$l:40.88127739409997->32.363664661615125
+	 improve value x$w(high is good):9.095538711547164  	x$d:-0.577925979062321  	 x$l(negative is good):-8.517612732484842
+	 	 $w-$l: 14.42568910393216 -> 32.038840547964156  _ @double@	 lift : 17.613151444032 : good	 :) hit 
 
-[Prob_ROI diff: -0.0028978075135046577 (up%-> -0.2999307930266282) . o: 0.9661587209044545 -> a: 0.9632609133909499	 returnMoney: o:0.13235302784521952 a: 0.2639121207183888 (probReturnRate: 1.994001384139253	 totalSpendMoney: o: 0.13698890770381836 a: 0.27397781540760724 (probTotalSpendRate: 1.9999999999997848
+[Prob_ROI diff: -0.034297332948243 (up%-> -3.4381283573252177) . o: 0.9975582463397471 -> a: 0.9632609133915041	 returnMoney: o:0.13665441453679122 a: 0.26391212071850023 (probReturnRate: 1.931237432856204	 totalSpendMoney: o: 0.1369889077035905 a: 0.2739778154075653 (probTotalSpendRate: 2.000000000002805
 
-[Time_ROI diff: 0.1790252970829238 (up%-> 15.685218469554544) . o: 1.1413631083967177 -> a: 1.3203884054796415	 returnMoney: o:2.284638E8 a: 2.748708E8 (timeReturnRate: 1.2031262720833673	 totalSpendMoney: o: 2.001675E8 a: 2.081742E8 (timeTotalSpendRate: 1.04
+[Time_ROI diff: 0.17613151444031994 (up%-> 15.392654902898661) . o: 1.1442568910393216 -> a: 1.3203884054796415	 returnMoney: o:8.88687E8 a: 2.748708E8 (timeReturnRate: 0.3092998997397284	 totalSpendMoney: o: 7.766499E8 a: 2.081742E8 (timeTotalSpendRate: 0.26804123711340205
 
-[[Per_Prob_ROI diff: 0.035450644501587206 (up%-> 91.73090232110268) . o: 0.03864634883617818 -> a: 0.07409699333776538	 per returnMoney: o:0.005294121113808781 a: 0.020300932362952988	 per totalSpendMoney: o: 0.005479556308152734 a: 0.021075216569815942
+[[Per_Prob_ROI diff: 0.0638128877054395 (up%-> 620.5001191799581) . o: 0.010284105632368527 -> a: 0.07409699333780802	 per returnMoney: o:0.0014088083972865074 a: 0.020300932362961557	 per totalSpendMoney: o: 0.0014122567804493867 a: 0.02107521656981271
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.008327622344124236
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.005429814830619578
- probRunR/probTalSR= 0.9970006920697337 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.04402853447050875
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.009731201522265753     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9656187164267478 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Three3, 	playerStartValue=4	@@@ 
 
-net money diff:  -7.133296563902047E-4 , up % -> -190.00470167951937 .  o: -3.7542737105178414E-4 -> a: -0.0010887570274419889 (anet/onet: 2.900047016795194
+net money diff:  -0.00484196617642943 , up % -> -129.00869586745117 .  o: 0.0037532091490981856 -> a: -0.0010887570273312441 (anet/onet: -0.29008695867451156
 
-[ProbMatrix: total: o: 4.5662969234570893E-4  -> a: 4.5662969234580873E-4
-org->adv	$w:47.274110298538616->47.39902890423131  	$d:5.177722636351746->4.804553437334366  	$l:47.54816706510963->47.79641765843432
-	 improve value x$w(high is good):0.12491860569269164  	x$d:-0.3731691990173793  	 x$l(negative is good):0.24825059332469124
-	 	 $w-$l: -0.2740567665710125 -> -0.3973887542030097  _ #Surrender#	 lift : -0.12333198763199715 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234545284E-4  -> a: 4.566296923458062E-4
+org->adv	$w:48.80588604916405->47.39902890423392  	$d:5.128018452611661->4.8045534373343735  	$l:46.066095498224286->47.7964176584317
+	 improve value x$w(high is good):-1.4068571449301288  	x$d:-0.32346501527728755  	 x$l(negative is good):1.7303221602074146
+	 	 $w-$l: 2.739790550939769 -> -0.3973887541977805  _ #Surrender#	 lift : -3.1371793051375496 : bad	 :| stand
 
-[TimeMatrix: total:  o: 388825.0 -> a: 202189.0
-org->adv	$w:55.36963929788465->64.38184075295887  	$d:3.365009965922973->3.2355865056951663  	$l:41.265350736192374->32.38257274134597
-	 improve value x$w(high is good):9.012201455074212  	x$d:-0.1294234602278066  	 x$l(negative is good):-8.882777994846407
-	 	 $w-$l: 14.104288561692279 -> 31.999268011612898  _ @double@	 lift : 17.894979449920616 : good	 :) hit 
+[TimeMatrix: total:  o: 1508641.0 -> a: 202189.0
+org->adv	$w:55.29022477845955->64.38184075295887  	$d:3.813763512989505->3.2355865056951663  	$l:40.89601170855094->32.38257274134597
+	 improve value x$w(high is good):9.091615974499312  	x$d:-0.5781770072943386  	 x$l(negative is good):-8.51343896720497
+	 	 $w-$l: 14.394213069908613 -> 31.999268011612898  _ @double@	 lift : 17.605054941704285 : good	 :) hit 
 
-[Prob_ROI diff: -0.0012333198760486885 (up%-> -0.12367091611880698) . o: 0.9972594323340135 -> a: 0.9960261124579648	 returnMoney: o:0.1366134803327249 a: 0.2728890583800865 (probReturnRate: 1.9975265816774423	 totalSpendMoney: o: 0.1369889077037767 a: 0.27397781540752847 (probTotalSpendRate: 1.9999999999998181
+[Prob_ROI diff: -0.031371793051001906 (up%-> -3.053519272598496) . o: 1.0273979055093703 -> a: 0.9960261124583684	 returnMoney: o:0.14074211685281202 a: 0.2728890583801487 (probReturnRate: 1.9389296145484003	 totalSpendMoney: o: 0.13698890770371383 a: 0.27397781540747995 (probTotalSpendRate: 2.000000000000382
 
-[Time_ROI diff: 0.17894979449920623 (up%-> 15.683003395832419) . o: 1.1410428856169228 -> a: 1.319992680116129	 returnMoney: o:1.330998E8 a: 1.601328E8 (timeReturnRate: 1.203103235316657	 totalSpendMoney: o: 1.166475E8 a: 1.213134E8 (timeTotalSpendRate: 1.04
+[Time_ROI diff: 0.1760505494170428 (up%-> 15.389812534437796) . o: 1.1439421306990862 -> a: 1.319992680116129	 returnMoney: o:5.177394E8 a: 1.601328E8 (timeReturnRate: 0.30929228102014256	 totalSpendMoney: o: 4.525923E8 a: 1.213134E8 (timeTotalSpendRate: 0.26804123711340205
 
-[[Per_Prob_ROI diff: 0.036727015972636765 (up%-> 92.06986362284849) . o: 0.039890377293360535 -> a: 0.0766173932659973	 per returnMoney: o:0.005464539213308996 a: 0.020991466029237422	 per totalSpendMoney: o: 0.005479556308151068 a: 0.02107521656980988
+[[Per_Prob_ROI diff: 0.06602566228139564 (up%-> 623.3698946583035) . o: 0.010591730984632683 -> a: 0.07661739326602833	 per returnMoney: o:0.0014509496582764125 a: 0.02099146602924221	 per totalSpendMoney: o: 0.001412256780450658 a: 0.02107521656980615
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.0019466495324388933
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -7.133296563902047E-4
- probRunR/probTalSR= 0.998763290838812 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.036213759227431336
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.00484196617642943     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9694648072740151 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Four4, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.004168000172964953 , up % -> -49.99999999978524 .  o: 0.00833600034596571 -> a: 0.004168000173000758 (anet/onet: 0.5000000000021476
+net money diff:  2.2342669824365613E-4 , up % -> 2.7540791362224306 .  o: 0.00811257364776069 -> a: 0.008336000346004346 (anet/onet: 1.0275407913622243
 
-[ProbMatrix: total: o: 4.566296923458023E-4  -> a: 4.566296923458162E-4
-org->adv	$w:49.20203137641621->49.20203137641791  	$d:4.638519484548589->4.638519484548457  	$l:46.159449139035196->46.15944913903364
-	 improve value x$w(high is good):1.6981971384666394E-12  	x$d:-1.3233858453531866E-13  	 x$l(negative is good):-1.5560885913146194E-12
-	 	 $w-$l: 3.0425822373810085 -> 3.0425822373842726  _ #Surrender#	 lift : 3.2640556923979602E-12 : good	 :| stand
+[ProbMatrix: total: o: 4.566296923456406E-4  -> a: 4.5662969234581334E-4
+org->adv	$w:50.697059010809355->49.20203137641773  	$d:4.527948066595198->4.63851948454847  	$l:44.774992922595445->46.1594491390338
+	 improve value x$w(high is good):-1.4950276343916258  	x$d:0.11057141795327219  	 x$l(negative is good):1.384456216438359
+	 	 $w-$l: 5.9220660882139065 -> 3.0425822373839226  _ #Surrender#	 lift : -2.879483850829984 : bad	 :| stand
 
-[TimeMatrix: total:  o: 117949.0 -> a: 117949.0
-org->adv	$w:64.36425912894556->64.36425912894556  	$d:3.2369922593663363->3.2369922593663363  	$l:32.398748611688106->32.398748611688106
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.96551051725745 -> 31.96551051725745  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 444577.0 -> a: 117949.0
+org->adv	$w:64.75886066980523->64.36425912894556  	$d:4.117172053435063->3.2369922593663363  	$l:31.123967276759707->32.398748611688106
+	 improve value x$w(high is good):-0.3946015408596679  	x$d:-0.8801797940687264  	 x$l(negative is good):1.2747813349283987
+	 	 $w-$l: 33.63489339304552 -> 31.96551051725745  _ @double@	 lift : -1.6693828757880724 : bad	 :| stand
 
-[Prob_ROI diff: 1.3278267374516872E-13 (up%-> 1.2886194315207323E-11) . o: 1.0304258223738605 -> a: 1.0304258223739933	 returnMoney: o:0.2823138157534264 a: 0.14115690787672097 (probReturnRate: 0.5000000000000275	 totalSpendMoney: o: 0.2739778154074607 a: 0.13698890770372021 (probTotalSpendRate: 0.49999999999996303
+[Prob_ROI diff: -0.028794838508311438 (up%-> -2.718492904427088) . o: 1.059220660882315 -> a: 1.0304258223740035	 returnMoney: o:0.14510148135148007 a: 0.28231381575344594 (probReturnRate: 1.9456301419114785	 totalSpendMoney: o: 0.13698890770371938 a: 0.2739778154074416 (probTotalSpendRate: 2.000000000000021
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3196551051725747 -> a: 1.3196551051725747	 returnMoney: o:9.33912E7 a: 4.66956E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 7.07694E7 a: 3.53847E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.016693828757880613 (up%-> -1.2492118139220496) . o: 1.3363489339304553 -> a: 1.3196551051725747	 returnMoney: o:1.78233E8 a: 9.33912E7 (timeReturnRate: 0.5239837740485769	 totalSpendMoney: o: 1.333731E8 a: 7.07694E7 (timeTotalSpendRate: 0.5306122448979592
 
-[[Per_Prob_ROI diff: 1.0241807402167069E-14 (up%-> 1.2921211147585607E-11) . o: 0.07926352479798925 -> a: 0.07926352479799949	 per returnMoney: o:0.021716447365648185 a: 0.01085822368282469	 per totalSpendMoney: o: 0.02107521656980467 a: 0.010537608284901554
+[[Per_Prob_ROI diff: 0.05764677661672854 (up%-> 266.6764498217749) . o: 0.02161674818127173 -> a: 0.07926352479800026	 per returnMoney: o:0.002961254721458777 a: 0.021716447365649687	 per totalSpendMoney: o: 0.0027956919939534568 a: 0.0210752165698032
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.00416800017283217
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.004168000172964953
- probRunR/probTalSR= 1.000000000000129 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.02857141181006778
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 2.2342669824365613E-4     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9728150709557292 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Five5, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.009033309869125983 , up % -> -49.99999999991873 .  o: 0.01806661973828133 -> a: 0.009033309869155348 (anet/onet: 0.5000000000008127
+net money diff:  0.005218820663247137 , up % -> 40.62034775570916 .  o: 0.012847799075067334 -> a: 0.01806661973831447 (anet/onet: 1.4062034775570917
 
-[ProbMatrix: total: o: 4.5662969234577875E-4  -> a: 4.566296923457897E-4
-org->adv	$w:51.06472730529181->51.064727305293324  	$d:4.464736131248492->4.464736131248405  	$l:44.4705365634597->44.47053656345826
-	 improve value x$w(high is good):1.5134560271690134E-12  	x$d:-8.704148513061227E-14  	 x$l(negative is good):-1.4424017535930034E-12
-	 	 $w-$l: 6.594190741832112 -> 6.59419074183506  _ @double@	 lift : 2.9476421303797906E-12 : good	 :| stand
+[ProbMatrix: total: o: 4.5662969234569624E-4  -> a: 4.566296923457859E-4
+org->adv	$w:52.498029317768825->51.06472730529307  	$d:4.38265624759832->4.464736131248428  	$l:43.11931443463287->44.47053656345851
+	 improve value x$w(high is good):-1.4333020124757567  	x$d:0.08207988365010799  	 x$l(negative is good):1.3512221288256399
+	 	 $w-$l: 9.378714883135958 -> 6.59419074183456  _ @double@	 lift : -2.7845241413013975 : bad	 :| stand
 
-[TimeMatrix: total:  o: 71149.0 -> a: 71149.0
-org->adv	$w:64.35086930244978->64.35086930244978  	$d:3.2382746068110584->3.2382746068110584  	$l:32.41085609073915->32.41085609073915
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.94001321171063 -> 31.94001321171063  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 268177.0 -> a: 71149.0
+org->adv	$w:64.74567170189837->64.35086930244978  	$d:4.119667234699471->3.2382746068110584  	$l:31.13466106340216->32.41085609073915
+	 improve value x$w(high is good):-0.39480239944859363  	x$d:-0.8813926278884128  	 x$l(negative is good):1.2761950273369926
+	 	 $w-$l: 33.61101063849622 -> 31.94001321171063  _ @double@	 lift : -1.6709974267855865 : bad	 :| stand
 
-[Prob_ROI diff: 1.1191048088221578E-13 (up%-> 1.0498741076167622E-11) . o: 1.0659419074183578 -> a: 1.0659419074184697	 returnMoney: o:0.2920444351457209 a: 0.14602221757286568 (probReturnRate: 0.5000000000000179	 totalSpendMoney: o: 0.2739778154074396 a: 0.13698890770371033 (probTotalSpendRate: 0.49999999999996547
+[Prob_ROI diff: -0.027845241412959743 (up%-> -2.5457641774917947) . o: 1.0937871488314432 -> a: 1.0659419074184835	 returnMoney: o:0.1498367067788056 a: 0.29204443514573514 (probReturnRate: 1.9490847164497667	 totalSpendMoney: o: 0.13698890770373826 a: 0.27397781540742067 (probTotalSpendRate: 1.9999999999995923
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3194001321171063 -> a: 1.3194001321171063	 returnMoney: o:5.63244E7 a: 2.81622E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 4.26894E7 a: 2.13447E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.01670997426785581 (up%-> -1.2506435052023555) . o: 1.336110106384962 -> a: 1.3194001321171063	 returnMoney: o:1.074942E8 a: 5.63244E7 (timeReturnRate: 0.5239761773193344	 totalSpendMoney: o: 8.04531E7 a: 4.26894E7 (timeTotalSpendRate: 0.5306122448979592
 
-[[Per_Prob_ROI diff: 8.590350653037149E-15 (up%-> 1.0476608313482247E-11) . o: 0.0819955313398737 -> a: 0.08199553133988229	 per returnMoney: o:0.02246495654967084 a: 0.011232478274835821	 per totalSpendMoney: o: 0.021075216569803046 a: 0.010537608284900794
+[[Per_Prob_ROI diff: 0.05967334462903756 (up%-> 267.3275042540694) . o: 0.02232218671084578 -> a: 0.08199553133988334	 per returnMoney: o:0.003057891975077665 a: 0.022464956549671934	 per totalSpendMoney: o: 0.002795691993953842 a: 0.02107521656980159
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.009033309869014072
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.009033309869125983
- probRunR/probTalSR= 1.0000000000001048 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.022626420749712606
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.005218820663247137     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.974542358225082 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Six6, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.012180001274872593 , up % -> -49.9999999999673 .  o: 0.024360002549761117 -> a: 0.012180001274888524 (anet/onet: 0.500000000000327
+net money diff:  0.008447690018715981 , up % -> 53.0890152026984 .  o: 0.015912312531061235 -> a: 0.024360002549777215 (anet/onet: 1.530890152026984
 
-[ProbMatrix: total: o: 4.566296923457657E-4  -> a: 4.566296923457729E-4
-org->adv	$w:52.22862067923821->52.22862067923882  	$d:4.433990405502166->4.433990405502127  	$l:43.33738891525962->43.33738891525906
-	 improve value x$w(high is good):6.110667527536862E-13  	x$d:-3.907985046680551E-14  	 x$l(negative is good):-5.613287612504791E-13
-	 	 $w-$l: 8.891231763978592 -> 8.891231763979762  _ @double@	 lift : 1.1712852909795402E-12 : good	 :| stand
+[ProbMatrix: total: o: 4.566296923457384E-4  -> a: 4.566296923457716E-4
+org->adv	$w:53.77414017628611->52.22862067923878  	$d:4.067486790763824->4.433990405502125  	$l:42.15837303295007->43.3373889152591
+	 improve value x$w(high is good):-1.54551949704733  	x$d:0.36650361473830095  	 x$l(negative is good):1.1790158823090309
+	 	 $w-$l: 11.615767143336047 -> 8.891231763979679  _ @double@	 lift : -2.724535379356369 : bad	 :| stand
 
-[TimeMatrix: total:  o: 40417.0 -> a: 40417.0
-org->adv	$w:64.33926318133459->64.33926318133459  	$d:3.2387361753717494->3.2387361753717494  	$l:32.422000643293664->32.422000643293664
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.91726253804092 -> 31.91726253804092  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 152341.0 -> a: 40417.0
+org->adv	$w:64.73372237283462->64.33926318133459  	$d:4.117079446767449->3.2387361753717494  	$l:31.149198180397924->32.422000643293664
+	 improve value x$w(high is good):-0.39445919150003306  	x$d:-0.8783432713956998  	 x$l(negative is good):1.27280246289574
+	 	 $w-$l: 33.584524192436696 -> 31.91726253804092  _ @double@	 lift : -1.6672616543957797 : bad	 :| stand
 
-[Prob_ROI diff: 6.17284001691587E-14 (up%-> 5.668812738105011E-12) . o: 1.0889123176397864 -> a: 1.088912317639848	 returnMoney: o:0.298337817957202 a: 0.14916890897860322 (probReturnRate: 0.5000000000000074	 totalSpendMoney: o: 0.2739778154074409 a: 0.1369889077037147 (probTotalSpendRate: 0.499999999999979
+[Prob_ROI diff: -0.027245353793481364 (up%-> -2.440995075408464) . o: 1.11615767143333 -> a: 1.0889123176398485	 returnMoney: o:0.15290122023479646 a: 0.29833781795720715 (probReturnRate: 1.9511800984915422	 totalSpendMoney: o: 0.13698890770373523 a: 0.27397781540742994 (probTotalSpendRate: 1.9999999999997042
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3191726253804092 -> a: 1.3191726253804092	 returnMoney: o:3.19902E7 a: 1.59951E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 2.42502E7 a: 1.21251E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.016672616543957908 (up%-> -1.2480949155412628) . o: 1.3358452419243672 -> a: 1.3191726253804092	 returnMoney: o:6.10512E7 a: 3.19902E7 (timeReturnRate: 0.5239897004481484	 totalSpendMoney: o: 4.57023E7 a: 2.42502E7 (timeTotalSpendRate: 0.5306122448979592
 
-[[Per_Prob_ROI diff: 4.746203430272544E-15 (up%-> 5.666263811514136E-12) . o: 0.08376248597229126 -> a: 0.083762485972296	 per returnMoney: o:0.02294906291978477 a: 0.011474531459892554	 per totalSpendMoney: o: 0.021075216569803143 a: 0.01053760828490113
+[[Per_Prob_ROI diff: 0.06098375798386074 (up%-> 267.7224031773066) . o: 0.022778727988435304 -> a: 0.08376248597229605	 per returnMoney: o:0.0031204330660162542 a: 0.022949062919785164	 per totalSpendMoney: o: 0.0027956919939537803 a: 0.021075216569802303
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.012180001274810864
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.012180001274872593
- probRunR/probTalSR= 1.0000000000000568 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.018797663774765383
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.008447690018715981     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9755900492459153 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Seven7, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.028412049278927598 , up % -> -997.017270144805 .  o: 0.0028497048275604175 -> a: -0.02556234445136718 (anet/onet: -8.97017270144805
+net money diff:  -0.03015077929258389 , up % -> -657.103791072317 .  o: 0.0045884348412267295 -> a: -0.02556234445135716 (anet/onet: -5.57103791072317
 
-[ProbMatrix: total: o: 4.566296923456611E-4  -> a: 4.566296923457578E-4
-org->adv	$w:46.08457386625464->42.49058738529081  	$d:9.911097212468409->5.688747020945628  	$l:44.00432892127696->51.82066559376357
-	 improve value x$w(high is good):-3.593986480963828  	x$d:-4.222350191522781  	 x$l(negative is good):7.816336672486614
-	 	 $w-$l: 2.080244944977677 -> -9.330078208472765  _ #Surrender#	 lift : -11.410323153450442 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234547225E-4  -> a: 4.566296923457651E-4
+org->adv	$w:47.552353515676245->42.490587385292066  	$d:8.244786674498854->5.688747020945587  	$l:44.20285980982489->51.82066559376235
+	 improve value x$w(high is good):-5.0617661303841786  	x$d:-2.5560396535532677  	 x$l(negative is good):7.617805783937456
+	 	 $w-$l: 3.3494937058513474 -> -9.330078208470283  _ #Surrender#	 lift : -12.679571914321631 : bad	 :| stand
 
-[TimeMatrix: total:  o: 1661665.0 -> a: 24973.0
-org->adv	$w:31.05896796285653->64.26140231449966  	$d:3.514065711199309->3.247507307892524  	$l:65.42696632594416->32.49109037760782
-	 improve value x$w(high is good):33.202434351643134  	x$d:-0.26655840330678515  	 x$l(negative is good):-32.935875948336346
-	 	 $w-$l: -34.36799836308763 -> 31.770311936891844  _ @double@	 lift : 66.13831029997948 : good	 :) hit 
+[TimeMatrix: total:  o: 3136993.0 -> a: 24973.0
+org->adv	$w:31.217411068497764->64.26140231449966  	$d:3.536762753375605->3.247507307892524  	$l:65.24582617812663->32.49109037760782
+	 improve value x$w(high is good):33.043991246001895  	x$d:-0.2892554454830809  	 x$l(negative is good):-32.754735800518816
+	 	 $w-$l: -34.02841510962887 -> 31.770311936891844  _ @double@	 lift : 65.79872704652071 : good	 :) hit 
 
-[Prob_ROI diff: -0.11410323153350987 (up%-> -11.17779758415735) . o: 1.0208024494488255 -> a: 0.9066992179153156	 returnMoney: o:0.13983861253147073 a: 0.24841547095606992 (probReturnRate: 1.7764440483143662	 totalSpendMoney: o: 0.1369889077039103 a: 0.2739778154074371 (probTotalSpendRate: 1.9999999999972002
+[Prob_ROI diff: -0.1267957191429625 (up%-> -12.26863476504949) . o: 1.0334949370583129 -> a: 0.9066992179153504	 returnMoney: o:0.1415773425450538 a: 0.24841547095607472 (probReturnRate: 1.7546273046975867	 totalSpendMoney: o: 0.13698890770382707 a: 0.2739778154074319 (probTotalSpendRate: 1.9999999999983775
 
-[Time_ROI diff: 0.6613831029997946 (up%-> 100.77143565705657) . o: 0.6563200163691237 -> a: 1.3177031193689184	 returnMoney: o:3.271752E8 a: 1.97442E7 (timeReturnRate: 0.060347483550097926	 totalSpendMoney: o: 4.984995E8 a: 1.49838E7 (timeTotalSpendRate: 0.03005780346820809
+[Time_ROI diff: 0.6579872704652071 (up%-> 99.73798136858821) . o: 0.6597158489037113 -> a: 1.3177031193689184	 returnMoney: o:6.208572E8 a: 1.97442E7 (timeReturnRate: 0.03180151571085912	 totalSpendMoney: o: 9.410979E8 a: 1.49838E7 (timeTotalSpendRate: 0.015921616656460504
 
-[[Per_Prob_ROI diff: 0.06856597524712434 (up%-> 5810.092699207989) . o: 0.0011801184386691626 -> a: 0.0697460936857935	 per returnMoney: o:1.6166313587453264E-4 a: 0.019108882381236147	 per totalSpendMoney: o: 1.583686794264859E-4 a: 0.021075216569802855
+[[Per_Prob_ROI diff: 0.06911321252409483 (up%-> 10920.40918682109) . o: 6.328811617013551E-4 -> a: 0.06974609368579618	 per returnMoney: o:8.66976990477978E-5 a: 0.019108882381236515	 per totalSpendMoney: o: 8.388787979413783E-5 a: 0.021075216569802453
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.14251528081243747
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.028412049278927598
- probRunR/probTalSR= 0.8882220241584265 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.1569464984355464
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.03015077929258389     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8773136523495051 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Eight8, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.036137647289553376 , up % -> -469.6286812426746 .  o: -0.007694940435479858 -> a: -0.043832587725033234 (anet/onet: 5.696286812426746
+net money diff:  -0.03956869121017101 , up % -> -927.9937041686516 .  o: -0.0042638965148603936 -> a: -0.0438325877250314 (anet/onet: 10.279937041686516
 
-[ProbMatrix: total: o: 4.566296923459029E-4  -> a: 4.5662969234574845E-4
-org->adv	$w:42.113458735322396->39.093826342892754  	$d:10.15588288566589->5.813757187545292  	$l:47.73065837901172->55.092416469561954
-	 improve value x$w(high is good):-3.019632392429642  	x$d:-4.342125698120597  	 x$l(negative is good):7.361758090550232
-	 	 $w-$l: -5.617199643689324 -> -15.9985901266692  _ #Surrender#	 lift : -10.381390482979874 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234581215E-4  -> a: 4.5662969234575056E-4
+org->adv	$w:43.43183291729284->39.09382634289316  	$d:10.023748930359154->5.813757187545266  	$l:46.54441815234801->55.09241646956158
+	 improve value x$w(high is good):-4.338006574399678  	x$d:-4.209991742813888  	 x$l(negative is good):8.547998317213569
+	 	 $w-$l: -3.1125852350551764 -> -15.998590126668422  _ #Surrender#	 lift : -12.886004891613245 : bad	 :| stand
 
-[TimeMatrix: total:  o: 997345.0 -> a: 14989.0
-org->adv	$w:31.04963678566594->64.24044299152712  	$d:3.515734274498794->3.249049302822069  	$l:65.43462893983526->32.51050770565081
-	 improve value x$w(high is good):33.19080620586118  	x$d:-0.266684971676725  	 x$l(negative is good):-32.924121234184454
-	 	 $w-$l: -34.38499215416932 -> 31.729935285876316  _ @double@	 lift : 66.11492744004563 : good	 :) hit 
+[TimeMatrix: total:  o: 1882849.0 -> a: 14989.0
+org->adv	$w:31.208025709974617->64.24044299152712  	$d:3.538042615207061->3.249049302822069  	$l:65.25393167481832->32.51050770565081
+	 improve value x$w(high is good):33.0324172815525  	x$d:-0.28899331238499215  	 x$l(negative is good):-32.74342396916751
+	 	 $w-$l: -34.045905964843705 -> 31.729935285876316  _ @double@	 lift : 65.77584125072002 : good	 :) hit 
 
-[Prob_ROI diff: -0.10381390482946595 (up%-> -10.999239738340636) . o: 0.9438280035627945 -> a: 0.8400140987333286	 returnMoney: o:0.12929396726841513 a: 0.23014522768240808 (probReturnRate: 1.7800152052309222	 totalSpendMoney: o: 0.136988907703895 a: 0.2739778154074413 (probTotalSpendRate: 1.9999999999974547
+[Prob_ROI diff: -0.1288600489160565 (up%-> -13.299978044484611) . o: 0.9688741476493917 -> a: 0.8400140987333352	 returnMoney: o:0.13272501118896565 a: 0.23014522768240986 (probReturnRate: 1.7340004391089734	 totalSpendMoney: o: 0.13698890770382605 a: 0.27397781540744126 (probTotalSpendRate: 1.999999999998461
 
-[Time_ROI diff: 0.6611492744004563 (up%-> 100.76189824649502) . o: 0.6561500784583068 -> a: 1.317299352858763	 returnMoney: o:1.963224E8 a: 1.1847E7 (timeReturnRate: 0.06034461681397538	 totalSpendMoney: o: 2.992035E8 a: 8993400.0 (timeTotalSpendRate: 0.03005780346820809
+[Time_ROI diff: 0.6577584125072001 (up%-> 99.72973204007431) . o: 0.659540940351563 -> a: 1.317299352858763	 returnMoney: o:3.725448E8 a: 1.1847E7 (timeReturnRate: 0.0318002022843964	 totalSpendMoney: o: 5.648547E8 a: 8993400.0 (timeTotalSpendRate: 0.015921616656460504
 
-[[Per_Prob_ROI diff: 0.06352533849337598 (up%-> 5821.973663564257) . o: 0.001091130639956988 -> a: 0.06461646913333297	 per returnMoney: o:1.494727945299597E-4 a: 0.017703479052492928	 per totalSpendMoney: o: 1.583686794264682E-4 a: 0.021075216569803178
+[[Per_Prob_ROI diff: 0.06402315979613238 (up%-> 10790.856604104354) . o: 5.933093372010973E-4 -> a: 0.06461646913333348	 per returnMoney: o:8.127679803365931E-5 a: 0.017703479052493067	 per totalSpendMoney: o: 8.388787979413719E-5 a: 0.021075216569803174
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.13995155211901933
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.036137647289553376
- probRunR/probTalSR= 0.8900076026165937 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.16842874012622752
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.03956869121017101     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8670002195551538 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Nine9, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.04270755933741316 , up % -> -216.470781963148 .  o: -0.01972901790722209 -> a: -0.06243657724463525 (anet/onet: 3.16470781963148
+net money diff:  -0.04659635310048839 , up % -> -294.16473325416115 .  o: -0.01584022414414603 -> a: -0.06243657724463442 (anet/onet: 3.9416473325416113
 
-[ProbMatrix: total: o: 4.5662969234588484E-4  -> a: 4.566296923457463E-4
-org->adv	$w:37.670495345823305->35.67871235725172  	$d:10.257100250221809->5.85365817854534  	$l:52.072404403954884->58.46762946420294
-	 improve value x$w(high is good):-1.991782988571586  	x$d:-4.403442071676469  	 x$l(negative is good):6.395225060248059
-	 	 $w-$l: -14.40190905813158 -> -22.788917106951224  _ #Surrender#	 lift : -8.387008048819645 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923456785E-4  -> a: 4.566296923457446E-4
+org->adv	$w:39.144395969368425->35.67871235725188  	$d:10.14806443904528->5.8536581785453565  	$l:50.707539591586304->58.46762946420275
+	 improve value x$w(high is good):-3.4656836121165426  	x$d:-4.294406260499923  	 x$l(negative is good):7.760089872616447
+	 	 $w-$l: -11.563143622217881 -> -22.78891710695087  _ #Surrender#	 lift : -11.225773484732986 : bad	 :| stand
 
-[TimeMatrix: total:  o: 665185.0 -> a: 9997.0
-org->adv	$w:31.02174583010741->64.19925977793338  	$d:3.5178183512857326->3.2509752925877766  	$l:65.46043581860685->32.54976492947884
-	 improve value x$w(high is good):33.17751394782597  	x$d:-0.266843058697956  	 x$l(negative is good):-32.91067088912801
-	 	 $w-$l: -34.43868998849944 -> 31.64949484845454  _ @double@	 lift : 66.08818483695399 : good	 :) hit 
+[TimeMatrix: total:  o: 2436961.0 -> a: 9997.0
+org->adv	$w:31.287492906123653->64.19925977793338  	$d:3.5522932045280986->3.2509752925877766  	$l:65.16021388934826->32.54976492947884
+	 improve value x$w(high is good):32.911766871809725  	x$d:-0.301317911940322  	 x$l(negative is good):-32.610448959869416
+	 	 $w-$l: -33.872720983224596 -> 31.64949484845454  _ @double@	 lift : 65.52221583167915 : good	 :) hit 
 
-[Prob_ROI diff: -0.08387008048823907 (up%-> -9.798125117672516) . o: 0.8559809094187388 -> a: 0.7721108289304998	 returnMoney: o:0.11725988979658131 a: 0.21154123816281 (probReturnRate: 1.804037497645486	 totalSpendMoney: o: 0.1369889077038034 a: 0.27397781540744526 (probTotalSpendRate: 1.9999999999988207
+[Prob_ROI diff: -0.11225773484831947 (up%-> -12.693546497023009) . o: 0.8843685637788229 -> a: 0.7721108289305034	 returnMoney: o:0.12114868355952742 a: 0.21154123816281162 (probReturnRate: 1.7461290700601717	 totalSpendMoney: o: 0.13698890770367345 a: 0.27397781540744603 (probTotalSpendRate: 2.000000000000724
 
-[Time_ROI diff: 0.6608818483695398 (up%-> 100.80363681775273) . o: 0.6556131001150056 -> a: 1.3164949484845454	 returnMoney: o:1.308312E8 a: 7896600.0 (timeReturnRate: 0.06035716251169446	 totalSpendMoney: o: 1.995555E8 a: 5998200.0 (timeTotalSpendRate: 0.03005780346820809
+[Time_ROI diff: 0.6552221583167914 (up%-> 99.08500214420927) . o: 0.661272790167754 -> a: 1.3164949484845454	 returnMoney: o:4.834488E8 a: 7896600.0 (timeReturnRate: 0.016333890993213758	 totalSpendMoney: o: 7.310883E8 a: 5998200.0 (timeTotalSpendRate: 0.008204480908804039
 
-[[Per_Prob_ROI diff: 0.05840356738127511 (up%-> 5901.893982554866) . o: 9.895733056864034E-4 -> a: 0.05939314068696151	 per returnMoney: o:1.3556056623882233E-4 a: 0.01627240293560077	 per totalSpendMoney: o: 1.583686794263623E-4 a: 0.021075216569803483
+[[Per_Prob_ROI diff: 0.05911407203319758 (up%-> 21182.62701161031) . o: 2.790686537642231E-4 -> a: 0.059393140686961804	 per returnMoney: o:3.8229310053495556E-5 a: 0.016272402935600894	 per totalSpendMoney: o: 4.3227802998950284E-5 a: 0.021075216569803542
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.12657763982565223
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.04270755933741316
- probRunR/probTalSR= 0.9020187488232749 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.15885408794880784
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.04659635310048839     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8730645350297699 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Ten, 	playerStartValue=4	@@@ 
 
-net money diff:  -0.05037191884365426 , up % -> -148.82473835785214 .  o: -0.0338464689402201 -> a: -0.08421838778387436 (anet/onet: 2.4882473835785217
+net money diff:  -0.053141243950711195 , up % -> -170.9978376262606 .  o: -0.031077143833162804 -> a: -0.084218387783874 (anet/onet: 2.709978376262606
 
-[ProbMatrix: total: o: 4.5662969234576623E-4  -> a: 4.566296923457453E-4
-org->adv	$w:32.354862132282925->31.59999263080724  	$d:10.582823498909372->6.060888047185358  	$l:57.0623143688077->62.339119322007406
-	 improve value x$w(high is good):-0.7548695014756852  	x$d:-4.521935451724014  	 x$l(negative is good):5.276804953199708
-	 	 $w-$l: -24.707452236524773 -> -30.73912669120017  _ #Surrender#	 lift : -6.031674454675395 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234568096E-4  -> a: 4.566296923457447E-4
+org->adv	$w:33.352145942823334->31.599992630807233  	$d:10.609824743059226->6.060888047185362  	$l:56.038029314117445->62.3391193220074
+	 improve value x$w(high is good):-1.7521533120161017  	x$d:-4.548936695873865  	 x$l(negative is good):6.301090007889954
+	 	 $w-$l: -22.685883371294107 -> -30.739126691200163  _ #Surrender#	 lift : -8.053243319906056 : bad	 :| stand
 
-[TimeMatrix: total:  o: 333025.0 -> a: 5005.0
-org->adv	$w:30.98145784850987->64.11588411588411  	$d:3.524059755273628->3.2567432567432566  	$l:65.4944823962165->32.62737262737262
-	 improve value x$w(high is good):33.134426267374245  	x$d:-0.2673164985303713  	 x$l(negative is good):-32.867109768843875
-	 	 $w-$l: -34.513024547706635 -> 31.488511488511488  _ @double@	 lift : 66.00153603621813 : good	 :) hit 
+[TimeMatrix: total:  o: 1220065.0 -> a: 5005.0
+org->adv	$w:31.246859798453364->64.11588411588411  	$d:3.5584989324339276->3.2567432567432566  	$l:65.19464126911271->32.62737262737262
+	 improve value x$w(high is good):32.86902431743075  	x$d:-0.30175567569067097  	 x$l(negative is good):-32.567268641740085
+	 	 $w-$l: -33.94778147065934 -> 31.488511488511488  _ @double@	 lift : 65.43629295917084 : good	 :) hit 
 
-[Prob_ROI diff: -0.06031674454687308 (up%-> -8.010984664291383) . o: 0.7529254776348825 -> a: 0.6926087330880094	 returnMoney: o:0.10314243876351735 a: 0.18975942762357173 (probReturnRate: 1.8397803067139789	 totalSpendMoney: o: 0.13698890770373745 a: 0.2739778154074461 (probTotalSpendRate: 1.9999999999997897
+[Prob_ROI diff: -0.08053243319983583 (up%-> -10.416265064050787) . o: 0.7731411662878472 -> a: 0.6926087330880114	 returnMoney: o:0.10591176387053582 a: 0.1897594276235727 (probReturnRate: 1.7916746987193075	 totalSpendMoney: o: 0.13698890770369862 a: 0.2739778154074467 (probTotalSpendRate: 2.000000000000361
 
-[Time_ROI diff: 0.6600153603621811 (up%-> 100.78574492159834) . o: 0.6548697545229337 -> a: 1.3148851148851148	 returnMoney: o:6.54264E7 a: 3948600.0 (timeReturnRate: 0.06035178460071164	 totalSpendMoney: o: 9.99075E7 a: 3003000.0 (timeTotalSpendRate: 0.03005780346820809
+[Time_ROI diff: 0.6543629295917084 (up%-> 99.06751721004464) . o: 0.6605221852934064 -> a: 1.3148851148851148	 returnMoney: o:2.41764E8 a: 3948600.0 (timeReturnRate: 0.016332456445128308	 totalSpendMoney: o: 3.660195E8 a: 3003000.0 (timeTotalSpendRate: 0.008204480908804039
 
-[[Per_Prob_ROI diff: 0.052407160774733175 (up%-> 6020.807558875997) . o: 8.704340781906154E-4 -> a: 0.05327759485292379	 per returnMoney: o:1.1923981359944202E-4 a: 0.014596879047967056	 per totalSpendMoney: o: 1.5836867942628608E-4 a: 0.021075216569803545
+[[Per_Prob_ROI diff: 0.05303362477836167 (up%-> 21737.758154770996) . o: 2.4397007456227433E-4 -> a: 0.053277594852923944	 per returnMoney: o:3.342119402667587E-5 a: 0.01459687904796713	 per totalSpendMoney: o: 4.3227802998958225E-5 a: 0.021075216569803594
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.11068866339052734
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.05037191884365426
- probRunR/probTalSR= 0.9198901533570861 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.133673677150547
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.053141243950711195     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.895837349359492 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=One1, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.08267061917642311 , up % -> -149.53773488428678 .  o: -0.05528411891513145 -> a: -0.13795473809155456 (anet/onet: 2.495377348842868
+net money diff:  -0.08552525971209769 , up % -> -163.12437650647323 .  o: -0.05242947837946453 -> a: -0.13795473809156222 (anet/onet: 2.631243765064732
 
-[ProbMatrix: total: o: 4.566296923452228E-4  -> a: 4.5662969234559216E-4
-org->adv	$w:24.169431581995802->21.479151084945386  	$d:11.304497862433628->6.689176445732642  	$l:64.52607055557057->71.83167246932197
-	 improve value x$w(high is good):-2.6902804970504164  	x$d:-4.615321416700986  	 x$l(negative is good):7.305601913751403
-	 	 $w-$l: -40.35663897357477 -> -50.35252138437658  _ #Surrender#	 lift : -9.995882410801816 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234496305E-4  -> a: 4.56629692345614E-4
+org->adv	$w:25.226209083014233->21.479151084948576  	$d:11.274790802460476->6.689176445732276  	$l:63.499000114525295->71.83167246931916
+	 improve value x$w(high is good):-3.7470579980656566  	x$d:-4.5856143567282  	 x$l(negative is good):8.332672354793864
+	 	 $w-$l: -38.27279103151106 -> -50.352521384370576  _ #Surrender#	 lift : -12.079730352859514 : bad	 :| stand
 
-[TimeMatrix: total:  o: 5981989.0 -> a: 184717.0
-org->adv	$w:31.16772698846487->64.72495763790013  	$d:3.4654861451600794->3.2065267409063596  	$l:65.36678686637505->32.0685156211935
-	 improve value x$w(high is good):33.55723064943526  	x$d:-0.25895940425371977  	 x$l(negative is good):-33.29827124518155
-	 	 $w-$l: -34.19905987791017 -> 32.65644201670664  _ @double@	 lift : 66.85550189461682 : good	 :) hit 
+[TimeMatrix: total:  o: 2.2350757E7 -> a: 184717.0
+org->adv	$w:31.46569934969093->64.72495763790013  	$d:3.503313109260684->3.2065267409063596  	$l:65.03098754104839->32.0685156211935
+	 improve value x$w(high is good):33.2592582882092  	x$d:-0.29678636835432437  	 x$l(negative is good):-32.96247191985489
+	 	 $w-$l: -33.56528819135746 -> 32.65644201670664  _ @double@	 lift : 66.2217302080641 : good	 :) hit 
 
-[Prob_ROI diff: -0.09995882411196294 (up%-> -16.7594217346388) . o: 0.5964336102681007 -> a: 0.49647478615613777	 returnMoney: o:0.08170478878815442 a: 0.136023077315983 (probReturnRate: 1.664811565313093	 totalSpendMoney: o: 0.13698890770328587 a: 0.2739778154075376 (probTotalSpendRate: 2.0000000000070504
+[Prob_ROI diff: -0.12079730354193535 (up%-> -19.56953919640636) . o: 0.617272089698044 -> a: 0.4964747861561087	 returnMoney: o:0.08455942932287659 a: 0.13602307731597474 (probReturnRate: 1.6086092160886336	 totalSpendMoney: o: 0.13698890770234112 a: 0.27397781540753696 (probTotalSpendRate: 2.000000000020839
 
-[Time_ROI diff: 0.6685550189461681 (up%-> 101.60265456780755) . o: 0.6580094012208982 -> a: 1.3265644201670663	 returnMoney: o:1.1808615E9 a: 1.470234E8 (timeReturnRate: 0.1245052023459144	 totalSpendMoney: o: 1.7945967E9 a: 1.108302E8 (timeTotalSpendRate: 0.06175771971496437
+[Time_ROI diff: 0.6622173020806409 (up%-> 99.6794121705654) . o: 0.6643471180864254 -> a: 1.3265644201670663	 returnMoney: o:4.4545983E9 a: 1.470234E8 (timeReturnRate: 0.03300486151579594	 totalSpendMoney: o: 6.7052271E9 a: 1.108302E8 (timeTotalSpendRate: 0.01652892561983471
 
-[[Per_Prob_ROI diff: 0.036773661253105924 (up%-> 2595.714111516698) . o: 0.001416706912750833 -> a: 0.038190368165856754	 per returnMoney: o:1.9407313251343093E-4 a: 0.010463313639691	 per totalSpendMoney: o: 3.253893294614866E-4 a: 0.02107521656981058
+[[Per_Prob_ROI diff: 0.03779795107132302 (up%-> 9632.085757234832) . o: 3.924170945314965E-4 -> a: 0.03819036816585452	 per returnMoney: o:5.3756789143596056E-5 a: 0.010463313639690365	 per totalSpendMoney: o: 8.708767177516918E-5 a: 0.021075216569810536
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=true]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.18262944328838604
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.08267061917642311
- probRunR/probTalSR= 0.8324057826536121 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.20632256325403303
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.08552525971209769     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8043046080359364 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Two2, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.0057152007365388335 , up % -> -116.33517524526506 .  o: -0.004912702219676629 -> a: -0.010627902956215463 (anet/onet: 2.163351752452651
+net money diff:  -0.007263903887542195 , up % -> -215.93061529928116 .  o: -0.0033639990686241406 -> a: -0.010627902956166335 (anet/onet: 3.1593061529928117
 
-[ProbMatrix: total: o: 4.5662969234553643E-4  -> a: 4.5662969234584717E-4
-org->adv	$w:45.55501454898972->45.59950236509007  	$d:5.303766513645666->4.921884495737701  	$l:49.14121893736462->49.47861313917223
-	 improve value x$w(high is good):0.04448781610035013  	x$d:-0.38188201790796494  	 x$l(negative is good):0.33739420180761215
-	 	 $w-$l: -3.586204388374897 -> -3.879110774082167  _ #Surrender#	 lift : -0.29290638570727 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234450373E-4  -> a: 4.56629692345792E-4
+org->adv	$w:46.32093479643082->45.59950236508297  	$d:4.902457809106037->4.921884495738351  	$l:48.77660739446314->49.478613139178684
+	 improve value x$w(high is good):-0.72143243134785  	x$d:0.01942668663231384  	 x$l(negative is good):0.7020057447155423
+	 	 $w-$l: -2.4556725980323213 -> -3.8791107740957176  _ #Surrender#	 lift : -1.4234381760633963 : bad	 :| stand
 
-[TimeMatrix: total:  o: 667225.0 -> a: 346957.0
-org->adv	$w:55.386563752856986->64.40250520957929  	$d:3.36318333395781->3.233830128805587  	$l:41.25025291318521->32.363664661615125
-	 improve value x$w(high is good):9.015941456722302  	x$d:-0.12935320515222326  	 x$l(negative is good):-8.886588251570082
-	 	 $w-$l: 14.13631083967178 -> 32.038840547964156  _ @double@	 lift : 17.90252970829238 : good	 :) hit 
+[TimeMatrix: total:  o: 1307761.0 -> a: 346957.0
+org->adv	$w:55.33404039423105->64.40250520957929  	$d:3.7728606373794595->3.233830128805587  	$l:40.89309896838949->32.363664661615125
+	 improve value x$w(high is good):9.068464815348236  	x$d:-0.5390305085738727  	 x$l(negative is good):-8.529434306774363
+	 	 $w-$l: 14.440941425841569 -> 32.038840547964156  _ @double@	 lift : 17.59789912212259 : good	 :) hit 
 
-[Prob_ROI diff: -0.0029290638574670513 (up%-> -0.30380132209153277) . o: 0.9641379561161189 -> a: 0.9612088922586518	 returnMoney: o:0.13207620548406773 a: 0.26334991245138534 (probReturnRate: 1.993923973558985	 totalSpendMoney: o: 0.13698890770374436 a: 0.2739778154076008 (probTotalSpendRate: 2.000000000000818
+[Prob_ROI diff: -0.014234381762314063 (up%-> -1.459273147031357) . o: 0.975443274021145 -> a: 0.9612088922588309	 returnMoney: o:0.13362490863514592 a: 0.26334991245143347 (probReturnRate: 1.970814537059802	 totalSpendMoney: o: 0.13698890770377006 a: 0.2739778154075998 (probTotalSpendRate: 2.0000000000004357
 
-[Time_ROI diff: 0.1790252970829238 (up%-> 15.685218469554544) . o: 1.1413631083967177 -> a: 1.3203884054796415	 returnMoney: o:2.284638E8 a: 2.748708E8 (timeReturnRate: 1.2031262720833673	 totalSpendMoney: o: 2.001675E8 a: 2.081742E8 (timeTotalSpendRate: 1.04
+[Time_ROI diff: 0.17597899122122573 (up%-> 15.3772757396671) . o: 1.1444094142584158 -> a: 1.3203884054796415	 returnMoney: o:4.489842E8 a: 2.748708E8 (timeReturnRate: 0.6122059529043561	 totalSpendMoney: o: 3.923283E8 a: 2.081742E8 (timeTotalSpendRate: 0.5306122448979592
 
-[[Per_Prob_ROI diff: 0.035373627313713074 (up%-> 91.72345899597781) . o: 0.038565518244644756 -> a: 0.07393914555835783	 per returnMoney: o:0.00528304821936271 a: 0.020257685573183488	 per totalSpendMoney: o: 0.005479556308149775 a: 0.021075216569815446
+[[Per_Prob_ROI diff: 0.05403213996610334 (up%-> 271.4227396765741) . o: 0.019907005592268268 -> a: 0.07393914555837161	 per returnMoney: o:0.002727038951737672 a: 0.02025768557318719	 per totalSpendMoney: o: 0.002795691993954491 a: 0.02107521656981537
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.008644264594005885
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0057152007365388335
- probRunR/probTalSR= 0.9969619867790848 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.021498285649856258
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.007263903887542195     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9854072685296864 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Three3, 	playerStartValue=5	@@@ 
 
-net money diff:  -9.897463071860402E-4 , up % -> -153.80533802968236 .  o: -6.435058235722824E-4 -> a: -0.0016332521307583225 (anet/onet: 2.5380533802968235
+net money diff:  -0.0024762351520457027 , up % -> -293.7467409742861 .  o: 8.429830213035339E-4 -> a: -0.0016332521307421688 (anet/onet: -1.937467409742861
 
-[ProbMatrix: total: o: 4.566296923457258E-4  -> a: 4.5662969234583453E-4
-org->adv	$w:47.19801207822453->47.319660058842786  	$d:5.134225529934152->4.764554196634361  	$l:47.667762391841315->47.91578574452286
-	 improve value x$w(high is good):0.12164798061825621  	x$d:-0.3696713332997916  	 x$l(negative is good):0.24802335268154252
-	 	 $w-$l: -0.4697503136167791 -> -0.5961256856800712  _ #Surrender#	 lift : -0.12637537206329208 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923451476E-4  -> a: 4.5662969234581074E-4
+org->adv	$w:47.93227661881795->47.3196600588397  	$d:4.750812659731793->4.76455419663465  	$l:47.31691072145026->47.91578574452566
+	 improve value x$w(high is good):-0.6126165599782496  	x$d:0.013741536902857732  	 x$l(negative is good):0.5988750230753936
+	 	 $w-$l: 0.6153658973676868 -> -0.5961256856859554  _ #Surrender#	 lift : -1.2114915830536421 : bad	 :| stand
 
-[TimeMatrix: total:  o: 388825.0 -> a: 202189.0
-org->adv	$w:55.36963929788465->64.38184075295887  	$d:3.365009965922973->3.2355865056951663  	$l:41.265350736192374->32.38257274134597
-	 improve value x$w(high is good):9.012201455074212  	x$d:-0.1294234602278066  	 x$l(negative is good):-8.882777994846407
-	 	 $w-$l: 14.104288561692279 -> 31.999268011612898  _ @double@	 lift : 17.894979449920616 : good	 :) hit 
+[TimeMatrix: total:  o: 762097.0 -> a: 202189.0
+org->adv	$w:55.317236519760606->64.38184075295887  	$d:3.7748475587753267->3.2355865056951663  	$l:40.90791592146407->32.38257274134597
+	 improve value x$w(high is good):9.06460423319826  	x$d:-0.5392610530801605  	 x$l(negative is good):-8.5253431801181
+	 	 $w-$l: 14.409320598296539 -> 31.999268011612898  _ @double@	 lift : 17.58994741331636 : good	 :) hit 
 
-[Prob_ROI diff: -0.0012637537207115246 (up%-> -0.1269718226060621) . o: 0.9953024968637321 -> a: 0.9940387431430205	 returnMoney: o:0.13634540188017624 a: 0.272344563276762 (probReturnRate: 1.9974605635480485	 totalSpendMoney: o: 0.13698890770374852 a: 0.2739778154075203 (probTotalSpendRate: 2.0000000000001696
+[Prob_ROI diff: -0.012114915831459183 (up%-> -1.2040820726932084) . o: 1.0061536589745388 -> a: 0.9940387431430796	 returnMoney: o:0.13783189072506527 a: 0.2723445632767808 (probReturnRate: 1.975918358546132	 totalSpendMoney: o: 0.13698890770376174 a: 0.273977815407523 (probTotalSpendRate: 1.9999999999999964
 
-[Time_ROI diff: 0.17894979449920623 (up%-> 15.683003395832419) . o: 1.1410428856169228 -> a: 1.319992680116129	 returnMoney: o:1.330998E8 a: 1.601328E8 (timeReturnRate: 1.203103235316657	 totalSpendMoney: o: 1.166475E8 a: 1.213134E8 (timeTotalSpendRate: 1.04
+[Time_ROI diff: 0.17589947413316365 (up%-> 15.37457553399567) . o: 1.1440932059829654 -> a: 1.319992680116129	 returnMoney: o:2.61573E8 a: 1.601328E8 (timeReturnRate: 0.612191625282426	 totalSpendMoney: o: 2.286291E8 a: 1.213134E8 (timeTotalSpendRate: 0.5306122448979592
 
-[[Per_Prob_ROI diff: 0.03665241882875998 (up%-> 92.06351572575755) . o: 0.039812099874549284 -> a: 0.07646451870330927	 per returnMoney: o:0.00545381607520705 a: 0.02094958179052015	 per totalSpendMoney: o: 0.005479556308149941 a: 0.021075216569809256
+[[Per_Prob_ROI diff: 0.055930770560976284 (up%-> 272.38461372600244) . o: 0.02053374814233753 -> a: 0.07646451870331382	 per returnMoney: o:0.0028128957290829647 a: 0.0209495817905216	 per totalSpendMoney: o: 0.002795691993954321 a: 0.02107521656980946
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.0022535000278975648
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -9.897463071860402E-4
- probRunR/probTalSR= 0.9987302817739395 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.014591150983504886
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0024762351520457027     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9879591792730678 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Four4, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.0039043741931175657 , up % -> -50.00000000014786 .  o: 0.007808748386212039 -> a: 0.003904374193094473 (anet/onet: 0.49999999999852135
+net money diff:  0.002491607373428406 , up % -> 46.8599077481889 .  o: 0.005317141012776971 -> a: 0.0078087483862053775 (anet/onet: 1.4685990774818891
 
-[ProbMatrix: total: o: 4.566296923458126E-4  -> a: 4.566296923458101E-4
-org->adv	$w:49.1253500082629->49.12535000826282  	$d:4.599438917019302->4.599438917019362  	$l:46.275211074717795->46.27521107471783
-	 improve value x$w(high is good):-7.815970093361102E-14  	x$d:5.950795411990839E-14  	 x$l(negative is good):3.552713678800501E-14
-	 	 $w-$l: 2.8501389335451046 -> 2.850138933544988  _ #Surrender#	 lift : -1.1657341758564144E-13 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234553145E-4  -> a: 4.5662969234580434E-4
+org->adv	$w:49.84136045276907->49.12535000826196  	$d:4.198718184588329->4.599438917019405  	$l:45.95992136264261->46.27521107471864
+	 improve value x$w(high is good):-0.7160104445071056  	x$d:0.4007207324310764  	 x$l(negative is good):0.31528971207603007
+	 	 $w-$l: 3.8814390901264595 -> 2.8501389335433167  _ #Surrender#	 lift : -1.0313001565831426 : bad	 :| stand
 
-[TimeMatrix: total:  o: 117949.0 -> a: 117949.0
-org->adv	$w:64.36425912894556->64.36425912894556  	$d:3.2369922593663363->3.2369922593663363  	$l:32.398748611688106->32.398748611688106
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.96551051725745 -> 31.96551051725745  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 226825.0 -> a: 117949.0
+org->adv	$w:64.62206546897387->64.36425912894556  	$d:4.034828612366362->3.2369922593663363  	$l:31.34310591865976->32.398748611688106
+	 improve value x$w(high is good):-0.25780634002830993  	x$d:-0.7978363530000259  	 x$l(negative is good):1.0556426930283465
+	 	 $w-$l: 33.27895955031412 -> 31.96551051725745  _ @double@	 lift : -1.3134490330566684 : bad	 :| stand
 
-[Prob_ROI diff: -8.415490526658687E-14 (up%-> -8.182284062927697E-12) . o: 1.0285013893354793 -> a: 1.0285013893353951	 returnMoney: o:0.28178656379367 a: 0.14089328189682326 (probReturnRate: 0.4999999999999583	 totalSpendMoney: o: 0.27397781540745797 a: 0.1369889077037288 (probTotalSpendRate: 0.4999999999999993
+[Prob_ROI diff: -0.010313001566014224 (up%-> -0.9927665284906902) . o: 1.038814390901469 -> a: 1.0285013893354549	 returnMoney: o:0.14230604871648417 a: 0.28178656379366473 (probReturnRate: 1.980144669430511	 totalSpendMoney: o: 0.1369889077037072 a: 0.27397781540745936 (probTotalSpendRate: 2.000000000000328
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3196551051725747 -> a: 1.3196551051725747	 returnMoney: o:9.33912E7 a: 4.66956E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 7.07694E7 a: 3.53847E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.013134490330566573 (up%-> -0.9854886603919033) . o: 1.3327895955031412 -> a: 1.3196551051725747	 returnMoney: o:9.0693E7 a: 9.33912E7 (timeReturnRate: 1.0297509179319242	 totalSpendMoney: o: 6.80475E7 a: 7.07694E7 (timeTotalSpendRate: 1.04
 
-[[Per_Prob_ROI diff: -6.480926906249351E-15 (up%-> -8.191729311681076E-12) . o: 0.07911549148734456 -> a: 0.07911549148733808	 per returnMoney: o:0.02167588952259 a: 0.010837944761294098	 per totalSpendMoney: o: 0.021075216569804458 a: 0.010537608284902215
+[[Per_Prob_ROI diff: 0.037562915851283914 (up%-> 90.39852590674867) . o: 0.04155257563605876 -> a: 0.07911549148734268	 per returnMoney: o:0.005692241948659367 a: 0.021675889522589593	 per totalSpendMoney: o: 0.005479556308148288 a: 0.021075216569804565
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.0039043741932017206
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0039043741931175657
- probRunR/probTalSR= 0.9999999999999181 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.007821394192585818
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.002491607373428406     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.990072334715093 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Five5, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.008781007296368437 , up % -> -50.00000000005011 .  o: 0.017562014592719277 -> a: 0.00878100729635084 (anet/onet: 0.499999999999499
+net money diff:  0.007398636618991511 , up % -> 72.7970231759283 .  o: 0.010163377973727378 -> a: 0.01756201459271889 (anet/onet: 1.7279702317592829
 
-[ProbMatrix: total: o: 4.566296923457844E-4  -> a: 4.5662969234578406E-4
-org->adv	$w:50.99073753058166->50.99073753058211  	$d:4.428538306737524->4.428538306737541  	$l:44.580724162680816->44.58072416268035
-	 improve value x$w(high is good):4.476419235288631E-13  	x$d:1.687538997430238E-14  	 x$l(negative is good):-4.689582056016661E-13
-	 	 $w-$l: 6.410013367900847 -> 6.410013367901763  _ @double@	 lift : 9.159339953157541E-13 : good	 :| stand
+[ProbMatrix: total: o: 4.5662969234562794E-4  -> a: 4.566296923457803E-4
+org->adv	$w:51.67733774204402->50.990737530581306  	$d:4.0644492786975635->4.428538306737567  	$l:44.258212979258424->44.58072416268112
+	 improve value x$w(high is good):-0.6866002114627108  	x$d:0.364089028040004  	 x$l(negative is good):0.3225111834226979
+	 	 $w-$l: 7.419124762785589 -> 6.410013367900186  _ @double@	 lift : -1.0091113948854036 : bad	 :| stand
 
-[TimeMatrix: total:  o: 71149.0 -> a: 71149.0
-org->adv	$w:64.35086930244978->64.35086930244978  	$d:3.2382746068110584->3.2382746068110584  	$l:32.41085609073915->32.41085609073915
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.94001321171063 -> 31.94001321171063  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 136825.0 -> a: 71149.0
+org->adv	$w:64.60880687008952->64.35086930244978  	$d:4.037273890005482->3.2382746068110584  	$l:31.353919239904986->32.41085609073915
+	 improve value x$w(high is good):-0.2579375676397433  	x$d:-0.7989992831944233  	 x$l(negative is good):1.056936850834166
+	 	 $w-$l: 33.25488763018454 -> 31.94001321171063  _ @double@	 lift : -1.3148744184739103 : bad	 :| stand
 
-[Prob_ROI diff: -6.372680161348399E-14 (up%-> -5.988797444574251E-12) . o: 1.064100133679081 -> a: 1.0641001336790172	 returnMoney: o:0.29153983000015593 a: 0.14576991500006822 (probReturnRate: 0.4999999999999666	 totalSpendMoney: o: 0.27397781540743665 a: 0.13698890770371738 (probTotalSpendRate: 0.49999999999999656
+[Prob_ROI diff: -0.010091113948861308 (up%-> -0.9394150223384139) . o: 1.074191247627941 -> a: 1.0641001336790796	 returnMoney: o:0.14715228567744115 a: 0.29153983000015576 (probReturnRate: 1.981211699553299	 totalSpendMoney: o: 0.13698890770371377 a: 0.2739778154074369 (probTotalSpendRate: 2.000000000000068
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3194001321171063 -> a: 1.3194001321171063	 returnMoney: o:5.63244E7 a: 2.81622E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 4.26894E7 a: 2.13447E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.013148744184739103 (up%-> -0.9867363530582187) . o: 1.3325488763018454 -> a: 1.3194001321171063	 returnMoney: o:5.46978E7 a: 5.63244E7 (timeReturnRate: 1.0297379419281945	 totalSpendMoney: o: 4.10475E7 a: 4.26894E7 (timeTotalSpendRate: 1.04
 
-[[Per_Prob_ROI diff: -4.898859096158503E-15 (up%-> -5.9848849026897295E-12) . o: 0.08185385643685238 -> a: 0.08185385643684748	 per returnMoney: o:0.022426140769242764 a: 0.011213070384620633	 per totalSpendMoney: o: 0.02107521656980282 a: 0.010537608284901337
+[[Per_Prob_ROI diff: 0.03888620653173463 (up%-> 90.50112495704148) . o: 0.04296764990511764 -> a: 0.08185385643685227	 per returnMoney: o:0.005886091427097646 a: 0.02242614076924275	 per totalSpendMoney: o: 0.005479556308148551 a: 0.021075216569802838
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.008781007296432164
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.008781007296368437
- probRunR/probTalSR= 0.99999999999994 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.002692477329869797
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.007398636618991511     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9906058497766158 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Six6, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.011927006945786606 , up % -> -50.00000000002467 .  o: 0.023854013891561443 -> a: 0.011927006945774837 (anet/onet: 0.4999999999997533
+net money diff:  0.01074605898671488 , up % -> 81.98120198552044 .  o: 0.013107954904848618 -> a: 0.023854013891563497 (anet/onet: 1.8198120198552044
 
-[ProbMatrix: total: o: 4.5662969234576867E-4  -> a: 4.5662969234576824E-4
-org->adv	$w:52.16152965962293->52.16152965962293  	$d:4.383490098296907->4.383490098296929  	$l:43.45498024208017->43.45498024208013
-	 improve value x$w(high is good):0.0  	x$d:2.220446049250313E-14  	 x$l(negative is good):-3.552713678800501E-14
-	 	 $w-$l: 8.706549417542764 -> 8.706549417542798  _ @double@	 lift : 3.3306690738754696E-14 : good	 :| stand
+[ProbMatrix: total: o: 4.5662969234568454E-4  -> a: 4.56629692345767E-4
+org->adv	$w:52.90030325424936->52.161529659622694  	$d:3.7680185171088483->4.383490098296944  	$l:43.3316782286418->43.45498024208036
+	 improve value x$w(high is good):-0.7387735946266645  	x$d:0.6154715811880958  	 x$l(negative is good):0.12330201343856118
+	 	 $w-$l: 9.568625025607563 -> 8.706549417542336  _ @double@	 lift : -0.862075608065227 : bad	 :| stand
 
-[TimeMatrix: total:  o: 40417.0 -> a: 40417.0
-org->adv	$w:64.33926318133459->64.33926318133459  	$d:3.2387361753717494->3.2387361753717494  	$l:32.422000643293664->32.422000643293664
-	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
-	 	 $w-$l: 31.91726253804092 -> 31.91726253804092  _ @double@	 lift : 0.0 : bad	 :| stand
+[TimeMatrix: total:  o: 77725.0 -> a: 40417.0
+org->adv	$w:64.59697651978128->64.33926318133459  	$d:4.0347378578321->3.2387361753717494  	$l:31.368285622386622->32.422000643293664
+	 improve value x$w(high is good):-0.25771333844669186  	x$d:-0.7960016824603509  	 x$l(negative is good):1.0537150209070418
+	 	 $w-$l: 33.22869089739466 -> 31.91726253804092  _ @double@	 lift : -1.311428359353739 : bad	 :| stand
 
-[Prob_ROI diff: -4.263256414560601E-14 (up%-> -3.9218027224700815E-12) . o: 1.0870654941754594 -> a: 1.0870654941754168	 returnMoney: o:0.2978318292990003 a: 0.1489159146494937 (probReturnRate: 0.4999999999999783	 totalSpendMoney: o: 0.2739778154074389 a: 0.13698890770371885 (probTotalSpendRate: 0.4999999999999979
+[Prob_ROI diff: -0.008620756080638392 (up%-> -0.7867905687986303) . o: 1.0956862502561049 -> a: 1.0870654941754665	 returnMoney: o:0.15009686260856878 a: 0.29783182929900326 (probReturnRate: 1.9842641886240235	 totalSpendMoney: o: 0.13698890770372016 a: 0.27397781540743976 (probTotalSpendRate: 1.999999999999996
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3191726253804092 -> a: 1.3191726253804092	 returnMoney: o:3.19902E7 a: 1.59951E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 2.42502E7 a: 1.21251E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: -0.01311428359353739 (up%-> -0.9843438005134557) . o: 1.3322869089739466 -> a: 1.3191726253804092	 returnMoney: o:3.10656E7 a: 3.19902E7 (timeReturnRate: 1.0297628244746602	 totalSpendMoney: o: 2.33175E7 a: 2.42502E7 (timeTotalSpendRate: 1.04
 
-[[Per_Prob_ROI diff: -3.2751579226442118E-15 (up%-> -3.916696208508532E-12) . o: 0.08362042262888149 -> a: 0.08362042262887821	 per returnMoney: o:0.02291014071530772 a: 0.011455070357653361	 per totalSpendMoney: o: 0.02107521656980299 a: 0.01053760828490145
+[[Per_Prob_ROI diff: 0.039792972618637845 (up%-> 90.7946335215411) . o: 0.0438274500102442 -> a: 0.08362042262888204	 per returnMoney: o:0.006003874504342751 a: 0.022910140715307944	 per totalSpendMoney: o: 0.005479556308148806 a: 0.02107521656980306
 
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.011927006945829238
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.011927006945786606
- probRunR/probTalSR= 0.9999999999999608 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.002125302906076487
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.01074605898671488     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9921320943120138 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Seven7, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.02315672306104588 , up % -> -770.4634432048401 .  o: -0.003005557663413927 -> a: -0.026162280724459808 (anet/onet: 8.704634432048401
+net money diff:  -0.024759862415924788 , up % -> -1765.5119207515486 .  o: -0.001402418308531439 -> a: -0.026162280724456227 (anet/onet: 18.655119207515487
 
-[ProbMatrix: total: o: 4.5662969234564485E-4  -> a: 4.5662969234576607E-4
-org->adv	$w:44.19647249387482->42.43990687222487  	$d:9.413039661849146->5.571135473625629  	$l:46.39048784427604->51.9889576541495
-	 improve value x$w(high is good):-1.7565656216499548  	x$d:-3.8419041882235163  	 x$l(negative is good):5.598469809873464
-	 	 $w-$l: -2.1940153504012185 -> -9.549050781924635  _ #Surrender#	 lift : -7.355035431523415 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234547664E-4  -> a: 4.566296923457575E-4
+org->adv	$w:45.52965623277814->42.439906872223695  	$d:7.916941647303549->5.571135473625739  	$l:46.55340211991831->51.98895765415057
+	 improve value x$w(high is good):-3.0897493605544426  	x$d:-2.3458061736778104  	 x$l(negative is good):5.4355555342322575
+	 	 $w-$l: -1.0237458871401706 -> -9.549050781926876  _ #Surrender#	 lift : -8.525304894786705 : bad	 :| stand
 
-[TimeMatrix: total:  o: 808741.0 -> a: 24973.0
-org->adv	$w:31.021056184860175->64.26140231449966  	$d:3.5097763066296874->3.247507307892524  	$l:65.46916750851014->32.49109037760782
-	 improve value x$w(high is good):33.24034612963949  	x$d:-0.26226899873716336  	 x$l(negative is good):-32.97807713090232
-	 	 $w-$l: -34.44811132364997 -> 31.770311936891844  _ @double@	 lift : 66.21842326054181 : good	 :) hit 
+[TimeMatrix: total:  o: 1546405.0 -> a: 24973.0
+org->adv	$w:31.199847387974046->64.26140231449966  	$d:3.5348437181721475->3.247507307892524  	$l:65.26530889385381->32.49109037760782
+	 improve value x$w(high is good):33.061554926525616  	x$d:-0.2873364102796234  	 x$l(negative is good):-32.774218516245995
+	 	 $w-$l: -34.06546150587977 -> 31.770311936891844  _ @double@	 lift : 65.83577344277161 : good	 :) hit 
 
-[Prob_ROI diff: -0.07355035431487988 (up%-> -7.520025955304071) . o: 0.978059846495648 -> a: 0.9045094921807681	 returnMoney: o:0.1339833500403428 a: 0.24781553468297607 (probReturnRate: 1.8495994808933947	 totalSpendMoney: o: 0.13698890770375674 a: 0.2739778154074359 (probTotalSpendRate: 1.9999999999994336
+[Prob_ROI diff: -0.08525304894726704 (up%-> -8.613485094121948) . o: 0.9897625411280481 -> a: 0.904509492180781	 returnMoney: o:0.1355864893952854 a: 0.24781553468297887 (probReturnRate: 1.8277302981162362	 totalSpendMoney: o: 0.13698890770381683 a: 0.2739778154074351 (probTotalSpendRate: 1.9999999999985505
 
-[Time_ROI diff: 0.662184232605418 (up%-> 101.01680454621628) . o: 0.6555188867635003 -> a: 1.3177031193689184	 returnMoney: o:1.590435E8 a: 1.97442E7 (timeReturnRate: 0.12414339473163002	 totalSpendMoney: o: 2.426223E8 a: 1.49838E7 (timeTotalSpendRate: 0.06175771971496437
+[Time_ROI diff: 0.6583577344277161 (up%-> 99.8502074123755) . o: 0.6593453849412023 -> a: 1.3177031193689184	 returnMoney: o:3.058845E8 a: 1.97442E7 (timeReturnRate: 0.06454789307728898	 totalSpendMoney: o: 4.639215E8 a: 1.49838E7 (timeTotalSpendRate: 0.03229813664596273
 
-[[Per_Prob_ROI diff: 0.06725447071143065 (up%-> 2894.9283902166912) . o: 0.0023231825332438194 -> a: 0.06957765324467446	 per returnMoney: o:3.1825023762551736E-4 a: 0.019062733437152004	 per totalSpendMoney: o: 3.253893294626051E-4 a: 0.02107521656980276
+[[Per_Prob_ROI diff: 0.06834813456004436 (up%-> 5558.934192248604) . o: 0.0012295186846311157 -> a: 0.06957765324467548	 per returnMoney: o:1.6843042160905017E-4 a: 0.019062733437152223	 per totalSpendMoney: o: 1.7017255615380973E-4 a: 0.0210752165698027
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.09670707737592577
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.02315672306104588
- probRunR/probTalSR= 0.9247997404469592 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.11001291136319183
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.024759862415924788     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9138651490587805 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Eight8, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.031209889146553413 , up % -> -239.4466937340516 .  o: -0.013034170010807325 -> a: -0.04424405915736074 (anet/onet: 3.394466937340516
+net money diff:  -0.03434029057220975 , up % -> -346.7396302424389 .  o: -0.009903768585148215 -> a: -0.04424405915735796 (anet/onet: 4.4673963024243895
 
-[ProbMatrix: total: o: 4.5662969234575257E-4  -> a: 4.566296923457528E-4
-org->adv	$w:40.367502311468016->39.029974069594445  	$d:9.750232299328845->5.791277518784602  	$l:49.88226538920315->55.17874841162096
-	 improve value x$w(high is good):-1.3375282418735708  	x$d:-3.958954780544243  	 x$l(negative is good):5.29648302241781
-	 	 $w-$l: -9.514763077735127 -> -16.148774342026517  _ #Surrender#	 lift : -6.63401126429139 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234564843E-4  -> a: 4.566296923457479E-4
+org->adv	$w:41.57149482261442->39.029974069593926  	$d:9.627396839981905->5.7912775187846695  	$l:48.80110833740368->55.178748411621406
+	 improve value x$w(high is good):-2.5415207530204924  	x$d:-3.836119321197236  	 x$l(negative is good):6.377640074217723
+	 	 $w-$l: -7.229613514789262 -> -16.148774342027476  _ #Surrender#	 lift : -8.919160827238215 : bad	 :| stand
 
-[TimeMatrix: total:  o: 485413.0 -> a: 14989.0
-org->adv	$w:31.011736397665494->64.24044299152712  	$d:3.511442833216251->3.249049302822069  	$l:65.47682076911826->32.51050770565081
-	 improve value x$w(high is good):33.228706593861624  	x$d:-0.2623935303941818  	 x$l(negative is good):-32.96631306346745
-	 	 $w-$l: -34.46508437145276 -> 31.729935285876316  _ @double@	 lift : 66.19501965732908 : good	 :) hit 
+[TimeMatrix: total:  o: 928165.0 -> a: 14989.0
+org->adv	$w:31.19046721218749->64.24044299152712  	$d:3.5361169619625823->3.249049302822069  	$l:65.27341582584994->32.51050770565081
+	 improve value x$w(high is good):33.04997577933963  	x$d:-0.28706765914051324  	 x$l(negative is good):-32.76290812019913
+	 	 $w-$l: -34.082948613662445 -> 31.729935285876316  _ @double@	 lift : 65.81288389953876 : good	 :) hit 
 
-[Prob_ROI diff: -0.06634011264278394 (up%-> -7.331595174999154) . o: 0.9048523692225219 -> a: 0.8385122565797379	 returnMoney: o:0.12395473769295208 a: 0.2297337562500802 (probReturnRate: 1.85336809649949	 totalSpendMoney: o: 0.1369889077037594 a: 0.27397781540744093 (probTotalSpendRate: 1.9999999999994316
+[Prob_ROI diff: -0.08919160827211947 (up%-> -9.614232693356433) . o: 0.927703864851868 -> a: 0.8385122565797485	 returnMoney: o:0.12708513911864217 a: 0.22973375625008363 (probReturnRate: 1.807715346131953	 totalSpendMoney: o: 0.13698890770379038 a: 0.2739778154074416 (probTotalSpendRate: 1.9999999999989841
 
-[Time_ROI diff: 0.6619501965732907 (up%-> 101.00725547969468) . o: 0.6553491562854724 -> a: 1.317299352858763	 returnMoney: o:9.54345E7 a: 1.1847E7 (timeReturnRate: 0.12413749744589221	 totalSpendMoney: o: 1.456239E8 a: 8993400.0 (timeTotalSpendRate: 0.06175771971496437
+[Time_ROI diff: 0.6581288389953875 (up%-> 99.84197186523367) . o: 0.6591705138633756 -> a: 1.317299352858763	 returnMoney: o:1.835457E8 a: 1.1847E7 (timeReturnRate: 0.06454523314901957	 totalSpendMoney: o: 2.784495E8 a: 8993400.0 (timeTotalSpendRate: 0.03229813664596273
 
-[[Per_Prob_ROI diff: 0.06235164977529268 (up%-> 2901.0306485634887) . o: 0.002149293038533306 -> a: 0.06450094281382598	 per returnMoney: o:2.944293056839717E-4 a: 0.01767182740385232	 per totalSpendMoney: o: 3.253893294626114E-4 a: 0.02107521656980315
+[[Per_Prob_ROI diff: 0.06334851565252014 (up%-> 5496.964821680622) . o: 0.0011524271613066682 -> a: 0.06450094281382682	 per returnMoney: o:1.5786973803558034E-4 a: 0.017671827403852588	 per totalSpendMoney: o: 1.7017255615377688E-4 a: 0.0210752165698032
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.09755000178933736
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.031209889146553413
- probRunR/probTalSR= 0.9266840482500084 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.12353189884432922
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.03434029057220975     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9038576730664356 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Nine9, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.03834790181992967 , up % -> -154.8000400833959 .  o: -0.02477253998078449 -> a: -0.06312044180071416 (anet/onet: 2.548000400833959
+net money diff:  -0.041923968365482164 , up % -> -197.78746919195027 .  o: -0.021196473435228333 -> a: -0.0631204418007105 (anet/onet: 2.977874691919503
 
-[ProbMatrix: total: o: 4.566296923457448E-4  -> a: 4.5662969234574807E-4
-org->adv	$w:35.983318539116624->35.52638248642091  	$d:9.949752798845402->5.908712106298909  	$l:54.06692866203796->58.564905407280186
-	 improve value x$w(high is good):-0.4569360526957169  	x$d:-4.041040692546494  	 x$l(negative is good):4.497976745242227
-	 	 $w-$l: -18.083610122921336 -> -23.038522920859283  _ #Surrender#	 lift : -4.954912797937949 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923457263E-4  -> a: 4.5662969234574373E-4
+org->adv	$w:37.33582257860278->35.526382486420864  	$d:9.855223630438912->5.908712106298985  	$l:52.8089537909583->58.56490540728016
+	 improve value x$w(high is good):-1.8094400921819158  	x$d:-3.946511524139927  	 x$l(negative is good):5.755951616321859
+	 	 $w-$l: -15.473131212355524 -> -23.03852292085929  _ #Surrender#	 lift : -7.565391708503766 : bad	 :| stand
 
-[TimeMatrix: total:  o: 323749.0 -> a: 9997.0
-org->adv	$w:30.983879486886444->64.19925977793338  	$d:3.513524366098428->3.2509752925877766  	$l:65.50259614701513->32.54976492947884
-	 improve value x$w(high is good):33.215380291046934  	x$d:-0.26254907351065127  	 x$l(negative is good):-32.952831217536286
-	 	 $w-$l: -34.51871666012868 -> 31.64949484845454  _ @double@	 lift : 66.16821150858321 : good	 :) hit 
+[TimeMatrix: total:  o: 1209637.0 -> a: 9997.0
+org->adv	$w:31.279301145715614->64.19925977793338  	$d:3.5513959973115905->3.2509752925877766  	$l:65.1693028569728->32.54976492947884
+	 improve value x$w(high is good):32.919958632217764  	x$d:-0.3004207047238139  	 x$l(negative is good):-32.619537927493965
+	 	 $w-$l: -33.890001711257185 -> 31.64949484845454  _ @double@	 lift : 65.53949655971172 : good	 :) hit 
 
-[Prob_ROI diff: -0.04954912797943212 (up%-> -6.04874409794926) . o: 0.8191638987708381 -> a: 0.7696147707914059	 returnMoney: o:0.11221636772294799 a: 0.2108573736067312 (probReturnRate: 1.8790251180408806	 totalSpendMoney: o: 0.13698890770373248 a: 0.27397781540744537 (probTotalSpendRate: 1.999999999999857
+[Prob_ROI diff: -0.07565391708603952 (up%-> -8.950280327550399) . o: 0.8452686878774582 -> a: 0.7696147707914187	 returnMoney: o:0.11579243426847856 a: 0.2108573736067341 (probReturnRate: 1.8209943934491968	 totalSpendMoney: o: 0.1369889077037069 a: 0.2739778154074446 (probTotalSpendRate: 2.0000000000002247
 
-[Time_ROI diff: 0.6616821150858322 (up%-> 101.04904506093213) . o: 0.6548128333987132 -> a: 1.3164949484845454	 returnMoney: o:6.35985E7 a: 7896600.0 (timeReturnRate: 0.12416330573834289	 totalSpendMoney: o: 9.71247E7 a: 5998200.0 (timeTotalSpendRate: 0.06175771971496437
+[Time_ROI diff: 0.6553949655971172 (up%-> 99.13704168234982) . o: 0.6610999828874282 -> a: 1.3164949484845454	 returnMoney: o:2.399073E8 a: 7896600.0 (timeReturnRate: 0.032915213501214846	 totalSpendMoney: o: 3.628911E8 a: 5998200.0 (timeTotalSpendRate: 0.01652892561983471
 
-[[Per_Prob_ROI diff: 0.057255378735457885 (up%-> 2942.5752872894896) . o: 0.0019457574792656487 -> a: 0.05920113621472353	 per returnMoney: o:2.665471917409691E-4 a: 0.016219797969748553	 per totalSpendMoney: o: 3.2538932946254745E-4 a: 0.02107521656980349
+[[Per_Prob_ROI diff: 0.05866377531969752 (up%-> 10917.0160803664) . o: 5.373608950269919E-4 -> a: 0.05920113621472451	 per returnMoney: o:7.361248205243393E-5 a: 0.016219797969748775	 per totalSpendMoney: o: 8.708767177603744E-5 a: 0.02107521656980343
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.08789702979936179
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.03834790181992967
- probRunR/probTalSR= 0.9395125590205075 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.11757788545152169
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.041923968365482164     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9104971967244961 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 
 		 @@@   dealerCard=Ten, 	playerStartValue=5	@@@ 
 
-net money diff:  -0.046636179682978646 , up % -> -121.19577623270379 .  o: -0.03848003712062881 -> a: -0.08511621680360745 (anet/onet: 2.211957762327038
+net money diff:  -0.049193301996484404 , up % -> -136.9412873666234 .  o: -0.03592291480711919 -> a: -0.0851162168036036 (anet/onet: 2.369412873666234
 
-[ProbMatrix: total: o: 4.566296923456946E-4  -> a: 4.566296923457445E-4
-org->adv	$w:30.88244598405326->31.454199564677225  	$d:10.145215378787498->6.024772822167575  	$l:58.97233863715924->62.52102761315519
-	 improve value x$w(high is good):0.571753580623966  	x$d:-4.120442556619922  	 x$l(negative is good):3.548688975995951
-	 	 $w-$l: -28.08989265310598 -> -31.066828048477962  _ #Surrender#	 lift : -2.9769353953719824 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234568063E-4  -> a: 4.566296923457448E-4
+org->adv	$w:31.80542976721265->31.4541995646773  	$d:10.165911585696898->6.024772822167566  	$l:58.02865864709046->62.521027613155134
+	 improve value x$w(high is good):-0.3512302025353513  	x$d:-4.141138763529333  	 x$l(negative is good):4.492368966064674
+	 	 $w-$l: -26.22322887987781 -> -31.066828048477834  _ #Surrender#	 lift : -4.843599168600027 : bad	 :| stand
 
-[TimeMatrix: total:  o: 162085.0 -> a: 5005.0
-org->adv	$w:30.94364068235802->64.11588411588411  	$d:3.5197581515871303->3.2567432567432566  	$l:65.53660116605485->32.62737262737262
-	 improve value x$w(high is good):33.17224343352609  	x$d:-0.26301489484387375  	 x$l(negative is good):-32.90922853868223
-	 	 $w-$l: -34.592960483696835 -> 31.488511488511488  _ @double@	 lift : 66.08147197220833 : good	 :) hit 
+[TimeMatrix: total:  o: 605605.0 -> a: 5005.0
+org->adv	$w:31.2386786766952->64.11588411588411  	$d:3.55759942536802->3.2567432567432566  	$l:65.20372189793677->32.62737262737262
+	 improve value x$w(high is good):32.87720543918891  	x$d:-0.3008561686247635  	 x$l(negative is good):-32.57634927056415
+	 	 $w-$l: -33.96504322124157 -> 31.488511488511488  _ @double@	 lift : 65.45355470975306 : good	 :) hit 
 
-[Prob_ROI diff: -0.029769353953789657 (up%-> -4.139801072772636) . o: 0.719101073469011 -> a: 0.6893317195152213	 returnMoney: o:0.09850887058309518 a: 0.18886159860383891 (probReturnRate: 1.9172039785445363	 totalSpendMoney: o: 0.136988907703724 a: 0.27397781540744637 (probTotalSpendRate: 1.9999999999999882
+[Prob_ROI diff: -0.048435991686500035 (up%-> -6.565208933798912) . o: 0.7377677112017346 -> a: 0.6893317195152345	 returnMoney: o:0.10106599289659456 a: 0.18886159860384194 (probReturnRate: 1.8686958213241447	 totalSpendMoney: o: 0.13698890770371375 a: 0.27397781540744554 (probTotalSpendRate: 2.000000000000132
 
-[Time_ROI diff: 0.660814719722083 (up%-> 101.03113129854627) . o: 0.6540703951630318 -> a: 1.3148851148851148	 returnMoney: o:3.18045E7 a: 3948600.0 (timeReturnRate: 0.12415224260717823	 totalSpendMoney: o: 4.86255E7 a: 3003000.0 (timeTotalSpendRate: 0.06175771971496437
+[Time_ROI diff: 0.6545355470975305 (up%-> 99.11955410078741) . o: 0.6603495677875844 -> a: 1.3148851148851148	 returnMoney: o:1.199733E8 a: 3948600.0 (timeReturnRate: 0.03291232299186569	 totalSpendMoney: o: 1.816815E8 a: 3003000.0 (timeTotalSpendRate: 0.01652892561983471
 
-[[Per_Prob_ROI diff: 0.05131743832647745 (up%-> 3004.395672950979) . o: 0.0017080785593088146 -> a: 0.053025516885786265	 per returnMoney: o:2.3398781611186505E-4 a: 0.014527815277218378	 per totalSpendMoney: o: 3.253893294625273E-4 a: 0.021075216569803566
+[[Per_Prob_ROI diff: 0.05255649736181922 (up%-> 11205.60971901033) . o: 4.690195239680449E-4 -> a: 0.053025516885787265	 per returnMoney: o:6.425047228009825E-5 a: 0.01452781527721861	 per totalSpendMoney: o: 8.708767177604179E-5 a: 0.021075216569803504
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.0764055336367683
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.046636179682978646
- probRunR/probTalSR= 0.9586019892722738 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.09762929368298444
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.049193301996484404     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9343479106620107 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+
 
 		 */
 	}
@@ -2160,33 +2521,342 @@ org->adv	$w:30.94364068235802->64.11588411588411  	$d:3.5197581515871303->3.2567
 		StrategyMatrix8012 o = new BestInMyth2019();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
-		System.out.println(o.diffWith(t));
+		System.out.println(t.diffWith(o));
 		
 		for(Card playerCard : Card.values()) {
 			if(playerCard.getValue() == 6) {
 				for(Card dealerCard : Card.values()) {
 					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 					PlayerCardsPathValue nine = new PlayerCardsPathValue(Card.One1,playerCard);
-					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, nine, dealerCard); 
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
 //					HelloWorld.print(origin);
 					PlayerCardsPathValue ninet = new PlayerCardsPathValue(Card.One1,playerCard);
-					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, ninet, dealerCard); 
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
 //					HelloWorld.print(advanced);
 					
 					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
 					
 					System.out.println(result);
 					System.out.println();
+					System.out.println("--------------------------");
 				}
 			}
 		}
 		/**
+
+MatrixKey [startValue=Six, dealerCard=One1, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=One1, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Two2, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Two2, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Three3, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Four4, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Four4, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Five5, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Five5, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Six6, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Six6, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Seven7, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Seven7, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Eight8, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Eight8, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Nine9, situation=A_Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Nine9, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Ten, situation=Start_With_A] : Stand -> Hit
+MatrixKey [startValue=Six, dealerCard=Ten, situation=A_Three_More_Cards] : Stand -> Hit
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=6	@@@ 
+
+net money diff:  0.03324343208349155 , up % -> 37.97468236552686 .  o: -0.08754104053723355 -> a: -0.054297608453742 (anet/onet: 0.6202531763447314
+
+[ProbMatrix: total: o: 4.566296923457464E-4  -> a: 4.5662969234479294E-4
+org->adv	$w:11.547296587963425->23.764342225000227  	$d:13.00166307967755->12.834815511901567  	$l:75.45104033235901->63.4008422630982
+	 improve value x$w(high is good):12.217045637036803  	x$d:-0.1668475677759833  	 x$l(negative is good):-12.050198069260816
+	 	 $w-$l: -63.90374374439559 -> -39.63650003809798  _ #Surrender#	 lift : 24.267243706297613 : good	 :) hit 
+
+[TimeMatrix: total:  o: 14209.0 -> a: 1.0926721E7
+org->adv	$w:58.315152368217326->31.60214303998427  	$d:8.332746850587656->3.5233991972523135  	$l:33.35210078119501->64.87445776276341
+	 improve value x$w(high is good):-26.713009328233056  	x$d:-4.809347653335342  	 x$l(negative is good):31.5223569815684
+	 	 $w-$l: 24.96305158702231 -> -33.27231472277914  _ #Surrender#	 lift : -58.235366309801464 : bad	 :| stand
+
+[Prob_ROI diff: 0.24267243706599373 (up%-> 67.22925373412218) . o: 0.3609625625560461 -> a: 0.6036349996220398	 returnMoney: o:0.049447867166489586 a: 0.08269129924992923 (probReturnRate: 1.6722925373405881	 totalSpendMoney: o: 0.13698890770372313 a: 0.13698890770367123 (probTotalSpendRate: 0.9999999999996211
+
+[Time_ROI diff: -0.5823536630980144 (up%-> -46.602068027481906) . o: 1.249630515870223 -> a: 0.6672768527722086	 returnMoney: o:5326800.0 a: 2.1873444E9 (timeReturnRate: 410.6300968686641	 totalSpendMoney: o: 4262700.0 a: 3.2780163E9 (timeTotalSpendRate: 769.0
+
+[[Per_Prob_ROI diff: -0.3601776015682411 (up%-> -99.782536731165) . o: 0.3609625625560461 -> a: 7.849609878049932E-4	 per returnMoney: o:0.049447867166489586 a: 1.0753094830940081E-4	 per totalSpendMoney: o: 0.13698890770372313 a: 1.7813902172128898E-4
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.2759158691494853
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.03324343208349155     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.6722925373412219 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Two2, 	playerStartValue=6	@@@ 
+
+net money diff:  0.020934017604355218 , up % -> 99.66037529279748 .  o: -0.021005356986517523 -> a: -7.13393821623054E-5 (anet/onet: 0.0033962470720252562
+
+[ProbMatrix: total: o: 4.5662969234576206E-4  -> a: 4.5662969234561016E-4
+org->adv	$w:35.35037055569638->45.680313634340244  	$d:13.965640029513235->8.58729597311136  	$l:50.683989414790375->45.7323903925484
+	 improve value x$w(high is good):10.329943078643865  	x$d:-5.378344056401875  	 x$l(negative is good):-4.951599022241972
+	 	 $w-$l: -15.333618859093995 -> -0.05207675820815827  _ #Surrender#	 lift : 15.281542100885837 : good	 :) hit 
+
+[TimeMatrix: total:  o: 26689.0 -> a: 667225.0
+org->adv	$w:57.960208325527375->55.386563752856986  	$d:8.355502266851513->4.365843605979991  	$l:33.684289407621115->40.247592641163024
+	 improve value x$w(high is good):-2.573644572670389  	x$d:-3.9896586608715214  	 x$l(negative is good):6.563303233541909
+	 	 $w-$l: 24.27591891790626 -> 15.13897111169396  _ @double@	 lift : -9.136947806212298 : bad	 :| stand
+
+[Prob_ROI diff: 0.1528154210093392 (up%-> 18.04912634154101) . o: 0.8466638114091234 -> a: 0.9994792324184626	 returnMoney: o:0.11598355071721374 a: 0.13691756832152455 (probReturnRate: 1.1804912634150273	 totalSpendMoney: o: 0.13698890770373126 a: 0.13698890770368685 (probTotalSpendRate: 0.9999999999996758
+
+[Time_ROI diff: -0.09136947806212303 (up%-> -7.352146647370964) . o: 1.2427591891790626 -> a: 1.1513897111169396	 returnMoney: o:9950400.0 a: 2.304708E8 (timeReturnRate: 23.16196333815726	 totalSpendMoney: o: 8006700.0 a: 2.001675E8 (timeTotalSpendRate: 25.0
+
+[[Per_Prob_ROI diff: -0.8066846421123849 (up%-> -95.27803494633835) . o: 0.8466638114091234 -> a: 0.039979169296738504	 per returnMoney: o:0.11598355071721374 a: 0.005476702732860982	 per totalSpendMoney: o: 0.13698890770373126 a: 0.005479556308147474
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.1737494386136944
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.020934017604355218     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.18049126341541 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Three3, 	playerStartValue=6	@@@ 
+
+net money diff:  0.02008562020831081 , up % -> 124.98054217953012 .  o: -0.01607099781937138 -> a: 0.004014622388939432 (anet/onet: -0.2498054217953011
+
+[ProbMatrix: total: o: 4.566296923457587E-4  -> a: 4.5662969234573137E-4
+org->adv	$w:37.41940971749524->47.31949022164736  	$d:13.429575365167034->8.291638141957865  	$l:49.151014917337726->44.388871636394775
+	 improve value x$w(high is good):9.900080504152115  	x$d:-5.137937223209169  	 x$l(negative is good):-4.762143280942951
+	 	 $w-$l: -11.731605199842482 -> 2.9306185852525815  _ #Surrender#	 lift : 14.662223785095064 : good	 :) hit 
+
+[TimeMatrix: total:  o: 15553.0 -> a: 388825.0
+org->adv	$w:57.937375425962834->55.36963929788465  	$d:8.358516041921172->4.368031890953514  	$l:33.70410853211599->40.26232881116184
+	 improve value x$w(high is good):-2.567736128078181  	x$d:-3.9904841509676583  	 x$l(negative is good):6.558220279045848
+	 	 $w-$l: 24.233266893846846 -> 15.107310486722819  _ @double@	 lift : -9.125956407124026 : bad	 :| stand
+
+[Prob_ROI diff: 0.14662223785119788 (up%-> 16.610955504872095) . o: 0.8826839480016226 -> a: 1.0293061858528205	 returnMoney: o:0.12091790988435583 a: 0.1410035300926365 (probReturnRate: 1.1661095550484644	 totalSpendMoney: o: 0.1369889077037272 a: 0.13698890770369707 (probTotalSpendRate: 0.99999999999978
+
+[Time_ROI diff: -0.09125956407124014 (up%-> -7.345823413725277) . o: 1.2423326689384684 -> a: 1.1510731048672282	 returnMoney: o:5796600.0 a: 1.342698E8 (timeReturnRate: 23.16354414656868	 totalSpendMoney: o: 4665900.0 a: 1.166475E8 (timeTotalSpendRate: 25.0
+
+[[Per_Prob_ROI diff: -0.8415117005675098 (up%-> -95.33556177980512) . o: 0.8826839480016226 -> a: 0.04117224743411283	 per returnMoney: o:0.12091790988435583 a: 0.00564014120370546	 per totalSpendMoney: o: 0.1369889077037272 a: 0.005479556308147882
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.1667078580595087
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.02008562020831081     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.166109555048721 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Four4, 	playerStartValue=6	@@@ 
+
+net money diff:  0.01909273038116996 , up % -> 179.06504887361302 .  o: -0.010662455069412186 -> a: 0.008430275311757773 (anet/onet: -0.7906504887361302
+
+[ProbMatrix: total: o: 4.5662969234575186E-4  -> a: 4.566296923458108E-4
+org->adv	$w:39.58049180346572->49.242051220378094  	$d:13.05557228204846->7.669881449664061  	$l:47.363935914485836->43.08806732995785
+	 improve value x$w(high is good):9.661559416912375  	x$d:-5.3856908323844  	 x$l(negative is good):-4.275868584527984
+	 	 $w-$l: -7.783444111020116 -> 6.153983890420239  _ @double@	 lift : 13.937428001440356 : good	 :) hit 
+
+[TimeMatrix: total:  o: 9073.0 -> a: 117949.0
+org->adv	$w:57.91910062823763->64.36425912894556  	$d:8.35445828281715->5.164944170785678  	$l:33.72644108894522->30.47079670026876
+	 improve value x$w(high is good):6.445158500707933  	x$d:-3.189514112031472  	 x$l(negative is good):-3.255644388676462
+	 	 $w-$l: 24.192659539292404 -> 33.8934624286768  _ @double@	 lift : 9.700802889384391 : good	 :) hit 
+
+[Prob_ROI diff: 0.1393742800144283 (up%-> 15.113802361282856) . o: 0.9221655588898295 -> a: 1.0615398389042578	 returnMoney: o:0.12632645263431316 a: 0.14541918301548745 (probReturnRate: 1.151138023612865	 totalSpendMoney: o: 0.13698890770372535 a: 0.13698890770372968 (probTotalSpendRate: 1.0000000000000315
+
+[Time_ROI diff: 0.09700802889384375 (up%-> 7.811091996395493) . o: 1.2419265953929242 -> a: 1.338934624286768	 returnMoney: o:3380400.0 a: 4.73778E7 (timeReturnRate: 14.015441959531417	 totalSpendMoney: o: 2721900.0 a: 3.53847E7 (timeTotalSpendRate: 13.0
+
+[[Per_Prob_ROI diff: -0.8405086482048867 (up%-> -91.14509212605518) . o: 0.9221655588898295 -> a: 0.08165691068494291	 per returnMoney: o:0.12632645263431316 a: 0.011186091001191343	 per totalSpendMoney: o: 0.13698890770372535 a: 0.010537608284902283
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.15846701039559827
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.01909273038116996     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.1511380236128288 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Five5, 	playerStartValue=6	@@@ 
+
+net money diff:  0.018679797051040725 , up % -> 329.81268729240827 .  o: -0.005663759391548034 -> a: 0.01301603765949269 (anet/onet: -2.2981268729240827
+
+[ProbMatrix: total: o: 4.5662969234575105E-4  -> a: 4.56629692345784E-4
+org->adv	$w:41.84059422952532->51.10422315112264  	$d:12.184345848442591->7.293080410875808  	$l:45.97505992203209->41.60269643800156
+	 improve value x$w(high is good):9.263628921597316  	x$d:-4.8912654375667834  	 x$l(negative is good):-4.372363484030529
+	 	 $w-$l: -4.134465692506762 -> 9.501526713121084  _ @double@	 lift : 13.635992405627844 : good	 :) hit 
+
+[TimeMatrix: total:  o: 5473.0 -> a: 71149.0
+org->adv	$w:57.90243011145624->64.35086930244978  	$d:8.368353736524758->5.169433161393695  	$l:33.729216152019006->30.479697536156518
+	 improve value x$w(high is good):6.44843919099354  	x$d:-3.198920575131064  	 x$l(negative is good):-3.2495186158624882
+	 	 $w-$l: 24.173213959437234 -> 33.871171766293266  _ @double@	 lift : 9.697957806856033 : good	 :) hit 
+
+[Prob_ROI diff: 0.13635992405634323 (up%-> 14.224082204451081) . o: 0.9586553430749486 -> a: 1.0950152671312918	 returnMoney: o:0.13132514831217676 a: 0.15000494536321113 (probReturnRate: 1.1422408220444578	 totalSpendMoney: o: 0.1369889077037248 a: 0.13698890770371844 (probTotalSpendRate: 0.9999999999999536
+
+[Time_ROI diff: 0.09697957806856028 (up%-> 7.810023996015751) . o: 1.2417321395943723 -> a: 1.3387117176629326	 returnMoney: o:2038800.0 a: 2.85744E7 (timeReturnRate: 14.015303119482049	 totalSpendMoney: o: 1641900.0 a: 2.13447E7 (timeTotalSpendRate: 13.0
+
+[[Per_Prob_ROI diff: -0.8744233994494646 (up%-> -91.21353213811913) . o: 0.9586553430749486 -> a: 0.08423194362548399	 per returnMoney: o:0.13132514831217676 a: 0.01153884195101624	 per totalSpendMoney: o: 0.1369889077037248 a: 0.010537608284901419
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.15503972110738395
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.018679797051040725     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.1422408220445108 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Six6, 	playerStartValue=6	@@@ 
+
+net money diff:  0.015985931920893065 , up % -> 1024.5560217472396 .  o: 0.0015602789483030177 -> a: 0.017546210869196083 (anet/onet: 11.245560217472395
+
+[ProbMatrix: total: o: 4.566296923457474E-4  -> a: 4.566296923457676E-4
+org->adv	$w:42.28416043620779->52.26287682254187  	$d:16.570661089303698->8.282736592053803  	$l:41.14517847448851->39.45438658540432
+	 improve value x$w(high is good):9.978716386334078  	x$d:-8.287924497249895  	 x$l(negative is good):-1.6907918890841884
+	 	 $w-$l: 1.138981961719282 -> 12.808490237137548  _ @double@	 lift : 11.669508275418266 : good	 :) hit 
+
+[TimeMatrix: total:  o: 3109.0 -> a: 40417.0
+org->adv	$w:57.896429720167255->64.33926318133459  	$d:8.330652943068511->5.1611945468490985  	$l:33.77291733676424->30.499542271816317
+	 improve value x$w(high is good):6.442833461167332  	x$d:-3.1694583962194125  	 x$l(negative is good):-3.2733750649479205
+	 	 $w-$l: 24.123512383403018 -> 33.83972090951827  _ @double@	 lift : 9.716208526115249 : good	 :) hit 
+
+[Prob_ROI diff: 0.11669508275420037 (up%-> 11.538091494570107) . o: 1.0113898196172024 -> a: 1.1280849023714028	 returnMoney: o:0.13854918665202673 a: 0.15453511857291596 (probReturnRate: 1.11538091494567	 totalSpendMoney: o: 0.1369889077037237 a: 0.13698890770371988 (probTotalSpendRate: 0.999999999999972
+
+[Time_ROI diff: 0.09716208526115255 (up%-> 7.827854964418847) . o: 1.2412351238340302 -> a: 1.3383972090951828	 returnMoney: o:1157700.0 a: 1.62282E7 (timeReturnRate: 14.017621145374449	 totalSpendMoney: o: 932700.0 a: 1.21251E7 (timeTotalSpendRate: 13.0
+
+[[Per_Prob_ROI diff: -0.9246140578963253 (up%-> -91.42014680811) . o: 1.0113898196172024 -> a: 0.08677576172087714	 per returnMoney: o:0.13854918665202673 a: 0.011887316813301229	 per totalSpendMoney: o: 0.1369889077037237 a: 0.01053760828490153
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.13268101467509344
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.015985931920893065     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.1153809149457012 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=6	@@@ 
+
+net money diff:  0.02184575144351053 , up % -> 149.1489310867867 .  o: -0.014646937986299707 -> a: 0.007198813457210823 (anet/onet: -0.49148931086786674
+
+[ProbMatrix: total: o: 4.5662969234574503E-4  -> a: 4.5662969234569624E-4
+org->adv	$w:26.19356758682068->44.24371721790106  	$d:36.92080352605313->16.76759940448404  	$l:36.885628887126195->38.9886833776149
+	 improve value x$w(high is good):18.050149631080377  	x$d:-20.153204121569086  	 x$l(negative is good):2.1030544904887023
+	 	 $w-$l: -10.692061300305516 -> 5.255033840286161  _ @double@	 lift : 15.947095140591678 : good	 :) hit 
+
+[TimeMatrix: total:  o: 1921.0 -> a: 739585.0
+org->adv	$w:57.78240499739719->31.46440233374122  	$d:8.485163977095263->3.5751130701677294  	$l:33.732431025507545->64.96048459609105
+	 improve value x$w(high is good):-26.318002663655967  	x$d:-4.910050906927534  	 x$l(negative is good):31.228053570583505
+	 	 $w-$l: 24.04997397188964 -> -33.49608226234983  _ #Surrender#	 lift : -57.54605623423947 : bad	 :| stand
+
+[Prob_ROI diff: 0.1594709514054481 (up%-> 17.856301883943466) . o: 0.8930793869969552 -> a: 1.0525503384024033	 returnMoney: o:0.12234196971742439 a: 0.1441877211610213 (probReturnRate: 1.1785630188401777	 totalSpendMoney: o: 0.1369889077037241 a: 0.13698890770381048 (probTotalSpendRate: 1.0000000000006306
+
+[Time_ROI diff: -0.5754605623423947 (up%-> -46.38941419470165) . o: 1.2404997397188964 -> a: 0.6650391773765016	 returnMoney: o:714900.0 a: 1.475559E8 (timeReturnRate: 206.40075535039867	 totalSpendMoney: o: 576300.0 a: 2.218755E8 (timeTotalSpendRate: 385.0
+
+[[Per_Prob_ROI diff: -0.8903454900140918 (up%-> -99.69387973536637) . o: 0.8930793869969552 -> a: 0.002733896982863385	 per returnMoney: o:0.12234196971742439 a: 3.7451356145719815E-4	 per totalSpendMoney: o: 0.1369889077037241 a: 3.5581534468522204E-4
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.18131670284895862
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.02184575144351053     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.1785630188394345 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=6	@@@ 
+
+net money diff:  0.04233463932520953 , up % -> 80.54671844767391 .  o: -0.0525591112103613 -> a: -0.01022447188515177 (anet/onet: 0.1945328155232609
+
+[ProbMatrix: total: o: 4.5662969234574503E-4  -> a: 4.5662969234588544E-4
+org->adv	$w:24.369289795036387->40.604988278851636  	$d:12.893999214018809->11.326300972699272  	$l:62.73671099094481->48.06871074844909
+	 improve value x$w(high is good):16.23569848381525  	x$d:-1.5676982413195368  	 x$l(negative is good):-14.668000242495715
+	 	 $w-$l: -38.36742119590843 -> -7.463722469597456  _ #Surrender#	 lift : 30.903698726310967 : good	 :) hit 
+
+[TimeMatrix: total:  o: 1153.0 -> a: 443905.0
+org->adv	$w:57.7623590633131->31.45492841936901  	$d:8.326105810928015->3.5755398114461427  	$l:33.91153512575889->64.96953176918485
+	 improve value x$w(high is good):-26.307430643944087  	x$d:-4.750565999481871  	 x$l(negative is good):31.057996643425966
+	 	 $w-$l: 23.850823937554207 -> -33.51460334981584  _ #Surrender#	 lift : -57.36542728737004 : bad	 :| stand
+
+[Prob_ROI diff: 0.3090369872630463 (up%-> 50.14182324665732) . o: 0.6163257880409208 -> a: 0.925362775303967	 returnMoney: o:0.08442979649336257 a: 0.12676443581863653 (probReturnRate: 1.5014182324672793	 totalSpendMoney: o: 0.13698890770372388 a: 0.1369889077037883 (probTotalSpendRate: 1.0000000000004703
+
+[Time_ROI diff: -0.5736542728737004 (up%-> -46.318163629088) . o: 1.238508239375542 -> a: 0.6648539665018416	 returnMoney: o:428400.0 a: 8.85396E7 (timeReturnRate: 206.6750700280112	 totalSpendMoney: o: 345900.0 a: 1.331715E8 (timeTotalSpendRate: 385.0
+
+[[Per_Prob_ROI diff: -0.6139222483648066 (up%-> -99.61002123832037) . o: 0.6163257880409208 -> a: 0.0024035396761142003	 per returnMoney: o:0.08442979649336257 a: 3.292582748536014E-4	 per totalSpendMoney: o: 0.13698890770372388 a: 3.558153446851644E-4
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.3513716265882558
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.04233463932520953     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.5014182324665732 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=6	@@@ 
+
+net money diff:  0.03712670719905528 , up % -> 64.34371194690226 .  o: -0.057700598979575496 -> a: -0.020573891780520215 (anet/onet: 0.3565628805309774
+
+[ProbMatrix: total: o: 4.5662969234574503E-4  -> a: 4.56629692345717E-4
+org->adv	$w:22.924189332195162->36.83210583982689  	$d:12.0309854777271->11.317133069050271  	$l:65.04482519007773->51.85076109112284
+	 improve value x$w(high is good):13.907916507631725  	x$d:-0.7138524086768285  	 x$l(negative is good):-13.19406409895489
+	 	 $w-$l: -42.120635857882576 -> -15.018655251295959  _ #Surrender#	 lift : 27.10198060658662 : good	 :) hit 
+
+[TimeMatrix: total:  o: 769.0 -> a: 591361.0
+org->adv	$w:57.737321196358906->31.414313760968344  	$d:8.322496749024708->3.571422532091227  	$l:33.940182054616386->65.01426370694044
+	 improve value x$w(high is good):-26.32300743539056  	x$d:-4.751074216933481  	 x$l(negative is good):31.074081652324054
+	 	 $w-$l: 23.79713914174252 -> -33.59994994597209  _ #Surrender#	 lift : -57.39708908771461 : bad	 :| stand
+
+[Prob_ROI diff: 0.27101980606600073 (up%-> 46.82494531220732) . o: 0.5787936414211797 -> a: 0.8498134474871805	 returnMoney: o:0.07928830872414805 a: 0.11641501592321096 (probReturnRate: 1.468249453122155	 totalSpendMoney: o: 0.13698890770372354 a: 0.13698890770373118 (probTotalSpendRate: 1.0000000000000557
+
+[Time_ROI diff: -0.5739708908771461 (up%-> -46.36382511392073) . o: 1.2379713914174253 -> a: 0.6640005005402791	 returnMoney: o:285600.0 a: 1.177992E8 (timeReturnRate: 412.4621848739496	 totalSpendMoney: o: 230700.0 a: 1.774083E8 (timeTotalSpendRate: 769.0
+
+[[Per_Prob_ROI diff: -0.5776885524127439 (up%-> -99.80907029218179) . o: 0.5787936414211797 -> a: 0.0011050890084358656	 per returnMoney: o:0.07928830872414805 a: 1.5138493618102857E-4	 per totalSpendMoney: o: 0.13698890770372354 a: 1.7813902172136693E-4
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.30814651326505604
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.03712670719905528     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.4682494531220731 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+		 @@@   dealerCard=Ten, 	playerStartValue=6	@@@ 
+
+net money diff:  0.02931991946020579 , up % -> 46.21268639065267 .  o: -0.06344560714855188 -> a: -0.03412568768834609 (anet/onet: 0.5378731360934733
+
+[ProbMatrix: total: o: 4.5662969234574455E-4  -> a: 4.566296923456336E-4
+org->adv	$w:21.247093531872245->31.858174275997797  	$d:11.19140090680055->11.372373403402026  	$l:67.56150556132721->56.76945232060018
+	 improve value x$w(high is good):10.611080744125552  	x$d:0.18097249660147519  	 x$l(negative is good):-10.792053240727029
+	 	 $w-$l: -46.31441202945496 -> -24.91127804460238  _ #Surrender#	 lift : 21.40313398485258 : good	 :) hit 
+
+[TimeMatrix: total:  o: 385.0 -> a: 296065.0
+org->adv	$w:57.66233766233766->31.373515950889164  	$d:8.311688311688311->3.577592758346985  	$l:34.02597402597402->65.04889129076386
+	 improve value x$w(high is good):-26.2888217114485  	x$d:-4.7340955533413265  	 x$l(negative is good):31.02291726478984
+	 	 $w-$l: 23.636363636363633 -> -33.67537533987469  _ #Surrender#	 lift : -57.311738976238324 : bad	 :| stand
+
+[Prob_ROI diff: 0.21403133984848277 (up%-> 39.867559980140584) . o: 0.5368558797054528 -> a: 0.7508872195539356	 returnMoney: o:0.07354330055517147 a: 0.10286322001538636 (probReturnRate: 1.3986755998014988	 totalSpendMoney: o: 0.13698890770372335 a: 0.13698890770373245 (probTotalSpendRate: 1.0000000000000664
+
+[Time_ROI diff: -0.5731173897623832 (up%-> -46.35508299548688) . o: 1.2363636363636363 -> a: 0.6632462466012531	 returnMoney: o:142800.0 a: 5.89092E7 (timeReturnRate: 412.52941176470586	 totalSpendMoney: o: 115500.0 a: 8.88195E7 (timeTotalSpendRate: 769.0
+
+[[Per_Prob_ROI diff: -0.5358794333861369 (up%-> -99.818117607308) . o: 0.5368558797054528 -> a: 9.76446319315911E-4	 per returnMoney: o:0.07354330055517147 a: 1.337623147144166E-4	 per totalSpendMoney: o: 0.13698890770372335 a: 1.781390217213686E-4
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.24335125930868856
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.02931991946020579     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.398675599801406 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+
+
+
+
+
 MatrixKey [startValue=Six, dealerCard=One1, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Six, dealerCard=Two2, situation=Start_With_A] : Hit -> Double
-MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Six, dealerCard=Four4, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Six, dealerCard=Five5, situation=Start_With_A] : Double -> Hit
-MatrixKey [startValue=Six, dealerCard=Six6, situation=Start_With_A] : Double -> Hit
+MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Six, dealerCard=Four4, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Six, dealerCard=Five5, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Six, dealerCard=Six6, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Six, dealerCard=Seven7, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Six, dealerCard=Eight8, situation=Start_With_A] : Hit -> Double
 MatrixKey [startValue=Six, dealerCard=Nine9, situation=Start_With_A] : Hit -> Double
@@ -2195,272 +2865,289 @@ MatrixKey [startValue=Six, dealerCard=Ten, situation=Start_With_A] : Hit -> Doub
 
 		 @@@   dealerCard=One1, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.07398139980341534 , up % -> -135.28137137385053 .  o: -0.05468705635675994 -> a: -0.12866845616017528 (anet/onet: 2.352813713738505
+net money diff:  -0.0743708477063965 , up % -> -136.9689196712146 .  o: -0.054297608453742 -> a: -0.1286684561601385 (anet/onet: 2.369689196712146
 
-[ProbMatrix: total: o: 4.5662969234565374E-4  -> a: 4.5662969234560636E-4
-org->adv	$w:23.61453960503324->21.605707600106193  	$d:12.850129191837917->9.825491832296644  	$l:63.53533120312884->68.56880056759717
-	 improve value x$w(high is good):-2.008832004927047  	x$d:-3.0246373595412734  	 x$l(negative is good):5.033469364468324
-	 	 $w-$l: -39.9207915980956 -> -46.96309296749097  _ #Surrender#	 lift : -7.04230136939537 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234479294E-4  -> a: 4.566296923456427E-4
+org->adv	$w:23.764342225000227->21.60570760010745  	$d:12.834815511901567->9.825491832295835  	$l:63.4008422630982->68.56880056759671
+	 improve value x$w(high is good):-2.158634624892777  	x$d:-3.009323679605732  	 x$l(negative is good):5.167958304498512
+	 	 $w-$l: -39.63650003809798 -> -46.96309296748926  _ #Surrender#	 lift : -7.326592929391285 : bad	 :| stand
 
-[TimeMatrix: total:  o: 5470465.0 -> a: 184717.0
-org->adv	$w:31.615191761577854->64.72495763790013  	$d:3.5296451032956067->5.129468321811203  	$l:64.85516313512653->30.145574040288658
-	 improve value x$w(high is good):33.10976587632228  	x$d:1.599823218515596  	 x$l(negative is good):-34.709589094837874
-	 	 $w-$l: -33.239971373548684 -> 34.57938359761148  _ @double@	 lift : 67.81935497116017 : good	 :) hit 
+[TimeMatrix: total:  o: 1.0926721E7 -> a: 184717.0
+org->adv	$w:31.60214303998427->64.72495763790013  	$d:3.5233991972523135->5.129468321811203  	$l:64.87445776276341->30.145574040288658
+	 improve value x$w(high is good):33.12281459791586  	x$d:1.6060691245588892  	 x$l(negative is good):-34.728883722474755
+	 	 $w-$l: -33.27231472277914 -> 34.57938359761148  _ @double@	 lift : 67.85169832039062 : good	 :) hit 
 
-[Prob_ROI diff: -0.07042301369582415 (up%-> -11.721694670895456) . o: 0.6007920840207683 -> a: 0.5303690703249442	 returnMoney: o:0.08230185134717691 a: 0.14530935924734648 (probReturnRate: 1.7655661065798227	 totalSpendMoney: o: 0.13698890770393685 a: 0.27397781540752175 (probTotalSpendRate: 1.999999999997431
+[Prob_ROI diff: -0.07326592929696552 (up%-> -12.137455472734395) . o: 0.6036349996220398 -> a: 0.5303690703250743	 returnMoney: o:0.08269129924992923 a: 0.14530935924738086 (probReturnRate: 1.7572508905464468	 totalSpendMoney: o: 0.13698890770367123 a: 0.27397781540751937 (probTotalSpendRate: 2.0000000000012914
 
-[Time_ROI diff: 0.6781935497116016 (up%-> 101.58676736140453) . o: 0.6676002862645132 -> a: 1.3457938359761148	 returnMoney: o:1.0956252E9 a: 1.491546E8 (timeReturnRate: 0.13613651821809136	 totalSpendMoney: o: 1.6411395E9 a: 1.108302E8 (timeTotalSpendRate: 0.06753246753246753
+[Time_ROI diff: 0.6785169832039062 (up%-> 101.68447779733411) . o: 0.6672768527722086 -> a: 1.3457938359761148	 returnMoney: o:2.1873444E9 a: 1.491546E8 (timeReturnRate: 0.06818981043863051	 totalSpendMoney: o: 3.2780163E9 a: 1.108302E8 (timeTotalSpendRate: 0.033810143042912875
 
-[[Per_Prob_ROI diff: 0.03923712187469201 (up%-> 2514.395965515788) . o: 0.0015604989195344636 -> a: 0.040797620794226476	 per returnMoney: o:2.1377104246019977E-4 a: 0.011177643019026653	 per totalSpendMoney: o: 3.558153446855502E-4 a: 0.021075216569809367
+[[Per_Prob_ROI diff: 0.04001265980643148 (up%-> 5097.407441651326) . o: 7.849609878049932E-4 -> a: 0.040797620794236475	 per returnMoney: o:1.0753094830940081E-4 a: 0.011177643019029296	 per totalSpendMoney: o: 1.7813902172128898E-4 a: 0.021075216569809183
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.1444044134992395
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.14763677700336203
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.07398139980341534     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.8827830532910453 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0743708477063965     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8786254452726561 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Two2, 	playerStartValue=6	@@@ 
 
-net money diff:  -8.738378988208118E-4 , up % -> -1224.9025295333845 .  o: -7.133938233874759E-5 -> a: -9.451772811595593E-4 (anet/onet: 13.249025295333844
+net money diff:  -8.738378990206797E-4 , up % -> -1224.902532843075 .  o: -7.13393821623054E-5 -> a: -9.45177281182985E-4 (anet/onet: 13.24902532843075
 
-[ProbMatrix: total: o: 4.566296923455988E-4  -> a: 4.5662969234584635E-4
-org->adv	$w:45.68031363434503->45.72480145043926  	$d:8.587295973111479->8.205413955203317  	$l:45.73239039254349->46.06978459435743
-	 improve value x$w(high is good):0.04448781609422525  	x$d:-0.38188201790816123  	 x$l(negative is good):0.337394201813936
-	 	 $w-$l: -0.05207675819846047 -> -0.3449831439181761  _ #Surrender#	 lift : -0.2929063857197156 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234561016E-4  -> a: 4.5662969234580683E-4
+org->adv	$w:45.680313634340244->45.72480145043918  	$d:8.58729597311136->8.205413955203761  	$l:45.7323903925484->46.06978459435706
+	 improve value x$w(high is good):0.04448781609893615  	x$d:-0.3818820179075981  	 x$l(negative is good):0.33739420180865665
+	 	 $w-$l: -0.05207675820815827 -> -0.3449831439178819  _ #Surrender#	 lift : -0.2929063857097236 : bad	 :| stand
 
 [TimeMatrix: total:  o: 667225.0 -> a: 346957.0
 org->adv	$w:55.386563752856986->64.40250520957929  	$d:4.365843605979991->5.162022959617475  	$l:40.247592641163024->30.43547183080324
 	 improve value x$w(high is good):9.015941456722302  	x$d:0.7961793536374833  	 x$l(negative is good):-9.812120810359783
 	 	 $w-$l: 15.13897111169396 -> 33.967033378776044  _ @double@	 lift : 18.828062267082085 : good	 :) hit 
 
-[Prob_ROI diff: -0.0029290638560948157 (up%-> -0.293059001237181) . o: 0.999479232417175 -> a: 0.9965501685610801	 returnMoney: o:0.1369175683214515 a: 0.27303263812639506 (probReturnRate: 1.9941388199750683	 totalSpendMoney: o: 0.13698890770379024 a: 0.2739778154075546 (probTotalSpendRate: 1.9999999999998113
+[Prob_ROI diff: -0.0029290638574679395 (up%-> -0.29305900137418733) . o: 0.9994792324184626 -> a: 0.9965501685609947	 returnMoney: o:0.13691756832152455 a: 0.27303263812637557 (probReturnRate: 1.9941388199738619	 totalSpendMoney: o: 0.13698890770368685 a: 0.27397781540755856 (probTotalSpendRate: 2.0000000000013496
 
 [Time_ROI diff: 0.1882806226708209 (up%-> 16.35246701033777) . o: 1.1513897111169396 -> a: 1.3396703337877605	 returnMoney: o:2.304708E8 a: 2.788848E8 (timeReturnRate: 1.2100656569075128	 totalSpendMoney: o: 2.001675E8 a: 2.081742E8 (timeTotalSpendRate: 1.04
 
-[[Per_Prob_ROI diff: 0.036678535977242244 (up%-> 91.7441173053131) . o: 0.039979169296687 -> a: 0.07665770527392925	 per returnMoney: o:0.00547670273285806 a: 0.02100251062510731	 per totalSpendMoney: o: 0.005479556308151609 a: 0.021075216569811893
+[[Per_Prob_ROI diff: 0.036678535977184165 (up%-> 91.74411730504966) . o: 0.039979169296738504 -> a: 0.07665770527392267	 per returnMoney: o:0.005476702732860982 a: 0.021002510625105813	 per totalSpendMoney: o: 0.005479556308147474 a: 0.021075216569812198
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.0038029017549156274
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.003802901756488619
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -8.738378988208118E-4     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.9970694099876283 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -8.738378990206797E-4     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9970694099862581 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Three3, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.003668381905436613 , up % -> -47.746711637040434 .  o: 0.007683004294249229 -> a: 0.0040146223888126165 (anet/onet: 0.5225328836295957
+net money diff:  0.0036683819052627242 , up % -> 91.3755155495913 .  o: 0.004014622388939432 -> a: 0.007683004294202156 (anet/onet: 1.9137551554959131
 
-[ProbMatrix: total: o: 4.566296923458316E-4  -> a: 4.566296923457408E-4
-org->adv	$w:47.44113820225735->47.319490221648145  	$d:7.921966808657843->8.291638141957607  	$l:44.63689498908481->44.38887163639424
-	 improve value x$w(high is good):-0.1216479806092039  	x$d:0.3696713332997641  	 x$l(negative is good):-0.2480233526905664
-	 	 $w-$l: 2.8042432131725414 -> 2.930618585253908  _ #Surrender#	 lift : 0.1263753720813665 : good	 :) hit 
+[ProbMatrix: total: o: 4.5662969234573137E-4  -> a: 4.56629692345819E-4
+org->adv	$w:47.31949022164736->47.44113820225735  	$d:8.291638141957865->7.921966808657903  	$l:44.388871636394775->44.63689498908474
+	 improve value x$w(high is good):0.1216479806099926  	x$d:-0.36967133329996216  	 x$l(negative is good):0.24802335268996245
+	 	 $w-$l: 2.9306185852525815 -> 2.804243213172608  _ #Surrender#	 lift : -0.12637537207997318 : bad	 :| stand
 
-[TimeMatrix: total:  o: 202189.0 -> a: 388825.0
-org->adv	$w:64.38184075295887->55.36963929788465  	$d:5.164474823061591->4.368031890953514  	$l:30.453684423979542->40.26232881116184
-	 improve value x$w(high is good):-9.012201455074212  	x$d:-0.7964429321080768  	 x$l(negative is good):9.808644387182294
-	 	 $w-$l: 33.92815632897932 -> 15.107310486722819  _ @double@	 lift : -18.8208458422565 : bad	 :| stand
+[TimeMatrix: total:  o: 388825.0 -> a: 202189.0
+org->adv	$w:55.36963929788465->64.38184075295887  	$d:4.368031890953514->5.164474823061591  	$l:40.26232881116184->30.453684423979542
+	 improve value x$w(high is good):9.012201455074212  	x$d:0.7964429321080768  	 x$l(negative is good):-9.808644387182294
+	 	 $w-$l: 15.107310486722819 -> 33.92815632897932  _ @double@	 lift : 18.8208458422565 : good	 :) hit 
 
-[Prob_ROI diff: 0.0012637537198361137 (up%-> 0.12292816719784931) . o: 1.0280424321320425 -> a: 1.0293061858518786	 returnMoney: o:0.2816608197017185 a: 0.14100353009258526 (probReturnRate: 0.5006146408361282	 totalSpendMoney: o: 0.2739778154074693 a: 0.13698890770377264 (probTotalSpendRate: 0.5000000000001387
+[Prob_ROI diff: -0.0012637537209518879 (up%-> -0.12277723949602211) . o: 1.0293061858528205 -> a: 1.0280424321318686	 returnMoney: o:0.1410035300926365 a: 0.28166081970169143 (probReturnRate: 1.9975444552107733	 totalSpendMoney: o: 0.13698890770369707 a: 0.2739778154074893 (probTotalSpendRate: 2.0000000000006946
 
-[Time_ROI diff: -0.18820845842256495 (up%-> -14.052941784717191) . o: 1.3392815632897932 -> a: 1.1510731048672282	 returnMoney: o:1.624728E8 a: 1.342698E8 (timeReturnRate: 0.8264140213007962	 totalSpendMoney: o: 1.213134E8 a: 1.166475E8 (timeTotalSpendRate: 0.9615384615384616
+[Time_ROI diff: 0.18820845842256495 (up%-> 16.35069550550172) . o: 1.1510731048672282 -> a: 1.3392815632897932	 returnMoney: o:1.342698E8 a: 1.624728E8 (timeReturnRate: 1.2100472332572179	 totalSpendMoney: o: 1.166475E8 a: 1.213134E8 (timeTotalSpendRate: 1.04
 
-[[Per_Prob_ROI diff: -0.03790793965300504 (up%-> -47.936077353057115) . o: 0.07908018708708019 -> a: 0.041172247434075146	 per returnMoney: o:0.021666216900132193 a: 0.0056401412037034105	 per totalSpendMoney: o: 0.02107521656980533 a: 0.005479556308150906
+[[Per_Prob_ROI diff: 0.03790793965295399 (up%-> 92.07158223173838) . o: 0.04117224743411283 -> a: 0.07908018708706682	 per returnMoney: o:0.00564014120370546 a: 0.02166621690013011	 per totalSpendMoney: o: 0.005479556308147882 a: 0.02107521656980687
 
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.002404628185600499
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.0024046281843108364
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.003668381905436613     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 1.0012292816719786 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.0036683819052627242     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9987722276050398 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Four4, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.008430275311777008 , up % -> -49.99999999999984 .  o: 0.01686055062355407 -> a: 0.008430275311777063 (anet/onet: 0.5000000000000017
+net money diff:  0.008430275311778035 , up % -> 100.00000000024033 .  o: 0.008430275311757773 -> a: 0.016860550623535808 (anet/onet: 2.0000000000024034
 
-[ProbMatrix: total: o: 4.5662969234580884E-4  -> a: 4.5662969234580944E-4
-org->adv	$w:49.24205122037777->49.24205122037829  	$d:7.669881449664127->7.669881449664031  	$l:43.08806732995811->43.088067329957674
-	 improve value x$w(high is good):5.258016244624741E-13  	x$d:-9.681144774731365E-14  	 x$l(negative is good):-4.334310688136611E-13
-	 	 $w-$l: 6.153983890419662 -> 6.153983890420623  _ @double@	 lift : 9.603429163007604E-13 : good	 :| stand
+[ProbMatrix: total: o: 4.566296923458108E-4  -> a: 4.566296923458089E-4
+org->adv	$w:49.242051220378094->49.2420512203783  	$d:7.669881449664061->7.669881449664049  	$l:43.08806732995785->43.08806732995766
+	 improve value x$w(high is good):2.0605739337042905E-13  	x$d:-1.1546319456101628E-14  	 x$l(negative is good):-1.9184653865522705E-13
+	 	 $w-$l: 6.153983890420239 -> 6.153983890420644  _ @double@	 lift : 4.0523140398818214E-13 : good	 :| stand
 
 [TimeMatrix: total:  o: 117949.0 -> a: 117949.0
 org->adv	$w:64.36425912894556->64.36425912894556  	$d:5.164944170785678->5.164944170785678  	$l:30.47079670026876->30.47079670026876
 	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
 	 	 $w-$l: 33.8934624286768 -> 33.8934624286768  _ @double@	 lift : 0.0 : bad	 :| stand
 
-[Prob_ROI diff: -2.886579864025407E-15 (up%-> -2.7192383726310177E-13) . o: 1.061539838904405 -> a: 1.0615398389044022	 returnMoney: o:0.29083836603098423 a: 0.14541918301549886 (probReturnRate: 0.5000000000000232	 totalSpendMoney: o: 0.27397781540743016 a: 0.1369889077037218 (probTotalSpendRate: 0.5000000000000245
+[Prob_ROI diff: 7.704947790898586E-14 (up%-> 7.258274733100723E-12) . o: 1.0615398389042578 -> a: 1.061539838904335	 returnMoney: o:0.14541918301548745 a: 0.29083836603098095 (probReturnRate: 2.0000000000000417	 totalSpendMoney: o: 0.13698890770372968 a: 0.27397781540744515 (probTotalSpendRate: 1.9999999999998963
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.338934624286768 -> a: 1.338934624286768	 returnMoney: o:9.47556E7 a: 4.73778E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 7.07694E7 a: 3.53847E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.338934624286768 -> a: 1.338934624286768	 returnMoney: o:4.73778E7 a: 9.47556E7 (timeReturnRate: 2.0	 totalSpendMoney: o: 3.53847E7 a: 7.07694E7 (timeTotalSpendRate: 2.0
 
-[[Per_Prob_ROI diff: -2.220446049250313E-16 (up%-> -2.7192383726310177E-13) . o: 0.08165691068495423 -> a: 0.08165691068495401	 per returnMoney: o:0.022372182002383403 a: 0.01118609100119222	 per totalSpendMoney: o: 0.02107521656980232 a: 0.010537608284901677
+[[Per_Prob_ROI diff: 5.925815393936773E-15 (up%-> 7.256967406960035E-12) . o: 0.08165691068494291 -> a: 0.08165691068494883	 per returnMoney: o:0.011186091001191343 a: 0.02237218200238315	 per totalSpendMoney: o: 0.010537608284902283 a: 0.021075216569803473
 
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.008430275311779895
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.008430275311855084
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.008430275311777008     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.9999999999999973 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.008430275311778035     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0000000000000728 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Five5, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.013016037659516283 , up % -> -50.00000000003039 .  o: 0.026032075319016745 -> a: 0.013016037659500462 (anet/onet: 0.49999999999969613
+net money diff:  0.013016037659509122 , up % -> 100.00000000012624 .  o: 0.01301603765949269 -> a: 0.026032075319001813 (anet/onet: 2.0000000000012625
 
-[ProbMatrix: total: o: 4.566296923457831E-4  -> a: 4.566296923457832E-4
-org->adv	$w:51.104223151122305->51.10422315112295  	$d:7.293080410875831->7.293080410875801  	$l:41.60269643800184->41.60269643800126
-	 improve value x$w(high is good):6.465938895416912E-13  	x$d:-3.019806626980426E-14  	 x$l(negative is good):-5.826450433232822E-13
-	 	 $w-$l: 9.501526713120462 -> 9.501526713121693  _ @double@	 lift : 1.2323475573339238E-12 : good	 :| stand
+[ProbMatrix: total: o: 4.56629692345784E-4  -> a: 4.566296923457836E-4
+org->adv	$w:51.10422315112264->51.10422315112281  	$d:7.293080410875808->7.293080410875834  	$l:41.60269643800156->41.60269643800136
+	 improve value x$w(high is good):1.7053025658242404E-13  	x$d:2.5757174171303632E-14  	 x$l(negative is good):-1.9895196601282805E-13
+	 	 $w-$l: 9.501526713121084 -> 9.50152671312145  _ @double@	 lift : 3.6637359812630166E-13 : good	 :| stand7
 
 [TimeMatrix: total:  o: 71149.0 -> a: 71149.0
 org->adv	$w:64.35086930244978->64.35086930244978  	$d:5.169433161393695->5.169433161393695  	$l:30.479697536156518->30.479697536156518
 	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
 	 	 $w-$l: 33.871171766293266 -> 33.871171766293266  _ @double@	 lift : 0.0 : bad	 :| stand
 
-[Prob_ROI diff: -6.106226635438361E-14 (up%-> -5.5763849315404554E-12) . o: 1.0950152671314135 -> a: 1.0950152671313524	 returnMoney: o:0.30000989072643297 a: 0.15000494536321327 (probReturnRate: 0.4999999999999893	 totalSpendMoney: o: 0.2739778154074162 a: 0.1369889077037128 (probTotalSpendRate: 0.5000000000000171
+[Prob_ROI diff: 6.394884621840902E-14 (up%-> 5.839995855577563E-12) . o: 1.0950152671312918 -> a: 1.0950152671313558	 returnMoney: o:0.15000494536321113 a: 0.30000989072642753 (probReturnRate: 2.000000000000035	 totalSpendMoney: o: 0.13698890770371844 a: 0.2739778154074257 (probTotalSpendRate: 1.9999999999999185
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3387117176629326 -> a: 1.3387117176629326	 returnMoney: o:5.71488E7 a: 2.85744E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 4.26894E7 a: 2.13447E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3387117176629326 -> a: 1.3387117176629326	 returnMoney: o:2.85744E7 a: 5.71488E7 (timeReturnRate: 2.0	 totalSpendMoney: o: 2.13447E7 a: 4.26894E7 (timeTotalSpendRate: 2.0
 
-[[Per_Prob_ROI diff: -4.676814491233472E-15 (up%-> -5.552305087517896E-12) . o: 0.08423194362549333 -> a: 0.08423194362548865	 per returnMoney: o:0.023077683902033304 a: 0.011538841951016406	 per totalSpendMoney: o: 0.02107521656980125 a: 0.010537608284900985
+[[Per_Prob_ROI diff: 4.912736883966318E-15 (up%-> 5.832391694307279E-12) . o: 0.08423194362548399 -> a: 0.0842319436254889	 per returnMoney: o:0.01153884195101624 a: 0.023077683902032887	 per totalSpendMoney: o: 0.010537608284901419 a: 0.021075216569801977
 
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.013016037659577345
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.013016037659573071
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.013016037659516283     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.9999999999999444 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.013016037659509122     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0000000000000584 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Six6, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.01754621086921787 , up % -> -50.00000000002436 .  o: 0.035092421738418644 -> a: 0.017546210869200773 (anet/onet: 0.4999999999997564
+net money diff:  0.017546210869208184 , up % -> 100.00000000006897 .  o: 0.017546210869196083 -> a: 0.03509242173840427 (anet/onet: 2.0000000000006897
 
-[ProbMatrix: total: o: 4.566296923457675E-4  -> a: 4.566296923457679E-4
-org->adv	$w:52.26287682254167->52.26287682254171  	$d:8.2827365920538->8.282736592053796  	$l:39.454386585404535->39.454386585404485
-	 improve value x$w(high is good):4.263256414560601E-14  	x$d:-3.552713678800501E-15  	 x$l(negative is good):-4.973799150320701E-14
-	 	 $w-$l: 12.808490237137137 -> 12.808490237137226  _ @double@	 lift : 8.881784197001252E-14 : good	 :| stand
+[ProbMatrix: total: o: 4.566296923457676E-4  -> a: 4.5662969234576867E-4
+org->adv	$w:52.26287682254187->52.26287682254186  	$d:8.282736592053803->8.282736592053755  	$l:39.45438658540432->39.454386585404386
+	 improve value x$w(high is good):-7.105427357601002E-15  	x$d:-4.796163466380676E-14  	 x$l(negative is good):6.394884621840902E-14
+	 	 $w-$l: 12.808490237137548 -> 12.808490237137471  _ @double@	 lift : -7.771561172376096E-14 : bad	 :| stand
 
 [TimeMatrix: total:  o: 40417.0 -> a: 40417.0
 org->adv	$w:64.33926318133459->64.33926318133459  	$d:5.1611945468490985->5.1611945468490985  	$l:30.499542271816317->30.499542271816317
 	 improve value x$w(high is good):0.0  	x$d:0.0  	 x$l(negative is good):0.0
 	 	 $w-$l: 33.83972090951827 -> 33.83972090951827  _ @double@	 lift : 0.0 : bad	 :| stand
 
-[Prob_ROI diff: -6.59472476627343E-14 (up%-> -5.845947191040079E-12) . o: 1.1280849023715065 -> a: 1.1280849023714405	 returnMoney: o:0.3090702371458434 a: 0.15453511857291702 (probReturnRate: 0.49999999999998485	 totalSpendMoney: o: 0.2739778154074248 a: 0.13698890770371625 (probTotalSpendRate: 0.5000000000000141
+[Prob_ROI diff: 4.75175454539567E-14 (up%-> 4.212231309369333E-12) . o: 1.1280849023714028 -> a: 1.1280849023714503	 returnMoney: o:0.15453511857291596 a: 0.30907023714583726 (probReturnRate: 2.0000000000000346	 totalSpendMoney: o: 0.13698890770371988 a: 0.273977815407433 (probTotalSpendRate: 1.9999999999999505
 
-[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3383972090951828 -> a: 1.3383972090951828	 returnMoney: o:3.24564E7 a: 1.62282E7 (timeReturnRate: 0.5	 totalSpendMoney: o: 2.42502E7 a: 1.21251E7 (timeTotalSpendRate: 0.5
+[Time_ROI diff: 0.0 (up%-> 0.0) . o: 1.3383972090951828 -> a: 1.3383972090951828	 returnMoney: o:1.62282E7 a: 3.24564E7 (timeReturnRate: 2.0	 totalSpendMoney: o: 1.21251E7 a: 2.42502E7 (timeTotalSpendRate: 2.0
 
-[[Per_Prob_ROI diff: -5.065392549852277E-15 (up%-> -5.837335736844524E-12) . o: 0.08677576172088511 -> a: 0.08677576172088004	 per returnMoney: o:0.02377463362660334 a: 0.011887316813301308	 per totalSpendMoney: o: 0.021075216569801904 a: 0.010537608284901249
+[[Per_Prob_ROI diff: 3.635980405647388E-15 (up%-> 4.19008757000933E-12) . o: 0.08677576172087714 -> a: 0.08677576172088078	 per returnMoney: o:0.011887316813301229 a: 0.023774633626602867	 per totalSpendMoney: o: 0.01053760828490153 a: 0.02107521656980254
 
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.017546210869283818
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.0175462108692557
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.01754621086921787     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.9999999999999415 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.017546210869208184     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0000000000000422 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Seven7, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.009075919405499094 , up % -> -126.07521308095792 .  o: 0.007198813457226588 -> a: -0.001877105948272506 (anet/onet: -0.26075213080957915
+net money diff:  -0.00907591940549371 , up % -> -126.0752130811592 .  o: 0.007198813457210823 -> a: -0.0018771059482828867 (anet/onet: -0.26075213081159215
 
-[ProbMatrix: total: o: 4.56629692345698E-4  -> a: 4.5662969234576227E-4
-org->adv	$w:44.243717217897455->42.53508123132377  	$d:16.76759940448502->14.24470690168334  	$l:38.98868337761753->43.22021186699289
-	 improve value x$w(high is good):-1.7086359865736824  	x$d:-2.522892502801678  	 x$l(negative is good):4.231528489375364
-	 	 $w-$l: 5.255033840279927 -> -0.6851306356691178  _ #Surrender#	 lift : -5.940164475949045 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234569624E-4  -> a: 4.566296923457628E-4
+org->adv	$w:44.24371721790106->42.535081231324  	$d:16.76759940448404->14.24470690168334  	$l:38.9886833776149->43.220211866992656
+	 improve value x$w(high is good):-1.7086359865770575  	x$d:-2.522892502800701  	 x$l(negative is good):4.231528489377759
+	 	 $w-$l: 5.255033840286161 -> -0.6851306356686571  _ #Surrender#	 lift : -5.940164475954818 : bad	 :| stand
 
 [TimeMatrix: total:  o: 739585.0 -> a: 24973.0
 org->adv	$w:31.46440233374122->64.26140231449966  	$d:3.5751130701677294->5.205622071837585  	$l:64.96048459609105->30.532975613662757
 	 improve value x$w(high is good):32.79699998075844  	x$d:1.6305090016698554  	 x$l(negative is good):-34.42750898242829
 	 	 $w-$l: -33.49608226234983 -> 33.728426700836906  _ @double@	 lift : 67.22450896318674 : good	 :) hit 
 
-[Prob_ROI diff: -0.059401644759137895 (up%-> -5.643591816168431) . o: 1.0525503384025225 -> a: 0.9931486936433847	 returnMoney: o:0.1441877211610263 a: 0.2721007094591569 (probReturnRate: 1.8871281636754604	 totalSpendMoney: o: 0.1369889077037997 a: 0.2739778154074294 (probTotalSpendRate: 1.9999999999987588
+[Prob_ROI diff: -0.059401644759056405 (up%-> -5.6435918161613285) . o: 1.0525503384024033 -> a: 0.9931486936433469	 returnMoney: o:0.1441877211610213 a: 0.272100709459151 (probReturnRate: 1.887128163675485	 totalSpendMoney: o: 0.13698890770381048 a: 0.2739778154074339 (probTotalSpendRate: 1.9999999999986344
 
 [Time_ROI diff: 0.6722450896318675 (up%-> 101.08353199337704) . o: 0.6650391773765016 -> a: 1.337284267008369	 returnMoney: o:1.475559E8 a: 2.00376E7 (timeReturnRate: 0.13579667095656628	 totalSpendMoney: o: 2.218755E8 a: 1.49838E7 (timeTotalSpendRate: 0.06753246753246753
 
-[[Per_Prob_ROI diff: 0.07366215637431973 (up%-> 2694.4013192903967) . o: 0.0027338969828636945 -> a: 0.07639605335718343	 per returnMoney: o:3.7451356145721116E-4 a: 0.020930823804550528	 per totalSpendMoney: o: 3.5581534468519406E-4 a: 0.02107521656980226
+[[Per_Prob_ROI diff: 0.07366215637431714 (up%-> 2694.401319290607) . o: 0.002733896982863385 -> a: 0.07639605335718053	 per returnMoney: o:3.7451356145719815E-4 a: 0.020930823804550077	 per totalSpendMoney: o: 3.5581534468522204E-4 a: 0.021075216569802605
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.06847756416463699
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.06847756416455011
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.009075919405499094     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.9435640818383159 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.00907591940549371     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9435640818383868 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Eight8, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.02497131208647918 , up % -> -244.23082548349635 .  o: -0.0102244718851702 -> a: -0.03519578397164938 (anet/onet: 3.4423082548349635
+net money diff:  -0.024971312086498415 , up % -> -244.2308254841247 .  o: -0.01022447188515177 -> a: -0.035195783971650185 (anet/onet: 3.442308254841247
 
-[ProbMatrix: total: o: 4.566296923457529E-4  -> a: 4.5662969234575333E-4
-org->adv	$w:40.60498827885437->39.20994083123637  	$d:11.326300972703095->8.73390160303858  	$l:48.068710748442534->52.056157565725044
-	 improve value x$w(high is good):-1.3950474476179977  	x$d:-2.5923993696645145  	 x$l(negative is good):3.9874468172825104
-	 	 $w-$l: -7.463722469588163 -> -12.846216734488674  _ #Surrender#	 lift : -5.382494264900512 : bad	 :| stand
+[ProbMatrix: total: o: 4.5662969234588544E-4  -> a: 4.5662969234575224E-4
+org->adv	$w:40.604988278851636->39.20994083123638  	$d:11.326300972699272->8.733901603038603  	$l:48.06871074844909->52.056157565725016
+	 improve value x$w(high is good):-1.395047447615255  	x$d:-2.5923993696606686  	 x$l(negative is good):3.9874468172759236
+	 	 $w-$l: -7.463722469597456 -> -12.84621673448863  _ #Surrender#	 lift : -5.382494264891174 : bad	 :| stand
 
 [TimeMatrix: total:  o: 443905.0 -> a: 14989.0
 org->adv	$w:31.45492841936901->64.24044299152712  	$d:3.5755398114461427->5.17045833611315  	$l:64.96953176918485->30.589098672359732
 	 improve value x$w(high is good):32.78551457215811  	x$d:1.594918524667007  	 x$l(negative is good):-34.38043309682512
 	 	 $w-$l: -33.51460334981584 -> 33.65134431916739  _ @double@	 lift : 67.16594766898322 : good	 :) hit 
 
-[Prob_ROI diff: -0.05382494264870086 (up%-> -5.816631496877267) . o: 0.9253627753038416 -> a: 0.8715378326551407	 returnMoney: o:0.1267644358186348 a: 0.23878203143578955 (probReturnRate: 1.8836673700612785	 totalSpendMoney: o: 0.136988907703805 a: 0.27397781540743893 (probTotalSpendRate: 1.999999999998751
+[Prob_ROI diff: -0.0538249426488282 (up%-> -5.816631496890239) . o: 0.925362775303967 -> a: 0.8715378326551388	 returnMoney: o:0.12676443581863653 a: 0.23878203143579102 (probReturnRate: 1.8836673700612645	 totalSpendMoney: o: 0.1369889077037883 a: 0.2739778154074412 (probTotalSpendRate: 1.9999999999990117
 
 [Time_ROI diff: 0.6716594766898323 (up%-> 101.02360977460933) . o: 0.6648539665018416 -> a: 1.3365134431916739	 returnMoney: o:8.85396E7 a: 1.20198E7 (timeReturnRate: 0.13575620400363228	 totalSpendMoney: o: 1.331715E8 a: 8993400.0 (timeTotalSpendRate: 0.06753246753246753
 
-[[Per_Prob_ROI diff: 0.06463783206658927 (up%-> 2689.276682592482) . o: 0.0024035396761138738 -> a: 0.06704137174270314	 per returnMoney: o:3.292582748535969E-4 a: 0.01836784857198381	 per totalSpendMoney: o: 3.5581534468520783E-4 a: 0.021075216569802994
+[[Per_Prob_ROI diff: 0.06463783206658878 (up%-> 2689.276682592096) . o: 0.0024035396761142003 -> a: 0.06704137174270298	 per returnMoney: o:3.292582748536014E-4 a: 0.018367848571983925	 per totalSpendMoney: o: 3.558153446851644E-4 a: 0.02107521656980317
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.07879625473518004
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.07879625473532662
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.02497131208647918     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.9418336850312274 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.024971312086498415     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9418336850310977 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Nine9, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.03297754561159019 , up % -> -154.1827678798642 .  o: -0.02138860656418204 -> a: -0.05436615217577223 (anet/onet: 2.5418276787986422
+net money diff:  -0.03379226039525046 , up % -> -164.2482654995088 .  o: -0.020573891780520215 -> a: -0.05436615217577068 (anet/onet: 2.642482654995088
 
-[ProbMatrix: total: o: 4.5662969234576075E-4  -> a: 4.5662969234574997E-4
-org->adv	$w:36.51281042919979->35.716566704463496  	$d:11.360993413734416->8.723598589639062  	$l:52.126196157065806->55.55983470589744
-	 improve value x$w(high is good):-0.7962437247362928  	x$d:-2.637394824095354  	 x$l(negative is good):3.433638548831631
-	 	 $w-$l: -15.613385727866019 -> -19.843268001433938  _ #Surrender#	 lift : -4.22988227356792 : bad	 :| stand
+[ProbMatrix: total: o: 4.56629692345717E-4  -> a: 4.566296923457463E-4
+org->adv	$w:36.83210583982689->35.71656670446332  	$d:11.317133069050271->8.723598589639128  	$l:51.85076109112284->55.55983470589756
+	 improve value x$w(high is good):-1.1155391353635693  	x$d:-2.5935344794111437  	 x$l(negative is good):3.7090736147747165
+	 	 $w-$l: -15.018655251295959 -> -19.843268001434243  _ #Surrender#	 lift : -4.824612750138285 : bad	 :| stand
 
-[TimeMatrix: total:  o: 296065.0 -> a: 9997.0
-org->adv	$w:31.426882610237616->64.19925977793338  	$d:3.577592758346985->5.171551465439632  	$l:64.9955246314154->30.62918875662699
-	 improve value x$w(high is good):32.772377167695765  	x$d:1.5939587070926469  	 x$l(negative is good):-34.36633587478842
-	 	 $w-$l: -33.56864202117779 -> 33.57007102130639  _ @double@	 lift : 67.13871304248417 : good	 :) hit 
+[TimeMatrix: total:  o: 591361.0 -> a: 9997.0
+org->adv	$w:31.414313760968344->64.19925977793338  	$d:3.571422532091227->5.171551465439632  	$l:65.01426370694044->30.62918875662699
+	 improve value x$w(high is good):32.78494601696504  	x$d:1.6001289333484046  	 x$l(negative is good):-34.38507495031345
+	 	 $w-$l: -33.59994994597209 -> 33.57007102130639  _ @double@	 lift : 67.17002096727849 : good	 :) hit 
 
-[Prob_ROI diff: -0.04229882273565855 (up%-> -5.0125038313839845) . o: 0.8438661427213227 -> a: 0.8015673199856641	 returnMoney: o:0.11560030113958611 a: 0.2196116632316723 (probReturnRate: 1.899749923371684	 totalSpendMoney: o: 0.13698890770376815 a: 0.27397781540744454 (probTotalSpendRate: 1.99999999999933
+[Prob_ROI diff: -0.04824612750151036 (up%-> -5.677261008774301) . o: 0.8498134474871805 -> a: 0.8015673199856701	 returnMoney: o:0.11641501592321096 a: 0.2196116632316743 (probReturnRate: 1.8864547798243945	 totalSpendMoney: o: 0.13698890770373118 a: 0.273977815407445 (probTotalSpendRate: 1.9999999999998732
 
-[Time_ROI diff: 0.6713871304248419 (up%-> 101.06479091378422) . o: 0.6643135797882221 -> a: 1.335700710213064	 returnMoney: o:5.9004E7 a: 8011800.0 (timeReturnRate: 0.13578401464307505	 totalSpendMoney: o: 8.88195E7 a: 5998200.0 (timeTotalSpendRate: 0.06753246753246753
+[Time_ROI diff: 0.6717002096727849 (up%-> 101.15959387473966) . o: 0.6640005005402791 -> a: 1.335700710213064	 returnMoney: o:1.177992E8 a: 8011800.0 (timeReturnRate: 0.06801234643359208	 totalSpendMoney: o: 1.774083E8 a: 5998200.0 (timeTotalSpendRate: 0.033810143042912875
 
-[[Per_Prob_ROI diff: 0.05946716450331737 (up%-> 2713.091232685935) . o: 0.0021918601109644745 -> a: 0.06165902461428185	 per returnMoney: o:3.002605224404834E-4 a: 0.016893204863974793	 per totalSpendMoney: o: 3.558153446851121E-4 a: 0.021075216569803427
+[[Per_Prob_ROI diff: 0.060553935605846446 (up%-> 5479.55279109635) . o: 0.0011050890084358656 -> a: 0.06165902461428231	 per returnMoney: o:1.5138493618102857E-4 a: 0.016893204863974946	 per totalSpendMoney: o: 1.7813902172136693E-4 a: 0.02107521656980346
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.07527636834724874
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.08203838789676082
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.03297754561159019     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.9498749616861601 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.03379226039525046     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9432273899122571 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
+--------------------------
 
 		 @@@   dealerCard=Ten, 	playerStartValue=6	@@@ 
 
-net money diff:  -0.042382205672185924 , up % -> -122.78623375894165 .  o: -0.034517066266070345 -> a: -0.07689927193825627 (anet/onet: 2.2278623375894164
+net money diff:  -0.04277358424990743 , up % -> -125.341310746727 .  o: -0.03412568768834609 -> a: -0.07689927193825352 (anet/onet: 2.25341310746727
 
-[ProbMatrix: total: o: 4.5662969234571934E-4  -> a: 4.566296923457459E-4
-org->adv	$w:31.722103468652342->31.63601481017747  	$d:11.35881409216347->8.660270144903201  	$l:56.9190824391842->59.703715044919335
-	 improve value x$w(high is good):-0.08608865847487124  	x$d:-2.6985439472602692  	 x$l(negative is good):2.7846326057351334
-	 	 $w-$l: -25.19697897053186 -> -28.067700234741867  _ #Surrender#	 lift : -2.8707212642100077 : bad	 :| stand
+[ProbMatrix: total: o: 4.566296923456336E-4  -> a: 4.566296923457462E-4
+org->adv	$w:31.858174275997797->31.636014810177425  	$d:11.372373403402026->8.660270144903189  	$l:56.76945232060018->59.70371504491938
+	 improve value x$w(high is good):-0.22215946582037205  	x$d:-2.7121032584988374  	 x$l(negative is good):2.934262724319197
+	 	 $w-$l: -24.91127804460238 -> -28.067700234741956  _ #Surrender#	 lift : -3.156422190139574 : bad	 :| stand
 
-[TimeMatrix: total:  o: 148225.0 -> a: 5005.0
-org->adv	$w:31.38606847697757->64.11588411588411  	$d:3.5837409343902853->5.174825174825175  	$l:65.03019058863214->30.70929070929071
-	 improve value x$w(high is good):32.729815638906544  	x$d:1.5910842404348897  	 x$l(negative is good):-34.320899879341425
-	 	 $w-$l: -33.644122111654575 -> 33.4065934065934  _ @double@	 lift : 67.05071551824797 : good	 :) hit 
+[TimeMatrix: total:  o: 296065.0 -> a: 5005.0
+org->adv	$w:31.373515950889164->64.11588411588411  	$d:3.577592758346985->5.174825174825175  	$l:65.04889129076386->30.70929070929071
+	 improve value x$w(high is good):32.74236816499495  	x$d:1.5972324164781901  	 x$l(negative is good):-34.33960058147315
+	 	 $w-$l: -33.67537533987469 -> 33.4065934065934  _ @double@	 lift : 67.0819687464681 : good	 :) hit 
 
-[Prob_ROI diff: -0.028707212642113178 (up%-> -3.8377076549894467) . o: 0.7480302102946953 -> a: 0.7193229976525821	 returnMoney: o:0.10247184143766802 a: 0.1970785434691902 (probReturnRate: 1.9232458468999987	 totalSpendMoney: o: 0.13698890770373837 a: 0.2739778154074465 (probTotalSpendRate: 1.999999999999779
+[Prob_ROI diff: -0.03156422190134389 (up%-> -4.203590243564754) . o: 0.7508872195539356 -> a: 0.7193229976525917	 returnMoney: o:0.10286322001538636 a: 0.1970785434691924 (probReturnRate: 1.915928195128572	 totalSpendMoney: o: 0.13698890770373245 a: 0.2739778154074459 (probTotalSpendRate: 1.9999999999998614
 
-[Time_ROI diff: 0.6705071551824798 (up%-> 101.04713802607169) . o: 0.6635587788834542 -> a: 1.334065934065934	 returnMoney: o:2.95068E7 a: 4006200.0 (timeReturnRate: 0.13577209321241204	 totalSpendMoney: o: 4.44675E7 a: 3003000.0 (timeTotalSpendRate: 0.06753246753246753
+[Time_ROI diff: 0.6708196874646809 (up%-> 101.14187466604406) . o: 0.6632462466012531 -> a: 1.334065934065934	 returnMoney: o:5.89092E7 a: 4006200.0 (timeReturnRate: 0.06800635554378603	 totalSpendMoney: o: 8.88195E7 a: 3003000.0 (timeTotalSpendRate: 0.033810143042912875
 
-[[Per_Prob_ROI diff: 0.053389602669812804 (up%-> 2747.8832732945434) . o: 0.0019429356111550528 -> a: 0.055332538280967854	 per returnMoney: o:2.6616062711082604E-4 a: 0.015159887959168478	 per totalSpendMoney: o: 3.5581534468503474E-4 a: 0.021075216569803577
+[[Per_Prob_ROI diff: 0.054356091961652676 (up%-> 5566.726084822977) . o: 9.76446319315911E-4 -> a: 0.05533253828096859	 per returnMoney: o:1.337623147144166E-4 a: 0.015159887959168646	 per totalSpendMoney: o: 1.781390217213686E-4 a: 0.02107521656980353
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.0710894183142991
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.07433780615125132
 
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.042382205672185924     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
- probRunR/probTalSR= 0.9616229234501056 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.04277358424990743     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9579640975643524 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------
+
+
+
+
+
+
 
 		 */
 	}
@@ -2469,335 +3156,16 @@ org->adv	$w:31.38606847697757->64.11588411588411  	$d:3.5837409343902853->5.1748
 		StrategyMatrix8012 o = new BestInMyth2019();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
-		System.out.println(o.diffWith(t));
+		System.out.println(t.diffWith(o));
 		
 		for(Card playerCard : Card.values()) {
 			if(playerCard.getValue() == 7) {
 				for(Card dealerCard : Card.values()) {
 					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 					PlayerCardsPathValue nine = new PlayerCardsPathValue(Card.One1,playerCard);
-					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, nine, dealerCard); 
-//					HelloWorld.print(origin);
-					PlayerCardsPathValue ninet = new PlayerCardsPathValue(Card.One1,playerCard);
-					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, ninet, dealerCard); 
-//					HelloWorld.print(advanced);
-					
-					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
-					
-					System.out.println(result);
-					System.out.println();
-					System.out.println("--------------------------------");
-					System.out.println();
-				}
-			}
-		}
-		/**
-MatrixKey [startValue=Seven, dealerCard=One1, situation=Start_With_A] : Hit -> Stand
-MatrixKey [startValue=Seven, dealerCard=Two2, situation=Start_With_A] : Stand -> Hit
-MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_A] : Stand -> Hit
-MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_A] : Stand -> Hit
-MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_A] : Stand -> Hit
-MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_A] : Stand -> Hit
-MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Start_With_A] : Stand -> Hit
-MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Start_With_A] : Stand -> Hit
-MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Start_With_A] : Hit -> Stand
-MatrixKey [startValue=Seven, dealerCard=Ten, situation=Start_With_A] : Hit -> Stand
-
-
-		 @@@   dealerCard=One1, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.005384678958866407 , up % -> -11.598806362140325 .  o: -0.04642442326171202 -> a: -0.051809102220578426 (anet/onet: 1.1159880636214032
-
-[ProbMatrix: total: o: 4.5662969234578374E-4  -> a: 4.5662969234575235E-4
-org->adv	$w:26.613468588434735->24.548959667640265  	$d:12.883878625524378->13.082155614562312  	$l:60.502652786040876->62.36888471779742
-	 improve value x$w(high is good):-2.06450892079447  	x$d:0.19827698903793411  	 x$l(negative is good):1.8662319317565448
-	 	 $w-$l: -33.88918419760614 -> -37.81992505015716  _ #Surrender#	 lift : -3.930740852551018 : bad	 :| stand
-
-[TimeMatrix: total:  o: 5470465.0 -> a: 14209.0
-org->adv	$w:31.6801222565175->66.64789921880498  	$d:3.5296451032956067->8.332746850587656  	$l:64.7902326401869->25.019353930607362
-	 improve value x$w(high is good):34.96777696228748  	x$d:4.8031017472920485  	 x$l(negative is good):-39.770878709579534
-	 	 $w-$l: -33.110110383669394 -> 41.62854528819762  _ @double@	 lift : 74.73865567186702 : good	 :) hit 
-
-[Prob_ROI diff: -0.03930740852785786 (up%-> -5.945684991274089) . o: 0.6611081580262925 -> a: 0.6218007494984347	 returnMoney: o:0.09056448444210284 a: 0.08517980548315059 (probReturnRate: 0.9405431500866696	 totalSpendMoney: o: 0.13698890770381486 a: 0.136988907703729 (probTotalSpendRate: 0.9999999999993733
-
-[Time_ROI diff: 0.7473865567186702 (up%-> 111.73386008043316) . o: 0.668898896163306 -> a: 1.4162854528819762	 returnMoney: o:1.0977564E9 a: 6037200.0 (timeReturnRate: 0.005499580781309952	 totalSpendMoney: o: 1.6411395E9 a: 4262700.0 (timeTotalSpendRate: 0.0025974025974025974
-
-[[Per_Prob_ROI diff: 0.6200835854516131 (up%-> 36110.911278359476) . o: 0.001717164046821539 -> a: 0.6218007494984347	 per returnMoney: o:2.3523242712234505E-4 a: 0.08517980548315059	 per totalSpendMoney: o: 3.558153446852334E-4 a: 0.136988907703729
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.04469208748672426
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.005384678958866407
- probRunR/probTalSR= 0.940543150087259 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Two2, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.00800900508297317 , up % -> -48.434419131879295 .  o: 0.016535771929391596 -> a: 0.008526766846418427 (anet/onet: 0.5156558086812071
-
-[ProbMatrix: total: o: 4.5662969234576325E-4  -> a: 4.566296923454396E-4
-org->adv	$w:49.316010585211195->48.87722790624818  	$d:13.438862674531759->8.469965558019442  	$l:37.24512674025704->42.65280653573238
-	 improve value x$w(high is good):-0.43878267896301537  	x$d:-4.968897116512316  	 x$l(negative is good):5.407679795475339
-	 	 $w-$l: 12.07088384495415 -> 6.224421370515803  _ @double@	 lift : -5.846462474438346 : bad	 :| stand
-
-[TimeMatrix: total:  o: 26689.0 -> a: 667225.0
-org->adv	$w:66.31571059237888->56.389224024879155  	$d:8.370489714863801->4.367642099741467  	$l:25.313799692757318->39.24313387537937
-	 improve value x$w(high is good):-9.926486567499722  	x$d:-4.0028476151223344  	 x$l(negative is good):13.929334182622053
-	 	 $w-$l: 41.00191089962157 -> 17.146090149499788  _ @double@	 lift : -23.85582075012178 : bad	 :| stand
-
-[Prob_ROI diff: -0.058464624743858495 (up%-> -5.216754141489689) . o: 1.1207088384495616 -> a: 1.062244213705703	 returnMoney: o:0.15352467963312277 a: 0.1455156745500941 (probReturnRate: 0.947832458584719	 totalSpendMoney: o: 0.13698890770373118 a: 0.13698890770367567 (probTotalSpendRate: 0.9999999999995948
-
-[Time_ROI diff: -0.2385582075012178 (up%-> -16.918792517006807) . o: 1.4100191089962157 -> a: 1.171460901494998	 returnMoney: o:1.12896E7 a: 2.344884E8 (timeReturnRate: 20.7703018707483	 totalSpendMoney: o: 8006700.0 a: 2.001675E8 (timeTotalSpendRate: 25.0
-
-[[Per_Prob_ROI diff: -1.0782190699013334 (up%-> -96.20867016565958) . o: 1.1207088384495616 -> a: 0.04248976854822813	 per returnMoney: o:0.15352467963312277 a: 0.005820626982003764	 per totalSpendMoney: o: 0.13698890770373118 a: 0.005479556308147027
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.06647362982683166
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.00800900508297317
- probRunR/probTalSR= 0.9478324585851031 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Three3, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.007884787684308309 , up % -> -39.01737410890647 .  o: 0.02020840167844215 -> a: 0.012323613994133842 (anet/onet: 0.6098262589109352
-
-[ProbMatrix: total: o: 4.566296923457612E-4  -> a: 4.5662969234564296E-4
-org->adv	$w:50.84898508266378->50.39323748011879  	$d:13.053882387688171->8.209592094138264  	$l:36.09713252964805->41.39717042574294
-	 improve value x$w(high is good):-0.4557476025449887  	x$d:-4.844290293549907  	 x$l(negative is good):5.300037896094892
-	 	 $w-$l: 14.751852553015727 -> 8.99606705437585  _ @double@	 lift : -5.7557854986398755 : bad	 :| stand
-
-[TimeMatrix: total:  o: 15553.0 -> a: 388825.0
-org->adv	$w:66.295891467884->56.37266122291519  	$d:8.371375297370284->4.369575001607407  	$l:25.332733234745707->39.2577637754774
-	 improve value x$w(high is good):-9.923230244968813  	x$d:-4.001800295762877  	 x$l(negative is good):13.925030540731694
-	 	 $w-$l: 40.963158233138294 -> 17.114897447437787  _ @double@	 lift : -23.84826078570051 : bad	 :| stand
-
-[Prob_ROI diff: -0.05755785498602872 (up%-> -5.015854097818271) . o: 1.1475185255301679 -> a: 1.0899606705441391	 returnMoney: o:0.15719730938216986 a: 0.1493125216978316 (probReturnRate: 0.9498414590216098	 totalSpendMoney: o: 0.1369889077037277 a: 0.13698890770369776 (probTotalSpendRate: 0.9999999999997814
-
-[Time_ROI diff: -0.23848260785700504 (up%-> -16.91808064221857) . o: 1.409631582331383 -> a: 1.171148974474378	 returnMoney: o:6577200.0 a: 1.366116E8 (timeReturnRate: 20.770479839445358	 totalSpendMoney: o: 4665900.0 a: 1.166475E8 (timeTotalSpendRate: 25.0
-
-[[Per_Prob_ROI diff: -1.1039200987084024 (up%-> -96.20063416391274) . o: 1.1475185255301679 -> a: 0.043598426821765575	 per returnMoney: o:0.15719730938216986 a: 0.005972500867913264	 per totalSpendMoney: o: 0.1369889077037277 a: 0.00547955630814791
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.06544264267033703
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.007884787684308309
- probRunR/probTalSR= 0.9498414590218174 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Four4, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.0077943193865129545 , up % -> -32.18494651277962 .  o: 0.02421728239758944 -> a: 0.016422963011076486 (anet/onet: 0.6781505348722038
-
-[ProbMatrix: total: o: 4.56629692345755E-4  -> a: 4.566296923458144E-4
-org->adv	$w:52.636064085514974->52.23429332579642  	$d:12.40615162806455->7.519948249775742  	$l:34.957784286420484->40.24575842442784
-	 improve value x$w(high is good):-0.40177075971855203  	x$d:-4.8862033782888075  	 x$l(negative is good):5.287974138007357
-	 	 $w-$l: 17.678279799094494 -> 11.988534901368581  _ @double@	 lift : -5.689744897725912 : bad	 :| stand
-
-[TimeMatrix: total:  o: 9073.0 -> a: 117949.0
-org->adv	$w:66.27355891105478->66.2922110403649  	$d:8.376501708365481->5.170031115142986  	$l:25.349939380579745->28.537757844492113
-	 improve value x$w(high is good):0.018652129310126497  	x$d:-3.2064705932224955  	 x$l(negative is good):3.187818463912368
-	 	 $w-$l: 40.92361953047503 -> 37.75445319587279  _ @double@	 lift : -3.1691663346022416 : bad	 :| stand
-
-[Prob_ROI diff: -0.056897448977182075 (up%-> -4.835000059001483) . o: 1.176782797990957 -> a: 1.119885349013775	 returnMoney: o:0.1612061901013143 a: 0.15341187071479828 (probReturnRate: 0.951649999409964	 totalSpendMoney: o: 0.13698890770372485 a: 0.1369889077037218 (probTotalSpendRate: 0.9999999999999777
-
-[Time_ROI diff: -0.03169166334602247 (up%-> -2.2488539147384787) . o: 1.4092361953047503 -> a: 1.3775445319587278	 returnMoney: o:3835800.0 a: 4.8744E7 (timeReturnRate: 12.707648991083998	 totalSpendMoney: o: 2721900.0 a: 3.53847E7 (timeTotalSpendRate: 13.0
-
-[[Per_Prob_ROI diff: -1.0906377711437436 (up%-> -92.67961538915395) . o: 1.176782797990957 -> a: 0.08614502684721347	 per returnMoney: o:0.1612061901013143 a: 0.011800913131907561	 per totalSpendMoney: o: 0.13698890770372485 a: 0.010537608284901677
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.06469176836369503
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.0077943193865129545
- probRunR/probTalSR= 0.9516499994099852 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Five5, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.007117773166400221 , up % -> -25.60352775618923 .  o: 0.02779997051257757 -> a: 0.02068219734617735 (anet/onet: 0.7439647224381076
-
-[ProbMatrix: total: o: 4.5662969234575154E-4  -> a: 4.566296923457832E-4
-org->adv	$w:54.024940077968395->53.894639889446935  	$d:12.243712207542554->7.308437031064492  	$l:33.73134771448903->38.79692307948858
-	 improve value x$w(high is good):-0.13030018852145986  	x$d:-4.935275176478062  	 x$l(negative is good):5.065575364999546
-	 	 $w-$l: 20.293592363479362 -> 15.097716809958362  _ @double@	 lift : -5.195875553521001 : bad	 :| stand
-
-[TimeMatrix: total:  o: 5473.0 -> a: 71149.0
-org->adv	$w:66.270783847981->66.28202785703242  	$d:8.368353736524758->5.169433161393695  	$l:25.360862415494246->28.548538981573877
-	 improve value x$w(high is good):0.011244009051424086  	x$d:-3.198920575131064  	 x$l(negative is good):3.187676566079631
-	 	 $w-$l: 40.909921432486755 -> 37.73348887545854  _ @double@	 lift : -3.176432557028208 : bad	 :| stand
-
-[Prob_ROI diff: -0.05195875553510132 (up%-> -4.319328612126108) . o: 1.2029359236347985 -> a: 1.1509771680996972	 returnMoney: o:0.1647888782163024 a: 0.15767110504989015 (probReturnRate: 0.9568067138786549	 totalSpendMoney: o: 0.13698890770372482 a: 0.1369889077037128 (probTotalSpendRate: 0.9999999999999123
-
-[Time_ROI diff: -0.03176432557028197 (up%-> -2.2542291733163022) . o: 1.4090992143248675 -> a: 1.3773348887545855	 returnMoney: o:2313600.0 a: 2.93988E7 (timeReturnRate: 12.70695020746888	 totalSpendMoney: o: 1641900.0 a: 2.13447E7 (timeTotalSpendRate: 13.0
-
-[[Per_Prob_ROI diff: -1.1143992183963602 (up%-> -92.63994835477894) . o: 1.2029359236347985 -> a: 0.08853670523843825	 per returnMoney: o:0.1647888782163024 a: 0.012128546542299242	 per totalSpendMoney: o: 0.13698890770372482 a: 0.010537608284900985
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.05907652870150154
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.007117773166400221
- probRunR/probTalSR= 0.9568067138787388 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Six6, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.012704397943175905 , up % -> -32.736836834005615 .  o: 0.03880765269898992 -> a: 0.026103254755814015 (anet/onet: 0.6726316316599439
-
-[ProbMatrix: total: o: 4.566296923457472E-4  -> a: 4.5662969234576227E-4
-org->adv	$w:58.85482152551164->56.07729035159218  	$d:10.619404424062507->6.9004327233488425  	$l:30.525774050425845->37.022276925058975
-	 improve value x$w(high is good):-2.7775311739194564  	x$d:-3.7189717007136647  	 x$l(negative is good):6.49650287463313
-	 	 $w-$l: 28.32904747508579 -> 19.055013426533208  _ @double@	 lift : -9.274034048552583 : bad	 :| stand
-
-[TimeMatrix: total:  o: 3109.0 -> a: 40417.0
-org->adv	$w:66.22708266323578->66.26172155281193  	$d:8.394982309424252->5.176039785238885  	$l:25.37793502733998->28.56223866194918
-	 improve value x$w(high is good):0.034638889576157794  	x$d:-3.2189425241853673  	 x$l(negative is good):3.1843036346092006
-	 	 $w-$l: 40.84914763589579 -> 37.699482890862754  _ @double@	 lift : -3.1496647450330317 : bad	 :| stand
-
-[Prob_ROI diff: -0.09274034048545898 (up%-> -7.226761384904973) . o: 1.2832904747508618 -> a: 1.1905501342654028	 returnMoney: o:0.17579656040271377 a: 0.16309216245953026 (probReturnRate: 0.9277323861508988	 totalSpendMoney: o: 0.13698890770372385 a: 0.13698890770371625 (probTotalSpendRate: 0.9999999999999445
-
-[Time_ROI diff: -0.031496647450330206 (up%-> -2.236197235055415) . o: 1.4084914763589578 -> a: 1.3769948289086276	 returnMoney: o:1313700.0 a: 1.66962E7 (timeReturnRate: 12.709294359442795	 totalSpendMoney: o: 932700.0 a: 1.21251E7 (timeTotalSpendRate: 13.0
-
-[[Per_Prob_ROI diff: -1.1917096951919846 (up%-> -92.86359702960806) . o: 1.2832904747508618 -> a: 0.09158077955887715	 per returnMoney: o:0.17579656040271377 a: 0.012545550958425404	 per totalSpendMoney: o: 0.13698890770372385 a: 0.010537608284901249
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.10544473842863489
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.012704397943175905
- probRunR/probTalSR= 0.9277323861509503 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Seven7, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.031467661160133 , up % -> -57.396058640030034 .  o: 0.05482547391884213 -> a: 0.02335781275870913 (anet/onet: 0.4260394135996997
-
-[ProbMatrix: total: o: 4.566296923457458E-4  -> a: 4.566296923456107E-4
-org->adv	$w:63.114371112874124->52.811698729437275  	$d:13.793092270091028->11.42748144101315  	$l:23.09253661703485->35.76081982954957
-	 improve value x$w(high is good):-10.30267238343685  	x$d:-2.3656108290778786  	 x$l(negative is good):12.66828321251472
-	 	 $w-$l: 40.02183449583928 -> 17.050878899887707  _ @double@	 lift : -22.97095559595157 : bad	 :| stand
-
-[TimeMatrix: total:  o: 1921.0 -> a: 739585.0
-org->adv	$w:66.26756897449245->31.530520494601706  	$d:8.328995314940135->3.5738961715015853  	$l:25.40343571056741->64.89558333389671
-	 improve value x$w(high is good):-34.737048479890746  	x$d:-4.7550991434385494  	 x$l(negative is good):39.4921476233293
-	 	 $w-$l: 40.86413326392504 -> -33.36506283929501  _ #Surrender#	 lift : -74.22919610322005 : bad	 :| stand
-
-[Prob_ROI diff: -0.22970955596065123 (up%-> -16.405266849112547) . o: 1.400218344958391 -> a: 1.1705087889977397	 returnMoney: o:0.191814381622566 a: 0.16034672046257403 (probReturnRate: 0.8359473315097351	 totalSpendMoney: o: 0.13698890770372388 a: 0.1369889077038649 (probTotalSpendRate: 1.0000000000010294
-
-[Time_ROI diff: -0.7422919610322005 (up%-> -52.69559708584099) . o: 1.4086413326392504 -> a: 0.6663493716070499	 returnMoney: o:811800.0 a: 1.478466E8 (timeReturnRate: 182.1219512195122	 totalSpendMoney: o: 576300.0 a: 2.218755E8 (timeTotalSpendRate: 385.0
-
-[[Per_Prob_ROI diff: -1.3971780623895655 (up%-> -99.78287082298469) . o: 1.400218344958391 -> a: 0.0030402825688252977	 per returnMoney: o:0.191814381622566 a: 4.1648498821447803E-4	 per totalSpendMoney: o: 0.13698890770372388 a: 3.5581534468536336E-4
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.26117721712078423
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.031467661160133
- probRunR/probTalSR= 0.8359473315088746 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Eight8, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.009192054802727195 , up % -> -63.7714130230815 .  o: 0.014414067945146852 -> a: 0.005222013142419657 (anet/onet: 0.36228586976918503
-
-[ProbMatrix: total: o: 4.566296923457454E-4  -> a: 4.566296923457241E-4
-org->adv	$w:37.263289009055406->43.518828704894005  	$d:35.995491386458006->16.774339656271657  	$l:26.741219604486588->39.706831638834345
-	 improve value x$w(high is good):6.2555396958386  	x$d:-19.22115173018635  	 x$l(negative is good):12.965612034347757
-	 	 $w-$l: 10.522069404568818 -> 3.8119970660596634  _ #Surrender#	 lift : -6.710072338509154 : bad	 :| stand
-
-[TimeMatrix: total:  o: 1153.0 -> a: 443905.0
-org->adv	$w:66.08846487424111->31.519807165947668  	$d:8.586296617519515->3.5775672722767258  	$l:25.32523850823938->64.90262556177561
-	 improve value x$w(high is good):-34.56865770829344  	x$d:-5.00872934524279  	 x$l(negative is good):39.57738705353623
-	 	 $w-$l: 40.76322636600174 -> -33.38281839582794  _ #Surrender#	 lift : -74.14604476182967 : bad	 :| stand
-
-[Prob_ROI diff: -0.06710072338565887 (up%-> -6.071251085612126) . o: 1.1052206940456908 -> a: 1.038119970660032	 returnMoney: o:0.15140297564887026 a: 0.1422109208462457 (probReturnRate: 0.9392874891445825	 totalSpendMoney: o: 0.1369889077037234 a: 0.13698890770382605 (probTotalSpendRate: 1.0000000000007492
-
-[Time_ROI diff: -0.7414604476182968 (up%-> -52.67430043770155) . o: 1.4076322636600174 -> a: 0.6661718160417206	 returnMoney: o:486900.0 a: 8.87151E7 (timeReturnRate: 182.20394331484906	 totalSpendMoney: o: 345900.0 a: 1.331715E8 (timeTotalSpendRate: 385.0
-
-[[Per_Prob_ROI diff: -1.102524278537483 (up%-> -99.75602922359899) . o: 1.1052206940456908 -> a: 0.0026964155082078744	 per returnMoney: o:0.15140297564887026 a: 3.6937901518505376E-4	 per totalSpendMoney: o: 0.1369889077037234 a: 3.558153446852625E-4
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.07629277818838606
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.009192054802727195
- probRunR/probTalSR= 0.9392874891438788 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Nine9, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.011205543896956521 , up % -> -80.3927537546814 .  o: -0.01393849989409525 -> a: -0.02514404379105177 (anet/onet: 1.803927537546814
-
-[ProbMatrix: total: o: 4.566296923457661E-4  -> a: 4.5662969234574514E-4
-org->adv	$w:39.29852752596944->34.955174809922354  	$d:11.228033615659363->11.734847635517617  	$l:49.473438858371196->53.30997755456003
-	 improve value x$w(high is good):-4.343352716047086  	x$d:0.506814019858254  	 x$l(negative is good):3.836538696188832
-	 	 $w-$l: -10.174911332401754 -> -18.35480274463767  _ #Surrender#	 lift : -8.179891412235918 : bad	 :| stand
-
-[TimeMatrix: total:  o: 296065.0 -> a: 769.0
-org->adv	$w:31.491733234255992->66.05981794538361  	$d:3.577592758346985->8.322496749024708  	$l:64.93067400739703->25.617685305591674
-	 improve value x$w(high is good):34.568084711127625  	x$d:4.744903990677724  	 x$l(negative is good):-39.31298870180535
-	 	 $w-$l: -33.438940773141034 -> 40.442132639791936  _ @double@	 lift : 73.88107341293298 : good	 :) hit 
-
-[Prob_ROI diff: -0.08179891412227491 (up%-> -9.10646628192963) . o: 0.8982508866759016 -> a: 0.8164519725536267	 returnMoney: o:0.12305040780967373 a: 0.11184486391267186 (probReturnRate: 0.9089353371804028	 totalSpendMoney: o: 0.13698890770376898 a: 0.13698890770372363 (probTotalSpendRate: 0.9999999999996689
-
-[Time_ROI diff: 0.7388107341293296 (up%-> 110.99744245524296) . o: 0.6656105922685897 -> a: 1.4044213263979193	 returnMoney: o:5.91192E7 a: 324000.0 (timeReturnRate: 0.005480453050785532	 totalSpendMoney: o: 8.88195E7 a: 230700.0 (timeTotalSpendRate: 0.0025974025974025974
-
-[[Per_Prob_ROI diff: 0.8141188533674555 (up%-> 34894.01048145708) . o: 0.0023331191861711733 -> a: 0.8164519725536267	 per returnMoney: o:3.196114488562954E-4 a: 0.11184486391267186	 per totalSpendMoney: o: 3.558153446851142E-4 a: 0.13698890770372363
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.09300445801923143
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.011205543896956521
- probRunR/probTalSR= 0.9089353371807036 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
---------------------------------
-
-
-		 @@@   dealerCard=Ten, 	playerStartValue=7	@@@ 
-
-net money diff:  -0.005406111786402573 , up % -> -19.72231895278629 .  o: -0.027411136587661866 -> a: -0.03281724837406444 (anet/onet: 1.1972231895278629
-
-[ProbMatrix: total: o: 4.566296923457398E-4  -> a: 4.566296923457448E-4
-org->adv	$w:34.317539895689336->32.438494438672834  	$d:11.35517120985165->11.166875604703382  	$l:54.327288894459016->56.394629956623774
-	 improve value x$w(high is good):-1.8790454570165025  	x$d:-0.1882956051482676  	 x$l(negative is good):2.0673410621647577
-	 	 $w-$l: -20.009748998769677 -> -23.956135517950944  _ #Surrender#	 lift : -3.9463865191812664 : bad	 :| stand
-
-[TimeMatrix: total:  o: 148225.0 -> a: 385.0
-org->adv	$w:31.450834879406308->65.97402597402598  	$d:3.5837409343902853->8.311688311688311  	$l:64.9654241862034->25.71428571428571
-	 improve value x$w(high is good):34.52319109461967  	x$d:4.727947377298026  	 x$l(negative is good):-39.2511384719177
-	 	 $w-$l: -33.51458930679709 -> 40.25974025974026  _ @double@	 lift : 73.77432956653736 : good	 :) hit 
-
-[Prob_ROI diff: -0.03946386519189293 (up%-> -4.9335843678352616) . o: 0.7999025100123854 -> a: 0.7604386448204925	 returnMoney: o:0.10957777111607062 a: 0.10417165932965894 (probReturnRate: 0.9506641563215843	 totalSpendMoney: o: 0.13698890770373248 a: 0.13698890770372338 (probTotalSpendRate: 0.9999999999999335
-
-[Time_ROI diff: 0.7377432956653736 (up%-> 110.96318545277428) . o: 0.6648541069320291 -> a: 1.4025974025974026	 returnMoney: o:2.95644E7 a: 162000.0 (timeReturnRate: 0.005479563258513617	 totalSpendMoney: o: 4.44675E7 a: 115500.0 (timeTotalSpendRate: 0.0025974025974025974
-
-[[Per_Prob_ROI diff: 0.7583609759633175 (up%-> 36500.570018383434) . o: 0.0020776688571750267 -> a: 0.7604386448204925	 per returnMoney: o:2.846175873144691E-4 a: 0.10417165932965894	 per totalSpendMoney: o: 3.5581534468501945E-4 a: 0.13698890770372338
-
- 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.044869976978295506
- 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.005406111786402573
- probRunR/probTalSR= 0.9506641563216475 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
-
-		 */
-	}
-	
-	public static void test22vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
-		StrategyMatrix8012 t = new MirBestInMyth2019();
-		
-		System.out.println(t.diffWith(o));
-		
-		for(Card playerCard : Card.values()) {
-			if(playerCard.getValue() == 2) {
-				for(Card dealerCard : Card.values()) {
-					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
 					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, nine, dealerCard); 
 //					HelloWorld.print(origin);
-					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(Card.One1,playerCard);
 					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, ninet, dealerCard); 
 //					HelloWorld.print(advanced);
 					
@@ -2811,304 +3179,845 @@ org->adv	$w:31.450834879406308->65.97402597402598  	$d:3.5837409343902853->8.311
 			}
 		}
 		/**
-MatrixKey [startValue=Two, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+
+MatrixKey [startValue=Seven, dealerCard=One1, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=One1, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Two2, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Two2, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Three3, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Four4, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Five5, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Six6, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Seven7, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Seven7, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Eight8, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Eight8, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Nine9, situation=Start_With_A] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Nine9, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Ten, situation=A_Three_More_Cards] : Hit -> Stand
+MatrixKey [startValue=Seven, dealerCard=Ten, situation=Start_With_A] : Hit -> Stand
+
+
+		 @@@   dealerCard=One1, 	playerStartValue=7	@@@ 
+
+net money diff:  -0.005384678958771358 , up % -> -11.598806361913525 .  o: -0.046424423261800324 -> a: -0.05180910222057168 (anet/onet: 1.1159880636191353
+
+[ProbMatrix: total: o: 4.566296923457113E-4  -> a: 4.5662969234574053E-4
+org->adv	$w:26.613468588429424->24.548959667640098  	$d:12.883878625530034->13.082155614562646  	$l:60.502652786040535->62.36888471779726
+	 improve value x$w(high is good):-2.0645089207893257  	x$d:0.19827698903261215  	 x$l(negative is good):1.8662319317567224
+	 	 $w-$l: -33.88918419761111 -> -37.81992505015715  _ #Surrender#	 lift : -3.930740852546044 : bad	 :| stand
+
+[TimeMatrix: total:  o: 5470465.0 -> a: 14209.0
+org->adv	$w:31.6801222565175->66.64789921880498  	$d:3.5296451032956067->8.332746850587656  	$l:64.7902326401869->25.019353930607362
+	 improve value x$w(high is good):34.96777696228748  	x$d:4.8031017472920485  	 x$l(negative is good):-39.770878709579534
+	 	 $w-$l: -33.110110383669394 -> 41.62854528819762  _ @double@	 lift : 74.73865567186702 : good	 :) hit 
+
+[Prob_ROI diff: -0.03930740852736836 (up%-> -5.9456849912041525) . o: 0.661108158025836 -> a: 0.6218007494984676	 returnMoney: o:0.09056448444209053 a: 0.08517980548315145 (probReturnRate: 0.9405431500868069	 totalSpendMoney: o: 0.13698890770389086 a: 0.13698890770372313 (probTotalSpendRate: 0.9999999999987756
+
+[Time_ROI diff: 0.7473865567186702 (up%-> 111.73386008043316) . o: 0.668898896163306 -> a: 1.4162854528819762	 returnMoney: o:1.0977564E9 a: 6037200.0 (timeReturnRate: 0.005499580781309952	 totalSpendMoney: o: 1.6411395E9 a: 4262700.0 (timeTotalSpendRate: 0.0025974025974025974
+
+[[Per_Prob_ROI diff: 0.6200835854516473 (up%-> 36110.91127838641) . o: 0.001717164046820353 -> a: 0.6218007494984676	 per returnMoney: o:2.3523242712231306E-4 a: 0.08517980548315145	 per totalSpendMoney: o: 3.558153446854308E-4 a: 0.13698890770372313
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.04469208748613972
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.005384678958771358     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9405431500879584 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Two2, 	playerStartValue=7	@@@ 
+
+net money diff:  0.008009005083087106 , up % -> 93.92780672262808 .  o: 0.008526766846305656 -> a: 0.016535771929392762 (anet/onet: 1.9392780672262808
+
+[ProbMatrix: total: o: 4.566296923455018E-4  -> a: 4.5662969234576726E-4
+org->adv	$w:48.87722790625181->49.31601058521199  	$d:8.469965558018306->13.438862674531624  	$l:42.65280653572988->37.245126740256396
+	 improve value x$w(high is good):0.4387826789601803  	x$d:4.968897116513318  	 x$l(negative is good):-5.407679795473484
+	 	 $w-$l: 6.224421370521932 -> 12.070883844955594  _ @double@	 lift : 5.846462474433661 : good	 :) hit 
+
+[TimeMatrix: total:  o: 667225.0 -> a: 26689.0
+org->adv	$w:56.389224024879155->66.31571059237888  	$d:4.367642099741467->8.370489714863801  	$l:39.24313387537937->25.313799692757318
+	 improve value x$w(high is good):9.926486567499722  	x$d:4.0028476151223344  	 x$l(negative is good):-13.929334182622053
+	 	 $w-$l: 17.146090149499788 -> 41.00191089962157  _ @double@	 lift : 23.85582075012178 : good	 :) hit 
+
+[Prob_ROI diff: 0.05846462474472136 (up%-> 5.503877920954825) . o: 1.0622442137048487 -> a: 1.12070883844957	 returnMoney: o:0.1455156745500501 a: 0.15352467963312402 (probReturnRate: 1.0550387792094469	 totalSpendMoney: o: 0.13698890770374444 a: 0.13698890770373126 (probTotalSpendRate: 0.9999999999999037
+
+[Time_ROI diff: 0.2385582075012178 (up%-> 20.364163003372454) . o: 1.171460901494998 -> a: 1.4100191089962157	 returnMoney: o:2.344884E8 a: 1.12896E7 (timeReturnRate: 0.048145665201348976	 totalSpendMoney: o: 2.001675E8 a: 8006700.0 (timeTotalSpendRate: 0.04
+
+[[Per_Prob_ROI diff: 1.078219069901376 (up%-> 2537.5969480238705) . o: 0.042489768548193946 -> a: 1.12070883844957	 per returnMoney: o:0.005820626982002004 a: 0.15352467963312402	 per totalSpendMoney: o: 0.005479556308149777 a: 0.13698890770373126
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.06647362982780847
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.008009005083087106     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0550387792095484 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=7	@@@ 
+
+net money diff:  0.007884787684409866 , up % -> 63.981131575749984 .  o: 0.012323613994033117 -> a: 0.020208401678442983 (anet/onet: 1.6398113157574998
+
+[ProbMatrix: total: o: 4.5662969234565694E-4  -> a: 4.566296923457585E-4
+org->adv	$w:50.3932374801209->50.84898508266357  	$d:8.209592094138133->13.053882387688237  	$l:41.39717042574096->36.0971325296482
+	 improve value x$w(high is good):0.4557476025426652  	x$d:4.844290293550104  	 x$l(negative is good):-5.3000378960927605
+	 	 $w-$l: 8.996067054379942 -> 14.751852553015372  _ @double@	 lift : 5.755785498635429 : good	 :) hit 
+
+[TimeMatrix: total:  o: 388825.0 -> a: 15553.0
+org->adv	$w:56.37266122291519->66.295891467884  	$d:4.369575001607407->8.371375297370284  	$l:39.2577637754774->25.332733234745707
+	 improve value x$w(high is good):9.923230244968813  	x$d:4.001800295762877  	 x$l(negative is good):-13.925030540731694
+	 	 $w-$l: 17.114897447437787 -> 40.963158233138294  _ @double@	 lift : 23.84826078570051 : good	 :) hit 
+
+[Prob_ROI diff: 0.05755785498680588 (up%-> 5.280727694340757) . o: 1.0899606705433684 -> a: 1.1475185255301743	 returnMoney: o:0.14931252169778478 a: 0.1571973093821702 (probReturnRate: 1.0528072769432197	 totalSpendMoney: o: 0.13698890770375166 a: 0.1369889077037272 (probTotalSpendRate: 0.9999999999998215
+
+[Time_ROI diff: 0.23848260785700504 (up%-> 20.363131681350627) . o: 1.171148974474378 -> a: 1.409631582331383	 returnMoney: o:1.366116E8 a: 6577200.0 (timeReturnRate: 0.04814525267254025	 totalSpendMoney: o: 1.166475E8 a: 4665900.0 (timeTotalSpendRate: 0.04
+
+[[Per_Prob_ROI diff: 1.1039200987084397 (up%-> 2532.018192358519) . o: 0.04359842682173474 -> a: 1.1475185255301743	 per returnMoney: o:0.005972500867911391 a: 0.1571973093821702	 per totalSpendMoney: o: 0.005479556308150066 a: 0.1369889077037272
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.06544264267121574
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.007884787684409866     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0528072769434076 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=7	@@@ 
+
+net money diff:  0.007794319386529608 , up % -> 47.45988516981283 .  o: 0.01642296301105936 -> a: 0.02421728239758897 (anet/onet: 1.4745988516981283
+
+[ProbMatrix: total: o: 4.566296923458142E-4  -> a: 4.566296923457549E-4
+org->adv	$w:52.2342933257957->52.63606408551497  	$d:7.519948249775843->12.406151628064562  	$l:40.24575842442845->34.95778428642048
+	 improve value x$w(high is good):0.4017707597192697  	x$d:4.886203378288719  	 x$l(negative is good):-5.287974138007975
+	 	 $w-$l: 11.988534901367249 -> 17.678279799094486  _ @double@	 lift : 5.689744897727239 : good	 :) hit 
+
+[TimeMatrix: total:  o: 117949.0 -> a: 9073.0
+org->adv	$w:66.2922110403649->66.27355891105478  	$d:5.170031115142986->8.376501708365481  	$l:28.537757844492113->25.349939380579745
+	 improve value x$w(high is good):-0.018652129310126497  	x$d:3.2064705932224955  	 x$l(negative is good):-3.187818463912368
+	 	 $w-$l: 37.75445319587279 -> 40.92361953047503  _ @double@	 lift : 3.1691663346022416 : good	 :) hit 
+
+[Prob_ROI diff: 0.05689744897730997 (up%-> 5.080649463574402) . o: 1.119885349013643 -> a: 1.1767827979909529	 returnMoney: o:0.15341187071478904 a: 0.16120619010131432 (probReturnRate: 1.0508064946357107	 totalSpendMoney: o: 0.13698890770372968 a: 0.13698890770372535 (probTotalSpendRate: 0.9999999999999684
+
+[Time_ROI diff: 0.03169166334602247 (up%-> 2.300590841949781) . o: 1.3775445319587278 -> a: 1.4092361953047503	 returnMoney: o:4.8744E7 a: 3835800.0 (timeReturnRate: 0.07869276218611522	 totalSpendMoney: o: 3.53847E7 a: 2721900.0 (timeTotalSpendRate: 0.07692307692307693
+
+[[Per_Prob_ROI diff: 1.0906377711437496 (up%-> 1266.0484430264669) . o: 0.08614502684720332 -> a: 1.1767827979909529	 per returnMoney: o:0.01180091313190685 a: 0.16120619010131432	 per totalSpendMoney: o: 0.010537608284902283 a: 0.13698890770372535
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.06469176836383958
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.007794319386529608     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.050806494635744 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=7	@@@ 
+
+net money diff:  0.007117773166410851 , up % -> 34.41497558154877 .  o: 0.020682197346166276 -> a: 0.027799970512577127 (anet/onet: 1.3441497558154878
+
+[ProbMatrix: total: o: 4.566296923457834E-4  -> a: 4.566296923457527E-4
+org->adv	$w:53.89463988944636->54.02494007796833  	$d:7.308437031064441->12.243712207542522  	$l:38.79692307948921->33.73134771448915
+	 improve value x$w(high is good):0.13030018852197145  	x$d:4.935275176478081  	 x$l(negative is good):-5.065575365000065
+	 	 $w-$l: 15.097716809957152 -> 20.293592363479185  _ @double@	 lift : 5.195875553522034 : good	 :) hit 
+
+[TimeMatrix: total:  o: 71149.0 -> a: 5473.0
+org->adv	$w:66.28202785703242->66.270783847981  	$d:5.169433161393695->8.368353736524758  	$l:28.548538981573877->25.360862415494246
+	 improve value x$w(high is good):-0.011244009051424086  	x$d:3.198920575131064  	 x$l(negative is good):-3.187676566079631
+	 	 $w-$l: 37.73348887545854 -> 40.909921432486755  _ @double@	 lift : 3.176432557028208 : good	 :) hit 
+
+[Prob_ROI diff: 0.05195875553518525 (up%-> 4.5143167888356) . o: 1.1509771680996101 -> a: 1.2029359236347954	 returnMoney: o:0.1576711050498847 a: 0.16478887821630192 (probReturnRate: 1.0451431678884044	 totalSpendMoney: o: 0.13698890770371844 a: 0.1369889077037248 (probTotalSpendRate: 1.0000000000000464
+
+[Time_ROI diff: 0.03176432557028197 (up%-> 2.306216580268574) . o: 1.3773348887545855 -> a: 1.4090992143248675	 returnMoney: o:2.93988E7 a: 2313600.0 (timeReturnRate: 0.07869708967712968	 totalSpendMoney: o: 2.13447E7 a: 1641900.0 (timeTotalSpendRate: 0.07692307692307693
+
+[[Per_Prob_ROI diff: 1.1143992183963638 (up%-> 1258.6861182548628) . o: 0.08853670523843155 -> a: 1.2029359236347954	 per returnMoney: o:0.012128546542298824 a: 0.16478887821630192	 per totalSpendMoney: o: 0.010537608284901419 a: 0.1369889077037248
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.059076528701596104
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.007117773166410851     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.045143167888356 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=7	@@@ 
+
+net money diff:  0.012704397943180151 , up % -> 48.66978490623751 .  o: 0.026103254755810434 -> a: 0.038807652698990586 (anet/onet: 1.486697849062375
+
+[ProbMatrix: total: o: 4.566296923457612E-4  -> a: 4.5662969234574867E-4
+org->adv	$w:56.07729035159219->58.854821525511824  	$d:6.900432723348839->10.619404424062473  	$l:37.022276925058975->30.525774050425696
+	 improve value x$w(high is good):2.777531173919634  	x$d:3.7189717007136345  	 x$l(negative is good):-6.496502874633279
+	 	 $w-$l: 19.05501342653321 -> 28.329047475086128  _ @double@	 lift : 9.274034048552915 : good	 :) hit 
+
+[TimeMatrix: total:  o: 40417.0 -> a: 3109.0
+org->adv	$w:66.26172155281193->66.22708266323578  	$d:5.176039785238885->8.394982309424252  	$l:28.56223866194918->25.37793502733998
+	 improve value x$w(high is good):-0.034638889576157794  	x$d:3.2189425241853673  	 x$l(negative is good):-3.1843036346092006
+	 	 $w-$l: 37.699482890862754 -> 40.84914763589579  _ @double@	 lift : 3.1496647450330317 : good	 :) hit 
+
+[Prob_ROI diff: 0.09274034048549518 (up%-> 7.789704760540852) . o: 1.1905501342653717 -> a: 1.2832904747508669	 returnMoney: o:0.16309216245953032 a: 0.1757965604027143 (probReturnRate: 1.0778970476054388	 totalSpendMoney: o: 0.13698890770371988 a: 0.1369889077037237 (probTotalSpendRate: 1.000000000000028
+
+[Time_ROI diff: 0.031496647450330206 (up%-> 2.2873468214324144) . o: 1.3769948289086276 -> a: 1.4084914763589578	 returnMoney: o:1.66962E7 a: 1313700.0 (timeReturnRate: 0.07868257447802494	 totalSpendMoney: o: 1.21251E7 a: 932700.0 (timeTotalSpendRate: 0.07692307692307693
+
+[[Per_Prob_ROI diff: 1.191709695191992 (up%-> 1301.2661618870309) . o: 0.09158077955887475 -> a: 1.2832904747508669	 per returnMoney: o:0.01254555095842541 a: 0.1757965604027143	 per totalSpendMoney: o: 0.01053760828490153 a: 0.1369889077037237
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.10544473842867533
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.012704397943180151     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0778970476054086 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=7	@@@ 
+
+net money diff:  0.031467661160096805 , up % -> 134.72006769261796 .  o: 0.023357812758745433 -> a: 0.05482547391884224 (anet/onet: 2.3472006769261795
+
+[ProbMatrix: total: o: 4.5662969234561813E-4  -> a: 4.566296923457463E-4
+org->adv	$w:52.811698729431214->63.11437111287417  	$d:11.427481441013612->13.793092270091003  	$l:35.76081982955518->23.09253661703482
+	 improve value x$w(high is good):10.302672383442953  	x$d:2.365610829077392  	 x$l(negative is good):-12.668283212520361
+	 	 $w-$l: 17.050878899876025 -> 40.02183449583935  _ @double@	 lift : 22.97095559596332 : good	 :) hit 
+
+[TimeMatrix: total:  o: 739585.0 -> a: 1921.0
+org->adv	$w:31.530520494601706->66.26756897449245  	$d:3.5738961715015853->8.328995314940135  	$l:64.89558333389671->25.40343571056741
+	 improve value x$w(high is good):34.737048479890746  	x$d:4.7550991434385494  	 x$l(negative is good):-39.4921476233293
+	 	 $w-$l: -33.36506283929501 -> 40.86413326392504  _ @double@	 lift : 74.22919610322005 : good	 :) hit 
+
+[Prob_ROI diff: 0.22970955596031062 (up%-> 19.624761310586567) . o: 1.1705087889980803 -> a: 1.400218344958391	 returnMoney: o:0.16034672046254958 a: 0.19181438162256634 (probReturnRate: 1.1962476131051667	 totalSpendMoney: o: 0.13698890770380415 a: 0.1369889077037241 (probTotalSpendRate: 0.9999999999994157
+
+[Time_ROI diff: 0.7422919610322005 (up%-> 111.39681264229276) . o: 0.6663493716070499 -> a: 1.4086413326392504	 returnMoney: o:1.478466E8 a: 811800.0 (timeReturnRate: 0.005490826302397215	 totalSpendMoney: o: 2.218755E8 a: 576300.0 (timeTotalSpendRate: 0.0025974025974025974
+
+[[Per_Prob_ROI diff: 1.3971780623895647 (up%-> 45955.53310457582) . o: 0.003040282568826183 -> a: 1.400218344958391	 per returnMoney: o:4.164849882144145E-4 a: 0.19181438162256634	 per totalSpendMoney: o: 3.5581534468520556E-4 a: 0.1369889077037241
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.2611772171204074
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.031467661160096805     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.1962476131058657 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Eight8, 	playerStartValue=7	@@@ 
+
+net money diff:  0.009192054802708488 , up % -> 176.0251181293697 .  o: 0.0052220131424384475 -> a: 0.014414067945146936 (anet/onet: 2.760251181293697
+
+[ProbMatrix: total: o: 4.5662969234571224E-4  -> a: 4.566296923457447E-4
+org->adv	$w:43.51882870489121->37.26328900905532  	$d:16.774339656272456->35.995491386458035  	$l:39.706831638836334->26.741219604486655
+	 improve value x$w(high is good):-6.255539695835893  	x$d:19.22115173018558  	 x$l(negative is good):-12.965612034349679
+	 	 $w-$l: 3.8119970660548788 -> 10.522069404568663  _ @double@	 lift : 6.710072338513784 : good	 :) hit 
+
+[TimeMatrix: total:  o: 443905.0 -> a: 1153.0
+org->adv	$w:31.519807165947668->66.08846487424111  	$d:3.5775672722767258->8.586296617519515  	$l:64.90262556177561->25.32523850823938
+	 improve value x$w(high is good):34.56865770829344  	x$d:5.00872934524279  	 x$l(negative is good):-39.57738705353623
+	 	 $w-$l: -33.38281839582794 -> 40.76322636600174  _ @double@	 lift : 74.14604476182967 : good	 :) hit 
+
+[Prob_ROI diff: 0.06710072338551454 (up%-> 6.463677155044311) . o: 1.0381199706601765 -> a: 1.105220694045691	 returnMoney: o:0.14221092084623796 a: 0.1514029756488708 (probReturnRate: 1.0646367715498555	 totalSpendMoney: o: 0.1369889077037995 a: 0.13698890770372388 (probTotalSpendRate: 0.9999999999994479
+
+[Time_ROI diff: 0.7414604476182968 (up%-> 111.30168370435248) . o: 0.6661718160417206 -> a: 1.4076322636600174	 returnMoney: o:8.87151E7 a: 486900.0 (timeReturnRate: 0.005488355420892272	 totalSpendMoney: o: 1.331715E8 a: 345900.0 (timeTotalSpendRate: 0.0025974025974025974
+
+[[Per_Prob_ROI diff: 1.1025242785374827 (up%-> 40888.515704692065) . o: 0.0026964155082082504 -> a: 1.105220694045691	 per returnMoney: o:3.6937901518503365E-4 a: 0.1514029756488708	 per totalSpendMoney: o: 3.558153446851935E-4 a: 0.13698890770372388
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=true, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.07629277818822303
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.009192054802708488     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0646367715504432 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Nine9, 	playerStartValue=7	@@@ 
+
+net money diff:  -0.011205543896955647 , up % -> -80.39275375467281 .  o: -0.013938499894095652 -> a: -0.0251440437910513 (anet/onet: 1.803927537546728
+
+[ProbMatrix: total: o: 4.5662969234574997E-4  -> a: 4.566296923457458E-4
+org->adv	$w:39.29852752596998->34.955174809922404  	$d:11.228033615660083->11.734847635517601  	$l:49.47343885836994->53.309977554559985
+	 improve value x$w(high is good):-4.343352716047576  	x$d:0.5068140198575186  	 x$l(negative is good):3.836538696190047
+	 	 $w-$l: -10.174911332399962 -> -18.35480274463758  _ #Surrender#	 lift : -8.179891412237621 : bad	 :| stand
+
+[TimeMatrix: total:  o: 296065.0 -> a: 769.0
+org->adv	$w:31.491733234255992->66.05981794538361  	$d:3.577592758346985->8.322496749024708  	$l:64.93067400739703->25.617685305591674
+	 improve value x$w(high is good):34.568084711127625  	x$d:4.744903990677724  	 x$l(negative is good):-39.31298870180535
+	 	 $w-$l: -33.438940773141034 -> 40.442132639791936  _ @double@	 lift : 73.88107341293298 : good	 :) hit 
+
+[Prob_ROI diff: -0.08179891412226536 (up%-> -9.10646628192863) . o: 0.8982508866758954 -> a: 0.81645197255363	 returnMoney: o:0.12305040780966897 a: 0.11184486391267225 (probReturnRate: 0.9089353371804411	 totalSpendMoney: o: 0.13698890770376462 a: 0.13698890770372354 (probTotalSpendRate: 0.9999999999997001
+
+[Time_ROI diff: 0.7388107341293296 (up%-> 110.99744245524296) . o: 0.6656105922685897 -> a: 1.4044213263979193	 returnMoney: o:5.91192E7 a: 324000.0 (timeReturnRate: 0.005480453050785532	 totalSpendMoney: o: 8.88195E7 a: 230700.0 (timeTotalSpendRate: 0.0025974025974025974
+
+[[Per_Prob_ROI diff: 0.8141188533674588 (up%-> 34894.01048145747) . o: 0.002333119186171157 -> a: 0.81645197255363	 per returnMoney: o:3.1961144885628306E-4 a: 0.11184486391267225	 per totalSpendMoney: o: 3.5581534468510294E-4 a: 0.13698890770372354
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.09300445801922101
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.011205543896955647     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9089353371807136 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Ten, 	playerStartValue=7	@@@ 
+
+net money diff:  -0.005406111786384449 , up % -> -19.72231895270722 .  o: -0.027411136587679866 -> a: -0.032817248374064314 (anet/onet: 1.1972231895270722
+
+[ProbMatrix: total: o: 4.566296923457134E-4  -> a: 4.5662969234574503E-4
+org->adv	$w:34.31753989568937->32.438494438672855  	$d:11.355171209852436->11.166875604703376  	$l:54.32728889445819->56.394629956623774
+	 improve value x$w(high is good):-1.8790454570165167  	x$d:-0.18829560514905985  	 x$l(negative is good):2.067341062165582
+	 	 $w-$l: -20.009748998768824 -> -23.956135517950923  _ #Surrender#	 lift : -3.946386519182099 : bad	 :| stand
+
+[TimeMatrix: total:  o: 148225.0 -> a: 385.0
+org->adv	$w:31.450834879406308->65.97402597402598  	$d:3.5837409343902853->8.311688311688311  	$l:64.9654241862034->25.71428571428571
+	 improve value x$w(high is good):34.52319109461967  	x$d:4.727947377298026  	 x$l(negative is good):-39.2511384719177
+	 	 $w-$l: -33.51458930679709 -> 40.25974025974026  _ @double@	 lift : 73.77432956653736 : good	 :) hit 
+
+[Prob_ROI diff: -0.03946386519177292 (up%-> -4.933584367820992) . o: 0.7999025100122663 -> a: 0.7604386448204934	 returnMoney: o:0.109577771116061 a: 0.10417165932965904 (probReturnRate: 0.9506641563216686	 totalSpendMoney: o: 0.13698890770374086 a: 0.13698890770372335 (probTotalSpendRate: 0.9999999999998721
+
+[Time_ROI diff: 0.7377432956653736 (up%-> 110.96318545277428) . o: 0.6648541069320291 -> a: 1.4025974025974026	 returnMoney: o:2.95644E7 a: 162000.0 (timeReturnRate: 0.005479563258513617	 totalSpendMoney: o: 4.44675E7 a: 115500.0 (timeTotalSpendRate: 0.0025974025974025974
+
+[[Per_Prob_ROI diff: 0.7583609759633186 (up%-> 36500.57001838891) . o: 0.002077668857174718 -> a: 0.7604386448204934	 per returnMoney: o:2.846175873144442E-4 a: 0.10417165932965904	 per totalSpendMoney: o: 3.558153446850412E-4 a: 0.13698890770372335
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.044869976978157367
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.005406111786384449     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9506641563217901 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+MatrixKey [startValue=Seven, dealerCard=Three3, situation=Start_With_A] : Stand -> Double
+MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_A] : Stand -> Double
+MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_A] : Stand -> Double
+MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_A] : Stand -> Double
+
+
+		 @@@   dealerCard=Three3, 	playerStartValue=7	@@@ 
+
+net money diff:  0.004100924024306868 , up % -> 20.29316365322186 .  o: 0.020208401678442983 -> a: 0.02430932570274985 (anet/onet: 1.2029316365322187
+
+[ProbMatrix: total: o: 4.566296923457585E-4  -> a: 4.566296923458331E-4
+org->adv	$w:50.84898508266357->50.5181560858196  	$d:13.053882387688237->7.8364228951189965  	$l:36.0971325296482->41.6454210190614
+	 improve value x$w(high is good):-0.3308289968439695  	x$d:-5.21745949256924  	 x$l(negative is good):5.548288489413203
+	 	 $w-$l: 14.751852553015372 -> 8.872735066758198  _ @double@	 lift : -5.879117486257174 : bad	 :| stand
+
+[TimeMatrix: total:  o: 15553.0 -> a: 202189.0
+org->adv	$w:66.295891467884->66.3107290703253  	$d:8.371375297370284->5.167442343549847  	$l:25.332733234745707->28.521828586124865
+	 improve value x$w(high is good):0.014837602441289732  	x$d:-3.203932953820437  	 x$l(negative is good):3.1890953513791587
+	 	 $w-$l: 40.963158233138294 -> 37.788900484200425  _ @double@	 lift : -3.17425774893787 : bad	 :| stand
+
+[Prob_ROI diff: -0.05879117486277896 (up%-> -5.123331219042096) . o: 1.1475185255301743 -> a: 1.0887273506673953	 returnMoney: o:0.1571973093821702 a: 0.2982871411102689 (probReturnRate: 1.8975333756196056	 totalSpendMoney: o: 0.1369889077037272 a: 0.27397781540751903 (probTotalSpendRate: 2.0000000000004716
+
+[Time_ROI diff: -0.0317425774893787 (up%-> -2.2518350104556966) . o: 1.409631582331383 -> a: 1.3778890048420043	 returnMoney: o:6577200.0 a: 1.671564E8 (timeReturnRate: 25.41452289728152	 totalSpendMoney: o: 4665900.0 a: 1.213134E8 (timeTotalSpendRate: 26.0
+
+[[Per_Prob_ROI diff: -1.0637702677865286 (up%-> -92.7017947091571) . o: 1.1475185255301743 -> a: 0.08374825774364579	 per returnMoney: o:0.1571973093821702 a: 0.022945164700789913	 per totalSpendMoney: o: 0.1369889077037272 a: 0.021075216569809156
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.05469025083847209
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.004100924024306868     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9487666878095791 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=7	@@@ 
+
+net money diff:  0.008628643624528476 , up % -> 35.6301069742967 .  o: 0.02421728239758897 -> a: 0.032845926022117444 (anet/onet: 1.3563010697429672
+
+[ProbMatrix: total: o: 4.566296923457549E-4  -> a: 4.56629692345817E-4
+org->adv	$w:52.63606408551497->52.23429332579646  	$d:12.406151628064562->7.5199482497758  	$l:34.95778428642048->40.24575842442775
+	 improve value x$w(high is good):-0.4017707597185094  	x$d:-4.886203378288761  	 x$l(negative is good):5.287974138007272
+	 	 $w-$l: 17.678279799094486 -> 11.988534901368709  _ @double@	 lift : -5.689744897725779 : bad	 :| stand
+
+[TimeMatrix: total:  o: 9073.0 -> a: 117949.0
+org->adv	$w:66.27355891105478->66.2922110403649  	$d:8.376501708365481->5.170031115142986  	$l:25.349939380579745->28.537757844492113
+	 improve value x$w(high is good):0.018652129310126497  	x$d:-3.2064705932224955  	 x$l(negative is good):3.187818463912368
+	 	 $w-$l: 40.92361953047503 -> 37.75445319587279  _ @double@	 lift : -3.1691663346022416 : bad	 :| stand
+
+[Prob_ROI diff: -0.05689744897731441 (up%-> -4.835000059012746) . o: 1.1767827979909529 -> a: 1.1198853490136385	 returnMoney: o:0.16120619010131432 a: 0.30682374142957664 (probReturnRate: 1.903299998819804	 totalSpendMoney: o: 0.13698890770372535 a: 0.2739778154074592 (probTotalSpendRate: 2.000000000000062
+
+[Time_ROI diff: -0.03169166334602247 (up%-> -2.2488539147384787) . o: 1.4092361953047503 -> a: 1.3775445319587278	 returnMoney: o:3835800.0 a: 9.7488E7 (timeReturnRate: 25.415297982167996	 totalSpendMoney: o: 2721900.0 a: 7.07694E7 (timeTotalSpendRate: 26.0
+
+[[Per_Prob_ROI diff: -1.0906377711437498 (up%-> -92.67961538915482) . o: 1.1767827979909529 -> a: 0.08614502684720296	 per returnMoney: o:0.16120619010131432 a: 0.02360182626381359	 per totalSpendMoney: o: 0.13698890770372535 a: 0.02107521656980455
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.04826880535278594
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.008628643624528476     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9516499994098725 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Five5, 	playerStartValue=7	@@@ 
+
+net money diff:  0.013564424179749207 , up % -> 48.79294448752187 .  o: 0.027799970512577127 -> a: 0.041364394692326334 (anet/onet: 1.4879294448752187
+
+[ProbMatrix: total: o: 4.566296923457527E-4  -> a: 4.566296923457857E-4
+org->adv	$w:54.02494007796833->53.89463988944732  	$d:12.243712207542522->7.308437031064441  	$l:33.73134771448915->38.79692307948825
+	 improve value x$w(high is good):-0.13030018852101222  	x$d:-4.935275176478081  	 x$l(negative is good):5.0655753649991055
+	 	 $w-$l: 20.293592363479185 -> 15.09771680995906  _ @double@	 lift : -5.195875553520124 : bad	 :| stand
+
+[TimeMatrix: total:  o: 5473.0 -> a: 71149.0
+org->adv	$w:66.270783847981->66.28202785703242  	$d:8.368353736524758->5.169433161393695  	$l:25.360862415494246->28.548538981573877
+	 improve value x$w(high is good):0.011244009051424086  	x$d:-3.198920575131064  	 x$l(negative is good):3.187676566079631
+	 	 $w-$l: 40.909921432486755 -> 37.73348887545854  _ @double@	 lift : -3.176432557028208 : bad	 :| stand
+
+[Prob_ROI diff: -0.05195875553520679 (up%-> -4.319328612134887) . o: 1.2029359236347954 -> a: 1.1509771680995886	 returnMoney: o:0.16478887821630192 a: 0.3153422100997612 (probReturnRate: 1.9136134277571994	 totalSpendMoney: o: 0.1369889077037248 a: 0.2739778154074349 (probTotalSpendRate: 1.9999999999998925
+
+[Time_ROI diff: -0.03176432557028197 (up%-> -2.2542291733163022) . o: 1.4090992143248675 -> a: 1.3773348887545855	 returnMoney: o:2313600.0 a: 5.87976E7 (timeReturnRate: 25.41390041493776	 totalSpendMoney: o: 1641900.0 a: 4.26894E7 (timeTotalSpendRate: 26.0
+
+[[Per_Prob_ROI diff: -1.1143992183963656 (up%-> -92.6399483547796) . o: 1.2029359236347954 -> a: 0.0885367052384299	 per returnMoney: o:0.16478887821630192 a: 0.024257093084597017	 per totalSpendMoney: o: 0.1369889077037248 a: 0.02107521656980268
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.038394331355457584
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.013564424179749207     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9568067138786511 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Six6, 	playerStartValue=7	@@@ 
+
+net money diff:  0.01339885681261968 , up % -> 34.526326331940695 .  o: 0.038807652698990586 -> a: 0.052206509511610266 (anet/onet: 1.345263263319407
+
+[ProbMatrix: total: o: 4.5662969234574867E-4  -> a: 4.5662969234576216E-4
+org->adv	$w:58.854821525511824->56.077290351592346  	$d:10.619404424062473->6.900432723348835  	$l:30.525774050425696->37.02227692505882
+	 improve value x$w(high is good):-2.7775311739194777  	x$d:-3.718971700713638  	 x$l(negative is good):6.496502874633123
+	 	 $w-$l: 28.329047475086128 -> 19.055013426533527  _ @double@	 lift : -9.274034048552599 : bad	 :| stand
+
+[TimeMatrix: total:  o: 3109.0 -> a: 40417.0
+org->adv	$w:66.22708266323578->66.26172155281193  	$d:8.394982309424252->5.176039785238885  	$l:25.37793502733998->28.56223866194918
+	 improve value x$w(high is good):0.034638889576157794  	x$d:-3.2189425241853673  	 x$l(negative is good):3.1843036346092006
+	 	 $w-$l: 40.84914763589579 -> 37.699482890862754  _ @double@	 lift : -3.1496647450330317 : bad	 :| stand
+
+[Prob_ROI diff: -0.09274034048553292 (up%-> -7.226761384910707) . o: 1.2832904747508669 -> a: 1.190550134265334	 returnMoney: o:0.1757965604027143 a: 0.32618432491904875 (probReturnRate: 1.8554647723017252	 totalSpendMoney: o: 0.1369889077037237 a: 0.2739778154074385 (probTotalSpendRate: 1.9999999999999347
+
+[Time_ROI diff: -0.031496647450330206 (up%-> -2.236197235055415) . o: 1.4084914763589578 -> a: 1.3769948289086276	 returnMoney: o:1313700.0 a: 3.33924E7 (timeReturnRate: 25.41858871888559	 totalSpendMoney: o: 932700.0 a: 2.42502E7 (timeTotalSpendRate: 26.0
+
+[[Per_Prob_ROI diff: -1.191709695191995 (up%-> -92.86359702960851) . o: 1.2832904747508669 -> a: 0.09158077955887184	 per returnMoney: o:0.1757965604027143 a: 0.025091101916849903	 per totalSpendMoney: o: 0.1369889077037237 a: 0.02107521656980296
+
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=true, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.07934148367291324
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.01339885681261968     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9277323861508929 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+
+		 */
+	}
+	
+	public static void test22vsAll() {
+		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 t = new MirBestInMyth2019();
+		
+		System.out.println(o.diffWith(t));
+		
+		for(Card playerCard : Card.values()) {
+			if(playerCard.getValue() == 2) {
+				for(Card dealerCard : Card.values()) {
+					if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+					if(dealerCard != Card.Seven7 && dealerCard != Card.Four4) continue;
+					PlayerCardsPathValue nine = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> origin = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),o, nine, dealerCard); 
+//					HelloWorld.print(origin);
+					PlayerCardsPathValue ninet = new PlayerCardsPathValue(playerCard,playerCard);
+					Collection<PlayerCardsPathValue> advanced = Strategy8012.generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(),t, ninet, dealerCard); 
+//					HelloWorld.print(advanced);
+					
+					DealerVSPlayerResult9102 result = new DealerVSPlayerResult9102(dealerCard, playerCard.getValue(), RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), origin),RivalAnalyze9102.anaylze(DealerCards.fetchDealerCards(dealerCard), advanced));
+					
+					System.out.println(result);
+					System.out.println();
+					System.out.println("--------------------------------");
+					System.out.println();
+				}
+			}
+		}
+		/**
 MatrixKey [startValue=Two, dealerCard=One1, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=One1, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Two2, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Two2, situation=Start_With_Pair] : Split -> Hit
-MatrixKey [startValue=Two, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Three3, situation=Start_With_Pair] : Split -> Hit
-MatrixKey [startValue=Two, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Hit -> Split
-MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_Pair] : Hit -> Split
-MatrixKey [startValue=Two, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Three3, situation=Splited_Pair_And_Can_Split] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Hit -> Split
 MatrixKey [startValue=Two, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Hit -> Split
 MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_Pair] : Hit -> Split
-MatrixKey [startValue=Two, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Seven7, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Eight8, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Eight8, situation=Start_With_Pair] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Nine9, situation=Start_With_Pair] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Split -> Hit
-MatrixKey [startValue=Two, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 MatrixKey [startValue=Two, dealerCard=Ten, situation=Start_With_Pair] : Split -> Hit
+MatrixKey [startValue=Two, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Split -> Hit
 
 
 		 @@@   dealerCard=One1, 	playerStartValue=2	@@@ 
 
-net money diff:  3.9655199185732277 , up % -> 98.52939696358942 .  o: -4.024707387622241 -> a: -0.05918746904901369 (anet/onet: 0.014706030364105819
+net money diff:  3.9456182404908557 , up % -> 98.52208887664156 .  o: -4.004805709541057 -> a: -0.05918746905020149 (anet/onet: 0.014779111233584476
 
-[ProbMatrix: total: o: 0.03240646915678342  -> a: 4.3760345515222814E-4
-org->adv	$w:23.698845428525082->22.210525501245552  	$d:11.20412030240084->10.494395570261513  	$l:65.09703426907407->67.29507892849294
-	 improve value x$w(high is good):-1.4883199272795302  	x$d:-0.7097247321393265  	 x$l(negative is good):2.198044659418869
-	 	 $w-$l: -41.39818884054899 -> -45.084553427247386  _ #Surrender#	 lift : -3.6863645866983985 : bad	 :| stand
+[ProbMatrix: total: o: 0.03240646915031081  -> a: 4.376034551566526E-4
+org->adv	$w:23.8030241040318->22.21052550101096  	$d:11.200471825068622->10.494395570160284  	$l:64.99650407089959->67.29507892882876
+	 improve value x$w(high is good):-1.5924986030208395  	x$d:-0.7060762549083375  	 x$l(negative is good):2.298574857929168
+	 	 $w-$l: -41.1934799668678 -> -45.084553427817795  _ #Surrender#	 lift : -3.891073460950001 : bad	 :| stand
 
-[TimeMatrix: total:  o: 2.017507492E9 -> a: 1.28918257E8
-org->adv	$w:31.54476394876258->31.583756209176794  	$d:3.5044237644892973->3.5082913043107613  	$l:64.95081228674813->64.90795248651244
-	 improve value x$w(high is good):0.038992260414214996  	x$d:0.003867539821464039  	 x$l(negative is good):-0.04285980023568925
-	 	 $w-$l: -33.40604833798555 -> -33.32419627733565  _ #Surrender#	 lift : 0.0818520606499007 : good	 :| stand
+[TimeMatrix: total:  o: 2.803208356E9 -> a: 1.28918257E8
+org->adv	$w:31.553124836647->31.583756209176794  	$d:3.507987117315799->3.5082913043107613  	$l:64.9388880460372->64.90795248651244
+	 improve value x$w(high is good):0.03063137252979331  	x$d:3.0418699496248536E-4  	 x$l(negative is good):-0.03093555952476379
+	 	 $w-$l: -33.3857632093902 -> -33.32419627733565  _ #Surrender#	 lift : 0.06156693205455199 : good	 :| stand
 
-[Prob_ROI diff: -0.03686364589686819 (up%-> -6.29053013240467) . o: 0.5860181116845933 -> a: 0.5491544657877251	 returnMoney: o:5.697233357176419 a: 0.07209356748698541 (probReturnRate: 0.012654136309191903	 totalSpendMoney: o: 9.72194074479866 a: 0.1312810365359991 (probTotalSpendRate: 0.013503583284668323
+[Prob_ROI diff: -0.038910734763397126 (up%-> -6.616738199689694) . o: 0.5880652005427981 -> a: 0.549154465779401	 returnMoney: o:5.717135031610474 a: 0.07209356748600833 (probReturnRate: 0.012610086535895603	 totalSpendMoney: o: 9.721940741151531 a: 0.13128103653620982 (probTotalSpendRate: 0.013503583289755788
 
-[Time_ROI diff: 8.185206064990069E-4 (up%-> 0.12291215434297399) . o: 0.6659395166201445 -> a: 0.6667580372266435	 returnMoney: o:4.030613892E11 a: 2.57871852E10 (timeReturnRate: 0.06397830675665224	 totalSpendMoney: o: 6.052522476E11 a: 3.86754771E10 (timeTotalSpendRate: 0.06389976617742345
+[Time_ROI diff: 6.156693205455754E-4 (up%-> 0.09242308404445498) . o: 0.6661423679060979 -> a: 0.6667580372266435	 returnMoney: o:5.602007556E11 a: 2.57871852E10 (timeReturnRate: 0.0460320428743099	 totalSpendMoney: o: 8.409625068E11 a: 3.86754771E10 (timeTotalSpendRate: 0.0459895379250218
 
-[[Per_Prob_ROI diff: 4.729932097221694E-5 (up%-> 357.5992574103177) . o: 1.3226906933406913E-5 -> a: 6.052622790562385E-5	 per returnMoney: o:1.2859120544354857E-4 a: 7.945945937064412E-6	 per totalSpendMoney: o: 2.1943213508178897E-4 a: 1.4469418773944571E-5
+[[Per_Prob_ROI diff: 5.115272900385365E-5 (up%-> 545.716487993615) . o: 9.373498900852733E-6 -> a: 6.052622790470638E-5	 per returnMoney: o:9.11286008513393E-5 a: 7.94594593695672E-6	 per totalSpendMoney: o: 1.549634305298553E-4 a: 1.4469418773967797E-5
 
  按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 3.9286562726763594
- 按net净收益值(代表少输多赢) :  $Change$  Value: 3.9655199185732277
- probRunR/probTalSR= 0.9370946986759534 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): $Change$  Value: 3.9067075057274585
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 3.9456182404908557     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9338326180031031 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Two2, 	playerStartValue=2	@@@ 
 
-net money diff:  0.6738024045756826 , up % -> 97.37752791781237 .  o: -0.6919485624490065 -> a: -0.018146157873323854 (anet/onet: 0.026224720821876327
+net money diff:  0.673802404712914 , up % -> 97.37752791821707 .  o: -0.6919485625870578 -> a: -0.01814615787414385 (anet/onet: 0.026224720817829263
 
-[ProbMatrix: total: o: 0.03240646916490661  -> a: 4.376034551643172E-4
-org->adv	$w:42.02860847895912->41.20997730666696  	$d:5.475731456337717->3.757669853924292  	$l:52.495660064703166->55.03235283940876
-	 improve value x$w(high is good):-0.8186311722921644  	x$d:-1.7180616024134245  	 x$l(negative is good):2.5366927747055925
-	 	 $w-$l: -10.467051585744041 -> -13.822375532741804  _ #Surrender#	 lift : -3.3553239469977623 : bad	 :| stand
+[ProbMatrix: total: o: 0.03240646916527196  -> a: 4.376034551639181E-4
+org->adv	$w:42.02860847897018->41.20997730662286  	$d:5.475731456269924->3.757669853927196  	$l:52.495660064759896->55.03235283944995
+	 improve value x$w(high is good):-0.8186311723473167  	x$d:-1.7180616023427278  	 x$l(negative is good):2.536692774690053
+	 	 $w-$l: -10.467051585789722 -> -13.822375532827092  _ #Surrender#	 lift : -3.3553239470373697 : bad	 :| stand
 
 [TimeMatrix: total:  o: 1.86502732E8 -> a: 1.3477945E7
 org->adv	$w:56.9896488165117->57.10990065622021  	$d:4.134120673363649->4.131431015633318  	$l:38.87623051012464->38.75866832814647
 	 improve value x$w(high is good):0.12025183970850861  	x$d:-0.002689657730330808  	 x$l(negative is good):-0.11756218197817248
 	 	 $w-$l: 18.113418306387064 -> 18.351232328073745  _ @double@	 lift : 0.23781402168668309 : good	 :) hit 
 
-[Prob_ROI diff: -0.07681581537806026 (up%-> -8.18415354726581) . o: 0.938592060063721 -> a: 0.8617762446856607	 returnMoney: o:10.576114869853381 a: 0.11313487867540153 (probReturnRate: 0.010697205927470222	 totalSpendMoney: o: 11.268063432302387 a: 0.1312810365487254 (probTotalSpendRate: 0.011650718629465588
+[Prob_ROI diff: -0.0768158153721682 (up%-> -8.184153546739402) . o: 0.9385920600520979 -> a: 0.8617762446799297	 returnMoney: o:10.576114869830644 a: 0.11313487867507079 (probReturnRate: 0.010697205927461945	 totalSpendMoney: o: 11.268063432417701 a: 0.13128103654921464 (probTotalSpendRate: 0.011650718629389777
 
 [Time_ROI diff: -0.004045434722914187 (up%-> -0.3406516184707327) . o: 1.1875577580036518 -> a: 1.1835123232807376	 returnMoney: o:6.79281432E10 a: 4.7853942E9 (timeReturnRate: 0.07044788764371819	 totalSpendMoney: o: 5.71998648E10 a: 4.0433835E9 (timeTotalSpendRate: 0.07068868980963046
 
-[[Per_Prob_ROI diff: 0.001272155331858219 (up%-> 292.89909739476946) . o: 4.343322813807131E-4 -> a: 0.001706487613238932	 per returnMoney: o:0.004894083697294485 a: 2.240294627235674E-4	 per totalSpendMoney: o: 0.0052142820140223915 a: 2.599624486113374E-4
+[[Per_Prob_ROI diff: 0.0012721553318522493 (up%-> 292.89909739702216) . o: 4.3433228137533455E-4 -> a: 0.0017064876132275838	 per returnMoney: o:0.004894083697283963 a: 2.2402946272291244E-4	 per totalSpendMoney: o: 0.0052142820140757525 a: 2.599624486123062E-4
 
  按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 0.5969865891976224
- 按net净收益值(代表少输多赢) :  $Change$  Value: 0.6738024045756826
- probRunR/probTalSR= 0.918158464527342 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.5969865893407458
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.673802404712914     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.918158464532606 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Three3, 	playerStartValue=2	@@@ 
 
-net money diff:  0.3495268541753379 , up % -> 96.22553616243813 .  o: -0.36323710744027693 -> a: -0.013710253264939049 (anet/onet: 0.03774463837561881
+net money diff:  0.34952685426376584 , up % -> 96.22553616318876 .  o: -0.3632371075293399 -> a: -0.013710253265574068 (anet/onet: 0.037744638368112336
 
-[ProbMatrix: total: o: 0.03240646916543177  -> a: 4.3760345516449025E-4
-org->adv	$w:43.3941410457297->42.960231507069835  	$d:5.22542734509634->3.63609928428861  	$l:51.38043160917395->53.40366920864156
-	 improve value x$w(high is good):-0.4339095386598615  	x$d:-1.5893280608077296  	 x$l(negative is good):2.0232375994676133
-	 	 $w-$l: -7.986290563444253 -> -10.443437701571723  _ #Surrender#	 lift : -2.457147138127469 : bad	 :| stand
+[ProbMatrix: total: o: 0.032406469165605425  -> a: 4.3760345516432583E-4
+org->adv	$w:43.39414104574539->42.96023150706212  	$d:5.22542734506559->3.6360992842894997  	$l:51.380431609189->53.40366920864839
+	 improve value x$w(high is good):-0.43390953868327387  	x$d:-1.5893280607760905  	 x$l(negative is good):2.023237599459385
+	 	 $w-$l: -7.98629056344361 -> -10.443437701586266  _ #Surrender#	 lift : -2.457147138142657 : bad	 :| stand
 
 [TimeMatrix: total:  o: 1.05324916E8 -> a: 7854265.0
 org->adv	$w:57.041678533121264->57.09385919624561  	$d:4.1340379516656816->4.133805009125615  	$l:38.82428351521306->38.77233579462877
 	 improve value x$w(high is good):0.05218066312434644  	x$d:-2.3294254006689386E-4  	 x$l(negative is good):-0.05194772058428754
 	 	 $w-$l: 18.217395017908206 -> 18.321523401616837  _ @double@	 lift : 0.10412838370862931 : good	 :) hit 
 
-[Prob_ROI diff: -0.07426800017254997 (up%-> -7.657808349661934) . o: 0.9698336231648922 -> a: 0.8955656229923422	 returnMoney: o:11.677887666203034 a: 0.11757078328429729 (probReturnRate: 0.010067812488431346	 totalSpendMoney: o: 12.041124773643311 a: 0.13128103654923634 (probTotalSpendRate: 0.010902722047743911
+[Prob_ROI diff: -0.07426800016986068 (up%-> -7.657808349441461) . o: 0.9698336231576961 -> a: 0.8955656229878354	 returnMoney: o:11.677887666194012 a: 0.11757078328407744 (probReturnRate: 0.010067812488420298	 totalSpendMoney: o: 12.041124773723352 a: 0.1312810365496515 (probTotalSpendRate: 0.010902722047705917
 
 [Time_ROI diff: -0.007440444662057288 (up%-> -0.6249031349111019) . o: 1.1906556786782256 -> a: 1.1832152340161683	 returnMoney: o:3.89216952E10 a: 2.7879858E9 (timeReturnRate: 0.0716306364785468	 totalSpendMoney: o: 3.26892954E10 a: 2.3562795E9 (timeTotalSpendRate: 0.07208107336568656
 
-[[Per_Prob_ROI diff: 0.0013091399141497732 (up%-> 281.98581852981437) . o: 4.642573591023897E-4 -> a: 0.001773397273252163	 per returnMoney: o:0.005590180788034004 a: 2.3281343224613326E-4	 per totalSpendMoney: o: 0.005764061643677985 a: 2.599624486123492E-4
+[[Per_Prob_ROI diff: 0.0013091399141442932 (up%-> 281.9858185307263) . o: 4.6425735909894495E-4 -> a: 0.001773397273243238	 per returnMoney: o:0.005590180788029685 a: 2.328134322456979E-4	 per totalSpendMoney: o: 0.005764061643716301 a: 2.599624486131713E-4
 
  按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 0.27525885400278793
- 按net净收益值(代表少输多赢) :  $Change$  Value: 0.3495268541753379
- probRunR/probTalSR= 0.9234219165033808 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.27525885409390516
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.34952685426376584     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9234219165055854 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Four4, 	playerStartValue=2	@@@ 
 
-net money diff:  0.004074579889025737 , up % -> 45.48946320256725 .  o: -0.008957194924199025 -> a: -0.004882615035173288 (anet/onet: 0.5451053679743275
+net money diff:  -0.004074579883760851 , up % -> -83.45077074431687 .  o: -0.004882615040482818 -> a: -0.00895719492424367 (anet/onet: 1.8345077074431686
 
-[ProbMatrix: total: o: 4.37603455164407E-4  -> a: 0.03240646916583721
-org->adv	$w:45.105345123119434->45.82935970538983  	$d:2.966393695202135->3.377985211916067  	$l:51.92826118167844->50.7926550826941
-	 improve value x$w(high is good):0.7240145822703923  	x$d:0.4115915167139321  	 x$l(negative is good):-1.13560609898434
-	 	 $w-$l: -6.822916058559003 -> -4.9632953773042665  _ #Surrender#	 lift : 1.8596206812547367 : good	 :) hit 
+[ProbMatrix: total: o: 0.03240646916577242  -> a: 4.376034551641727E-4
+org->adv	$w:45.829359705366265->45.105345123086764  	$d:3.3779852119231526->2.966393695203666  	$l:50.79265508271058->51.928261181709566
+	 improve value x$w(high is good):-0.7240145822795014  	x$d:-0.4115915167194868  	 x$l(negative is good):1.1356060989989842
+	 	 $w-$l: -4.963295377344318 -> -6.822916058622802  _ #Surrender#	 lift : -1.8596206812784843 : bad	 :| stand
 
-[TimeMatrix: total:  o: 2295469.0 -> a: 3.0739324E7
-org->adv	$w:68.51902595940089->68.44654098444065  	$d:4.762338328245774->4.764515966584041  	$l:26.718635712353333->26.788943048975312
-	 improve value x$w(high is good):-0.07248497496024697  	x$d:0.002177638338266341  	 x$l(negative is good):0.07030733662197974
-	 	 $w-$l: 41.80039024704756 -> 41.65759793546534  _ @double@	 lift : -0.14279231158221828 : bad	 :| stand
+[TimeMatrix: total:  o: 3.0739324E7 -> a: 2295469.0
+org->adv	$w:68.44654098444065->68.51902595940089  	$d:4.764515966584041->4.762338328245774  	$l:26.788943048975312->26.718635712353333
+	 improve value x$w(high is good):0.07248497496024697  	x$d:-0.002177638338266341  	 x$l(negative is good):-0.07030733662197974
+	 	 $w-$l: 41.65759793546534 -> 41.80039024704756  _ @double@	 lift : 0.14279231158221828 : good	 :) hit 
 
-[Prob_ROI diff: 0.06782366565374842 (up%-> 7.279007110392795) . o: 0.9317708394172521 -> a: 0.9995945050710006	 returnMoney: o:0.12232384162520724 a: 12.036242158635757 (probReturnRate: 98.39653495770732	 totalSpendMoney: o: 0.13128103654940626 a: 12.04112477367093 (probTotalSpendRate: 91.72021405497797
+[Prob_ROI diff: -0.06782366565365072 (up%-> -6.78511789626766) . o: 0.9995945050705601 -> a: 0.9317708394169094	 returnMoney: o:12.036242158645967 a: 0.1223238416251574 (probReturnRate: 0.010162959502878462	 totalSpendMoney: o: 12.04112477368645 a: 0.13128103654940107 (probTotalSpendRate: 0.01090272204771853
 
-[Time_ROI diff: -1.854992774774633E-4 (up%-> -0.013081718403897383) . o: 1.4180039024704756 -> a: 1.4178184031929981	 returnMoney: o:9.764952E8 a: 1.39778772E10 (timeReturnRate: 14.31433272790281	 totalSpendMoney: o: 6.886407E8 a: 9.8587218E9 (timeTotalSpendRate: 14.316205533596838
+[Time_ROI diff: 1.854992774774633E-4 (up%-> 0.013083429941359883) . o: 1.4178184031929981 -> a: 1.4180039024704756	 returnMoney: o:1.39778772E10 a: 9.764952E8 (timeReturnRate: 0.06986004999385743	 totalSpendMoney: o: 9.8587218E9 a: 6.886407E8 (timeTotalSpendRate: 0.06985091109884042
 
-[[Per_Prob_ROI diff: -0.0027263389277306406 (up%-> -74.0271877522207) . o: 0.003682888693348823 -> a: 9.565497656181824E-4	 per returnMoney: o:4.8349344515892186E-4 a: 0.011517935080034217	 per totalSpendMoney: o: 5.188973776656374E-4 a: 0.01152260743891955
+[[Per_Prob_ROI diff: 0.0027263389277297073 (up%-> 285.0179912980249) . o: 9.565497656177608E-4 -> a: 0.003682888693347468	 per returnMoney: o:0.011517935080043987 a: 4.834934451587249E-4	 per totalSpendMoney: o: 0.011522607438934402 a: 5.188973776656169E-4
 
- 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 0.07189824554277416
- 按net净收益值(代表少输多赢) :  $Change$  Value: 0.004074579889025737
- probRunR/probTalSR= 1.072790071103928 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.07189824553741157
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.004074579883760851     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9321488210373235 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Five5, 	playerStartValue=2	@@@ 
 
-net money diff:  0.44164610908757373 , up % -> 11681.149837743109 .  o: -0.0037808444821122444 -> a: 0.4378652646054615 (anet/onet: -115.81149837743109
+net money diff:  0.44164610906894997 , up % -> 11681.149837054325 .  o: -0.003780844482175749 -> a: 0.4378652645867742 (anet/onet: -115.81149837054325
 
-[ProbMatrix: total: o: 4.376034551646907E-4  -> a: 0.032406469165924504
-org->adv	$w:47.133428058588464->47.82670181654309  	$d:2.853181489435314->3.249054582978149  	$l:50.01339045197623->48.924243600478775
-	 improve value x$w(high is good):0.6932737579546284  	x$d:0.3958730935428352  	 x$l(negative is good):-1.0891468514974534
-	 	 $w-$l: -2.879962393387764 -> -1.0975417839356794  _ #Surrender#	 lift : 1.7824206094520845 : good	 :) hit 
+[ProbMatrix: total: o: 4.3760345516444406E-4  -> a: 0.03240646916592484
+org->adv	$w:47.13342805856603->47.82670181654003  	$d:2.8531814894368823->3.2490545829779083  	$l:50.01339045199708->48.92424360048205
+	 improve value x$w(high is good):0.6932737579739978  	x$d:0.39587309354102596  	 x$l(negative is good):-1.0891468515150322
+	 	 $w-$l: -2.879962393431051 -> -1.0975417839420187  _ #Surrender#	 lift : 1.7824206094890327 : good	 :) hit 
 
 [TimeMatrix: total:  o: 1384669.0 -> a: 1.8542524E7
 org->adv	$w:68.50741946270192->68.43491209718806  	$d:4.764171076264436->4.766362982730938  	$l:26.728409461033646->26.798724920080996
 	 improve value x$w(high is good):-0.07250736551385728  	x$d:0.00219190646650258  	 x$l(negative is good):0.07031545904735026
 	 	 $w-$l: 41.77901000166827 -> 41.63618717710706  _ @double@	 lift : -0.14282282456120066 : bad	 :| stand
 
-[Prob_ROI diff: 0.06516377369732695 (up%-> 6.709611662342314) . o: 0.9712003760673444 -> a: 1.0363641497646714	 returnMoney: o:0.1275001920672986 a: 12.478990038292796 (probReturnRate: 97.87428423406605	 totalSpendMoney: o: 0.13128103654941084 a: 12.041124773687335 (probTotalSpendRate: 91.72021405509973
+[Prob_ROI diff: 0.06516377369621096 (up%-> 6.709611662230766) . o: 0.9712003760668579 -> a: 1.036364149763069	 returnMoney: o:0.12750019206722274 a: 12.47899003829083 (probReturnRate: 97.87428423410886	 totalSpendMoney: o: 0.1312810365493985 a: 12.041124773704055 (probTotalSpendRate: 91.72021405523573
 
 [Time_ROI diff: -1.8550063956879193E-4 (up%-> -0.013083787195763972) . o: 1.4177901000166826 -> a: 1.4176045993771138	 returnMoney: o:5.88951E8 a: 8.4304404E9 (timeReturnRate: 14.314332431730314	 totalSpendMoney: o: 4.154007E8 a: 5.9469618E9 (timeTotalSpendRate: 14.316205533596838
 
-[[Per_Prob_ROI diff: -0.002847000635814865 (up%-> -74.16504138701185) . o: 0.003838736664297804 -> a: 9.91736028482939E-4	 per returnMoney: o:5.039533283292435E-4 a: 0.011941617261524207	 per totalSpendMoney: o: 5.188973776656555E-4 a: 0.011522607438935248
+[[Per_Prob_ROI diff: -0.0028470006358144754 (up%-> -74.16504138703887) . o: 0.003838736664295881 -> a: 9.917360284814056E-4	 per returnMoney: o:5.039533283289436E-4 a: 0.011941617261522324	 per totalSpendMoney: o: 5.188973776656066E-4 a: 0.01152260743895125
 
  按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 0.5068098827849007
- 按net净收益值(代表少输多赢) :  $Change$  Value: 0.44164610908757373
- probRunR/probTalSR= 1.0670961166234234 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.5068098827651609
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.44164610906894997     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0670961166223079 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Six6, 	playerStartValue=2	@@@ 
 
-net money diff:  0.6981392530453552 , up % -> 51515.805188520564 .  o: -0.001355194295208112 -> a: 0.696784058750147 (anet/onet: -514.1580518852056
+net money diff:  0.6981392530261005 , up % -> 51515.805186116406 .  o: -0.0013551942952339802 -> a: 0.6967840587308665 (anet/onet: -514.158051861164
 
-[ProbMatrix: total: o: 4.3760345516469695E-4  -> a: 0.03240646916601712
-org->adv	$w:48.044061082459265->48.80396073693846  	$d:2.8795929515254723->3.2807536784115907  	$l:49.07634596601526->47.91528558464995
-	 improve value x$w(high is good):0.7598996544791916  	x$d:0.40116072688611837  	 x$l(negative is good):-1.16106038136531
-	 	 $w-$l: -1.032284883555995 -> 0.8886751522885095  _ #Surrender#	 lift : 1.9209600358445045 : good	 :) hit 
+[ProbMatrix: total: o: 4.3760345516461916E-4  -> a: 0.03240646916600347
+org->adv	$w:48.0440610824553->48.80396073692577  	$d:2.879592951525948->3.280753678412845  	$l:49.07634596601875->47.91528558466137
+	 improve value x$w(high is good):0.7598996544704661  	x$d:0.40116072688689686  	 x$l(negative is good):-1.1610603813573803
+	 	 $w-$l: -1.0322848835634502 -> 0.8886751522643954  _ #Surrender#	 lift : 1.9209600358278456 : good	 :) hit 
 
 [TimeMatrix: total:  o: 786577.0 -> a: 1.0533292E7
 org->adv	$w:68.49348506249228->68.42096468986144  	$d:4.76583983513375->4.767930102004198  	$l:26.740675102373956->26.81110520813436
 	 improve value x$w(high is good):-0.07252037263084787  	x$d:0.0020902668704474436  	 x$l(negative is good):0.07043010576040487
 	 	 $w-$l: 41.752809960118334 -> 41.60985948172708  _ @double@	 lift : -0.14295047839125163 : bad	 :| stand
 
-[Prob_ROI diff: 0.06818987304131074 (up%-> 6.890112898033867) . o: 0.9896771511649557 -> a: 1.0578670242062664	 returnMoney: o:0.12992584225426304 a: 12.737908832446271 (probReturnRate: 98.03984035384094	 totalSpendMoney: o: 0.13128103654947115 a: 12.041124773696124 (probTotalSpendRate: 91.72021405512456
+[Prob_ROI diff: 0.06818987303984037 (up%-> 6.8901128978866835) . o: 0.9896771511647563 -> a: 1.0578670242045967	 returnMoney: o:0.12992584225420617 a: 12.737908832441232 (probReturnRate: 98.03984035384508	 totalSpendMoney: o: 0.13128103654944015 a: 12.041124773710365 (probTotalSpendRate: 91.72021405525469
 
 [Time_ROI diff: -1.8716159661225085E-4 (up%-> -0.013203378237433748) . o: 1.4175280996011834 -> a: 1.4173409380045712	 returnMoney: o:3.344985E8 a: 4.788117E9 (timeReturnRate: 14.31431531083099	 totalSpendMoney: o: 2.359731E8 a: 3.3782394E9 (timeTotalSpendRate: 14.316205533596838
 
-[[Per_Prob_ROI diff: -0.002899454454084737 (up%-> -74.12134108784443) . o: 0.003911767395908915 -> a: 0.0010123129418241781	 per returnMoney: o:5.13540878475348E-4 a: 0.012189386442532316	 per totalSpendMoney: o: 5.188973776658939E-4 a: 0.01152260743894366
+[[Per_Prob_ROI diff: -0.002899454454085547 (up%-> -74.12134108788007) . o: 0.0039117673959081275 -> a: 0.0010123129418225804	 per returnMoney: o:5.135408784751232E-4 a: 0.012189386442527494	 per totalSpendMoney: o: 5.188973776657713E-4 a: 0.011522607438957288
 
  按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 0.7663291260866659
- 按net净收益值(代表少输多赢) :  $Change$  Value: 0.6981392530453552
- probRunR/probTalSR= 1.0689011289803385 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.7663291260659408
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.6981392530261005     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.068901128978867 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Seven7, 	playerStartValue=2	@@@ 
 
-net money diff:  0.004999618737683717 , up % -> 29.908521598261068 .  o: -0.016716368681942484 -> a: -0.011716749944258767 (anet/onet: 0.7009147840173893
+net money diff:  -0.006031478954502345 , up % -> -106.08955958986441 .  o: -0.005685270989737035 -> a: -0.01171674994423938 (anet/onet: 2.060895595898644
 
-[ProbMatrix: total: o: 0.03240646916469638  -> a: 4.3760345516300397E-4
-org->adv	$w:43.434341605301675->40.93110124992979  	$d:9.48445447624941->9.212860393026254  	$l:47.08120391844891->49.85603835704396
-	 improve value x$w(high is good):-2.5032403553718865  	x$d:-0.2715940832231549  	 x$l(negative is good):2.7748344385950503
-	 	 $w-$l: -3.6468623131472313 -> -8.924937107114172  _ #Surrender#	 lift : -5.278074793966941 : bad	 :| stand
+[ProbMatrix: total: o: 0.032406469164574375  -> a: 4.3760345516271785E-4
+org->adv	$w:43.567228554101014->40.931101249908515  	$d:9.332146582038558->9.212860393028087  	$l:47.10062486386043->49.8560383570634
+	 improve value x$w(high is good):-2.636127304192499  	x$d:-0.11928618901047017  	 x$l(negative is good):2.7554134932029655
+	 	 $w-$l: -3.533396309759418 -> -8.924937107154884  _ #Surrender#	 lift : -5.391540797395466 : bad	 :| stand
 
-[TimeMatrix: total:  o: 2.64183604E8 -> a: 1.7429233E7
-org->adv	$w:31.43171140931214->31.435577228211937  	$d:3.55030208460628->3.553214303807861  	$l:65.01798650608158->65.01120846798021
-	 improve value x$w(high is good):0.003865818899797091  	x$d:0.0029122192015811343  	 x$l(negative is good):-0.00677803810137334
-	 	 $w-$l: -33.58627509676944 -> -33.57563123976827  _ #Surrender#	 lift : 0.0106438570011691 : good	 :| stand
+[TimeMatrix: total:  o: 2.99591476E8 -> a: 1.7429233E7
+org->adv	$w:31.427474925888742->31.435577228211937  	$d:3.5517232139141366->3.553214303807861  	$l:65.02080186019712->65.01120846798021
+	 improve value x$w(high is good):0.008102302323194976  	x$d:0.0014910898937245953  	 x$l(negative is good):-0.009593392216913799
+	 	 $w-$l: -33.59332693430838 -> -33.57563123976827  _ #Surrender#	 lift : 0.017695694540104112 : good	 :| stand
 
-[Prob_ROI diff: -0.08776585361593714 (up%-> -8.78962492351015) . o: 0.9985164825541578 -> a: 0.9107506289382207	 returnMoney: o:11.251347063125122 a: 0.11956428660386793 (probReturnRate: 0.010626664161460709	 totalSpendMoney: o: 11.268063431807064 a: 0.1312810365481267 (probTotalSpendRate: 0.011650718629924601
+[Prob_ROI diff: -0.08874482376086812 (up%-> -8.878962232515159) . o: 0.999495452699197 -> a: 0.9107506289383289	 returnMoney: o:11.262378160703571 a: 0.11956428660382931 (probReturnRate: 0.010616255723059473	 totalSpendMoney: o: 11.268063431693308 a: 0.1312810365480687 (probTotalSpendRate: 0.011650718630037072
 
-[Time_ROI diff: -8.103604267301057E-4 (up%-> -0.12184880749642647) . o: 0.6650540480290474 -> a: 0.6642436876023173	 returnMoney: o:5.27687028E10 a: 3.4731774E9 (timeReturnRate: 0.06581888914654162	 totalSpendMoney: o: 7.9344984E10 a: 5.2287699E9 (timeTotalSpendRate: 0.06589918651946543
+[Time_ROI diff: -6.316669063078928E-4 (up%-> -0.095005312202424) . o: 0.6648753545086252 -> a: 0.6642436876023173	 returnMoney: o:5.98170708E10 a: 3.4731774E9 (timeReturnRate: 0.05806331459480293	 totalSpendMoney: o: 8.99673456E10 a: 5.2287699E9 (timeTotalSpendRate: 0.05811853028594855
 
-[[Per_Prob_ROI diff: 7.705975689158654E-5 (up%-> 330.43697009258966) . o: 2.3320561518886375E-5 -> a: 1.0038031841047291E-4	 per returnMoney: o:2.6277756646017055E-4 a: 1.317803224995789E-5	 per totalSpendMoney: o: 2.631679807508014E-4 a: 1.446941877528124E-5
+[[Per_Prob_ROI diff: 7.996620406030416E-5 (up%-> 391.72017305564054) . o: 2.0414114350180696E-5 -> a: 1.0038031841048485E-4	 per returnMoney: o:2.300275353996767E-4 a: 1.3178032249953633E-5	 per totalSpendMoney: o: 2.3014365375897773E-4 a: 1.4469418775274847E-5
 
  按prb差值百分比 (不太重要) : !Not Change!  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.08276623487825342
- 按net净收益值(代表少输多赢) :  $Change$  Value: 0.004999618737683717
- probRunR/probTalSR= 0.9121037507648986 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): !Not Change!  Value: -0.09477630271537046
+
+ 按net净收益值(代表少输多赢) :  !Not Change!  Value: -0.006031478954502345     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9112103776748485 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Eight8, 	playerStartValue=2	@@@ 
 
-net money diff:  0.834658684136047 , up % -> 97.51164740928755 .  o: -0.8559579356020084 -> a: -0.021299251465961386 (anet/onet: 0.024883525907124508
+net money diff:  0.8126565028998175 , up % -> 97.44599742199608 .  o: -0.8339557543657303 -> a: -0.0212992514659128 (anet/onet: 0.02554002578003921
 
-[ProbMatrix: total: o: 0.03240646916540962  -> a: 4.3760345516371385E-4
-org->adv	$w:39.50622616244205->37.219735332759335  	$d:9.588104491587245->9.336364727999026  	$l:50.90566934597071->53.44389993924163
-	 improve value x$w(high is good):-2.2864908296827124  	x$d:-0.25173976358821903  	 x$l(negative is good):2.5382305932709244
-	 	 $w-$l: -11.399443183528657 -> -16.2241646064823  _ #Surrender#	 lift : -4.824721422953643 : bad	 :| stand
+[ProbMatrix: total: o: 0.03240646916536934  -> a: 4.376034551635536E-4
+org->adv	$w:39.625553609144355->37.21973533275032  	$d:9.575764300032459->9.336364728001028  	$l:50.79868209082319->53.44389993924865
+	 improve value x$w(high is good):-2.4058182763940366  	x$d:-0.2393995720314308  	 x$l(negative is good):2.6452178484254603
+	 	 $w-$l: -11.173128481678834 -> -16.22416460649833  _ #Surrender#	 lift : -5.051036124819497 : bad	 :| stand
 
-[TimeMatrix: total:  o: 1.58565172E8 -> a: 1.0461169E7
-org->adv	$w:31.422368084714087->31.42623926637644  	$d:3.551972938925075->3.5548990748548275  	$l:65.02565897636083->65.01886165876873
-	 improve value x$w(high is good):0.0038711816623546724  	x$d:0.002926135929752327  	 x$l(negative is good):-0.006797317592102559
-	 	 $w-$l: -33.60329089164675 -> -33.59262239239228  _ #Surrender#	 lift : 0.010668499254468111 : good	 :| stand
+[TimeMatrix: total:  o: 1.79817268E8 -> a: 1.0461169E7
+org->adv	$w:31.418119421100315->31.42623926637644  	$d:3.553296116143862->3.5548990748548275  	$l:65.02858446275582->65.01886165876873
+	 improve value x$w(high is good):0.00811984527612708  	x$d:0.0016029587109653853  	 x$l(negative is good):-0.009722803987088469
+	 	 $w-$l: -33.61046504165551 -> -33.59262239239228  _ #Surrender#	 lift : 0.01784264926322776 : good	 :| stand
 
-[Prob_ROI diff: -0.0862784656278035 (up%-> -9.337124214166316) . o: 0.9240368195691508 -> a: 0.8377583539413473	 returnMoney: o:10.41210549653937 a: 0.1099817850828259 (probReturnRate: 0.010562876559345284	 totalSpendMoney: o: 11.268063432141378 a: 0.13128103654878728 (probTotalSpendRate: 0.011650718629637558
+[Prob_ROI diff: -0.08823107987806889 (up%-> -9.528303094573799) . o: 0.9259894338197002 -> a: 0.8377583539416313	 returnMoney: o:10.43410767774072 a: 0.10998178508280482 (probReturnRate: 0.010540602845936798	 totalSpendMoney: o: 11.26806343210645 a: 0.13128103654871762 (probTotalSpendRate: 0.011650718629667491
 
-[Time_ROI diff: -8.100149387475497E-4 (up%-> -0.1218280472007309) . o: 0.6648837910148248 -> a: 0.6640737760760772	 returnMoney: o:3.16641012E10 a: 2.0840964E9 (timeReturnRate: 0.06581890282740759	 totalSpendMoney: o: 4.7623512E10 a: 3.1383507E9 (timeTotalSpendRate: 0.06589918651946543
+[Time_ROI diff: -6.301112124404984E-4 (up%-> -0.09479577665941884) . o: 0.6647038872885177 -> a: 0.6640737760760772	 returnMoney: o:3.58934388E10 a: 2.0840964E9 (timeReturnRate: 0.05806343637378094	 totalSpendMoney: o: 5.39991408E10 a: 3.1383507E9 (timeTotalSpendRate: 0.05811853028594855
 
-[[Per_Prob_ROI diff: 7.07542461176283E-5 (up%-> 327.85322963981497) . o: 2.158107339536051E-5 -> a: 9.233531951298881E-5	 per returnMoney: o:2.4317690395262093E-4 a: 1.2121876455728634E-5	 per totalSpendMoney: o: 2.631679807586094E-4 a: 1.4469418775354048E-5
+[[Per_Prob_ROI diff: 7.342252292349578E-5 (up%-> 388.2161084742172) . o: 1.8912796589524318E-5 -> a: 9.23353195130201E-5	 per returnMoney: o:2.1311059164928655E-4 a: 1.212187645572631E-5	 per totalSpendMoney: o: 2.301436537674159E-4 a: 1.446941877534637E-5
 
  按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 0.7483802185082435
- 按net净收益值(代表少输多赢) :  $Change$  Value: 0.834658684136047
- probRunR/probTalSR= 0.9066287578583369 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.7244254230217486
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.8126565028998175     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.904716969054262 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Nine9, 	playerStartValue=2	@@@ 
 
-net money diff:  1.7562605609944326 , up % -> 98.20961565594446 .  o: -1.7882776032309309 -> a: -0.03201704223649826 (anet/onet: 0.017903843440555414
+net money diff:  1.7315837820262858 , up % -> 98.18456411474078 .  o: -1.763600824262678 -> a: -0.03201704223639222 (anet/onet: 0.018154358852592298
 
-[ProbMatrix: total: o: 0.03240646916566996  -> a: 4.376034551638452E-4
-org->adv	$w:35.19673111079843->33.103216287322915  	$d:9.647829220350257->9.405397527687901  	$l:55.15543966885132->57.49138618498918
-	 improve value x$w(high is good):-2.093514823475516  	x$d:-0.24243169266235576  	 x$l(negative is good):2.3359465161378594
-	 	 $w-$l: -19.95870855805289 -> -24.388169897666263  _ #Surrender#	 lift : -4.429461339613372 : bad	 :| stand
+[ProbMatrix: total: o: 0.0324064691655058  -> a: 4.376034551638934E-4
+org->adv	$w:35.329268390031984->33.10321628732395  	$d:9.636580307323515->9.40539752768526  	$l:55.034151302644496->57.49138618499079
+	 improve value x$w(high is good):-2.2260521027080316  	x$d:-0.23118277963825484  	 x$l(negative is good):2.4572348823462917
+	 	 $w-$l: -19.704882912612508 -> -24.388169897666835  _ #Surrender#	 lift : -4.683286985054325 : bad	 :| stand
 
-[TimeMatrix: total:  o: 1.05755956E8 -> a: 6977137.0
-org->adv	$w:31.394199679874298->31.398064850955343  	$d:3.5541525434274357->3.5570750581506423  	$l:65.05164777669827->65.04486009089402
-	 improve value x$w(high is good):0.0038651710810455597  	x$d:0.002922514723206593  	 x$l(negative is good):-0.006787685804255261
-	 	 $w-$l: -33.65744809682398 -> -33.646795239938676  _ #Surrender#	 lift : 0.010652856885301487 : good	 :| stand
+[TimeMatrix: total:  o: 1.4827858E8 -> a: 6977137.0
+org->adv	$w:31.3922105269689->31.398064850955343  	$d:3.557331072363925->3.5570750581506423  	$l:65.05045840066718->65.04486009089402
+	 improve value x$w(high is good):0.005854323986444143  	x$d:-2.5601421328280694E-4  	 x$l(negative is good):-0.0055983097731626685
+	 	 $w-$l: -33.65824787369828 -> -33.646795239938676  _ #Surrender#	 lift : 0.011452633759601039 : good	 :| stand
 
-[Prob_ROI diff: -0.08517850973435415 (up%-> -10.124668089168063) . o: 0.8412968107614598 -> a: 0.7561183010271056	 returnMoney: o:9.479785828960372 a: 0.09926399431252428 (probReturnRate: 0.010471122038356255	 totalSpendMoney: o: 11.268063432191303 a: 0.13128103654902254 (probTotalSpendRate: 0.011650718629606817
+[Prob_ROI diff: -0.08736848488722326 (up%-> -10.358014653715388) . o: 0.8434867859149481 -> a: 0.7561183010277248	 returnMoney: o:9.504462607776402 a: 0.09926399431252882 (probReturnRate: 0.01044393548682201	 totalSpendMoney: o: 11.26806343203908 a: 0.13128103654892104 (probTotalSpendRate: 0.011650718629755202
 
-[Time_ROI diff: -8.099104196807039E-4 (up%-> -0.12191167664529225) . o: 0.6643419580202939 -> a: 0.6635320476006132	 returnMoney: o:2.11013448E10 a: 1.3888662E9 (timeReturnRate: 0.06581884771628393	 totalSpendMoney: o: 3.1762776E10 a: 2.0931411E9 (timeTotalSpendRate: 0.06589918651946543
+[Time_ROI diff: -5.393195685956531E-4 (up%-> -0.0812140976495726) . o: 0.6640713671692089 -> a: 0.6635320476006132	 returnMoney: o:2.95641672E10 a: 1.3888662E9 (timeReturnRate: 0.046978025479439176	 totalSpendMoney: o: 4.45195632E10 a: 2.0931411E9 (timeTotalSpendRate: 0.04701620926954647
 
-[[Per_Prob_ROI diff: 6.368852420650549E-5 (up%-> 324.1366787640352) . o: 1.9648663165599172E-5 -> a: 8.333718737210467E-5	 per returnMoney: o:2.2140238290773226E-4 a: 1.0940592341290011E-5	 per totalSpendMoney: o: 2.631679807597754E-4 a: 1.4469418775379977E-5
+[[Per_Prob_ROI diff: 6.956574970110973E-5 (up%-> 505.1451516008581) . o: 1.377143767106317E-5 -> a: 8.33371873721729E-5	 per returnMoney: o:1.5517743322791233E-4 a: 1.0940592341290513E-5	 per totalSpendMoney: o: 1.8397138617837157E-4 a: 1.4469418775368791E-5
 
  按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 1.6710820512600786
- 按net净收益值(代表少输多赢) :  $Change$  Value: 1.7562605609944326
- probRunR/probTalSR= 0.8987533191083192 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): $Change$  Value: 1.6442152971390624
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 1.7315837820262858     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.8964198534628461 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
 
 --------------------------------
 
 
 		 @@@   dealerCard=Ten, 	playerStartValue=2	@@@ 
 
-net money diff:  2.7877581984045516 , up % -> 98.44052585109321 .  o: -2.831921278662687 -> a: -0.044163080258135354 (anet/onet: 0.015594741489067946
+net money diff:  2.7742980676133726 , up % -> 98.4330782671446 .  o: -2.8184611478714565 -> a: -0.04416308025808381 (anet/onet: 0.015669217328554065
 
-[ProbMatrix: total: o: 0.032406469165942975  -> a: 4.376034551641211E-4
-org->adv	$w:30.36541427439755->28.461717408386626  	$d:9.867878313267996->9.43645887451807  	$l:59.766707412334455->62.10182371709531
-	 improve value x$w(high is good):-1.9036968660109252  	x$d:-0.4314194387499253  	 x$l(negative is good):2.3351163047608523
-	 	 $w-$l: -29.4012931379369 -> -33.64010630870868  _ #Surrender#	 lift : -4.238813170771777 : bad	 :| stand
+[ProbMatrix: total: o: 0.03240646916582846  -> a: 4.376034551643099E-4
+org->adv	$w:30.463770969012334->28.461717408376035  	$d:10.081732646061806->9.4364588745138  	$l:59.45449638492587->62.10182371711016
+	 improve value x$w(high is good):-2.0020535606362984  	x$d:-0.6452737715480055  	 x$l(negative is good):2.6473273321842896
+	 	 $w-$l: -28.990725415913538 -> -33.640106308734126  _ #Surrender#	 lift : -4.649380892820587 : bad	 :| stand
 
-[TimeMatrix: total:  o: 5.380606E7 -> a: 3493105.0
-org->adv	$w:31.3359164376652->31.357545793785185  	$d:3.559959603063298->3.5634199372764344  	$l:65.1041239592715->65.07903426893839
-	 improve value x$w(high is good):0.021629356119984067  	x$d:0.0034603342131362957  	 x$l(negative is good):-0.025089690333118142
-	 	 $w-$l: -33.7682075216063 -> -33.7214884751532  _ #Surrender#	 lift : 0.046719046453097546 : good	 :| stand
+[TimeMatrix: total:  o: 7.595434E7 -> a: 3493105.0
+org->adv	$w:31.326510111206286->31.357545793785185  	$d:3.5628141854698496->3.5634199372764344  	$l:65.11067570332386->65.07903426893839
+	 improve value x$w(high is good):0.031035682578899326  	x$d:6.057518065847312E-4  	 x$l(negative is good):-0.031641434385477396
+	 	 $w-$l: -33.784165592117574 -> -33.7214884751532  _ #Surrender#	 lift : 0.06267711696437694 : good	 :| stand
 
-[Prob_ROI diff: -0.06656583541316763 (up%-> -9.116549844080518) . o: 0.7301647723276542 -> a: 0.6635989369144866	 returnMoney: o:7.66308081239645 a: 0.0871179562911132 (probReturnRate: 0.011368528979908943	 totalSpendMoney: o: 10.495002091059137 a: 0.13128103654924855 (probTotalSpendRate: 0.012508909994509577
+[Prob_ROI diff: -0.04649380892581778 (up%-> -6.547568496954729) . o: 0.710092745840567 -> a: 0.6635989369147492	 returnMoney: o:6.903479601915572 a: 0.08711795629111403 (probReturnRate: 0.012619426914354987	 totalSpendMoney: o: 9.721940749787029 a: 0.13128103654919784 (probTotalSpendRate: 0.013503583279097203
 
-[Time_ROI diff: 4.887338157288923E-6 (up%-> 7.373995106489947E-4) . o: 0.6627802279103108 -> a: 0.6627851152484681	 returnMoney: o:1.07044488E10 a: 6.945534E8 (timeReturnRate: 0.06488455528882534	 totalSpendMoney: o: 1.6150827E10 a: 1.0479315E9 (timeTotalSpendRate: 0.06488407683396026
+[Time_ROI diff: 6.26771169643825E-4 (up%-> 0.09465578365787583) . o: 0.6621583440788242 -> a: 0.6627851152484681	 returnMoney: o:1.508814E10 a: 6.945534E8 (timeReturnRate: 0.04603306968254536	 totalSpendMoney: o: 2.2786302E10 a: 1.0479315E9 (timeTotalSpendRate: 0.0459895379250218
 
-[[Per_Prob_ROI diff: 5.6378076915845635E-5 (up%-> 336.3467400244691) . o: 1.676189188328216E-5 -> a: 7.31399687991278E-5	 per returnMoney: o:1.7591609036515346E-4 a: 9.601890917129196E-6	 per totalSpendMoney: o: 2.4092656484146684E-4 a: 1.4469418775404888E-5
+[[Per_Prob_ROI diff: 6.182140486016434E-5 (up%-> 546.1947751798249) . o: 1.1318563938992413E-5 -> a: 7.313996879915676E-5	 per returnMoney: o:1.1003840798756033E-4 a: 9.601890917129289E-6	 per totalSpendMoney: o: 1.549634306675013E-4 a: 1.44694187753993E-5
 
  按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=false, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
- 按prb+net净差值 (两维度综合): $Change$  Value: 2.721192362991384
- 按net净收益值(代表少输多赢) :  $Change$  Value: 2.7877581984045516
- probRunR/probTalSR= 0.9088345015591949 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好.)
+ 按prb+net净差值 (两维度综合): $Change$  Value: 2.727804258687555
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 2.7742980676133726     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 0.9345243150304526 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+MatrixKey [startValue=Two, dealerCard=Four4, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+
+
+		 @@@   dealerCard=Four4, 	playerStartValue=2	@@@ 
+
+net money diff:  0.004074579883760851 , up % -> 45.48946314356223 .  o: -0.00895719492424367 -> a: -0.004882615040482818 (anet/onet: 0.5451053685643776
+
+[ProbMatrix: total: o: 4.376034551641727E-4  -> a: 0.03240646916577242
+org->adv	$w:45.105345123086764->45.829359705366265  	$d:2.966393695203666->3.3779852119231526  	$l:51.928261181709566->50.79265508271058
+	 improve value x$w(high is good):0.7240145822795014  	x$d:0.4115915167194868  	 x$l(negative is good):-1.1356060989989842
+	 	 $w-$l: -6.822916058622802 -> -4.963295377344318  _ #Surrender#	 lift : 1.8596206812784843 : good	 :) hit 
+
+[TimeMatrix: total:  o: 2295469.0 -> a: 3.0739324E7
+org->adv	$w:68.51902595940089->68.44654098444065  	$d:4.762338328245774->4.764515966584041  	$l:26.718635712353333->26.788943048975312
+	 improve value x$w(high is good):-0.07248497496024697  	x$d:0.002177638338266341  	 x$l(negative is good):0.07030733662197974
+	 	 $w-$l: 41.80039024704756 -> 41.65759793546534  _ @double@	 lift : -0.14279231158221828 : bad	 :| stand
+
+[Prob_ROI diff: 0.06782366565365072 (up%-> 7.279007110384987) . o: 0.9317708394169094 -> a: 0.9995945050705601	 returnMoney: o:0.1223238416251574 a: 12.036242158645967 (probReturnRate: 98.39653495783087	 totalSpendMoney: o: 0.13128103654940107 a: 12.04112477368645 (probTotalSpendRate: 91.72021405509983
+
+[Time_ROI diff: -1.854992774774633E-4 (up%-> -0.013081718403897383) . o: 1.4180039024704756 -> a: 1.4178184031929981	 returnMoney: o:9.764952E8 a: 1.39778772E10 (timeReturnRate: 14.31433272790281	 totalSpendMoney: o: 6.886407E8 a: 9.8587218E9 (timeTotalSpendRate: 14.316205533596838
+
+[[Per_Prob_ROI diff: -0.0027263389277297073 (up%-> -74.02718775222259) . o: 0.003682888693347468 -> a: 9.565497656177608E-4	 per returnMoney: o:4.834934451587249E-4 a: 0.011517935080043987	 per totalSpendMoney: o: 5.188973776656169E-4 a: 0.011522607438934402
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.07189824553741157
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.004074579883760851     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0727900711038498 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
+
+		 @@@   dealerCard=Seven7, 	playerStartValue=2	@@@ 
+
+net money diff:  0.006031478954502345 , up % -> 51.47740613400872 .  o: -0.01171674994423938 -> a: -0.005685270989737035 (anet/onet: 0.48522593865991287
+
+[ProbMatrix: total: o: 4.3760345516271785E-4  -> a: 0.032406469164574375
+org->adv	$w:40.931101249908515->43.567228554101014  	$d:9.212860393028087->9.332146582038558  	$l:49.8560383570634->47.10062486386043
+	 improve value x$w(high is good):2.636127304192499  	x$d:0.11928618901047017  	 x$l(negative is good):-2.7554134932029655
+	 	 $w-$l: -8.924937107154884 -> -3.533396309759418  _ #Surrender#	 lift : 5.391540797395466 : good	 :) hit 
+
+[TimeMatrix: total:  o: 1.7429233E7 -> a: 2.99591476E8
+org->adv	$w:31.435577228211937->31.427474925888742  	$d:3.553214303807861->3.5517232139141366  	$l:65.01120846798021->65.02080186019712
+	 improve value x$w(high is good):-0.008102302323194976  	x$d:-0.0014910898937245953  	 x$l(negative is good):0.009593392216913799
+	 	 $w-$l: -33.57563123976827 -> -33.59332693430838  _ #Surrender#	 lift : -0.017695694540104112 : bad	 :| stand
+
+[Prob_ROI diff: 0.08874482376086812 (up%-> 9.744140815397387) . o: 0.9107506289383289 -> a: 0.999495452699197	 returnMoney: o:0.11956428660382931 a: 11.262378160703571 (probReturnRate: 94.19516881341781	 totalSpendMoney: o: 0.1312810365480687 a: 11.268063431693308 (probTotalSpendRate: 85.83161534962055
+
+[Time_ROI diff: 6.316669063078928E-4 (up%-> 0.09509565812932072) . o: 0.6642436876023173 -> a: 0.6648753545086252	 returnMoney: o:3.4731774E9 a: 5.98170708E10 (timeReturnRate: 17.22257861058292	 totalSpendMoney: o: 5.2287699E9 a: 8.99673456E10 (timeTotalSpendRate: 17.20621624600463
+
+[[Per_Prob_ROI diff: -7.996620406030416E-5 (up%-> -79.66323012973388) . o: 1.0038031841048485E-4 -> a: 2.0414114350180696E-5	 per returnMoney: o:1.3178032249953633E-5 a: 2.300275353996767E-4	 per totalSpendMoney: o: 1.4469418775274847E-5 a: 2.3014365375897773E-4
+
+ 按prb差值百分比 (不太重要) : $Change$  [isDouble()=false, isHit()=true, isSurrender()=false]	deckStatus=0	 ! DeckSet.resetValue= 0
+ 按prb+net净差值 (两维度综合): $Change$  Value: 0.09477630271537046
+
+ 按net净收益值(代表少输多赢) :  $Change$  Value: 0.006031478954502345     $$$最重要的指标,决定性的! 只有收益变高才是正事$$$
+ probRunR/probTalSR= 1.0974414081539738 ( > 1 代表Change后,花费单位$增长的收益率大于原本的方案; < 1  则说明原方案收益比更好. ) 每$的收益比固然重要,但有钱赚更重要.<1就是挣钱效率没有那么高了,但只要赚钱才重要.
+
+--------------------------------
+
 
 
 		 */
@@ -5490,6 +6399,7 @@ org->adv	$w:66.26756897449245->32.74065065901426  	$d:8.328995314940135->3.61204
 //		test9vs456();
 //		test9vs7();
 //		test11vs10();
+//		test11vsEveryone();
 //		test12vs2();
 //		test12vs3();
 //		test13vs2();
@@ -5502,11 +6412,11 @@ org->adv	$w:66.26756897449245->32.74065065901426  	$d:8.328995314940135->3.61204
 //		test16vs10();
 		
 //		testA2345vsAll();
-		testA6vsAll();
+//		testA6vsAll();
 //		testA7vsAll();
 
 //		test22vsAll();
-//		test33vsAll();
+		test33vsAll();
 //		test44vsAll();
 //		test44vs56();
 //		test55vsAll();

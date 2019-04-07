@@ -57,7 +57,8 @@ public class Seven8012 extends StrategyMatrix8012 {
 						}else {
 							changesMatrix.put(e.getKey(), PlayerAction.randomStartWithoutPairAction());
 						}
-					}else if(key.getSituation() == Situation.Three_More_Cards) {
+					}else if(key.getSituation() == Situation.Three_More_Cards 
+							|| key.getSituation() == Situation.A_Three_More_Cards) {
 						changesMatrix.put(e.getKey(), PlayerAction.randomThreeCardsAction());
 					}else if(key.getSituation() == Situation.Start_With_Pair) {
 						if(key.getDealerCard() == Card.One1) {

@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.math3.stat.Frequency;
+import org.shil.bjm.HelloWorld;
 import org.shil.bjm.anaylze.DealerVSPlayerChance;
 import org.shil.bjm.anaylze.DealerVSPlayerResult9102;
 import org.shil.bjm.anaylze.RivalAnalyze9102;
@@ -156,6 +157,28 @@ public class FileUtil {
 				out.write(roi.toString());
 				out.newLine();
 			}
+			out.flush();
+			out.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writePlayerCardsPathValues(PlayerCardsPathValue start, Card dealerCard, Collection<PlayerCardsPathValue> playerCardsPathValues) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
+		String fileName= start.getValue() +"_" +dealerCard.getValue()+"_collections" + sdf.format(Calendar.getInstance().getTime());
+		try {
+			BufferedWriter out=new BufferedWriter(new FileWriter(fileName,true));
+			
+			out.write(start.getCards().toString());
+			out.newLine();
+			out.write(dealerCard.getValue());
+			out.newLine();
+			for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues) {
+				out.write(playerCardsPathValue.toString());
+				out.newLine();
+			}
+			
 			out.flush();
 			out.close();
 		}catch(Exception e) {

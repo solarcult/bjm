@@ -1,5 +1,8 @@
 package org.shil.bjm.meta;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 玩家的牌玩法
  * @author vanis
@@ -30,7 +33,6 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		betMutiV = playerCardsPathValue.getBetMutiV();
 		splitTimes = playerCardsPathValue.getSplitTimes();
 		this.dsTimes = playerCardsPathValue.getDsTimes();
-
 	}
 	
 	public boolean isStartHand() {
@@ -66,6 +68,22 @@ public class PlayerCardsPathValue extends CardsPathValue{
 			withoutA = getCards().get(0);
 		}
 		return withoutA;
+	}
+	
+	public int getRestValueWithoutA() {
+		if(!isStartWithA()) {
+			throw new RuntimeException("this could not happend with A , no A in first two cards");
+		}		
+		int restValue = 0;
+		if(getCards().get(0).equals(Card.One1)){
+			restValue += getCards().get(1).getValue();
+		}else if(getCards().get(1).equals(Card.One1)){
+			restValue += getCards().get(0).getValue();
+		}
+		for(int i = 2;i<getCards().size();i++) {
+			restValue += getCards().get(i).getValue();
+		}
+		return restValue;
 	}
 	
 	public Card findPairCardFromFirstTwoCards() {
@@ -182,10 +200,29 @@ public class PlayerCardsPathValue extends CardsPathValue{
 				+ getDsTimes() + "]";
 	}
 
+
+	@Override
+	public double prob() {
+		return ProbUtil.calcProb(getCards(), splitTimes);
+	}
+
+	@Override
+	public double prob(DeckSet deckset) {
+		return ProbUtil.calcProb(getCards(), splitTimes,deckset);
+	}
+	
+	public int getDsTimes() {
+		return dsTimes;
+	}
+
+	public void setDsTimes(int dsTimes) {
+		this.dsTimes = dsTimes;
+	}
+	
 	public static void main(String[] args){
 		
-		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.KKK,Card.JJJ);
-		System.out.println(cardsPathValue.isStartWithPairs());
+		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.Two2,Card.One1,Card.Four4);
+		System.out.println(cardsPathValue.getRestValueWithoutA());
 		/*
 		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.One1,Card.One1);
 		cardsPathValue.addCard(Card.Eight8);
@@ -211,23 +248,5 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		System.out.println(cardsPathValue);
 		System.out.println(cardsPathValue3);
 		*/
-	}
-
-	@Override
-	public double prob() {
-		return ProbUtil.calcProb(getCards(), splitTimes);
-	}
-
-	@Override
-	public double prob(DeckSet deckset) {
-		return ProbUtil.calcProb(getCards(), splitTimes,deckset);
-	}
-	
-	public int getDsTimes() {
-		return dsTimes;
-	}
-
-	public void setDsTimes(int dsTimes) {
-		this.dsTimes = dsTimes;
 	}
 }

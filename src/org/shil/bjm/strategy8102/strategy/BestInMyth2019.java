@@ -76,9 +76,9 @@ public class BestInMyth2019 extends Seven8012 {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
 			}else if(dealerCard.getValue()==10){
 				//Done, not double, just hit
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
@@ -87,9 +87,9 @@ public class BestInMyth2019 extends Seven8012 {
 				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 			}else{
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(11), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 			}
 		}
 		//12
@@ -231,11 +231,11 @@ public class BestInMyth2019 extends Seven8012 {
 				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 8 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
 				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
 				MatrixKey Three_More_Cards = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Three_More_Cards);
-				notChangesMatrix.put(Three_More_Cards, PlayerAction.Hit);
+				changesMatrix.put(Three_More_Cards, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 9 ){
 				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(15), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
 				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
@@ -315,19 +315,84 @@ public class BestInMyth2019 extends Seven8012 {
 		/*
 		 * Situation.Start_With_A [2~7]
 		 */
-		for(int start = 2; start <= 5; start++) {
-			for(Card dealerCard : Card.values()){
-				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-				if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
-					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-					notChangesMatrix.put(start_With_A, PlayerAction.Double);
-				}else if(dealerCard.getValue() == 4 ){
-					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-					changesMatrix.put(start_With_A, PlayerAction.Double);
-				}else{
-					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-					changesMatrix.put(start_With_A, PlayerAction.Hit);
-				}
+		//2
+		for(Card dealerCard : Card.values()){
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else if(dealerCard.getValue() == 3){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else{
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}
+		}
+		//3
+		for(Card dealerCard : Card.values()){
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+			if(dealerCard.getValue() >=3 && dealerCard.getValue() <=5){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else if(dealerCard.getValue() == 6){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else{
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}
+		}
+		//4
+		for(Card dealerCard : Card.values()){
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+			if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else if(dealerCard.getValue() == 4){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else{
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}
+		}
+		//5
+		for(Card dealerCard : Card.values()){
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else if(dealerCard.getValue() == 3){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+			}else{
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}
 		}
 		//6
@@ -335,33 +400,53 @@ public class BestInMyth2019 extends Seven8012 {
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
-				notChangesMatrix.put(start_With_A, PlayerAction.Double);
+				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 3){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}
 		}
 		//7
 		for(Card dealerCard : Card.values()){
 			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 			//after test stand
-			if(dealerCard.getValue() >=3 && dealerCard.getValue() <=6){
+			if(dealerCard.getValue() == 4 || dealerCard.getValue() == 5){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
-				changesMatrix.put(start_With_A, PlayerAction.Stand);
-			}else if(dealerCard.getValue() >=9 && dealerCard.getValue() <=10){
+				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
+			}else if(dealerCard.getValue() ==6){
+				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
+				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
+			}
+			else if(dealerCard.getValue() >=9 && dealerCard.getValue() <=10){
 				//after test hit
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else if(dealerCard == Card.One1){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else {
 				//2,7,8
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Stand);
+				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
+				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
 			}
 		}
 		
@@ -377,10 +462,10 @@ public class BestInMyth2019 extends Seven8012 {
 					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
 						//22 vs 5 or 6
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
+						changesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
-					}else if((dealerCard==Card.Four4)){
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+					}else if(dealerCard==Card.Four4 || dealerCard == Card.Seven7){
 						//22 vs 4
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Split);
@@ -396,9 +481,9 @@ public class BestInMyth2019 extends Seven8012 {
 					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
 						//33 vs 5 or 6
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						notChangesMatrix.put(start_With_Pair, PlayerAction.Split);
+						changesMatrix.put(start_With_Pair, PlayerAction.Split);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
@@ -526,9 +611,9 @@ public class BestInMyth2019 extends Seven8012 {
 						notChangesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
 					}else if(dealerCard == Card.Two2){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);
 					}else if(dealerCard == Card.One1) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Hit);
@@ -629,8 +714,8 @@ public class BestInMyth2019 extends Seven8012 {
 
 		this.changesMatrix = changesMatrix;
 		this.one = new HashMap<>();
-		one.putAll(changesMatrix);
 		one.putAll(notChangesMatrix);
+		one.putAll(changesMatrix);
 	}
 	
 	public static void main(String[] args) {
