@@ -321,16 +321,22 @@ public class BestInMyth2019 extends Seven8012 {
 			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 3){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}
@@ -341,16 +347,22 @@ public class BestInMyth2019 extends Seven8012 {
 			if(dealerCard.getValue() >=3 && dealerCard.getValue() <=5){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Double);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}
@@ -361,16 +373,22 @@ public class BestInMyth2019 extends Seven8012 {
 			if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Double);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 4){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}
@@ -381,16 +399,22 @@ public class BestInMyth2019 extends Seven8012 {
 			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Double);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 3){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}
@@ -401,16 +425,22 @@ public class BestInMyth2019 extends Seven8012 {
 			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Double);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else if(dealerCard.getValue() == 3){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Double);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(6), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}
@@ -422,11 +452,15 @@ public class BestInMyth2019 extends Seven8012 {
 			if(dealerCard.getValue() == 4 || dealerCard.getValue() == 5){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Double);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
 			}else if(dealerCard.getValue() ==6){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Double);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Double);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
 			}
@@ -434,17 +468,23 @@ public class BestInMyth2019 extends Seven8012 {
 				//after test hit
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else if(dealerCard == Card.One1){
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
 			}else {
 				//2,7,8
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Stand);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Stand);
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
 			}

@@ -131,6 +131,8 @@ public abstract class StrategyMatrix8012{
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 				changesMatrix.put(start_With_A, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 				MatrixKey a_Three_More_Cards = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(a_Three_More_Cards, PlayerAction.Hit);
 			}
@@ -142,21 +144,31 @@ public abstract class StrategyMatrix8012{
 			if(dealerCard.getValue() == 4 || dealerCard.getValue() == 5){
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Stand);
 			}else if(dealerCard.getValue() ==6){
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Stand);
 			}
 			else if(dealerCard.getValue() >=9 && dealerCard.getValue() <=10){
 				//after test hit
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 			}else if(dealerCard == Card.One1){
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Hit);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Hit);
 			}else {
 				//2,7,8
 				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.A_Three_More_Cards);
 				changesMatrix.put(start_With_A_Three_More, PlayerAction.Stand);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(7), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Stand);
 			}
 		}
 		
@@ -170,8 +182,11 @@ public abstract class StrategyMatrix8012{
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 				notChangesMatrix.put(start_With_A, PlayerAction.Stand);
-				MatrixKey a_Three_More_Cards = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
-				notChangesMatrix.put(a_Three_More_Cards, PlayerAction.Stand);
+				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_With_A);
+				changesMatrix.put(splited_With_A, PlayerAction.Stand);
+				//A8以后当作19处理,不用特意计算
+//				MatrixKey a_Three_More_Cards = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
+//				notChangesMatrix.put(a_Three_More_Cards, PlayerAction.Stand);
 			}
 		}
 		

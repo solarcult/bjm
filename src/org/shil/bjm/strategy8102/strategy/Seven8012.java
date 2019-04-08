@@ -68,7 +68,8 @@ public class Seven8012 extends StrategyMatrix8012 {
 						}
 					}else if(key.getSituation() == Situation.Splited_Pair_And_Can_Split) {
 						changesMatrix.put(e.getKey(), PlayerAction.randomSplitedPairAndCanSplitAction());
-					}else if(key.getSituation() == Situation.Splited_Pair_And_Can_NOT_Split) {
+					}else if(key.getSituation() == Situation.Splited_Pair_And_Can_NOT_Split
+							|| key.getSituation() == Situation.Splited_With_A) {
 						changesMatrix.put(e.getKey(), PlayerAction.randomSplitedPairAndCanNotSplittAction());
 					}
 				}else {

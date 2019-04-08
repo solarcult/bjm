@@ -120,12 +120,12 @@ public class PlayerCardsPathValue extends CardsPathValue{
 				//AA only can split 1 time
 				if(this.splitTimes > 1){
 					// 12 is stand
-					throw new RuntimeException("A split too many times should not happend ");
+					throw new RuntimeException("A split too many times should not happend "+this.toString());
 				}
 			}else{
 				//other cards without A can only split 2 times
 				if(this.splitTimes > 2 ){
-					throw new RuntimeException("not A split too many times should not happend ");
+					throw new RuntimeException("not A split too many times should not happend "+this.toString());
 				}
 			}
 			//old code , i think not 严谨，为什么remove1而不是0，虽然这两个都是一样的牌 . this.getCards().remove(1);
@@ -140,7 +140,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 			this.setDsTimes(getDsTimes()+1);
 		}else if(action == PlayerAction.Giveup){
 			if(this.getDsTimes() > 1) {
-				throw new RuntimeException("split or double can not surrender!");
+				throw new RuntimeException("split or double can not surrender! "+this.toString());
 			}
 			this.betMutiV = 0.5;
 		}
