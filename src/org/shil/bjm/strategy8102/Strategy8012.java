@@ -13,6 +13,7 @@ import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.simulation.Casion6Deck;
 import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
 import org.shil.bjm.strategy8102.strategy.MatrixKey;
+import org.shil.bjm.strategy8102.strategy.Seven8012;
 import org.shil.bjm.strategy8102.strategy.Situation;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
@@ -300,7 +301,7 @@ public class Strategy8012 {
 	
 	public static void main(String[] args) {
 //		Card dealerCard = Card.Six6;
-		StrategyMatrix8012 strategyMatrix8012 = new BestInMyth2019();
+		StrategyMatrix8012 strategyMatrix8012 = new Seven8012();
 		
 //		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.One1,Card.Two2,Card.One1);
 //		playerCardsPathValue.setAction(PlayerAction.Hit);
@@ -313,10 +314,32 @@ public class Strategy8012 {
 //		
 //		Collection<PlayerCardsPathValue> result = generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), strategyMatrix8012, playerCardsPathValue2, dealerCard);
 //		HelloWorld.print(result);
-		Card dealerCard = Card.Five5;
-		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Three3,Card.Three3);
+		Card dealerCard = Card.Two2;
+		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Eight8,Card.Eight8);
+		playerCardsPathValue.setAction(PlayerAction.Split);
+		playerCardsPathValue.addCard(Card.One1);
+		playerCardsPathValue.setAction(PlayerAction.Init);
+		System.out.println(playerCardsPathValue);
 		Collection<PlayerCardsPathValue> result = generatePlayerCardsPaths(Casion6Deck.buildCasion6Deck(), strategyMatrix8012, new PlayerCardsPathValue(playerCardsPathValue), dealerCard);
-		HelloWorld.print(result);
-		FileUtil.writePlayerCardsPathValues(playerCardsPathValue, dealerCard, result);
+//		HelloWorld.print(result);
+//		FileUtil.writePlayerCardsPathValues(playerCardsPathValue, dealerCard, result);
+		
+		
+//		MatrixKey matrixKey = new MatrixKey(StartValue.getOne(8), Card.Two2, Situation.Splited_With_A);
+//		System.out.println(strategyMatrix8012.fetchPlayAction(matrixKey, 0));
+		
+		int count = 0;
+		PlayerAction playerAction = null;
+		if(playerCardsPathValue.getSplitTimes()==0) {
+			MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findFirstTwoCardsWithOutA().getValue()), dealerCard, Situation.Start_With_A);
+			playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
+		}
+		else if(playerCardsPathValue.getSplitTimes() > 0){
+			//说明是Split来的, Pair4+A这种两张牌的
+			MatrixKey matrixKey = new MatrixKey(StartValue.getOne(playerCardsPathValue.findFirstTwoCardsWithOutA().getValue()), dealerCard, Situation.Splited_With_A);
+			playerAction = strategyMatrix8012.fetchPlayAction(matrixKey, count);
+		}
+		
+		System.out.println(playerAction);
 	}
 }

@@ -218,7 +218,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	public void setDsTimes(int dsTimes) {
 		this.dsTimes = dsTimes;
 	}
-	
+
 	public static void main(String[] args){
 		
 		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.Two2,Card.One1,Card.Four4);

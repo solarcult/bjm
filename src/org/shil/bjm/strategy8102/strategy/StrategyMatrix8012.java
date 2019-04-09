@@ -183,7 +183,7 @@ public abstract class StrategyMatrix8012{
 				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
 				notChangesMatrix.put(start_With_A, PlayerAction.Stand);
 				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_With_A);
-				changesMatrix.put(splited_With_A, PlayerAction.Stand);
+				notChangesMatrix.put(splited_With_A, PlayerAction.Stand);
 				//A8以后当作19处理,不用特意计算
 //				MatrixKey a_Three_More_Cards = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
 //				notChangesMatrix.put(a_Three_More_Cards, PlayerAction.Stand);
@@ -241,6 +241,13 @@ public abstract class StrategyMatrix8012{
 				MatrixKey splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
 				changesMatrix.put(splited_Pair_And_Can_Split, PlayerAction.Split);
 			}
+		}
+		
+		//10,10
+		for(Card dealerCard : Card.values()) {
+			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+			MatrixKey splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(10), dealerCard, Situation.Splited_Pair_And_Can_Split);
+			changesMatrix.put(splited_Pair_And_Can_Split, PlayerAction.Stand);
 		}
 		
 		//对牌两次, 同时给了分牌后的普通牌场景
@@ -496,7 +503,8 @@ public abstract class StrategyMatrix8012{
 							loseProbs += multiProb * playtimes;
 							
 							probTotalSpendMoney += multiProb * ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();
-							timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();							continue;
+							timeTotalSpendMoney += ProfitUtil.BaseMoney * playerCardsPathValue.getBetMutiV();							
+							continue;
 						}
 					}
 				}

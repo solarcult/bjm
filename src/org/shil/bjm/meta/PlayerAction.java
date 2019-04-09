@@ -44,7 +44,7 @@ public enum PlayerAction {
 			case 4:
 				return Split;
 			default:
-				return null;
+				throw new RuntimeException("PlayerAction has wrong random number : "+r);
 		}
 	}
 	
@@ -71,7 +71,7 @@ public enum PlayerAction {
 			case 3:
 				return Split;
 			default:
-				return null;
+				throw new RuntimeException("PlayerAction has wrong random number : "+r);
 		}
 	}
 	
@@ -98,7 +98,7 @@ public enum PlayerAction {
 			case 3:
 				return Giveup;
 			default:
-				return null;
+				throw new RuntimeException("PlayerAction has wrong random number : "+r);
 		}
 	}
 	
@@ -123,7 +123,7 @@ public enum PlayerAction {
 			case 2:
 				return Double;
 			default:
-				return null;
+				throw new RuntimeException("PlayerAction has wrong random number : "+r);
 		}
 	}
 	
@@ -150,7 +150,7 @@ public enum PlayerAction {
 			case 3:
 				return Split;
 			default:
-				return null;
+				throw new RuntimeException("PlayerAction has wrong random number : "+r);
 		}
 	}
 	
@@ -175,7 +175,7 @@ public enum PlayerAction {
 			case 2:
 				return Double;
 			default:
-				return null;
+				throw new RuntimeException("PlayerAction has wrong random number : "+r);
 		}
 	}
 	
@@ -193,7 +193,7 @@ public enum PlayerAction {
 			case 1 :
 				return Stand;
 			default:
-				return null;
+				throw new RuntimeException("PlayerAction has wrong random number : "+r);
 		}
 	}
 	

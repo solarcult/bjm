@@ -814,5 +814,45 @@ org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [ParetoFrontVa
 org.shil.bjm.strategy8102.strategy.BestInMyth2019 StrategyMatrix8012 [ParetoFrontValue= 5.176543423525517 ,ParetotYPE= 0,	 roiFactor()= 2.361316713883152,	 probRateFactor()= 1.2747117726147976,	 timeRateFactor()= 1.5405149370275677,	 timeRoi= 0.7871055712943841,	 probRoi= 1.027962713160494,	 totalTimes: 1.83783754E9,	 getTimeRates= w:36.678927072084946 $d:3.6712619331956837 $l:59.64981099471937,	 totalProbs: 1.9305026843327888,	 getProbRate= w:45.525420450528486 $d:7.684016461964621 $l:46.79056308750689,	 timeMoneyReturn= 4.4496629535E11,	 timeTotalSpead= 5.653197126E11,	 probMoneyReturn= 663.7900247498026,	 probTotalSpead= 645.7335623672238
 
 
+---------------------2019-April-09----------------------------
+
+MatrixKey [startValue=Two, dealerCard=Five5, situation=Start_With_A] : Double -> Hit
+MatrixKey [startValue=Two, dealerCard=Six6, situation=Start_With_A] : Double -> Hit
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Three, dealerCard=Four4, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Three, dealerCard=Four4, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Three, dealerCard=Five5, situation=Start_With_A] : Double -> Hit
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Four, dealerCard=Five5, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Four, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Four, dealerCard=Six6, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Five, dealerCard=Four4, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Five, dealerCard=Five5, situation=Start_With_Pair] : Double -> Split
+MatrixKey [startValue=Five, dealerCard=Five5, situation=Splited_Pair_And_Can_Split] : Double -> Split
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Start_With_Pair] : Double -> Split
+MatrixKey [startValue=Five, dealerCard=Six6, situation=Splited_Pair_And_Can_Split] : Double -> Split
+MatrixKey [startValue=Six, dealerCard=Three3, situation=Start_With_A] : Hit -> Double
+MatrixKey [startValue=Seven, dealerCard=Four4, situation=Start_With_A] : Stand -> Double
+MatrixKey [startValue=Seven, dealerCard=Five5, situation=Start_With_A] : Stand -> Double
+MatrixKey [startValue=Seven, dealerCard=Six6, situation=Start_With_A] : Stand -> Double
+MatrixKey [startValue=Eight, dealerCard=Eight8, situation=Start_With_Pair] : Giveup -> Hit
+MatrixKey [startValue=Eight, dealerCard=Nine9, situation=Splited_Pair_And_Can_Split] : Stand -> Hit
+MatrixKey [startValue=Eight, dealerCard=Ten, situation=Splited_Pair_And_Can_Split] : Stand -> Hit
+MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Start_Hand_WithoutA_WithoutPair] : Stand -> Hit
+MatrixKey [startValue=Twelve, dealerCard=Three3, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Fifteen, dealerCard=Nine9, situation=Start_Hand_WithoutA_WithoutPair] : Giveup -> Hit
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Fifteen, dealerCard=Ten, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair] : Giveup -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Three_More_Cards] : Stand -> Hit
+
+org.shil.bjm.strategy8102.strategy.Finally2047 StrategyMatrix8012 [ParetoFrontValue= 1.0279969489533636 ,ParetotYPE= 4,	 roiFactor()= 1.0279969489533636,	 probRateFactor()= 0.0,	 timeRateFactor()= 0.0,	 timeRoi= 0.7650189463967941,	 probRoi= 1.0279969489533636,	 totalTimes: 2.571647839E9,	 getTimeRates= w:35.83274852120994 $d:3.6365264552072283 $l:60.53072502358283,	 totalProbs: 1.8345960835024682,	 getProbRate= w:45.379362825764815 $d:7.644599588514839 $l:46.97603758572035,	 timeMoneyReturn= 4.0036678E11,	 timeTotalSpead= 5.233423066E11,	 probMoneyReturn= 421.3544524667884,	 probTotalSpead= 409.8790885476681
+org.shil.bjm.strategy8102.strategy.BestInMyth2019 StrategyMatrix8012 [ParetoFrontValue= 1.028496616729486 ,ParetotYPE= 4,	 roiFactor()= 1.028496616729486,	 probRateFactor()= 0.0,	 timeRateFactor()= 0.0,	 timeRoi= 0.7624762581160047,	 probRoi= 1.028496616729486,	 totalTimes: 3.117053977E9,	 getTimeRates= w:35.7186581693898 $d:3.639355969997692 $l:60.641985860612515,	 totalProbs: 2.026409277993398,	 getProbRate= w:45.59951460805145 $d:7.45415792659365 $l:46.94632746535491,	 timeMoneyReturn= 4.834977201E11,	 timeTotalSpead= 6.34115115E11,	 probMoneyReturn= 471.8924584878414,	 probTotalSpead= 458.8177061665123
+
  */
 }
