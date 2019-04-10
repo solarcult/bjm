@@ -94,25 +94,107 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 		/*
 		 * Situation.Start_With_A [2~7]
 		 */
-//		for(int start = 2; start <= 5; start++) {
-//			for(Card dealerCard : Card.values()){
-//				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-//				if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
-//					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-//					this.getOne().put(start_With_A, PlayerAction.Hit);
-//					MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
-//					this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
-//				}else if(dealerCard.getValue() == 4 ){
-//					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-//					this.getOne().put(start_With_A, PlayerAction.Hit);
-//					MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
-//					this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
-//				}else{
-//					MatrixKey start_With_A = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_A);
-//					this.getOne().put(start_With_A, PlayerAction.Hit);
-//					MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.A_Three_More_Cards);
-//					this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
-//				}
+//		for(Card dealerCard : Card.values()){
+//			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}else if(dealerCard.getValue() == 3){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}else{
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(2), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}
+//		}
+//		//3
+//		for(Card dealerCard : Card.values()){
+//			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//			if(dealerCard.getValue() >=3 && dealerCard.getValue() <=5){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}else if(dealerCard.getValue() == 6){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Hit);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Double);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}else{
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(3), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}
+//		}
+//		//4
+//		for(Card dealerCard : Card.values()){
+//			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//			if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Hit);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Double);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}else if(dealerCard.getValue() == 4){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}else{
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(4), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}
+//		}
+//		//5
+//		for(Card dealerCard : Card.values()){
+//			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//			if(dealerCard.getValue() >=4 && dealerCard.getValue() <=6){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Hit);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Double);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}else if(dealerCard.getValue() == 3){
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
+//			}else{
+//				MatrixKey start_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Start_With_A);
+//				this.getOne().put(start_With_A, PlayerAction.Double);
+//				MatrixKey splited_With_A = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.Splited_With_A);
+//				this.getOne().put(splited_With_A, PlayerAction.Hit);
+//				MatrixKey start_With_A_Three_More = new MatrixKey(StartValue.getOne(5), dealerCard, Situation.A_Three_More_Cards);
+//				this.getOne().put(start_With_A_Three_More, PlayerAction.Hit);
 //			}
 //		}
 		//6
@@ -180,24 +262,24 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 			for(Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
 				if(start == 2) {
-//					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
-//						//22 vs 5 or 6
-//						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-//						this.getOne().put(start_With_Pair, PlayerAction.Hit);
-//						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-//					}else if(dealerCard==Card.Four4 || dealerCard == Card.Seven7){
-//						//22 vs 4
-//						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-//						this.getOne().put(start_With_Pair, PlayerAction.Hit);
-//						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
-//					}else {
-//						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-//						this.getOne().put(start_With_Pair, PlayerAction.Split);
-//						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-//						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
-//					}
+					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)){
+						//22 vs 5 or 6
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+						this.getOne().put(start_With_Pair, PlayerAction.Hit);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+					}else if(dealerCard==Card.Four4 || dealerCard == Card.Seven7){
+						//22 vs 4
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+						this.getOne().put(start_With_Pair, PlayerAction.Hit);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Hit);
+					}else {
+						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
+						this.getOne().put(start_With_Pair, PlayerAction.Split);
+						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
+						this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+					}
 				}else if(start == 3) {
 //					if((dealerCard==Card.Five5) || (dealerCard==Card.Six6)|| (dealerCard==Card.Four4)){
 //						//33 vs 5 or 6
@@ -384,13 +466,13 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 			}
 		}
 		
-		for(Card dealerCard : Card.values()) {
-			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			MatrixKey start_With_Pair = new MatrixKey(StartValue.Ten, dealerCard, Situation.Start_With_Pair);
-			this.getOne().put(start_With_Pair, PlayerAction.Split);
-			MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.Ten, dealerCard, Situation.Splited_Pair_And_Can_Split);
-			this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
-		}
+//		for(Card dealerCard : Card.values()) {
+//			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//			MatrixKey start_With_Pair = new MatrixKey(StartValue.Ten, dealerCard, Situation.Start_With_Pair);
+//			this.getOne().put(start_With_Pair, PlayerAction.Split);
+//			MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.Ten, dealerCard, Situation.Splited_Pair_And_Can_Split);
+//			this.getOne().put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
+//		}
 		
 	}
 	
@@ -399,7 +481,7 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 		StrategyMatrix8012 two = new BestInMyth2019();
 		System.out.println(two.diffWith(one));
 //		System.out.println(one.getCalcResult());
-		StrategyMatrix8012 three = new Finally2047();
+//		StrategyMatrix8012 three = new Finally2047();
 //		System.out.println(three.diffWith(one));
 	}
 	
