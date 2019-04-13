@@ -552,9 +552,9 @@ public class BestInMyth2019 extends Seven8012 {
 				}else if(start == 5) {
 					if(dealerCard == Card.Six6 || dealerCard == Card.Five5) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);
+						changesMatrix.put(start_With_Pair, PlayerAction.Double);
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Double);
 					}else if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
 						changesMatrix.put(start_With_Pair, PlayerAction.Double);
@@ -684,9 +684,9 @@ public class BestInMyth2019 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else if(dealerCard==Card.Seven7) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
+						changesMatrix.put(start_With_Pair, PlayerAction.Split);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else {
 						// 9, 10, A
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
