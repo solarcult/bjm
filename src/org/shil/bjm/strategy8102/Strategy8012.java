@@ -11,7 +11,7 @@ import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.simulation.Casion6Deck;
-import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
+import org.shil.bjm.strategy8102.strategy.Myth2019April13;
 import org.shil.bjm.strategy8102.strategy.MatrixKey;
 import org.shil.bjm.strategy8102.strategy.Seven8012;
 import org.shil.bjm.strategy8102.strategy.Situation;

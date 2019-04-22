@@ -13,9 +13,9 @@ import org.shil.bjm.meta.StartValue;
  * @since 2019 April 01 23:26
  * @author shil
  */
-public class BestInMyth2019 extends Seven8012 {
+public class Myth2019April13 extends Seven8012 {
 
-	public BestInMyth2019() {
+	public Myth2019April13() {
 
 		super();
 		Map<MatrixKey,PlayerAction> changesMatrix = new HashMap<>();
@@ -758,7 +758,7 @@ public class BestInMyth2019 extends Seven8012 {
 	}
 	
 	public static void main(String[] args) {
-		StrategyMatrix8012 one = new BestInMyth2019();
+		StrategyMatrix8012 one = new Myth2019April13();
 		StrategyMatrix8012 two = new Finally2047();
 		System.out.println(two.diffWith(one));
 		

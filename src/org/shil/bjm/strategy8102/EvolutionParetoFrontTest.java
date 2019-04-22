@@ -9,13 +9,13 @@ import java.util.concurrent.CompletableFuture;
 import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.simulation.RealMatch;
 import org.shil.bjm.strategy8102.comparator.ParetoComparator;
-import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
+import org.shil.bjm.strategy8102.strategy.Myth2019April13;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class EvolutionParetoFrontTest {
 
-	static int write2disk = 2;
-	static int print2screen = 1;
+	static int write2disk = 250;
+	static int print2screen = 50;
 	static int generation = 25000;
 	static int popluation = Runtime.getRuntime().availableProcessors()/2 ;
 	static int producePopluation = popluation/2;
@@ -24,7 +24,7 @@ public class EvolutionParetoFrontTest {
 		
 		List<StrategyMatrix8012> evos = new ArrayList<>();
 		
-		StrategyMatrix8012 origin = new BestInMyth2019();
+		StrategyMatrix8012 origin = new Myth2019April13();
 		evos.add(origin);
 		
 		//Very important to check below value and understand what its meaning : [0,1,2,3,4,5,6]

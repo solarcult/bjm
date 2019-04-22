@@ -12,7 +12,7 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.anaylze.DealerVSPlayerChance;
 import org.shil.bjm.anaylze.DealerVSPlayerResult9102;
 import org.shil.bjm.anaylze.RivalAnalyze9102;
-import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
+import org.shil.bjm.strategy8102.strategy.Myth2019April13;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.Result;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
@@ -105,7 +105,7 @@ public class FileUtil {
 			out.newLine();
 			out.write("Zero lift diff with BestInMyth2019 :");
 			out.newLine();
-			out.write(new BestInMyth2019().diffWith(evos.get(0)));
+			out.write(new Myth2019April13().diffWith(evos.get(0)));
 			out.newLine();
 			out.write(something);
 			out.newLine();
@@ -120,7 +120,7 @@ public class FileUtil {
 				out.write(new Finally2047().diffWith(evos.get(1)));
 				out.write("First lift diff with BestInMyth2019 :");
 				out.newLine();
-				out.write(new BestInMyth2019().diffWith(evos.get(1)));
+				out.write(new Myth2019April13().diffWith(evos.get(1)));
 				out.newLine();
 				out.newLine();
 			}
@@ -135,7 +135,7 @@ public class FileUtil {
 				out.newLine();
 				out.write("Second lift diff with BestInMyth2019 :");
 				out.newLine();
-				out.write(new BestInMyth2019().diffWith(evos.get(2)));
+				out.write(new Myth2019April13().diffWith(evos.get(2)));
 				out.newLine();
 			}
 			out.flush();

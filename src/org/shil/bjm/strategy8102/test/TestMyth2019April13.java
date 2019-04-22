@@ -11,7 +11,7 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.simulation.Casion6Deck;
 import org.shil.bjm.strategy8102.Strategy8012;
-import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
+import org.shil.bjm.strategy8102.strategy.Myth2019April13;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 import org.shil.bjm.strategy8102.strategy.test.MirBestInMyth2019;
 
@@ -19,10 +19,10 @@ import org.shil.bjm.strategy8102.strategy.test.MirBestInMyth2019;
  * Prob_ROI diff: -0.028001286829884453 (up%-> -2.636997498340324) . o: 1.0618624722817496 -> a: 1.0338611854518651	来判断 o a的数据判断是否投降，当o或者a都小于0.5时，投降
  * 选择哪一个行为change or not change 根据net money diff:  -0.00365773254643797 , up % -> -23.129611590863142 ，上一条的up和这一条的up相加，判断是否大于0来决定。绝对ROI的提升比率来定义.
  */
-public class TestBestInMyth2019 {
+public class TestMyth2019April13 {
 	
 	public static void test8vs6() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Six6;
@@ -73,7 +73,7 @@ org->adv	$w:68.53598532594994->61.74629487591855  	$d:5.012474681178444->3.86965
 	}
 	
 	public static void test9vs2() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Two2;
@@ -129,7 +129,7 @@ org->adv	$w:57.72744408190793->65.6816262533974  	$d:4.292221590948193->4.517562
 	}
 	
 	public static void test9vs3() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Three3;
@@ -184,7 +184,7 @@ org->adv	$w:57.71141993735706->65.66084208339721  	$d:4.294728886217896->4.51953
 	}
 	
 	public static void test9vs456() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		for(Card dealerCard : Card.values()) {
@@ -290,7 +290,7 @@ org->adv	$w:69.29044708909618->65.61595368285622  	$d:5.057574782888389->4.52037
 	}
 	
 	public static void test9vs7() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 a = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Seven7;
@@ -342,7 +342,7 @@ org->adv	$w:31.583368815954522->65.55079485844712  	$d:3.5686603950992692->4.536
 	}
 	
 	public static void test11vsEveryone() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		System.out.println(t.diffWith(o));
 		
@@ -668,7 +668,7 @@ org->adv	$w:71.96803196803197->31.651205936920224  	$d:5.174825174825175->3.5837
 	}
 	
 	public static void test11vs10() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.JJJ;
@@ -718,7 +718,7 @@ org->adv	$w:37.06210887558038->71.96803196803197  	$d:3.639055245272862->5.17482
 	}
 	
 	public static void test12vs2() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Two2;
@@ -768,7 +768,7 @@ org->adv	$w:46.568594955570866->57.960208325527375  	$d:3.233830128805587->0.0  
 	}
 	
 	public static void test12vs3() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Three3;
@@ -819,7 +819,7 @@ org->adv	$w:46.55495600650876->57.937375425962834  	$d:3.2355865056951663->0.0  
 	
 	
 	public static void test13vs2() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Two2;
@@ -868,7 +868,7 @@ org->adv	$w:57.960208325527375->42.11011739206876  	$d:0.0->3.233830128805587  	
 	}
 	
 	public static void test14vs10() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Ten;
@@ -917,7 +917,7 @@ org->adv	$w:0.0->30.38430956798304  	$d:0.0->3.45613570103366  	$l:100.0->66.159
 	}
 	
 	public static void test15vs9() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Nine9;
@@ -995,7 +995,7 @@ org->adv	$w:57.737321196358906->29.815344603381018  	$d:0.0->3.3810143042912877 
 	}
 
 	public static void test15vs10() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.JJJ;
@@ -1104,7 +1104,7 @@ org->adv	$w:29.77662337662338->0.0  	$d:3.387012987012987->0.0  	$l:66.836363636
 	}
 	
 	public static void test16vs7() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Seven7;
@@ -1151,7 +1151,7 @@ org->adv	$w:28.70299923917831->57.78240499739719  	$d:3.247507307892524->0.0  	$
 	}
 	
 	public static void test16vs8() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Eight8;
@@ -1232,7 +1232,7 @@ org->adv	$w:28.694375875642137->0.0  	$d:3.249049302822069->0.0  	$l:68.05657482
 	}
 	
 	public static void test16vs9() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.Nine9;
@@ -1318,7 +1318,7 @@ org->adv	$w:28.668600580174054->0.0  	$d:3.2509752925877766->0.0  	$l:68.0804241
 	}
 	
 	public static void test16vs10() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		Card dealerCard = Card.JJJ;
@@ -1367,7 +1367,7 @@ org->adv	$w:57.66233766233766->28.63136863136863  	$d:0.0->3.2567432567432566  	
 	}
 	
 	public static void testA2345vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -2518,7 +2518,7 @@ org->adv	$w:31.2386786766952->64.11588411588411  	$d:3.55759942536802->3.2567432
 	}
 	
 	public static void testA6vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -3153,7 +3153,7 @@ org->adv	$w:31.373515950889164->64.11588411588411  	$d:3.577592758346985->5.1748
 	}
 	
 	public static void testA7vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -3616,7 +3616,7 @@ org->adv	$w:66.22708266323578->66.26172155281193  	$d:8.394982309424252->5.17603
 	}
 	
 	public static void test22vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -3959,7 +3959,7 @@ org->adv	$w:31.326510111206286->31.357545793785185  	$d:3.5628141854698496->3.56
 	}
 	
 	public static void test33vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -4301,7 +4301,7 @@ org->adv	$w:31.340667907405457->31.38078389927859  	$d:3.5639610502788943->3.565
 	}
 	
 	public static void test44vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -4644,7 +4644,7 @@ org->adv	$w:31.35149525106466->31.464389903245067  	$d:3.564627500584806->3.5768
 	}
 	
 	public static void test55vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -4988,7 +4988,7 @@ org->adv	$w:31.361004311235195->31.580367684263788  	$d:3.565478133974799->3.589
 	}
 	
 	public static void test66vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -5330,7 +5330,7 @@ org->adv	$w:31.381269543535673->30.856604535361008  	$d:3.567579474206507->3.509
 	}
 	
 	public static void test77vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -5672,7 +5672,7 @@ org->adv	$w:31.43886116796108->0.0  	$d:3.575003499267991->0.0  	$l:64.986135332
 	}
 	
 	public static void test88vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -6015,7 +6015,7 @@ org->adv	$w:31.475077447219064->0.0  	$d:3.57809920781482->0.0  	$l:64.946823344
 	}
 	
 	public static void test99vsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));
@@ -6344,7 +6344,7 @@ org->adv	$w:32.66070064389392->65.97402597402598  	$d:3.619993451926225->8.31168
 	}
 	
 	public static void test99vs7() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(o.diffWith(t));
@@ -6405,7 +6405,7 @@ org->adv	$w:66.26756897449245->32.74065065901426  	$d:8.328995314940135->3.61204
 	}
 	
 	public static void testTTvsAll() {
-		StrategyMatrix8012 o = new BestInMyth2019();
+		StrategyMatrix8012 o = new Myth2019April13();
 		StrategyMatrix8012 t = new MirBestInMyth2019();
 		
 		System.out.println(t.diffWith(o));

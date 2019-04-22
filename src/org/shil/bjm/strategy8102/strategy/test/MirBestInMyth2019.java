@@ -3,13 +3,13 @@ package org.shil.bjm.strategy8102.strategy.test;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
-import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
+import org.shil.bjm.strategy8102.strategy.Myth2019April13;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.MatrixKey;
 import org.shil.bjm.strategy8102.strategy.Situation;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
-public class MirBestInMyth2019 extends BestInMyth2019 {
+public class MirBestInMyth2019 extends Myth2019April13 {
 
 	public MirBestInMyth2019() {
 		super();
@@ -478,7 +478,7 @@ public class MirBestInMyth2019 extends BestInMyth2019 {
 	
 	public static void main(String[] args) {
 		StrategyMatrix8012 one = new MirBestInMyth2019();
-		StrategyMatrix8012 two = new BestInMyth2019();
+		StrategyMatrix8012 two = new Myth2019April13();
 		System.out.println(two.diffWith(one));
 //		System.out.println(one.getCalcResult());
 //		StrategyMatrix8012 three = new Finally2047();

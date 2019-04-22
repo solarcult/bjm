@@ -9,7 +9,7 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.strategy8102.EvolutionOneWayTest;
 import org.shil.bjm.strategy8102.Strategy8012;
-import org.shil.bjm.strategy8102.strategy.BestInMyth2019;
+import org.shil.bjm.strategy8102.strategy.Myth2019April13;
 import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.Standard2017;
@@ -32,7 +32,7 @@ public class RealMatch {
 		for(int i=0;i<looptime;i++) {
 			
 //			String result = testSelectedStrategy(new Finally2046(),new Finally2047(), new Finally2049(),new BestInMyth2019(), new Standard2017());
-			String result = testSameStartCard(new Finally2046(),new Finally2047(), new Finally2049(),new BestInMyth2019(), new Standard2017());
+			String result = testSameStartCard(new Finally2046(),new Finally2047(), new Finally2049(),new Myth2019April13(), new Standard2017());
 			System.out.println(result);
 			System.out.println();
 			
