@@ -690,9 +690,9 @@ public class Myth2019April22 extends Seven8012 {
 						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
 					}else if(dealerCard==Card.Seven7) {
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
-						changesMatrix.put(start_With_Pair, PlayerAction.Split);	
+						changesMatrix.put(start_With_Pair, PlayerAction.Stand);	
 						MatrixKey Splited_Pair_And_Can_Split = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Splited_Pair_And_Can_Split);
-						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Split);	
+						changesMatrix.put(Splited_Pair_And_Can_Split, PlayerAction.Stand);	
 					}else {
 						// 9, 10, A
 						MatrixKey start_With_Pair = new MatrixKey(StartValue.getOne(start), dealerCard, Situation.Start_With_Pair);
