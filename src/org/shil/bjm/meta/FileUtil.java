@@ -12,10 +12,10 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.anaylze.DealerVSPlayerChance;
 import org.shil.bjm.anaylze.DealerVSPlayerResult9102;
 import org.shil.bjm.anaylze.RivalAnalyze9102;
-import org.shil.bjm.strategy8102.strategy.Myth2019April13;
-import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.Result;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2047;
+import org.shil.bjm.strategy8102.strategy.practise.Myth2019April13;
 
 public class FileUtil {
 	

@@ -9,8 +9,8 @@ import java.util.concurrent.CompletableFuture;
 import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.simulation.RealMatch;
 import org.shil.bjm.strategy8102.comparator.ParetoComparator;
-import org.shil.bjm.strategy8102.strategy.Myth2019April13;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.practise.Myth2019April13;
 
 public class EvolutionParetoFrontTest {
 

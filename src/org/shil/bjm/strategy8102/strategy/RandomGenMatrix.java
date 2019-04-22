@@ -6,6 +6,7 @@ import java.util.Map;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.strategy8102.strategy.practise.Standard2017;
 
 public class RandomGenMatrix extends Standard2017 {
 	public RandomGenMatrix() {

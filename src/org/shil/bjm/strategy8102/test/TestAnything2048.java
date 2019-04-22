@@ -7,12 +7,12 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
-import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.MatrixKey;
 import org.shil.bjm.strategy8102.strategy.Seven8012;
 import org.shil.bjm.strategy8102.strategy.Situation;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
-import org.shil.bjm.strategy8102.strategy.test.Finally2046;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2046;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2047;
 
 /**
  * will use this next time

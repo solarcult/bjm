@@ -1,17 +1,15 @@
-package org.shil.bjm.strategy8102.strategy.test;
+package org.shil.bjm.strategy8102.strategy.practise;
 
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
-import org.shil.bjm.strategy8102.strategy.Myth2019April13;
-import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.MatrixKey;
 import org.shil.bjm.strategy8102.strategy.Situation;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
-public class MirBestInMyth2019 extends Myth2019April13 {
+public class MirMyth2019Apirl13 extends Myth2019April13 {
 
-	public MirBestInMyth2019() {
+	public MirMyth2019Apirl13() {
 		super();
 		
 //		MatrixKey start_Hand_WithoutA_WithoutPair86 = new MatrixKey(StartValue.getOne(8), Card.Six6, Situation.Start_Hand_WithoutA_WithoutPair);
@@ -477,7 +475,7 @@ public class MirBestInMyth2019 extends Myth2019April13 {
 	}
 	
 	public static void main(String[] args) {
-		StrategyMatrix8012 one = new MirBestInMyth2019();
+		StrategyMatrix8012 one = new MirMyth2019Apirl13();
 		StrategyMatrix8012 two = new Myth2019April13();
 		System.out.println(two.diffWith(one));
 //		System.out.println(one.getCalcResult());

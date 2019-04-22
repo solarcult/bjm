@@ -9,14 +9,14 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.strategy8102.EvolutionOneWayTest;
 import org.shil.bjm.strategy8102.Strategy8012;
-import org.shil.bjm.strategy8102.strategy.Myth2019April13;
-import org.shil.bjm.strategy8102.strategy.Finally2047;
-import org.shil.bjm.strategy8102.strategy.Finally2049;
-import org.shil.bjm.strategy8102.strategy.Standard2017;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
-import org.shil.bjm.strategy8102.strategy.test.Finally2051;
-import org.shil.bjm.strategy8102.strategy.test.Pareto2Mar26;
-import org.shil.bjm.strategy8102.strategy.test.Finally2046;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2046;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2047;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2049;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2051;
+import org.shil.bjm.strategy8102.strategy.practise.Myth2019April13;
+import org.shil.bjm.strategy8102.strategy.practise.Pareto2Mar26;
+import org.shil.bjm.strategy8102.strategy.practise.Standard2017;
 
 
 public class RealMatch {

@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102.strategy;
+package org.shil.bjm.strategy8102.strategy.practise;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +11,10 @@ import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
+import org.shil.bjm.strategy8102.strategy.MatrixKey;
+import org.shil.bjm.strategy8102.strategy.Seven8012;
+import org.shil.bjm.strategy8102.strategy.Situation;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 public class Standard2017 extends Seven8012 {
 
@@ -719,7 +723,7 @@ public class Standard2017 extends Seven8012 {
 	}
 	
 	public static void main(String[] args) {
-		
+		/*
 		StrategyMatrix8012 one = new Standard2017();
 		List<StrategyMatrix8012> s = new ArrayList<>();
 		one.timeRates = new Double[] { 10d,20d,30d};
@@ -743,7 +747,7 @@ public class Standard2017 extends Seven8012 {
 			}
 		}
 		System.out.println(count);
-		
+		*/
 	}
 
 }

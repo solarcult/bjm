@@ -9,8 +9,8 @@ import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.WinRateUtil;
 import org.shil.bjm.simulation.Casion6Deck;
 import org.shil.bjm.strategy8102.Strategy8012;
-import org.shil.bjm.strategy8102.strategy.Finally2047;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2047;
 
 public class TestAnything {
 

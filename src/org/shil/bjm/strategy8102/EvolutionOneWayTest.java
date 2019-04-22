@@ -11,9 +11,9 @@ import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.strategy8102.comparator.PureReturnComparator;
 import org.shil.bjm.strategy8102.comparator.ROIComparator;
 import org.shil.bjm.strategy8102.comparator.WdlRateWithDSWithProbRateComparator;
-import org.shil.bjm.strategy8102.strategy.Finally2049;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
-import org.shil.bjm.strategy8102.strategy.test.Standard2018;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2049;
+import org.shil.bjm.strategy8102.strategy.practise.Standard2018;
 import org.shil.bjm.strategy8102.comparator.WDLwDsTimesByPureByRawRateComparator;
 
 /**

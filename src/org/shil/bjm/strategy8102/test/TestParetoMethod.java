@@ -6,11 +6,11 @@ import java.util.List;
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.strategy8102.EvolutionOneWayTest;
 import org.shil.bjm.strategy8102.EvolutionParetoFrontTest;
-import org.shil.bjm.strategy8102.strategy.Finally2047;
-import org.shil.bjm.strategy8102.strategy.Standard2017;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
-import org.shil.bjm.strategy8102.strategy.test.Finally2046;
-import org.shil.bjm.strategy8102.strategy.test.Standard2018;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2046;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2047;
+import org.shil.bjm.strategy8102.strategy.practise.Standard2017;
+import org.shil.bjm.strategy8102.strategy.practise.Standard2018;
 
 public class TestParetoMethod {
 

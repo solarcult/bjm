@@ -15,8 +15,8 @@ import org.shil.bjm.strategy8102.strategy.MatrixKey;
 import org.shil.bjm.strategy8102.strategy.RandomGenMatrix;
 import org.shil.bjm.strategy8102.strategy.Result;
 import org.shil.bjm.strategy8102.strategy.Situation;
-import org.shil.bjm.strategy8102.strategy.Standard2017;
 import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
+import org.shil.bjm.strategy8102.strategy.practise.Standard2017;
 
 public class TestA {
 	

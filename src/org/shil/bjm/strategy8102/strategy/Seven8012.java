@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.FileUtil;
 import org.shil.bjm.meta.PlayerAction;
+import org.shil.bjm.strategy8102.strategy.practise.Standard2017;
 
 /**
  * 进化打牌方案类，带有evolve()进化函数,LOL

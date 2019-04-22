@@ -13,6 +13,7 @@ import org.shil.bjm.meta.PlayerCardsPathValue;
 import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.simulation.Casion6Deck;
 import org.shil.bjm.strategy8102.Strategy8012;
+import org.shil.bjm.strategy8102.strategy.practise.Finally2047;
 
 /**
  * 为了概率论分析写的程序

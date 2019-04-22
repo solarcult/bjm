@@ -1,4 +1,4 @@
-package org.shil.bjm.strategy8102.strategy;
+package org.shil.bjm.strategy8102.strategy.practise;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,6 +7,10 @@ import org.shil.bjm.HelloWorld;
 import org.shil.bjm.meta.Card;
 import org.shil.bjm.meta.PlayerAction;
 import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.strategy8102.strategy.MatrixKey;
+import org.shil.bjm.strategy8102.strategy.Seven8012;
+import org.shil.bjm.strategy8102.strategy.Situation;
+import org.shil.bjm.strategy8102.strategy.StrategyMatrix8012;
 
 /**
  * 我要选择这个做为接下来去澳门的主力玩法，这是一个追求价值的玩法，有些激进。
