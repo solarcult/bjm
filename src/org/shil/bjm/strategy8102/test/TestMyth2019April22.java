@@ -6719,7 +6719,7 @@ org->adv	$w:31.521405494245712->82.5974025974026  	$d:3.583454973226716->9.09090
 	}
 
 	public static void main(String[] args) {
-		test8vs6();
+//		test8vs6();
 //		test9vs2();
 //		test9vs3();
 //		test9vs456();
@@ -6741,7 +6741,7 @@ org->adv	$w:31.521405494245712->82.5974025974026  	$d:3.583454973226716->9.09090
 //		testA6vsAll();
 //		testA7vsAll();
 
-//		test22vsAll();
+		test22vsAll();
 //		test33vsAll();
 //		test44vsAll();
 //		test44vs56();

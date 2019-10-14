@@ -29,36 +29,36 @@ public class MirMyth2019April22 extends Myth2019April22 {
 		 * DealerCard  (One ~ K)
 		 */
 		
-		//8
-		for(Card dealerCard : Card.values()){
-			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
-			if(dealerCard == Card.Two2) {
-				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
-				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
-			}else if(dealerCard == Card.Three3) {
-				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
-				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
-			}else if(dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6 ){
-				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
-				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
-			}else if(dealerCard == Card.Seven7 ){
-				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
-				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
-			}else{
-				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
-				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
-				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
-				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
-			}
-		}
+//		//8
+//		for(Card dealerCard : Card.values()){
+//			if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue;
+//			if(dealerCard == Card.Two2) {
+//				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
+//				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+//				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+//				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+//			}else if(dealerCard == Card.Three3) {
+//				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
+//				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
+//				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+//				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
+//			}else if(dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6 ){
+//				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
+//				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Double);
+//				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+//				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Double);
+//			}else if(dealerCard == Card.Seven7 ){
+//				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
+//				changesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+//				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+//				changesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+//			}else{
+//				MatrixKey start_Hand_WithoutA_WithoutPair = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Start_Hand_WithoutA_WithoutPair);
+//				notChangesMatrix.put(start_Hand_WithoutA_WithoutPair, PlayerAction.Hit);
+//				MatrixKey Splited_Pair_And_Can_NOT_Split = new MatrixKey(StartValue.getOne(8), dealerCard, Situation.Splited_Pair_And_Can_NOT_Split);
+//				notChangesMatrix.put(Splited_Pair_And_Can_NOT_Split, PlayerAction.Hit);
+//			}
+//		}
 		
 		//9
 		for(Card dealerCard : Card.values()){
@@ -775,6 +775,25 @@ public class MirMyth2019April22 extends Myth2019April22 {
 		System.out.println(two.diffWith(one));
 		
 		HelloWorld.printStrategyMatrix8012(one,two);
+		
+		/**
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Splited_Pair_And_Can_Split] : Hit -> Split
+MatrixKey [startValue=Two, dealerCard=Seven7, situation=Start_With_Pair] : Hit -> Split
+MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Start_Hand_WithoutA_WithoutPair] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Seven7, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Start_Hand_WithoutA_WithoutPair] : Giveup -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Eight8, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Nine9, situation=Three_More_Cards] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Splited_Pair_And_Can_NOT_Split] : Stand -> Hit
+MatrixKey [startValue=Sixteen, dealerCard=Ten, situation=Three_More_Cards] : Stand -> Hit
+
+org.shil.bjm.strategy8102.strategy.Myth2019April22 StrategyMatrix8012 [ParetoFrontValue= 1.0285301495009005 ,ParetotYPE= 4,	 roiFactor()= 1.0285301495009005,	 probRateFactor()= 0.0,	 timeRateFactor()= 0.0,	 timeRoi= 0.7896190141273972,	 probRoi= 1.0285301495009005,	 totalTimes: 2.575873744E9,	 getTimeRates= w:37.00351409770028 $d:3.6575102805194013 $l:59.33897562178032,	 totalProbs: 1.9305026834673789,	 getProbRate= w:45.54402457213763 $d:7.4423853973961025 $l:47.01359003046626,	 timeMoneyReturn= 4.148267881E11,	 timeTotalSpead= 5.25350556E11,	 probMoneyReturn= 447.5081507650286,	 probTotalSpead= 435.094830212011
+org.shil.bjm.strategy8102.strategy.practise.MirMyth2019April22 StrategyMatrix8012 [ParetoFrontValue= 1.0288135852253528 ,ParetotYPE= 4,	 roiFactor()= 1.0288135852253528,	 probRateFactor()= 0.0,	 timeRateFactor()= 0.0,	 timeRoi= 0.7604395314757735,	 probRoi= 1.0288135852253528,	 totalTimes: 3.109304431E9,	 getTimeRates= w:35.638874275286426 $d:3.636983914232874 $l:60.7241418104807,	 totalProbs: 1.9624715489759899,	 getProbRate= w:45.54575139636914 $d:7.607754463245225 $l:46.84649414038563,	 timeMoneyReturn= 4.806712641E11,	 timeTotalSpead= 6.320966286E11,	 probMoneyReturn= 455.2699210348125,	 probTotalSpead= 442.5193519728742
+
+		 */
 	}
 	
 /*
