@@ -87,32 +87,32 @@ public class DealerCards {
 26 : AnalyzeStatus [value=26, precent=0.04079998405933234, tillPct=1.0000000000000029, prob=0.003242382839152231, tillProb=0.07947019867549673, totalProb=0.07947019867549648]
 ---
 		 */
-		System.out.println(StartOne.size());
+		System.out.println("One:" + StartOne.size());
 //		HelloWorld.print(DealerCards.StartOne);
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.One1));
-		System.out.println(StartTwo.size());
+		System.out.println("2:" +StartTwo.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Two2));
-		System.out.println(StartThree.size());
+		System.out.println("3:" +StartThree.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Three3));
-		System.out.println(StartFour.size());
+		System.out.println("4:" +StartFour.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Four4));
-		System.out.println(StartFive.size());
+		System.out.println("5:" +StartFive.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Five5));
-		System.out.println(StartSix.size());
+		System.out.println("6:" +StartSix.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Six6));
-		System.out.println(StartSeven.size());
+		System.out.println("7:" +StartSeven.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Seven7));
-		System.out.println(StartEight.size());
+		System.out.println("8:" +StartEight.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Eight8));
-		System.out.println(StartNine.size());
+		System.out.println("9:" +StartNine.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Nine9));
-		System.out.println(StartTen.size());
+		System.out.println("T:" +StartTen.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.Ten));
-		System.out.println(StartJ.size());
+		System.out.println("J:" +StartJ.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.JJJ));
-		System.out.println(StartQ.size());
+		System.out.println("Q:" +StartQ.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.QQQ));
-		System.out.println(StartK.size());
+		System.out.println("K:" +StartK.size());
 		HelloWorld.printMap(analyzeDealerCardValuePrecent(Card.KKK));
 	}
 	

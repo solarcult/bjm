@@ -78,6 +78,13 @@ public class PlayersVSDealersResultChanceProb {
 		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
 		return calcPlayerVSDealerAnaylzeStatusProb(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
 	}
+
+	public static double[] calcPlayerVSDealerAnaylzeStatusPrecent(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
+		Collection<PlayerCardsPathValue> players = new HashSet<PlayerCardsPathValue>();
+		players.add(playerCardsPathValue);
+		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
+		return calcPlayerVSDealerAnaylzeStatusPrecent(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
+	}
 	
 	/**
 	 * 计算现在玩家所有出牌可能与庄家的出牌可能概率
@@ -89,10 +96,16 @@ public class PlayersVSDealersResultChanceProb {
 		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
 		return calcPlayerVSDealerAnaylzeStatus(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
 	}
-	
-	public static double[] calcPlayerVSDealerAnaylzeStatusProb(Collection<PlayerCardsPathValue> players, Card dealerCard){
+
+//	@Deprecated
+//	public static double[] calcPlayerVSDealerAnaylzeStatusProb(Collection<PlayerCardsPathValue> players, Card dealerCard){
+//		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
+//		return calcPlayerVSDealerAnaylzeStatusProb(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
+//	}
+
+	public static double[] calcPlayerVSDealerAnaylzeStatusPrecent(Collection<PlayerCardsPathValue> players, Card dealerCard){
 		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
-		return calcPlayerVSDealerAnaylzeStatusProb(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
+		return calcPlayerVSDealerAnaylzeStatusPrecent(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
 	}
 	
 	/*
@@ -131,6 +144,7 @@ public class PlayersVSDealersResultChanceProb {
 	 * @param playermap
 	 * @param dealermap
 	 * @return
+	 * @deprecated 换位计算完带prob的方法
 	 */
 	public static double[] calcPlayerVSDealerAnaylzeStatusProb(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
 		double winrate = 0;
@@ -157,6 +171,7 @@ public class PlayersVSDealersResultChanceProb {
 				
 		return new double[]{winrate,drawrate,loserate};
 	}
+
 	
 	/**
 	 * 如果上层结果直接展示这个百分比结论是没问题的，但拿来再进一步处理就没有原始的好，请使用calcPlayerVSDealerAnaylzeStatusProb
@@ -192,10 +207,39 @@ public class PlayersVSDealersResultChanceProb {
 		
 		return new double[]{winrate/totalrate,drawrate/totalrate,loserate/totalrate};
 	}
+
+	public static double[] calcPlayerVSDealerAnaylzeStatusPrecent(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
+		double winrate = 0;
+		double drawrate = 0;
+		double loserate = 0;
+
+		for(Entry<Integer,AnalyzeStatus> pe : playermap.entrySet()){
+			for(Entry<Integer,AnalyzeStatus> de : dealermap.entrySet()){
+				AnalyzeStatus pa = pe.getValue();
+				AnalyzeStatus da = de.getValue();
+				if(pa.getValue() > BlackJackInfo.BlackJack){
+					loserate += pa.getPrecent() * da.getPrecent();
+				}else if(da.getValue() > BlackJackInfo.BlackJack){
+					winrate += pa.getPrecent() * da.getPrecent();
+				}else if(pa.getValue() > da.getValue()){
+					winrate += pa.getPrecent() * da.getPrecent();
+				}else if(pa.getValue() < da.getValue()){
+					loserate += pa.getPrecent() * da.getPrecent();
+				}else if(pa.getValue() == da.getValue()){
+					drawrate += pa.getPrecent() * da.getPrecent();
+				}
+			}
+		}
+
+		//由于这里返回的是比率，上层拿这个处理结果再进行预测有一些隔着靴子挠痒痒的感觉，原始数据更有意义些。 如果上层结果直接展示这个结论是没问题的，但拿来再进一步处理就没有原始的好
+		double totalrate = winrate + drawrate + loserate;
+
+		return new double[]{winrate/totalrate,drawrate/totalrate,loserate/totalrate};
+	}
 	
 	public static void main(String[] args){
 //		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(GenerateCardsUtil.hitPlayerOneMoreCard(new PlayerCardsPathValue(Card.Four4,Card.Six6)), Card.Six6));
 		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(OneStrategy.SELF.generatePlayerCardsPaths(new PlayerCardsPathValue(Card.Two2,Card.Six6), Card.Eight8) ,Card.Eight8));
-		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatus(OneStrategy.SELF.generatePlayerCardsPaths(new PlayerCardsPathValue(Card.Two2,Card.Six6), Card.Eight8) ,Card.Eight8));
+		HelloWorld.printDoubleWDL(calcPlayerVSDealerAnaylzeStatusPrecent(OneStrategy.SELF.generatePlayerCardsPaths(new PlayerCardsPathValue(Card.Two2,Card.Six6), Card.Eight8) ,Card.Eight8));
 	}
 }

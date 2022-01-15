@@ -82,7 +82,7 @@ public class HelloWorld {
 			sb.append("\r\norg->adv\t$w:"+origin[0]*100 + "->" + advanced[0]*100+"  \t$d:"+origin[1]*100 + "->" + advanced[1]*100+"  \t$l:"+origin[2]*100 + "->" + advanced[2]*100);
 			sb.append("\r\n\t improve value x$w(high is good):"+(advanced[0]*100 - origin[0]*100)+"  \tx$d:"+(advanced[1]*100 - origin[1]*100)+"  \t x$l(negative is good):"+(advanced[2]*100 - origin[2]*100));
 			sb.append("\r\n\t \t $w-$l: "+ (origin[0]-origin[2])*100 +" -> "+ (advanced[0]-advanced[2])*100+"  _ ");
-			sb.append(advanced[0]-advanced[2]>DealerVSPlayerChance.Double_Limit?"@double@":(advanced[0]-advanced[2]<DealerVSPlayerChance.Surrender_Limit)?"#Surrender#":" _ ");
+			sb.append(advanced[0]-advanced[2]>DealerVSPlayerChance.Double_Limit?"!Double!":(advanced[0]-advanced[2]<DealerVSPlayerChance.Surrender_Limit)?"#Surrender#":" _ ");
 			sb.append("\t lift : "+((advanced[0]-advanced[2]) - (origin[0]-origin[2]))*100 +" : ");
 			sb.append( ((origin[0]-origin[2]) < (advanced[0]-advanced[2]))?"good\t":"bad\t");
 			sb.append((((advanced[0]-advanced[2]) - (origin[0]-origin[2])) > DealerVSPlayerChance.Hit_Limit)?" :) hit ":" :| stand" );

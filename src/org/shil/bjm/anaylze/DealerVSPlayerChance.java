@@ -15,9 +15,9 @@ public class DealerVSPlayerChance implements Comparable<DealerVSPlayerChance>{
 	private double[] origin;
 	private double[] advanced;
 	
-	public static double Double_Limit = 0.0505;
-	public static double Surrender_Limit = -0.48;
-	public static double Hit_Limit = 0.0345;
+	public static double Double_Limit = 0.105;
+	public static double Surrender_Limit = -0.454;
+	public static double Hit_Limit = 0.0125;
 	
 	private int deckStatus;
 	
@@ -47,7 +47,11 @@ public class DealerVSPlayerChance implements Comparable<DealerVSPlayerChance>{
 	}
 	
 	public boolean isSurrender() {
-		return (advanced[0]-advanced[2]) < Surrender_Limit;
+		if(playerStartValue < 17) {
+			return (advanced[0] - advanced[2]) < Surrender_Limit;
+		}else{
+			return (origin[0] - origin[2]) < Surrender_Limit ;
+		}
 	}
 
 	@Override

@@ -17,6 +17,7 @@ import org.shil.bjm.strategy8102.strategy.practise.Finally2047;
 
 /**
  * 为了概率论分析写的程序
+ * 没毛用，本想分析一下均值，方差的，结果带到R里面，内存爆了。
  * @author vanis
  *
  */
@@ -45,7 +46,7 @@ public class ProbResultPrint {
 			}
 		}
 	}
-	
+
 	/**
 	 * 获得指定数据
 	 * @param pcpv
@@ -64,5 +65,5 @@ public class ProbResultPrint {
 		}
 		FileUtil.writeROIsToDisk(pcpv.getCards().get(0).getValue()+"+"+pcpv.getCards().get(1).getValue(),String.valueOf(dealerCard.getValue()), rois);
 	}
-	
+
 }
