@@ -35,7 +35,7 @@ public class TestA {
 	public static void testE() {
 		PlayerCardsPathValue sixteen  = new PlayerCardsPathValue(Card.Seven7,Card.Nine9);
 		sixteen.setAction(PlayerAction.Giveup);
-		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(sixteen, Card.Ten));
+//		System.out.println(ProfitUtil.moneyCalcOneHandInReturnProb(sixteen, Card.Ten));
 		
 		List<PlayerCardsPathValue> ss = new ArrayList<>();
 		

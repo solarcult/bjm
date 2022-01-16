@@ -219,6 +219,13 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		this.dsTimes = dsTimes;
 	}
 
+	public void reset(){
+		action = PlayerAction.Init;
+		betMutiV = 1;
+		splitTimes = 0;
+		dsTimes = 0;
+	}
+
 	public static void main(String[] args){
 		
 		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.Two2,Card.One1,Card.Four4);

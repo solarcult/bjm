@@ -1,5 +1,6 @@
 package org.shil.bjm.strategy;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -12,6 +13,7 @@ import org.shil.bjm.strategy.one.OneWithAMatrix;
 
 /**
  * 核心类，策略类，希望没有bug
+ * 根据配置的打牌方案来决定玩家进行什么动作
  * @author vanis
  *
  */
@@ -38,7 +40,7 @@ public abstract class Strategy {
 	
 	public Collection<PlayerCardsPathValue> generatePlayerCardsPaths(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
 		
-		Collection<PlayerCardsPathValue> playerCardsPathValues = new HashSet<PlayerCardsPathValue>();
+		Collection<PlayerCardsPathValue> playerCardsPathValues = new ArrayList<>();
 		
 		if(playerCardsPathValue.outOfCards()) return playerCardsPathValues;
 		
@@ -62,7 +64,7 @@ public abstract class Strategy {
 							PlayerStrategy playerStrategy = nmSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getValue()),dealerCard);
 							playerAction = playerStrategy.getStartAction();
 							//split can not surrender
-							if(playerAction == PlayerAction.Giveup) playerAction = playerStrategy.getThreeCardAction(); 
+							if(playerAction == PlayerAction.Giveup) playerAction = playerStrategy.getThreeCardAction();
 						}else{
 							//pairs
 							PlayerStrategy pairStrategy = scSM.getPlayerAction(StartValue.getOne(playerCardsPathValue.getCards().get(0).getValue()),dealerCard);
@@ -105,7 +107,6 @@ public abstract class Strategy {
 					playerCardsPathValue.setAction(playerAction);
 				}
 			}
-			
 
 			//此处不能用else{,因为如果是Pair被split以后，要在下面的这段代码再发一张牌，继续旅程
 			//only handle split cards here
@@ -125,7 +126,10 @@ public abstract class Strategy {
 		if(playerCardsPathValue.getValue() > BlackJackInfo.BlackJack){
 			//burst, bye~
 			playerCardsPathValues.add(playerCardsPathValue);
-		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup || playerCardsPathValue.getAction() == PlayerAction.Stand){
+		}else if(playerCardsPathValue.getAction() == PlayerAction.Giveup) {
+			// we finish and pray
+			playerCardsPathValues.add(playerCardsPathValue);
+		}else if(playerCardsPathValue.getAction() == PlayerAction.Stand){
 			// we finish and pray
 			playerCardsPathValues.add(playerCardsPathValue);
 		}else if(playerCardsPathValue.getAction() == PlayerAction.DoubleDone){

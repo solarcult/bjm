@@ -19,7 +19,7 @@ import org.shil.bjm.strategy.one.OneStrategy;
 import org.shil.bjm.strategy.one.OneWithAMatrix;
 
 /**
- * 核心数据类，记录再来一张的概率，希望没有bug
+ * 核心数据类，记录再来一张的概率，希望没有bug. 这个类是一切研究的起点
  * @author vanis
  *
  */
@@ -175,8 +175,8 @@ public class RivalAnalyzeUtil {
 	}
 	
 	public static void main(String[] args){
-		List<DealerVSPlayerChance> ao = makePlayerWithAOneMoreVSDealer();
-//		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
+//		List<DealerVSPlayerChance> ao = makePlayerWithAOneMoreVSDealer();
+		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
 //		List<DealerVSPlayerChance> ao = makePlayerAAVSDealer();
 		HelloWorld.print(ao);
 		

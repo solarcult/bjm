@@ -18,10 +18,6 @@ public abstract class PlayerStrategyMatrix {
 		return strategyMatrix.get(PlayerStrategy.builderOne(startValue, dealerCard));
 	}
 	
-	public PlayerStrategy getPlayerAction(PlayerStrategy playerStrategy){
-		return strategyMatrix.get(playerStrategy);
-	}
-	
 	public Map<PlayerStrategy,PlayerStrategy> getStrategyMatrix(){
 		return strategyMatrix;
 	}

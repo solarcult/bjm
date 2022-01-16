@@ -72,11 +72,11 @@ public class PlayersVSDealersResultChanceProb {
 		return calcPlayerVSDealerAnaylzeStatus(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
 	}
 	
-	public static double[] calcPlayerVSDealerAnaylzeStatusProb(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
+	public static double[] calcPlayerVSDealerAnaylzeStatusPureProb(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
 		Collection<PlayerCardsPathValue> players = new HashSet<PlayerCardsPathValue>();
 		players.add(playerCardsPathValue);
 		Map<Integer,AnalyzeStatus> playermap = AnalyzeCardsPathValue.analyzePlayerCardsPathValue(players);
-		return calcPlayerVSDealerAnaylzeStatusProb(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
+		return calcPlayerVSDealerAnaylzeStatusPureProb(playermap, DealerCardsAnalyzeStatus.fetchDealerAnalyzeStatusMap(dealerCard));
 	}
 
 	public static double[] calcPlayerVSDealerAnaylzeStatusPrecent(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
@@ -141,12 +141,12 @@ public class PlayersVSDealersResultChanceProb {
 	
 	/**
 	 * 返回原始的胜负平数值概率
+	 * 你还别觉得不对，用 加起来，转换成 除以all 算出来的更离谱
 	 * @param playermap
 	 * @param dealermap
 	 * @return
-	 * @deprecated 换位计算完带prob的方法
 	 */
-	public static double[] calcPlayerVSDealerAnaylzeStatusProb(Map<Integer,AnalyzeStatus> playermap,Map<Integer,AnalyzeStatus> dealermap){
+	public static double[] calcPlayerVSDealerAnaylzeStatusPureProb(Map<Integer,AnalyzeStatus> playermap, Map<Integer,AnalyzeStatus> dealermap){
 		double winrate = 0;
 		double drawrate = 0;
 		double loserate = 0;
@@ -232,6 +232,7 @@ public class PlayersVSDealersResultChanceProb {
 		}
 
 		//由于这里返回的是比率，上层拿这个处理结果再进行预测有一些隔着靴子挠痒痒的感觉，原始数据更有意义些。 如果上层结果直接展示这个结论是没问题的，但拿来再进一步处理就没有原始的好
+		//其实这个方法和上面的是一个计算结果
 		double totalrate = winrate + drawrate + loserate;
 
 		return new double[]{winrate/totalrate,drawrate/totalrate,loserate/totalrate};

@@ -11,7 +11,7 @@ import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
  */
 public class ProfitUtil {
 	
-	public static double BaseMoney = 200d;
+	public static double BaseMoney = 50000d;
 
 	//计算用户的本次组合与庄家起手牌的最终概率组合值,看看回报率是如何
 	/**
@@ -40,7 +40,7 @@ public class ProfitUtil {
 				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
 				|| playerCardsPathValue.getAction() == PlayerAction.Double
 				|| playerCardsPathValue.getAction() == PlayerAction.Split){
-			throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+			throw new RuntimeException("what is wrong in here? status not done: "+playerCardsPathValue.getAction() + " : " + playerCardsPathValue);
 		}
 		
 		//最终计算投资收益率
@@ -51,7 +51,7 @@ public class ProfitUtil {
 		return pureReturn;
 	}
 	
-	public static double moneyCalcOneHandInReturnProb(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
+	public static double moneyCalcOneHandInReturnPureProb(PlayerCardsPathValue playerCardsPathValue, Card dealerCard){
 		double pureReturn = 0d;
 		double onePot = BaseMoney * playerCardsPathValue.getBetMutiV();
 		
@@ -67,14 +67,14 @@ public class ProfitUtil {
 		}else if(playerCardsPathValue.getAction() == PlayerAction.SplitAbandon){
 			return pureReturn;
 		}else if(playerCardsPathValue.getAction() == PlayerAction.Init 
-				|| playerCardsPathValue.getAction() == PlayerAction.Hit 
+//				|| playerCardsPathValue.getAction() == PlayerAction.Hit
 				|| playerCardsPathValue.getAction() == PlayerAction.Double
 				|| playerCardsPathValue.getAction() == PlayerAction.Split){
 			throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 		}
 		
 		//最终计算投资收益率
-		double[] playerchance = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusProb(playerCardsPathValue, dealerCard);
+		double[] playerchance = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusPureProb(playerCardsPathValue, dealerCard);
 		pureReturn += playerchance[WinDrawLose.win] * onePot;
 		pureReturn -= playerchance[WinDrawLose.lose] * onePot;
 		
@@ -93,7 +93,7 @@ public class ProfitUtil {
 	public static double moneyCalcOneHandInReturnProb(Collection<PlayerCardsPathValue> playerCardsPathValues,Card dealerCard){
 		double pureReturn = 0;
 		for(PlayerCardsPathValue playerCardsPathValue : playerCardsPathValues){
-			pureReturn += moneyCalcOneHandInReturnProb(playerCardsPathValue,dealerCard);
+			pureReturn += moneyCalcOneHandInReturnPureProb(playerCardsPathValue,dealerCard);
 		}
 		return pureReturn;
 	}
@@ -240,5 +240,4 @@ public class ProfitUtil {
 		
 		return 0;
 	}
-	
 }

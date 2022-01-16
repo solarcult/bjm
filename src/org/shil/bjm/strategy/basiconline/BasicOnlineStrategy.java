@@ -20,7 +20,7 @@ public class BasicOnlineStrategy extends Strategy{
 	public static BasicOnlineStrategy SELF = new BasicOnlineStrategy(BasicNMatrix.SELF,BasicPairCardMatrix.SELF,BasicWithAMatrix.SELF);
 	
 	public static void main(String[] args){
-//		testNM();
+		testNM();
 //		testSCnoSplit2();
 //		testSCSplit7();
 //		testSCSplitA();
@@ -33,7 +33,7 @@ public class BasicOnlineStrategy extends Strategy{
 		Collection<PlayerCardsPathValue> cs = BasicOnlineStrategy.SELF.generatePlayerCardsPaths(playerCardsPathValue, Card.Seven7);
 		HelloWorld.print(cs);
 		System.out.println(ProfitUtil.moneyCalcOneHandInReturn(cs, Card.Seven7));
-		System.out.println(PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(cs, Card.Seven7));
+		HelloWorld.printDoubleWDL(PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(cs, Card.Seven7));
 	}
 	
 	public static void testSCnoSplit2(){

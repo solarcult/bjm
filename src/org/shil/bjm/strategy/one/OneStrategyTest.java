@@ -16,7 +16,7 @@ import org.shil.bjm.meta.ProfitUtil;
 import org.shil.bjm.meta.WinRateUtil;
 
 /**
- * 运行看最终ROI的类
+ * 运行看最终ROI的类,测试两个不同方案的收益差距
  * @author vanis
  *
  */

@@ -186,7 +186,7 @@ public class WinRateUtil {
 			throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
 		}
 		
-		double[] playerchance = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusProb(playerCardsPathValue, dealerCard);
+		double[] playerchance = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusPureProb(playerCardsPathValue, dealerCard);
 		win += playerchance[WinDrawLose.win] * value;
 		draw += playerchance[WinDrawLose.draw] * value;
 		lose += playerchance[WinDrawLose.lose] * value;
