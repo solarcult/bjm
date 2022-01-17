@@ -1,8 +1,5 @@
 package org.shil.bjm.meta;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 玩家的牌玩法
  * @author vanis
@@ -17,6 +14,9 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	private int splitTimes;
 	//double和split的次数
 	private int dsTimes;
+
+	//在牌局中的百分比,贯穿整个局的百分比
+	private double percent;
 	
 	public PlayerCardsPathValue(Card ... _cards){
 		super(_cards);
@@ -25,6 +25,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		betMutiV = 1;
 		splitTimes = 0;
 		dsTimes = 0;
+		percent = 1;
 	}
 	
 	public PlayerCardsPathValue(PlayerCardsPathValue playerCardsPathValue){
@@ -33,6 +34,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		betMutiV = playerCardsPathValue.getBetMutiV();
 		splitTimes = playerCardsPathValue.getSplitTimes();
 		this.dsTimes = playerCardsPathValue.getDsTimes();
+		percent = playerCardsPathValue.getPercent();
 	}
 	
 	public boolean isStartHand() {
@@ -134,7 +136,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 			//only left the first card
 			this.getCards().remove(0);
 			
-			this.action = PlayerAction.Init;
+//			this.action = PlayerAction.Init; old way ,change by the new way 2022Jan17
 			this.betMutiV = 2 * betMutiV;
 			this.splitTimes++;
 			this.setDsTimes(getDsTimes()+1);
@@ -186,17 +188,17 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	@Override
 	public void addCard(Card card){
 		super.addCard(card);
-		if(this.getCards().size()<=2 && this.getAction() == PlayerAction.Split){
-			this.action = PlayerAction.Init;
-		}
+//		if(this.getCards().size()<=2 && this.getAction() == PlayerAction.Split){
+//			this.action = PlayerAction.Init;  old way ,change by the new way 2022Jan17
+//		}
 	}
 	
 	@Override
 	public String toString() {
-		return "PlayerCardsPathValue [action=" + action + ", betMutiV=" + betMutiV + ", splitTimes=" + splitTimes
+		return "PlayerCardsPathValue [action=" + action + ", getStartValue()=" + getStartValue() + ", precent()=" + getPercent() + ", prob()=" + prob() + ", getValue()="
+				+ getValue() + ", getCards()=" + getCards() + ", betMutiV=" + betMutiV + ", splitTimes=" + splitTimes
 				+ ", isStartHand()=" + isStartHand() + ", isStartWithA()=" + isStartWithA() + ", isStartWithPairs()="
-				+ isStartWithPairs() + ", getStartValue()=" + getStartValue() + ", prob()=" + prob() + ", getValue()="
-				+ getValue() + ", getCards()=" + getCards() + ", getDsTimes()="
+				+ isStartWithPairs() +  ", getDsTimes()="
 				+ getDsTimes() + "]";
 	}
 
@@ -224,6 +226,15 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		betMutiV = 1;
 		splitTimes = 0;
 		dsTimes = 0;
+		percent = 1;
+	}
+
+	public double getPercent() {
+		return percent;
+	}
+
+	public void setPercent(double percent) {
+		this.percent = percent;
 	}
 
 	public static void main(String[] args){

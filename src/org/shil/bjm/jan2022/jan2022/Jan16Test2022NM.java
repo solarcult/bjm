@@ -1,22 +1,37 @@
-package org.shil.bjm.strategy.one.jan2022;
+package org.shil.bjm.jan2022.jan2022;
 
 import org.shil.bjm.HelloWorld;
+import org.shil.bjm.anaylze.AnalyzeStatus;
+import org.shil.bjm.anaylze.Jan172022AnalyzeUtil;
 import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
+import org.shil.bjm.core.DealerCards;
+import org.shil.bjm.core.DealerCardsAnalyzeStatus;
 import org.shil.bjm.core.PlayerCards;
-import org.shil.bjm.meta.Card;
-import org.shil.bjm.meta.PlayerAction;
-import org.shil.bjm.meta.PlayerCardsPathValue;
-import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.jan2022.Jan2022Strategy;
+import org.shil.bjm.meta.*;
 import org.shil.bjm.strategy.PlayerStrategy;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
+import org.shil.bjm.strategy.Strategy;
 import org.shil.bjm.strategy.one.OneStrategy;
 
 import java.util.Collection;
+import java.util.Map;
 
-public class MirrorJan16Test2022NM extends PlayerStrategyMatrix {
-    public static PlayerStrategyMatrix SELF = new MirrorJan16Test2022NM();
+/**
+ * 投降：
+ * 14 vs T
+ * 15 vs 9,T
+ * 16 vs 8,9,T
+ * 17 vs T
+ *
+ * Hit
+ * 12 vs 2
+ * 16 vs 7,8,9
+ */
+public class Jan16Test2022NM extends PlayerStrategyMatrix {
+    public static PlayerStrategyMatrix SELF = new Jan16Test2022NM();
 
-    public MirrorJan16Test2022NM() {
+    public Jan16Test2022NM() {
         super();
 
         //普通牌用户策略,没有考虑到Ax的情况 和 split的情况
@@ -29,10 +44,10 @@ public class MirrorJan16Test2022NM extends PlayerStrategyMatrix {
                     strategyMatrix.put(playerStrategy,playerStrategy);
                 }
             }
-            else if(startValue == StartValue.Nine){
+            else if(startValue == StartValue.Nine){     //test ok
                 for(Card dealerCard : Card.values()){
                     if(dealerCard == Card.Five5 || dealerCard == Card.Six6){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else{
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
@@ -40,24 +55,24 @@ public class MirrorJan16Test2022NM extends PlayerStrategyMatrix {
                     }
                 }
             }
-            else if(startValue == StartValue.Ten) {
+            else if(startValue == StartValue.Ten) {     //test ok
                 for(Card dealerCard : Card.values()){
                     if(dealerCard.getValue() >=2 && dealerCard.getValue() <=8){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else{
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }
                 }
             }
-            else if(startValue == StartValue.Eleven){
+            else if(startValue == StartValue.Eleven){   //test ok
                 for(Card dealerCard : Card.values()){
                     if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else{
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }
                 }
@@ -146,7 +161,7 @@ public class MirrorJan16Test2022NM extends PlayerStrategyMatrix {
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }
                 }
-            }else if(startValue == StartValue.Sixteen){
+            }else if(startValue == StartValue.Sixteen){     //test ok
                 //very hard choose
                 for(Card dealerCard : Card.values()){
                     if(dealerCard.getValue() >=2 && dealerCard.getValue() <=6){
@@ -156,26 +171,26 @@ public class MirrorJan16Test2022NM extends PlayerStrategyMatrix {
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else if(dealerCard.getValue() ==8 ){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else if(dealerCard.getValue() ==9 ){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else if(dealerCard.getValue() ==10 ){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Stand);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Stand);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }
                     else{
                         //A
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }
                 }
-            }else if(startValue == StartValue.Seventeen){
+            }else if(startValue == StartValue.Seventeen){       //test ok
                 for(Card dealerCard : Card.values()){
-                    if(dealerCard.getValue() == 10){
-                        // i am fine, thank you
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
+                   if(dealerCard.getValue() == 10){
+                       // i am fine, thank you
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Stand);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }
                     else{
@@ -195,30 +210,116 @@ public class MirrorJan16Test2022NM extends PlayerStrategyMatrix {
     }
 
     public static void main(String[] args){
-//        testAllWDL();
-        MirrorJan16Test2022NM.SELF.printStrategyMatrix();
+
+//        compareEarn();
+
+        compareWAWP();
     }
 
-    public static void testAllWDL(){
-//      Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCards();
-//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.generatePairs();
-//		Collection<PlayerCardsPathValue> playerCards = PlayerCards.sortedOneValueStartCardsWithA();
-        Collection<PlayerCardsPathValue> playerCards = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
-        OneStrategy beforeOneStrategy = new OneStrategy(MirrorJan16Test2022NM.SELF,null,null);
+    public static void compareWAWP(){
+        PlayerCardsPathValue oc = new PlayerCardsPathValue(Card.Seven7,Card.Ten);
+        Card dealerCard = Card.One1;
 
-        double[] all = new double[3];
-        for(PlayerCardsPathValue pcpv : playerCards){
-            System.out.println("Player: " +pcpv.getCards());
-            for(Card dealerCard : Card.values()) {
-                PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
-                Collection<PlayerCardsPathValue> oneList = beforeOneStrategy.generatePlayerCardsPaths(oneCalc, dealerCard);
-                double[] wdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(oneList, dealerCard);
-                all[0] += wdl[0];
-                all[1] += wdl[1];
-                all[2] += wdl[2];
-            }
+        System.out.println("\n                  --- " + oc.getCards().get(0)+" "+ oc.getCards().get(1) +" vs "+ dealerCard + " ---");
+        System.out.println();
+
+        Jan2022Strategy oneStrategy = new Jan2022Strategy(Jan16Test2022NM.SELF,null,null);
+        Collection<PlayerCardsPathValue> nowlist = oneStrategy.generate2End(oc, dealerCard);
+        HelloWorld.print(nowlist);
+
+        Map<Integer, AnalyzeStatus> playerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(nowlist);
+        HelloWorld.printMap(playerMap);
+
+        System.out.println("now:");
+        double [] wdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusPrecent(playerMap, DealerCards.analyzeDealerCardValuePrecent(dealerCard));
+        HelloWorld.printDoubleWDL(wdl);
+
+        double nowM = 0d;
+        for(PlayerCardsPathValue pcpv : nowlist){
+            PlayerCardsPathValue one = new PlayerCardsPathValue(pcpv);
+            double t = Jan172022AnalyzeUtil.moneyCalcOneHandInReturnPureProb(one,dealerCard);
+            nowM += t;
+        }
+        int totalMatch = nowlist.size() * DealerCards.fetchDealerCards(dealerCard).size();
+        System.out.println(totalMatch +" : now Money: " + nowM);
+        System.out.println();
+
+        oc.reset();
+
+        System.out.println("before:");
+        Jan2022Strategy beforeOneStrategy =  new Jan2022Strategy(MirrorJan16Test2022NM.SELF,null,null);
+        Collection<PlayerCardsPathValue> beforelist = beforeOneStrategy.generate2End(oc, dealerCard);
+        HelloWorld.print(beforelist);
+
+        Map<Integer, AnalyzeStatus> beofrePlayerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(beforelist);
+        HelloWorld.printMap(beofrePlayerMap);
+
+        System.out.println("now:");
+        double [] bwdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusPrecent(beofrePlayerMap, DealerCards.analyzeDealerCardValuePrecent(dealerCard));
+        HelloWorld.printDoubleWDL(bwdl);
+
+        double beforeM = 0d;
+        for(PlayerCardsPathValue pcpv : beforelist){
+            PlayerCardsPathValue one = new PlayerCardsPathValue(pcpv);
+            double t = Jan172022AnalyzeUtil.moneyCalcOneHandInReturnPureProb(one,dealerCard);
+            beforeM += t;
         }
 
-        HelloWorld.printDoubleWDL(all);
+        int totalBMatch = beforelist.size() * DealerCards.fetchDealerCards(dealerCard).size();
+        System.out.println(totalBMatch + " : Before Money: " + beforeM);
+
+        System.out.println(HelloWorld.builder2DoubleWDL(wdl,bwdl));
+    }
+
+    public static void compareEarn(){
+
+        Collection<PlayerCardsPathValue> wawps = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
+        Jan2022Strategy newStrategy = new Jan2022Strategy(Jan16Test2022NM.SELF,null,null);
+        double totalE = 0d;
+        for(PlayerCardsPathValue pcpv : wawps){
+            for(Card dealerCard : Card.values()){
+                PlayerCardsPathValue p = new PlayerCardsPathValue(pcpv);
+                Collection<PlayerCardsPathValue> nowlist = newStrategy.generate2End(p, dealerCard);
+//                HelloWorld.print(nowlist);
+
+                Map<Integer, AnalyzeStatus> playerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(nowlist);
+//                HelloWorld.printMap(playerMap);
+//                System.out.println("now:");
+                double [] wdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusPrecent(playerMap, DealerCards.analyzeDealerCardValuePrecent(dealerCard));
+//                HelloWorld.printDoubleWDL(wdl);
+
+                for(PlayerCardsPathValue o : nowlist){
+                    PlayerCardsPathValue one = new PlayerCardsPathValue(o);
+                    double t = Jan172022AnalyzeUtil.moneyCalcOneHandInReturnPureProb(one,dealerCard);
+                    totalE += t;
+                }
+            }
+        }
+        System.out.println("new: " + totalE);
+
+
+        Collection<PlayerCardsPathValue> wawps2 = PlayerCards.generateTwoStartCardsWithoutPairWithoutA();
+        Jan2022Strategy oldStrategy = new Jan2022Strategy(BeforeJan16Test2022NM.SELF,null,null);
+        double oldE = 0d;
+        for(PlayerCardsPathValue pcpv : wawps2){
+            for(Card dealerCard : Card.values()){
+                PlayerCardsPathValue p = new PlayerCardsPathValue(pcpv);
+                Collection<PlayerCardsPathValue> nowlist = oldStrategy.generate2End(p, dealerCard);
+//                HelloWorld.print(nowlist);
+
+                Map<Integer, AnalyzeStatus> playerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(nowlist);
+//                HelloWorld.printMap(playerMap);
+//                System.out.println("now:");
+                double [] wdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusPrecent(playerMap, DealerCards.analyzeDealerCardValuePrecent(dealerCard));
+//                HelloWorld.printDoubleWDL(wdl);
+
+                for(PlayerCardsPathValue o : nowlist){
+                    PlayerCardsPathValue one = new PlayerCardsPathValue(o);
+                    double t = Jan172022AnalyzeUtil.moneyCalcOneHandInReturnPureProb(one,dealerCard);
+                    oldE += t;
+                }
+            }
+        }
+        System.out.println("old: " + oldE);
     }
 }

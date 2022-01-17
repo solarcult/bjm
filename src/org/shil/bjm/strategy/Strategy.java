@@ -24,7 +24,7 @@ public abstract class Strategy {
 	 */
 	private PlayerStrategyMatrix nmSM;
 	/**
-	 * 带对的组合牌
+	 * 带对的组合牌 same card = sc
 	 */
 	private PlayerStrategyMatrix scSM;
 	/**

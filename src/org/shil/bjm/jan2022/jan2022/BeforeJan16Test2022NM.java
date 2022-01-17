@@ -1,14 +1,12 @@
-package org.shil.bjm.strategy.one.jan2022;
+package org.shil.bjm.jan2022.jan2022;
 
 import org.shil.bjm.HelloWorld;
 import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
 import org.shil.bjm.core.PlayerCards;
-import org.shil.bjm.meta.Card;
-import org.shil.bjm.meta.PlayerAction;
-import org.shil.bjm.meta.PlayerCardsPathValue;
-import org.shil.bjm.meta.StartValue;
+import org.shil.bjm.meta.*;
 import org.shil.bjm.strategy.PlayerStrategy;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
+import org.shil.bjm.strategy.Strategy;
 import org.shil.bjm.strategy.one.OneStrategy;
 
 import java.util.Collection;
@@ -32,7 +30,7 @@ public class BeforeJan16Test2022NM extends PlayerStrategyMatrix {
             else if(startValue == StartValue.Nine){
                 for(Card dealerCard : Card.values()){
                     if(dealerCard == Card.Three3 || dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else{
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
@@ -43,7 +41,7 @@ public class BeforeJan16Test2022NM extends PlayerStrategyMatrix {
             else if(startValue == StartValue.Ten) {
                 for(Card dealerCard : Card.values()){
                     if(dealerCard.getValue() >=2 && dealerCard.getValue() <=9){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else{
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
@@ -195,8 +193,73 @@ public class BeforeJan16Test2022NM extends PlayerStrategyMatrix {
     }
 
     public static void main(String[] args){
-//        testAllWDL();
-        BeforeJan16Test2022NM.SELF.printStrategyMatrix();
+//        compare();
+
+        PlayerCardsPathValue oc = new PlayerCardsPathValue(Card.Three3,Card.Seven7);
+        Card dealerCard = Card.Nine9;
+
+        System.out.println("\n                  --- " + oc.getValue() +" vs "+ dealerCard + " ---");
+        System.out.println();
+
+        Strategy oneStrategy = new OneStrategy(Jan16Test2022NM.SELF,null,null);
+        Collection<PlayerCardsPathValue> nowlist = oneStrategy.generatePlayerCardsPaths(oc, dealerCard);
+        HelloWorld.print(nowlist);
+
+        System.out.println("now:");
+        double[] all = new double[3];
+        double nowM = 0d;
+        for(PlayerCardsPathValue pcpv : nowlist){
+            double t = 0;
+            PlayerCardsPathValue one = new PlayerCardsPathValue(pcpv);
+            Collection<PlayerCardsPathValue> oneList = oneStrategy.generatePlayerCardsPaths(one, dealerCard);
+            double[] wdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(oneList, dealerCard);
+            all[0] += wdl[0];
+            all[1] += wdl[1];
+            all[2] += wdl[2];
+
+            t = ProfitUtil.moneyCalcOneHandInReturnProb(oneList,dealerCard);
+            nowM += t;
+            System.out.println( pcpv.getValue() + " : " + t);
+        }
+        HelloWorld.printDoubleWDL(all);
+        double tall = all[0]+all[1]+all[2];
+        double[] nows = new double[]{all[0]/tall,all[1]/tall,all[2]/tall};
+        HelloWorld.printDoubleWDL(nows);
+        System.out.println("now Money: " + nowM);
+
+        System.out.println();
+
+        oc.reset();
+
+        System.out.println("before:");
+        Strategy beforeOneStrategy =  new OneStrategy(BeforeJan16Test2022NM.SELF,null,null);
+        Collection<PlayerCardsPathValue> beforelist = beforeOneStrategy.generatePlayerCardsPaths(oc, dealerCard);
+        HelloWorld.print(beforelist);
+        double[] beforeAll = new double[3];
+        double beforeM = 0d;
+        for(PlayerCardsPathValue pcpv : beforelist){
+//            System.out.println("Player: " +pcpv.getCards());
+            double t = 0;
+            PlayerCardsPathValue oneCalc = new PlayerCardsPathValue(pcpv);
+            Collection<PlayerCardsPathValue> oneList = beforeOneStrategy.generatePlayerCardsPaths(oneCalc, dealerCard);
+            double[] wdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(oneList, dealerCard);
+            beforeAll[0] += wdl[0];
+            beforeAll[1] += wdl[1];
+            beforeAll[2] += wdl[2];
+
+            t = ProfitUtil.moneyCalcOneHandInReturnProb(oneList,dealerCard);
+            beforeM += t;
+            System.out.println( pcpv.getValue() + " : " + t);
+        }
+        HelloWorld.printDoubleWDL(beforeAll);
+        double btall = beforeAll[0]+beforeAll[1]+beforeAll[2];
+        double[] befores = new double[]{beforeAll[0]/btall,beforeAll[1]/btall,beforeAll[2]/btall};
+        HelloWorld.printDoubleWDL(befores);
+        System.out.println("before Money: " + beforeM);
+
+        System.out.println();
+
+        System.out.println(HelloWorld.builder2DoubleWDL(nows,befores));
     }
 
     public static void testAllWDL(){

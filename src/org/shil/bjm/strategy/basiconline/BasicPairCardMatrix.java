@@ -6,6 +6,9 @@ import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.strategy.PlayerStrategy;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
 
+/**
+ * 基础的 Same Card = Pair的策略方案，可当例子
+ */
 public class BasicPairCardMatrix extends PlayerStrategyMatrix {
 	
 	public static PlayerStrategyMatrix SELF = new BasicPairCardMatrix();

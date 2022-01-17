@@ -6,6 +6,9 @@ import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.strategy.PlayerStrategy;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
 
+/**
+ * 基础 normal hands 的Matrix，可当例子
+ */
 public class BasicNMatrix extends PlayerStrategyMatrix{
 
 	public static PlayerStrategyMatrix SELF = new BasicNMatrix();

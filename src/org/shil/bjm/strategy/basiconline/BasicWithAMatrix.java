@@ -7,6 +7,9 @@ import org.shil.bjm.meta.StartValue;
 import org.shil.bjm.strategy.PlayerStrategy;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
 
+/**
+ * 基础的 Ax 牌例子
+ */
 public class BasicWithAMatrix extends PlayerStrategyMatrix {
 	
 	public static PlayerStrategyMatrix SELF = new BasicWithAMatrix();
