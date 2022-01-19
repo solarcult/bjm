@@ -85,7 +85,7 @@ public class Jan172022AnalyzeUtil {
 				|| playerCardsPathValue.getAction() == PlayerAction.Hit
                 || playerCardsPathValue.getAction() == PlayerAction.Double
                 || playerCardsPathValue.getAction() == PlayerAction.Split){
-            throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue.getAction());
+            throw new RuntimeException("what is wrong in here? status not done: " + playerCardsPathValue);
         }
 
         //最终计算投资收益率

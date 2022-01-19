@@ -125,9 +125,9 @@ public class Strategy8012 {
 			
 			if(!playerCardsPathValue.outOfCards()){
 				if(playerCardsPathValue.getValue() <= BlackJackInfo.BlackJack){
-					//Axx牌
-					if(playerCardsPathValue.isStartWithA()) {
-						int restValue = playerCardsPathValue.getRestValueWithoutA();
+					//xxxxAxx牌
+					if(playerCardsPathValue.getCards().contains(Card.One1)) {
+						int restValue = playerCardsPathValue.getValue();
 						//只关注<=7 A7以下的情况
 						if(restValue<=7) {
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(restValue), dealerCard, Situation.A_Three_More_Cards);
@@ -270,17 +270,17 @@ public class Strategy8012 {
 				if(!aNewPath.outOfCards()){
 					if(aNewPath.getValue() <= BlackJackInfo.BlackJack){
 						//Axx牌
-						if(aNewPath.isStartWithA()) {
-							int restValue = aNewPath.getRestValueWithoutA();
+						if(aNewPath.getCards().contains(Card.One1)) {
+							int restValue = aNewPath.getValue();
+							MatrixKey matrixKey;
 							//只关注<=7 A7以下的情况
 							if(restValue<=7) {
-								MatrixKey matrixKey = new MatrixKey(StartValue.getOne(restValue), dealerCard, Situation.A_Three_More_Cards);
-								aNewPath.setAction(strategyMatrix8012.fetchPlayAction(matrixKey, count));
+								matrixKey = new MatrixKey(StartValue.getOne(restValue), dealerCard, Situation.A_Three_More_Cards);
 							}else {
 								//A8 A9 A10 A11 A12 ... 之类的都当作正常的处理即可
-								MatrixKey matrixKey = new MatrixKey(StartValue.getOne(aNewPath.getValue()), dealerCard, Situation.Three_More_Cards);
-								aNewPath.setAction(strategyMatrix8012.fetchPlayAction(matrixKey, count));
+								matrixKey = new MatrixKey(StartValue.getOne(aNewPath.getValue()), dealerCard, Situation.Three_More_Cards);
 							}
+							aNewPath.setAction(strategyMatrix8012.fetchPlayAction(matrixKey, count));
 						}else {
 							//非Axx牌
 							MatrixKey matrixKey = new MatrixKey(StartValue.getOne(aNewPath.getValue()), dealerCard, Situation.Three_More_Cards);

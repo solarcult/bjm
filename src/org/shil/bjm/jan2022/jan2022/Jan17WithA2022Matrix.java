@@ -101,19 +101,24 @@ public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 	}
 
 	public static void main(String[] args){
-		compareWA();
+
+		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Seven7,Card.One1);
+		for(Card dealerCard : Card.values()){
+			PlayerCardsPathValue o = new PlayerCardsPathValue(playerCardsPathValue);
+			compareWA(o,dealerCard);
+		}
+
 	}
 
-	public static void compareWA(){
-		PlayerCardsPathValue oc = new PlayerCardsPathValue(Card.Seven7,Card.One1);
-		Card dealerCard = Card.Ten;
+	public static void compareWA(PlayerCardsPathValue playerCardsPathValue,Card dealerCard){
 
-		System.out.println("\n                  --- " + oc.getCards().get(0)+" "+ oc.getCards().get(1) +" vs "+ dealerCard + " ---");
+
+		System.out.println("\n                  --- " + playerCardsPathValue.getCards().get(0)+" "+ playerCardsPathValue.getCards().get(1) +" vs "+ dealerCard + " ---");
 		System.out.println();
 
 		Jan2022Strategy oneStrategy = new Jan2022Strategy(Jan16Test2022NM.SELF,null,Jan17WithA2022Matrix.SELF);
-		Collection<PlayerCardsPathValue> nowlist = oneStrategy.generate2End(oc, dealerCard);
-		HelloWorld.print(nowlist);
+		Collection<PlayerCardsPathValue> nowlist = oneStrategy.generate2End(playerCardsPathValue, dealerCard);
+//		HelloWorld.print(nowlist);
 
 		Map<Integer, AnalyzeStatus> playerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(nowlist);
 		HelloWorld.printMap(playerMap);
@@ -132,12 +137,12 @@ public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 		System.out.println(totalMatch +" : now Money: " + nowM);
 		System.out.println();
 
-		oc.reset();
+		playerCardsPathValue.reset();
 
 		System.out.println("before:");
 		Jan2022Strategy beforeOneStrategy =  new Jan2022Strategy(Jan16Test2022NM.SELF,null,MirrorJan17WithA2022Matrix.SELF);
-		Collection<PlayerCardsPathValue> beforelist = beforeOneStrategy.generate2End(oc, dealerCard);
-		HelloWorld.print(beforelist);
+		Collection<PlayerCardsPathValue> beforelist = beforeOneStrategy.generate2End(playerCardsPathValue, dealerCard);
+//		HelloWorld.print(beforelist);
 
 		Map<Integer, AnalyzeStatus> beofrePlayerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(beforelist);
 		HelloWorld.printMap(beofrePlayerMap);

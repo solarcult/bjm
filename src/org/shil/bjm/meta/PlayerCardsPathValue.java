@@ -71,21 +71,39 @@ public class PlayerCardsPathValue extends CardsPathValue{
 		}
 		return withoutA;
 	}
-	
-	public int getRestValueWithoutA() {
-		if(!isStartWithA()) {
-			throw new RuntimeException("this could not happend with A , no A in first two cards");
-		}		
-		int restValue = 0;
-		if(getCards().get(0).equals(Card.One1)){
-			restValue += getCards().get(1).getValue();
-		}else if(getCards().get(1).equals(Card.One1)){
-			restValue += getCards().get(0).getValue();
+
+	@Override
+	public int getValue(){
+
+		if(action==PlayerAction.Stand){
+			return super.getValue();
 		}
-		for(int i = 2;i<getCards().size();i++) {
-			restValue += getCards().get(i).getValue();
+
+		//如果有A,加在一起已经达到了18点了，则不做任何操作。
+		//否则返回<7的数字，就是说返回6以下的数字，还能博一下。
+		if(getCards().contains(Card.One1)){
+			int withoutAvalue = 0;
+			int manyA = 0;
+			for(Card o : getCards()){
+				if(o!=Card.One1){
+					withoutAvalue += o.getValue();
+				}else{
+					manyA++;
+				}
+			}
+
+			int totalsoft = withoutAvalue + manyA;
+			if(totalsoft > 11){
+				return totalsoft;
+			}
+
+			if(totalsoft >= 8){
+				return totalsoft + 10;
+			}
+			return totalsoft ;
 		}
-		return restValue;
+
+		return super.getValue();
 	}
 	
 	public Card findPairCardFromFirstTwoCards() {
@@ -188,9 +206,6 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	@Override
 	public void addCard(Card card){
 		super.addCard(card);
-//		if(this.getCards().size()<=2 && this.getAction() == PlayerAction.Split){
-//			this.action = PlayerAction.Init;  old way ,change by the new way 2022Jan17
-//		}
 	}
 	
 	@Override
@@ -222,6 +237,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	}
 
 	public void reset(){
+		//not good 分牌时会出现问题，忘了啥问题了，应该直接生成一个新对象，建议这个方法删掉。
 		action = PlayerAction.Init;
 		betMutiV = 1;
 		splitTimes = 0;
@@ -239,8 +255,8 @@ public class PlayerCardsPathValue extends CardsPathValue{
 
 	public static void main(String[] args){
 		
-		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.Two2,Card.One1,Card.Four4);
-		System.out.println(cardsPathValue.getRestValueWithoutA());
+		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.Two2,Card.Four4,Card.One1);
+		System.out.println(cardsPathValue.getValue());
 		/*
 		PlayerCardsPathValue cardsPathValue = new PlayerCardsPathValue(Card.One1,Card.One1);
 		cardsPathValue.addCard(Card.Eight8);

@@ -217,14 +217,14 @@ public class Jan16Test2022NM extends PlayerStrategyMatrix {
     }
 
     public static void compareWAWP(){
-        PlayerCardsPathValue oc = new PlayerCardsPathValue(Card.Seven7,Card.Ten);
-        Card dealerCard = Card.One1;
+        PlayerCardsPathValue oc = new PlayerCardsPathValue(Card.Six6,Card.Three3);
+        Card dealerCard = Card.Five5;
 
         System.out.println("\n                  --- " + oc.getCards().get(0)+" "+ oc.getCards().get(1) +" vs "+ dealerCard + " ---");
         System.out.println();
 
-        Jan2022Strategy oneStrategy = new Jan2022Strategy(Jan16Test2022NM.SELF,null,null);
-        Collection<PlayerCardsPathValue> nowlist = oneStrategy.generate2End(oc, dealerCard);
+        Jan2022Strategy jan2022Strategy = new Jan2022Strategy(Jan16Test2022NM.SELF,null,null);
+        Collection<PlayerCardsPathValue> nowlist = jan2022Strategy.generate2End(oc, dealerCard);
         HelloWorld.print(nowlist);
 
         Map<Integer, AnalyzeStatus> playerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(nowlist);
