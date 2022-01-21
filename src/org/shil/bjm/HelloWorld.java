@@ -39,6 +39,10 @@ public class HelloWorld {
 	public static void printDoubleWDL(double[] result){
 		System.out.println("w:"+result[0]*100+"  $d:"+result[1]*100+"  $l:"+result[2]*100);
 	}
+
+	public static void printDoubleWDLR(double[] result){
+		System.out.println("w:"+result[0]*100+"  $d:"+result[1]*100+"  $l:"+result[2]*100 +"      money return : "+ result[3]);
+	}
 	
 	public static void printDoubleMatrix(double[] result){
 		System.out.println(builderDoubleMatrix(result));

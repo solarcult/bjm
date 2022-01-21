@@ -113,18 +113,19 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 
 	public static void main(String[] args){
 //		comparePair();
-		XXwAll();
+		XXwAll(Card.Seven7,Card.Six6);
 //		AXwAll();
 	}
 
-	public static void XXwAll(){
+	public static double allWithoutA(){
+		return 0d;
+	}
 
-		Card onePairCard = Card.Three3;
-		Card dealerCard = Card.Six6;
+	public static double[] XXwAll(Card onePairCard,Card dealerCard){
 
 		Jan2022Strategy jan2022Strategy = new Jan2022Strategy(Jan16Test2022NM.SELF, Jan18PairCard2022Matrix.SELF,Jan17WithA2022Matrix.SELF);
 
-		double[] total = new double[3];
+		double[] total = new double[4];
 		double allMoney = 0;
 		for(Card a : Card.values()){
 			PlayerCardsPathValue p = new PlayerCardsPathValue(onePairCard,a);
@@ -155,6 +156,9 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 		System.out.println("Finally WDL Total: ");
 		HelloWorld.printDoubleWDL(total);
 		System.out.println("Money Total: " + allMoney);
+
+		return total;
+
 	}
 
 	public static void AXwAll(){

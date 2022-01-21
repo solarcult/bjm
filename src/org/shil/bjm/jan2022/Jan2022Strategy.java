@@ -7,6 +7,8 @@ import org.shil.bjm.anaylze.PlayersVSDealersResultChanceProb;
 import org.shil.bjm.core.DealerCards;
 import org.shil.bjm.core.PlayerCards;
 import org.shil.bjm.jan2022.jan2022.BeforeJan16Test2022NM;
+import org.shil.bjm.jan2022.jan2022.Jan17WithA2022Matrix;
+import org.shil.bjm.jan2022.jan2022.Jan18PairCard2022Matrix;
 import org.shil.bjm.meta.*;
 import org.shil.bjm.strategy.PlayerStrategy;
 import org.shil.bjm.strategy.PlayerStrategyMatrix;
@@ -83,6 +85,11 @@ public class Jan2022Strategy {
 
         if(playerCardsPathValue.getAction() == PlayerAction.Init){
             if(playerCardsPathValue.getCards().size()>=2){
+
+                if(playerCardsPathValue.getSplitTimes()>=1 && playerCardsPathValue.getCards().get(0) == Card.One1){
+                    return PlayerAction.Stand;
+                }
+
                 //detect player cards type
                 if(playerCardsPathValue.isStartWithPairs()){
                     if(playerCardsPathValue.getCards().get(0) == Card.One1){
@@ -213,24 +220,66 @@ public class Jan2022Strategy {
     }
 
     public static void main(String[] args){
-        PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Seven7,Card.Two2);
-        Card dealerCard = Card.Seven7;
 
-        Jan2022Strategy oneStepStrategy = new Jan2022Strategy(Jan16Test2022NM.SELF,null,null);
-//        OneStepStrategy oneStepStrategy = new OneStepStrategy(BeforeJan16Test2022NM.SELF,null,null);
-//        oneStepStrategy.genOneStepCards(playerCardsPathValue,dealerCard);
 
-        Collection<PlayerCardsPathValue> all = oneStepStrategy.generate2End(playerCardsPathValue,dealerCard);
-        HelloWorld.print(all);
+        Jan2022Strategy jan2022Strategy = new Jan2022Strategy(Jan16Test2022NM.SELF, Jan18PairCard2022Matrix.SELF, Jan17WithA2022Matrix.SELF);
+
+        Collection<PlayerCardsPathValue> startCards =  PlayerCards.generateTwoStartCards();
+        double[] wdlr = new double[4];
+
+        for(PlayerCardsPathValue pcpv : startCards){
+            for(Card dealerCard : Card.values()){
+
+                System.out.println("\n           --- " + pcpv.getCards().get(0)+" "+ pcpv.getCards().get(1) +" vs "+ dealerCard + " ---");
+
+                double[] r = testOne(pcpv,dealerCard,jan2022Strategy);
+                wdlr[0]+=r[0];
+                wdlr[1]+=r[1];
+                wdlr[2]+=r[2];
+                wdlr[3]+=r[3];
+            }
+        }
+
+        System.out.println("Finally: ");
+        HelloWorld.printDoubleWDLR(wdlr);
+//        w:94611.58022974315(43%)  $d:19209.615019891815(8.8%)  $l:105878.80475036505(48%)      money return : 74586.12487142246
+
+
+//        testOne(new PlayerCardsPathValue(Card.One1,Card.One1),Card.Six6,jan2022Strategy);
+//        testGenerateSame();
+
+    }
+
+    public static double[] testOne(PlayerCardsPathValue opcpv , Card dealerCard, Jan2022Strategy jan2022Strategy){
+        PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(opcpv);
+
+        Collection<PlayerCardsPathValue> all = jan2022Strategy.generate2End(playerCardsPathValue,dealerCard);
+//        HelloWorld.print(all);
 
         Map<Integer, AnalyzeStatus> playerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(all);
-        HelloWorld.printMap(playerMap);
+//        HelloWorld.printMap(playerMap);
 
         double [] wdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusPrecent(playerMap, DealerCards.analyzeDealerCardValuePrecent(dealerCard));
-        HelloWorld.printDoubleWDL(wdl);
+//        HelloWorld.printDoubleWDL(wdl);
 
-        testGenerateSame();
+        double nowM = 0d;
+        for(PlayerCardsPathValue pcpv : all){
+            PlayerCardsPathValue one = new PlayerCardsPathValue(pcpv);
+            double t = Jan172022AnalyzeUtil.moneyCalcOneHandInReturnPureProb(one,dealerCard);
+            nowM += t;
+        }
+//        int totalMatch = all.size() * DealerCards.fetchDealerCards(dealerCard).size();
+//        System.out.println(totalMatch +" : now Money: " + nowM);
+//        System.out.println();
+        double[] allr = new double[4];
+        allr[0]=wdl[0];
+        allr[1]=wdl[1];
+        allr[2]=wdl[2];
+        allr[3]=nowM;
 
+        HelloWorld.printDoubleWDLR(allr);
+
+        return allr;
     }
 
     public static void testGenerateSame(){
