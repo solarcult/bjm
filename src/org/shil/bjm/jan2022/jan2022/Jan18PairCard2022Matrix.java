@@ -35,10 +35,14 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 				}
 			}else if(startValue.getValue() == 6){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard.getValue() >= 2 && dealerCard.getValue() <= 6){
+					if(dealerCard.getValue() == 2){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);	// all no
 						strategyMatrix.put(playerStrategy, playerStrategy);
-					}else{
+					}else if(dealerCard.getValue() >= 3 && dealerCard.getValue() <= 6){
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);	// all no
+						strategyMatrix.put(playerStrategy, playerStrategy);
+					}
+					else{
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}
