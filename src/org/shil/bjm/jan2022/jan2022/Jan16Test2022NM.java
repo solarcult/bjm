@@ -27,6 +27,9 @@ import java.util.Map;
  * Hit
  * 12 vs 2
  * 16 vs 7,8,9
+ *
+ * 这个打法，主要是用再来一张的方案 RivalAnalyzeUtil 从这里计算出来的基本方案,比较不要和要的区别
+ * 计算的时候要从16开始向前算,15,14... 因为之前的牌可能要到16这个值上.
  */
 public class Jan16Test2022NM extends PlayerStrategyMatrix {
     public static PlayerStrategyMatrix SELF = new Jan16Test2022NM();

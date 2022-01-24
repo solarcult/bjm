@@ -19,6 +19,7 @@ import java.util.Map;
 
 /**
  * Jan 17 Pair 2022 Matrix
+ * 分牌的计算想法是用 所有13张牌 + pair的一张牌去计算 和 pair + pair来对比效果.前提是把 normal打法和Ax打法都计算出来。
  */
 public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 

@@ -16,6 +16,9 @@ import org.shil.bjm.strategy.PlayerStrategyMatrix;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * 建一个mirror比较着不同打法的收益方案.
+ */
 public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 
 	public static PlayerStrategyMatrix SELF = new Jan17WithA2022Matrix();
