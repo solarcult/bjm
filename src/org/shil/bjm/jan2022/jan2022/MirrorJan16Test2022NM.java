@@ -31,8 +31,8 @@ public class MirrorJan16Test2022NM extends PlayerStrategyMatrix {
             }
             else if(startValue == StartValue.Nine){     //test ok
                 for(Card dealerCard : Card.values()){
-                    if(dealerCard == Card.Five5 || dealerCard == Card.Six6){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+                    if(dealerCard == Card.Four4 || dealerCard == Card.Five5 || dealerCard == Card.Six6){
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else{
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);

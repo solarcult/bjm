@@ -57,7 +57,7 @@ public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 			}
 			else if(startValue.getValue() == 6){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard.getValue() >=6 && dealerCard.getValue() <=6){
+					if(dealerCard.getValue() >=5 && dealerCard.getValue() <=6){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}else{
@@ -69,7 +69,7 @@ public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 			//7
 			else if(startValue.getValue() == 7){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard.getValue() == 1 || dealerCard.getValue() == 9 || dealerCard.getValue() == 10){
+					if(dealerCard.getValue() == 9){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}else{

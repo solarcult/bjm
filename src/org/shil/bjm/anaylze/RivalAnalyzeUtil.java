@@ -32,7 +32,7 @@ public class RivalAnalyzeUtil {
 	public static List<DealerVSPlayerChance> makePlayerWithoutAOneMoreVSDealer(){
 		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithoutA()) {
-			if (playerCardsPathValue.getValue() < 8) continue;
+			if (playerCardsPathValue.getValue() < 3) continue;
 			for (Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue; 
 				DealerVSPlayerChance dealerVSPlayerChance = analyzeResearchPair(new ResearchPDair(playerCardsPathValue, dealerCard));

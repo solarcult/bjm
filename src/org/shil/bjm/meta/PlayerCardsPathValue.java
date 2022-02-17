@@ -55,6 +55,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 	
 	public boolean isStartWithPairs(){
 		return this.getCards().get(0).getValue() == this.getCards().get(1).getValue();
+//		return false;
 	}
 	
 	public Card findFirstTwoCardsWithOutA(){

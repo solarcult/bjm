@@ -133,11 +133,13 @@ public class Jan2022Strategy {
                     }
                 }else{
                     PlayerStrategy playerStrategy = nmSM.getPlayerAction(playerCardsPathValue.getStartValue(),dealerCard);
+                    //normal cards
+                    playerAction = playerStrategy.getStartAction();
+
                     if(playerCardsPathValue.getSplitTimes()>0 || playerCardsPathValue.getBetMutiV()>1){
-                        playerAction = playerStrategy.getThreeCardAction();
-                    }else{
-                        //normal cards
-                        playerAction = playerStrategy.getStartAction();
+                        if(playerAction == PlayerAction.Giveup){
+                            playerAction = playerStrategy.getThreeCardAction();
+                        }
                     }
                 }
             }

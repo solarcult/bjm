@@ -51,7 +51,9 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 			}else if(startValue.getValue() == 7){
 				for(Card dealerCard : Card.values()){
 					PlayerStrategy playerStrategy;
-					if(dealerCard.getValue() >= 6 && dealerCard.getValue() <= 6){
+					if(dealerCard.getValue() >= 2 &&dealerCard.getValue() <= 4){
+						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand, PlayerAction.Stand);
+					}else if(dealerCard.getValue() >= 5 && dealerCard.getValue() <= 6){
 						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Split, PlayerAction.Hit);	//ok
 					}else{
 						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit, PlayerAction.Hit);
@@ -61,7 +63,9 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 			}else if(startValue.getValue() == 8){
 				for(Card dealerCard : Card.values()){
 					PlayerStrategy playerStrategy;
-					if(dealerCard.getValue() >= 4 && dealerCard.getValue() <= 7){
+					if(dealerCard.getValue() == 2){
+						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand, PlayerAction.Stand);
+					}else if(dealerCard.getValue() >= 3 && dealerCard.getValue() <= 7){
 						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Split, PlayerAction.Hit);	//ok
 					}else{
 						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit, PlayerAction.Hit);
@@ -71,10 +75,10 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 			}else if(startValue.getValue() == 9){
 				for(Card dealerCard : Card.values()){
 					PlayerStrategy playerStrategy;
-					if(dealerCard.getValue() >= 2 && dealerCard.getValue() <= 8){
+					if(dealerCard.getValue() >= 2 && dealerCard.getValue() <= 6){
 						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Split, PlayerAction.Hit);	//ok
 					}else{
-						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit, PlayerAction.Hit);
+						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand, PlayerAction.Stand);
 					}
 					strategyMatrix.put(playerStrategy, playerStrategy);
 				}
@@ -88,7 +92,7 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 		strategyMatrix.put(playerStrategy22vs3,playerStrategy22vs3);
 		PlayerStrategy playerStrategy22vs4 = new PlayerStrategy(StartValue.getOne(2), Card.Four4, PlayerAction.Hit,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy22vs4,playerStrategy22vs4);
-		PlayerStrategy playerStrategy22vs5 = new PlayerStrategy(StartValue.getOne(2), Card.Five5, PlayerAction.Hit,PlayerAction.Hit);
+		PlayerStrategy playerStrategy22vs5 = new PlayerStrategy(StartValue.getOne(2), Card.Five5, PlayerAction.Split,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy22vs5,playerStrategy22vs5);
 		PlayerStrategy playerStrategy22vs6 = new PlayerStrategy(StartValue.getOne(2), Card.Six6, PlayerAction.Split,PlayerAction.Hit);  //ok
 		strategyMatrix.put(playerStrategy22vs6,playerStrategy22vs6);
@@ -101,7 +105,7 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 		strategyMatrix.put(playerStrategy33vs3,playerStrategy33vs3);
 		PlayerStrategy playerStrategy33vs4 = new PlayerStrategy(StartValue.getOne(3), Card.Four4, PlayerAction.Hit,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy33vs4,playerStrategy33vs4);
-		PlayerStrategy playerStrategy33vs5 = new PlayerStrategy(StartValue.getOne(3), Card.Five5, PlayerAction.Hit,PlayerAction.Hit);
+		PlayerStrategy playerStrategy33vs5 = new PlayerStrategy(StartValue.getOne(3), Card.Five5, PlayerAction.Split,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy33vs5,playerStrategy33vs5);
 		PlayerStrategy playerStrategy33vs6 = new PlayerStrategy(StartValue.getOne(3), Card.Six6, PlayerAction.Split,PlayerAction.Hit);	// ok
 		strategyMatrix.put(playerStrategy33vs6,playerStrategy33vs6);
@@ -118,8 +122,10 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 
 	public static void main(String[] args){
 //		comparePair();
-		XXwAll(Card.Seven7,Card.Six6);
+		XXwAll(Card.Four4,Card.Six6);
 //		AXwAll();
+
+
 	}
 
 	public static double allWithoutA(){
@@ -134,7 +140,7 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 		double allMoney = 0;
 		for(Card a : Card.values()){
 			PlayerCardsPathValue p = new PlayerCardsPathValue(onePairCard,a);
-			System.out.println("\n                  --- " + p.getCards().get(0)+" "+ p.getCards().get(1) +" vs "+ dealerCard + " ---");
+			System.out.println("\n                  --- " + p.getCards().get(0)+" "+ p.getCards().get(1) +" vs "+ dealerCard + " ---" +p.isStartWithPairs());
 			Collection<PlayerCardsPathValue> ones = jan2022Strategy.generate2End(p,dealerCard);
 //			HelloWorld.print(ones);
 			Map<Integer, AnalyzeStatus> playerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(ones);
@@ -157,6 +163,11 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 			System.out.println();
 		}
 		System.out.println();
+
+		double tt = total[0]+total[1]+total[2];
+		total[0] = total[0]/tt;
+		total[1] = total[1]/tt;
+		total[2] = total[2]/tt;
 
 		System.out.println("Finally WDL Total: ");
 		HelloWorld.printDoubleWDL(total);
@@ -220,7 +231,7 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 
 			PlayerCardsPathValue oc = new PlayerCardsPathValue(pair,pair);
 			System.out.println("\n                  --- " + oc.getCards().get(0)+" "+ oc.getCards().get(1) +" vs "+ dealerCard + " ---");
-			System.out.println();
+			System.out.println(oc.isStartWithPairs());
 
 			Jan2022Strategy oneStrategy = new Jan2022Strategy(Jan16Test2022NM.SELF, Jan18PairCard2022Matrix.SELF,Jan17WithA2022Matrix.SELF);
 
