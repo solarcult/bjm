@@ -32,6 +32,7 @@ public class RivalAnalyzeUtil {
 	public static List<DealerVSPlayerChance> makePlayerWithoutAOneMoreVSDealer(){
 		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithoutA()) {
+			playerCardsPathValue.setAction(PlayerAction.Stand);
 			if (playerCardsPathValue.getValue() < 3) continue;
 			for (Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue; 
@@ -47,6 +48,7 @@ public class RivalAnalyzeUtil {
 	 */
 	public static DealerVSPlayerChance analyzeResearchPair(ResearchPDair researchPair) {
 		Collection<PlayerCardsPathValue> playerOneMoreCards = GenerateCardsUtil.hitPlayerOneMoreCard(researchPair.getPlayerCardsPathValue());
+		HelloWorld.print(playerOneMoreCards);
 		if(playerOneMoreCards.size()!=13) throw new RuntimeException("wtf 13");
 		double[] playerOneMore = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatus(playerOneMoreCards, researchPair.getDealerCard());
 		//这里用OK的，因为是直接展示百分比
@@ -61,6 +63,7 @@ public class RivalAnalyzeUtil {
 	public static List<DealerVSPlayerChance> makePlayerWithAOneMoreVSDealer(){
 		List<DealerVSPlayerChance> diff = new ArrayList<DealerVSPlayerChance>();
 		for (PlayerCardsPathValue playerCardsPathValue : PlayerCards.sortedOneValueStartCardsWithA()) {
+			playerCardsPathValue.setAction(PlayerAction.Stand);
 			for (Card dealerCard : Card.values()) {
 				if(dealerCard == Card.JJJ || dealerCard == Card.QQQ || dealerCard == Card.KKK) continue; 
 				Collection<PlayerCardsPathValue> playerOneMoreCards = GenerateCardsUtil.hitPlayerOneMoreCard(playerCardsPathValue);
@@ -175,6 +178,9 @@ public class RivalAnalyzeUtil {
 	}
 	
 	public static void main(String[] args){
+
+//		PlayerCardsPathValue a6 = new PlayerCardsPathValue(Card.One1,Card.Six6);
+//		System.out.println(a6);
 //		List<DealerVSPlayerChance> ao = makePlayerWithAOneMoreVSDealer();
 		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
 //		List<DealerVSPlayerChance> ao = makePlayerAAVSDealer();

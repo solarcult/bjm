@@ -98,6 +98,7 @@ public class PlayerCardsPathValue extends CardsPathValue{
 				return totalsoft;
 			}
 
+			//TODO 为什么是8呢,因为要计算A7是否要牌对9,T,A的方案,好奇怪,有结论了,应该这里改成7
 			if(totalsoft >= 8){
 				return totalsoft + 10;
 			}
