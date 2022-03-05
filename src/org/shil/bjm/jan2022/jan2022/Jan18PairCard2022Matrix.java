@@ -75,7 +75,7 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 			}else if(startValue.getValue() == 9){
 				for(Card dealerCard : Card.values()){
 					PlayerStrategy playerStrategy;
-					if(dealerCard.getValue() >= 2 && dealerCard.getValue() <= 6){
+					if(dealerCard.getValue() >= 2 && dealerCard.getValue() <= 8){
 						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Split, PlayerAction.Hit);	//ok
 					}else{
 						playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand, PlayerAction.Stand);
@@ -116,13 +116,15 @@ public class Jan18PairCard2022Matrix extends PlayerStrategyMatrix {
 		strategyMatrix.put(playerStrategy44vs5,playerStrategy44vs5);
 		PlayerStrategy playerStrategy44vs6 = new PlayerStrategy(StartValue.getOne(4), Card.Six6, PlayerAction.Hit,PlayerAction.Hit);
 		strategyMatrix.put(playerStrategy44vs6,playerStrategy44vs6);
-		
+
+		PlayerStrategy playerStrategyTTvs6 = new PlayerStrategy(StartValue.getOne(10), Card.Six6, PlayerAction.Stand,PlayerAction.Stand);
+		strategyMatrix.put(playerStrategyTTvs6,playerStrategyTTvs6);
 	
 	}
 
 	public static void main(String[] args){
 //		comparePair();
-		XXwAll(Card.Four4,Card.Six6);
+		XXwAll(Card.Two2,Card.Six6);
 //		AXwAll();
 
 

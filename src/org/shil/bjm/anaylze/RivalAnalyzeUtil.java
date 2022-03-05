@@ -181,8 +181,8 @@ public class RivalAnalyzeUtil {
 
 //		PlayerCardsPathValue a6 = new PlayerCardsPathValue(Card.One1,Card.Six6);
 //		System.out.println(a6);
-//		List<DealerVSPlayerChance> ao = makePlayerWithAOneMoreVSDealer();
-		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
+		List<DealerVSPlayerChance> ao = makePlayerWithAOneMoreVSDealer();
+//		List<DealerVSPlayerChance> ao = makePlayerWithoutAOneMoreVSDealer();
 //		List<DealerVSPlayerChance> ao = makePlayerAAVSDealer();
 		HelloWorld.print(ao);
 		

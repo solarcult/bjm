@@ -151,7 +151,7 @@ public class Jan16Test2022NM extends PlayerStrategyMatrix {
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else if(dealerCard.getValue() == 9 ){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else if(dealerCard.getValue() == 10 ){
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
@@ -174,7 +174,7 @@ public class Jan16Test2022NM extends PlayerStrategyMatrix {
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else if(dealerCard.getValue() ==8 ){
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }else if(dealerCard.getValue() ==9 ){
                         PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Hit);
@@ -193,7 +193,7 @@ public class Jan16Test2022NM extends PlayerStrategyMatrix {
                 for(Card dealerCard : Card.values()){
                    if(dealerCard.getValue() == 10){
                        // i am fine, thank you
-                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Giveup,PlayerAction.Stand);
+                        PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
                         strategyMatrix.put(playerStrategy,playerStrategy);
                     }
                     else{

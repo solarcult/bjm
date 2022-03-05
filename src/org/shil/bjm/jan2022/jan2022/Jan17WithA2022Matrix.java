@@ -69,8 +69,8 @@ public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 			//7
 			else if(startValue.getValue() == 7){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard.getValue() == 9){
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+					if(dealerCard.getValue() == 1 || dealerCard.getValue() == 9 || dealerCard.getValue() == 10){
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}else{
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Stand);
@@ -105,7 +105,7 @@ public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 
 	public static void main(String[] args){
 
-		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Seven7,Card.One1);
+		PlayerCardsPathValue playerCardsPathValue = new PlayerCardsPathValue(Card.Six6,Card.One1);
 		for(Card dealerCard : Card.values()){
 			PlayerCardsPathValue o = new PlayerCardsPathValue(playerCardsPathValue);
 			compareWA(o,dealerCard);
@@ -137,7 +137,7 @@ public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 			nowM += t;
 		}
 		int totalMatch = nowlist.size() * DealerCards.fetchDealerCards(dealerCard).size();
-		System.out.println(totalMatch +" : now Money: " + nowM);
+		System.out.println(totalMatch +" : now Money: " + nowM +" ,effect: "+ nowM/totalMatch);
 		System.out.println();
 
 		playerCardsPathValue.reset();
@@ -162,7 +162,7 @@ public class Jan17WithA2022Matrix extends PlayerStrategyMatrix {
 		}
 
 		int totalBMatch = beforelist.size() * DealerCards.fetchDealerCards(dealerCard).size();
-		System.out.println(totalBMatch + " : Before Money: " + beforeM);
+		System.out.println(totalBMatch + " : Before Money: " + beforeM +" ,effect: "+ beforeM/totalBMatch);
 
 		System.out.println(HelloWorld.builder2DoubleWDL(wdl,bwdl));
 	}

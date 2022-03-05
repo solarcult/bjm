@@ -15,23 +15,31 @@ import java.util.Map;
 
 public class TestOne {
 
+    public static boolean DETAIL = false;
+
     public static void main(String[] args){
 
-//        testOne();
+        testOne();
 
-        testWithoutPairWithoutA();
+//        testWithoutPairWithoutA();
 
     }
 
     public static void testOne(){
-        PlayerCardsPathValue one = new PlayerCardsPathValue(Card.Six6,Card.Five5);
-        Card dealerCard = Card.Nine9;
+        PlayerCardsPathValue one = new PlayerCardsPathValue(Card.Nine9,Card.Nine9);
+        Card dealerCard = Card.Six6;
         test(one,dealerCard);
+
+//        PlayerCardsPathValue two = new PlayerCardsPathValue(Card.Nine9,Card.Nine9);
+//        Card dealerCard2 = Card.Eight8;
+//        test(two,dealerCard2);
     }
 
     public static double[] testWithoutPairWithoutA(){
 
         Collection<PlayerCardsPathValue> wawps = PlayerCards.sortedOneValueStartCardsWithoutA();
+//        Collection<PlayerCardsPathValue> wawps = PlayerCards.generatePairs();
+//        Collection<PlayerCardsPathValue> wawps = PlayerCards.generateTwoStartCards();
         double total[] = new double[5];
         for(PlayerCardsPathValue pcpv : wawps){
             double[] ps = new double[5];
@@ -57,7 +65,7 @@ public class TestOne {
         }
         System.out.println("           Finally:           ");
         HelloWorld.printDoubleWDL(convertHundredPercent(total));
-        System.out.println(total + " ,effect : " + total[3]/total[4]);
+        System.out.println(total[3]+ " ,effect : " + total[3]/total[4]);
         System.out.println();
 
         return total;
@@ -70,9 +78,11 @@ public class TestOne {
 
         double[] total = new double[5];
         Collection<PlayerCardsPathValue> ones = jan2022Strategy.generate2End(one,dealerCard);
-//        HelloWorld.print(ones);
         Map<Integer, AnalyzeStatus> playerMap = Jan172022AnalyzeUtil.analyzePlayerCardsPathValuePercent(ones);
-//        HelloWorld.printMap(playerMap);
+        if(DETAIL){
+            HelloWorld.print(ones);
+            HelloWorld.printMap(playerMap);
+        }
         double [] wdl = PlayersVSDealersResultChanceProb.calcPlayerVSDealerAnaylzeStatusPrecent(playerMap, DealerCards.analyzeDealerCardValuePrecent(dealerCard));
         total[0]+=wdl[0];
         total[1]+=wdl[1];

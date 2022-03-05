@@ -46,10 +46,10 @@ public class MirrorJan17WithA2022Matrix extends PlayerStrategyMatrix {
 			else if(startValue.getValue() == 6){
 				for(Card dealerCard : Card.values()){
 					if(dealerCard.getValue() >=6 && dealerCard.getValue() <=6){
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Double,PlayerAction.Hit);
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}else{
-						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
+						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Stand,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}
 				}
@@ -57,7 +57,7 @@ public class MirrorJan17WithA2022Matrix extends PlayerStrategyMatrix {
 			//7
 			else if(startValue.getValue() == 7){
 				for(Card dealerCard : Card.values()){
-					if(dealerCard.getValue() == 1 || dealerCard.getValue() == 9 || dealerCard.getValue() == 10){
+					if(dealerCard.getValue() == 1 || dealerCard.getValue() == 6 || dealerCard.getValue() == 7 || dealerCard.getValue() == 8 || dealerCard.getValue() == 9 || dealerCard.getValue() == 10){
 						PlayerStrategy playerStrategy = new PlayerStrategy(startValue, dealerCard, PlayerAction.Hit,PlayerAction.Hit);
 						strategyMatrix.put(playerStrategy, playerStrategy);
 					}else{
